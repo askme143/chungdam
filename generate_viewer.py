@@ -188,7 +188,70 @@ _TEMPLATE = r"""<!DOCTYPE html>
     border-bottom: 2px solid var(--highlight-border);
     border-radius: 3px;
     padding: 0 3px;
-    cursor: default;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* Explanation */
@@ -344,18 +407,19 @@ function highlightSentence(text, vocabList) {
   const ranges = [];
   const lower = text.toLowerCase();
 
-  for (const v of vocabList) {
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
     const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
 
     // 1) Exact substring
     const idx = lower.indexOf(phrase);
-    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length }); continue; }
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
 
     // 2) Multi-word consecutive
     const pw = phrase.split(/\s+/);
     if (pw.length > 1) {
       const found = findConsecutive(text, pw);
-      if (found) { ranges.push(found); continue; }
+      if (found) { ranges.push({ ...found, vi }); continue; }
     }
 
     // 3) Fuzzy per token
@@ -367,23 +431,27 @@ function highlightSentence(text, vocabList) {
         const d = lev(w, t.text.toLowerCase());
         if (d < bestD) { bestD = d; bestT = t; }
       }
-      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end });
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
     }
   }
 
-  // Merge overlapping
+  // Merge overlapping (collect vocab indices)
   ranges.sort((a, b) => a.start - b.start);
   const merged = [];
   for (const r of ranges) {
-    if (merged.length && r.start <= merged[merged.length-1].end)
+    if (merged.length && r.start <= merged[merged.length-1].end) {
       merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
-    else merged.push({ ...r });
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
   }
 
   let result = '', last = 0;
   for (const r of merged) {
     result += esc(text.slice(last, r.start));
-    result += '<span class="hw">' + esc(text.slice(r.start, r.end)) + '</span>';
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
     last = r.end;
   }
   return result + esc(text.slice(last));
@@ -441,6 +509,65 @@ document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
 document.addEventListener('touchend', e => {
   const d = e.changedTouches[0].clientX - sx;
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
 });
 
 // Init
