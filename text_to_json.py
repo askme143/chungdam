@@ -143,7 +143,7 @@ def _call_openai(
     from openai import OpenAI
 
     client = OpenAI(api_key=api_key)  # api_key=None → 환경변수 OPENAI_API_KEY 사용
-    model = model or "gpt-4o"
+    model = model or "gpt-5.4"
 
     resp = client.beta.chat.completions.parse(
         model=model,
