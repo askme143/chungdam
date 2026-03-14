@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "인간 손의 정밀한 힘과 진화적 의미", "summary": "인간의 손, 특히 엄지와 손가락의 정밀한 집기 능력은 독특한 해부학적 특징과 신경계의 협응 덕분에 가능하며, 이는 도구 사용과 인간 역사 형성에 핵심적인 역할을 했다.", "sentences": [{"id": 1, "original": "Imagine grabbing a piece of paper between your thumb and index finger.", "explanation": "엄지와 검지 사이에 종이 한 장을 집는 모습을 떠올려 보라는 말이다.", "vocabulary": [{"word": "grab", "meaning": "움켜잡다, 집다", "note": "여기서는 가볍게 ‘집다’의 뜻으로 쓰임."}, {"word": "piece of paper", "meaning": "종이 한 장", "note": ""}, {"word": "index finger", "meaning": "검지", "note": "forefinger라고도 함."}]}, {"id": 2, "original": "Maybe you already are, as you turn this page.", "explanation": "지금 이 페이지를 넘기고 있다면, 이미 그렇게 하고 있을지도 모른다는 뜻이다.", "vocabulary": [{"word": "as", "meaning": "~하면서, ~할 때", "note": "동시 동작을 나타냄."}, {"word": "turn this page", "meaning": "이 페이지를 넘기다", "note": ""}]}, {"id": 3, "original": "We use this type of forceful, pad‑to‑pad precision gripping without thinking about it, and literally in a snap.", "explanation": "우리는 손가락 끝의 살 부분끼리 맞대어 강하고 정교하게 집는 동작을 별생각 없이, 그리고 정말 순식간에 사용한다는 말이다.", "vocabulary": [{"word": "forceful", "meaning": "힘이 들어간, 강한", "note": ""}, {"word": "pad-to-pad", "meaning": "손가락 끝의 살 부분끼리 맞닿는", "note": "finger pad는 손가락 끝의 말랑한 부분."}, {"word": "precision gripping", "meaning": "정밀하게 집는 동작", "note": "물건을 세밀하게 조작하는 집기 방식."}, {"word": "in a snap", "meaning": "순식간에", "note": "아주 빠르게라는 관용적 표현."}]}, {"id": 4, "original": "Yet it was a breakthrough in human evolution.", "explanation": "하지만 이런 능력은 인간 진화에서 매우 중요한 돌파구였다.", "vocabulary": [{"word": "yet", "meaning": "하지만, 그러나", "note": "앞내용과 대비를 이끔."}, {"word": "breakthrough", "meaning": "획기적 진전, 돌파구", "note": ""}, {"word": "human evolution", "meaning": "인간 진화", "note": ""}]}, {"id": 5, "original": "Other primates exhibit some kinds of precision grips in the handling and use of objects, but not with the kind of efficient opposition that our hand anatomy allows.", "explanation": "다른 영장류도 물건을 다루고 사용하는 과정에서 어느 정도 정밀한 집기 동작을 보이지만, 인간 손의 해부학 구조가 가능하게 하는 만큼 효율적인 엄지와 다른 손가락의 맞섬 동작은 하지 못한다는 뜻이다.", "vocabulary": [{"word": "primates", "meaning": "영장류", "note": ""}, {"word": "exhibit", "meaning": "보이다, 나타내다", "note": ""}, {"word": "precision grips", "meaning": "정밀한 집기 방식", "note": ""}, {"word": "opposition", "meaning": "맞섬 동작, 대립 배치", "note": "해부학에서는 엄지가 다른 손가락과 마주 보는 능력을 뜻함."}, {"word": "hand anatomy", "meaning": "손의 해부학적 구조", "note": ""}]}, {"id": 6, "original": "In a single hand, humans can easily hold and manipulate objects, even small and delicate ones, while adjusting our fingers to their shape and reorienting them with displacements of our fingertip pads.", "explanation": "인간은 한 손만으로도 작은 물건이나 깨지기 쉬운 물건까지 쉽게 쥐고 다룰 수 있으며, 손가락을 물체의 형태에 맞게 조절하고 손가락 끝의 살 부분을 조금씩 움직여 물체의 방향도 바꿀 수 있다.", "vocabulary": [{"word": "manipulate", "meaning": "조작하다, 다루다", "note": ""}, {"word": "delicate", "meaning": "섬세한, 다루기 쉬운; 깨지기 쉬운", "note": "문맥상 ‘약하고 조심히 다뤄야 하는’ 의미."}, {"word": "reorient", "meaning": "방향을 다시 잡다", "note": ""}, {"word": "displacement", "meaning": "이동, 위치 변화", "note": "여기서는 미세한 움직임을 뜻함."}, {"word": "fingertip pads", "meaning": "손가락 끝의 살 부분", "note": ""}]}, {"id": 7, "original": "Our relatively long, powerful thumb and other anatomical attributes, including our flat nails (which nearly all primates possess), make this possible.", "explanation": "상대적으로 길고 강한 엄지와, 거의 모든 영장류가 가진 납작한 손톱을 포함한 여러 해부학적 특징들이 이런 능력을 가능하게 한다는 말이다.", "vocabulary": [{"word": "relatively", "meaning": "상대적으로", "note": ""}, {"word": "anatomical attributes", "meaning": "해부학적 특징", "note": ""}, {"word": "flat nails", "meaning": "납작한 손톱", "note": "claw(발톱, 갈고리손톱)와 대비됨."}, {"word": "possess", "meaning": "지니다, 갖고 있다", "note": ""}]}, {"id": 8, "original": "Just picture trying — and failing — to dog‑ear this page with pointy, curved claws.", "explanation": "뾰족하고 굽은 발톱으로 이 페이지의 귀퉁이를 접으려다가 실패하는 모습을 상상해 보라는 뜻으로, 손톱과 인간 손의 구조가 얼마나 유용한지 강조한다.", "vocabulary": [{"word": "picture", "meaning": "상상하다", "note": "동사로 쓰임."}, {"word": "dog-ear", "meaning": "책장 귀퉁이를 접다", "note": "페이지 모서리를 접어 표시하는 것."}, {"word": "pointy", "meaning": "뾰족한", "note": "구어적 표현."}, {"word": "curved claws", "meaning": "굽은 발톱", "note": "primates의 flat nails와 대비됨."}]}, {"id": 9, "original": "With a unique combination of traits, the human hand shaped our history.", "explanation": "이처럼 독특한 특징들의 조합을 지닌 인간의 손이 인류의 역사를 만들어 왔다는 말이다.", "vocabulary": [{"word": "combination of traits", "meaning": "특성들의 조합", "note": ""}, {"word": "shape", "meaning": "형성하다, 만들어 내다", "note": "여기서는 동사."}]}, {"id": 10, "original": "No question, stone tools couldn’t have become a keystone of human technology and subsistence without hands that could do the job, along with a nervous system that could regulate and coordinate the necessary signals.", "explanation": "의심할 여지 없이, 일을 해낼 수 있는 손과 필요한 신호를 조절하고 조정할 수 있는 신경계가 없었다면 석기는 인간의 기술과 생존 방식의 핵심 요소가 될 수 없었을 것이다.", "vocabulary": [{"word": "No question", "meaning": "의심할 여지 없이", "note": "강한 확신을 나타내는 표현."}, {"word": "keystone", "meaning": "핵심 요소, 중추", "note": "원래는 아치의 중심 돌."}, {"word": "subsistence", "meaning": "생계, 생존", "note": "인류학에서는 먹고사는 방식이라는 뜻으로 자주 쓰임."}, {"word": "regulate", "meaning": "조절하다", "note": ""}, {"word": "coordinate", "meaning": "조정하다, 협응시키다", "note": ""}]}, {"id": 11, "original": "Anybody who’s ever attempted to make a spear tip or arrowhead from a rock knows that it requires strong grips, constant rotation and repositioning, and forceful, careful strikes with another hard object.", "explanation": "돌로 창끝이나 화살촉을 만들어 본 사람이라면, 그 작업에 강한 쥐는 힘과 계속된 회전 및 위치 조정, 그리고 다른 단단한 물체로 가하는 강하면서도 신중한 타격이 필요하다는 것을 안다는 뜻이다.", "vocabulary": [{"word": "attempt", "meaning": "시도하다", "note": ""}, {"word": "spear tip", "meaning": "창끝", "note": ""}, {"word": "arrowhead", "meaning": "화살촉", "note": ""}, {"word": "repositioning", "meaning": "위치를 다시 잡기, 재배치", "note": ""}, {"word": "strikes", "meaning": "타격, 내려침", "note": "여기서는 명사."}]}, {"id": 12, "original": "And even with a fair amount of know‑how, it can be a bloody business.", "explanation": "그리고 어느 정도의 요령과 기술이 있어도 그 작업은 손을 다치기 쉬운, 피 나는 일이 될 수 있다는 말이다.", "vocabulary": [{"word": "a fair amount of", "meaning": "상당한 양의, 꽤 많은", "note": ""}, {"word": "know-how", "meaning": "노하우, 실무 지식", "note": ""}, {"word": "bloody business", "meaning": "피 나는 일, 위험하고 거친 작업", "note": "문자 그대로 피가 날 수 있다는 뜻과 거친 일이라는 뉘앙스를 함께 가짐."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>

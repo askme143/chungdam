@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "새들의 감정 전염과 경계 행동", "summary": "뒤뜰의 새들은 위협 신호에 집단적으로 반응하며, 서로를 얼마나 잘 볼 수 있는지가 경계 행동의 협응과 불안 수준에 영향을 준다는 내용이다.", "sentences": [{"id": 1, "original": "Watch the birds in your backyard.", "explanation": "집 뒤뜰에 있는 새들을 한번 유심히 관찰해 보라는 말이다.", "vocabulary": [{"word": "backyard", "meaning": "뒤뜰, 집 뒤의 마당", "note": "미국식 영어에서 집 뒤편의 사적인 야외 공간을 자주 뜻함."}]}, {"id": 2, "original": "If one bird startles and flies off, others will follow, not waiting around to assess whether the threat is real.", "explanation": "새 한 마리가 놀라서 날아가 버리면, 다른 새들도 그 위협이 진짜인지 따져 볼 틈도 없이 따라 날아간다는 뜻이다.", "vocabulary": [{"word": "startle", "meaning": "깜짝 놀라게 하다; 움찔 놀라다", "note": "여기서는 자동사처럼 쓰여 '놀라다'의 의미로 이해하면 된다."}, {"word": "fly off", "meaning": "날아가 버리다", "note": "off가 붙어 급히 떠나는 느낌을 준다."}, {"word": "waiting around", "meaning": "주변에서 머뭇거리며 기다리기", "note": "around는 특별한 행동 없이 시간을 보내는 뉘앙스를 더함."}, {"word": "assess", "meaning": "평가하다, 판단하다", "note": "상황이나 위험을 따져 보는 의미로 자주 쓰임."}, {"word": "threat", "meaning": "위협", "note": "사람뿐 아니라 포식자나 위험 요소에도 널리 사용됨."}]}, {"id": 3, "original": "They have been infected by emotional contagion.", "explanation": "그 새들은 감정 전염의 영향을 받은 상태라는 말이다. 즉, 한 개체의 불안이나 놀람이 다른 개체들에게 퍼진 것이다.", "vocabulary": [{"word": "infected", "meaning": "감염된, 영향을 받은", "note": "여기서는 실제 질병이 아니라 감정이 퍼지는 것을 비유적으로 표현함."}, {"word": "emotional contagion", "meaning": "감정 전염", "note": "한 개체의 감정 상태가 다른 개체에게 퍼지는 현상을 뜻하는 심리학 용어."}]}, {"id": 4, "original": "In a long‑term research project that Marc did with some of his students on patterns of antipredatory scanning by western evening grosbeaks, they found that birds in a circle showed more coordination in scanning than did birds who were feeding in a line.", "explanation": "마크가 몇몇 학생들과 함께 서부 저녁되새의 포식자 경계 행동 패턴을 장기간 연구한 결과, 원형으로 모여 있던 새들이 일렬로 먹이를 먹던 새들보다 주변을 살피는 행동에서 더 높은 협응을 보였다는 뜻이다.", "vocabulary": [{"word": "long-term research project", "meaning": "장기 연구 프로젝트", "note": "오랜 기간에 걸쳐 진행되는 연구를 뜻함."}, {"word": "antipredatory scanning", "meaning": "포식자를 피하기 위한 경계 관찰", "note": "predator(포식자)에 대응하는 행동이라는 뜻의 antipredatory와 scanning(살핌, 훑어봄)의 결합."}, {"word": "western evening grosbeaks", "meaning": "서부 저녁되새들", "note": "grosbeak은 두꺼운 부리를 가진 새를 가리키는 조류명."}, {"word": "coordination", "meaning": "협응, 조화로운 움직임", "note": "여럿이 서로 맞추어 행동하는 상태."}, {"word": "in a line", "meaning": "일렬로", "note": "공간적 배열을 나타내는 표현."}]}, {"id": 5, "original": "The birds in a line, who could only see their nearest neighbor, not only were less coordinated when scanning, but also were more nervous, changing their body and head positions significantly more than grosbeaks in a circle, where it was possible for each grosbeak to see every other grosbeak.", "explanation": "일렬로 있던 새들은 바로 옆의 가장 가까운 개체만 볼 수 있었기 때문에 경계 행동의 협응도 떨어졌고, 더 불안해했다. 그래서 원형에 있던 되새들보다 몸과 머리 자세를 훨씬 더 자주 바꾸었는데, 원형에서는 각 새가 다른 모든 새를 볼 수 있었다는 말이다.", "vocabulary": [{"word": "nearest neighbor", "meaning": "가장 가까운 이웃 개체", "note": "여기서는 바로 옆에 있는 새를 뜻함."}, {"word": "less coordinated", "meaning": "덜 협응된, 덜 잘 맞는", "note": "집단 행동이 서로 잘 맞지 않는 상태."}, {"word": "nervous", "meaning": "불안한, 신경이 곤두선", "note": "단순히 '긴장한'보다 경계심이 큰 상태로 이해 가능."}, {"word": "significantly", "meaning": "상당히, 유의미하게", "note": "일상적으로는 '꽤 많이', 연구 문맥에서는 '통계적으로 의미 있게'라는 느낌도 있음."}, {"word": "every other", "meaning": "다른 모든", "note": "여기서는 '하나 걸러'가 아니라 '나머지 전부의' 의미."}]}, {"id": 6, "original": "Marc wondered whether the birds in line were more fearful because they didn’t know what their flockmates were doing.", "explanation": "마크는 일렬의 새들이 자기 무리의 다른 새들이 무엇을 하고 있는지 알 수 없어서 더 두려워하는 것이 아닐까 하고 생각했다.", "vocabulary": [{"word": "wondered whether", "meaning": "~인지 궁금해했다", "note": "가설이나 가능성을 조심스럽게 제기할 때 자주 쓰는 표현."}, {"word": "fearful", "meaning": "두려워하는", "note": "afraid보다 다소 서술적이고 문어적인 느낌이 있다."}, {"word": "flockmates", "meaning": "같은 무리의 새들", "note": "flock(새 떼, 무리)+mate의 결합."}]}, {"id": 7, "original": "Emotional contagion would have been impossible for individual grosbeaks in the linear array except with their nearest neighbors.", "explanation": "일렬로 배열된 경우에는 각 되새가 바로 옆 개체를 제외한 다른 새들과는 감정 전염이 일어나기 어려웠을 것이라는 뜻이다.", "vocabulary": [{"word": "would have been impossible", "meaning": "불가능했을 것이다", "note": "과거 상황에 대한 추정 표현."}, {"word": "individual", "meaning": "개별의, 각각의", "note": "집단 전체가 아니라 한 마리 한 마리를 가리킴."}, {"word": "linear array", "meaning": "선형 배열, 일렬 배치", "note": "array는 정렬된 배치 상태를 뜻함."}, {"word": "except with", "meaning": "~을 제외하고는, ~와의 경우 말고는", "note": "여기서는 '가장 가까운 이웃과의 경우를 빼면'이라는 뜻."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>

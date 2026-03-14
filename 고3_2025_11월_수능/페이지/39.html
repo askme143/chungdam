@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "유지보수와 사물의 비선형적 생애", "summary": "유지보수와 수리는 사물의 수명을 연장하는 실천이지만, 실제로 사물의 삶은 단순한 선형적 수명 주기보다 훨씬 복잡하고 유동적이라는 점을 설명한다.", "sentences": [{"id": 1, "original": "By their very nature, the concepts of maintenance and repair are predominantly examined from a process‑oriented perspective.", "explanation": "유지보수와 수리라는 개념은 그 본질상, 주로 하나의 진행 과정이나 절차라는 관점에서 분석된다는 뜻이다.", "vocabulary": [{"word": "by their very nature", "meaning": "그 본질상, 본래부터", "note": "강조 표현으로 '본성상 당연히'라는 뉘앙스를 준다."}, {"word": "maintenance", "meaning": "유지보수, 정비", "note": "기계·시설·시스템 등을 정상 상태로 유지하는 활동을 뜻한다."}, {"word": "predominantly", "meaning": "주로, 대부분", "note": "predominant(지배적인)에서 나온 부사형이다."}, {"word": "process-oriented", "meaning": "과정 중심의", "note": "결과보다 진행 절차와 흐름에 초점을 두는 표현이다."}]}, {"id": 2, "original": "The focus in related scholarly discourse often revolves around the lifespan or lifecycle of objects and technologies.", "explanation": "관련 학술 담론에서는 대체로 사물과 기술이 얼마나 오래 지속되는지, 그리고 어떤 생애 주기를 거치는지에 관심이 집중된다는 말이다.", "vocabulary": [{"word": "scholarly discourse", "meaning": "학술적 담론", "note": "학문적 논의나 연구자들 사이의 논의를 가리킨다."}, {"word": "revolve around", "meaning": "~을 중심으로 전개되다, ~에 초점을 맞추다", "note": "직역하면 '주위를 돌다'이지만 비유적으로 자주 쓰인다."}, {"word": "lifespan", "meaning": "수명, 지속 기간", "note": "사람뿐 아니라 사물·기술에도 쓸 수 있다."}, {"word": "lifecycle", "meaning": "생애 주기, 수명 주기", "note": "도입·사용·폐기 등 일련의 단계를 포함하는 개념이다."}]}, {"id": 3, "original": "In this context, maintenance and repair are considered practices that have the potential to prolong the existence of objects, ensuring their sustained utilization over an extended period.", "explanation": "이러한 맥락에서 유지보수와 수리는 사물의 존재 기간을 늘리고, 오랜 시간 계속 사용될 수 있게 만드는 실천으로 여겨진다.", "vocabulary": [{"word": "in this context", "meaning": "이러한 맥락에서", "note": "앞선 논의를 이어 받아 해석 범위를 한정하는 표현이다."}, {"word": "prolong", "meaning": "연장하다, 더 오래 지속시키다", "note": "시간이나 기간을 늘릴 때 자주 쓰인다."}, {"word": "sustained utilization", "meaning": "지속적인 활용, 계속된 사용", "note": "utilization은 다소 격식 있는 표현으로 'use'보다 공식적이다."}, {"word": "over an extended period", "meaning": "장기간에 걸쳐", "note": "긴 시간 동안이라는 뜻의 학술적 표현이다."}]}, {"id": 4, "original": "Krebs and Weber critically engage with anthropomorphic metaphors that imply a biography of things, appropriately highlighting that conventional understanding of the lifecycle of a technology, from its acquisition to its disposal from the household, provides an incomplete definition.", "explanation": "크렙스와 베버는 사물에도 마치 인간의 전기처럼 삶의 이야기가 있다는 식의 의인화된 비유를 비판적으로 검토하면서, 기술의 생애 주기를 가정 내로 들여오는 시점부터 버려지는 시점까지로만 이해하는 전통적 관점은 불완전하다고 적절히 지적한다.", "vocabulary": [{"word": "critically engage with", "meaning": "비판적으로 다루다, 비판적으로 검토하다", "note": "단순 비난이 아니라 분석적으로 논의한다는 뜻이다."}, {"word": "anthropomorphic", "meaning": "의인화된, 인간의 특성을 부여한", "note": "anthropo-(인간) + morph(형태) 어원이다."}, {"word": "biography of things", "meaning": "사물의 전기, 사물의 생애 서사", "note": "사물에도 인간처럼 삶의 이력이 있다는 비유적 표현이다."}, {"word": "acquisition", "meaning": "획득, 구입", "note": "여기서는 가정이 기술 제품을 들여오는 일을 뜻한다."}, {"word": "disposal", "meaning": "처분, 폐기", "note": "throwing away보다 더 격식 있는 표현이다."}]}, {"id": 5, "original": "In reality, objects do not conform to a linear lifecycle model; instead, they undergo breakdowns, await repairs, are stored away, or find themselves relegated to the basement, only to be rediscovered and repurposed later.", "explanation": "실제로 사물은 일직선적인 생애 주기 모델을 따르지 않는다. 오히려 고장이 나기도 하고, 수리를 기다리기도 하며, 치워져 보관되거나 지하실 같은 곳으로 밀려났다가 나중에 다시 발견되어 다른 용도로 활용되기도 한다.", "vocabulary": [{"word": "conform to", "meaning": "~에 따르다, ~에 부합하다", "note": "규범·모델·기준 등에 맞는다는 뜻으로 자주 쓰인다."}, {"word": "linear lifecycle model", "meaning": "선형적 생애 주기 모델", "note": "시작에서 끝으로 일방향으로 진행된다고 보는 틀이다."}, {"word": "undergo", "meaning": "겪다, 경험하다", "note": "변화나 과정, 좋지 않은 일을 겪을 때 자주 쓰인다."}, {"word": "relegated to", "meaning": "~로 밀려나다, ~로 보내지다", "note": "중요하지 않은 위치로 내려보내는 뉘앙스가 있다."}, {"word": "repurposed", "meaning": "다른 용도로 재활용된, 용도를 바꿔 다시 쓰인", "note": "purpose(용도)에서 나온 말로 현대 담론에서 자주 보인다."}]}, {"id": 6, "original": "Additionally, objects may enter recycling or second‑hand cycles, leading to a dynamic afterlife marked by diverse applications.", "explanation": "또한 사물은 재활용되거나 중고 유통의 순환에 들어가면서, 여러 방식으로 다시 쓰이는 역동적인 ‘이후의 삶’을 갖게 될 수도 있다.", "vocabulary": [{"word": "second-hand cycles", "meaning": "중고 유통의 순환", "note": "중고 거래·재사용의 흐름을 가리킨다."}, {"word": "dynamic afterlife", "meaning": "역동적인 사후 생애, 이후의 삶", "note": "afterlife는 여기서 종교적 의미가 아니라 사물이 원래 용도 이후에도 이어지는 존재 방식을 뜻한다."}, {"word": "marked by", "meaning": "~으로 특징지어지는", "note": "어떤 성질이 두드러짐을 나타내는 표현이다."}, {"word": "diverse applications", "meaning": "다양한 활용 방식", "note": "application은 여기서 '적용, 사용 방식'이라는 뜻이다."}]}, {"id": 7, "original": "As such, the life of an object exhibits a far more complicated and adaptive path than a simplistic linear progression.", "explanation": "따라서 사물의 삶은 단순한 직선적 진행으로 설명될 수 있는 것이 아니라, 훨씬 더 복잡하고 상황에 따라 유연하게 변하는 경로를 보여 준다.", "vocabulary": [{"word": "as such", "meaning": "따라서, 그런 점에서", "note": "앞선 내용을 받아 결론을 이끌 때 쓰인다."}, {"word": "exhibit", "meaning": "보이다, 드러내다", "note": "학술 문체에서 'show'보다 격식 있게 쓰인다."}, {"word": "adaptive", "meaning": "적응적인, 유연하게 변화하는", "note": "환경이나 조건에 맞춰 변할 수 있다는 뜻이다."}, {"word": "simplistic", "meaning": "지나치게 단순화한", "note": "simple과 달리 비판적 뉘앙스가 있다."}, {"word": "linear progression", "meaning": "선형적 진행", "note": "한 방향으로 단순하게 이어지는 발전 또는 변화 과정을 뜻한다."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>

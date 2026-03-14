@@ -1,0 +1,210 @@
+{
+  "title": "합성 식재료와 천연 식재료의 안전성 비교",
+  "summary": "천연 성분이 항상 더 안전한 것은 아니며, 합성 성분은 오히려 조성이 잘 통제되어 독성 평가가 쉬운 반면 천연 성분은 변동성이 커서 안전성 판단이 더 어려울 수 있다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "People often assume that synthetic food ingredients are more harmful than natural ones, but this is not always the case.",
+      "explanation": "사람들은 흔히 합성 식품 성분이 천연 성분보다 더 해롭다고 생각하지만, 실제로는 항상 그렇지는 않다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "assume",
+          "meaning": "추정하다, 당연하게 여기다",
+          "note": "문맥상 근거 없이 일반적으로 믿는다는 뉘앙스가 있다."
+        },
+        {
+          "word": "synthetic",
+          "meaning": "합성의",
+          "note": "natural(천연의)와 대비되는 표현이다."
+        },
+        {
+          "word": "harmful",
+          "meaning": "해로운",
+          "note": "건강이나 환경 등에 피해를 주는 의미로 자주 쓰인다."
+        },
+        {
+          "word": "the case",
+          "meaning": "사실, 경우",
+          "note": "this is not always the case는 '항상 그런 것은 아니다'라는 매우 흔한 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Typically, synthetic ingredients can be made in a precisely controlled fashion and have well‑defined compositions and properties, allowing careful evaluation of their potential toxicity.",
+      "explanation": "보통 합성 성분은 매우 정밀하게 통제된 방식으로 만들 수 있고 조성과 특성이 분명하게 규정되어 있어서, 잠재적인 독성을 신중하게 평가할 수 있다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "precisely controlled",
+          "meaning": "정밀하게 통제된",
+          "note": "생산 과정이 세밀하게 관리된다는 뜻이다."
+        },
+        {
+          "word": "in a ... fashion",
+          "meaning": "…한 방식으로",
+          "note": "fashion은 여기서 '유행'이 아니라 '방식, 형태'를 뜻한다."
+        },
+        {
+          "word": "well-defined",
+          "meaning": "명확히 규정된, 분명한",
+          "note": "정의나 경계가 뚜렷하다는 의미다."
+        },
+        {
+          "word": "composition",
+          "meaning": "구성, 조성",
+          "note": "화학·식품 분야에서 성분 구성을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "potential toxicity",
+          "meaning": "잠재적 독성",
+          "note": "아직 확정되지는 않았지만 해로울 가능성이 있는 독성을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "On the other hand, natural ingredients often vary appreciably in their composition and properties depending on their origin, the time of year they were harvested, the climate they experienced throughout their lifetime, the soil quality, and how they were isolated and stored.",
+      "explanation": "반면 천연 성분은 원산지, 수확 시기, 자라는 동안 겪은 기후, 토양의 질, 그리고 어떻게 분리·보관되었는지에 따라 조성과 성질이 눈에 띄게 달라지는 경우가 많다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "appreciably",
+          "meaning": "상당히, 눈에 띄게",
+          "note": "변화의 정도가 무시할 수 없을 만큼 크다는 뜻이다."
+        },
+        {
+          "word": "harvested",
+          "meaning": "수확된",
+          "note": "농작물이나 천연 원료를 거두어들인 것을 말한다."
+        },
+        {
+          "word": "throughout their lifetime",
+          "meaning": "그것들의 생애 전반에 걸쳐",
+          "note": "성분의 원재료가 자라는 전체 기간을 가리킨다."
+        },
+        {
+          "word": "isolated",
+          "meaning": "분리된, 추출된",
+          "note": "화학·생물학에서는 특정 성분을 떼어내는 의미로 자주 쓰인다."
+        },
+        {
+          "word": "stored",
+          "meaning": "보관된",
+          "note": "저장 상태도 성분 변화에 영향을 줄 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "These variations can make testing their safety extremely difficult — one is never sure about the potential toxicity of minor components that may vary from time to time.",
+      "explanation": "이런 차이들 때문에 안전성 시험이 매우 어려워질 수 있으며, 특히 때때로 달라질 수 있는 미량 성분들의 잠재적 독성은 확신하기 어렵다는 의미이다.",
+      "vocabulary": [
+        {
+          "word": "variations",
+          "meaning": "변화, 변동",
+          "note": "앞 문장의 vary와 연결되는 명사형이다."
+        },
+        {
+          "word": "extremely",
+          "meaning": "매우, 극도로",
+          "note": "강한 정도를 나타내는 부사다."
+        },
+        {
+          "word": "minor components",
+          "meaning": "미량 성분, 부수적 성분",
+          "note": "주성분이 아닌 소량의 성분을 뜻한다."
+        },
+        {
+          "word": "from time to time",
+          "meaning": "때때로, 가끔",
+          "note": "정기적이지 않게 간헐적으로 일어남을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In some cases, a natural food component has been consumed for hundreds or thousands of years without causing any obvious health problems and can, therefore, be assumed to be safe.",
+      "explanation": "어떤 경우에는 천연 식품 성분이 수백 년 또는 수천 년 동안 뚜렷한 건강 문제 없이 섭취되어 왔기 때문에, 따라서 안전하다고 여겨질 수 있다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "component",
+          "meaning": "성분, 구성 요소",
+          "note": "ingredient와 비슷하지만 더 분석적인 맥락에서 자주 쓰인다."
+        },
+        {
+          "word": "has been consumed",
+          "meaning": "섭취되어 왔다",
+          "note": "현재완료 수동태로, 과거부터 지금까지의 지속을 나타낸다."
+        },
+        {
+          "word": "obvious",
+          "meaning": "분명한, 명백한",
+          "note": "쉽게 알아볼 수 있을 정도로 뚜렷하다는 뜻이다."
+        },
+        {
+          "word": "therefore",
+          "meaning": "그러므로, 따라서",
+          "note": "앞의 이유를 받아 결론을 이끄는 연결어다."
+        },
+        {
+          "word": "be assumed to be safe",
+          "meaning": "안전하다고 여겨지다",
+          "note": "절대적 증명이 아니라 일반적 추정을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "However, one must still be very careful.",
+      "explanation": "하지만 그럼에도 불구하고 여전히 매우 신중해야 한다는 경고이다.",
+      "vocabulary": [
+        {
+          "word": "However",
+          "meaning": "하지만, 그러나",
+          "note": "앞내용과 대비를 이루는 전환 표현이다."
+        },
+        {
+          "word": "must",
+          "meaning": "반드시 ~해야 한다",
+          "note": "강한 필요나 의무를 나타낸다."
+        },
+        {
+          "word": "still",
+          "meaning": "여전히, 그럼에도",
+          "note": "앞의 조건이 있어도 상황이 유지됨을 강조한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The controllability of the production process for synthetic food ingredients and the variability of natural food ingredients may challenge people’s commonly held assumption that the natural ingredients are more secure.",
+      "explanation": "합성 식품 성분은 생산 과정의 통제 가능성이 높고, 천연 식품 성분은 변동성이 크기 때문에, 천연 성분이 더 안전하다는 사람들이 널리 가진 믿음에 의문을 제기할 수 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "controllability",
+          "meaning": "통제 가능성",
+          "note": "control에서 파생된 명사로, 얼마나 잘 관리할 수 있는지를 뜻한다."
+        },
+        {
+          "word": "variability",
+          "meaning": "가변성, 변동성",
+          "note": "상태나 성질이 달라질 수 있는 정도를 말한다."
+        },
+        {
+          "word": "challenge",
+          "meaning": "의문을 제기하다, 반박하다",
+          "note": "여기서는 '도전하다'보다 기존 생각을 흔든다는 의미다."
+        },
+        {
+          "word": "commonly held assumption",
+          "meaning": "널리 받아들여지는 가정, 통념",
+          "note": "많은 사람이 당연하게 믿는 생각을 뜻한다."
+        },
+        {
+          "word": "secure",
+          "meaning": "안전한",
+          "note": "이 문맥에서는 safe와 비슷하게 '더 안전한' 의미로 쓰였다."
+        }
+      ]
+    }
+  ]
+}
