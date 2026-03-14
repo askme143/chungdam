@@ -1,0 +1,124 @@
+{
+  "title": "주의 경제와 알고리즘의 통제",
+  "summary": "오늘날의 디지털 경제에서는 우리의 주의가 상품이 되었고, AI 추천 시스템은 그 주의를 붙잡아 개인의 자율적 탐색을 점점 대체하고 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "We are famously living in the era of the attention economy, where the largest and most profitable businesses in the world are those that consume my attention.",
+      "explanation": "우리는 흔히 ‘주의 경제’의 시대에 살고 있다고 말하는데, 이 시대에는 세계에서 가장 크고 수익성이 높은 기업들이 사람들의 관심과 시간을 붙잡아 두는 기업들이라는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "famously",
+          "meaning": "널리 알려진 바와 같이, 흔히",
+          "note": "문장 전체에 ‘잘 알려져 있듯이’라는 뉘앙스를 더한다."
+        },
+        {
+          "word": "the era of the attention economy",
+          "meaning": "주의 경제의 시대",
+          "note": "attention economy는 사람의 관심과 시간이 중요한 자원이자 상품이 되는 경제 구조를 뜻한다."
+        },
+        {
+          "word": "profitable",
+          "meaning": "수익성이 높은",
+          "note": "profit(이익)에서 나온 형용사."
+        },
+        {
+          "word": "consume my attention",
+          "meaning": "내 주의를 소모하다, 내 관심을 붙잡아 두다",
+          "note": "여기서 consume은 단순히 ‘소비하다’보다 ‘시간과 정신을 잡아먹다’에 가깝다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The advertising industry is literally dedicated to capturing the conscious hours of my life and selling them to someone else.",
+      "explanation": "광고 산업은 말 그대로 내가 깨어 있는 시간, 즉 의식적으로 활동하는 삶의 시간을 붙잡아 그것을 다른 누군가에게 파는 데 집중하고 있다는 의미이다.",
+      "vocabulary": [
+        {
+          "word": "literally",
+          "meaning": "말 그대로",
+          "note": "강조 표현으로 자주 쓰이지만, 여기서는 비교적 본래 의미에 가깝다."
+        },
+        {
+          "word": "be dedicated to",
+          "meaning": "~에 전념하다, ~을 목적으로 하다",
+          "note": "뒤에는 보통 명사나 동명사가 온다."
+        },
+        {
+          "word": "capturing",
+          "meaning": "붙잡는 것, 사로잡는 것",
+          "note": "여기서는 물리적으로 잡는 것이 아니라 시간과 주의를 확보하는 뜻이다."
+        },
+        {
+          "word": "conscious hours",
+          "meaning": "깨어 있는 시간, 의식적인 시간",
+          "note": "sleeping hours와 대비되는 표현으로 이해하면 쉽다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "It might seem magical that so many exciting and useful software systems are available to use for free, but it is now conventional wisdom that if you can’t see who is paying for something that appears to be free, then the real product being sold is you.",
+      "explanation": "흥미롭고 유용한 소프트웨어를 무료로 사용할 수 있다는 사실이 마치 마법처럼 느껴질 수 있지만, 이제는 겉으로 무료처럼 보이는 서비스의 비용을 누가 내는지 보이지 않는다면 실제로 상품으로 팔리고 있는 것은 사용자 자신이라는 생각이 상식처럼 받아들여진다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "magical",
+          "meaning": "마법 같은, 놀라울 정도로 신기한",
+          "note": "여기서는 실제 마법이 아니라 ‘너무 좋아서 비현실적으로 느껴지는’ 뉘앙스다."
+        },
+        {
+          "word": "available to use for free",
+          "meaning": "무료로 사용할 수 있는",
+          "note": "available은 ‘이용 가능한’이라는 뜻."
+        },
+        {
+          "word": "conventional wisdom",
+          "meaning": "통념, 일반적으로 받아들여지는 생각",
+          "note": "반드시 진실이라기보다 사회적으로 널리 믿어지는 견해를 뜻할 수 있다."
+        },
+        {
+          "word": "appears to be free",
+          "meaning": "무료인 것처럼 보이다",
+          "note": "appear는 ‘~처럼 보이다’."
+        },
+        {
+          "word": "the real product being sold is you",
+          "meaning": "실제로 팔리는 상품은 바로 당신이다",
+          "note": "디지털 플랫폼 비판에서 자주 인용되는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Our creative engagement with other people is mediated by AI‑based recommendation systems that are designed to trap our attention through the process that Nick Seaver calls captology, keeping us attending to work sold by one company rather than another, replacing the freedom of personal exploration with algorithm‑generated playlists or even algorithm‑generated art.",
+      "explanation": "우리가 다른 사람들과 창의적으로 관계 맺고 교류하는 방식은 이제 AI 기반 추천 시스템을 통해 중개되는데, 이런 시스템은 닉 시버가 ‘캡톨로지’라고 부르는 방식으로 우리의 주의를 붙잡도록 설계되어 있다. 그 결과 우리는 스스로 자유롭게 탐색하기보다 특정 회사가 파는 콘텐츠에 계속 머물게 되고, 개인적 탐색의 자유는 알고리즘이 만든 플레이리스트나 심지어 알고리즘이 만든 예술로 대체된다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "creative engagement",
+          "meaning": "창의적 관여, 창의적인 교류",
+          "note": "engagement는 단순 참여보다 적극적 상호작용의 느낌이 있다."
+        },
+        {
+          "word": "is mediated by",
+          "meaning": "~에 의해 매개되다, 중개되다",
+          "note": "mediate는 사람이나 시스템이 사이에 개입해 연결하는 것을 뜻한다."
+        },
+        {
+          "word": "recommendation systems",
+          "meaning": "추천 시스템",
+          "note": "사용자 취향과 행동 데이터를 바탕으로 콘텐츠를 추천하는 시스템."
+        },
+        {
+          "word": "trap our attention",
+          "meaning": "우리의 주의를 가두다, 붙잡아 두다",
+          "note": "trap은 빠져나오기 어렵게 만든다는 부정적 뉘앙스가 강하다."
+        },
+        {
+          "word": "captology",
+          "meaning": "컴퓨터를 이용해 사람의 태도나 행동을 설득·유도하는 연구/기법",
+          "note": "capture + technology처럼 연상할 수 있지만, 보통 persuasive technology와 관련된 개념으로 쓰인다."
+        }
+      ]
+    }
+  ]
+}

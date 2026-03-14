@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 3px;
+    cursor: default;
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "교육의 핵심과 비판적 사고의 가치", "summary": "좋은 교육은 지식 전달을 넘어 감정적 충동에 휩쓸리지 않고 생각할 수 있는 비판적 사고를 길러 주며, 이는 장기적으로 건강하고 유익한 삶에 도움이 된다.", "sentences": [{"id": 1, "original": "Education, at its best, teaches more than just knowledge.", "explanation": "교육은 가장 이상적인 모습일 때 단순히 지식을 전달하는 데 그치지 않고, 그보다 더 중요한 것들까지 가르친다는 뜻이다.", "vocabulary": [{"word": "at its best", "meaning": "가장 이상적인 상태에서, 최상의 경우에", "note": "사람·사물의 가장 좋은 모습이나 상태를 말할 때 자주 쓰인다."}, {"word": "more than just", "meaning": "단지 ~만이 아닌, ~이상", "note": "강조 표현으로, 기대하는 범위를 넘어선다는 뜻이다."}, {"word": "knowledge", "meaning": "지식", "note": "정보의 단순 축적뿐 아니라 이해를 포함하는 넓은 개념으로도 쓰인다."}]}, {"id": 2, "original": "It teaches critical thinking: the ability to stop and think before acting, to avoid succumbing to emotional pressures.", "explanation": "교육은 비판적 사고를 가르치는데, 이는 행동하기 전에 잠시 멈춰 생각하고 감정적 압박에 굴복하지 않는 능력을 뜻한다.", "vocabulary": [{"word": "critical thinking", "meaning": "비판적 사고", "note": "정보를 그대로 받아들이지 않고 분석·평가하는 사고 능력이다."}, {"word": "succumbing to", "meaning": "~에 굴복하는, ~에 지는", "note": "succumb to는 압력, 유혹, 질병 등에 못 이겨 넘어가다는 뜻이다."}, {"word": "emotional pressures", "meaning": "감정적 압박", "note": "분노, 두려움, 불안, 충동 같은 감정이 판단에 미치는 압력을 말한다."}]}, {"id": 3, "original": "This is not thought control.", "explanation": "이것은 사람의 생각을 억지로 통제하는 것이 아니라는 말이다.", "vocabulary": [{"word": "thought control", "meaning": "사상 통제, 생각의 통제", "note": "개인의 자유로운 사고를 외부에서 억압하거나 조종하는 뉘앙스가 있다."}]}, {"id": 4, "original": "It is the very reverse: mental liberation.", "explanation": "오히려 정반대로, 이것은 정신을 해방시키는 일이라는 뜻이다.", "vocabulary": [{"word": "the very reverse", "meaning": "정반대, 완전히 반대되는 것", "note": "very가 reverse를 강조해 ‘바로 그 반대’라는 뜻을 만든다."}, {"word": "mental liberation", "meaning": "정신적 해방", "note": "편견, 충동, 외부 압력으로부터 생각이 자유로워지는 상태를 가리킨다."}]}, {"id": 5, "original": "Even the most advanced intellectual will be imperfect at this skill.", "explanation": "아무리 뛰어난 지식인이라도 이런 능력을 완벽하게 갖추기는 어렵다는 뜻이다.", "vocabulary": [{"word": "advanced intellectual", "meaning": "고도로 발달한 지적 능력을 지닌 사람, 뛰어난 지식인", "note": "여기서는 학문적·지적 수준이 매우 높은 사람을 가리킨다."}, {"word": "imperfect at", "meaning": "~에 서툰, ~이 완전하지 않은", "note": "특정 능력이나 기술을 완벽히 수행하지 못함을 나타낸다."}]}, {"id": 6, "original": "But even imperfect possession of it frees a person from the burden of being ‘stimulus‑driven’, constantly reacting to the immediate environment, the brightest colours or loudest sounds.", "explanation": "하지만 그 능력을 완벽하지 않게라도 갖추고 있으면, 사람은 눈앞의 환경이나 가장 강한 색채, 가장 큰 소리 같은 자극에 즉각 반응하며 끌려다니는 상태에서 어느 정도 벗어날 수 있다.", "vocabulary": [{"word": "imperfect possession", "meaning": "불완전한 보유, 완전하지 않게 갖춤", "note": "능력을 완벽히 갖추지 못했더라도 어느 정도 지니고 있음을 뜻한다."}, {"word": "frees A from B", "meaning": "A를 B로부터 해방시키다", "note": "구속, 부담, 문제 등에서 벗어나게 할 때 쓰는 표현이다."}, {"word": "stimulus-driven", "meaning": "자극에 의해 좌우되는", "note": "외부 자극에 자동적으로 반응하는 상태를 말한다."}, {"word": "immediate environment", "meaning": "직접적인 주변 환경", "note": "바로 눈앞에 있는 상황이나 주변 자극을 가리킨다."}]}, {"id": 7, "original": "Being driven by heuristic responses, living by instinct and emotion all the time, is a very easy way to live, in many ways: thought is effortful, especially for the inexperienced.", "explanation": "경험적 지름길 같은 반응, 즉 본능과 감정에만 의존해 사는 것은 여러 면에서 쉬운 삶의 방식이다. 왜냐하면 생각하는 일은 특히 익숙하지 않은 사람에게 상당한 노력이 들기 때문이다.", "vocabulary": [{"word": "heuristic responses", "meaning": "휴리스틱적 반응, 어림짐작식 반응", "note": "heuristic은 복잡한 판단을 빠르게 하기 위한 경험적 규칙이나 지름길을 뜻한다."}, {"word": "instinct", "meaning": "본능", "note": "학습보다 타고난 반응이나 충동에 가까운 개념이다."}, {"word": "effortful", "meaning": "노력이 드는", "note": "단순한 difficult보다 ‘의식적인 에너지 소모가 필요함’을 강조한다."}, {"word": "the inexperienced", "meaning": "경험이 부족한 사람들", "note": "형용사 앞에 the가 붙어 ‘~한 사람들’을 뜻한다."}]}, {"id": 8, "original": "But emotions are also exhausting, and short‑term reactions may not, in the long term, be the most beneficial for health and survival.", "explanation": "하지만 감정에 따라 사는 것도 역시 사람을 지치게 하며, 순간적인 반응은 장기적으로 볼 때 건강과 생존에 가장 이로운 선택이 아닐 수 있다.", "vocabulary": [{"word": "exhausting", "meaning": "몹시 지치게 하는", "note": "사람의 체력·정신력을 소모시킨다는 뜻이다."}, {"word": "short-term reactions", "meaning": "단기적 반응, 즉각적 반응", "note": "깊이 생각하지 않고 바로 나오는 반응을 가리킨다."}, {"word": "in the long term", "meaning": "장기적으로", "note": "짧은 기간이 아니라 오랜 시간의 결과를 볼 때 쓰는 표현이다."}, {"word": "beneficial", "meaning": "유익한, 이로운", "note": "건강, 성장, 결과 등에 긍정적 영향을 준다는 뜻이다."}]}, {"id": 9, "original": "Just as we reach for burgers for the sake of convenience, storing up the arterial fat which may one day kill us, so our reliance on feelings can do us great harm.", "explanation": "우리가 편리하다는 이유로 햄버거를 집어 들고, 그 결과 언젠가 우리를 죽일 수도 있는 동맥의 지방을 쌓아 가듯이, 감정에 의존하는 태도 역시 우리에게 큰 해를 끼칠 수 있다는 뜻이다.", "vocabulary": [{"word": "reach for", "meaning": "~을 집어 들다, ~을 선택하다", "note": "물리적으로 손을 뻗는 뜻 외에 습관적으로 어떤 선택을 한다는 의미로도 쓰인다."}, {"word": "for the sake of convenience", "meaning": "편의를 위해, 편하다는 이유로", "note": "더 쉽고 간편해서 그렇게 한다는 뜻이다."}, {"word": "storing up", "meaning": "쌓아 두는, 축적하는", "note": "문제나 위험이 나중에 커질 수 있도록 조금씩 축적된다는 뉘앙스가 있다."}, {"word": "arterial fat", "meaning": "동맥의 지방", "note": "arterial은 artery(동맥)의 형용사형이다."}, {"word": "reliance on", "meaning": "~에 대한 의존", "note": "어떤 판단이나 행동을 특정 대상에 기대는 상태를 말한다."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (const v of vocabList) {
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push(found); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end });
+    }
+  }
+
+  // Merge overlapping
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end)
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+    else merged.push({ ...r });
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    result += '<span class="hw">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>
