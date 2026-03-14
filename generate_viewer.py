@@ -99,10 +99,32 @@ _TEMPLATE = r"""<!DOCTYPE html>
 
   /* ── Header ── */
   header {
+    position: relative;
     text-align: center;
     padding: 1.5rem 1rem 1rem;
     border-bottom: 1px solid var(--border);
     background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
   }
   header h1 {
     font-size: 1.1rem;
@@ -261,6 +283,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
 <body>
 
 <header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
