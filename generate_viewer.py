@@ -50,7 +50,7 @@ def generate_html(
     json_literal = json.dumps(data, ensure_ascii=False)
 
     # ── HTML 조립 ──
-    html = _TEMPLATE.replace("/* __DATA_PLACEHOLDER__ */", json_literal)
+    html = _TEMPLATE.replace("/* __DATA_PLACEHOLDER__ */{}", json_literal)
 
     # ── 저장 ──
     if output_path is not None:
