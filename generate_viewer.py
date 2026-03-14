@@ -468,3 +468,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     generate_html(args.input, args.output)
+
+    # index.html 자동 갱신
+    from generate_index import generate_index
+
+    generate_index()
