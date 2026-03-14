@@ -1,0 +1,222 @@
+{
+  "title": "규칙의 제약과 창조적 기능",
+  "summary": "형식적이고 중앙집중적인 규칙은 사람들의 행동을 제한하기만 하는 것이 아니라, 새로운 역할과 관행을 만들어 생산적 활동과 기회를 가능하게 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Centralized, formal rules can facilitate productive activity by establishing roles and practices.",
+      "explanation": "중앙에서 정해진 공식적인 규칙은 역할과 관행을 마련함으로써 사람들이 더 생산적으로 활동할 수 있게 해 준다.",
+      "vocabulary": [
+        {
+          "word": "centralized",
+          "meaning": "중앙집중적인",
+          "note": "권한이나 결정이 한곳에 집중된 상태를 뜻함."
+        },
+        {
+          "word": "formal rules",
+          "meaning": "공식적인 규칙",
+          "note": "비공식적 관습이 아니라 명시적으로 정해진 규범."
+        },
+        {
+          "word": "facilitate",
+          "meaning": "촉진하다, 용이하게 하다",
+          "note": "make easier의 의미로 자주 쓰임."
+        },
+        {
+          "word": "productive activity",
+          "meaning": "생산적인 활동",
+          "note": ""
+        },
+        {
+          "word": "establish",
+          "meaning": "확립하다, 마련하다",
+          "note": "제도·역할·관행 등을 세우는 의미로 자주 사용됨."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The rules of baseball don’t just regulate the behavior of the players; they determine the behavior that constitutes playing the game.",
+      "explanation": "야구 규칙은 단지 선수들의 행동을 통제하는 데 그치지 않고, 무엇이 실제로 야구를 하는 행위인지를 규정한다.",
+      "vocabulary": [
+        {
+          "word": "regulate",
+          "meaning": "규제하다, 통제하다",
+          "note": "행동이나 절차를 일정한 기준에 따라 관리하는 뜻."
+        },
+        {
+          "word": "determine",
+          "meaning": "규정하다, 결정하다",
+          "note": "여기서는 단순한 결정이 아니라 성격을 정해 준다는 의미."
+        },
+        {
+          "word": "constitutes",
+          "meaning": "구성하다, ~에 해당하다",
+          "note": "constitute A = A를 이루다, A로 간주되다."
+        },
+        {
+          "word": "playing the game",
+          "meaning": "경기를 하는 것",
+          "note": "여기서는 단순한 움직임이 아니라 규칙에 맞는 경기 행위를 뜻함."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Rules do not prevent people from playing baseball; they create the very practice that allows people to play baseball.",
+      "explanation": "규칙은 사람들이 야구를 하지 못하게 막는 것이 아니라, 오히려 사람들이 야구를 할 수 있게 해 주는 바로 그 관행 자체를 만들어 낸다.",
+      "vocabulary": [
+        {
+          "word": "prevent A from -ing",
+          "meaning": "A가 ~하지 못하게 막다",
+          "note": "중요한 구문 표현."
+        },
+        {
+          "word": "the very practice",
+          "meaning": "바로 그 관행 자체",
+          "note": "very는 강조 용법으로 쓰여 ‘정확히 바로 그’의 뜻을 더함."
+        },
+        {
+          "word": "allows",
+          "meaning": "가능하게 하다, 허용하다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "A score of music imposes rules, but it also creates a pattern of conduct that enables people to produce music.",
+      "explanation": "악보는 일정한 규칙을 부과하지만, 동시에 사람들이 음악을 만들어 낼 수 있도록 하는 행동의 틀도 만들어 준다.",
+      "vocabulary": [
+        {
+          "word": "score of music",
+          "meaning": "악보",
+          "note": "보통 a musical score라고도 함."
+        },
+        {
+          "word": "impose",
+          "meaning": "부과하다",
+          "note": "규칙·의무·세금 등을 강제로 적용할 때 자주 쓰임."
+        },
+        {
+          "word": "pattern of conduct",
+          "meaning": "행동 양식, 행동의 틀",
+          "note": "conduct는 여기서 ‘행동, 처신’의 의미."
+        },
+        {
+          "word": "enable",
+          "meaning": "가능하게 하다",
+          "note": "enable A to do 형태로 자주 쓰임."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Legal rules that enable the formation of corporations, that enable the use of wills and trusts, that create negotiable instruments, and that establish the practice of contracting all make practices that create new opportunities for individuals.",
+      "explanation": "법인은 설립할 수 있게 하고, 유언과 신탁의 활용을 가능하게 하며, 양도 가능한 증서를 만들어 내고, 계약 관행을 확립하는 법 규칙들은 모두 개인들에게 새로운 기회를 제공하는 제도적 관행을 만들어 낸다.",
+      "vocabulary": [
+        {
+          "word": "corporations",
+          "meaning": "법인, 회사",
+          "note": "법적으로 독립된 인격체로 인정되는 조직."
+        },
+        {
+          "word": "wills and trusts",
+          "meaning": "유언과 신탁",
+          "note": "둘 다 재산의 이전·관리와 관련된 법적 장치."
+        },
+        {
+          "word": "negotiable instruments",
+          "meaning": "유통성 있는 증서, 양도 가능한 유가증권",
+          "note": "수표, 어음 등처럼 법적으로 이전 가능한 문서를 가리킴."
+        },
+        {
+          "word": "contracting",
+          "meaning": "계약 체결",
+          "note": "contract의 동명사형으로 ‘계약을 맺는 행위’를 뜻함."
+        },
+        {
+          "word": "opportunities",
+          "meaning": "기회",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "And we have legal rules that establish roles individuals play within the legal system, such as judges, trustees, partners, and guardians.",
+      "explanation": "또한 법체계 안에서 개인들이 맡는 역할, 예를 들어 판사, 수탁자, 동업자, 후견인 같은 지위를 정해 주는 법 규칙도 존재한다.",
+      "vocabulary": [
+        {
+          "word": "within the legal system",
+          "meaning": "법체계 내에서",
+          "note": ""
+        },
+        {
+          "word": "trustees",
+          "meaning": "수탁자, 신탁 관리자",
+          "note": "타인을 위해 재산이나 권한을 관리하는 사람."
+        },
+        {
+          "word": "partners",
+          "meaning": "동업자, 파트너",
+          "note": "법률 문맥에서는 공동사업의 구성원을 뜻할 수 있음."
+        },
+        {
+          "word": "guardians",
+          "meaning": "후견인, 보호자",
+          "note": "법적으로 타인을 보호·대리하는 지위."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "True, the legal rules that establish these roles constrain the behavior of individuals who occupy them, but rules also create the roles themselves.",
+      "explanation": "물론 이런 역할을 정하는 법 규칙은 그 지위를 맡은 사람들의 행동을 제한한다. 하지만 동시에 규칙은 그런 역할 자체를 만들어 내기도 한다.",
+      "vocabulary": [
+        {
+          "word": "True",
+          "meaning": "물론, 사실이다",
+          "note": "문두에서 양보를 나타내는 표현."
+        },
+        {
+          "word": "constrain",
+          "meaning": "제약하다, 제한하다",
+          "note": "행동의 자유를 좁히는 의미."
+        },
+        {
+          "word": "occupy",
+          "meaning": "차지하다, 맡다",
+          "note": "여기서는 직위나 역할을 ‘맡다’의 뜻."
+        },
+        {
+          "word": "themselves",
+          "meaning": "그 자체로",
+          "note": "강조 용법으로 쓰여 역할 자체를 강조함."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Without them an individual would not have the opportunity to occupy the role",
+      "explanation": "그러한 규칙이 없다면 개인은 그 역할을 맡을 기회 자체를 가질 수 없을 것이다.",
+      "vocabulary": [
+        {
+          "word": "Without them",
+          "meaning": "그것들이 없다면",
+          "note": "여기서 them은 앞서 언급된 규칙들을 가리킴."
+        },
+        {
+          "word": "opportunity",
+          "meaning": "기회",
+          "note": ""
+        },
+        {
+          "word": "occupy the role",
+          "meaning": "그 역할을 맡다",
+          "note": "직위나 지위를 차지한다는 뜻의 표현."
+        }
+      ]
+    }
+  ]
+}
