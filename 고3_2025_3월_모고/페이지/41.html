@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 3px;
+    cursor: default;
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "철학 번역의 딜레마", "summary": "문학 번역은 손실과 창조적 이득을 함께 낳을 수 있지만, 철학은 의미의 손상 없이 진리를 온전히 전달하는 번역을 더 강하게 요구한다.", "sentences": [{"id": 1, "original": "Translating a literary text is challenging, and it’s often said there will be an inevitable loss in translation.", "explanation": "문학 작품을 번역하는 일은 어렵고, 번역 과정에서는 피할 수 없는 손실이 생긴다고 흔히 말한다.", "vocabulary": [{"word": "literary text", "meaning": "문학 텍스트, 문학 작품", "note": "literary는 '문학의'라는 뜻으로 nonliterary와 대비된다."}, {"word": "challenging", "meaning": "어려운, 도전적인", "note": "단순히 '힘든'뿐 아니라 높은 수준의 능력을 요구한다는 뉘앙스가 있다."}, {"word": "inevitable", "meaning": "불가피한, 피할 수 없는", "note": ""}, {"word": "loss in translation", "meaning": "번역 과정에서의 의미 손실", "note": "자주 쓰이는 표현으로, 번역하면서 원문의 뉘앙스나 효과가 사라지는 일을 가리킨다."}]}, {"id": 2, "original": "But that challenge frequently inspires creative re‑renderings that offer the prospect of a gain in translation as well.", "explanation": "하지만 그런 어려움은 종종 창의적인 재표현을 낳고, 그 결과 번역에서 손실뿐 아니라 어떤 새로운 이득도 가능하다는 전망을 보여 준다.", "vocabulary": [{"word": "inspires", "meaning": "영감을 주다, 자극하다", "note": ""}, {"word": "creative re-renderings", "meaning": "창의적인 재표현, 새롭게 다시 옮긴 표현", "note": "rendering은 번역, 표현 방식을 뜻한다."}, {"word": "offer the prospect of", "meaning": "~의 가능성을 제시하다", "note": "prospect는 '전망, 가능성'의 뜻."}, {"word": "gain in translation", "meaning": "번역을 통해 생기는 이득", "note": "loss in translation과 짝을 이루는 표현이다."}]}, {"id": 3, "original": "A washing‑machine manual doesn’t present the same challenges, nor therefore does it inspire the same creativity either.", "explanation": "반면 세탁기 사용 설명서는 그런 종류의 어려움을 주지 않으며, 따라서 같은 수준의 창의성을 불러일으키지도 않는다.", "vocabulary": [{"word": "washing-machine manual", "meaning": "세탁기 사용 설명서", "note": "manual은 기계 사용법을 설명하는 안내서다."}, {"word": "present challenges", "meaning": "어려움을 제기하다, 난점을 안겨 주다", "note": ""}, {"word": "nor therefore does it", "meaning": "그러므로 또한 ~하지도 않는다", "note": "부정어 nor가 문두에 와서 도치가 일어난 형태다."}, {"word": "inspire the same creativity", "meaning": "같은 창의성을 불러일으키다", "note": ""}]}, {"id": 4, "original": "But where, in terms of the opposition between literary and nonliterary language, might we position philosophy’s language?", "explanation": "그렇다면 문학적 언어와 비문학적 언어의 대립이라는 기준에서 볼 때, 철학의 언어는 어디에 놓아야 할까?", "vocabulary": [{"word": "in terms of", "meaning": "~의 관점에서, ~의 측면에서", "note": ""}, {"word": "opposition", "meaning": "대립, 대비", "note": ""}, {"word": "nonliterary language", "meaning": "비문학적 언어", "note": "문학적 효과보다 정보 전달이나 정확성을 중시하는 언어를 가리킨다."}, {"word": "position", "meaning": "위치시키다, 자리매김하다", "note": "여기서는 물리적 위치가 아니라 개념적 분류를 뜻한다."}]}, {"id": 5, "original": "Might philosophy want to avoid a translatory economy that aims for a gain in translation but risks a loss?", "explanation": "철학은 번역에서 어떤 이득을 추구하지만 동시에 손실의 위험도 감수해야 하는 그런 '번역의 경제학'을 피하고 싶어 할지도 모른다.", "vocabulary": [{"word": "translatory economy", "meaning": "번역의 경제학, 번역에서의 손익 구조", "note": "직역보다 비유적 표현으로, 번역에서 손실과 이득을 따지는 체계를 말한다."}, {"word": "aim for", "meaning": "~을 목표로 하다, 추구하다", "note": ""}, {"word": "risks a loss", "meaning": "손실의 위험을 감수하다", "note": ""}]}, {"id": 6, "original": "Philosophy wishes to convey its truths intact, without loss — and without gain either, or at least it might hesitate to offer its truths to translation without further clarification of what a gain, and indeed a gain in depth , actually means.", "explanation": "철학은 자신의 진리를 손실 없이, 더 나아가 어떤 추가적 이득도 없이 온전히 전달하고자 한다. 적어도 철학은 '이득', 특히 '깊이의 증가'라는 것이 실제로 무엇을 뜻하는지 더 분명히 설명하지 않고서는 자신의 진리를 번역에 맡기는 일을 주저할 수 있다.", "vocabulary": [{"word": "convey", "meaning": "전달하다", "note": "의미, 생각, 감정 등을 전한다는 뜻으로 자주 쓰인다."}, {"word": "intact", "meaning": "온전한 상태로, 손상 없이", "note": ""}, {"word": "hesitate to", "meaning": "~하기를 주저하다", "note": ""}, {"word": "further clarification", "meaning": "추가적인 명확화, 더 자세한 설명", "note": ""}, {"word": "gain in depth", "meaning": "깊이의 증가, 더 깊어진 이해", "note": "단순한 양적 증가가 아니라 사유의 심화라는 뉘앙스가 있다."}]}, {"id": 7, "original": "It cannot be a matter of offsetting “stylistic losses.”", "explanation": "이 문제는 단지 '문체상의 손실'을 다른 것으로 상쇄하는 차원의 일이 될 수는 없다.", "vocabulary": [{"word": "a matter of", "meaning": "~의 문제", "note": ""}, {"word": "offsetting", "meaning": "상쇄하는 것", "note": "offset은 손실이나 불이익을 다른 이익으로 메우는 뜻이다."}, {"word": "stylistic losses", "meaning": "문체상의 손실", "note": "내용이 아니라 표현 방식, 어조, 문체에서 생기는 손실을 뜻한다."}]}, {"id": 8, "original": "The loss philosophy fears is a loss of meaning, the compromising of a truth.", "explanation": "철학이 두려워하는 손실은 문체의 손실이 아니라 의미의 손실, 즉 진리가 훼손되거나 손상되는 것이다.", "vocabulary": [{"word": "loss of meaning", "meaning": "의미의 손실", "note": ""}, {"word": "compromising", "meaning": "훼손, 손상시킴", "note": "여기서는 '타협'보다 '순수성이나 완전성을 해침'의 뜻에 가깝다."}, {"word": "truth", "meaning": "진리", "note": "철학 문맥에서는 단순한 사실이 아니라 철학적으로 주장되는 참된 내용을 가리킨다."}]}, {"id": 9, "original": "Thus, philosophy might prefer to be placed on the side of nonliterary language, and express itself in unstylish language, like Badiou’s mathematical writing, so that no translator is prompted to rude and bold acts of creative rewriting.", "explanation": "따라서 철학은 자신을 비문학적 언어의 편에 두고, 바디우의 수학적 글쓰기처럼 꾸밈없는 언어로 표현되기를 원할 수 있다. 그래야 번역자가 거칠고 대담한 창조적 재작성으로 나아가도록 자극받지 않기 때문이다.", "vocabulary": [{"word": "be placed on the side of", "meaning": "~의 편에 놓이다, ~쪽으로 분류되다", "note": ""}, {"word": "unstylish language", "meaning": "문체적 꾸밈이 적은 언어, 비수사적 언어", "note": "부자연스럽다는 뜻보다는 의도적으로 장식을 줄인 표현을 가리킨다."}, {"word": "prompted to", "meaning": "~하도록 자극받다, 유도되다", "note": ""}, {"word": "rude and bold acts", "meaning": "거칠고 대담한 행위", "note": "여기서는 번역자가 원문을 과감하게 바꾸는 행동을 비판적으로 표현한다."}, {"word": "creative rewriting", "meaning": "창조적 재작성", "note": "단순 번역을 넘어 원문을 새롭게 다시 쓰는 행위."}]}, {"id": 10, "original": "If philosophy wishes to increase its range and avoid being restricted to a national or regional tradition, it needs a translation model that conveys philosophical truths to the world without any “economic” fluctuations of loss and gain.", "explanation": "철학이 자신의 영향 범위를 넓히고 특정 국가나 지역 전통에만 묶이지 않으려면, 손실과 이득이라는 '경제적' 변동 없이 철학적 진리를 세계에 전달할 수 있는 번역 모델이 필요하다.", "vocabulary": [{"word": "increase its range", "meaning": "범위를 넓히다, 영향력을 확대하다", "note": ""}, {"word": "be restricted to", "meaning": "~에 제한되다, 국한되다", "note": ""}, {"word": "translation model", "meaning": "번역 모델, 번역 방식의 틀", "note": ""}, {"word": "convey philosophical truths", "meaning": "철학적 진리를 전달하다", "note": ""}, {"word": "fluctuations of loss and gain", "meaning": "손실과 이득의 변동", "note": "경제 용어를 비유적으로 사용해 번역의 손익을 말한다."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (const v of vocabList) {
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push(found); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end });
+    }
+  }
+
+  // Merge overlapping
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end)
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+    else merged.push({ ...r });
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    result += '<span class="hw">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>
