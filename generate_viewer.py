@@ -187,7 +187,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
     background: var(--highlight);
     border-bottom: 2px solid var(--highlight-border);
     border-radius: 3px;
-    padding: 0 3px;
+    padding: 0 1px;
     cursor: pointer;
     transition: background .15s;
   }
