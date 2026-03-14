@@ -1,0 +1,26 @@
+It may be assumed that meta‑algorithmics, that is, the
+creation of algorithms that generate other algorithms, is a
+human creation as well.
+A human programmer must have composed the first algorithm
+that, in turn, generates new algorithms and as such the
+initial programmer must be in control of the original idea.
+However, this is not necessarily true.
+Unlike humanly conceived ideas, where the author is the
+intellectual owner of the idea, algorithms are processes
+that define, describe, and implement a series of actions
+that in turn produce other actions.
+During the transfer of actions it is possible for a
+discrepancy to occur between the original intention and the
+actual result.
+If that happens then, by definition, the author of the algorithm
+is not in control of, and therefore does not own intellectually
+from that point on, the resulting process.
+Theoretically, ownership of an idea is intrinsically connected to
+the predictability of its outcome, that is, to its intellectual control.
+Therefore, in the absence of human control the ownership
+of the algorithmic process must be instead credited to the
+device that produced it, that is, to the computer.
+The new notion of intellectual ownership is created by
+meta‑algorithmics, as algorithms can produce outcomes
+that are unpredictable to human programmers, potentially
+attributing ownership to the computer itself.
