@@ -1,0 +1,168 @@
+{
+  "title": "발렌타인데이 깜짝 계획과 아쉬운 소식",
+  "summary": "피터는 아내 에이미를 위해 특별한 식당을 준비했지만, 이미 예약이 다 차 있어서 실망하게 된다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "It was Valentine’s Day on Friday and Peter was certain that his wife, Amy, was going to love his surprise.",
+      "explanation": "금요일은 발렌타인데이였고, 피터는 아내 에이미가 자신이 준비한 깜짝 선물을 분명히 아주 좋아할 거라고 믿고 있었다.",
+      "vocabulary": [
+        {
+          "word": "Valentine’s Day",
+          "meaning": "발렌타인데이",
+          "note": "2월 14일로, 사랑하는 사람에게 마음을 전하는 날이다."
+        },
+        {
+          "word": "be certain",
+          "meaning": "확신하다, 틀림없다고 생각하다",
+          "note": "certain은 '확실한'이라는 뜻이다."
+        },
+        {
+          "word": "surprise",
+          "meaning": "깜짝 선물, 놀라게 하려고 준비한 것",
+          "note": "문맥에 따라 '놀람'이 아니라 '깜짝 이벤트' 뜻으로 자주 쓰인다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Peter had spent a long time searching online for an event that would be a new way to spend time with Amy.",
+      "explanation": "피터는 에이미와 색다르게 시간을 보낼 수 있는 일을 찾으려고 인터넷에서 오랫동안 찾아보았다.",
+      "vocabulary": [
+        {
+          "word": "spend a long time",
+          "meaning": "오랜 시간을 쓰다",
+          "note": "시간을 많이 들였다는 뜻이다."
+        },
+        {
+          "word": "search online for",
+          "meaning": "온라인에서 ~을 찾다",
+          "note": "인터넷으로 정보를 찾아볼 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "event",
+          "meaning": "행사, 특별한 일",
+          "note": "여기서는 둘이 함께 할 특별한 계획을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "He had finally found the perfect thing for her.",
+      "explanation": "그는 마침내 그녀를 위한 딱 맞는 것을 찾았다.",
+      "vocabulary": [
+        {
+          "word": "finally",
+          "meaning": "마침내, 드디어",
+          "note": "오랜 노력 끝에 어떤 결과가 나왔을 때 쓴다."
+        },
+        {
+          "word": "perfect",
+          "meaning": "완벽한, 딱 맞는",
+          "note": "여기서는 '에이미에게 아주 잘 맞는'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "She often told him that she liked to go to places she had never visited before, and he was absolutely sure that she would love going to the new, five-star restaurant downtown.",
+      "explanation": "에이미는 전에 가 본 적 없는 곳에 가는 것을 좋아한다고 자주 말했다. 그래서 피터는 시내에 새로 생긴 5성급 식당에 가면 그녀가 분명 좋아할 거라고 굳게 믿었다.",
+      "vocabulary": [
+        {
+          "word": "visited before",
+          "meaning": "전에 가 본",
+          "note": "have never visited before는 '이전에 한 번도 가 본 적이 없다'는 뜻이다."
+        },
+        {
+          "word": "absolutely sure",
+          "meaning": "조금도 의심 없이 확신하는",
+          "note": "sure보다 더 강한 표현이다."
+        },
+        {
+          "word": "five-star restaurant",
+          "meaning": "5성급 식당",
+          "note": "아주 고급스럽고 수준이 높은 식당을 말한다."
+        },
+        {
+          "word": "downtown",
+          "meaning": "시내에, 도심에",
+          "note": "도시의 중심 지역을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "He smiled as he called the restaurant and asked for a reservation for Friday.",
+      "explanation": "그는 웃으면서 식당에 전화를 걸어 금요일 예약을 부탁했다.",
+      "vocabulary": [
+        {
+          "word": "asked for",
+          "meaning": "요청했다, 부탁했다",
+          "note": "무언가를 달라고 말할 때 쓰는 표현이다."
+        },
+        {
+          "word": "reservation",
+          "meaning": "예약",
+          "note": "식당, 호텔, 비행기 등을 미리 잡아 두는 것이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Unfortunately, his smile quickly disappeared when he was told that the restaurant was fully reserved.",
+      "explanation": "하지만 식당 예약이 이미 다 찼다는 말을 듣자, 그의 미소는 금방 사라졌다.",
+      "vocabulary": [
+        {
+          "word": "Unfortunately",
+          "meaning": "안타깝게도, 불행하게도",
+          "note": "좋지 않은 일이 이어질 때 문장 앞에 자주 쓴다."
+        },
+        {
+          "word": "disappeared",
+          "meaning": "사라졌다",
+          "note": "여기서는 미소가 없어졌다는 뜻이다."
+        },
+        {
+          "word": "fully reserved",
+          "meaning": "예약이 전부 찬",
+          "note": "더 이상 자리가 없다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "“That’s too bad,” he said quietly.",
+      "explanation": "그는 \"정말 아쉽네요\"라고 조용히 말했다.",
+      "vocabulary": [
+        {
+          "word": "too bad",
+          "meaning": "아쉽다, 안됐다",
+          "note": "실망스럽거나 안타까운 상황에서 쓰는 말이다."
+        },
+        {
+          "word": "quietly",
+          "meaning": "조용히",
+          "note": "작은 목소리로 말하는 느낌을 준다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "“I thought that I had found the right place.”",
+      "explanation": "그는 자신이 딱 맞는 장소를 찾았다고 생각했었다.",
+      "vocabulary": [
+        {
+          "word": "thought",
+          "meaning": "생각했다",
+          "note": "think의 과거형이다."
+        },
+        {
+          "word": "the right place",
+          "meaning": "딱 맞는 장소, 알맞은 곳",
+          "note": "right는 여기서 '오른쪽'이 아니라 '알맞은'이라는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "19"
+}

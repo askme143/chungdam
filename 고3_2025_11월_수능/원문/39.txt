@@ -1,22 +1,22 @@
-By their very nature, the concepts of maintenance and 
-repair are predominantly examined from a process‑oriented
-perspective. 
+By their very nature, the concepts of maintenance and
+repair are predominantly examined from a process-oriented
+perspective.
 The focus in related scholarly discourse often revolves around
-the lifespan or lifecycle of objects and technologies. 
-In this context, maintenance and repair are considered practices 
-that have the potential to prolong the existence of objects, 
+the lifespan or lifecycle of objects and technologies.
+In this context, maintenance and repair are considered practices
+that have the potential to prolong the existence of objects,
 ensuring their sustained utilization over an extended period.
 Krebs and Weber critically engage with anthropomorphic
 metaphors that imply a biography of things, appropriately
-highlighting that conventional understanding of the 
+highlighting that conventional understanding of the
 lifecycle of a technology, from its acquisition to its disposal
-from the household, provides an incomplete definition. 
-In reality, objects do not conform to a linear lifecycle 
-model; instead, they undergo breakdowns, await repairs, 
-are stored away, or find themselves relegated to the 
-basement, only to be rediscovered and repurposed later. 
-Additionally, objects may enter recycling or second‑hand
+from the household, provides an incomplete definition.
+In reality, objects do not conform to a linear lifecycle
+model; instead, they undergo breakdowns, await repairs,
+are stored away, or find themselves relegated to the
+basement, only to be rediscovered and repurposed later.
+Additionally, objects may enter recycling or second-hand
 cycles, leading to a dynamic afterlife marked by diverse
-applications. 
+applications.
 As such, the life of an object exhibits a far more complicated
 and adaptive path than a simplistic linear progression.

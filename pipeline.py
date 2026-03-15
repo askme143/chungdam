@@ -139,7 +139,7 @@ def process_file(
             temperature=temperature,
         )
 
-        result["problem_number"] = stem
+        result["problem_number"] = txt_path.stem
 
         json_path.parent.mkdir(parents=True, exist_ok=True)
         json_path.write_text(
@@ -152,7 +152,7 @@ def process_file(
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     if "problem_number" not in data:
-        data["problem_number"] = stem
+        data["problem_number"] = txt_path.stem
         json_path.write_text(
             json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
         )
