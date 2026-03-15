@@ -83,6 +83,16 @@ RULES:
    not a mechanical word-by-word translation.
 5. Add a "title" (Korean, concise) and a one-line "summary"
    capturing the passage's core message.
+
+WRITING STYLE (very important):
+- 모든 한국어 설명(explanation, meaning, note, summary)은
+  고등학생이 쉽게 이해할 수 있도록 쉬운 우리말로 풀어서 써라.
+- 어려운 한자어(예: 수반하다, 촉진하다, 함의, 내재적, 상호작용)를
+  가급적 피하고, 같은 뜻의 쉬운 표현으로 바꿔라.
+  예시: "수반하다" → "함께 따라오다", "촉진하다" → "더 잘 되게 돕다",
+        "내재적" → "안에 들어 있는", "함의" → "담긴 뜻"
+- 한 문장이 너무 길면 짧게 나눠서 설명해라.
+- 설명을 읽는 학생이 사전 없이도 바로 이해할 수 있어야 한다.
 """
 
 USER_PROMPT_TEMPLATE = """\

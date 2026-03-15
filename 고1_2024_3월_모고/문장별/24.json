@@ -1,0 +1,168 @@
+{
+  "title": "그림을 언제 멈춰야 하는가",
+  "summary": "그림은 한 부분에만 집중하기보다 전체적으로 작업하고, 중간중간 물러나 상태를 점검하며, 필요하면 쉬었다가 다시 보는 것이 과하게 손대지 않고 적절한 시점에 마무리하는 데 도움이 된다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Working around the whole painting, rather than concentrating on one area at a time, will mean you can stop at any point and the painting can be considered “finished.”",
+      "explanation": "그림의 한 부분만 계속 파고들기보다 화면 전체를 두루 작업하면, 어느 시점에서 멈추더라도 작품이 전체적으로 완성된 상태처럼 보이게 할 수 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "work around",
+          "meaning": "전체를 두루 작업하다",
+          "note": "여기서는 그림의 여러 부분을 골고루 손본다는 뜻으로 쓰임."
+        },
+        {
+          "word": "rather than",
+          "meaning": "~라기보다, ~대신에",
+          "note": "두 선택지를 대비할 때 자주 쓰는 표현."
+        },
+        {
+          "word": "one area at a time",
+          "meaning": "한 번에 한 부분씩",
+          "note": "순차적으로 한 영역만 집중한다는 의미."
+        },
+        {
+          "word": "at any point",
+          "meaning": "어느 시점에서든",
+          "note": ""
+        },
+        {
+          "word": "be considered finished",
+          "meaning": "완성된 것으로 여겨지다",
+          "note": "consider A B = A를 B라고 여기다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Artists often find it difficult to know when to stop painting, and it can be tempting to keep on adding more to your work.",
+      "explanation": "화가들은 언제 붓질을 멈춰야 할지 판단하기 어려워하는 경우가 많고, 작품에 뭔가를 계속 덧붙이고 싶은 유혹을 느끼기 쉽다.",
+      "vocabulary": [
+        {
+          "word": "find it difficult to",
+          "meaning": "~하는 것을 어렵게 느끼다",
+          "note": "it은 형식목적어, to 이하가 진목적어."
+        },
+        {
+          "word": "tempting",
+          "meaning": "유혹적인, 하고 싶어지는",
+          "note": "tempt(유혹하다)에서 온 형용사."
+        },
+        {
+          "word": "keep on",
+          "meaning": "계속하다",
+          "note": "뒤에 동명사와 함께 자주 쓰임."
+        },
+        {
+          "word": "add more to",
+          "meaning": "~에 더 보태다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "It is important to take a few steps back from the painting from time to time to assess your progress.",
+      "explanation": "가끔씩 그림에서 몇 걸음 물러나 현재 작업이 얼마나 잘 진행되고 있는지 객관적으로 살펴보는 것이 중요하다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "take a few steps back",
+          "meaning": "몇 걸음 뒤로 물러서다",
+          "note": "비유적으로도 객관적으로 바라본다는 뜻이 있음."
+        },
+        {
+          "word": "from time to time",
+          "meaning": "때때로, 가끔씩",
+          "note": ""
+        },
+        {
+          "word": "assess",
+          "meaning": "평가하다, 점검하다",
+          "note": "상태나 수준을 판단할 때 쓰는 단어."
+        },
+        {
+          "word": "progress",
+          "meaning": "진행 상황, 진척",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Putting too much into a painting can spoil its impact and leave it looking overworked.",
+      "explanation": "그림에 지나치게 많은 요소나 손질을 더하면 원래의 인상과 힘이 약해지고, 작품이 과하게 손댄 것처럼 보일 수 있다.",
+      "vocabulary": [
+        {
+          "word": "put too much into",
+          "meaning": "~에 지나치게 많이 쏟아붓다",
+          "note": "여기서는 세부 묘사나 수정 등을 너무 많이 더하는 뜻."
+        },
+        {
+          "word": "spoil",
+          "meaning": "망치다, 해치다",
+          "note": ""
+        },
+        {
+          "word": "impact",
+          "meaning": "인상, 효과, 강한 전달력",
+          "note": "문맥에 따라 '충격'보다 '시각적 효과'에 가까움."
+        },
+        {
+          "word": "overworked",
+          "meaning": "지나치게 손질된, 과하게 작업된",
+          "note": "미술에서는 너무 많이 수정해 생동감이 줄어든 상태를 말함."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "If you find yourself struggling to decide whether you have finished, take a break and come back to it later with fresh eyes.",
+      "explanation": "정말 끝낸 상태인지 판단이 잘 서지 않아 고민된다면, 잠시 쉬었다가 나중에 새로운 시각으로 다시 작품을 보라는 조언이다.",
+      "vocabulary": [
+        {
+          "word": "find yourself",
+          "meaning": "자신이 ~하고 있음을 깨닫다",
+          "note": "어느 상태에 놓인 자신을 발견한다는 표현."
+        },
+        {
+          "word": "struggle to decide",
+          "meaning": "결정하는 데 애를 먹다",
+          "note": ""
+        },
+        {
+          "word": "take a break",
+          "meaning": "잠시 쉬다",
+          "note": ""
+        },
+        {
+          "word": "with fresh eyes",
+          "meaning": "새로운 눈으로, 새롭게 바라보며",
+          "note": "휴식 후 더 객관적으로 본다는 관용적 표현."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Then you can decide whether any areas of your painting would benefit from further refinement.",
+      "explanation": "그렇게 다시 본 뒤에는 그림의 어떤 부분이 추가로 조금 더 다듬어지면 좋을지 더 잘 판단할 수 있다는 의미이다.",
+      "vocabulary": [
+        {
+          "word": "would benefit from",
+          "meaning": "~로부터 도움이 되다, ~하면 더 좋아지다",
+          "note": "어떤 조치가 유익하다는 뜻."
+        },
+        {
+          "word": "further",
+          "meaning": "추가적인, 더 나아간",
+          "note": ""
+        },
+        {
+          "word": "refinement",
+          "meaning": "세련된 다듬기, 정교한 수정",
+          "note": "refine(다듬다, 개선하다)에서 파생된 명사."
+        }
+      ]
+    }
+  ]
+}

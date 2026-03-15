@@ -1,0 +1,136 @@
+{
+  "title": "리더십은 특별한 사람만의 것이 아니다",
+  "summary": "위대한 지도자들도 처음에는 평범한 학생과 시민이었으며, 아이디어를 발전시키고 다른 사람들과 협력하는 과정을 통해 누구나 리더가 될 가능성을 지닌다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "When we think of leaders, we may think of people such as Abraham Lincoln or Martin Luther King, Jr.",
+      "explanation": "우리가 리더를 떠올릴 때, 에이브러햄 링컨이나 마틴 루서 킹 주니어처럼 잘 알려진 위인들을 먼저 생각할 수 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "think of",
+          "meaning": "떠올리다, 생각하다",
+          "note": "문맥에 따라 '…을 생각하다' 또는 '…을 연상하다'로 해석된다."
+        },
+        {
+          "word": "leaders",
+          "meaning": "지도자들, 리더들",
+          "note": "leader의 복수형이다."
+        },
+        {
+          "word": "such as",
+          "meaning": "예를 들어, …와 같은",
+          "note": "대표적인 예시를 들 때 자주 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "If you consider the historical importance and far-reaching influence of these individuals, leadership might seem like a noble and high goal.",
+      "explanation": "이 인물들이 역사적으로 얼마나 중요했고 영향력이 얼마나 넓었는지를 생각해 보면, 리더십은 매우 고귀하고 수준 높은 목표처럼 보일 수 있다는 의미이다.",
+      "vocabulary": [
+        {
+          "word": "historical importance",
+          "meaning": "역사적 중요성",
+          "note": "역사 속에서 차지하는 의미와 가치를 말한다."
+        },
+        {
+          "word": "far-reaching",
+          "meaning": "광범위한, 광범하게 미치는",
+          "note": "영향이나 결과가 넓게 퍼질 때 자주 쓰인다."
+        },
+        {
+          "word": "influence",
+          "meaning": "영향(력)",
+          "note": "have an influence on 형태로도 자주 쓰인다."
+        },
+        {
+          "word": "noble",
+          "meaning": "고귀한, 숭고한",
+          "note": "도덕적으로 높이 평가되는 성격을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "But like all of us, these people started out as students, workers, and citizens who possessed ideas about how some aspect of daily life could be improved on a larger scale.",
+      "explanation": "하지만 이 사람들도 우리 모두와 마찬가지로 처음에는 학생, 노동자, 시민으로 시작했고, 일상생활의 어떤 부분을 더 큰 범위에서 더 나아지게 할 수 있을지에 대한 생각을 가진 사람들이었다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "started out as",
+          "meaning": "처음에는 …로 시작했다",
+          "note": "어떤 출발점이나 초기 상태를 나타내는 표현이다."
+        },
+        {
+          "word": "possessed",
+          "meaning": "지니고 있었다, 가지고 있었다",
+          "note": "possess는 다소 격식 있는 표현으로 '소유하다, 지니다'를 뜻한다."
+        },
+        {
+          "word": "aspect",
+          "meaning": "측면, 부분",
+          "note": "어떤 사물이나 상황의 한 면을 가리킨다."
+        },
+        {
+          "word": "on a larger scale",
+          "meaning": "더 큰 규모로, 더 넓은 차원에서",
+          "note": "개인적 수준을 넘어 사회적 범위로 확대됨을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Through diligence and experience, they improved upon their ideas by sharing them with others, seeking their opinions and feedback and constantly looking for the best way to accomplish goals for a group.",
+      "explanation": "그들은 성실함과 경험을 바탕으로 자신의 생각을 다른 사람들과 나누고, 의견과 피드백을 구하며, 집단의 목표를 이루는 가장 좋은 방법을 계속 찾아 나감으로써 그 아이디어를 더 발전시켰다.",
+      "vocabulary": [
+        {
+          "word": "diligence",
+          "meaning": "성실함, 근면함",
+          "note": "꾸준하고 부지런한 태도를 뜻한다."
+        },
+        {
+          "word": "improved upon",
+          "meaning": "더 발전시켰다, 개선했다",
+          "note": "improve on/upon은 기존의 것을 더 낫게 만들다는 뜻이다."
+        },
+        {
+          "word": "feedback",
+          "meaning": "피드백, 반응 의견",
+          "note": "다른 사람의 평가나 반응을 받아 개선할 때 중요하게 쓰인다."
+        },
+        {
+          "word": "accomplish",
+          "meaning": "성취하다, 이루다",
+          "note": "goal, task 등과 함께 자주 쓰인다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Thus we all have the potential to be leaders at school, in our communities, and at work, regardless of age or experience.",
+      "explanation": "따라서 나이나 경험과 상관없이 우리 모두는 학교, 지역사회, 직장에서 리더가 될 잠재력을 가지고 있다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "Thus",
+          "meaning": "따라서, 그러므로",
+          "note": "앞의 내용을 바탕으로 결론을 이끌 때 쓰인다."
+        },
+        {
+          "word": "potential",
+          "meaning": "잠재력, 가능성",
+          "note": "have the potential to do는 '…할 가능성이 있다'는 뜻이다."
+        },
+        {
+          "word": "communities",
+          "meaning": "지역사회들, 공동체들",
+          "note": "community는 지역사회뿐 아니라 공동체 전체를 뜻할 수 있다."
+        },
+        {
+          "word": "regardless of",
+          "meaning": "…와 상관없이",
+          "note": "뒤에 명사나 명사구가 온다."
+        }
+      ]
+    }
+  ]
+}
