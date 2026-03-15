@@ -59,6 +59,37 @@
     background: var(--accent);
     color: #fff;
   }
+  .quiz-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .quiz-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle.off {
+    background: var(--border);
+    color: var(--text-sub);
+  }
+  .quiz-toggle.off:hover {
+    background: #cbd5e1;
+    color: var(--text);
+  }
   header h1 {
     font-size: 1.1rem;
     font-weight: 700;
@@ -489,6 +520,7 @@
 
 <header>
   <a class="home-btn" href="../../">&#8592; 홈</a>
+  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
@@ -630,9 +662,23 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = false;
-  document.getElementById('nextBtn').textContent = cur === total - 1 ? '결과 \u203A' : '다음 \u203A';
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
+}
+
+// ── Quiz Mode Toggle ──
+let quizEnabled = true;
+
+function toggleQuizMode() {
+  quizEnabled = !quizEnabled;
+  const btn = document.getElementById('quizToggle');
+  btn.textContent = quizEnabled ? '퀴즈 ON' : '퀴즈 OFF';
+  btn.classList.toggle('off', !quizEnabled);
+  // Update next button text
+  if (cur === total - 1) {
+    document.getElementById('nextBtn').textContent = quizEnabled ? '결과 \u203A' : '다음 \u203A';
+  }
 }
 
 // ── Quiz State ──
@@ -684,7 +730,11 @@ function go(dir) {
 
   // Going forward → show quiz for current sentence first
   if (dir === 1) {
-    startQuiz();
+    if (quizEnabled) {
+      startQuiz();
+    } else {
+      if (cur < total - 1) { cur++; render(); }
+    }
     return;
   }
   cur = cur + dir; render();
