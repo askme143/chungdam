@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "의식과 잠재의식의 차이", "summary": "이 글은 의식과 잠재의식이 어떻게 다르게 움직이는지, 그리고 감정이 판단을 흐리게 하여 두려움이 굳어지는 과정을 설명한다.", "sentences": [{"id": 1, "original": "The mind has parts that are known as the conscious mind and the subconscious mind.", "explanation": "마음은 크게 두 부분으로 나뉜다. 하나는 우리가 스스로 알아차리는 의식이고, 다른 하나는 잘 드러나지 않지만 안에서 작동하는 잠재의식이다.", "vocabulary": [{"word": "conscious mind", "meaning": "의식, 스스로 알고 있는 마음", "note": "내가 지금 생각하고 있다고 느끼는 마음 부분이다."}, {"word": "subconscious mind", "meaning": "잠재의식, 무의식에 가까운 마음", "note": "겉으로 바로 느끼지 못하지만 안에서 영향을 주는 마음 부분이다."}, {"word": "be known as", "meaning": "~라고 알려져 있다, ~라고 불리다", "note": "이름이나 성격을 설명할 때 자주 쓴다."}]}, {"id": 2, "original": "The subconscious mind is very fast to act and doesn’t deal with emotions.", "explanation": "잠재의식은 아주 빨리 반응한다. 그리고 감정을 직접 다루지는 않는다.", "vocabulary": [{"word": "fast to act", "meaning": "빨리 행동하는, 곧바로 반응하는", "note": "여기서는 생각을 오래 하지 않고 바로 움직인다는 뜻이다."}, {"word": "deal with", "meaning": "다루다, 처리하다", "note": "사람, 문제, 감정 등 여러 대상과 함께 넓게 쓰인다."}, {"word": "emotions", "meaning": "감정들", "note": "emotion의 복수형이다."}]}, {"id": 3, "original": "It deals with memories of your responses to life, your memories and recognition.", "explanation": "잠재의식은 네가 삶에서 어떻게 반응해 왔는지에 대한 기억을 다룬다. 또 여러 기억과 익숙하게 알아보는 작용도 맡는다.", "vocabulary": [{"word": "responses", "meaning": "반응들", "note": "response는 어떤 일에 대해 보이는 행동이나 답을 말한다."}, {"word": "recognition", "meaning": "알아봄, 인식", "note": "무언가를 보고 '아, 이거구나' 하고 알아차리는 것이다."}, {"word": "deal with", "meaning": "다루다, 맡다", "note": "여기서는 어떤 일을 담당한다는 뜻에 가깝다."}]}, {"id": 4, "original": "However, the conscious mind is the one that you have more control over.", "explanation": "하지만 의식은 네가 더 많이 조절할 수 있는 부분이다.", "vocabulary": [{"word": "However", "meaning": "하지만, 그러나", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "control over", "meaning": "~에 대한 통제, 조절", "note": "have control over는 '~을 조절할 수 있다'는 뜻이다."}, {"word": "conscious mind", "meaning": "의식", "note": "스스로 생각하고 선택하는 마음 부분이다."}]}, {"id": 5, "original": "You think.", "explanation": "의식은 생각하는 부분이다. 즉, 네가 직접 생각한다는 말이다.", "vocabulary": [{"word": "think", "meaning": "생각하다", "note": "아주 기본 단어지만 여기서는 의식의 핵심 기능을 짧게 강조한다."}]}, {"id": 6, "original": "You can choose whether to carry on a thought or to add emotion to it and this is the part of your mind that lets you down frequently because — fueled by emotions — you make the wrong decisions time and time again.", "explanation": "너는 어떤 생각을 계속 이어 갈지, 아니면 그 생각에 감정을 더할지를 스스로 고를 수 있다. 그런데 바로 이 의식의 부분이 자주 너를 실망시킨다. 감정에 밀리면 잘못된 결정을 계속해서 내리기 때문이다.", "vocabulary": [{"word": "carry on a thought", "meaning": "생각을 계속 이어 가다", "note": "carry on은 '계속하다'라는 뜻이다."}, {"word": "add emotion to", "meaning": "~에 감정을 더하다", "note": "생각 자체에 감정이 붙는 상황을 말한다."}, {"word": "let you down", "meaning": "너를 실망시키다, 기대에 못 미치다", "note": "사람뿐 아니라 어떤 것의 기능이 기대에 못 미칠 때도 쓴다."}, {"word": "fueled by emotions", "meaning": "감정에 의해 더 세게 움직이는", "note": "fuel은 원래 '연료를 넣다'인데, 여기서는 감정이 행동을 몰아간다는 비유다."}, {"word": "time and time again", "meaning": "계속해서, 여러 번 되풀이해서", "note": "같은 일이 반복된다는 뜻을 강하게 보여 준다."}]}, {"id": 7, "original": "When your judgment is clouded by emotions, this puts in biases and all kinds of other negativities that hold you back.", "explanation": "감정 때문에 판단이 흐려지면 편견이 생기고 여러 부정적인 생각도 따라온다. 이런 것들은 너를 앞으로 나아가지 못하게 막는다.", "vocabulary": [{"word": "judgment", "meaning": "판단", "note": "어떤 일을 보고 옳고 그름이나 좋고 나쁨을 가리는 생각이다."}, {"word": "is clouded by emotions", "meaning": "감정 때문에 흐려지다", "note": "clouded는 원래 '구름이 낀'이라는 느낌으로, 여기서는 생각이 맑지 않다는 뜻이다."}, {"word": "biases", "meaning": "편견들, 한쪽으로 치우친 생각들", "note": "bias는 공정하지 않게 한쪽으로 기우는 생각이다."}, {"word": "negativities", "meaning": "부정적인 것들", "note": "글에서는 부정적인 감정이나 태도를 넓게 가리킨다."}, {"word": "hold you back", "meaning": "너를 가로막다, 앞으로 못 가게 하다", "note": "성장이나 행동을 막는다는 뜻으로 자주 쓴다."}]}, {"id": 8, "original": "Scared of spiders?", "explanation": "거미가 무서운가? 하고 독자에게 묻는 말이다.", "vocabulary": [{"word": "scared of", "meaning": "~을 무서워하는", "note": "be scared of 형태로 자주 쓴다."}, {"word": "spiders", "meaning": "거미들", "note": "spider의 복수형이다."}]}, {"id": 9, "original": "Scared of the dark?", "explanation": "어두운 곳이 무서운가? 라고 다시 예를 들어 묻고 있다.", "vocabulary": [{"word": "the dark", "meaning": "어둠, 어두운 곳", "note": "단순히 '검은색'이 아니라 빛이 없는 상태를 말한다."}, {"word": "scared of", "meaning": "~을 무서워하는", "note": "앞문장과 같은 표현으로 두려움을 묻는다."}]}, {"id": 10, "original": "There are reasons for all of these fears, but they originate in the conscious mind.", "explanation": "이런 두려움들에는 다 이유가 있다. 하지만 그 시작은 의식에서 나온다.", "vocabulary": [{"word": "fears", "meaning": "두려움들", "note": "fear는 무서워하는 마음이다."}, {"word": "originate in", "meaning": "~에서 시작되다, ~에서 생겨나다", "note": "어떤 것의 출발점을 말할 때 쓴다."}, {"word": "conscious mind", "meaning": "의식", "note": "두려움의 시작점으로 설명되고 있다."}]}, {"id": 11, "original": "They only become real fears when the subconscious mind records your reactions.", "explanation": "하지만 잠재의식이 네 반응을 기억해 둘 때, 그 두려움은 비로소 진짜 두려움으로 굳어진다.", "vocabulary": [{"word": "become real fears", "meaning": "진짜 두려움이 되다", "note": "잠깐 스치는 생각이 아니라 실제로 자리 잡은 공포가 된다는 뜻이다."}, {"word": "records", "meaning": "기록하다, 기억해 두다", "note": "여기서는 잠재의식이 반응을 저장한다는 뜻이다."}, {"word": "reactions", "meaning": "반응들", "note": "어떤 자극을 받았을 때 몸이나 마음이 보이는 반응이다."}, {"word": "subconscious mind", "meaning": "잠재의식", "note": "반응을 저장하는 빠른 마음 부분으로 나온다."}]}, {"id": 12, "original": "While the controllable conscious mind deals with thoughts and emotions, the fast‑acting subconscious mind stores your responses, forming real fears.", "explanation": "조절할 수 있는 의식은 생각과 감정을 다룬다. 반면에 빠르게 움직이는 잠재의식은 네 반응을 저장하고, 그것이 쌓여 진짜 두려움을 만든다.", "vocabulary": [{"word": "controllable", "meaning": "조절할 수 있는", "note": "control에 -able이 붙어 '할 수 있는' 뜻이 더해졌다."}, {"word": "fast-acting", "meaning": "빠르게 작동하는", "note": "약이나 시스템이 빨리 효과를 낼 때도 쓰는 표현이다."}, {"word": "stores", "meaning": "저장하다, 쌓아 두다", "note": "기억이나 정보에도 쓸 수 있다."}, {"word": "responses", "meaning": "반응들", "note": "앞에서 나온 response와 같은 말이다."}, {"word": "forming", "meaning": "만들어 내며, 형성하며", "note": "앞의 내용이 뒤 결과로 이어진다는 뜻이다."}]}]};
+const DATA = {"title": "의식과 잠재의식의 차이", "summary": "이 글은 의식과 잠재의식이 어떻게 다르게 움직이는지, 그리고 감정이 판단을 흐리게 하여 두려움이 굳어지는 과정을 설명한다.", "sentences": [{"id": 1, "original": "The mind has parts that are known as the conscious mind and the subconscious mind.", "explanation": "마음은 크게 두 부분으로 나뉜다. 하나는 우리가 스스로 알아차리는 의식이고, 다른 하나는 잘 드러나지 않지만 안에서 작동하는 잠재의식이다.", "vocabulary": [{"word": "conscious mind", "meaning": "의식, 스스로 알고 있는 마음", "note": "내가 지금 생각하고 있다고 느끼는 마음 부분이다."}, {"word": "subconscious mind", "meaning": "잠재의식, 무의식에 가까운 마음", "note": "겉으로 바로 느끼지 못하지만 안에서 영향을 주는 마음 부분이다."}, {"word": "be known as", "meaning": "~라고 알려져 있다, ~라고 불리다", "note": "이름이나 성격을 설명할 때 자주 쓴다."}]}, {"id": 2, "original": "The subconscious mind is very fast to act and doesn’t deal with emotions.", "explanation": "잠재의식은 아주 빨리 반응한다. 그리고 감정을 직접 다루지는 않는다.", "vocabulary": [{"word": "fast to act", "meaning": "빨리 행동하는, 곧바로 반응하는", "note": "여기서는 생각을 오래 하지 않고 바로 움직인다는 뜻이다."}, {"word": "deal with", "meaning": "다루다, 처리하다", "note": "사람, 문제, 감정 등 여러 대상과 함께 넓게 쓰인다."}, {"word": "emotions", "meaning": "감정들", "note": "emotion의 복수형이다."}]}, {"id": 3, "original": "It deals with memories of your responses to life, your memories and recognition.", "explanation": "잠재의식은 네가 삶에서 어떻게 반응해 왔는지에 대한 기억을 다룬다. 또 여러 기억과 익숙하게 알아보는 작용도 맡는다.", "vocabulary": [{"word": "responses", "meaning": "반응들", "note": "response는 어떤 일에 대해 보이는 행동이나 답을 말한다."}, {"word": "recognition", "meaning": "알아봄, 인식", "note": "무언가를 보고 '아, 이거구나' 하고 알아차리는 것이다."}, {"word": "deal with", "meaning": "다루다, 맡다", "note": "여기서는 어떤 일을 담당한다는 뜻에 가깝다."}]}, {"id": 4, "original": "However, the conscious mind is the one that you have more control over.", "explanation": "하지만 의식은 네가 더 많이 조절할 수 있는 부분이다.", "vocabulary": [{"word": "However", "meaning": "하지만, 그러나", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "control over", "meaning": "~에 대한 통제, 조절", "note": "have control over는 '~을 조절할 수 있다'는 뜻이다."}, {"word": "conscious mind", "meaning": "의식", "note": "스스로 생각하고 선택하는 마음 부분이다."}]}, {"id": 5, "original": "You think.", "explanation": "의식은 생각하는 부분이다. 즉, 네가 직접 생각한다는 말이다.", "vocabulary": [{"word": "think", "meaning": "생각하다", "note": "아주 기본 단어지만 여기서는 의식의 핵심 기능을 짧게 강조한다."}]}, {"id": 6, "original": "You can choose whether to carry on a thought or to add emotion to it and this is the part of your mind that lets you down frequently because — fueled by emotions — you make the wrong decisions time and time again.", "explanation": "너는 어떤 생각을 계속 이어 갈지, 아니면 그 생각에 감정을 더할지를 스스로 고를 수 있다. 그런데 바로 이 의식의 부분이 자주 너를 실망시킨다. 감정에 밀리면 잘못된 결정을 계속해서 내리기 때문이다.", "vocabulary": [{"word": "carry on a thought", "meaning": "생각을 계속 이어 가다", "note": "carry on은 '계속하다'라는 뜻이다."}, {"word": "add emotion to", "meaning": "~에 감정을 더하다", "note": "생각 자체에 감정이 붙는 상황을 말한다."}, {"word": "let you down", "meaning": "너를 실망시키다, 기대에 못 미치다", "note": "사람뿐 아니라 어떤 것의 기능이 기대에 못 미칠 때도 쓴다."}, {"word": "fueled by emotions", "meaning": "감정에 의해 더 세게 움직이는", "note": "fuel은 원래 '연료를 넣다'인데, 여기서는 감정이 행동을 몰아간다는 비유다."}, {"word": "time and time again", "meaning": "계속해서, 여러 번 되풀이해서", "note": "같은 일이 반복된다는 뜻을 강하게 보여 준다."}]}, {"id": 7, "original": "When your judgment is clouded by emotions, this puts in biases and all kinds of other negativities that hold you back.", "explanation": "감정 때문에 판단이 흐려지면 편견이 생기고 여러 부정적인 생각도 따라온다. 이런 것들은 너를 앞으로 나아가지 못하게 막는다.", "vocabulary": [{"word": "judgment", "meaning": "판단", "note": "어떤 일을 보고 옳고 그름이나 좋고 나쁨을 가리는 생각이다."}, {"word": "is clouded by emotions", "meaning": "감정 때문에 흐려지다", "note": "clouded는 원래 '구름이 낀'이라는 느낌으로, 여기서는 생각이 맑지 않다는 뜻이다."}, {"word": "biases", "meaning": "편견들, 한쪽으로 치우친 생각들", "note": "bias는 공정하지 않게 한쪽으로 기우는 생각이다."}, {"word": "negativities", "meaning": "부정적인 것들", "note": "글에서는 부정적인 감정이나 태도를 넓게 가리킨다."}, {"word": "hold you back", "meaning": "너를 가로막다, 앞으로 못 가게 하다", "note": "성장이나 행동을 막는다는 뜻으로 자주 쓴다."}]}, {"id": 8, "original": "Scared of spiders?", "explanation": "거미가 무서운가? 하고 독자에게 묻는 말이다.", "vocabulary": [{"word": "scared of", "meaning": "~을 무서워하는", "note": "be scared of 형태로 자주 쓴다."}, {"word": "spiders", "meaning": "거미들", "note": "spider의 복수형이다."}]}, {"id": 9, "original": "Scared of the dark?", "explanation": "어두운 곳이 무서운가? 라고 다시 예를 들어 묻고 있다.", "vocabulary": [{"word": "the dark", "meaning": "어둠, 어두운 곳", "note": "단순히 '검은색'이 아니라 빛이 없는 상태를 말한다."}, {"word": "scared of", "meaning": "~을 무서워하는", "note": "앞문장과 같은 표현으로 두려움을 묻는다."}]}, {"id": 10, "original": "There are reasons for all of these fears, but they originate in the conscious mind.", "explanation": "이런 두려움들에는 다 이유가 있다. 하지만 그 시작은 의식에서 나온다.", "vocabulary": [{"word": "fears", "meaning": "두려움들", "note": "fear는 무서워하는 마음이다."}, {"word": "originate in", "meaning": "~에서 시작되다, ~에서 생겨나다", "note": "어떤 것의 출발점을 말할 때 쓴다."}, {"word": "conscious mind", "meaning": "의식", "note": "두려움의 시작점으로 설명되고 있다."}]}, {"id": 11, "original": "They only become real fears when the subconscious mind records your reactions.", "explanation": "하지만 잠재의식이 네 반응을 기억해 둘 때, 그 두려움은 비로소 진짜 두려움으로 굳어진다.", "vocabulary": [{"word": "become real fears", "meaning": "진짜 두려움이 되다", "note": "잠깐 스치는 생각이 아니라 실제로 자리 잡은 공포가 된다는 뜻이다."}, {"word": "records", "meaning": "기록하다, 기억해 두다", "note": "여기서는 잠재의식이 반응을 저장한다는 뜻이다."}, {"word": "reactions", "meaning": "반응들", "note": "어떤 자극을 받았을 때 몸이나 마음이 보이는 반응이다."}, {"word": "subconscious mind", "meaning": "잠재의식", "note": "반응을 저장하는 빠른 마음 부분으로 나온다."}]}, {"id": 12, "original": "While the controllable conscious mind deals with thoughts and emotions, the fast‑acting subconscious mind stores your responses, forming real fears.", "explanation": "조절할 수 있는 의식은 생각과 감정을 다룬다. 반면에 빠르게 움직이는 잠재의식은 네 반응을 저장하고, 그것이 쌓여 진짜 두려움을 만든다.", "vocabulary": [{"word": "controllable", "meaning": "조절할 수 있는", "note": "control에 -able이 붙어 '할 수 있는' 뜻이 더해졌다."}, {"word": "fast-acting", "meaning": "빠르게 작동하는", "note": "약이나 시스템이 빨리 효과를 낼 때도 쓰는 표현이다."}, {"word": "stores", "meaning": "저장하다, 쌓아 두다", "note": "기억이나 정보에도 쓸 수 있다."}, {"word": "responses", "meaning": "반응들", "note": "앞에서 나온 response와 같은 말이다."}, {"word": "forming", "meaning": "만들어 내며, 형성하며", "note": "앞의 내용이 뒤 결과로 이어진다는 뜻이다."}]}], "problem_number": "40"};
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

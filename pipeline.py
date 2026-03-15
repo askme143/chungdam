@@ -36,6 +36,25 @@ from generate_index import generate_index
 ROOT = Path(__file__).parent
 
 
+def _find_next_page(html_path: Path) -> str | None:
+    """같은 페이지 디렉토리에서 다음 번호의 HTML 파일명을 반환한다."""
+    page_dir = html_path.parent
+    current_num = int(html_path.stem)
+    siblings = sorted(
+        [f for f in page_dir.glob("*.html") if f.stem.isdigit()],
+        key=lambda f: int(f.stem),
+    )
+    # 아직 생성 안 된 파일도 고려: 현재 파일 포함
+    nums = [int(f.stem) for f in siblings]
+    if current_num not in nums:
+        nums.append(current_num)
+        nums.sort()
+    idx = nums.index(current_num)
+    if idx < len(nums) - 1:
+        return f"{nums[idx + 1]}.html"
+    return None
+
+
 def resolve_input_files(paths: list[str]) -> list[Path]:
     """입력 경로들을 개별 .txt 파일 목록으로 변환한다.
 
@@ -120,6 +139,8 @@ def process_file(
             temperature=temperature,
         )
 
+        result["problem_number"] = stem
+
         json_path.parent.mkdir(parents=True, exist_ok=True)
         json_path.write_text(
             json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -127,8 +148,20 @@ def process_file(
         print(f"✅ [{label}] JSON 생성 → {json_path.name}")
 
     # ── 2) generate_viewer ──
+    # 기존 JSON에 problem_number가 없으면 추가
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if "problem_number" not in data:
+        data["problem_number"] = stem
+        json_path.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
+    # next_page 계산
+    next_page = _find_next_page(html_path)
+
     html_path.parent.mkdir(parents=True, exist_ok=True)
-    generate_html(str(json_path), str(html_path))
+    generate_html(str(json_path), str(html_path), next_page=next_page)
     print(f"✅ [{label}] HTML 생성 → {html_path.name}")
 
     return True

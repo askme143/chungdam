@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "문학과 언어 학습의 몰입 효과", "summary": "문학은 학습자를 이야기와 인물에 정서적으로 몰입하게 만들어, 언어의 기계적 측면을 넘어 더 깊고 의미 있는 언어 학습을 가능하게 한다.", "sentences": [{"id": 1, "original": "Literature can be helpful in the language learning process because of the personal involvement it fosters in readers.", "explanation": "문학은 독자가 작품에 개인적으로 깊이 관여하도록 이끌기 때문에 언어 학습 과정에서 도움이 될 수 있다는 뜻이다.", "vocabulary": [{"word": "literature", "meaning": "문학", "note": "소설, 시, 희곡 등 문학 작품 전반을 가리킨다."}, {"word": "personal involvement", "meaning": "개인적 몰입, 개인적인 관여", "note": "학습자가 감정적·심리적으로 참여하는 상태를 뜻한다."}, {"word": "foster", "meaning": "촉진하다, 북돋우다", "note": "좋은 성질이나 발달을 길러 준다는 의미로 자주 쓰인다."}]}, {"id": 2, "original": "Core language teaching materials must concentrate on how a language operates both as a rule‑based system and as a sociosemantic system.", "explanation": "핵심적인 언어 교육 자료는 언어가 규칙에 따라 작동하는 체계이면서 동시에 사회적 의미를 담아내는 체계라는 두 측면에 모두 초점을 맞춰야 한다는 말이다.", "vocabulary": [{"word": "core", "meaning": "핵심의", "note": "가장 기본적이고 중심이 되는 것을 뜻한다."}, {"word": "concentrate on", "meaning": "~에 집중하다", "note": "focus on과 비슷한 표현이다."}, {"word": "operate", "meaning": "작동하다, 기능하다", "note": "여기서는 언어가 어떤 방식으로 기능하는지를 말한다."}, {"word": "rule-based system", "meaning": "규칙 기반 체계", "note": "문법 규칙처럼 일정한 원리에 따라 이루어진 체계를 뜻한다."}, {"word": "sociosemantic system", "meaning": "사회·의미적 체계", "note": "사회적 맥락과 의미 작용을 함께 보는 개념이다."}]}, {"id": 3, "original": "Very often, the process of learning is essentially analytic, piecemeal, and, at the level of the personality, fairly superficial.", "explanation": "학습 과정은 흔히 분석적이고 단편적이며, 학습자의 인격이나 내면의 차원에서는 상당히 피상적으로 이루어진다는 의미이다.", "vocabulary": [{"word": "essentially", "meaning": "본질적으로", "note": "겉모습이 아니라 핵심 성격을 설명할 때 쓴다."}, {"word": "analytic", "meaning": "분석적인", "note": "전체보다 요소를 나누어 이해하는 접근을 말한다."}, {"word": "piecemeal", "meaning": "단편적인, 조각조각의", "note": "전체적 연결 없이 부분별로 이루어짐을 뜻한다."}, {"word": "at the level of the personality", "meaning": "인격적 차원에서", "note": "학습자의 내면적·개인적 측면을 가리킨다."}, {"word": "superficial", "meaning": "피상적인", "note": "깊이가 없고 표면적인 상태를 뜻한다."}]}, {"id": 4, "original": "Engaging imaginatively with literature enables learners to shift the focus of their attention beyond the more mechanical aspects of the foreign language system.", "explanation": "문학을 상상력을 발휘하며 접하면 학습자는 외국어 체계의 기계적이고 형식적인 측면을 넘어 더 넓은 곳으로 관심을 옮길 수 있게 된다.", "vocabulary": [{"word": "engage with", "meaning": "~에 적극적으로 몰입하다, 관여하다", "note": "단순히 읽는 것이 아니라 적극적으로 접하고 반응하는 느낌이 있다."}, {"word": "imaginatively", "meaning": "상상력을 발휘하여", "note": "창의적이고 생생하게 받아들이는 태도를 나타낸다."}, {"word": "enable", "meaning": "~할 수 있게 하다", "note": "allow보다 다소 공식적인 표현이다."}, {"word": "shift the focus of their attention", "meaning": "주의의 초점을 옮기다", "note": "무엇에 집중하는지를 바꾸는 것을 뜻한다."}, {"word": "mechanical aspects", "meaning": "기계적인 측면", "note": "의미나 감정보다 형식·규칙 중심의 측면을 가리킨다."}]}, {"id": 5, "original": "When a novel, play or short story is explored over a period of time, the result is that the reader begins to ‘inhabit’ the text.", "explanation": "소설, 희곡, 단편소설을 일정 기간에 걸쳐 깊이 있게 읽고 탐구하면, 독자는 점차 그 텍스트 속에 들어가 사는 듯한 상태가 된다는 뜻이다.", "vocabulary": [{"word": "explore", "meaning": "탐구하다, 깊이 살펴보다", "note": "여기서는 작품을 자세히 읽고 이해해 가는 과정을 말한다."}, {"word": "over a period of time", "meaning": "일정 기간에 걸쳐", "note": "한 번에가 아니라 시간이 흐르면서라는 의미이다."}, {"word": "the result is that", "meaning": "그 결과 ~하게 된다", "note": "앞의 과정이 뒤의 결과로 이어짐을 나타낸다."}, {"word": "inhabit", "meaning": "살다, 거주하다; 몰입해 들어가다", "note": "여기서는 비유적으로 텍스트 속 세계를 실제처럼 살아간다는 뜻이다."}]}, {"id": 6, "original": "He or she is drawn into the book.", "explanation": "독자는 책의 세계 속으로 자연스럽게 끌려 들어가게 된다.", "vocabulary": [{"word": "be drawn into", "meaning": "~에 이끌려 들어가다", "note": "수동형으로, 스스로라기보다 어떤 힘에 의해 빠져드는 느낌을 준다."}, {"word": "the book", "meaning": "책, 작품 세계", "note": "여기서는 물리적인 책보다 이야기의 세계를 가리킨다."}]}, {"id": 7, "original": "Pinpointing what individual words or phrases may mean becomes less important than pursuing the development of the story.", "explanation": "개별 단어나 구절의 정확한 의미를 하나하나 짚어내는 일보다 이야기의 전개를 따라가는 일이 더 중요해진다는 말이다.", "vocabulary": [{"word": "pinpoint", "meaning": "정확히 짚어내다", "note": "위치나 의미를 아주 정확하게 특정한다는 뜻이다."}, {"word": "individual words or phrases", "meaning": "개별 단어 또는 구절", "note": "문장 전체가 아니라 각각의 언어 단위를 가리킨다."}, {"word": "pursue", "meaning": "추적하다, 따라가다", "note": "여기서는 이야기 전개를 계속 좇는다는 의미이다."}, {"word": "development of the story", "meaning": "이야기의 전개", "note": "줄거리의 진행과 변화 과정을 뜻한다."}]}, {"id": 8, "original": "The reader is eager to find out what happens as events unfold; he or she feels close to certain characters and shares their emotional responses.", "explanation": "사건이 전개되면서 무슨 일이 일어나는지 독자는 몹시 알고 싶어 하고, 어떤 인물들에게 친밀감을 느끼며 그들의 감정적 반응까지 함께 나누게 된다.", "vocabulary": [{"word": "be eager to", "meaning": "몹시 ~하고 싶어 하다", "note": "강한 기대나 열의를 나타낸다."}, {"word": "find out", "meaning": "알아내다", "note": "무슨 일이 일어나는지 확인하고 알게 되는 것을 뜻한다."}, {"word": "unfold", "meaning": "전개되다", "note": "사건이나 이야기가 점차 드러나며 진행되는 것을 말한다."}, {"word": "feel close to", "meaning": "~에게 친밀감을 느끼다", "note": "정서적으로 가깝게 느끼는 상태이다."}, {"word": "emotional responses", "meaning": "감정적 반응", "note": "인물이 상황에 대해 보이는 감정 표현이나 반응을 뜻한다."}]}, {"id": 9, "original": "The language becomes ‘transparent’ — the fiction draws the whole person into its own world.", "explanation": "언어 자체는 더 이상 눈에 띄지 않을 정도로 투명해지고, 대신 허구의 이야기가 독자라는 한 인간 전체를 자기 세계 속으로 끌어들이게 된다는 의미이다.", "vocabulary": [{"word": "transparent", "meaning": "투명한; 의식되지 않을 정도로 매개가 되는", "note": "여기서는 언어 형식이 앞에 드러나지 않고 내용 전달의 통로가 된다는 비유적 의미이다."}, {"word": "fiction", "meaning": "허구, 소설적 이야기", "note": "사실이 아닌 상상으로 구성된 이야기 전반을 뜻한다."}, {"word": "the whole person", "meaning": "인간 전체, 전인적 존재", "note": "지성뿐 아니라 감정과 상상력까지 포함한 전체적 자아를 말한다."}, {"word": "draw A into B", "meaning": "A를 B로 끌어들이다", "note": "몰입하게 하거나 빠져들게 한다는 뜻의 표현이다."}]}]};
+const DATA = {"title": "문학과 언어 학습의 몰입 효과", "summary": "문학은 학습자를 이야기와 인물에 정서적으로 몰입하게 만들어, 언어의 기계적 측면을 넘어 더 깊고 의미 있는 언어 학습을 가능하게 한다.", "sentences": [{"id": 1, "original": "Literature can be helpful in the language learning process because of the personal involvement it fosters in readers.", "explanation": "문학은 독자가 작품에 개인적으로 깊이 관여하도록 이끌기 때문에 언어 학습 과정에서 도움이 될 수 있다는 뜻이다.", "vocabulary": [{"word": "literature", "meaning": "문학", "note": "소설, 시, 희곡 등 문학 작품 전반을 가리킨다."}, {"word": "personal involvement", "meaning": "개인적 몰입, 개인적인 관여", "note": "학습자가 감정적·심리적으로 참여하는 상태를 뜻한다."}, {"word": "foster", "meaning": "촉진하다, 북돋우다", "note": "좋은 성질이나 발달을 길러 준다는 의미로 자주 쓰인다."}]}, {"id": 2, "original": "Core language teaching materials must concentrate on how a language operates both as a rule‑based system and as a sociosemantic system.", "explanation": "핵심적인 언어 교육 자료는 언어가 규칙에 따라 작동하는 체계이면서 동시에 사회적 의미를 담아내는 체계라는 두 측면에 모두 초점을 맞춰야 한다는 말이다.", "vocabulary": [{"word": "core", "meaning": "핵심의", "note": "가장 기본적이고 중심이 되는 것을 뜻한다."}, {"word": "concentrate on", "meaning": "~에 집중하다", "note": "focus on과 비슷한 표현이다."}, {"word": "operate", "meaning": "작동하다, 기능하다", "note": "여기서는 언어가 어떤 방식으로 기능하는지를 말한다."}, {"word": "rule-based system", "meaning": "규칙 기반 체계", "note": "문법 규칙처럼 일정한 원리에 따라 이루어진 체계를 뜻한다."}, {"word": "sociosemantic system", "meaning": "사회·의미적 체계", "note": "사회적 맥락과 의미 작용을 함께 보는 개념이다."}]}, {"id": 3, "original": "Very often, the process of learning is essentially analytic, piecemeal, and, at the level of the personality, fairly superficial.", "explanation": "학습 과정은 흔히 분석적이고 단편적이며, 학습자의 인격이나 내면의 차원에서는 상당히 피상적으로 이루어진다는 의미이다.", "vocabulary": [{"word": "essentially", "meaning": "본질적으로", "note": "겉모습이 아니라 핵심 성격을 설명할 때 쓴다."}, {"word": "analytic", "meaning": "분석적인", "note": "전체보다 요소를 나누어 이해하는 접근을 말한다."}, {"word": "piecemeal", "meaning": "단편적인, 조각조각의", "note": "전체적 연결 없이 부분별로 이루어짐을 뜻한다."}, {"word": "at the level of the personality", "meaning": "인격적 차원에서", "note": "학습자의 내면적·개인적 측면을 가리킨다."}, {"word": "superficial", "meaning": "피상적인", "note": "깊이가 없고 표면적인 상태를 뜻한다."}]}, {"id": 4, "original": "Engaging imaginatively with literature enables learners to shift the focus of their attention beyond the more mechanical aspects of the foreign language system.", "explanation": "문학을 상상력을 발휘하며 접하면 학습자는 외국어 체계의 기계적이고 형식적인 측면을 넘어 더 넓은 곳으로 관심을 옮길 수 있게 된다.", "vocabulary": [{"word": "engage with", "meaning": "~에 적극적으로 몰입하다, 관여하다", "note": "단순히 읽는 것이 아니라 적극적으로 접하고 반응하는 느낌이 있다."}, {"word": "imaginatively", "meaning": "상상력을 발휘하여", "note": "창의적이고 생생하게 받아들이는 태도를 나타낸다."}, {"word": "enable", "meaning": "~할 수 있게 하다", "note": "allow보다 다소 공식적인 표현이다."}, {"word": "shift the focus of their attention", "meaning": "주의의 초점을 옮기다", "note": "무엇에 집중하는지를 바꾸는 것을 뜻한다."}, {"word": "mechanical aspects", "meaning": "기계적인 측면", "note": "의미나 감정보다 형식·규칙 중심의 측면을 가리킨다."}]}, {"id": 5, "original": "When a novel, play or short story is explored over a period of time, the result is that the reader begins to ‘inhabit’ the text.", "explanation": "소설, 희곡, 단편소설을 일정 기간에 걸쳐 깊이 있게 읽고 탐구하면, 독자는 점차 그 텍스트 속에 들어가 사는 듯한 상태가 된다는 뜻이다.", "vocabulary": [{"word": "explore", "meaning": "탐구하다, 깊이 살펴보다", "note": "여기서는 작품을 자세히 읽고 이해해 가는 과정을 말한다."}, {"word": "over a period of time", "meaning": "일정 기간에 걸쳐", "note": "한 번에가 아니라 시간이 흐르면서라는 의미이다."}, {"word": "the result is that", "meaning": "그 결과 ~하게 된다", "note": "앞의 과정이 뒤의 결과로 이어짐을 나타낸다."}, {"word": "inhabit", "meaning": "살다, 거주하다; 몰입해 들어가다", "note": "여기서는 비유적으로 텍스트 속 세계를 실제처럼 살아간다는 뜻이다."}]}, {"id": 6, "original": "He or she is drawn into the book.", "explanation": "독자는 책의 세계 속으로 자연스럽게 끌려 들어가게 된다.", "vocabulary": [{"word": "be drawn into", "meaning": "~에 이끌려 들어가다", "note": "수동형으로, 스스로라기보다 어떤 힘에 의해 빠져드는 느낌을 준다."}, {"word": "the book", "meaning": "책, 작품 세계", "note": "여기서는 물리적인 책보다 이야기의 세계를 가리킨다."}]}, {"id": 7, "original": "Pinpointing what individual words or phrases may mean becomes less important than pursuing the development of the story.", "explanation": "개별 단어나 구절의 정확한 의미를 하나하나 짚어내는 일보다 이야기의 전개를 따라가는 일이 더 중요해진다는 말이다.", "vocabulary": [{"word": "pinpoint", "meaning": "정확히 짚어내다", "note": "위치나 의미를 아주 정확하게 특정한다는 뜻이다."}, {"word": "individual words or phrases", "meaning": "개별 단어 또는 구절", "note": "문장 전체가 아니라 각각의 언어 단위를 가리킨다."}, {"word": "pursue", "meaning": "추적하다, 따라가다", "note": "여기서는 이야기 전개를 계속 좇는다는 의미이다."}, {"word": "development of the story", "meaning": "이야기의 전개", "note": "줄거리의 진행과 변화 과정을 뜻한다."}]}, {"id": 8, "original": "The reader is eager to find out what happens as events unfold; he or she feels close to certain characters and shares their emotional responses.", "explanation": "사건이 전개되면서 무슨 일이 일어나는지 독자는 몹시 알고 싶어 하고, 어떤 인물들에게 친밀감을 느끼며 그들의 감정적 반응까지 함께 나누게 된다.", "vocabulary": [{"word": "be eager to", "meaning": "몹시 ~하고 싶어 하다", "note": "강한 기대나 열의를 나타낸다."}, {"word": "find out", "meaning": "알아내다", "note": "무슨 일이 일어나는지 확인하고 알게 되는 것을 뜻한다."}, {"word": "unfold", "meaning": "전개되다", "note": "사건이나 이야기가 점차 드러나며 진행되는 것을 말한다."}, {"word": "feel close to", "meaning": "~에게 친밀감을 느끼다", "note": "정서적으로 가깝게 느끼는 상태이다."}, {"word": "emotional responses", "meaning": "감정적 반응", "note": "인물이 상황에 대해 보이는 감정 표현이나 반응을 뜻한다."}]}, {"id": 9, "original": "The language becomes ‘transparent’ — the fiction draws the whole person into its own world.", "explanation": "언어 자체는 더 이상 눈에 띄지 않을 정도로 투명해지고, 대신 허구의 이야기가 독자라는 한 인간 전체를 자기 세계 속으로 끌어들이게 된다는 의미이다.", "vocabulary": [{"word": "transparent", "meaning": "투명한; 의식되지 않을 정도로 매개가 되는", "note": "여기서는 언어 형식이 앞에 드러나지 않고 내용 전달의 통로가 된다는 비유적 의미이다."}, {"word": "fiction", "meaning": "허구, 소설적 이야기", "note": "사실이 아닌 상상으로 구성된 이야기 전반을 뜻한다."}, {"word": "the whole person", "meaning": "인간 전체, 전인적 존재", "note": "지성뿐 아니라 감정과 상상력까지 포함한 전체적 자아를 말한다."}, {"word": "draw A into B", "meaning": "A를 B로 끌어들이다", "note": "몰입하게 하거나 빠져들게 한다는 뜻의 표현이다."}]}], "problem_number": "31"};
+const NEXT_PAGE = "32.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

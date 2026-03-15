@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "동기화된 추론(Motivated Reasoning) — 문장별 해설 대본", "summary": "인간은 자신이 공정하다고 믿지만, 실제로는 무의식적 동기가 정보 처리 과정을 왜곡하여 원하는 결론 쪽으로 사고를 이끌어간다.", "sentences": [{"id": 1, "original": "Everyone likes to think of themselves as behaving in an unbiased fashion most of the time.", "explanation": "모든 사람은 자기 자신이 대부분의 시간 동안 편견 없이 행동하고 있다고 생각하고 싶어 합니다. 즉, 우리는 스스로를 공정한 사람이라고 믿고 싶어 한다는 뜻입니다.", "vocabulary": [{"word": "unbiased", "meaning": "편견 없는, 공정한", "note": "bias(편향)에 un-(부정 접두사)이 붙은 형태"}, {"word": "fashion", "meaning": "방식, 태도", "note": "in a ~ fashion = ~한 방식으로"}]}, {"id": 2, "original": "We all view ourselves similar to the blindfolded statue of Lady Justice evaluating competing claims without bias, emotions, or motivations.", "explanation": "우리 모두는 눈을 가린 정의의 여신상처럼, 서로 경쟁하는 주장들을 편견이나 감정, 동기 없이 공정하게 평가한다고 스스로를 바라봅니다.", "vocabulary": [{"word": "blindfolded", "meaning": "눈을 가린", "note": "blindfold(눈가리개)의 과거분사형"}, {"word": "Lady Justice", "meaning": "정의의 여신", "note": "눈을 가리고 저울을 든 모습으로 유명한 상징"}, {"word": "competing claims", "meaning": "서로 경쟁하는(상충하는) 주장들", "note": ""}, {"word": "motivations", "meaning": "동기, 의도", "note": ""}]}, {"id": 3, "original": "And yet, overwhelming psychological research suggests that such unbiased rationality is actually a fairly elusive quality in humans.", "explanation": "그런데 압도적인 양의 심리학 연구에 따르면, 이런 편견 없는 합리성이란 사실 인간에게는 꽤 잡기 어려운 특성이라고 합니다. 우리가 생각하는 것만큼 공정하지 않다는 의미입니다.", "vocabulary": [{"word": "overwhelming", "meaning": "압도적인, 매우 많은", "note": ""}, {"word": "rationality", "meaning": "합리성, 이성적 사고", "note": ""}, {"word": "elusive", "meaning": "파악하기 어려운, 잡기 힘든", "note": "핵심 단어로, 쉽게 손에 잡히지 않는다는 뉘앙스"}]}, {"id": 4, "original": "Much of the time people are on automatic pilot.", "explanation": "대부분의 시간 동안 사람들은 자동 조종 상태에 있습니다. 깊이 생각하지 않고 습관적으로 행동한다는 비유적 표현입니다.", "vocabulary": [{"word": "automatic pilot (autopilot)", "meaning": "자동 조종 장치", "note": "비유적으로 '무의식적으로 행동하는 상태'"}]}, {"id": 5, "original": "In other words, individuals are acting without reflection more often than they are thinking carefully and deliberately.", "explanation": "다시 말해, 개인들은 신중하고 의도적으로 사고하는 것보다 성찰 없이 행동하는 경우가 더 많다는 뜻입니다.", "vocabulary": [{"word": "reflection", "meaning": "성찰, 깊이 생각함", "note": ""}, {"word": "deliberately", "meaning": "의도적으로, 신중하게", "note": "deliberate(숙고하다)의 부사형"}]}, {"id": 6, "original": "The rest of the time, even as individuals are trying their best to think through issues, motivational goals may bias their thought processes and bias their reasoning.", "explanation": "나머지 시간에도 사람들이 문제를 곰곰이 생각하려고 최선을 다하는 중에조차, 동기적 목표가 그들의 사고 과정과 추론을 편향시킬 수 있습니다.", "vocabulary": [{"word": "think through", "meaning": "끝까지 곰곰이 생각하다, 심사숙고하다", "note": ""}, {"word": "motivational goals", "meaning": "동기적 목표", "note": "자신이 원하는 결론을 향한 내적 동기"}, {"word": "bias (동사)", "meaning": "편향시키다, 치우치게 하다", "note": ""}, {"word": "reasoning", "meaning": "추론, 논리적 사고", "note": ""}]}, {"id": 7, "original": "Ziva Kunda, who coined the term \"motivated reasoning\" to describe this phenomenon, explained that although individuals try to make well-thought-out decisions, use available evidence, and look at both sides of an issue, the process is often tainted by motivations that may be unknown to them.", "explanation": "이 현상을 설명하기 위해 \"동기화된 추론(motivated reasoning)\"이라는 용어를 만든 지바 쿤다는, 사람들이 심사숙고한 결정을 내리고 증거를 활용하며 양쪽을 살펴보려 노력하지만, 그 과정이 본인도 모르는 동기에 의해 오염되는 경우가 많다고 설명했습니다.", "vocabulary": [{"word": "coined", "meaning": "(새로운 용어를) 만들어내다", "note": ""}, {"word": "motivated reasoning", "meaning": "동기화된 추론", "note": "원하는 결론에 맞게 정보를 처리하는 심리 현상"}, {"word": "well-thought-out", "meaning": "충분히 숙고한, 심사숙고한", "note": ""}, {"word": "tainted", "meaning": "오염된, 더럽혀진", "note": "taint(오염시키다)의 과거분사"}, {"word": "unknown to them", "meaning": "그들 자신에게도 알려지지 않은", "note": ""}]}, {"id": 8, "original": "Individuals' motivations may direct them to attend more carefully to some information while ignoring other relevant facts.", "explanation": "개인의 동기가 어떤 정보에는 더 주의 깊게 집중하도록 이끌면서, 동시에 다른 관련 사실들은 무시하게 만들 수 있습니다.", "vocabulary": [{"word": "direct (동사)", "meaning": "이끌다, 방향을 잡아주다", "note": ""}, {"word": "attend to", "meaning": "~에 주의를 기울이다", "note": "일상적인 attend(참석하다)와 다른 의미"}, {"word": "relevant", "meaning": "관련 있는, 적절한", "note": ""}]}, {"id": 9, "original": "Or they may use different strategies to evaluate information they prefer to be correct while at the same time being hypercritical of flaws in information they prefer to be wrong.", "explanation": "혹은 자신이 맞기를 바라는 정보를 평가할 때는 관대한 기준을 적용하면서, 동시에 틀리기를 바라는 정보의 결함에 대해서는 지나치게 까다롭게 비판할 수 있습니다. 같은 사람이 정보에 따라 완전히 다른 잣대를 적용하는 것입니다.", "vocabulary": [{"word": "strategies", "meaning": "전략, 방법", "note": ""}, {"word": "evaluate", "meaning": "평가하다", "note": ""}, {"word": "prefer to be correct", "meaning": "맞기를 원하는, 사실이길 바라는", "note": ""}, {"word": "hypercritical", "meaning": "지나치게 비판적인", "note": "hyper-(과도한) + critical(비판적인)"}, {"word": "flaws", "meaning": "결함, 결점", "note": ""}]}]};
+const DATA = {"title": "동기화된 추론(Motivated Reasoning) — 문장별 해설 대본", "summary": "인간은 자신이 공정하다고 믿지만, 실제로는 무의식적 동기가 정보 처리 과정을 왜곡하여 원하는 결론 쪽으로 사고를 이끌어간다.", "sentences": [{"id": 1, "original": "Everyone likes to think of themselves as behaving in an unbiased fashion most of the time.", "explanation": "모든 사람은 자기 자신이 대부분의 시간 동안 편견 없이 행동하고 있다고 생각하고 싶어 합니다. 즉, 우리는 스스로를 공정한 사람이라고 믿고 싶어 한다는 뜻입니다.", "vocabulary": [{"word": "unbiased", "meaning": "편견 없는, 공정한", "note": "bias(편향)에 un-(부정 접두사)이 붙은 형태"}, {"word": "fashion", "meaning": "방식, 태도", "note": "in a ~ fashion = ~한 방식으로"}]}, {"id": 2, "original": "We all view ourselves similar to the blindfolded statue of Lady Justice evaluating competing claims without bias, emotions, or motivations.", "explanation": "우리 모두는 눈을 가린 정의의 여신상처럼, 서로 경쟁하는 주장들을 편견이나 감정, 동기 없이 공정하게 평가한다고 스스로를 바라봅니다.", "vocabulary": [{"word": "blindfolded", "meaning": "눈을 가린", "note": "blindfold(눈가리개)의 과거분사형"}, {"word": "Lady Justice", "meaning": "정의의 여신", "note": "눈을 가리고 저울을 든 모습으로 유명한 상징"}, {"word": "competing claims", "meaning": "서로 경쟁하는(상충하는) 주장들", "note": ""}, {"word": "motivations", "meaning": "동기, 의도", "note": ""}]}, {"id": 3, "original": "And yet, overwhelming psychological research suggests that such unbiased rationality is actually a fairly elusive quality in humans.", "explanation": "그런데 압도적인 양의 심리학 연구에 따르면, 이런 편견 없는 합리성이란 사실 인간에게는 꽤 잡기 어려운 특성이라고 합니다. 우리가 생각하는 것만큼 공정하지 않다는 의미입니다.", "vocabulary": [{"word": "overwhelming", "meaning": "압도적인, 매우 많은", "note": ""}, {"word": "rationality", "meaning": "합리성, 이성적 사고", "note": ""}, {"word": "elusive", "meaning": "파악하기 어려운, 잡기 힘든", "note": "핵심 단어로, 쉽게 손에 잡히지 않는다는 뉘앙스"}]}, {"id": 4, "original": "Much of the time people are on automatic pilot.", "explanation": "대부분의 시간 동안 사람들은 자동 조종 상태에 있습니다. 깊이 생각하지 않고 습관적으로 행동한다는 비유적 표현입니다.", "vocabulary": [{"word": "automatic pilot (autopilot)", "meaning": "자동 조종 장치", "note": "비유적으로 '무의식적으로 행동하는 상태'"}]}, {"id": 5, "original": "In other words, individuals are acting without reflection more often than they are thinking carefully and deliberately.", "explanation": "다시 말해, 개인들은 신중하고 의도적으로 사고하는 것보다 성찰 없이 행동하는 경우가 더 많다는 뜻입니다.", "vocabulary": [{"word": "reflection", "meaning": "성찰, 깊이 생각함", "note": ""}, {"word": "deliberately", "meaning": "의도적으로, 신중하게", "note": "deliberate(숙고하다)의 부사형"}]}, {"id": 6, "original": "The rest of the time, even as individuals are trying their best to think through issues, motivational goals may bias their thought processes and bias their reasoning.", "explanation": "나머지 시간에도 사람들이 문제를 곰곰이 생각하려고 최선을 다하는 중에조차, 동기적 목표가 그들의 사고 과정과 추론을 편향시킬 수 있습니다.", "vocabulary": [{"word": "think through", "meaning": "끝까지 곰곰이 생각하다, 심사숙고하다", "note": ""}, {"word": "motivational goals", "meaning": "동기적 목표", "note": "자신이 원하는 결론을 향한 내적 동기"}, {"word": "bias (동사)", "meaning": "편향시키다, 치우치게 하다", "note": ""}, {"word": "reasoning", "meaning": "추론, 논리적 사고", "note": ""}]}, {"id": 7, "original": "Ziva Kunda, who coined the term \"motivated reasoning\" to describe this phenomenon, explained that although individuals try to make well-thought-out decisions, use available evidence, and look at both sides of an issue, the process is often tainted by motivations that may be unknown to them.", "explanation": "이 현상을 설명하기 위해 \"동기화된 추론(motivated reasoning)\"이라는 용어를 만든 지바 쿤다는, 사람들이 심사숙고한 결정을 내리고 증거를 활용하며 양쪽을 살펴보려 노력하지만, 그 과정이 본인도 모르는 동기에 의해 오염되는 경우가 많다고 설명했습니다.", "vocabulary": [{"word": "coined", "meaning": "(새로운 용어를) 만들어내다", "note": ""}, {"word": "motivated reasoning", "meaning": "동기화된 추론", "note": "원하는 결론에 맞게 정보를 처리하는 심리 현상"}, {"word": "well-thought-out", "meaning": "충분히 숙고한, 심사숙고한", "note": ""}, {"word": "tainted", "meaning": "오염된, 더럽혀진", "note": "taint(오염시키다)의 과거분사"}, {"word": "unknown to them", "meaning": "그들 자신에게도 알려지지 않은", "note": ""}]}, {"id": 8, "original": "Individuals' motivations may direct them to attend more carefully to some information while ignoring other relevant facts.", "explanation": "개인의 동기가 어떤 정보에는 더 주의 깊게 집중하도록 이끌면서, 동시에 다른 관련 사실들은 무시하게 만들 수 있습니다.", "vocabulary": [{"word": "direct (동사)", "meaning": "이끌다, 방향을 잡아주다", "note": ""}, {"word": "attend to", "meaning": "~에 주의를 기울이다", "note": "일상적인 attend(참석하다)와 다른 의미"}, {"word": "relevant", "meaning": "관련 있는, 적절한", "note": ""}]}, {"id": 9, "original": "Or they may use different strategies to evaluate information they prefer to be correct while at the same time being hypercritical of flaws in information they prefer to be wrong.", "explanation": "혹은 자신이 맞기를 바라는 정보를 평가할 때는 관대한 기준을 적용하면서, 동시에 틀리기를 바라는 정보의 결함에 대해서는 지나치게 까다롭게 비판할 수 있습니다. 같은 사람이 정보에 따라 완전히 다른 잣대를 적용하는 것입니다.", "vocabulary": [{"word": "strategies", "meaning": "전략, 방법", "note": ""}, {"word": "evaluate", "meaning": "평가하다", "note": ""}, {"word": "prefer to be correct", "meaning": "맞기를 원하는, 사실이길 바라는", "note": ""}, {"word": "hypercritical", "meaning": "지나치게 비판적인", "note": "hyper-(과도한) + critical(비판적인)"}, {"word": "flaws", "meaning": "결함, 결점", "note": ""}]}], "problem_number": "39"};
+const NEXT_PAGE = "40.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

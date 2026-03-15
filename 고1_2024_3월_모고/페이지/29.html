@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "의미 있는 일이 삶의 행복에 미치는 영향", "summary": "의미 있고 만족스러운 일은 사람들에게 성취감과 활력을 주며, 업무 성과와 소득뿐 아니라 전반적인 삶의 행복에도 긍정적인 영향을 준다.", "sentences": [{"id": 1, "original": "It would be hard to overstate how important meaningful work is to human beings — work that provides a sense of fulfillment and empowerment.", "explanation": "인간에게 의미 있는 일이 얼마나 중요한지 아무리 강조해도 지나치지 않으며, 여기서 말하는 의미 있는 일이란 성취감과 스스로 힘을 발휘한다는 느낌을 주는 일을 뜻한다.", "vocabulary": [{"word": "overstate", "meaning": "과장해서 말하다, 지나치게 강조하다", "note": "hard to overstate는 '아무리 강조해도 지나치지 않다'라는 뜻으로 자주 쓰임"}, {"word": "meaningful work", "meaning": "의미 있는 일, 보람 있는 일", "note": "단순히 돈을 버는 일을 넘어 개인적 가치와 연결되는 일을 가리킴"}, {"word": "fulfillment", "meaning": "성취감, 충족감", "note": "fulfill(충족시키다)에서 온 말"}, {"word": "empowerment", "meaning": "권한 부여, 자신감과 힘을 갖게 됨", "note": "여기서는 '스스로 할 수 있다는 힘을 느끼는 상태'에 가까움"}]}, {"id": 2, "original": "Those who have found deeper meaning in their careers find their days much more energizing and satisfying, and count their employment as one of their greatest sources of joy and pride.", "explanation": "자신의 직업에서 더 깊은 의미를 찾은 사람들은 하루하루를 훨씬 더 활기차고 만족스럽게 느끼며, 자신의 일을 기쁨과 자부심의 가장 큰 원천 가운데 하나로 여긴다.", "vocabulary": [{"word": "deeper meaning", "meaning": "더 깊은 의미", "note": "표면적인 이유를 넘어서는 개인적·정서적 의미를 말함"}, {"word": "energizing", "meaning": "활력을 주는, 기운 나게 하는", "note": "energy와 관련된 형용사적 표현"}, {"word": "satisfying", "meaning": "만족스러운", "note": ""}, {"word": "count A as B", "meaning": "A를 B로 여기다, 간주하다", "note": "count는 여기서 '세다'가 아니라 '생각하다, 여기다'의 뜻"}, {"word": "source of joy and pride", "meaning": "기쁨과 자부심의 원천", "note": "source는 어떤 감정이나 결과가 생겨나는 근원이라는 뜻"}]}, {"id": 3, "original": "Sonya Lyubomirsky, professor of psychology at the University of California, has conducted numerous workplace studies showing that when people are more fulfilled on the job, they not only produce higher quality work and a greater output, but also generally earn higher incomes.", "explanation": "캘리포니아대학교의 심리학 교수 소냐 류보머스키는 여러 직장 관련 연구를 통해, 사람들이 직장에서 더 큰 성취감과 충족감을 느낄 때 더 질 높은 일을 더 많이 해낼 뿐 아니라 대체로 더 높은 소득도 얻는다는 점을 보여주었다.", "vocabulary": [{"word": "conduct", "meaning": "수행하다, 실시하다", "note": "연구와 함께 쓰여 '연구를 수행하다'라는 뜻"}, {"word": "numerous", "meaning": "수많은", "note": "many보다 다소 격식 있는 표현"}, {"word": "workplace studies", "meaning": "직장 관련 연구", "note": "workplace는 '직장, 근무 환경'을 뜻함"}, {"word": "fulfilled on the job", "meaning": "직장에서 성취감/충족감을 느끼는", "note": "on the job은 '일하면서, 직장에서'라는 뜻"}, {"word": "output", "meaning": "생산량, 산출량", "note": "여기서는 업무 결과물의 양을 의미"}]}, {"id": 4, "original": "Those most satisfied with their work are also much more likely to be happier with their lives overall.", "explanation": "자신의 일에 가장 만족하는 사람들은 전반적인 삶에 대해서도 더 행복하다고 느낄 가능성이 훨씬 크다.", "vocabulary": [{"word": "satisfied with", "meaning": "~에 만족하는", "note": ""}, {"word": "be likely to", "meaning": "~할 가능성이 크다", "note": "가능성이나 경향을 나타내는 표현"}, {"word": "overall", "meaning": "전반적으로, 전체적으로", "note": "삶 전체를 바라보는 관점에서의 의미"}]}, {"id": 5, "original": "For her book Happiness at Work, researcher Jessica Pryce­Jones conducted a study of 3,000 workers in seventy­nine countries, finding that those who took greater satisfaction from their work were 150 percent more likely to have a happier life overall.", "explanation": "연구자 제시카 프라이스존스는 자신의 책 『Happiness at Work』를 위해 79개국의 노동자 3,000명을 조사했고, 그 결과 자신의 일에서 더 큰 만족을 얻는 사람들이 전반적으로 더 행복한 삶을 살 가능성이 150퍼센트 더 높다는 사실을 발견했다.", "vocabulary": [{"word": "conduct a study", "meaning": "연구를 수행하다, 조사를 실시하다", "note": ""}, {"word": "take satisfaction from", "meaning": "~에서 만족을 얻다", "note": "take pleasure/satisfaction from 형태로 자주 쓰임"}, {"word": "150 percent more likely", "meaning": "150퍼센트 더 가능성이 높은", "note": "비교 수치를 나타내는 표현으로 통계 문장에서 자주 등장"}, {"word": "overall", "meaning": "전반적으로, 전체적으로", "note": "문장 끝에서는 '삶 전체를 놓고 보면'의 의미"}]}]};
+const DATA = {"title": "의미 있는 일이 삶의 행복에 미치는 영향", "summary": "의미 있고 만족스러운 일은 사람들에게 성취감과 활력을 주며, 업무 성과와 소득뿐 아니라 전반적인 삶의 행복에도 긍정적인 영향을 준다.", "sentences": [{"id": 1, "original": "It would be hard to overstate how important meaningful work is to human beings — work that provides a sense of fulfillment and empowerment.", "explanation": "인간에게 의미 있는 일이 얼마나 중요한지 아무리 강조해도 지나치지 않으며, 여기서 말하는 의미 있는 일이란 성취감과 스스로 힘을 발휘한다는 느낌을 주는 일을 뜻한다.", "vocabulary": [{"word": "overstate", "meaning": "과장해서 말하다, 지나치게 강조하다", "note": "hard to overstate는 '아무리 강조해도 지나치지 않다'라는 뜻으로 자주 쓰임"}, {"word": "meaningful work", "meaning": "의미 있는 일, 보람 있는 일", "note": "단순히 돈을 버는 일을 넘어 개인적 가치와 연결되는 일을 가리킴"}, {"word": "fulfillment", "meaning": "성취감, 충족감", "note": "fulfill(충족시키다)에서 온 말"}, {"word": "empowerment", "meaning": "권한 부여, 자신감과 힘을 갖게 됨", "note": "여기서는 '스스로 할 수 있다는 힘을 느끼는 상태'에 가까움"}]}, {"id": 2, "original": "Those who have found deeper meaning in their careers find their days much more energizing and satisfying, and count their employment as one of their greatest sources of joy and pride.", "explanation": "자신의 직업에서 더 깊은 의미를 찾은 사람들은 하루하루를 훨씬 더 활기차고 만족스럽게 느끼며, 자신의 일을 기쁨과 자부심의 가장 큰 원천 가운데 하나로 여긴다.", "vocabulary": [{"word": "deeper meaning", "meaning": "더 깊은 의미", "note": "표면적인 이유를 넘어서는 개인적·정서적 의미를 말함"}, {"word": "energizing", "meaning": "활력을 주는, 기운 나게 하는", "note": "energy와 관련된 형용사적 표현"}, {"word": "satisfying", "meaning": "만족스러운", "note": ""}, {"word": "count A as B", "meaning": "A를 B로 여기다, 간주하다", "note": "count는 여기서 '세다'가 아니라 '생각하다, 여기다'의 뜻"}, {"word": "source of joy and pride", "meaning": "기쁨과 자부심의 원천", "note": "source는 어떤 감정이나 결과가 생겨나는 근원이라는 뜻"}]}, {"id": 3, "original": "Sonya Lyubomirsky, professor of psychology at the University of California, has conducted numerous workplace studies showing that when people are more fulfilled on the job, they not only produce higher quality work and a greater output, but also generally earn higher incomes.", "explanation": "캘리포니아대학교의 심리학 교수 소냐 류보머스키는 여러 직장 관련 연구를 통해, 사람들이 직장에서 더 큰 성취감과 충족감을 느낄 때 더 질 높은 일을 더 많이 해낼 뿐 아니라 대체로 더 높은 소득도 얻는다는 점을 보여주었다.", "vocabulary": [{"word": "conduct", "meaning": "수행하다, 실시하다", "note": "연구와 함께 쓰여 '연구를 수행하다'라는 뜻"}, {"word": "numerous", "meaning": "수많은", "note": "many보다 다소 격식 있는 표현"}, {"word": "workplace studies", "meaning": "직장 관련 연구", "note": "workplace는 '직장, 근무 환경'을 뜻함"}, {"word": "fulfilled on the job", "meaning": "직장에서 성취감/충족감을 느끼는", "note": "on the job은 '일하면서, 직장에서'라는 뜻"}, {"word": "output", "meaning": "생산량, 산출량", "note": "여기서는 업무 결과물의 양을 의미"}]}, {"id": 4, "original": "Those most satisfied with their work are also much more likely to be happier with their lives overall.", "explanation": "자신의 일에 가장 만족하는 사람들은 전반적인 삶에 대해서도 더 행복하다고 느낄 가능성이 훨씬 크다.", "vocabulary": [{"word": "satisfied with", "meaning": "~에 만족하는", "note": ""}, {"word": "be likely to", "meaning": "~할 가능성이 크다", "note": "가능성이나 경향을 나타내는 표현"}, {"word": "overall", "meaning": "전반적으로, 전체적으로", "note": "삶 전체를 바라보는 관점에서의 의미"}]}, {"id": 5, "original": "For her book Happiness at Work, researcher Jessica Pryce­Jones conducted a study of 3,000 workers in seventy­nine countries, finding that those who took greater satisfaction from their work were 150 percent more likely to have a happier life overall.", "explanation": "연구자 제시카 프라이스존스는 자신의 책 『Happiness at Work』를 위해 79개국의 노동자 3,000명을 조사했고, 그 결과 자신의 일에서 더 큰 만족을 얻는 사람들이 전반적으로 더 행복한 삶을 살 가능성이 150퍼센트 더 높다는 사실을 발견했다.", "vocabulary": [{"word": "conduct a study", "meaning": "연구를 수행하다, 조사를 실시하다", "note": ""}, {"word": "take satisfaction from", "meaning": "~에서 만족을 얻다", "note": "take pleasure/satisfaction from 형태로 자주 쓰임"}, {"word": "150 percent more likely", "meaning": "150퍼센트 더 가능성이 높은", "note": "비교 수치를 나타내는 표현으로 통계 문장에서 자주 등장"}, {"word": "overall", "meaning": "전반적으로, 전체적으로", "note": "문장 끝에서는 '삶 전체를 놓고 보면'의 의미"}]}], "problem_number": "29"};
+const NEXT_PAGE = "30.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

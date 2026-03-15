@@ -24,6 +24,7 @@ from typing import Union
 def generate_html(
     data: Union[str, Path, dict],
     output_path: Union[str, Path, None] = None,
+    next_page: Union[str, None] = None,
 ) -> str:
     """JSON 대본 데이터를 받아 인터랙티브 HTML 뷰어를 생성한다.
 
@@ -51,6 +52,8 @@ def generate_html(
 
     # ── HTML 조립 ──
     html = _TEMPLATE.replace("/* __DATA_PLACEHOLDER__ */{}", json_literal)
+    next_page_literal = json.dumps(next_page, ensure_ascii=False) if next_page else "null"
+    html = html.replace("/* __NEXT_PAGE_PLACEHOLDER__ */null", next_page_literal)
 
     # ── 저장 ──
     if output_path is not None:
@@ -581,6 +584,61 @@ _TEMPLATE = r"""<!DOCTYPE html>
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -606,6 +664,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = /* __DATA_PLACEHOLDER__ */{};
+const NEXT_PAGE = /* __NEXT_PAGE_PLACEHOLDER__ */null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -729,7 +788,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -801,6 +860,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -851,6 +911,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -924,9 +987,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -1005,7 +1090,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "메타 알고리즘과 지적 소유권의 변화", "summary": "메타 알고리즘은 인간이 만든 것처럼 보이지만, 결과가 인간의 통제를 벗어나면 그 과정의 지적 소유권은 인간이 아니라 컴퓨터에 귀속될 수 있다는 주장이다.", "sentences": [{"id": 1, "original": "It may be assumed that meta‑algorithmics, that is, the creation of algorithms that generate other algorithms, is a human creation as well.", "explanation": "메타 알고리즘학, 즉 다른 알고리즘을 만들어 내는 알고리즘을 만드는 일도 역시 인간이 만든 것이라고 보통 생각할 수 있다.", "vocabulary": [{"word": "It may be assumed that", "meaning": "~라고 여겨질 수 있다", "note": "글에서 일반적인 통념이나 가정을 제시할 때 자주 쓰는 표현이다."}, {"word": "meta‑algorithmics", "meaning": "메타 알고리즘학, 알고리즘이 다른 알고리즘을 생성하는 체계", "note": "meta-는 ‘상위의, 자기반영적인’ 의미를 더한다."}, {"word": "generate", "meaning": "생성하다, 만들어 내다", "note": "알고리즘, 데이터, 전력 등 다양한 맥락에서 널리 쓰인다."}, {"word": "human creation", "meaning": "인간의 창조물", "note": "인간이 직접 만들어 낸 산물이라는 뜻이다."}]}, {"id": 2, "original": "A human programmer must have composed the first algorithm that, in turn, generates new algorithms and as such the initial programmer must be in control of the original idea.", "explanation": "처음으로 다른 알고리즘들을 만들어 내는 알고리즘도 결국 인간 프로그래머가 작성했을 것이므로, 그 최초의 프로그래머가 원래 아이디어를 통제하고 있다고 볼 수 있다.", "vocabulary": [{"word": "must have composed", "meaning": "분명 작성했을 것이다", "note": "과거 사실에 대한 강한 추정을 나타내는 표현이다."}, {"word": "in turn", "meaning": "차례로, 그 결과 다시", "note": "앞선 것의 결과로 다음 단계가 이어짐을 나타낸다."}, {"word": "as such", "meaning": "그러한 것으로서, 따라서", "note": "앞서 언급한 성격을 근거로 결론을 이끌 때 쓰인다."}, {"word": "be in control of", "meaning": "~을 통제하고 있다", "note": "사람, 상황, 과정 등에 대한 지배·통제 상태를 뜻한다."}]}, {"id": 3, "original": "However, this is not necessarily true.", "explanation": "하지만 이런 생각이 반드시 옳은 것은 아니다.", "vocabulary": [{"word": "not necessarily", "meaning": "반드시 ~인 것은 아니다", "note": "부분 부정을 나타내는 매우 중요한 표현이다."}]}, {"id": 4, "original": "Unlike humanly conceived ideas, where the author is the intellectual owner of the idea, algorithms are processes that define, describe, and implement a series of actions that in turn produce other actions.", "explanation": "인간이 구상한 아이디어에서는 보통 창작자가 그 아이디어의 지적 소유자가 되지만, 알고리즘은 일련의 행동을 규정하고 설명하며 실행하고, 그 행동들이 다시 다른 행동을 만들어 내는 과정이다.", "vocabulary": [{"word": "humanly conceived", "meaning": "인간에 의해 구상된", "note": "conceive는 ‘생각해 내다, 구상하다’라는 뜻이다."}, {"word": "intellectual owner", "meaning": "지적 소유자", "note": "법적·철학적 맥락에서 아이디어나 창작물의 소유 주체를 가리킨다."}, {"word": "implement", "meaning": "실행하다, 구현하다", "note": "컴퓨터공학에서는 계획이나 설계를 실제로 작동하게 만드는 뜻으로 자주 쓰인다."}, {"word": "a series of actions", "meaning": "일련의 행위/동작", "note": "연속적으로 이어지는 여러 단계의 행동을 뜻한다."}]}, {"id": 5, "original": "During the transfer of actions it is possible for a discrepancy to occur between the original intention and the actual result.", "explanation": "이러한 행동이 전달되고 이어지는 과정에서는 처음 의도와 실제 결과 사이에 차이가 생길 수 있다.", "vocabulary": [{"word": "transfer", "meaning": "전달, 이전", "note": "여기서는 행동이나 과정이 한 단계에서 다음 단계로 넘어가는 것을 뜻한다."}, {"word": "discrepancy", "meaning": "불일치, 차이", "note": "기대한 것과 실제가 어긋날 때 쓰는 격식 있는 표현이다."}, {"word": "original intention", "meaning": "원래 의도", "note": "처음에 설정된 목적이나 생각을 뜻한다."}, {"word": "actual result", "meaning": "실제 결과", "note": "의도와 대비되는 현실의 산출물이다."}]}, {"id": 6, "original": "If that happens then, by definition, the author of the algorithm is not in control of, and therefore does not own intellectually from that point on, the resulting process.", "explanation": "만약 그런 일이 일어난다면, 정의상 알고리즘의 작성자는 그 결과로 나온 과정을 더 이상 통제하지 못하며, 따라서 그 시점부터는 그것에 대한 지적 소유권도 갖지 못한다.", "vocabulary": [{"word": "by definition", "meaning": "정의상, 말하자면 개념적으로", "note": "어떤 개념의 본질적 의미에 근거해 말할 때 쓴다."}, {"word": "resulting process", "meaning": "그 결과로 생긴 과정", "note": "앞선 작동의 결과로 나타난 절차나 흐름을 가리킨다."}, {"word": "from that point on", "meaning": "그 시점부터 계속", "note": "시간의 기준점을 제시하는 표현이다."}, {"word": "own intellectually", "meaning": "지적으로 소유하다, 지적 소유권을 가지다", "note": "일반적인 소유가 아니라 아이디어·창작물에 대한 소유를 뜻한다."}]}, {"id": 7, "original": "Theoretically, ownership of an idea is intrinsically connected to the predictability of its outcome, that is, to its intellectual control.", "explanation": "이론적으로 보면 어떤 아이디어의 소유권은 그 결과를 얼마나 예측할 수 있는지, 다시 말해 그것을 지적으로 얼마나 통제할 수 있는지와 본질적으로 연결되어 있다.", "vocabulary": [{"word": "Theoretically", "meaning": "이론적으로", "note": "현실 사례보다 개념적 원리를 설명할 때 쓰인다."}, {"word": "intrinsically connected to", "meaning": "본질적으로 ~와 연결된", "note": "겉보기 관계가 아니라 근본적인 연관성을 강조한다."}, {"word": "predictability", "meaning": "예측 가능성", "note": "결과를 미리 알 수 있는 정도를 뜻한다."}, {"word": "outcome", "meaning": "결과", "note": "process와 대비되어 최종 산출을 가리킨다."}, {"word": "intellectual control", "meaning": "지적 통제", "note": "생각, 설계, 결과를 이해하고 지배할 수 있는 능력이라는 뜻이다."}]}, {"id": 8, "original": "Therefore, in the absence of human control the ownership of the algorithmic process must be instead credited to the device that produced it, that is, to the computer.", "explanation": "따라서 인간의 통제가 없는 경우에는 알고리즘적 과정의 소유권은 그것을 만들어 낸 장치, 즉 컴퓨터에게 돌려져야 한다.", "vocabulary": [{"word": "in the absence of", "meaning": "~이 없는 경우에", "note": "어떤 요소의 부재를 조건으로 제시하는 표현이다."}, {"word": "algorithmic process", "meaning": "알고리즘적 과정", "note": "알고리즘이 작동하며 결과를 만들어 내는 절차 전체를 뜻한다."}, {"word": "be credited to", "meaning": "~의 공으로 돌려지다, ~에게 귀속되다", "note": "성과, 원인, 책임, 소유 등을 특정 대상에게 연결할 때 쓴다."}, {"word": "device", "meaning": "장치, 기기", "note": "여기서는 컴퓨터를 가리키는 일반적 표현이다."}]}, {"id": 9, "original": "The new notion of intellectual ownership is created by meta‑algorithmics, as algorithms can produce outcomes that are unpredictable to human programmers, potentially attributing ownership to the computer itself.", "explanation": "알고리즘이 인간 프로그래머에게 예측 불가능한 결과를 만들어 낼 수 있기 때문에, 메타 알고리즘학은 지적 소유권에 대한 새로운 개념을 만들어 내며, 그 소유권이 컴퓨터 자체에 돌아갈 가능성까지 제기한다.", "vocabulary": [{"word": "notion", "meaning": "개념, 관념", "note": "학술적 글에서 idea보다 다소 추상적이고 이론적인 느낌이 있다."}, {"word": "unpredictable", "meaning": "예측할 수 없는", "note": "predictable의 반대말이다."}, {"word": "potentially", "meaning": "잠재적으로, 가능성 있게", "note": "확정이 아니라 가능성을 열어 두는 표현이다."}, {"word": "attribute A to B", "meaning": "A를 B의 것으로 돌리다, A를 B에 귀속시키다", "note": "ownership to the computer처럼 소유나 원인을 연결할 때 중요하다."}]}]};
+const DATA = {"title": "메타 알고리즘과 지적 소유권의 변화", "summary": "메타 알고리즘은 인간이 만든 것처럼 보이지만, 결과가 인간의 통제를 벗어나면 그 과정의 지적 소유권은 인간이 아니라 컴퓨터에 귀속될 수 있다는 주장이다.", "sentences": [{"id": 1, "original": "It may be assumed that meta‑algorithmics, that is, the creation of algorithms that generate other algorithms, is a human creation as well.", "explanation": "메타 알고리즘학, 즉 다른 알고리즘을 만들어 내는 알고리즘을 만드는 일도 역시 인간이 만든 것이라고 보통 생각할 수 있다.", "vocabulary": [{"word": "It may be assumed that", "meaning": "~라고 여겨질 수 있다", "note": "글에서 일반적인 통념이나 가정을 제시할 때 자주 쓰는 표현이다."}, {"word": "meta‑algorithmics", "meaning": "메타 알고리즘학, 알고리즘이 다른 알고리즘을 생성하는 체계", "note": "meta-는 ‘상위의, 자기반영적인’ 의미를 더한다."}, {"word": "generate", "meaning": "생성하다, 만들어 내다", "note": "알고리즘, 데이터, 전력 등 다양한 맥락에서 널리 쓰인다."}, {"word": "human creation", "meaning": "인간의 창조물", "note": "인간이 직접 만들어 낸 산물이라는 뜻이다."}]}, {"id": 2, "original": "A human programmer must have composed the first algorithm that, in turn, generates new algorithms and as such the initial programmer must be in control of the original idea.", "explanation": "처음으로 다른 알고리즘들을 만들어 내는 알고리즘도 결국 인간 프로그래머가 작성했을 것이므로, 그 최초의 프로그래머가 원래 아이디어를 통제하고 있다고 볼 수 있다.", "vocabulary": [{"word": "must have composed", "meaning": "분명 작성했을 것이다", "note": "과거 사실에 대한 강한 추정을 나타내는 표현이다."}, {"word": "in turn", "meaning": "차례로, 그 결과 다시", "note": "앞선 것의 결과로 다음 단계가 이어짐을 나타낸다."}, {"word": "as such", "meaning": "그러한 것으로서, 따라서", "note": "앞서 언급한 성격을 근거로 결론을 이끌 때 쓰인다."}, {"word": "be in control of", "meaning": "~을 통제하고 있다", "note": "사람, 상황, 과정 등에 대한 지배·통제 상태를 뜻한다."}]}, {"id": 3, "original": "However, this is not necessarily true.", "explanation": "하지만 이런 생각이 반드시 옳은 것은 아니다.", "vocabulary": [{"word": "not necessarily", "meaning": "반드시 ~인 것은 아니다", "note": "부분 부정을 나타내는 매우 중요한 표현이다."}]}, {"id": 4, "original": "Unlike humanly conceived ideas, where the author is the intellectual owner of the idea, algorithms are processes that define, describe, and implement a series of actions that in turn produce other actions.", "explanation": "인간이 구상한 아이디어에서는 보통 창작자가 그 아이디어의 지적 소유자가 되지만, 알고리즘은 일련의 행동을 규정하고 설명하며 실행하고, 그 행동들이 다시 다른 행동을 만들어 내는 과정이다.", "vocabulary": [{"word": "humanly conceived", "meaning": "인간에 의해 구상된", "note": "conceive는 ‘생각해 내다, 구상하다’라는 뜻이다."}, {"word": "intellectual owner", "meaning": "지적 소유자", "note": "법적·철학적 맥락에서 아이디어나 창작물의 소유 주체를 가리킨다."}, {"word": "implement", "meaning": "실행하다, 구현하다", "note": "컴퓨터공학에서는 계획이나 설계를 실제로 작동하게 만드는 뜻으로 자주 쓰인다."}, {"word": "a series of actions", "meaning": "일련의 행위/동작", "note": "연속적으로 이어지는 여러 단계의 행동을 뜻한다."}]}, {"id": 5, "original": "During the transfer of actions it is possible for a discrepancy to occur between the original intention and the actual result.", "explanation": "이러한 행동이 전달되고 이어지는 과정에서는 처음 의도와 실제 결과 사이에 차이가 생길 수 있다.", "vocabulary": [{"word": "transfer", "meaning": "전달, 이전", "note": "여기서는 행동이나 과정이 한 단계에서 다음 단계로 넘어가는 것을 뜻한다."}, {"word": "discrepancy", "meaning": "불일치, 차이", "note": "기대한 것과 실제가 어긋날 때 쓰는 격식 있는 표현이다."}, {"word": "original intention", "meaning": "원래 의도", "note": "처음에 설정된 목적이나 생각을 뜻한다."}, {"word": "actual result", "meaning": "실제 결과", "note": "의도와 대비되는 현실의 산출물이다."}]}, {"id": 6, "original": "If that happens then, by definition, the author of the algorithm is not in control of, and therefore does not own intellectually from that point on, the resulting process.", "explanation": "만약 그런 일이 일어난다면, 정의상 알고리즘의 작성자는 그 결과로 나온 과정을 더 이상 통제하지 못하며, 따라서 그 시점부터는 그것에 대한 지적 소유권도 갖지 못한다.", "vocabulary": [{"word": "by definition", "meaning": "정의상, 말하자면 개념적으로", "note": "어떤 개념의 본질적 의미에 근거해 말할 때 쓴다."}, {"word": "resulting process", "meaning": "그 결과로 생긴 과정", "note": "앞선 작동의 결과로 나타난 절차나 흐름을 가리킨다."}, {"word": "from that point on", "meaning": "그 시점부터 계속", "note": "시간의 기준점을 제시하는 표현이다."}, {"word": "own intellectually", "meaning": "지적으로 소유하다, 지적 소유권을 가지다", "note": "일반적인 소유가 아니라 아이디어·창작물에 대한 소유를 뜻한다."}]}, {"id": 7, "original": "Theoretically, ownership of an idea is intrinsically connected to the predictability of its outcome, that is, to its intellectual control.", "explanation": "이론적으로 보면 어떤 아이디어의 소유권은 그 결과를 얼마나 예측할 수 있는지, 다시 말해 그것을 지적으로 얼마나 통제할 수 있는지와 본질적으로 연결되어 있다.", "vocabulary": [{"word": "Theoretically", "meaning": "이론적으로", "note": "현실 사례보다 개념적 원리를 설명할 때 쓰인다."}, {"word": "intrinsically connected to", "meaning": "본질적으로 ~와 연결된", "note": "겉보기 관계가 아니라 근본적인 연관성을 강조한다."}, {"word": "predictability", "meaning": "예측 가능성", "note": "결과를 미리 알 수 있는 정도를 뜻한다."}, {"word": "outcome", "meaning": "결과", "note": "process와 대비되어 최종 산출을 가리킨다."}, {"word": "intellectual control", "meaning": "지적 통제", "note": "생각, 설계, 결과를 이해하고 지배할 수 있는 능력이라는 뜻이다."}]}, {"id": 8, "original": "Therefore, in the absence of human control the ownership of the algorithmic process must be instead credited to the device that produced it, that is, to the computer.", "explanation": "따라서 인간의 통제가 없는 경우에는 알고리즘적 과정의 소유권은 그것을 만들어 낸 장치, 즉 컴퓨터에게 돌려져야 한다.", "vocabulary": [{"word": "in the absence of", "meaning": "~이 없는 경우에", "note": "어떤 요소의 부재를 조건으로 제시하는 표현이다."}, {"word": "algorithmic process", "meaning": "알고리즘적 과정", "note": "알고리즘이 작동하며 결과를 만들어 내는 절차 전체를 뜻한다."}, {"word": "be credited to", "meaning": "~의 공으로 돌려지다, ~에게 귀속되다", "note": "성과, 원인, 책임, 소유 등을 특정 대상에게 연결할 때 쓴다."}, {"word": "device", "meaning": "장치, 기기", "note": "여기서는 컴퓨터를 가리키는 일반적 표현이다."}]}, {"id": 9, "original": "The new notion of intellectual ownership is created by meta‑algorithmics, as algorithms can produce outcomes that are unpredictable to human programmers, potentially attributing ownership to the computer itself.", "explanation": "알고리즘이 인간 프로그래머에게 예측 불가능한 결과를 만들어 낼 수 있기 때문에, 메타 알고리즘학은 지적 소유권에 대한 새로운 개념을 만들어 내며, 그 소유권이 컴퓨터 자체에 돌아갈 가능성까지 제기한다.", "vocabulary": [{"word": "notion", "meaning": "개념, 관념", "note": "학술적 글에서 idea보다 다소 추상적이고 이론적인 느낌이 있다."}, {"word": "unpredictable", "meaning": "예측할 수 없는", "note": "predictable의 반대말이다."}, {"word": "potentially", "meaning": "잠재적으로, 가능성 있게", "note": "확정이 아니라 가능성을 열어 두는 표현이다."}, {"word": "attribute A to B", "meaning": "A를 B의 것으로 돌리다, A를 B에 귀속시키다", "note": "ownership to the computer처럼 소유나 원인을 연결할 때 중요하다."}]}], "problem_number": "40"};
+const NEXT_PAGE = "41.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "윤작의 원리와 장점", "summary": "농부들은 해마다 작물의 재배 순서를 바꾸는 윤작을 통해 토양을 건강하게 유지하고 지속 가능한 농사를 짓는다.", "sentences": [{"id": 1, "original": "Crop rotation is the process in which farmers change the crops they grow in their fields in a special order.", "explanation": "윤작은 농부들이 밭에서 기르는 작물의 종류를 일정한 순서에 따라 바꾸어 가며 재배하는 방식이다.", "vocabulary": [{"word": "Crop rotation", "meaning": "윤작", "note": "여러 작물을 해마다 번갈아 심는 농업 방식"}, {"word": "process", "meaning": "과정, 방식", "note": "여기서는 어떤 일이 이루어지는 체계적인 방법을 뜻함"}, {"word": "in which", "meaning": "~하는, 그 안에서", "note": "앞의 명사를 설명하는 관계 표현"}, {"word": "in a special order", "meaning": "특정한 순서로", "note": "무작위가 아니라 정해진 순서가 있다는 뜻"}]}, {"id": 2, "original": "For example, if a farmer has three fields, he or she may grow carrots in the first field, green beans in the second, and tomatoes in the third.", "explanation": "예를 들어 농부에게 밭이 세 개 있다면, 첫 번째 밭에는 당근을, 두 번째에는 강낭콩을, 세 번째에는 토마토를 심을 수 있다.", "vocabulary": [{"word": "field", "meaning": "밭, 경작지", "note": "농사를 짓는 땅을 뜻함"}, {"word": "green beans", "meaning": "강낭콩, 풋콩류", "note": "문맥에 따라 녹두가 아니라 식용 콩 작물을 가리킴"}, {"word": "in the first field", "meaning": "첫 번째 밭에", "note": "위치와 순서를 함께 나타내는 표현"}]}, {"id": 3, "original": "The next year, green beans will be in the first field, tomatoes in the second field, and carrots will be in the third.", "explanation": "그다음 해에는 강낭콩이 첫 번째 밭으로, 토마토가 두 번째 밭으로, 당근이 세 번째 밭으로 옮겨 재배된다.", "vocabulary": [{"word": "The next year", "meaning": "이듬해, 다음 해", "note": "시간의 흐름을 나타내는 표현"}, {"word": "will be", "meaning": "~이 있게 된다, ~이 된다", "note": "여기서는 미래의 재배 배치를 설명함"}, {"word": "third", "meaning": "세 번째의", "note": "순서를 나타내는 서수"}]}, {"id": 4, "original": "In year three, the crops will rotate again.", "explanation": "3년 차가 되면 작물들은 다시 한 번 순서를 바꾸어 돌아간다.", "vocabulary": [{"word": "rotate", "meaning": "순환하다, 돌아가며 바뀌다", "note": "윤작의 핵심 개념을 나타내는 동사"}, {"word": "again", "meaning": "다시", "note": "이전과 같은 변화가 반복됨을 나타냄"}]}, {"id": 5, "original": "By the fourth year, the crops will go back to their original order.", "explanation": "4년째가 되면 작물들은 처음의 배치 순서로 다시 돌아간다.", "vocabulary": [{"word": "By the fourth year", "meaning": "4년째가 되면", "note": "그 시점까지의 도달을 나타내는 표현"}, {"word": "go back to", "meaning": "~로 돌아가다", "note": "원래 상태나 위치로 되돌아감을 뜻함"}, {"word": "original order", "meaning": "원래의 순서", "note": "처음 정해졌던 배열이나 배치"}]}, {"id": 6, "original": "Each crop enriches the soil for the next crop.", "explanation": "각 작물은 다음에 심을 작물을 위해 토양을 더 비옥하게 만들어 준다.", "vocabulary": [{"word": "Each crop", "meaning": "각 작물", "note": "하나하나의 작물을 개별적으로 가리킴"}, {"word": "enriches", "meaning": "비옥하게 하다, 풍부하게 하다", "note": "enrich의 3인칭 단수형"}, {"word": "soil", "meaning": "토양, 흙", "note": "농작물이 자라는 땅의 흙"}]}, {"id": 7, "original": "This type of farming is sustainable because the soil stays healthy.", "explanation": "이런 농사 방식은 토양이 건강한 상태를 유지하게 해 주기 때문에 지속 가능하다.", "vocabulary": [{"word": "type of farming", "meaning": "농사 방식", "note": "농업의 한 형태를 가리키는 표현"}, {"word": "sustainable", "meaning": "지속 가능한", "note": "환경을 해치지 않고 오래 유지될 수 있는"}, {"word": "stays healthy", "meaning": "건강한 상태를 유지하다", "note": "여기서는 토양의 상태가 계속 좋다는 뜻"}]}]};
+const DATA = {"title": "윤작의 원리와 장점", "summary": "농부들은 해마다 작물의 재배 순서를 바꾸는 윤작을 통해 토양을 건강하게 유지하고 지속 가능한 농사를 짓는다.", "sentences": [{"id": 1, "original": "Crop rotation is the process in which farmers change the crops they grow in their fields in a special order.", "explanation": "윤작은 농부들이 밭에서 기르는 작물의 종류를 일정한 순서에 따라 바꾸어 가며 재배하는 방식이다.", "vocabulary": [{"word": "Crop rotation", "meaning": "윤작", "note": "여러 작물을 해마다 번갈아 심는 농업 방식"}, {"word": "process", "meaning": "과정, 방식", "note": "여기서는 어떤 일이 이루어지는 체계적인 방법을 뜻함"}, {"word": "in which", "meaning": "~하는, 그 안에서", "note": "앞의 명사를 설명하는 관계 표현"}, {"word": "in a special order", "meaning": "특정한 순서로", "note": "무작위가 아니라 정해진 순서가 있다는 뜻"}]}, {"id": 2, "original": "For example, if a farmer has three fields, he or she may grow carrots in the first field, green beans in the second, and tomatoes in the third.", "explanation": "예를 들어 농부에게 밭이 세 개 있다면, 첫 번째 밭에는 당근을, 두 번째에는 강낭콩을, 세 번째에는 토마토를 심을 수 있다.", "vocabulary": [{"word": "field", "meaning": "밭, 경작지", "note": "농사를 짓는 땅을 뜻함"}, {"word": "green beans", "meaning": "강낭콩, 풋콩류", "note": "문맥에 따라 녹두가 아니라 식용 콩 작물을 가리킴"}, {"word": "in the first field", "meaning": "첫 번째 밭에", "note": "위치와 순서를 함께 나타내는 표현"}]}, {"id": 3, "original": "The next year, green beans will be in the first field, tomatoes in the second field, and carrots will be in the third.", "explanation": "그다음 해에는 강낭콩이 첫 번째 밭으로, 토마토가 두 번째 밭으로, 당근이 세 번째 밭으로 옮겨 재배된다.", "vocabulary": [{"word": "The next year", "meaning": "이듬해, 다음 해", "note": "시간의 흐름을 나타내는 표현"}, {"word": "will be", "meaning": "~이 있게 된다, ~이 된다", "note": "여기서는 미래의 재배 배치를 설명함"}, {"word": "third", "meaning": "세 번째의", "note": "순서를 나타내는 서수"}]}, {"id": 4, "original": "In year three, the crops will rotate again.", "explanation": "3년 차가 되면 작물들은 다시 한 번 순서를 바꾸어 돌아간다.", "vocabulary": [{"word": "rotate", "meaning": "순환하다, 돌아가며 바뀌다", "note": "윤작의 핵심 개념을 나타내는 동사"}, {"word": "again", "meaning": "다시", "note": "이전과 같은 변화가 반복됨을 나타냄"}]}, {"id": 5, "original": "By the fourth year, the crops will go back to their original order.", "explanation": "4년째가 되면 작물들은 처음의 배치 순서로 다시 돌아간다.", "vocabulary": [{"word": "By the fourth year", "meaning": "4년째가 되면", "note": "그 시점까지의 도달을 나타내는 표현"}, {"word": "go back to", "meaning": "~로 돌아가다", "note": "원래 상태나 위치로 되돌아감을 뜻함"}, {"word": "original order", "meaning": "원래의 순서", "note": "처음 정해졌던 배열이나 배치"}]}, {"id": 6, "original": "Each crop enriches the soil for the next crop.", "explanation": "각 작물은 다음에 심을 작물을 위해 토양을 더 비옥하게 만들어 준다.", "vocabulary": [{"word": "Each crop", "meaning": "각 작물", "note": "하나하나의 작물을 개별적으로 가리킴"}, {"word": "enriches", "meaning": "비옥하게 하다, 풍부하게 하다", "note": "enrich의 3인칭 단수형"}, {"word": "soil", "meaning": "토양, 흙", "note": "농작물이 자라는 땅의 흙"}]}, {"id": 7, "original": "This type of farming is sustainable because the soil stays healthy.", "explanation": "이런 농사 방식은 토양이 건강한 상태를 유지하게 해 주기 때문에 지속 가능하다.", "vocabulary": [{"word": "type of farming", "meaning": "농사 방식", "note": "농업의 한 형태를 가리키는 표현"}, {"word": "sustainable", "meaning": "지속 가능한", "note": "환경을 해치지 않고 오래 유지될 수 있는"}, {"word": "stays healthy", "meaning": "건강한 상태를 유지하다", "note": "여기서는 토양의 상태가 계속 좋다는 뜻"}]}], "problem_number": "23"};
+const NEXT_PAGE = "24.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

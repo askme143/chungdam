@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "이동 속도와 환경 인식의 관계", "summary": "사람이 이동하는 속도에 따라 주변 환경의 세부를 인식하는 능력이 달라지며, 걷는 속도에서는 세부를 잘 볼 수 있지만 자동차처럼 빠른 속도에서는 그것이 크게 제한된다는 내용이다.", "sentences": [{"id": 1, "original": "The rate of speed at which one is traveling will greatly determine the ability to process detail in the environment.", "explanation": "사람이 얼마나 빠른 속도로 이동하느냐에 따라 주변 환경의 세부 정보를 파악하고 처리하는 능력이 크게 달라진다는 뜻이다.", "vocabulary": [{"word": "rate of speed", "meaning": "속도, 이동 속도의 정도", "note": "일반적으로 speed와 비슷하지만, 속도의 수준이나 정도를 강조하는 표현이다."}, {"word": "determine", "meaning": "결정하다, 좌우하다", "note": "여기서는 어떤 능력에 큰 영향을 미친다는 뜻으로 쓰였다."}, {"word": "process detail", "meaning": "세부 정보를 처리하다, 세밀한 요소를 파악하다", "note": "단순히 본다는 뜻보다 정보를 인지하고 이해하는 의미가 포함된다."}, {"word": "environment", "meaning": "환경, 주변 공간", "note": "여기서는 자연환경뿐 아니라 길거리나 주변 시각 환경까지 포함한다."}]}, {"id": 2, "original": "In evolutionary terms, human senses are adapted to the speed at which humans move through space under their own power while walking.", "explanation": "진화의 관점에서 보면 인간의 감각은 사람이 스스로의 힘으로 걸어 이동할 때의 속도에 맞게 발달해 왔다는 의미이다.", "vocabulary": [{"word": "In evolutionary terms", "meaning": "진화의 관점에서 보면", "note": "어떤 현상을 진화적 배경에서 설명할 때 자주 쓰는 표현이다."}, {"word": "be adapted to", "meaning": "~에 적응되어 있다, ~에 맞추어 발달하다", "note": "adapt A to B와 달리 수동형으로 ‘B에 적응된 상태’를 나타낸다."}, {"word": "under their own power", "meaning": "자기 자신의 힘으로", "note": "기계나 탈것의 도움 없이 스스로 움직인다는 뜻이다."}, {"word": "move through space", "meaning": "공간을 가로질러 이동하다", "note": "다소 추상적인 표현으로, 물리적 공간 속에서 움직이는 것을 말한다."}]}, {"id": 3, "original": "Our ability to distinguish detail in the environment is therefore ideally suited to movement at speeds of perhaps five miles per hour and under.", "explanation": "따라서 인간이 주변 환경의 세부를 구별해 내는 능력은 대략 시속 5마일 이하의 느린 이동 속도에 가장 잘 맞도록 되어 있다는 뜻이다.", "vocabulary": [{"word": "distinguish detail", "meaning": "세부를 구별하다, 미세한 차이를 식별하다", "note": "distinguish는 서로 다른 것을 알아보거나 식별하는 뜻이다."}, {"word": "therefore", "meaning": "그러므로, 따라서", "note": "앞 문장의 내용을 근거로 결론을 이끌 때 쓰인다."}, {"word": "ideally suited to", "meaning": "가장 적합한, 이상적으로 맞는", "note": "be suited to는 ‘~에 적합하다’라는 뜻이다."}, {"word": "and under", "meaning": "이하", "note": "숫자 뒤에서 그 수치와 그보다 낮은 범위를 뜻한다."}]}, {"id": 4, "original": "The fastest users of the street, motorists, therefore have a much more limited ability to process details along the street — a motorist simply has little time or ability to appreciate design details.", "explanation": "그래서 거리에서 가장 빠르게 이동하는 사람들인 운전자들은 거리의 세부 요소를 파악하는 능력이 훨씬 제한되며, 실제로 운전자는 디자인의 세세한 부분을 감상할 시간도 능력도 거의 없다는 말이다.", "vocabulary": [{"word": "motorists", "meaning": "자동차 운전자들", "note": "motorist는 자동차를 운전하는 사람을 뜻한다."}, {"word": "limited ability", "meaning": "제한된 능력", "note": "충분하지 않거나 범위가 좁은 능력을 말한다."}, {"word": "along the street", "meaning": "거리 곳곳에, 길을 따라", "note": "공간적으로 길 주변에 이어진 요소들을 가리킨다."}, {"word": "appreciate", "meaning": "이해하고 가치를 느끼다, 감상하다", "note": "여기서는 단순히 ‘좋아하다’가 아니라 세부 디자인의 가치를 알아차린다는 뜻이다."}, {"word": "design details", "meaning": "디자인의 세부 요소", "note": "건물, 거리, 공간 구성의 세밀한 특징을 가리킨다."}]}, {"id": 5, "original": "On the other hand, pedestrian travel, being much slower, allows for the appreciation of environmental detail.", "explanation": "반면에 보행은 훨씬 느리기 때문에 주변 환경의 세부적인 요소를 보고 느끼며 감상할 수 있게 해 준다는 뜻이다.", "vocabulary": [{"word": "On the other hand", "meaning": "반면에", "note": "앞의 내용과 대조되는 점을 제시할 때 쓰는 연결 표현이다."}, {"word": "pedestrian travel", "meaning": "보행 이동, 도보 이동", "note": "pedestrian는 형용사로 ‘보행자의’라는 뜻이다."}, {"word": "allows for", "meaning": "~을 가능하게 하다, ~의 여지를 주다", "note": "allow보다 다소 격식 있는 표현이다."}, {"word": "appreciation", "meaning": "이해, 감상, 가치 인식", "note": "여기서는 환경의 세부를 알아보고 느끼는 것을 뜻한다."}, {"word": "environmental detail", "meaning": "환경의 세부 요소", "note": "주변 공간에서 눈에 띄는 세밀한 특징들을 말한다."}]}, {"id": 6, "original": "Joggers and bicyclists fall somewhere in between these polar opposites; while they travel faster than pedestrians, their rate of speed is ordinarily much slower than that of the typical motorist.", "explanation": "조깅하는 사람들과 자전거 이용자는 이 두 극단의 중간쯤에 위치한다. 이들은 보행자보다 빠르게 이동하지만, 보통의 자동차 운전자보다는 훨씬 느리게 움직인다는 의미이다.", "vocabulary": [{"word": "fall somewhere in between", "meaning": "중간 어디쯤에 속하다", "note": "정확히 한쪽이 아니라 그 사이에 위치함을 나타내는 표현이다."}, {"word": "polar opposites", "meaning": "정반대의 두 극단", "note": "서로 완전히 반대되는 두 대상을 강조하는 표현이다."}, {"word": "ordinarily", "meaning": "보통, 일반적으로", "note": "usually와 비슷하지만 다소 격식 있는 느낌이 있다."}, {"word": "typical motorist", "meaning": "일반적인 운전자", "note": "특별한 경우가 아닌 평균적인 자동차 이용자를 뜻한다."}]}]};
+const DATA = {"title": "이동 속도와 환경 인식의 관계", "summary": "사람이 이동하는 속도에 따라 주변 환경의 세부를 인식하는 능력이 달라지며, 걷는 속도에서는 세부를 잘 볼 수 있지만 자동차처럼 빠른 속도에서는 그것이 크게 제한된다는 내용이다.", "sentences": [{"id": 1, "original": "The rate of speed at which one is traveling will greatly determine the ability to process detail in the environment.", "explanation": "사람이 얼마나 빠른 속도로 이동하느냐에 따라 주변 환경의 세부 정보를 파악하고 처리하는 능력이 크게 달라진다는 뜻이다.", "vocabulary": [{"word": "rate of speed", "meaning": "속도, 이동 속도의 정도", "note": "일반적으로 speed와 비슷하지만, 속도의 수준이나 정도를 강조하는 표현이다."}, {"word": "determine", "meaning": "결정하다, 좌우하다", "note": "여기서는 어떤 능력에 큰 영향을 미친다는 뜻으로 쓰였다."}, {"word": "process detail", "meaning": "세부 정보를 처리하다, 세밀한 요소를 파악하다", "note": "단순히 본다는 뜻보다 정보를 인지하고 이해하는 의미가 포함된다."}, {"word": "environment", "meaning": "환경, 주변 공간", "note": "여기서는 자연환경뿐 아니라 길거리나 주변 시각 환경까지 포함한다."}]}, {"id": 2, "original": "In evolutionary terms, human senses are adapted to the speed at which humans move through space under their own power while walking.", "explanation": "진화의 관점에서 보면 인간의 감각은 사람이 스스로의 힘으로 걸어 이동할 때의 속도에 맞게 발달해 왔다는 의미이다.", "vocabulary": [{"word": "In evolutionary terms", "meaning": "진화의 관점에서 보면", "note": "어떤 현상을 진화적 배경에서 설명할 때 자주 쓰는 표현이다."}, {"word": "be adapted to", "meaning": "~에 적응되어 있다, ~에 맞추어 발달하다", "note": "adapt A to B와 달리 수동형으로 ‘B에 적응된 상태’를 나타낸다."}, {"word": "under their own power", "meaning": "자기 자신의 힘으로", "note": "기계나 탈것의 도움 없이 스스로 움직인다는 뜻이다."}, {"word": "move through space", "meaning": "공간을 가로질러 이동하다", "note": "다소 추상적인 표현으로, 물리적 공간 속에서 움직이는 것을 말한다."}]}, {"id": 3, "original": "Our ability to distinguish detail in the environment is therefore ideally suited to movement at speeds of perhaps five miles per hour and under.", "explanation": "따라서 인간이 주변 환경의 세부를 구별해 내는 능력은 대략 시속 5마일 이하의 느린 이동 속도에 가장 잘 맞도록 되어 있다는 뜻이다.", "vocabulary": [{"word": "distinguish detail", "meaning": "세부를 구별하다, 미세한 차이를 식별하다", "note": "distinguish는 서로 다른 것을 알아보거나 식별하는 뜻이다."}, {"word": "therefore", "meaning": "그러므로, 따라서", "note": "앞 문장의 내용을 근거로 결론을 이끌 때 쓰인다."}, {"word": "ideally suited to", "meaning": "가장 적합한, 이상적으로 맞는", "note": "be suited to는 ‘~에 적합하다’라는 뜻이다."}, {"word": "and under", "meaning": "이하", "note": "숫자 뒤에서 그 수치와 그보다 낮은 범위를 뜻한다."}]}, {"id": 4, "original": "The fastest users of the street, motorists, therefore have a much more limited ability to process details along the street — a motorist simply has little time or ability to appreciate design details.", "explanation": "그래서 거리에서 가장 빠르게 이동하는 사람들인 운전자들은 거리의 세부 요소를 파악하는 능력이 훨씬 제한되며, 실제로 운전자는 디자인의 세세한 부분을 감상할 시간도 능력도 거의 없다는 말이다.", "vocabulary": [{"word": "motorists", "meaning": "자동차 운전자들", "note": "motorist는 자동차를 운전하는 사람을 뜻한다."}, {"word": "limited ability", "meaning": "제한된 능력", "note": "충분하지 않거나 범위가 좁은 능력을 말한다."}, {"word": "along the street", "meaning": "거리 곳곳에, 길을 따라", "note": "공간적으로 길 주변에 이어진 요소들을 가리킨다."}, {"word": "appreciate", "meaning": "이해하고 가치를 느끼다, 감상하다", "note": "여기서는 단순히 ‘좋아하다’가 아니라 세부 디자인의 가치를 알아차린다는 뜻이다."}, {"word": "design details", "meaning": "디자인의 세부 요소", "note": "건물, 거리, 공간 구성의 세밀한 특징을 가리킨다."}]}, {"id": 5, "original": "On the other hand, pedestrian travel, being much slower, allows for the appreciation of environmental detail.", "explanation": "반면에 보행은 훨씬 느리기 때문에 주변 환경의 세부적인 요소를 보고 느끼며 감상할 수 있게 해 준다는 뜻이다.", "vocabulary": [{"word": "On the other hand", "meaning": "반면에", "note": "앞의 내용과 대조되는 점을 제시할 때 쓰는 연결 표현이다."}, {"word": "pedestrian travel", "meaning": "보행 이동, 도보 이동", "note": "pedestrian는 형용사로 ‘보행자의’라는 뜻이다."}, {"word": "allows for", "meaning": "~을 가능하게 하다, ~의 여지를 주다", "note": "allow보다 다소 격식 있는 표현이다."}, {"word": "appreciation", "meaning": "이해, 감상, 가치 인식", "note": "여기서는 환경의 세부를 알아보고 느끼는 것을 뜻한다."}, {"word": "environmental detail", "meaning": "환경의 세부 요소", "note": "주변 공간에서 눈에 띄는 세밀한 특징들을 말한다."}]}, {"id": 6, "original": "Joggers and bicyclists fall somewhere in between these polar opposites; while they travel faster than pedestrians, their rate of speed is ordinarily much slower than that of the typical motorist.", "explanation": "조깅하는 사람들과 자전거 이용자는 이 두 극단의 중간쯤에 위치한다. 이들은 보행자보다 빠르게 이동하지만, 보통의 자동차 운전자보다는 훨씬 느리게 움직인다는 의미이다.", "vocabulary": [{"word": "fall somewhere in between", "meaning": "중간 어디쯤에 속하다", "note": "정확히 한쪽이 아니라 그 사이에 위치함을 나타내는 표현이다."}, {"word": "polar opposites", "meaning": "정반대의 두 극단", "note": "서로 완전히 반대되는 두 대상을 강조하는 표현이다."}, {"word": "ordinarily", "meaning": "보통, 일반적으로", "note": "usually와 비슷하지만 다소 격식 있는 느낌이 있다."}, {"word": "typical motorist", "meaning": "일반적인 운전자", "note": "특별한 경우가 아닌 평균적인 자동차 이용자를 뜻한다."}]}], "problem_number": "30"};
+const NEXT_PAGE = "31.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>

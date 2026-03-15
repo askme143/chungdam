@@ -514,6 +514,61 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -538,7 +593,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "기후 변화와 생물의 이동", "summary": "기후가 변하면 생물이 살 수 있는 조건을 만족하는 장소도 바뀌기 때문에, 모든 생물은 다양한 방식으로 이동하거나 퍼져 나가며 이에 적응한다.", "sentences": [{"id": 1, "original": "Every species has certain climatic requirements — what degree of heat or cold it can endure, for example.", "explanation": "모든 종은 살아가기 위해 필요한 특정한 기후 조건을 가지고 있으며, 예를 들어 어느 정도의 더위나 추위를 견딜 수 있는지가 그 조건에 포함된다.", "vocabulary": [{"word": "species", "meaning": "종, 생물 종", "note": "생물 분류에서 쓰이는 기본 단위이다."}, {"word": "climatic requirements", "meaning": "기후적 요구 조건", "note": "어떤 생물이 생존하기 위해 필요한 기후 조건을 뜻한다."}, {"word": "degree", "meaning": "정도, 수준", "note": "여기서는 온도나 강도의 수준을 말한다."}, {"word": "endure", "meaning": "견디다, 참다", "note": "고통·환경·어려움 등을 버틴다는 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "When the climate changes, the places that satisfy those requirements change, too.", "explanation": "기후가 변하면 그 생물의 기후 조건을 충족하는 지역도 함께 달라진다.", "vocabulary": [{"word": "satisfy", "meaning": "충족하다, 만족시키다", "note": "조건·요구 등을 채우는 의미로 쓰인다."}, {"word": "requirements", "meaning": "요구 조건, 필요 조건", "note": "앞 문장의 climatic requirements를 가리킨다."}]}, {"id": 3, "original": "Species are forced to follow.", "explanation": "그래서 종들은 살아남기 위해 그런 지역 변화에 맞춰 이동할 수밖에 없다.", "vocabulary": [{"word": "be forced to", "meaning": "~할 수밖에 없다, ~하도록 강요되다", "note": "외부 조건 때문에 선택의 여지가 적음을 나타낸다."}, {"word": "follow", "meaning": "따라가다, 뒤따르다", "note": "여기서는 적합한 서식지가 이동하는 방향을 따라간다는 뜻이다."}]}, {"id": 4, "original": "All creatures are capable of some degree of movement.", "explanation": "모든 생물은 정도의 차이는 있지만 어느 정도 움직일 수 있는 능력을 지니고 있다.", "vocabulary": [{"word": "creature", "meaning": "생물, 생명체", "note": "문맥에 따라 동물뿐 아니라 넓은 의미의 생물을 가리킬 수 있다."}, {"word": "be capable of", "meaning": "~할 수 있다, ~할 능력이 있다", "note": "능력이나 가능성을 나타내는 표현이다."}, {"word": "some degree of", "meaning": "어느 정도의", "note": "완전하지는 않지만 일정 수준은 된다는 뜻이다."}]}, {"id": 5, "original": "Even creatures that appear immobile, like trees and barnacles, are capable of dispersal at some stage of their life — as a seed, in the case of the tree, or as a larva, in the case of the barnacle.", "explanation": "나무나 따개비처럼 겉보기에는 움직이지 않는 생물도 삶의 어떤 단계에서는 퍼져 나갈 수 있다. 나무는 씨앗 상태로, 따개비는 유생 상태로 이동한다는 뜻이다.", "vocabulary": [{"word": "immobile", "meaning": "움직이지 않는, 고정된", "note": "mobile의 반대말이다."}, {"word": "barnacle", "meaning": "따개비", "note": "바위나 배 표면 등에 붙어 사는 해양 생물이다."}, {"word": "dispersal", "meaning": "분산, 퍼져 나감", "note": "생물이 다른 장소로 퍼지는 과정을 말한다."}, {"word": "seed", "meaning": "씨앗", "note": "식물이 퍼져 나가는 대표적인 형태이다."}, {"word": "larva", "meaning": "유생, 애벌레", "note": "성체가 되기 전의 초기 발달 단계를 뜻한다."}]}, {"id": 6, "original": "A creature must get from the place it is born — often occupied by its parent — to a place where it can survive, grow, and reproduce.", "explanation": "생물은 자신이 태어난 곳, 즉 흔히 부모가 차지하고 있는 장소를 떠나서, 스스로 살아남고 자라고 번식할 수 있는 다른 장소로 가야 한다.", "vocabulary": [{"word": "occupied", "meaning": "차지된, 점유된", "note": "여기서는 부모 개체가 이미 그 자리를 쓰고 있다는 뜻이다."}, {"word": "survive", "meaning": "생존하다", "note": "위험이나 어려운 환경 속에서도 살아남는다는 의미이다."}, {"word": "reproduce", "meaning": "번식하다", "note": "생물이 자손을 남기는 것을 뜻한다."}]}, {"id": 7, "original": "From fossils, scientists know that even creatures like trees moved with surprising speed during past periods of climate change.", "explanation": "과학자들은 화석을 통해, 과거의 기후 변화 시기에는 나무 같은 생물조차도 놀랄 만큼 빠른 속도로 이동했다는 사실을 알고 있다.", "vocabulary": [{"word": "fossil", "meaning": "화석", "note": "과거 생물의 흔적이나 유해가 굳어 남은 것이다."}, {"word": "with surprising speed", "meaning": "놀라운 속도로", "note": "예상보다 훨씬 빠르게라는 뉘앙스를 준다."}, {"word": "period", "meaning": "시기, 기간", "note": "특정한 역사적·시간적 구간을 뜻한다."}, {"word": "climate change", "meaning": "기후 변화", "note": "장기적인 기후 조건의 변화를 가리킨다."}]}]};
+const DATA = {"title": "기후 변화와 생물의 이동", "summary": "기후가 변하면 생물이 살 수 있는 조건을 만족하는 장소도 바뀌기 때문에, 모든 생물은 다양한 방식으로 이동하거나 퍼져 나가며 이에 적응한다.", "sentences": [{"id": 1, "original": "Every species has certain climatic requirements — what degree of heat or cold it can endure, for example.", "explanation": "모든 종은 살아가기 위해 필요한 특정한 기후 조건을 가지고 있으며, 예를 들어 어느 정도의 더위나 추위를 견딜 수 있는지가 그 조건에 포함된다.", "vocabulary": [{"word": "species", "meaning": "종, 생물 종", "note": "생물 분류에서 쓰이는 기본 단위이다."}, {"word": "climatic requirements", "meaning": "기후적 요구 조건", "note": "어떤 생물이 생존하기 위해 필요한 기후 조건을 뜻한다."}, {"word": "degree", "meaning": "정도, 수준", "note": "여기서는 온도나 강도의 수준을 말한다."}, {"word": "endure", "meaning": "견디다, 참다", "note": "고통·환경·어려움 등을 버틴다는 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "When the climate changes, the places that satisfy those requirements change, too.", "explanation": "기후가 변하면 그 생물의 기후 조건을 충족하는 지역도 함께 달라진다.", "vocabulary": [{"word": "satisfy", "meaning": "충족하다, 만족시키다", "note": "조건·요구 등을 채우는 의미로 쓰인다."}, {"word": "requirements", "meaning": "요구 조건, 필요 조건", "note": "앞 문장의 climatic requirements를 가리킨다."}]}, {"id": 3, "original": "Species are forced to follow.", "explanation": "그래서 종들은 살아남기 위해 그런 지역 변화에 맞춰 이동할 수밖에 없다.", "vocabulary": [{"word": "be forced to", "meaning": "~할 수밖에 없다, ~하도록 강요되다", "note": "외부 조건 때문에 선택의 여지가 적음을 나타낸다."}, {"word": "follow", "meaning": "따라가다, 뒤따르다", "note": "여기서는 적합한 서식지가 이동하는 방향을 따라간다는 뜻이다."}]}, {"id": 4, "original": "All creatures are capable of some degree of movement.", "explanation": "모든 생물은 정도의 차이는 있지만 어느 정도 움직일 수 있는 능력을 지니고 있다.", "vocabulary": [{"word": "creature", "meaning": "생물, 생명체", "note": "문맥에 따라 동물뿐 아니라 넓은 의미의 생물을 가리킬 수 있다."}, {"word": "be capable of", "meaning": "~할 수 있다, ~할 능력이 있다", "note": "능력이나 가능성을 나타내는 표현이다."}, {"word": "some degree of", "meaning": "어느 정도의", "note": "완전하지는 않지만 일정 수준은 된다는 뜻이다."}]}, {"id": 5, "original": "Even creatures that appear immobile, like trees and barnacles, are capable of dispersal at some stage of their life — as a seed, in the case of the tree, or as a larva, in the case of the barnacle.", "explanation": "나무나 따개비처럼 겉보기에는 움직이지 않는 생물도 삶의 어떤 단계에서는 퍼져 나갈 수 있다. 나무는 씨앗 상태로, 따개비는 유생 상태로 이동한다는 뜻이다.", "vocabulary": [{"word": "immobile", "meaning": "움직이지 않는, 고정된", "note": "mobile의 반대말이다."}, {"word": "barnacle", "meaning": "따개비", "note": "바위나 배 표면 등에 붙어 사는 해양 생물이다."}, {"word": "dispersal", "meaning": "분산, 퍼져 나감", "note": "생물이 다른 장소로 퍼지는 과정을 말한다."}, {"word": "seed", "meaning": "씨앗", "note": "식물이 퍼져 나가는 대표적인 형태이다."}, {"word": "larva", "meaning": "유생, 애벌레", "note": "성체가 되기 전의 초기 발달 단계를 뜻한다."}]}, {"id": 6, "original": "A creature must get from the place it is born — often occupied by its parent — to a place where it can survive, grow, and reproduce.", "explanation": "생물은 자신이 태어난 곳, 즉 흔히 부모가 차지하고 있는 장소를 떠나서, 스스로 살아남고 자라고 번식할 수 있는 다른 장소로 가야 한다.", "vocabulary": [{"word": "occupied", "meaning": "차지된, 점유된", "note": "여기서는 부모 개체가 이미 그 자리를 쓰고 있다는 뜻이다."}, {"word": "survive", "meaning": "생존하다", "note": "위험이나 어려운 환경 속에서도 살아남는다는 의미이다."}, {"word": "reproduce", "meaning": "번식하다", "note": "생물이 자손을 남기는 것을 뜻한다."}]}, {"id": 7, "original": "From fossils, scientists know that even creatures like trees moved with surprising speed during past periods of climate change.", "explanation": "과학자들은 화석을 통해, 과거의 기후 변화 시기에는 나무 같은 생물조차도 놀랄 만큼 빠른 속도로 이동했다는 사실을 알고 있다.", "vocabulary": [{"word": "fossil", "meaning": "화석", "note": "과거 생물의 흔적이나 유해가 굳어 남은 것이다."}, {"word": "with surprising speed", "meaning": "놀라운 속도로", "note": "예상보다 훨씬 빠르게라는 뉘앙스를 준다."}, {"word": "period", "meaning": "시기, 기간", "note": "특정한 역사적·시간적 구간을 뜻한다."}, {"word": "climate change", "meaning": "기후 변화", "note": "장기적인 기후 조건의 변화를 가리킨다."}]}], "problem_number": "31"};
+const NEXT_PAGE = "32.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -662,7 +718,7 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
   document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
@@ -734,6 +790,7 @@ function go(dir) {
       startQuiz();
     } else {
       if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
     }
     return;
   }
@@ -784,6 +841,9 @@ function showQuizQuestion() {
       <div class="quiz-choices">${choicesHtml}</div>
       <div id="quizFeedback"></div>
     </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
   document.body.appendChild(overlay);
 }
 
@@ -857,9 +917,31 @@ function showWrongSummary() {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
   document.body.appendChild(overlay);
 }
 
@@ -938,7 +1020,11 @@ document.addEventListener('click', e => {
 });
 
 // Init
-if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
 render();
 </script>
 </body>
