@@ -869,18 +869,15 @@ function pickChoice(btn) {
 
   if (isCorrect) {
     btn.classList.add('chosen-correct');
+    const fb = document.getElementById('quizFeedback');
+    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>`;
+    setTimeout(() => advanceQuiz(), 500);
   } else {
     btn.classList.add('chosen-wrong');
     allWrongWords.push({ word: q.word, meaning: q.meaning });
-  }
-
-  const fb = document.getElementById('quizFeedback');
-  const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
-  if (isCorrect) {
-    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>
-      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
-  } else {
+    const fb = document.getElementById('quizFeedback');
     const correctFull = q.isEn2Ko ? q.meaning : q.word;
+    const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
     fb.innerHTML = `<div class="quiz-feedback wrong">오답! 정답: <span class="fb-answer">${esc(correctFull)}</span></div>
       <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
   }
