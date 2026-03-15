@@ -341,6 +341,215 @@ _TEMPLATE = r"""<!DOCTYPE html>
     to   { opacity: 1; transform: translateY(0); }
   }
   main > * { animation: fadeIn .3s ease; }
+
+  /* ── Quiz Modal ── */
+  .quiz-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .quiz-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .quiz-progress {
+    font-size: .82rem;
+    color: var(--text-sub);
+    font-weight: 600;
+  }
+  .quiz-direction {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    margin-bottom: .6rem;
+  }
+  .quiz-direction.en2ko {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  .quiz-direction.ko2en {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .quiz-prompt {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .quiz-choice {
+    width: 100%;
+    text-align: left;
+    background: var(--vocab-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem 1rem;
+    font-size: .95rem;
+    font-family: inherit;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .quiz-choice:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .quiz-choice:disabled {
+    cursor: default;
+  }
+  .quiz-choice.chosen-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-choice.chosen-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-choice.reveal-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-feedback {
+    margin-top: .8rem;
+    padding: .75rem 1rem;
+    border-radius: 10px;
+    font-size: .93rem;
+    line-height: 1.5;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-feedback.correct {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .quiz-feedback.wrong {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  .quiz-feedback .fb-answer {
+    font-weight: 700;
+  }
+  .quiz-next-btn {
+    margin-top: .8rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .quiz-next-btn:hover {
+    background: #1d4ed8;
+  }
+
+  /* ── Wrong Words Summary ── */
+  .wrong-summary-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .wrong-summary-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .wrong-summary-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-summary-perfect {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-item {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    margin-bottom: .5rem;
+  }
+  .wrong-item .wi-word {
+    font-weight: 700;
+    color: #1d4ed8;
+    font-size: .95rem;
+  }
+  .wrong-item .wi-meaning {
+    font-size: .9rem;
+    color: var(--text);
+    margin-top: .15rem;
+  }
+  .wrong-close-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -488,18 +697,195 @@ function render() {
   document.getElementById('navIndicator').textContent = label;
   document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
   document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('nextBtn').disabled = false;
+  document.getElementById('nextBtn').textContent = cur === total - 1 ? '결과 \u203A' : '다음 \u203A';
   document.getElementById('content').scrollTop = 0;
 }
 
+// ── Quiz State ──
+let quizActive = false;
+let quizQueue = [];
+let quizIdx = 0;
+let quizAnswered = false;
+const allWrongWords = []; // {word, meaning} across entire passage
+
+// Collect all vocab from entire passage for distractor pool
+function getAllVocab() {
+  const all = [];
+  for (const s of DATA.sentences) {
+    if (s.vocabulary) {
+      for (const v of s.vocabulary) all.push(v);
+    }
+  }
+  return all;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function makeChoices(q) {
+  const allVocab = getAllVocab();
+  const correct = q.isEn2Ko ? q.meaning : q.word;
+  // Gather distractors from other vocab
+  const pool = allVocab
+    .map(v => q.isEn2Ko ? v.meaning : v.word)
+    .filter(t => t !== correct);
+  // Deduplicate
+  const unique = [...new Set(pool)];
+  shuffle(unique);
+  const distractors = unique.slice(0, 3);
+  // Combine and shuffle
+  const choices = [correct, ...distractors];
+  shuffle(choices);
+  return { choices, correctIdx: choices.indexOf(correct) };
+}
+
 function go(dir) {
-  const next = cur + dir;
-  if (next < 0 || next >= total) return;
-  cur = next; render();
+  if (quizActive) return;
+  if (dir === -1 && cur === 0) return;
+
+  // Going forward → show quiz for current sentence first
+  if (dir === 1) {
+    startQuiz();
+    return;
+  }
+  cur = cur + dir; render();
+}
+
+function startQuiz() {
+  const s = DATA.sentences[cur];
+  if (!s.vocabulary || s.vocabulary.length === 0) {
+    if (cur === total - 1) { showWrongSummary(); return; }
+    cur++; render();
+    return;
+  }
+
+  quizQueue = s.vocabulary.map(v => {
+    const isEn2Ko = Math.random() < 0.5;
+    return { word: v.word, meaning: v.meaning, isEn2Ko };
+  });
+  shuffle(quizQueue);
+  quizIdx = 0;
+  quizActive = true;
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  quizAnswered = false;
+  const q = quizQueue[quizIdx];
+  const dirClass = q.isEn2Ko ? 'en2ko' : 'ko2en';
+  const dirLabel = q.isEn2Ko ? 'English → 한국어' : '한국어 → English';
+  const prompt = q.isEn2Ko ? q.word : q.meaning;
+  const { choices, correctIdx } = makeChoices(q);
+
+  const choicesHtml = choices.map((c, i) =>
+    `<button class="quiz-choice" data-idx="${i}" data-correct="${i === correctIdx ? 1 : 0}" onclick="pickChoice(this)">${esc(c)}</button>`
+  ).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'quiz-overlay';
+  overlay.id = 'quizOverlay';
+  overlay.innerHTML = `
+    <div class="quiz-box">
+      <div class="quiz-header">
+        <span class="quiz-title">단어 퀴즈</span>
+        <span class="quiz-progress">${quizIdx + 1} / ${quizQueue.length}</span>
+      </div>
+      <span class="quiz-direction ${dirClass}">${dirLabel}</span>
+      <div class="quiz-prompt">${esc(prompt)}</div>
+      <div class="quiz-choices">${choicesHtml}</div>
+      <div id="quizFeedback"></div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function pickChoice(btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = quizQueue[quizIdx];
+  const isCorrect = btn.dataset.correct === '1';
+
+  // Disable all buttons
+  const allBtns = document.querySelectorAll('.quiz-choice');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.dataset.correct === '1') b.classList.add('reveal-correct');
+  });
+
+  if (isCorrect) {
+    btn.classList.add('chosen-correct');
+  } else {
+    btn.classList.add('chosen-wrong');
+    allWrongWords.push({ word: q.word, meaning: q.meaning });
+  }
+
+  const fb = document.getElementById('quizFeedback');
+  const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
+  if (isCorrect) {
+    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>
+      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
+  } else {
+    const correctFull = q.isEn2Ko ? q.meaning : q.word;
+    fb.innerHTML = `<div class="quiz-feedback wrong">오답! 정답: <span class="fb-answer">${esc(correctFull)}</span></div>
+      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
+  }
+}
+
+function advanceQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  if (overlay) overlay.remove();
+
+  quizIdx++;
+  if (quizIdx < quizQueue.length) {
+    showQuizQuestion();
+    return;
+  }
+
+  // Quiz done for this sentence
+  quizActive = false;
+  const isLast = cur === total - 1;
+
+  if (isLast) {
+    // Show wrong words summary after last sentence
+    showWrongSummary();
+  } else {
+    cur++;
+    render();
+  }
+}
+
+function showWrongSummary() {
+  const overlay = document.createElement('div');
+  overlay.className = 'wrong-summary-overlay';
+
+  let inner = '';
+  if (allWrongWords.length === 0) {
+    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+  } else {
+    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
+    // Deduplicate
+    const seen = new Set();
+    for (const w of allWrongWords) {
+      const key = w.word + '|' + w.meaning;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
+    }
+  }
+  inner += `<button class="wrong-close-btn" onclick="this.closest('.wrong-summary-overlay').remove()">닫기</button>`;
+
+  overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
 }
 
 // Keyboard
 document.addEventListener('keydown', e => {
+  if (quizActive) return;
   if (e.key === 'ArrowLeft') go(-1);
   if (e.key === 'ArrowRight') go(1);
 });
@@ -507,6 +893,7 @@ document.addEventListener('keydown', e => {
 let sx = 0;
 document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
 document.addEventListener('touchend', e => {
+  if (quizActive) return;
   const d = e.changedTouches[0].clientX - sx;
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
