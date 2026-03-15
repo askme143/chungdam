@@ -1,0 +1,218 @@
+{
+  "title": "뇌의 자동 조종 기능",
+  "summary": "우리 뇌의 오래된 부분은 움직임과 감각, 사람들과 어울리는 기본 능력을 자동으로 처리해 주고, 그래서 우리는 더 중요한 생각에 집중할 수 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Think of yourself.",
+      "explanation": "먼저 자기 자신을 떠올려 보라는 말이다.",
+      "vocabulary": [
+        {
+          "word": "think of",
+          "meaning": "떠올리다, 생각하다",
+          "note": "사람이나 일을 머릿속에 그려 보는 뜻으로 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "When you decide to get up and get a drink of water, for example, you don’t consciously organize or consider the host of steps involved.",
+      "explanation": "예를 들어, 일어나서 물을 마시기로 할 때 우리는 그 안에 들어 있는 많은 단계를 하나하나 의식하며 정리하거나 따져 보지 않는다.",
+      "vocabulary": [
+        {
+          "word": "consciously",
+          "meaning": "의식적으로",
+          "note": "자기도 분명히 알고 있는 상태에서 한다는 뜻이다."
+        },
+        {
+          "word": "organize",
+          "meaning": "정리하다, 짜다",
+          "note": "여기서는 해야 할 순서를 머릿속에서 맞춘다는 느낌이다."
+        },
+        {
+          "word": "the host of",
+          "meaning": "많은, 수많은",
+          "note": "아주 많다는 뜻을 강조하는 표현이다."
+        },
+        {
+          "word": "involved",
+          "meaning": "들어 있는, 관련된",
+          "note": "앞의 steps를 꾸며 주며 그 일에 포함된 단계라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Imagine if we had to consider every single muscle that needed to be contracted or relaxed just to stand up and walk.",
+      "explanation": "단지 일어나서 걷기 위해서도 어떤 근육은 힘을 주고 어떤 근육은 풀어야 하는지, 그 모든 근육을 우리가 하나하나 다 생각해야 한다고 상상해 보라.",
+      "vocabulary": [
+        {
+          "word": "every single",
+          "meaning": "하나하나 모든",
+          "note": "빠짐없이 전부라는 뜻을 강하게 보여 준다."
+        },
+        {
+          "word": "muscle",
+          "meaning": "근육",
+          "note": ""
+        },
+        {
+          "word": "contracted",
+          "meaning": "수축된, 힘이 들어간",
+          "note": "contract의 뜻은 줄어들다, 오그라들다이다."
+        },
+        {
+          "word": "relaxed",
+          "meaning": "이완된, 힘이 풀린",
+          "note": "근육이 느슨해진 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "It would be tiresome and very slow — as patients recovering from a brain injury affecting the motor system know.",
+      "explanation": "그렇게 해야 한다면 몹시 피곤하고 아주 느릴 것이다. 운동 기능에 문제가 생긴 뇌 손상에서 회복 중인 환자들은 이 점을 잘 안다.",
+      "vocabulary": [
+        {
+          "word": "tiresome",
+          "meaning": "지치게 하는, 피곤한",
+          "note": "단순히 tired가 아니라 사람을 지치게 만든다는 느낌이다."
+        },
+        {
+          "word": "recovering from",
+          "meaning": "~에서 회복 중인",
+          "note": "병이나 상처가 낫는 과정에 있을 때 쓴다."
+        },
+        {
+          "word": "brain injury",
+          "meaning": "뇌 손상",
+          "note": ""
+        },
+        {
+          "word": "affecting",
+          "meaning": "영향을 주는",
+          "note": "여기서는 motor system에 문제를 일으키는 뜻이다."
+        },
+        {
+          "word": "motor system",
+          "meaning": "운동 체계, 몸을 움직이게 하는 기능",
+          "note": "몸의 움직임을 조절하는 뇌와 신경의 작용을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "The autopilot parts of our brain do it for us automatically, freeing up our conscious mind for more important jobs.",
+      "explanation": "우리 뇌의 자동 조종 역할을 하는 부분이 이런 일을 저절로 처리해 준다. 그래서 우리는 의식적으로 생각하는 힘을 더 중요한 일에 쓸 수 있다.",
+      "vocabulary": [
+        {
+          "word": "autopilot",
+          "meaning": "자동 조종",
+          "note": "비행기의 자동 조종 장치에서 온 말로, 사람이 일일이 신경 쓰지 않아도 저절로 돌아가는 뜻으로도 쓴다."
+        },
+        {
+          "word": "automatically",
+          "meaning": "자동으로, 저절로",
+          "note": ""
+        },
+        {
+          "word": "free up",
+          "meaning": "비워 두다, 다른 데 쓸 수 있게 하다",
+          "note": "시간이나 힘을 아껴서 다른 일에 쓰게 만든다는 뜻이다."
+        },
+        {
+          "word": "conscious mind",
+          "meaning": "의식하는 마음",
+          "note": "스스로 알고 생각하는 정신 작용을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "It is the older parts of our brain that support these automatic processes that allow us to move, hear, see, and use many of our social skills.",
+      "explanation": "우리가 움직이고, 듣고, 보고, 사람들과 어울릴 때 쓰는 여러 능력을 가능하게 하는 이런 자동 작용은 뇌의 더 오래된 부분이 떠받치고 있다.",
+      "vocabulary": [
+        {
+          "word": "older parts of our brain",
+          "meaning": "우리 뇌의 더 오래된 부분",
+          "note": "진화의 역사에서 먼저 생긴 뇌 부분을 가리킨다."
+        },
+        {
+          "word": "support",
+          "meaning": "떠받치다, 도와주다",
+          "note": "여기서는 어떤 기능이 돌아가게 해 준다는 뜻이다."
+        },
+        {
+          "word": "automatic processes",
+          "meaning": "자동으로 일어나는 작용",
+          "note": ""
+        },
+        {
+          "word": "social skills",
+          "meaning": "사람들과 잘 어울리는 능력",
+          "note": "대화하기, 표정 읽기, 관계 맺기 같은 능력을 포함한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "More recently evolved abilities like talking, reading, and writing are far less automated.",
+      "explanation": "말하기, 읽기, 쓰기처럼 비교적 나중에 생긴 능력은 자동으로 처리되는 정도가 훨씬 낮다.",
+      "vocabulary": [
+        {
+          "word": "more recently evolved",
+          "meaning": "비교적 나중에 생긴",
+          "note": "진화 과정에서 더 최근에 발달했다는 뜻이다."
+        },
+        {
+          "word": "abilities",
+          "meaning": "능력들",
+          "note": ""
+        },
+        {
+          "word": "far less",
+          "meaning": "훨씬 덜",
+          "note": "차이가 크다는 점을 강조하는 표현이다."
+        },
+        {
+          "word": "automated",
+          "meaning": "자동화된, 저절로 처리되는",
+          "note": "사람이 의식적으로 힘을 덜 들여도 되는 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "So, most of the time, what you are perceiving, feeling, or thinking is based on a very crude and fast analysis that happens completely without your awareness.",
+      "explanation": "그래서 대부분의 경우, 우리가 보고 느끼고 생각하는 것은 아주 거칠지만 빠른 판단에 바탕을 두고 있다. 그리고 그 판단은 우리가 알아차리지 못하는 사이에 완전히 저절로 일어난다.",
+      "vocabulary": [
+        {
+          "word": "most of the time",
+          "meaning": "대부분의 경우",
+          "note": ""
+        },
+        {
+          "word": "perceiving",
+          "meaning": "지각하는 것, 알아차려 느끼는 것",
+          "note": "눈, 귀, 몸의 감각으로 받아들이는 것을 넓게 말한다."
+        },
+        {
+          "word": "crude",
+          "meaning": "거친, 정교하지 않은",
+          "note": "세밀하고 꼼꼼하지 않다는 뜻이다."
+        },
+        {
+          "word": "analysis",
+          "meaning": "분석, 판단",
+          "note": "여기서는 뇌가 아주 빨리 상황을 가려 내는 일을 말한다."
+        },
+        {
+          "word": "without your awareness",
+          "meaning": "네가 알아차리지 못한 채",
+          "note": "의식하지 못하는 사이에라는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "29"
+}

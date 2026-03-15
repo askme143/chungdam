@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .quiz-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle.off {
+    background: var(--border);
+    color: var(--text-sub);
+  }
+  .quiz-toggle.off:hover {
+    background: #cbd5e1;
+    color: var(--text);
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+
+  /* ── Quiz Modal ── */
+  .quiz-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .quiz-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .quiz-progress {
+    font-size: .82rem;
+    color: var(--text-sub);
+    font-weight: 600;
+  }
+  .quiz-direction {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    margin-bottom: .6rem;
+  }
+  .quiz-direction.en2ko {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  .quiz-direction.ko2en {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .quiz-prompt {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .quiz-choice {
+    width: 100%;
+    text-align: left;
+    background: var(--vocab-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem 1rem;
+    font-size: .95rem;
+    font-family: inherit;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .quiz-choice:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .quiz-choice:disabled {
+    cursor: default;
+  }
+  .quiz-choice.chosen-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-choice.chosen-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-choice.reveal-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-feedback {
+    margin-top: .8rem;
+    padding: .75rem 1rem;
+    border-radius: 10px;
+    font-size: .93rem;
+    line-height: 1.5;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-feedback.correct {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .quiz-feedback.wrong {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  .quiz-feedback .fb-answer {
+    font-weight: 700;
+  }
+  .quiz-next-btn {
+    margin-top: .8rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .quiz-next-btn:hover {
+    background: #1d4ed8;
+  }
+
+  /* ── Wrong Words Summary ── */
+  .wrong-summary-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .wrong-summary-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .wrong-summary-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-summary-perfect {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-item {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    margin-bottom: .5rem;
+  }
+  .wrong-item .wi-word {
+    font-weight: 700;
+    color: #1d4ed8;
+    font-size: .95rem;
+  }
+  .wrong-item .wi-meaning {
+    font-size: .9rem;
+    color: var(--text);
+    margin-top: .15rem;
+  }
+  .wrong-close-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "아버지와 아들의 마음이 다시 가까워진 등산", "summary": "멀어졌던 아버지와 아들이 함께 등산을 하며 서로의 진짜 마음을 나누고 다시 가까워지는 이야기이다.", "sentences": [{"id": 1, "original": "“Do you remember when Sean used to tell me that I was the best dad in the world?”", "explanation": "에단은 아내에게, 예전에 션이 자신을 세상에서 가장 좋은 아빠라고 말하던 때를 기억하냐고 물었다.", "vocabulary": [{"word": "used to", "meaning": "예전에 ~하곤 했다", "note": "지금은 그렇지 않다는 느낌이 함께 들어간다."}, {"word": "the best dad in the world", "meaning": "세상에서 가장 좋은 아빠", "note": "아이들이 애정을 담아 자주 하는 말투이다."}]}, {"id": 2, "original": "Ethan asked his wife, Grace.", "explanation": "이 말은 에단이 아내 그레이스에게 한 것이었다.", "vocabulary": [{"word": "wife", "meaning": "아내", "note": ""}]}, {"id": 3, "original": "“Yes, I do. I always envied your relationship with Sean,” she replied.", "explanation": "그레이스는 기억한다고 하면서, 에단과 션의 사이가 늘 부러웠다고 대답했다.", "vocabulary": [{"word": "envied", "meaning": "부러워했다", "note": "envy는 남이 가진 좋은 것을 보고 부러워하는 마음이다."}, {"word": "relationship", "meaning": "관계, 사이", "note": "사람과 사람 사이의 가까움이나 연결을 말한다."}]}, {"id": 4, "original": "Ethan then shared how things had changed since his son started middle school.", "explanation": "그 뒤 에단은 아들이 중학교에 들어간 뒤로 많은 것이 어떻게 달라졌는지 이야기했다.", "vocabulary": [{"word": "shared", "meaning": "이야기했다, 털어놓았다", "note": "마음을 나누듯 말할 때 자주 쓴다."}, {"word": "since", "meaning": "~한 뒤로", "note": "어떤 시점을 기준으로 그때부터 지금까지를 나타낸다."}, {"word": "middle school", "meaning": "중학교", "note": ""}]}, {"id": 5, "original": "Grace had noticed Ethan often pushing Sean to study harder.", "explanation": "그레이스는 에단이 션에게 더 열심히 공부하라고 자주 몰아붙이고 있다는 것을 알아차리고 있었다.", "vocabulary": [{"word": "had noticed", "meaning": "알아차리고 있었다", "note": "그보다 앞선 시점부터 이미 알고 있었다는 뜻이다."}, {"word": "pushing", "meaning": "몰아붙이는 것, 강하게 재촉하는 것", "note": "여기서는 실제로 미는 것이 아니라 압박하는 뜻이다."}, {"word": "study harder", "meaning": "더 열심히 공부하다", "note": ""}]}, {"id": 6, "original": "“Maybe he isn’t that into school right now. How about going hiking, just the two of you?” she suggested.", "explanation": "그레이스는 지금 션이 학교생활에 그렇게 큰 관심이 없는 것 같다고 하며, 둘이서만 등산을 가 보는 게 어떠냐고 제안했다.", "vocabulary": [{"word": "be into", "meaning": "~에 관심이 많다, 좋아하다", "note": "구어체에서 자주 쓰는 표현이다."}, {"word": "How about ~?", "meaning": "~하는 게 어때?", "note": "제안할 때 쓰는 쉬운 표현이다."}, {"word": "just the two of you", "meaning": "당신들 둘만", "note": "다른 사람 없이 둘만 함께한다는 뜻이다."}, {"word": "suggested", "meaning": "제안했다", "note": ""}]}, {"id": 7, "original": "He agreed, and realizing that both his and Sean’s hiking jackets were still at the laundry, he asked his wife to go and pick them up with him.", "explanation": "에단은 좋다고 했고, 자기 것과 션의 등산 재킷이 아직 세탁소에 있다는 것을 깨닫고 아내에게 함께 가서 찾아오자고 했다.", "vocabulary": [{"word": "realizing", "meaning": "깨닫고", "note": "어떤 사실을 그때 알아차리는 뜻이다."}, {"word": "the laundry", "meaning": "세탁소", "note": "문맥에 따라 세탁물 자체를 뜻하기도 하지만 여기서는 세탁소이다."}, {"word": "pick them up", "meaning": "그것들을 찾아오다", "note": "맡겨 둔 물건을 가지러 가는 뜻이다."}]}, {"id": 8, "original": "“When did you bring the jackets in?” the clerk at the laundry asked.", "explanation": "세탁소 직원은 재킷을 언제 맡겼는지 물었다.", "vocabulary": [{"word": "bring in", "meaning": "가져와 맡기다", "note": "가게나 세탁소 등에 물건을 가져오는 뜻으로 자주 쓴다."}, {"word": "clerk", "meaning": "직원", "note": "가게나 사무실에서 일하는 사람을 말한다."}]}, {"id": 9, "original": "“Maybe two weeks ago,” Ethan replied.", "explanation": "에단은 아마 2주쯤 전일 거라고 대답했다.", "vocabulary": [{"word": "Maybe", "meaning": "아마", "note": "확실하지 않을 때 쓴다."}, {"word": "replied", "meaning": "대답했다", "note": ""}]}, {"id": 10, "original": "Then, Grace quickly reminded him, “Honey, we actually left them here a month ago.”", "explanation": "그러자 그레이스는 에단에게, 여보 우리가 사실은 그것들을 한 달 전에 맡겼다고 얼른 알려 주었다.", "vocabulary": [{"word": "reminded", "meaning": "다시 알려 주었다, 상기시켰다", "note": "잊고 있던 것을 떠올리게 해 주는 말이다."}, {"word": "Honey", "meaning": "여보", "note": "부부 사이에서 다정하게 부를 때 쓰는 말이다."}, {"word": "actually", "meaning": "사실은", "note": "생각과 다른 진짜 내용을 말할 때 쓴다."}]}, {"id": 11, "original": "The clerk went into the storage area to look for the clothes.", "explanation": "직원은 옷을 찾으려고 보관해 두는 곳으로 들어갔다.", "vocabulary": [{"word": "storage area", "meaning": "보관 공간, 창고 같은 곳", "note": "물건을 쌓아 두는 장소를 말한다."}, {"word": "look for", "meaning": "찾다", "note": ""}]}, {"id": 12, "original": "Finally, he returned with the jackets and handed them to Ethan.", "explanation": "마침내 그는 재킷들을 가지고 돌아와 에단에게 건네주었다.", "vocabulary": [{"word": "Finally", "meaning": "마침내", "note": "시간이 좀 걸린 뒤에 결국이라는 느낌이다."}, {"word": "handed", "meaning": "건네주었다", "note": "손으로 주는 모습을 떠올리면 쉽다."}]}, {"id": 13, "original": "The clerk politely said, “I am sorry, but please collect your items earlier next time. Our storage is too full.”", "explanation": "직원은 공손하게 미안하다고 말하면서, 다음부터는 맡긴 물건을 좀 더 일찍 찾아가 달라고 했다. 보관하는 곳이 너무 꽉 차 있기 때문이었다.", "vocabulary": [{"word": "politely", "meaning": "공손하게", "note": ""}, {"word": "collect your items", "meaning": "맡긴 물건을 찾아가다", "note": "여기서 collect는 모으다가 아니라 찾아간다는 뜻이다."}, {"word": "storage", "meaning": "보관 공간", "note": ""}, {"word": "too full", "meaning": "너무 가득 찬", "note": ""}]}, {"id": 14, "original": "Ethan felt embarrassed for the late collection and apologized.", "explanation": "에단은 늦게 찾아간 것이 부끄러워서 사과했다.", "vocabulary": [{"word": "embarrassed", "meaning": "부끄러운, 민망한", "note": "실수하거나 난처한 상황에서 느끼는 감정이다."}, {"word": "late collection", "meaning": "늦은 수거, 늦게 찾아감", "note": "여기서는 세탁물을 너무 늦게 찾아간 일을 말한다."}, {"word": "apologized", "meaning": "사과했다", "note": ""}]}, {"id": 15, "original": "Ethan and Grace came back home with the jackets and checked if Sean had everything else he needed for hiking.", "explanation": "에단과 그레이스는 재킷을 가지고 집에 돌아와서, 션이 등산에 필요한 다른 것들도 다 가지고 있는지 확인했다.", "vocabulary": [{"word": "checked if", "meaning": "~인지 확인했다", "note": ""}, {"word": "everything else", "meaning": "그 밖의 모든 것", "note": "이미 말한 것 외에 남은 것들을 뜻한다."}, {"word": "needed for hiking", "meaning": "등산에 필요한", "note": ""}]}, {"id": 16, "original": "Luckily, in his drawers they found his hat, shoes, sunglasses, and hiking sticks.", "explanation": "다행히 서랍들 안에서 모자, 신발, 선글라스, 등산 스틱을 찾았다.", "vocabulary": [{"word": "Luckily", "meaning": "다행히", "note": ""}, {"word": "drawers", "meaning": "서랍들", "note": ""}, {"word": "hiking sticks", "meaning": "등산 스틱", "note": "걸을 때 몸을 지탱하는 막대이다."}]}, {"id": 17, "original": "When Sean returned from school, Ethan softly said, “Sean, let’s go hiking this Saturday, just the two of us.”", "explanation": "션이 학교에서 돌아오자 에단은 부드럽게, 이번 토요일에 둘이서만 등산 가자고 말했다.", "vocabulary": [{"word": "softly", "meaning": "부드럽게, 조용히", "note": "말투가 다정하고 세지 않다는 느낌이다."}, {"word": "let’s go hiking", "meaning": "등산 가자", "note": "함께 하자고 권하는 표현이다."}, {"word": "this Saturday", "meaning": "이번 토요일", "note": ""}]}, {"id": 18, "original": "Though Sean thanked him for the suggestion, he said he had to go to the library.", "explanation": "션은 제안해 준 것에는 고맙다고 했지만, 도서관에 가야 한다고 말했다.", "vocabulary": [{"word": "Though", "meaning": "비록 ~하지만", "note": "뒤에 반대되는 내용이 이어진다."}, {"word": "suggestion", "meaning": "제안", "note": ""}, {"word": "had to", "meaning": "~해야 했다", "note": "해야 하는 일이 있다는 뜻이다."}]}, {"id": 19, "original": "Grace stepped in, “You know, the weather this weekend will be the best of the year. Why not enjoy it?”", "explanation": "그때 그레이스가 끼어들어, 이번 주말 날씨가 올해 가장 좋을 테니 즐겨 보는 게 어떠냐고 말했다.", "vocabulary": [{"word": "stepped in", "meaning": "끼어들었다, 나서서 말했다", "note": "대화나 상황에 중간에 들어와 돕는 느낌이 있다."}, {"word": "the best of the year", "meaning": "올해 가장 좋은", "note": ""}, {"word": "Why not ~?", "meaning": "~하는 게 어때?", "note": "상대에게 가볍게 권할 때 쓰는 표현이다."}]}, {"id": 20, "original": "After a moment’s hesitation, he agreed.", "explanation": "션은 잠깐 망설인 뒤에 그러겠다고 했다.", "vocabulary": [{"word": "a moment’s hesitation", "meaning": "잠깐의 망설임", "note": "바로 결정하지 못하고 잠시 멈추는 모습이다."}, {"word": "agreed", "meaning": "동의했다, 그러겠다고 했다", "note": ""}]}, {"id": 21, "original": "The weather was perfect.", "explanation": "날씨는 더없이 좋았다.", "vocabulary": [{"word": "perfect", "meaning": "아주 완벽한, 더없이 좋은", "note": "흠잡을 데 없이 좋다는 뜻이다."}]}, {"id": 22, "original": "Ethan and Sean set off hiking along the valley by Aicken Mountain.", "explanation": "에단과 션은 아이컨 산 옆 계곡을 따라 등산을 떠났다.", "vocabulary": [{"word": "set off", "meaning": "출발했다", "note": "여행이나 길을 떠날 때 자주 쓰는 표현이다."}, {"word": "along the valley", "meaning": "계곡을 따라", "note": ""}, {"word": "by Aicken Mountain", "meaning": "아이컨 산 옆의", "note": "by는 여기서 ~옆에, ~근처에의 뜻이다."}]}, {"id": 23, "original": "They walked in silence until Sean fell over a rock and twisted his ankle.", "explanation": "두 사람은 말없이 걷다가, 션이 바위에 걸려 넘어지면서 발목을 삐었다.", "vocabulary": [{"word": "in silence", "meaning": "말없이", "note": ""}, {"word": "fell over", "meaning": "걸려 넘어졌다", "note": "무언가에 걸리거나 부딪혀 넘어지는 뜻이다."}, {"word": "twisted his ankle", "meaning": "발목을 삐었다", "note": "운동하거나 걷다가 자주 다치는 부위이다."}]}, {"id": 24, "original": "Realizing he couldn’t walk, Ethan carried his son down on his back.", "explanation": "션이 걸을 수 없다는 것을 알고, 에단은 아들을 업고 아래로 내려왔다.", "vocabulary": [{"word": "couldn’t walk", "meaning": "걸을 수 없었다", "note": ""}, {"word": "carried his son on his back", "meaning": "아들을 업었다", "note": "등에 태우고 옮기는 것을 말한다."}]}, {"id": 25, "original": "He felt Sean’s heartbeat, something he hadn’t felt since Sean was a baby.", "explanation": "에단은 션의 심장 뛰는 소리를 느꼈다. 그것은 션이 아기였던 때 이후로 오랫동안 느껴 보지 못한 것이었다.", "vocabulary": [{"word": "heartbeat", "meaning": "심장 뛰는 소리, 심장 박동", "note": ""}, {"word": "since Sean was a baby", "meaning": "션이 아기였을 때 이후로", "note": "아주 오랜 시간의 흐름을 보여 준다."}]}, {"id": 26, "original": "Suddenly, Sean said, “Dad, I’m sorry. At some point, I started to become afraid of disappointing you. But you are still the best dad.”", "explanation": "갑자기 션은 아빠에게 미안하다고 말했다. 어느 순간부터 아빠를 실망시킬까 봐 두려워지기 시작했다는 것이다. 하지만 여전히 아빠는 최고의 아빠라고 말했다.", "vocabulary": [{"word": "At some point", "meaning": "어느 순간부터", "note": "정확히 언제인지는 모르지만 어느 때부터라는 뜻이다."}, {"word": "become afraid of", "meaning": "~을 두려워하게 되다", "note": ""}, {"word": "disappointing you", "meaning": "당신을 실망시키는 것", "note": "상대의 기대에 못 미치는 것을 말한다."}, {"word": "still", "meaning": "여전히", "note": "변하지 않고 계속 그렇다는 뜻이다."}]}, {"id": 27, "original": "Energized, he felt no weight on his back and replied, “You are the best son, no matter what.”", "explanation": "힘이 난 에단은 등에 업은 무게가 느껴지지 않을 만큼 마음이 가벼워졌고, 무슨 일이 있어도 너는 최고의 아들이라고 대답했다.", "vocabulary": [{"word": "Energized", "meaning": "힘이 난, 기운이 생긴", "note": "몸과 마음에 힘이 다시 들어온 느낌이다."}, {"word": "felt no weight on his back", "meaning": "등의 무게가 느껴지지 않았다", "note": "기쁜 마음 때문에 힘든 줄 몰랐다는 뜻으로도 볼 수 있다."}, {"word": "no matter what", "meaning": "무슨 일이 있어도", "note": "어떤 상황이든 변하지 않는다는 뜻이다."}]}], "problem_number": "43"};
+const NEXT_PAGE = null;
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
+  document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
+  document.getElementById('content').scrollTop = 0;
+}
+
+// ── Quiz Mode Toggle ──
+let quizEnabled = true;
+
+function toggleQuizMode() {
+  quizEnabled = !quizEnabled;
+  const btn = document.getElementById('quizToggle');
+  btn.textContent = quizEnabled ? '퀴즈 ON' : '퀴즈 OFF';
+  btn.classList.toggle('off', !quizEnabled);
+  // Update next button text
+  if (cur === total - 1) {
+    document.getElementById('nextBtn').textContent = quizEnabled ? '결과 \u203A' : '다음 \u203A';
+  }
+}
+
+// ── Quiz State ──
+let quizActive = false;
+let quizQueue = [];
+let quizIdx = 0;
+let quizAnswered = false;
+const allWrongWords = []; // {word, meaning} across entire passage
+
+// Collect all vocab from entire passage for distractor pool
+function getAllVocab() {
+  const all = [];
+  for (const s of DATA.sentences) {
+    if (s.vocabulary) {
+      for (const v of s.vocabulary) all.push(v);
+    }
+  }
+  return all;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function makeChoices(q) {
+  const allVocab = getAllVocab();
+  const correct = q.isEn2Ko ? q.meaning : q.word;
+  // Gather distractors from other vocab
+  const pool = allVocab
+    .map(v => q.isEn2Ko ? v.meaning : v.word)
+    .filter(t => t !== correct);
+  // Deduplicate
+  const unique = [...new Set(pool)];
+  shuffle(unique);
+  const distractors = unique.slice(0, 3);
+  // Combine and shuffle
+  const choices = [correct, ...distractors];
+  shuffle(choices);
+  return { choices, correctIdx: choices.indexOf(correct) };
+}
+
+function go(dir) {
+  if (quizActive) return;
+  if (dir === -1 && cur === 0) return;
+
+  // Going forward → show quiz for current sentence first
+  if (dir === 1) {
+    if (quizEnabled) {
+      startQuiz();
+    } else {
+      if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
+    }
+    return;
+  }
+  cur = cur + dir; render();
+}
+
+function startQuiz() {
+  const s = DATA.sentences[cur];
+  if (!s.vocabulary || s.vocabulary.length === 0) {
+    if (cur === total - 1) { showWrongSummary(); return; }
+    cur++; render();
+    return;
+  }
+
+  quizQueue = s.vocabulary.map(v => {
+    const isEn2Ko = Math.random() < 0.5;
+    return { word: v.word, meaning: v.meaning, isEn2Ko };
+  });
+  shuffle(quizQueue);
+  quizIdx = 0;
+  quizActive = true;
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  quizAnswered = false;
+  const q = quizQueue[quizIdx];
+  const dirClass = q.isEn2Ko ? 'en2ko' : 'ko2en';
+  const dirLabel = q.isEn2Ko ? 'English → 한국어' : '한국어 → English';
+  const prompt = q.isEn2Ko ? q.word : q.meaning;
+  const { choices, correctIdx } = makeChoices(q);
+
+  const choicesHtml = choices.map((c, i) =>
+    `<button class="quiz-choice" data-idx="${i}" data-correct="${i === correctIdx ? 1 : 0}" onclick="pickChoice(this)">${esc(c)}</button>`
+  ).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'quiz-overlay';
+  overlay.id = 'quizOverlay';
+  overlay.innerHTML = `
+    <div class="quiz-box">
+      <div class="quiz-header">
+        <span class="quiz-title">단어 퀴즈</span>
+        <span class="quiz-progress">${quizIdx + 1} / ${quizQueue.length}</span>
+      </div>
+      <span class="quiz-direction ${dirClass}">${dirLabel}</span>
+      <div class="quiz-prompt">${esc(prompt)}</div>
+      <div class="quiz-choices">${choicesHtml}</div>
+      <div id="quizFeedback"></div>
+    </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
+  document.body.appendChild(overlay);
+}
+
+function pickChoice(btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = quizQueue[quizIdx];
+  const isCorrect = btn.dataset.correct === '1';
+
+  // Disable all buttons
+  const allBtns = document.querySelectorAll('.quiz-choice');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.dataset.correct === '1') b.classList.add('reveal-correct');
+  });
+
+  if (isCorrect) {
+    btn.classList.add('chosen-correct');
+    const fb = document.getElementById('quizFeedback');
+    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>`;
+    setTimeout(() => advanceQuiz(), 500);
+  } else {
+    btn.classList.add('chosen-wrong');
+    allWrongWords.push({ word: q.word, meaning: q.meaning });
+    const fb = document.getElementById('quizFeedback');
+    const correctFull = q.isEn2Ko ? q.meaning : q.word;
+    const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
+    fb.innerHTML = `<div class="quiz-feedback wrong">오답! 정답: <span class="fb-answer">${esc(correctFull)}</span></div>
+      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
+  }
+}
+
+function advanceQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  if (overlay) overlay.remove();
+
+  quizIdx++;
+  if (quizIdx < quizQueue.length) {
+    showQuizQuestion();
+    return;
+  }
+
+  // Quiz done for this sentence
+  quizActive = false;
+  const isLast = cur === total - 1;
+
+  if (isLast) {
+    // Show wrong words summary after last sentence
+    showWrongSummary();
+  } else {
+    cur++;
+    render();
+  }
+}
+
+function showWrongSummary() {
+  const overlay = document.createElement('div');
+  overlay.className = 'wrong-summary-overlay';
+
+  let inner = '';
+  if (allWrongWords.length === 0) {
+    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+  } else {
+    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
+    // Deduplicate
+    const seen = new Set();
+    for (const w of allWrongWords) {
+      const key = w.word + '|' + w.meaning;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
+    }
+  }
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (quizActive) return;
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  if (quizActive) return;
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .quiz-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle.off {
+    background: var(--border);
+    color: var(--text-sub);
+  }
+  .quiz-toggle.off:hover {
+    background: #cbd5e1;
+    color: var(--text);
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+
+  /* ── Quiz Modal ── */
+  .quiz-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .quiz-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .quiz-progress {
+    font-size: .82rem;
+    color: var(--text-sub);
+    font-weight: 600;
+  }
+  .quiz-direction {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    margin-bottom: .6rem;
+  }
+  .quiz-direction.en2ko {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  .quiz-direction.ko2en {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .quiz-prompt {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .quiz-choice {
+    width: 100%;
+    text-align: left;
+    background: var(--vocab-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem 1rem;
+    font-size: .95rem;
+    font-family: inherit;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .quiz-choice:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .quiz-choice:disabled {
+    cursor: default;
+  }
+  .quiz-choice.chosen-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-choice.chosen-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-choice.reveal-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-feedback {
+    margin-top: .8rem;
+    padding: .75rem 1rem;
+    border-radius: 10px;
+    font-size: .93rem;
+    line-height: 1.5;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-feedback.correct {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .quiz-feedback.wrong {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  .quiz-feedback .fb-answer {
+    font-weight: 700;
+  }
+  .quiz-next-btn {
+    margin-top: .8rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .quiz-next-btn:hover {
+    background: #1d4ed8;
+  }
+
+  /* ── Wrong Words Summary ── */
+  .wrong-summary-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .wrong-summary-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .wrong-summary-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-summary-perfect {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-item {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    margin-bottom: .5rem;
+  }
+  .wrong-item .wi-word {
+    font-weight: 700;
+    color: #1d4ed8;
+    font-size: .95rem;
+  }
+  .wrong-item .wi-meaning {
+    font-size: .9rem;
+    color: var(--text);
+    margin-top: .15rem;
+  }
+  .wrong-close-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "농촌 공동체에서 평판이 계약을 지키게 하는 힘", "summary": "작은 농촌 공동체에서는 농부와 지주가 쌓아 온 평판이 중요해서, 서로 속이거나 자기 이익만 챙기면 나중에 다른 사람들과 거래하기 어려워진다.", "sentences": [{"id": 1, "original": "The potential for market enforcement is greater when contracting parties have developed reputational capital that can be devalued when contracts are violated.", "explanation": "계약을 맺는 사람들이 좋은 평판을 오래 쌓아 왔다면, 시장 안에서 서로를 지키게 하는 힘이 더 커진다. 계약을 어기면 그 평판의 가치가 떨어지기 때문이다.", "vocabulary": [{"word": "market enforcement", "meaning": "시장 안에서 규칙이나 약속을 지키게 하는 힘", "note": "법으로 강제하는 것이 아니라 거래 관계 속에서 자연스럽게 생기는 압박을 말한다."}, {"word": "contracting parties", "meaning": "계약을 맺는 당사자들", "note": "여기서는 주로 농부와 지주를 가리킨다."}, {"word": "reputational capital", "meaning": "평판으로 쌓인 믿음의 가치", "note": "돈처럼 눈에 보이진 않지만, 좋은 이름이 큰 자산이 된다는 뜻이다."}, {"word": "devalued", "meaning": "가치가 떨어진", "note": "value(가치)에서 나온 말이다."}, {"word": "violated", "meaning": "어긴", "note": "contracts are violated는 '계약이 어겨지다'라는 뜻이다."}]}, {"id": 2, "original": "Farmers and landowners develop reputations for honesty, fairness, producing high yields, and consistently demonstrating that they are good at what they do.", "explanation": "농부와 지주는 정직함, 공정함, 많은 수확을 내는 능력, 그리고 자기 일을 꾸준히 잘한다는 모습을 통해 평판을 쌓는다.", "vocabulary": [{"word": "landowners", "meaning": "지주, 땅 주인", "note": ""}, {"word": "honesty", "meaning": "정직함", "note": ""}, {"word": "fairness", "meaning": "공정함", "note": "한쪽으로 치우치지 않고 바르게 대하는 태도이다."}, {"word": "high yields", "meaning": "많은 수확량", "note": "yield는 농사에서 '수확량'이라는 뜻으로 자주 쓰인다."}, {"word": "consistently", "meaning": "꾸준히, 한결같이", "note": ""}]}, {"id": 3, "original": "In small, close-knit farming communities, reputations are well known.", "explanation": "작고 서로 가깝게 지내는 농촌 공동체에서는 누가 어떤 사람인지에 대한 평판이 널리 알려져 있다.", "vocabulary": [{"word": "close-knit", "meaning": "서로 매우 가깝고 끈끈한", "note": "사람들 사이의 관계가 촘촘하다는 느낌의 표현이다."}, {"word": "farming communities", "meaning": "농촌 공동체", "note": ""}, {"word": "well known", "meaning": "널리 알려진", "note": ""}]}, {"id": 4, "original": "Over time landowners indirectly monitor farmers by observing the reported output, the general quality of the soil, and any unusual or extreme behavior.", "explanation": "시간이 지나면서 지주들은 농부를 직접 감시하지 않아도, 보고된 생산량과 땅의 전반적인 상태, 그리고 이상하거나 지나친 행동을 보며 농부의 행동을 어느 정도 살핀다.", "vocabulary": [{"word": "indirectly monitor", "meaning": "직접 보지 않고도 살피다", "note": "monitor는 계속 지켜보고 확인한다는 뜻이다."}, {"word": "reported output", "meaning": "보고된 생산량", "note": "output은 여기서 농작물 생산량을 뜻한다."}, {"word": "general quality of the soil", "meaning": "흙의 전반적인 상태", "note": "soil은 농사짓는 땅의 흙을 말한다."}, {"word": "unusual or extreme behavior", "meaning": "이상하거나 지나친 행동", "note": "평소와 다른 수상한 행동을 가리킨다."}]}, {"id": 5, "original": "Farmer and landowner reputations act as a bond.", "explanation": "농부와 지주의 평판은 서로가 약속을 지키게 만드는 일종의 안전장치 구실을 한다.", "vocabulary": [{"word": "act as", "meaning": "~의 구실을 하다", "note": ""}, {"word": "bond", "meaning": "사람이 약속을 지키게 붙잡아 두는 장치, 담보 같은 것", "note": "여기서는 사람을 묶어 두는 믿음과 책임의 힘을 뜻한다."}]}, {"id": 6, "original": "In any growing season a farmer can reduce effort, overuse soil, or underreport the crop.", "explanation": "어느 재배 기간에든 농부는 일을 덜 하거나, 땅을 지나치게 쓰거나, 실제보다 수확량을 적게 보고할 수 있다.", "vocabulary": [{"word": "growing season", "meaning": "작물을 기르는 기간, 재배 기간", "note": ""}, {"word": "reduce effort", "meaning": "노력을 줄이다, 일을 덜 하다", "note": ""}, {"word": "overuse soil", "meaning": "땅을 지나치게 사용하다", "note": "흙의 힘을 너무 많이 써서 땅이 상할 수 있다는 뜻이 담겨 있다."}, {"word": "underreport", "meaning": "실제보다 적게 보고하다", "note": "under-는 '부족하게, 적게'의 느낌을 더한다."}, {"word": "crop", "meaning": "수확물, 농작물", "note": ""}]}, {"id": 7, "original": "Similarly, a landowner can undermaintain fences, ditches, and irrigation systems.", "explanation": "마찬가지로 지주도 울타리, 배수로, 물 대는 시설을 제대로 돌보지 않을 수 있다.", "vocabulary": [{"word": "Similarly", "meaning": "마찬가지로", "note": ""}, {"word": "undermaintain", "meaning": "제대로 관리하지 않다", "note": "필요한 만큼 손보고 유지하지 않는다는 뜻이다."}, {"word": "fences", "meaning": "울타리", "note": ""}, {"word": "ditches", "meaning": "도랑, 배수로", "note": ""}, {"word": "irrigation systems", "meaning": "관개 시설, 물 대는 시설", "note": "농지에 물을 공급하는 장치나 체계를 말한다."}]}, {"id": 8, "original": "Accurate assessments of farmer and landowner behavior will be made over time, and those farmers and landowners who attempt to gain at each other’s expense will find that others may refuse to deal with them in the future.", "explanation": "시간이 지나면 농부와 지주가 어떻게 행동했는지 꽤 정확하게 드러난다. 그래서 상대를 손해 보게 하면서 자기 이익만 챙기려 한 사람은, 앞으로 다른 사람들이 그와 거래하지 않으려 할 수 있다.", "vocabulary": [{"word": "accurate assessments", "meaning": "정확한 판단", "note": "assessment는 살펴본 뒤 내리는 평가를 말한다."}, {"word": "over time", "meaning": "시간이 지나면서", "note": ""}, {"word": "at each other’s expense", "meaning": "상대의 손해를 바탕으로", "note": "한쪽이 이익을 얻는 대신 다른 쪽이 손해를 보는 상황이다."}, {"word": "refuse to deal with", "meaning": "거래하기를 거부하다", "note": "deal with는 여기서 '거래하다'라는 뜻이다."}]}], "problem_number": "36"};
+const NEXT_PAGE = null;
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
+  document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
+  document.getElementById('content').scrollTop = 0;
+}
+
+// ── Quiz Mode Toggle ──
+let quizEnabled = true;
+
+function toggleQuizMode() {
+  quizEnabled = !quizEnabled;
+  const btn = document.getElementById('quizToggle');
+  btn.textContent = quizEnabled ? '퀴즈 ON' : '퀴즈 OFF';
+  btn.classList.toggle('off', !quizEnabled);
+  // Update next button text
+  if (cur === total - 1) {
+    document.getElementById('nextBtn').textContent = quizEnabled ? '결과 \u203A' : '다음 \u203A';
+  }
+}
+
+// ── Quiz State ──
+let quizActive = false;
+let quizQueue = [];
+let quizIdx = 0;
+let quizAnswered = false;
+const allWrongWords = []; // {word, meaning} across entire passage
+
+// Collect all vocab from entire passage for distractor pool
+function getAllVocab() {
+  const all = [];
+  for (const s of DATA.sentences) {
+    if (s.vocabulary) {
+      for (const v of s.vocabulary) all.push(v);
+    }
+  }
+  return all;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function makeChoices(q) {
+  const allVocab = getAllVocab();
+  const correct = q.isEn2Ko ? q.meaning : q.word;
+  // Gather distractors from other vocab
+  const pool = allVocab
+    .map(v => q.isEn2Ko ? v.meaning : v.word)
+    .filter(t => t !== correct);
+  // Deduplicate
+  const unique = [...new Set(pool)];
+  shuffle(unique);
+  const distractors = unique.slice(0, 3);
+  // Combine and shuffle
+  const choices = [correct, ...distractors];
+  shuffle(choices);
+  return { choices, correctIdx: choices.indexOf(correct) };
+}
+
+function go(dir) {
+  if (quizActive) return;
+  if (dir === -1 && cur === 0) return;
+
+  // Going forward → show quiz for current sentence first
+  if (dir === 1) {
+    if (quizEnabled) {
+      startQuiz();
+    } else {
+      if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
+    }
+    return;
+  }
+  cur = cur + dir; render();
+}
+
+function startQuiz() {
+  const s = DATA.sentences[cur];
+  if (!s.vocabulary || s.vocabulary.length === 0) {
+    if (cur === total - 1) { showWrongSummary(); return; }
+    cur++; render();
+    return;
+  }
+
+  quizQueue = s.vocabulary.map(v => {
+    const isEn2Ko = Math.random() < 0.5;
+    return { word: v.word, meaning: v.meaning, isEn2Ko };
+  });
+  shuffle(quizQueue);
+  quizIdx = 0;
+  quizActive = true;
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  quizAnswered = false;
+  const q = quizQueue[quizIdx];
+  const dirClass = q.isEn2Ko ? 'en2ko' : 'ko2en';
+  const dirLabel = q.isEn2Ko ? 'English → 한국어' : '한국어 → English';
+  const prompt = q.isEn2Ko ? q.word : q.meaning;
+  const { choices, correctIdx } = makeChoices(q);
+
+  const choicesHtml = choices.map((c, i) =>
+    `<button class="quiz-choice" data-idx="${i}" data-correct="${i === correctIdx ? 1 : 0}" onclick="pickChoice(this)">${esc(c)}</button>`
+  ).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'quiz-overlay';
+  overlay.id = 'quizOverlay';
+  overlay.innerHTML = `
+    <div class="quiz-box">
+      <div class="quiz-header">
+        <span class="quiz-title">단어 퀴즈</span>
+        <span class="quiz-progress">${quizIdx + 1} / ${quizQueue.length}</span>
+      </div>
+      <span class="quiz-direction ${dirClass}">${dirLabel}</span>
+      <div class="quiz-prompt">${esc(prompt)}</div>
+      <div class="quiz-choices">${choicesHtml}</div>
+      <div id="quizFeedback"></div>
+    </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
+  document.body.appendChild(overlay);
+}
+
+function pickChoice(btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = quizQueue[quizIdx];
+  const isCorrect = btn.dataset.correct === '1';
+
+  // Disable all buttons
+  const allBtns = document.querySelectorAll('.quiz-choice');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.dataset.correct === '1') b.classList.add('reveal-correct');
+  });
+
+  if (isCorrect) {
+    btn.classList.add('chosen-correct');
+    const fb = document.getElementById('quizFeedback');
+    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>`;
+    setTimeout(() => advanceQuiz(), 500);
+  } else {
+    btn.classList.add('chosen-wrong');
+    allWrongWords.push({ word: q.word, meaning: q.meaning });
+    const fb = document.getElementById('quizFeedback');
+    const correctFull = q.isEn2Ko ? q.meaning : q.word;
+    const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
+    fb.innerHTML = `<div class="quiz-feedback wrong">오답! 정답: <span class="fb-answer">${esc(correctFull)}</span></div>
+      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
+  }
+}
+
+function advanceQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  if (overlay) overlay.remove();
+
+  quizIdx++;
+  if (quizIdx < quizQueue.length) {
+    showQuizQuestion();
+    return;
+  }
+
+  // Quiz done for this sentence
+  quizActive = false;
+  const isLast = cur === total - 1;
+
+  if (isLast) {
+    // Show wrong words summary after last sentence
+    showWrongSummary();
+  } else {
+    cur++;
+    render();
+  }
+}
+
+function showWrongSummary() {
+  const overlay = document.createElement('div');
+  overlay.className = 'wrong-summary-overlay';
+
+  let inner = '';
+  if (allWrongWords.length === 0) {
+    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+  } else {
+    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
+    // Deduplicate
+    const seen = new Set();
+    for (const w of allWrongWords) {
+      const key = w.word + '|' + w.meaning;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
+    }
+  }
+  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (quizActive) return;
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  if (quizActive) return;
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
+render();
+</script>
+</body>
+</html>

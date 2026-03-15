@@ -1,0 +1,130 @@
+{
+  "title": "주의를 사고파는 시대",
+  "summary": "이 글은 오늘날 많은 무료 서비스와 온라인 추천 시스템이 사실은 사람들의 관심과 시간을 붙잡아 돈을 버는 방식으로 움직인다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "We are famously living in the era of the attention economy, where the largest and most profitable businesses in the world are those that consume my attention.",
+      "explanation": "우리는 흔히 '주의 경제'의 시대에 살고 있다고 말한다. 이 시대에는 사람들의 관심과 시간을 많이 차지하는 회사들이 세계에서 가장 크고 돈도 많이 번다.",
+      "vocabulary": [
+        {
+          "word": "attention economy",
+          "meaning": "주의 경제, 사람들의 관심을 돈으로 바꾸는 경제 방식",
+          "note": "온라인 플랫폼, SNS, 동영상 서비스 같은 곳을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "famously",
+          "meaning": "널리 알려진 대로, 흔히",
+          "note": "여기서는 '많이들 그렇게 말하듯이'라는 느낌이다."
+        },
+        {
+          "word": "profitable",
+          "meaning": "돈이 많이 되는, 이익이 큰",
+          "note": "profit(이익)에서 나온 말이다."
+        },
+        {
+          "word": "consume",
+          "meaning": "소비하다, 잡아먹다",
+          "note": "여기서는 물건을 쓰는 뜻이 아니라 사람의 관심을 계속 차지한다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The advertising industry is literally dedicated to capturing the conscious hours of my life and selling them to someone else.",
+      "explanation": "광고 산업은 말 그대로 내가 깨어 있는 시간, 즉 정신이 또렷한 시간을 붙잡아서 그것을 다른 사람에게 팔기 위해 움직인다.",
+      "vocabulary": [
+        {
+          "word": "advertising industry",
+          "meaning": "광고 산업",
+          "note": "광고를 만들고 퍼뜨려 돈을 버는 분야 전체를 가리킨다."
+        },
+        {
+          "word": "literally",
+          "meaning": "말 그대로",
+          "note": "강조할 때 자주 쓰인다."
+        },
+        {
+          "word": "be dedicated to",
+          "meaning": "~에 전념하다, ~을 위해 만들어지다",
+          "note": "여기서는 광고 산업의 목적이 무엇인지 보여 준다."
+        },
+        {
+          "word": "capturing",
+          "meaning": "붙잡는 것, 사로잡는 것",
+          "note": "attention과 함께 자주 쓰여 '관심을 끌어모으다'라는 뜻이 된다."
+        },
+        {
+          "word": "conscious hours",
+          "meaning": "깨어 있는 시간",
+          "note": "잠자는 시간이 아닌, 의식이 있는 시간을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "It might seem magical that so many exciting and useful software systems are available to use for free, but it is now conventional wisdom that if you can’t see who is paying for something that appears to be free, then the real product being sold is you.",
+      "explanation": "흥미롭고 쓸모 있는 많은 소프트웨어를 공짜로 쓸 수 있다는 것은 마치 신기한 일처럼 보일 수 있다. 하지만 이제는 공짜처럼 보이는 것의 값을 누가 내는지 보이지 않으면, 실제로 팔리고 있는 것은 바로 사용자 자신이라는 생각이 널리 알려져 있다.",
+      "vocabulary": [
+        {
+          "word": "magical",
+          "meaning": "마법 같은, 아주 신기한",
+          "note": "여기서는 '너무 좋아 보여서 믿기 어려운' 느낌이다."
+        },
+        {
+          "word": "available to use for free",
+          "meaning": "무료로 사용할 수 있는",
+          "note": "available은 '이용할 수 있는'이라는 뜻으로 자주 나온다."
+        },
+        {
+          "word": "conventional wisdom",
+          "meaning": "많은 사람이 맞다고 여기는 생각",
+          "note": "꼭 절대적인 진실이라기보다 널리 받아들여지는 생각을 말한다."
+        },
+        {
+          "word": "appears to be free",
+          "meaning": "공짜처럼 보이다",
+          "note": "appear는 '겉으로 보기에는 ~처럼 보이다'라는 뜻이다."
+        },
+        {
+          "word": "the real product being sold is you",
+          "meaning": "실제로 팔리는 상품은 바로 당신이다",
+          "note": "사용자의 관심, 정보, 행동 기록이 돈이 된다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Our creative engagement with other people is mediated by AI-based recommendation systems that are designed to trap our attention through the process that Nick Seaver calls captology, keeping us attending to work sold by one company rather than another, replacing the freedom of personal exploration with algorithm-generated playlists or even algorithm-generated art.",
+      "explanation": "우리가 다른 사람들과 창의적으로 어울리고 소통하는 방식은 AI 추천 시스템을 거쳐 이루어진다. 그런데 이런 시스템은 닉 시버가 '캡톨로지'라고 부른 방식으로 우리의 관심을 붙잡도록 만들어져 있다. 그래서 우리는 스스로 자유롭게 찾아보기보다, 어떤 회사가 내놓은 콘텐츠를 계속 보게 된다. 그 결과 개인이 직접 탐색하는 자유는 알고리즘이 만든 재생 목록이나, 심지어 알고리즘이 만든 예술로 바뀌게 된다.",
+      "vocabulary": [
+        {
+          "word": "creative engagement",
+          "meaning": "창의적으로 참여하고 어울리는 것",
+          "note": "engagement는 단순한 접촉이 아니라 적극적으로 관계를 맺는 느낌이다."
+        },
+        {
+          "word": "is mediated by",
+          "meaning": "~을 통해 이루어지다, ~이 사이에 끼어 있다",
+          "note": "직접 하는 것이 아니라 중간에 다른 것이 끼어 있다는 뜻이다."
+        },
+        {
+          "word": "AI-based recommendation systems",
+          "meaning": "AI 기반 추천 시스템",
+          "note": "유튜브, 넷플릭스, SNS 추천 기능을 떠올리면 쉽다."
+        },
+        {
+          "word": "trap our attention",
+          "meaning": "우리의 관심을 붙잡아 두다",
+          "note": "trap은 '덫에 걸리게 하다'라는 느낌이 있다."
+        },
+        {
+          "word": "captology",
+          "meaning": "사람의 행동이나 관심을 끌어내도록 기술을 설계하는 방식",
+          "note": "capture와 technology를 합쳐 만든 말로 볼 수 있다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "33"
+}

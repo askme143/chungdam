@@ -1,0 +1,125 @@
+{
+  "title": "로마 시대 건축가의 높아진 자리",
+  "summary": "로마 시대에는 건축이 정치적으로 큰 뜻을 가지게 되면서 건축가의 지위가 높아졌고, 비트루비우스는 훌륭한 건축가가 되려면 실무 능력과 폭넓은 배움을 함께 갖춰야 한다고 말했다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The position of the architect rose during the Roman Empire, as architecture symbolically became a particularly important political statement.",
+      "explanation": "로마 제국 시대에는 건축가의 사회적 자리가 더 높아졌다. 그 까닭은 건축이 단순히 건물을 짓는 일을 넘어서, 정치적 힘과 뜻을 보여 주는 아주 중요한 수단이 되었기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "position",
+          "meaning": "지위, 사회적 자리",
+          "note": "여기서는 물리적 위치가 아니라 사회에서의 높아진 자리라는 뜻이다."
+        },
+        {
+          "word": "rose",
+          "meaning": "올라갔다, 높아졌다",
+          "note": "rise의 과거형이다."
+        },
+        {
+          "word": "symbolically",
+          "meaning": "상징적으로",
+          "note": "겉모습 그 자체보다 어떤 뜻을 보여 준다는 느낌이다."
+        },
+        {
+          "word": "political statement",
+          "meaning": "정치적 메시지, 정치적 뜻을 드러내는 표현",
+          "note": "말로 한 발언만이 아니라 건물이나 행동으로 드러내는 뜻도 가리킬 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Cicero classed the architect with the physician and the teacher and Vitruvius spoke of “so great a profession as this.”",
+      "explanation": "키케로는 건축가를 의사와 교사와 같은 부류로 보았다. 또 비트루비우스는 건축이라는 일을 매우 위대한 직업이라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "classed A with B",
+          "meaning": "A를 B와 같은 부류로 보았다",
+          "note": "같은 수준이나 비슷한 집단에 넣어 생각했다는 뜻이다."
+        },
+        {
+          "word": "physician",
+          "meaning": "의사",
+          "note": "doctor보다 조금 더 격식 있는 말이다."
+        },
+        {
+          "word": "profession",
+          "meaning": "전문 직업",
+          "note": "특별한 지식과 훈련이 필요한 일을 말한다."
+        },
+        {
+          "word": "so great a profession",
+          "meaning": "이토록 훌륭한 직업",
+          "note": "강조하는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Marcus Vitruvius Pollio, a practicing architect during the rule of Augustus Caesar, recognized that architecture requires both practical and theoretical knowledge, and he listed the disciplines he felt the aspiring architect should master: literature and writing, draftsmanship, mathematics, history, philosophy, music, medicine, law, and astronomy — a curriculum that still has much to recommend it.",
+      "explanation": "아우구스투스 황제 때 실제로 일하던 건축가였던 마르쿠스 비트루비우스 폴리오는, 건축에는 실제로 하는 능력과 이론 지식이 둘 다 필요하다고 보았다. 그래서 그는 건축가를 꿈꾸는 사람이 꼭 익혀야 할 공부로 문학과 글쓰기, 제도, 수학, 역사, 철학, 음악, 의학, 법, 천문학을 꼽았다. 이런 배움의 짜임은 지금 봐도 배울 점이 많다.",
+      "vocabulary": [
+        {
+          "word": "practicing architect",
+          "meaning": "실제로 일하고 있는 건축가",
+          "note": "이론만 연구하는 사람이 아니라 현장에서 일하는 사람이라는 뜻이다."
+        },
+        {
+          "word": "theoretical knowledge",
+          "meaning": "이론 지식",
+          "note": "원리와 생각을 바탕으로 한 지식이다."
+        },
+        {
+          "word": "aspiring architect",
+          "meaning": "건축가를 꿈꾸는 사람",
+          "note": "aspiring은 장차 ~이 되기를 바라는 뜻이다."
+        },
+        {
+          "word": "draftsmanship",
+          "meaning": "제도 기술, 도면 그리는 능력",
+          "note": "건축 도면을 정확하게 그리는 실력을 말한다."
+        },
+        {
+          "word": "curriculum",
+          "meaning": "교육 과정, 배울 내용의 짜임",
+          "note": "학교나 훈련 과정에서 무엇을 배우는지 정리한 것이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "All of this study was necessary, he argued, because architects who have aimed at acquiring manual skill without scholarship have never been able to reach a position of authority to correspond to their plans, while those who have relied only upon theories and scholarship were obviously “hunting the shadow, not the substance.”",
+      "explanation": "그는 이런 공부가 모두 꼭 필요하다고 말했다. 학문적 배움 없이 손기술만 익히려 한 건축가들은, 자기 계획에 걸맞은 권위 있는 자리까지 올라갈 수 없었기 때문이다. 반대로 이론과 학문에만 기대는 사람들은 실제 중요한 것은 놓치고, 겉모습이나 헛된 것만 좇는 셈이라고 보았다.",
+      "vocabulary": [
+        {
+          "word": "manual skill",
+          "meaning": "손으로 하는 기술, 실무 기술",
+          "note": "직접 만들고 다루는 능력을 말한다."
+        },
+        {
+          "word": "scholarship",
+          "meaning": "학문적 배움, 학식",
+          "note": "장학금이라는 뜻도 있지만 여기서는 학문 지식이라는 뜻이다."
+        },
+        {
+          "word": "position of authority",
+          "meaning": "권위 있는 자리, 책임 있는 지위",
+          "note": "다른 사람들에게 인정받고 영향력을 가지는 자리를 말한다."
+        },
+        {
+          "word": "correspond to",
+          "meaning": "~에 걸맞다, ~와 어울리다",
+          "note": "서로 맞거나 들어맞는다는 뜻이다."
+        },
+        {
+          "word": "hunting the shadow, not the substance",
+          "meaning": "본질이 아니라 그림자만 좇다",
+          "note": "겉만 보고 진짜 중요한 것은 놓친다는 비유적 표현이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "21"
+}

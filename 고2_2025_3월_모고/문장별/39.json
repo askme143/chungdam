@@ -1,0 +1,226 @@
+{
+  "title": "물건의 삶은 한 줄로 끝나지 않는다",
+  "summary": "유지와 수리는 물건을 오래 쓰게 만들며, 물건의 삶은 사고 버리는 한 줄짜리 흐름보다 훨씬 더 복잡하고 여러 갈래로 이어진다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "By their very nature, the concepts of maintenance and repair are predominantly examined from a process-oriented perspective.",
+      "explanation": "유지와 수리라는 생각은 그 성격상, 보통 결과보다 '어떻게 이루어지는지' 같은 과정 중심으로 많이 살펴본다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "by their very nature",
+          "meaning": "그 본래 성격상, 원래부터",
+          "note": "문장 전체의 기본 성질을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "maintenance",
+          "meaning": "유지, 관리",
+          "note": "기계나 시설이 계속 잘 작동하도록 돌보는 것을 말한다."
+        },
+        {
+          "word": "predominantly",
+          "meaning": "주로, 대부분",
+          "note": ""
+        },
+        {
+          "word": "process-oriented",
+          "meaning": "과정 중심의",
+          "note": "결과보다 진행 방식과 절차에 더 관심을 두는 뜻이다."
+        },
+        {
+          "word": "perspective",
+          "meaning": "관점, 보는 방식",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The focus in related scholarly discourse often revolves around the lifespan or lifecycle of objects and technologies.",
+      "explanation": "이와 관련된 학문적인 논의에서는 물건이나 기술이 얼마나 오래 쓰이는지, 또 어떤 단계를 거치는지에 관심이 자주 모인다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "scholarly discourse",
+          "meaning": "학문적인 논의",
+          "note": "연구자들이 글이나 말로 주고받는 전문적인 논의를 가리킨다."
+        },
+        {
+          "word": "revolves around",
+          "meaning": "~을 중심으로 돌아가다, ~에 초점이 맞춰지다",
+          "note": "아주 자주 쓰이는 표현이다."
+        },
+        {
+          "word": "lifespan",
+          "meaning": "수명, 사용 가능한 기간",
+          "note": "사람뿐 아니라 물건이나 제도에도 쓸 수 있다."
+        },
+        {
+          "word": "lifecycle",
+          "meaning": "생애 주기, 처음부터 끝까지의 단계",
+          "note": "제품이 만들어지고 쓰이다가 버려지기까지의 흐름을 말할 때 많이 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "In this context, maintenance and repair are considered practices that have the potential to prolong the existence of objects, ensuring their sustained utilization over an extended period.",
+      "explanation": "이런 흐름에서 유지와 수리는 물건의 수명을 늘릴 수 있는 행동으로 여겨진다. 그래서 물건을 더 오랫동안 계속 사용할 수 있게 해 준다고 본다.",
+      "vocabulary": [
+        {
+          "word": "in this context",
+          "meaning": "이런 맥락에서, 이런 상황에서",
+          "note": ""
+        },
+        {
+          "word": "practices",
+          "meaning": "실천, 실제로 하는 활동",
+          "note": "여기서는 단순한 이론이 아니라 실제 행동을 뜻한다."
+        },
+        {
+          "word": "have the potential to",
+          "meaning": "~할 가능성이 있다",
+          "note": ""
+        },
+        {
+          "word": "prolong",
+          "meaning": "늘리다, 더 길게 하다",
+          "note": "시간이나 기간을 길게 만들 때 쓴다."
+        },
+        {
+          "word": "sustained utilization",
+          "meaning": "지속적인 사용",
+          "note": "오랫동안 계속 쓰는 것을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Krebs and Weber critically engage with anthropomorphic metaphors that imply a biography of things, appropriately highlighting that conventional understanding of the lifecycle of a technology, from its acquisition to its disposal from the household, provides an incomplete definition.",
+      "explanation": "크렙스와 베버는 물건을 마치 사람처럼 보고 '물건의 일생'이 있다고 말하는 비유를 비판적으로 다룬다. 그리고 기술 제품은 집에 들여온 때부터 버릴 때까지로만 보면, 그 삶을 다 설명하지 못한다고 알맞게 짚어 준다.",
+      "vocabulary": [
+        {
+          "word": "critically engage with",
+          "meaning": "비판적으로 다루다, 따져 보며 살피다",
+          "note": "무조건 반대한다기보다 자세히 검토한다는 느낌이 있다."
+        },
+        {
+          "word": "anthropomorphic metaphors",
+          "meaning": "사람처럼 보는 비유",
+          "note": "anthropomorphic은 사람이 아닌 것을 사람처럼 보는 뜻이다."
+        },
+        {
+          "word": "imply",
+          "meaning": "넌지시 뜻하다, 암시하다",
+          "note": ""
+        },
+        {
+          "word": "biography of things",
+          "meaning": "물건의 일생, 물건의 삶 이야기",
+          "note": "사람의 전기처럼 물건에도 삶의 이야기가 있다고 보는 표현이다."
+        },
+        {
+          "word": "disposal",
+          "meaning": "처분, 버림",
+          "note": "쓰고 난 뒤 버리거나 내보내는 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In reality, objects do not conform to a linear lifecycle model; instead, they undergo breakdowns, await repairs, are stored away, or find themselves relegated to the basement, only to be rediscovered and repurposed later.",
+      "explanation": "실제로 물건은 처음부터 끝까지 한 줄로 곧게 이어지는 방식대로 움직이지 않는다. 고장 나기도 하고, 수리를 기다리기도 하며, 어딘가에 보관되기도 한다. 또 지하실 같은 곳에 밀려나 있다가 나중에 다시 발견되어 다른 용도로 쓰이기도 한다.",
+      "vocabulary": [
+        {
+          "word": "conform to",
+          "meaning": "~에 맞다, ~을 따르다",
+          "note": ""
+        },
+        {
+          "word": "linear lifecycle model",
+          "meaning": "직선처럼 이어지는 생애 주기 모델",
+          "note": "중간 변화 없이 시작에서 끝으로 간다고 보는 틀이다."
+        },
+        {
+          "word": "undergo",
+          "meaning": "겪다",
+          "note": "변화나 어려운 일을 겪을 때 자주 쓴다."
+        },
+        {
+          "word": "relegated to",
+          "meaning": "~로 밀려나다, ~에 처박히다",
+          "note": "중요하지 않은 자리로 보내지는 느낌이 있다."
+        },
+        {
+          "word": "repurposed",
+          "meaning": "다른 용도로 다시 쓰이다",
+          "note": "원래 목적과 다르게 새롭게 활용하는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Additionally, objects may enter recycling or second-hand cycles, leading to a dynamic afterlife marked by diverse applications.",
+      "explanation": "게다가 물건은 재활용되거나 중고로 다시 팔리는 흐름에 들어갈 수도 있다. 그러면 그 물건은 한 번 끝나는 것이 아니라, 여러 방식으로 다시 쓰이는 새로운 삶을 이어 가게 된다.",
+      "vocabulary": [
+        {
+          "word": "additionally",
+          "meaning": "게다가, 더해서",
+          "note": ""
+        },
+        {
+          "word": "recycling",
+          "meaning": "재활용",
+          "note": ""
+        },
+        {
+          "word": "second-hand cycles",
+          "meaning": "중고 거래의 흐름, 중고로 다시 쓰이는 과정",
+          "note": "한 사람이 쓰고 끝나는 것이 아니라 다른 사람에게 넘어가는 흐름이다."
+        },
+        {
+          "word": "dynamic afterlife",
+          "meaning": "계속 달라지는 이후의 삶",
+          "note": "afterlife는 여기서 죽은 뒤의 삶이 아니라, 원래 쓰임이 끝난 뒤 이어지는 다음 단계를 비유적으로 말한다."
+        },
+        {
+          "word": "diverse applications",
+          "meaning": "여러 가지 쓰임, 다양한 활용",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "As such, the life of an object exhibits a far more complicated and adaptive path than a simplistic linear progression.",
+      "explanation": "그래서 물건의 삶은 단순히 한 방향으로만 흘러가는 것이 아니다. 훨씬 더 복잡하고, 상황에 따라 바뀌며 이어지는 길을 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "as such",
+          "meaning": "그래서, 그런 점에서",
+          "note": "앞의 내용을 받아 결론을 말할 때 쓴다."
+        },
+        {
+          "word": "exhibits",
+          "meaning": "보여 주다, 드러내다",
+          "note": ""
+        },
+        {
+          "word": "adaptive",
+          "meaning": "상황에 맞게 바뀌는, 적응하는",
+          "note": ""
+        },
+        {
+          "word": "simplistic",
+          "meaning": "지나치게 단순한",
+          "note": "simple과 비슷하지만, 너무 단순해서 중요한 점을 놓친다는 느낌이 있다."
+        },
+        {
+          "word": "linear progression",
+          "meaning": "한 줄로 이어지는 진행",
+          "note": "중간에 되돌아감이나 변화가 없는 흐름을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "39"
+}
