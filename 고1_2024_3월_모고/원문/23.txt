@@ -1,0 +1,13 @@
+Crop rotation is the process in which farmers change the 
+crops they grow in their fields in a special order. 
+For example, if a farmer has three fields, he or she may 
+grow carrots in the first field, green beans in the second, 
+and tomatoes in the third. 
+The next year, green beans will be in the first field, tomatoes 
+in the second field, and carrots will be in the third. 
+In year three, the crops will rotate again. 
+By the fourth year, the crops will go back to their original
+order. 
+Each crop enriches the soil for the next crop. 
+This type of farming is sustainable because the soil stays 
+healthy. 
