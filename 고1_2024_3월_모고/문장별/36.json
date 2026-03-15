@@ -1,0 +1,185 @@
+{
+  "title": "어린이를 위한 스포츠 환경 바꾸기",
+  "summary": "어린아이들이 어른 기준의 스포츠 환경에서 제대로 뛰기 어렵기 때문에, 여러 스포츠는 아이들 나이에 맞게 경기장, 공, 장비, 경기 방식 등을 바꾸어 왔다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "In many sports, people realized the difficulties and even impossibilities of young children participating fully in many adult sport environments.",
+      "explanation": "많은 스포츠에서 사람들은 어린아이들이 어른용 스포츠 환경에서 완전히 참여하는 것이 어렵고, 때로는 아예 불가능하다는 점을 깨달았다.",
+      "vocabulary": [
+        {
+          "word": "realized",
+          "meaning": "깨달았다, 알아차렸다",
+          "note": "여기서는 단순히 '실현했다'가 아니라 '알게 되었다'는 뜻이다."
+        },
+        {
+          "word": "difficulties",
+          "meaning": "어려움들",
+          "note": ""
+        },
+        {
+          "word": "impossibilities",
+          "meaning": "불가능한 점들",
+          "note": "impossible의 명사형이다."
+        },
+        {
+          "word": "participating fully",
+          "meaning": "완전히 참여하는 것",
+          "note": "경기에 제대로, 온전히 참여하는 뜻이다."
+        },
+        {
+          "word": "adult sport environments",
+          "meaning": "어른용 스포츠 환경",
+          "note": "경기장 크기, 장비, 경기 방식 등을 모두 포함하는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "They found the road to success for young children is unlikely if they play on adult fields, courts or arenas with equipment that is too large, too heavy or too fast for them to handle while trying to compete in adult-style competition.",
+      "explanation": "사람들은 어린아이들이 어른용 경기장이나 코트, 경기장에서 어른 기준의 경기를 하려고 하면 성공하기 어렵다고 보았다. 장비가 아이들에게 너무 크고, 너무 무겁고, 너무 빨라서 다루기 힘들기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "the road to success",
+          "meaning": "성공으로 가는 길",
+          "note": "비유적인 표현으로, 성공할 가능성이나 방법을 뜻한다."
+        },
+        {
+          "word": "unlikely",
+          "meaning": "가능성이 낮은",
+          "note": "여기서는 '성공하기 어렵다'는 뜻으로 쓰였다."
+        },
+        {
+          "word": "arenas",
+          "meaning": "경기장",
+          "note": "주로 실내나 큰 스포츠 경기장을 가리킬 때 자주 쓴다."
+        },
+        {
+          "word": "handle",
+          "meaning": "다루다, 감당하다",
+          "note": "장비를 잘 조절하고 사용할 수 있다는 뜻이다."
+        },
+        {
+          "word": "adult-style competition",
+          "meaning": "어른 방식의 경기",
+          "note": "어른 기준의 규칙과 강도로 하는 경쟁을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Common sense has prevailed: different sports have made adaptations for children.",
+      "explanation": "결국 상식적인 생각이 받아들여졌다. 그래서 여러 스포츠가 아이들을 위해 규칙과 환경을 알맞게 바꾸었다.",
+      "vocabulary": [
+        {
+          "word": "Common sense",
+          "meaning": "상식",
+          "note": ""
+        },
+        {
+          "word": "has prevailed",
+          "meaning": "받아들여졌다, 이기게 되었다",
+          "note": "여기서는 '상식적인 판단이 힘을 얻었다'는 뜻이다."
+        },
+        {
+          "word": "adaptations",
+          "meaning": "알맞게 바꾼 것들, 조정",
+          "note": "아이들에게 맞게 규칙이나 환경을 바꾼 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "As examples, baseball has T ball, football has flag football and junior soccer uses a smaller and lighter ball and (sometimes) a smaller field.",
+      "explanation": "예를 들면, 야구에는 티볼이 있고, 미식축구에는 플래그 풋볼이 있다. 또 어린이 축구에서는 더 작고 가벼운 공을 쓰고, 때로는 경기장도 더 작게 쓴다.",
+      "vocabulary": [
+        {
+          "word": "As examples",
+          "meaning": "예를 들면",
+          "note": "글에서 예시를 들 때 쓰는 표현이다."
+        },
+        {
+          "word": "T ball",
+          "meaning": "티볼",
+          "note": "공을 던져 주는 대신 받침대 위에 올려놓고 치는 어린이용 야구이다."
+        },
+        {
+          "word": "flag football",
+          "meaning": "플래그 풋볼",
+          "note": "몸으로 강하게 부딪치기보다 허리에 단 깃발을 떼는 방식의 어린이용 미식축구이다."
+        },
+        {
+          "word": "junior soccer",
+          "meaning": "어린이 축구, 유소년 축구",
+          "note": "junior는 여기서 '나이가 어린' 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "All have junior competitive structures where children play for shorter time periods and often in smaller teams.",
+      "explanation": "이 스포츠들에는 모두 어린이용 경기 방식이 있다. 그 안에서는 아이들이 더 짧은 시간 동안 뛰고, 팀 인원도 더 적은 경우가 많다.",
+      "vocabulary": [
+        {
+          "word": "competitive structures",
+          "meaning": "경기 방식, 경쟁 체계",
+          "note": "규칙, 팀 구성, 경기 시간 같은 운영 방식을 함께 가리킨다."
+        },
+        {
+          "word": "shorter time periods",
+          "meaning": "더 짧은 시간",
+          "note": ""
+        },
+        {
+          "word": "smaller teams",
+          "meaning": "더 적은 인원의 팀",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "In a similar way, tennis has adapted the court areas, balls and rackets to make them more appropriate for children under 10.",
+      "explanation": "비슷한 방식으로 테니스도 10세 이하 어린이에게 더 잘 맞도록 코트 크기와 공, 라켓을 바꾸었다.",
+      "vocabulary": [
+        {
+          "word": "In a similar way",
+          "meaning": "비슷한 방식으로",
+          "note": ""
+        },
+        {
+          "word": "adapted",
+          "meaning": "알맞게 바꾸었다",
+          "note": "아이들 수준에 맞게 조정했다는 뜻이다."
+        },
+        {
+          "word": "court areas",
+          "meaning": "코트 크기, 코트 공간",
+          "note": "단순히 장소만이 아니라 코트의 넓이와 구역을 뜻한다."
+        },
+        {
+          "word": "appropriate for",
+          "meaning": "~에 알맞은",
+          "note": "be appropriate for의 형태로 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The adaptations are progressive and relate to the age of the child.",
+      "explanation": "이런 변화는 한 번에 똑같이 적용되는 것이 아니다. 아이의 나이에 따라 조금씩 단계적으로 달라진다.",
+      "vocabulary": [
+        {
+          "word": "progressive",
+          "meaning": "단계적으로 이루어지는",
+          "note": "점점 바뀌거나 수준이 올라가는 뜻이다."
+        },
+        {
+          "word": "relate to",
+          "meaning": "~와 관련이 있다",
+          "note": "여기서는 '아이의 나이에 맞춰 달라진다'는 뜻으로 이해하면 된다."
+        }
+      ]
+    }
+  ]
+}

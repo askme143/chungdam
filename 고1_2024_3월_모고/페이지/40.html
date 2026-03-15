@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "의식과 잠재의식의 차이", "summary": "이 글은 의식과 잠재의식이 어떻게 다르게 움직이는지, 그리고 감정이 판단을 흐리게 하여 두려움이 굳어지는 과정을 설명한다.", "sentences": [{"id": 1, "original": "The mind has parts that are known as the conscious mind and the subconscious mind.", "explanation": "마음은 크게 두 부분으로 나뉜다. 하나는 우리가 스스로 알아차리는 의식이고, 다른 하나는 잘 드러나지 않지만 안에서 작동하는 잠재의식이다.", "vocabulary": [{"word": "conscious mind", "meaning": "의식, 스스로 알고 있는 마음", "note": "내가 지금 생각하고 있다고 느끼는 마음 부분이다."}, {"word": "subconscious mind", "meaning": "잠재의식, 무의식에 가까운 마음", "note": "겉으로 바로 느끼지 못하지만 안에서 영향을 주는 마음 부분이다."}, {"word": "be known as", "meaning": "~라고 알려져 있다, ~라고 불리다", "note": "이름이나 성격을 설명할 때 자주 쓴다."}]}, {"id": 2, "original": "The subconscious mind is very fast to act and doesn’t deal with emotions.", "explanation": "잠재의식은 아주 빨리 반응한다. 그리고 감정을 직접 다루지는 않는다.", "vocabulary": [{"word": "fast to act", "meaning": "빨리 행동하는, 곧바로 반응하는", "note": "여기서는 생각을 오래 하지 않고 바로 움직인다는 뜻이다."}, {"word": "deal with", "meaning": "다루다, 처리하다", "note": "사람, 문제, 감정 등 여러 대상과 함께 넓게 쓰인다."}, {"word": "emotions", "meaning": "감정들", "note": "emotion의 복수형이다."}]}, {"id": 3, "original": "It deals with memories of your responses to life, your memories and recognition.", "explanation": "잠재의식은 네가 삶에서 어떻게 반응해 왔는지에 대한 기억을 다룬다. 또 여러 기억과 익숙하게 알아보는 작용도 맡는다.", "vocabulary": [{"word": "responses", "meaning": "반응들", "note": "response는 어떤 일에 대해 보이는 행동이나 답을 말한다."}, {"word": "recognition", "meaning": "알아봄, 인식", "note": "무언가를 보고 '아, 이거구나' 하고 알아차리는 것이다."}, {"word": "deal with", "meaning": "다루다, 맡다", "note": "여기서는 어떤 일을 담당한다는 뜻에 가깝다."}]}, {"id": 4, "original": "However, the conscious mind is the one that you have more control over.", "explanation": "하지만 의식은 네가 더 많이 조절할 수 있는 부분이다.", "vocabulary": [{"word": "However", "meaning": "하지만, 그러나", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "control over", "meaning": "~에 대한 통제, 조절", "note": "have control over는 '~을 조절할 수 있다'는 뜻이다."}, {"word": "conscious mind", "meaning": "의식", "note": "스스로 생각하고 선택하는 마음 부분이다."}]}, {"id": 5, "original": "You think.", "explanation": "의식은 생각하는 부분이다. 즉, 네가 직접 생각한다는 말이다.", "vocabulary": [{"word": "think", "meaning": "생각하다", "note": "아주 기본 단어지만 여기서는 의식의 핵심 기능을 짧게 강조한다."}]}, {"id": 6, "original": "You can choose whether to carry on a thought or to add emotion to it and this is the part of your mind that lets you down frequently because — fueled by emotions — you make the wrong decisions time and time again.", "explanation": "너는 어떤 생각을 계속 이어 갈지, 아니면 그 생각에 감정을 더할지를 스스로 고를 수 있다. 그런데 바로 이 의식의 부분이 자주 너를 실망시킨다. 감정에 밀리면 잘못된 결정을 계속해서 내리기 때문이다.", "vocabulary": [{"word": "carry on a thought", "meaning": "생각을 계속 이어 가다", "note": "carry on은 '계속하다'라는 뜻이다."}, {"word": "add emotion to", "meaning": "~에 감정을 더하다", "note": "생각 자체에 감정이 붙는 상황을 말한다."}, {"word": "let you down", "meaning": "너를 실망시키다, 기대에 못 미치다", "note": "사람뿐 아니라 어떤 것의 기능이 기대에 못 미칠 때도 쓴다."}, {"word": "fueled by emotions", "meaning": "감정에 의해 더 세게 움직이는", "note": "fuel은 원래 '연료를 넣다'인데, 여기서는 감정이 행동을 몰아간다는 비유다."}, {"word": "time and time again", "meaning": "계속해서, 여러 번 되풀이해서", "note": "같은 일이 반복된다는 뜻을 강하게 보여 준다."}]}, {"id": 7, "original": "When your judgment is clouded by emotions, this puts in biases and all kinds of other negativities that hold you back.", "explanation": "감정 때문에 판단이 흐려지면 편견이 생기고 여러 부정적인 생각도 따라온다. 이런 것들은 너를 앞으로 나아가지 못하게 막는다.", "vocabulary": [{"word": "judgment", "meaning": "판단", "note": "어떤 일을 보고 옳고 그름이나 좋고 나쁨을 가리는 생각이다."}, {"word": "is clouded by emotions", "meaning": "감정 때문에 흐려지다", "note": "clouded는 원래 '구름이 낀'이라는 느낌으로, 여기서는 생각이 맑지 않다는 뜻이다."}, {"word": "biases", "meaning": "편견들, 한쪽으로 치우친 생각들", "note": "bias는 공정하지 않게 한쪽으로 기우는 생각이다."}, {"word": "negativities", "meaning": "부정적인 것들", "note": "글에서는 부정적인 감정이나 태도를 넓게 가리킨다."}, {"word": "hold you back", "meaning": "너를 가로막다, 앞으로 못 가게 하다", "note": "성장이나 행동을 막는다는 뜻으로 자주 쓴다."}]}, {"id": 8, "original": "Scared of spiders?", "explanation": "거미가 무서운가? 하고 독자에게 묻는 말이다.", "vocabulary": [{"word": "scared of", "meaning": "~을 무서워하는", "note": "be scared of 형태로 자주 쓴다."}, {"word": "spiders", "meaning": "거미들", "note": "spider의 복수형이다."}]}, {"id": 9, "original": "Scared of the dark?", "explanation": "어두운 곳이 무서운가? 라고 다시 예를 들어 묻고 있다.", "vocabulary": [{"word": "the dark", "meaning": "어둠, 어두운 곳", "note": "단순히 '검은색'이 아니라 빛이 없는 상태를 말한다."}, {"word": "scared of", "meaning": "~을 무서워하는", "note": "앞문장과 같은 표현으로 두려움을 묻는다."}]}, {"id": 10, "original": "There are reasons for all of these fears, but they originate in the conscious mind.", "explanation": "이런 두려움들에는 다 이유가 있다. 하지만 그 시작은 의식에서 나온다.", "vocabulary": [{"word": "fears", "meaning": "두려움들", "note": "fear는 무서워하는 마음이다."}, {"word": "originate in", "meaning": "~에서 시작되다, ~에서 생겨나다", "note": "어떤 것의 출발점을 말할 때 쓴다."}, {"word": "conscious mind", "meaning": "의식", "note": "두려움의 시작점으로 설명되고 있다."}]}, {"id": 11, "original": "They only become real fears when the subconscious mind records your reactions.", "explanation": "하지만 잠재의식이 네 반응을 기억해 둘 때, 그 두려움은 비로소 진짜 두려움으로 굳어진다.", "vocabulary": [{"word": "become real fears", "meaning": "진짜 두려움이 되다", "note": "잠깐 스치는 생각이 아니라 실제로 자리 잡은 공포가 된다는 뜻이다."}, {"word": "records", "meaning": "기록하다, 기억해 두다", "note": "여기서는 잠재의식이 반응을 저장한다는 뜻이다."}, {"word": "reactions", "meaning": "반응들", "note": "어떤 자극을 받았을 때 몸이나 마음이 보이는 반응이다."}, {"word": "subconscious mind", "meaning": "잠재의식", "note": "반응을 저장하는 빠른 마음 부분으로 나온다."}]}, {"id": 12, "original": "While the controllable conscious mind deals with thoughts and emotions, the fast‑acting subconscious mind stores your responses, forming real fears.", "explanation": "조절할 수 있는 의식은 생각과 감정을 다룬다. 반면에 빠르게 움직이는 잠재의식은 네 반응을 저장하고, 그것이 쌓여 진짜 두려움을 만든다.", "vocabulary": [{"word": "controllable", "meaning": "조절할 수 있는", "note": "control에 -able이 붙어 '할 수 있는' 뜻이 더해졌다."}, {"word": "fast-acting", "meaning": "빠르게 작동하는", "note": "약이나 시스템이 빨리 효과를 낼 때도 쓰는 표현이다."}, {"word": "stores", "meaning": "저장하다, 쌓아 두다", "note": "기억이나 정보에도 쓸 수 있다."}, {"word": "responses", "meaning": "반응들", "note": "앞에서 나온 response와 같은 말이다."}, {"word": "forming", "meaning": "만들어 내며, 형성하며", "note": "앞의 내용이 뒤 결과로 이어진다는 뜻이다."}]}]};
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('content').scrollTop = 0;
+}
+
+function go(dir) {
+  const next = cur + dir;
+  if (next < 0 || next >= total) return;
+  cur = next; render();
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) document.getElementById('pageTitle').textContent = DATA.title;
+render();
+</script>
+</body>
+</html>

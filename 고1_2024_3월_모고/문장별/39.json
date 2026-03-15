@@ -1,0 +1,190 @@
+{
+  "title": "동물마다 다른 치유 반응",
+  "summary": "동물은 모두 다르기 때문에 치유를 할 때도 같은 방식으로 보면 안 되고, 각 동물의 상태와 환경에 맞게 다르게 살펴보고 맞춰야 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "No two animals are alike.",
+      "explanation": "어떤 두 동물도 완전히 똑같지는 않다는 뜻이다. 모든 동물은 저마다 다른 점이 있다.",
+      "vocabulary": [
+        {
+          "word": "alike",
+          "meaning": "서로 비슷한, 똑같은",
+          "note": "주로 be alike 형태로 써서 '서로 비슷하다'라는 뜻을 낸다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Animals from the same litter will display some of the same features, but will not be exactly the same as each other; therefore, they may not respond in entirely the same way during a healing session.",
+      "explanation": "같은 배에서 태어난 동물들은 비슷한 특징을 몇 가지 보일 수 있다. 하지만 서로 완전히 똑같지는 않다. 그래서 치유를 받을 때도 반응이 꼭 같지는 않을 수 있다.",
+      "vocabulary": [
+        {
+          "word": "litter",
+          "meaning": "한 배에서 태어난 새끼들",
+          "note": "강아지나 고양이처럼 여러 마리가 함께 태어났을 때 쓴다."
+        },
+        {
+          "word": "display",
+          "meaning": "보이다, 드러내다",
+          "note": "여기서는 성격이나 특징을 겉으로 나타낸다는 뜻이다."
+        },
+        {
+          "word": "feature",
+          "meaning": "특징",
+          "note": "사람이나 동물의 겉모습, 성질 같은 눈에 띄는 점을 말한다."
+        },
+        {
+          "word": "therefore",
+          "meaning": "그러므로, 그래서",
+          "note": "앞의 내용 때문에 뒤의 결과가 나온다는 연결 말이다."
+        },
+        {
+          "word": "healing session",
+          "meaning": "치유 시간, 치유 과정",
+          "note": "치유를 위해 따로 진행하는 한 번의 시간을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Environmental factors can also determine how the animal will respond during the treatment.",
+      "explanation": "주변 환경도 그 동물이 치료를 받을 때 어떻게 반응할지를 정하는 데 영향을 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "environmental factors",
+          "meaning": "환경 요인",
+          "note": "주변 장소, 소리, 온도, 사람 같은 바깥 조건들을 말한다."
+        },
+        {
+          "word": "determine",
+          "meaning": "정하다, 결정하다",
+          "note": "결과에 큰 영향을 주어 방향을 정한다는 뜻이다."
+        },
+        {
+          "word": "respond",
+          "meaning": "반응하다",
+          "note": "어떤 자극이나 상황에 대해 행동이나 느낌을 보이는 것이다."
+        },
+        {
+          "word": "treatment",
+          "meaning": "치료, 돌봄 과정",
+          "note": "병이나 상태를 낫게 하려고 하는 과정 전체를 가리킬 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "For instance, a cat in a rescue center will respond very differently than a cat within a domestic home environment.",
+      "explanation": "예를 들어, 구조 센터에 있는 고양이는 일반 가정집에 있는 고양이와 아주 다르게 반응할 수 있다. 지내는 곳이 다르면 느끼는 불안감이나 익숙함도 다를 수 있기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "For instance",
+          "meaning": "예를 들어",
+          "note": "예시를 들 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "rescue center",
+          "meaning": "구조 센터, 보호소",
+          "note": "버려지거나 다친 동물을 보호하는 곳이다."
+        },
+        {
+          "word": "domestic home environment",
+          "meaning": "가정집 환경",
+          "note": "집에서 사람과 함께 지내는 생활 환경을 뜻한다."
+        },
+        {
+          "word": "differently",
+          "meaning": "다르게",
+          "note": "같지 않은 방식으로라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In addition, animals that experience healing for physical illness will react differently than those accepting healing for emotional confusion.",
+      "explanation": "또한 몸의 병 때문에 치유를 받는 동물은 마음이 혼란스럽거나 불안해서 치유를 받는 동물과 다르게 반응할 것이다. 즉, 아픈 이유가 무엇인지에 따라서도 반응이 달라진다.",
+      "vocabulary": [
+        {
+          "word": "In addition",
+          "meaning": "게다가, 또한",
+          "note": "앞의 내용에 하나를 더 보탤 때 쓴다."
+        },
+        {
+          "word": "physical illness",
+          "meaning": "몸의 병, 신체 질환",
+          "note": "마음의 문제가 아니라 몸에 생긴 아픔을 말한다."
+        },
+        {
+          "word": "react",
+          "meaning": "반응하다",
+          "note": "respond와 비슷하지만 자극에 대한 반응을 더 직접적으로 나타낼 때도 많다."
+        },
+        {
+          "word": "accepting healing",
+          "meaning": "치유를 받아들이는",
+          "note": "치유를 받고 있는 상태를 부드럽게 표현한 말이다."
+        },
+        {
+          "word": "emotional confusion",
+          "meaning": "감정의 혼란, 마음의 혼란",
+          "note": "불안, 두려움, 스트레스처럼 마음이 어지러운 상태를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "With this in mind, every healing session needs to be explored differently, and each healing treatment should be adjusted to suit the specific needs of the animal.",
+      "explanation": "이 점을 생각하면, 모든 치유 시간은 똑같이 다루면 안 된다. 각각 다르게 살펴봐야 한다. 그리고 치유 방법도 그 동물에게 꼭 맞는 필요에 맞게 바꿔야 한다.",
+      "vocabulary": [
+        {
+          "word": "With this in mind",
+          "meaning": "이 점을 생각하면, 이것을 염두에 두고",
+          "note": "앞에서 말한 내용을 기억하면서 다음 말을 이어 갈 때 쓰는 표현이다."
+        },
+        {
+          "word": "explore",
+          "meaning": "살펴보다, 알아보다",
+          "note": "여기서는 상황을 자세히 보고 이해하려고 한다는 뜻이다."
+        },
+        {
+          "word": "adjust",
+          "meaning": "조절하다, 맞게 바꾸다",
+          "note": "상황이나 대상에 맞도록 조금씩 바꾼다는 뜻이다."
+        },
+        {
+          "word": "suit",
+          "meaning": "맞다, 어울리다",
+          "note": "사람이나 상황에 알맞다는 뜻이다."
+        },
+        {
+          "word": "specific needs",
+          "meaning": "구체적인 필요, 딱 맞는 필요",
+          "note": "각 동물에게 따로 있는 필요한 점들을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "You will learn as you go; healing is a constant learning process.",
+      "explanation": "치유를 하면서 점점 배우게 된다는 뜻이다. 치유는 한 번에 다 아는 일이 아니라, 계속 배우고 익혀 가는 과정이다.",
+      "vocabulary": [
+        {
+          "word": "as you go",
+          "meaning": "해 나가면서, 하면서 점점",
+          "note": "경험을 쌓으면서 조금씩 배운다는 느낌의 표현이다."
+        },
+        {
+          "word": "constant",
+          "meaning": "끊임없는, 계속되는",
+          "note": "중간에 멈추지 않고 이어진다는 뜻이다."
+        },
+        {
+          "word": "learning process",
+          "meaning": "배움의 과정",
+          "note": "한 번에 끝나는 것이 아니라 차근차근 익혀 가는 흐름을 말한다."
+        }
+      ]
+    }
+  ]
+}
