@@ -1,0 +1,237 @@
+{
+  "title": "운동량에서 중요한 것은 상대 속도",
+  "summary": "운동량을 생각할 때는 절대적인 속도보다 서로 사이의 속도가 중요하며, 그래서 비행기와 거의 같은 속도로 움직이던 총알은 조종사가 잡을 수 있었다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "There is one important thing to note about momentum.",
+      "explanation": "운동량을 볼 때 꼭 기억해야 할 중요한 점이 하나 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "note",
+          "meaning": "주의해서 보다, 알아두다",
+          "note": "여기서는 명사가 아니라 동사로 쓰여서 '기억해 두다'에 가깝다."
+        },
+        {
+          "word": "momentum",
+          "meaning": "운동량",
+          "note": "물체의 질량과 속도와 관계있는 물리 개념이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Since motion is relative, only relative velocities are relevant.",
+      "explanation": "움직임은 다른 것과 비교해서 정해지기 때문에, 중요한 것은 서로에 대한 속도뿐이라는 말이다.",
+      "vocabulary": [
+        {
+          "word": "relative",
+          "meaning": "상대적인",
+          "note": "무언가를 혼자 보지 않고 다른 것과 비교해서 정한다는 뜻이다."
+        },
+        {
+          "word": "relative velocities",
+          "meaning": "상대 속도",
+          "note": "두 물체가 서로에게 얼마나 빠르게 움직이는지를 말한다."
+        },
+        {
+          "word": "relevant",
+          "meaning": "중요한, 관계있는",
+          "note": "이 문장에서는 '문제를 따질 때 의미가 있는'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "In fact, when you think about it, all velocities are relative.",
+      "explanation": "가만히 생각해 보면, 모든 속도는 언제나 어떤 기준에 대해 말하는 것이므로 다 상대적이라는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "In fact",
+          "meaning": "사실은",
+          "note": "앞말을 더 분명하게 하거나 강조할 때 쓴다."
+        },
+        {
+          "word": "velocity",
+          "meaning": "속도",
+          "note": "물리에서는 보통 방향까지 생각하는 속도를 가리킬 때 많이 쓴다."
+        },
+        {
+          "word": "relative",
+          "meaning": "상대적인",
+          "note": "기준이 무엇이냐에 따라 값이 달라진다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Thus, on the surface of the earth, we always reckon velocity with respect to the ground — the velocity of the earth itself does not matter.",
+      "explanation": "그래서 지구 표면에서는 보통 땅을 기준으로 속도를 잰다. 지구 자체가 움직이는 속도는 여기서는 중요하지 않다.",
+      "vocabulary": [
+        {
+          "word": "Thus",
+          "meaning": "그래서",
+          "note": "앞의 내용을 바탕으로 결론을 말할 때 쓴다."
+        },
+        {
+          "word": "reckon",
+          "meaning": "계산하다, 여기다",
+          "note": "여기서는 '속도를 따지다, 재다'에 가깝다."
+        },
+        {
+          "word": "with respect to",
+          "meaning": "~을 기준으로",
+          "note": "비교하거나 판단하는 기준을 나타내는 표현이다."
+        },
+        {
+          "word": "surface",
+          "meaning": "표면",
+          "note": "on the surface of the earth는 '지구 표면에서'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "There is a true story of a French pilot in World War II who stretched his hand out of his small airplane window and caught a bullet.",
+      "explanation": "제2차 세계대전 때 한 프랑스 조종사가 작은 비행기 창문 밖으로 손을 내밀어 총알을 잡았다는 실제 이야기가 있다.",
+      "vocabulary": [
+        {
+          "word": "pilot",
+          "meaning": "조종사",
+          "note": ""
+        },
+        {
+          "word": "stretched his hand out of",
+          "meaning": "손을 ~밖으로 뻗었다",
+          "note": "stretch는 몸이나 팔, 손을 길게 내미는 느낌이 있다."
+        },
+        {
+          "word": "caught a bullet",
+          "meaning": "총알을 잡았다",
+          "note": "보통은 매우 위험하고 믿기 어려운 일이라서 놀라움을 준다."
+        },
+        {
+          "word": "World War II",
+          "meaning": "제2차 세계대전",
+          "note": "1940년대의 큰 세계 전쟁을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "How is this possible?",
+      "explanation": "이런 일이 어떻게 가능했을까 하고 묻는 말이다.",
+      "vocabulary": [
+        {
+          "word": "possible",
+          "meaning": "가능한",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The velocity of the bullet must have been about the same as the velocity of his plane.",
+      "explanation": "그 총알의 속도가 그 비행기의 속도와 거의 비슷했을 것이라는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "must have been",
+          "meaning": "~이었음이 틀림없다",
+          "note": "과거의 일을 강하게 짐작할 때 쓰는 표현이다."
+        },
+        {
+          "word": "about the same as",
+          "meaning": "~와 거의 같은",
+          "note": "완전히 똑같지는 않아도 매우 비슷하다는 뜻이다."
+        },
+        {
+          "word": "bullet",
+          "meaning": "총알",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "This can happen, because a bullet slows down to such a velocity toward the end of its flight path due to the action of air drag.",
+      "explanation": "이런 일은 실제로 일어날 수 있다. 총알은 날아가는 길의 끝부분으로 갈수록 공기의 저항 때문에 속도가 많이 줄어들 수 있기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "slows down",
+          "meaning": "속도가 느려지다",
+          "note": "slow down은 '천천히 가게 되다, 속도가 줄다'라는 뜻이다."
+        },
+        {
+          "word": "toward the end of",
+          "meaning": "~의 끝부분으로 갈수록",
+          "note": "시간이나 거리의 마지막 쪽을 가리킨다."
+        },
+        {
+          "word": "flight path",
+          "meaning": "날아간 경로",
+          "note": "물체가 공중에서 지나가는 길이다."
+        },
+        {
+          "word": "due to",
+          "meaning": "~때문에",
+          "note": "이유를 말할 때 쓰는 표현이다."
+        },
+        {
+          "word": "air drag",
+          "meaning": "공기 저항",
+          "note": "공기가 물체의 움직임을 막아서 속도를 줄이게 하는 힘이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Since only relative velocity matters, the momentum of the bullet was negligible as far as the pilot was concerned.",
+      "explanation": "중요한 것은 서로 사이의 속도뿐이므로, 조종사 입장에서는 그 총알의 운동량이 거의 없다고 볼 만큼 아주 작았다.",
+      "vocabulary": [
+        {
+          "word": "matters",
+          "meaning": "중요하다",
+          "note": "matter는 '문제가 되다, 중요하다'라는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "negligible",
+          "meaning": "거의 무시해도 될 만큼 작은",
+          "note": "너무 작아서 큰 영향이 없다는 뜻이다."
+        },
+        {
+          "word": "as far as ~ was concerned",
+          "meaning": "~의 입장에서는",
+          "note": "어떤 사람의 관점이나 처지를 말할 때 쓰는 표현이다."
+        },
+        {
+          "word": "momentum",
+          "meaning": "운동량",
+          "note": "여기서는 조종사와 총알 사이의 상대적인 움직임과 연결해서 이해해야 한다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Thus, he would have had little problem in catching the bullet.",
+      "explanation": "그래서 그 조종사는 그 총알을 잡는 데 큰 어려움이 없었을 것이다.",
+      "vocabulary": [
+        {
+          "word": "would have had",
+          "meaning": "~했을 것이다",
+          "note": "과거 상황을 바탕으로 결과를 짐작할 때 쓰는 표현이다."
+        },
+        {
+          "word": "little problem",
+          "meaning": "거의 어려움이 없음",
+          "note": "직역하면 '작은 문제'지만 실제 뜻은 '별문제 없었다'에 가깝다."
+        },
+        {
+          "word": "catching the bullet",
+          "meaning": "총알을 잡는 것",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "problem_number": "01"
+}

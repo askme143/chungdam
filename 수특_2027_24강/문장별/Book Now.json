@@ -1,0 +1,61 @@
+{
+  "title": "한정 기간 여행 상품 할인 안내",
+  "summary": "이 여행 상품은 3월 1일부터 6월 30일까지 잠깐 할인되며, 평생 기억에 남을 모험을 해 볼 좋은 기회라고 알리고 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "This package is on sale for a limited time only: March 1 through June 30.",
+      "explanation": "이 상품은 정해진 짧은 기간에만 할인해서 판다는 뜻이다. 할인 기간은 3월 1일부터 6월 30일까지이다.",
+      "vocabulary": [
+        {
+          "word": "package",
+          "meaning": "상품, 패키지 상품",
+          "note": "여행 광고에서는 보통 항공, 숙박, 일정이 묶인 상품을 뜻한다."
+        },
+        {
+          "word": "on sale",
+          "meaning": "할인 중인, 세일하는",
+          "note": "be on sale은 '할인 판매 중이다'라는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "for a limited time only",
+          "meaning": "오직 한정된 기간 동안만",
+          "note": "광고에서 자주 나오는 말로, 오래 계속되지 않는다는 느낌을 준다."
+        },
+        {
+          "word": "through",
+          "meaning": "~까지",
+          "note": "여기서는 기간의 끝을 나타내며 'June 30까지'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Don’t miss this chance to experience the adventure of a lifetime!",
+      "explanation": "평생에 한 번 있을까 말까 한 특별한 모험을 직접 해 볼 좋은 기회를 놓치지 말라는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "miss",
+          "meaning": "놓치다",
+          "note": "여기서는 '기회를 놓치다'라는 뜻으로 쓰였다."
+        },
+        {
+          "word": "chance",
+          "meaning": "기회",
+          "note": ""
+        },
+        {
+          "word": "experience",
+          "meaning": "직접 겪다, 체험하다",
+          "note": "명사가 아니라 동사로 쓰여 '직접 해 보다'라는 뜻이다."
+        },
+        {
+          "word": "the adventure of a lifetime",
+          "meaning": "평생 기억에 남을 모험",
+          "note": "아주 특별하고 드문 경험을 강조하는 표현이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Book Now"
+}

@@ -1,0 +1,200 @@
+{
+  "title": "제시의 기다림 끝에 온 큰 물고기",
+  "summary": "제시는 한 마리도 못 잡아 실망했지만, 포기하려는 순간 마침내 아주 큰 물고기가 걸렸다고 느꼈다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The shoreline was known for having the best fishing spots on the lake.",
+      "explanation": "그 호숫가에는 낚시가 아주 잘되는 자리가 많아서, 호수에서 가장 좋은 낚시 장소로 유명했다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "shoreline",
+          "meaning": "호숫가, 물가의 가장자리",
+          "note": "바다, 강, 호수처럼 물과 땅이 만나는 줄을 말한다."
+        },
+        {
+          "word": "be known for",
+          "meaning": "~로 유명하다",
+          "note": "사람이나 장소의 특징을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "fishing spots",
+          "meaning": "낚시하기 좋은 자리들",
+          "note": "spot은 여기서 '장소'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Jessie was sitting at one of those spots, but her fishing line still hadn’t moved an inch.",
+      "explanation": "제시는 그런 좋은 자리 중 한 곳에 앉아 있었지만, 낚싯줄은 조금도 움직이지 않았다. 즉, 물고기가 전혀 잡히지 않고 있었다.",
+      "vocabulary": [
+        {
+          "word": "fishing line",
+          "meaning": "낚싯줄",
+          "note": ""
+        },
+        {
+          "word": "hadn’t moved an inch",
+          "meaning": "조금도 움직이지 않았다",
+          "note": "an inch는 원래 길이 단위지만, 여기서는 '아주 조금도'라는 뜻으로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "With a deep sigh, Jessie pulled out the line and cast it back into the water.",
+      "explanation": "제시는 깊게 한숨을 쉬고 낚싯줄을 끌어 올린 뒤, 다시 물속으로 던졌다. 잘 안 잡혀서 답답한 마음이 드러난다.",
+      "vocabulary": [
+        {
+          "word": "with a deep sigh",
+          "meaning": "깊게 한숨을 쉬며",
+          "note": "실망하거나 답답할 때의 마음을 보여 주는 표현이다."
+        },
+        {
+          "word": "pulled out",
+          "meaning": "끌어냈다, 꺼냈다",
+          "note": "여기서는 물속에 있던 낚싯줄을 끌어 올렸다는 뜻이다."
+        },
+        {
+          "word": "cast",
+          "meaning": "던지다",
+          "note": "낚시에서는 미끼나 낚싯줄을 물에 던지는 뜻으로 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Her dream of catching a big fish was fading.",
+      "explanation": "큰 물고기를 잡고 싶다는 제시의 꿈이 점점 사라지고 있었다. 이제는 잡을 수 없을지도 모른다고 느끼는 상태이다.",
+      "vocabulary": [
+        {
+          "word": "dream of catching a big fish",
+          "meaning": "큰 물고기를 잡고 싶은 꿈",
+          "note": ""
+        },
+        {
+          "word": "was fading",
+          "meaning": "점점 희미해지고 있었다",
+          "note": "희망이나 기억, 빛이 점점 약해질 때도 쓸 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "“I can’t believe I haven’t caught a fish yet. Not a single one,” she thought.",
+      "explanation": "제시는 '아직도 물고기를 한 마리도 못 잡았다니 믿을 수 없어. 단 한 마리도 없어'라고 속으로 생각했다. 그만큼 실망이 컸다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "I can’t believe",
+          "meaning": "믿을 수가 없다",
+          "note": "놀람, 답답함, 어이없음을 나타낼 때 자주 쓴다."
+        },
+        {
+          "word": "haven’t caught",
+          "meaning": "잡지 못했다",
+          "note": "catch의 과거분사 caught가 쓰였다."
+        },
+        {
+          "word": "not a single one",
+          "meaning": "단 하나도 없는",
+          "note": "강조하는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Just as she was about to give up and leave, the fishing line suddenly became tense.",
+      "explanation": "제시가 막 포기하고 떠나려던 바로 그때, 낚싯줄이 갑자기 팽팽해졌다. 물고기가 걸린 것 같은 순간이다.",
+      "vocabulary": [
+        {
+          "word": "just as",
+          "meaning": "바로 ~하려는 순간에",
+          "note": "두 일이 거의 같은 때 일어났다는 뜻을 준다."
+        },
+        {
+          "word": "be about to",
+          "meaning": "막 ~하려고 하다",
+          "note": "아주 곧 일어날 일을 말할 때 쓴다."
+        },
+        {
+          "word": "give up",
+          "meaning": "포기하다",
+          "note": ""
+        },
+        {
+          "word": "became tense",
+          "meaning": "팽팽해졌다",
+          "note": "tense는 여기서 '긴장한'이 아니라 줄이 '당겨져 팽팽한' 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Jessie excitedly held onto the fishing pole as it began to move around wildly.",
+      "explanation": "낚싯대가 이리저리 거칠게 움직이기 시작하자, 제시는 신이 나서 낚싯대를 꽉 붙잡았다.",
+      "vocabulary": [
+        {
+          "word": "held onto",
+          "meaning": "꽉 붙잡았다",
+          "note": "hold on to의 형태이다."
+        },
+        {
+          "word": "fishing pole",
+          "meaning": "낚싯대",
+          "note": "fishing rod와 비슷한 뜻으로 볼 수 있다."
+        },
+        {
+          "word": "move around wildly",
+          "meaning": "거칠게 이리저리 움직이다",
+          "note": "wildly는 통제하기 어려울 만큼 세차게 움직이는 느낌이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Her eyes widened and her heart began to beat faster with excitement.",
+      "explanation": "제시는 너무 신나고 놀라서 눈이 커졌고, 심장도 더 빨리 뛰기 시작했다.",
+      "vocabulary": [
+        {
+          "word": "widened",
+          "meaning": "더 커졌다, 크게 떠졌다",
+          "note": "눈, 길, 차이 등이 넓어질 때도 쓴다."
+        },
+        {
+          "word": "beat faster",
+          "meaning": "더 빨리 뛰다",
+          "note": "심장이 빠르게 뛰는 모습을 말한다."
+        },
+        {
+          "word": "with excitement",
+          "meaning": "신나서, 흥분해서",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "With a big smile, she could feel that this was the biggest fish she had ever caught!",
+      "explanation": "제시는 활짝 웃으며, 이것이 자기가 지금까지 잡아 본 물고기 가운데 가장 큰 물고기라고 느꼈다.",
+      "vocabulary": [
+        {
+          "word": "with a big smile",
+          "meaning": "활짝 웃으며",
+          "note": ""
+        },
+        {
+          "word": "could feel that",
+          "meaning": "~라고 느낄 수 있었다",
+          "note": "확실히 알지는 못해도 강하게 그렇게 느끼는 뜻이다."
+        },
+        {
+          "word": "the biggest fish she had ever caught",
+          "meaning": "지금까지 잡아 본 것 중 가장 큰 물고기",
+          "note": "had ever caught는 '여태까지 한 번이라도 잡아 본 것들 가운데'라는 뜻을 더해 준다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

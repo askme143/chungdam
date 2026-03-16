@@ -1,0 +1,233 @@
+{
+  "title": "작품을 보는 공간이 주는 힌트",
+  "summary": "작가의 작업실이나 수집가의 집에서는 주변 물건들이 작품을 현실과 이어 주지만, 전시장에서는 작품이 그 배경에서 떨어져 보일 수 있다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "In the context of a studio visit, the viewer might notice several clipped newspaper articles pinned to the wall, a wax-coated hotplate, walls with paint marks, resin-drizzled floors and several sculptures barely visible through their plastic wrap.",
+      "explanation": "작가의 작업실을 방문하면, 보는 사람은 벽에 꽂아 둔 신문 스크랩, 왁스가 묻은 가열판, 물감 자국이 있는 벽, 레진이 흘러내린 바닥, 그리고 비닐에 싸여 잘 보이지 않는 조각 작품들을 보게 될 수 있다.",
+      "vocabulary": [
+        {
+          "word": "in the context of",
+          "meaning": "~라는 상황에서, ~와 관련해서",
+          "note": "글에서 어떤 장면이나 조건을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "clipped newspaper articles",
+          "meaning": "오려 낸 신문 기사들",
+          "note": "clip은 신문이나 잡지에서 필요한 부분을 오려 내다는 뜻으로도 쓰인다."
+        },
+        {
+          "word": "wax-coated",
+          "meaning": "왁스로 덮인, 왁스가 묻은",
+          "note": "coat는 표면을 덮다라는 뜻이다."
+        },
+        {
+          "word": "resin-drizzled",
+          "meaning": "레진이 흘러 뿌려진",
+          "note": "drizzle은 액체를 조금씩 흘리거나 뿌리다는 뜻이다."
+        },
+        {
+          "word": "plastic wrap",
+          "meaning": "비닐 포장재",
+          "note": "물건을 싸는 얇은 비닐을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Such real-world clues offer the visitor a foothold onto the artist’s oeuvre.",
+      "explanation": "이런 현실의 흔적들은 방문한 사람에게 그 작가의 작품 세계를 이해할 작은 발판이 되어 준다.",
+      "vocabulary": [
+        {
+          "word": "real-world clues",
+          "meaning": "현실 세계의 단서들",
+          "note": "작품 바깥의 실제 생활 흔적을 가리킨다."
+        },
+        {
+          "word": "foothold",
+          "meaning": "발판, 붙잡을 실마리",
+          "note": "원래는 발 디딜 자리라는 뜻이고, 여기서는 이해의 실마리라는 뜻이다."
+        },
+        {
+          "word": "oeuvre",
+          "meaning": "작가의 전체 작품 세계",
+          "note": "프랑스어에서 온 말로, 한 작가가 만든 작품 전체를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The studio visitor imagines that the artist is currently a painter, who applies wax and resin and finds inspiration in particular articles.",
+      "explanation": "작업실을 본 사람은 그 작가가 지금 그림을 그리는 사람이고, 왁스와 레진을 쓰며, 어떤 기사들에서 영감을 얻는다고 짐작하게 된다.",
+      "vocabulary": [
+        {
+          "word": "currently",
+          "meaning": "현재, 지금",
+          "note": ""
+        },
+        {
+          "word": "applies",
+          "meaning": "바르다, 쓰다",
+          "note": "여기서는 재료를 표면에 바른다는 뜻이다."
+        },
+        {
+          "word": "resin",
+          "meaning": "레진, 수지",
+          "note": "미술 작업에서 코팅하거나 형태를 만들 때 쓰는 재료다."
+        },
+        {
+          "word": "finds inspiration in",
+          "meaning": "~에서 영감을 얻다",
+          "note": "어디에서 생각거리나 아이디어를 얻는다는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Similarly, guests experiencing artworks in some homes notice art positioned next to furnishings, family photographs displayed on the piano and coffee-table books stacked to demonstrate preferences.",
+      "explanation": "이와 비슷하게, 어떤 집에서 작품을 보는 손님들은 가구 옆에 놓인 미술품, 피아노 위에 전시된 가족사진, 그리고 그 집 사람의 취향을 보여 주려고 쌓아 둔 큰 책들을 보게 된다.",
+      "vocabulary": [
+        {
+          "word": "Similarly",
+          "meaning": "비슷하게, 마찬가지로",
+          "note": ""
+        },
+        {
+          "word": "positioned",
+          "meaning": "놓인, 배치된",
+          "note": "어디에 자리를 잡고 놓여 있다는 뜻이다."
+        },
+        {
+          "word": "furnishings",
+          "meaning": "가구와 실내 물건들",
+          "note": "방 안을 꾸미는 물건들을 넓게 가리킨다."
+        },
+        {
+          "word": "coffee-table books",
+          "meaning": "탁자 위에 두고 보는 큰 책",
+          "note": "사진이 많고 보기 좋게 만든 책인 경우가 많다."
+        },
+        {
+          "word": "demonstrate preferences",
+          "meaning": "취향을 보여 주다",
+          "note": "무엇을 좋아하는지 드러낸다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Together, these components affect particular experiences.",
+      "explanation": "이런 요소들이 함께 모여, 사람이 작품을 느끼고 받아들이는 방식을 바꾼다.",
+      "vocabulary": [
+        {
+          "word": "components",
+          "meaning": "구성 요소들",
+          "note": "전체를 이루는 여러 부분을 말한다."
+        },
+        {
+          "word": "affect",
+          "meaning": "영향을 주다",
+          "note": ""
+        },
+        {
+          "word": "particular experiences",
+          "meaning": "특정한 경험",
+          "note": "그 상황에서만 생기는 느낌이나 경험을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Within the artist’s studio or collector’s home, residue from studio activities or the collector’s personal belongings help to connect the artworks to the world.",
+      "explanation": "작가의 작업실이나 수집가의 집에서는, 작업 뒤에 남은 흔적이나 수집가의 개인 물건들이 작품을 현실 세계와 이어 주는 데 도움을 준다.",
+      "vocabulary": [
+        {
+          "word": "collector’s home",
+          "meaning": "수집가의 집",
+          "note": "미술품을 모으는 사람의 집을 말한다."
+        },
+        {
+          "word": "residue",
+          "meaning": "남은 흔적, 찌꺼기",
+          "note": "어떤 활동이 끝난 뒤 남아 있는 것을 뜻한다."
+        },
+        {
+          "word": "studio activities",
+          "meaning": "작업실에서 하는 작업들",
+          "note": ""
+        },
+        {
+          "word": "personal belongings",
+          "meaning": "개인 소지품",
+          "note": "개인이 가지고 있는 물건들이다."
+        },
+        {
+          "word": "connect A to B",
+          "meaning": "A를 B와 이어 주다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "By contrast, artworks displayed in exhibitions feel comparatively isolated, practically clipped from the world where they originated.",
+      "explanation": "반대로 전시장에 놓인 작품들은 비교적 따로 떨어져 있는 것처럼 느껴진다. 마치 그것이 처음 나온 현실 세계에서 거의 잘려 나간 것처럼 보인다.",
+      "vocabulary": [
+        {
+          "word": "By contrast",
+          "meaning": "반대로",
+          "note": "앞의 내용과 뚜렷이 다를 때 쓴다."
+        },
+        {
+          "word": "comparatively",
+          "meaning": "비교해 보면, 비교적",
+          "note": ""
+        },
+        {
+          "word": "isolated",
+          "meaning": "고립된, 따로 떨어진",
+          "note": ""
+        },
+        {
+          "word": "clipped from",
+          "meaning": "~에서 잘려 나간",
+          "note": "원래 있던 자리나 맥락에서 떼어 낸 느낌을 준다."
+        },
+        {
+          "word": "originated",
+          "meaning": "시작되다, 생겨나다",
+          "note": "여기서는 작품이 나온 배경이나 출발점을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "This could explain why aestheticians tend to treat artworks as singletons, rather than as members of some set.",
+      "explanation": "이 점은 왜 미학자들이 작품을 어떤 묶음의 한 부분으로 보기보다, 각각 따로 떨어진 하나의 대상으로 다루는지 설명해 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "aestheticians",
+          "meaning": "미학자들",
+          "note": "아름다움과 예술을 연구하는 사람들이다."
+        },
+        {
+          "word": "tend to",
+          "meaning": "~하는 경향이 있다",
+          "note": ""
+        },
+        {
+          "word": "singletons",
+          "meaning": "따로 떨어진 하나의 개별 대상들",
+          "note": "집합 안의 한 요소라기보다, 각각 홀로 있는 것으로 보는 말이다."
+        },
+        {
+          "word": "members of some set",
+          "meaning": "어떤 묶음에 속한 구성원들",
+          "note": "set은 여기서 수학의 집합처럼, 하나의 묶음을 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "01"
+}

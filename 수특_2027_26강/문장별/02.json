@@ -1,0 +1,199 @@
+{
+  "title": "의도와 문화에 따라 달라지는 신호의 뜻",
+  "summary": "사람의 행동이나 신호는 일부러 보낸 것인지, 또 어떤 문화에서 보느냐에 따라 단순한 정보가 되기도 하고 분명한 메시지가 되기도 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Linguists typically distinguish between signals that are communicative and those that are informative, depending on whether the information is conveyed intentionally or not.",
+      "explanation": "언어학자들은 보통 신호를 두 가지로 나눠서 본다. 하나는 누군가가 일부러 뜻을 전하려고 보내는 신호이고, 다른 하나는 그럴 생각 없이 그냥 정보만 드러내는 신호이다.",
+      "vocabulary": [
+        {
+          "word": "linguists",
+          "meaning": "언어학자들",
+          "note": "language를 연구하는 사람들이다."
+        },
+        {
+          "word": "distinguish between",
+          "meaning": "~을 구별하다",
+          "note": "둘 이상의 차이를 나눠서 볼 때 자주 쓴다."
+        },
+        {
+          "word": "communicative",
+          "meaning": "의사를 전하는, 뜻을 전하려는",
+          "note": "단순히 정보가 있는 것이 아니라, 상대에게 메시지를 보내려는 뜻이 들어 있다."
+        },
+        {
+          "word": "informative",
+          "meaning": "정보를 알려 주는",
+          "note": "일부러 말하지 않아도 어떤 정보가 드러나는 경우에도 쓸 수 있다."
+        },
+        {
+          "word": "conveyed intentionally",
+          "meaning": "일부러 전달된",
+          "note": "convey는 '전하다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "An involuntary blink can be distinguished from a wink by the communicative intention that lies behind it.",
+      "explanation": "자기도 모르게 눈을 깜빡이는 것과 윙크는 뒤에 있는 의도로 구별할 수 있다. 눈 깜빡임은 저절로 나오는 행동이지만, 윙크는 보통 상대에게 어떤 뜻을 전하려고 하는 행동이다.",
+      "vocabulary": [
+        {
+          "word": "involuntary",
+          "meaning": "자기도 모르게 하는, 저절로 일어나는",
+          "note": "voluntary는 '스스로 하는'이라는 반대말이다."
+        },
+        {
+          "word": "blink",
+          "meaning": "눈을 깜빡이다; 눈 깜빡임",
+          "note": "보통 자연스럽게 일어나는 동작을 말한다."
+        },
+        {
+          "word": "wink",
+          "meaning": "윙크하다; 윙크",
+          "note": "한쪽 눈을 감았다 뜨며 뜻을 전하는 행동이다."
+        },
+        {
+          "word": "lies behind",
+          "meaning": "뒤에 있다, 바탕에 깔려 있다",
+          "note": "겉으로 보이지 않는 이유나 뜻을 말할 때 쓴다."
+        },
+        {
+          "word": "intention",
+          "meaning": "의도, 하려는 생각",
+          "note": "무엇을 하려는 마음이나 목적이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Yet in intercultural interaction, information conveyed unintentionally may actually be interpreted as intentional; for instance, in some cultures, showing the soles of one’s shoes can communicate an insult and when somebody does that, it is typically assumed to have communicative intent.",
+      "explanation": "하지만 서로 다른 문화권 사람들이 만날 때는, 일부러 전한 것이 아닌 정보도 일부러 한 행동으로 받아들여질 수 있다. 예를 들어 어떤 문화에서는 신발 밑창을 보이는 것이 모욕의 뜻이 될 수 있어서, 누군가 그렇게 하면 보통 일부러 그런 뜻을 전한 것이라고 생각한다.",
+      "vocabulary": [
+        {
+          "word": "intercultural interaction",
+          "meaning": "서로 다른 문화 사이의 만남과 소통",
+          "note": "문화가 다른 사람들끼리 어울리며 주고받는 일을 말한다."
+        },
+        {
+          "word": "interpreted as",
+          "meaning": "~라고 해석되다",
+          "note": "상대가 어떤 뜻으로 받아들이는지를 나타낸다."
+        },
+        {
+          "word": "for instance",
+          "meaning": "예를 들어",
+          "note": "example을 들 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "soles of one’s shoes",
+          "meaning": "신발 밑창",
+          "note": "sole은 신발의 바닥 부분이다."
+        },
+        {
+          "word": "assumed",
+          "meaning": "그렇다고 여겨지는, 짐작되는",
+          "note": "분명히 확인하지 않아도 보통 그렇게 생각한다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "In cultures where this convention does not exist, such behaviour would be unintentional and hence would not be communicative.",
+      "explanation": "반대로 그런 문화 규칙이 없는 곳에서는, 그런 행동은 그냥 뜻 없이 한 행동이 된다. 그래서 메시지를 전하는 행동으로 보지 않는다.",
+      "vocabulary": [
+        {
+          "word": "convention",
+          "meaning": "사회에서 널리 통하는 규칙이나 관습",
+          "note": "사람들이 보통 그렇게 이해하고 따르는 방식이다."
+        },
+        {
+          "word": "such behaviour",
+          "meaning": "그런 행동",
+          "note": "앞에서 말한 행동을 다시 가리키는 표현이다."
+        },
+        {
+          "word": "unintentional",
+          "meaning": "일부러 한 것이 아닌",
+          "note": "의도가 없는 상태를 말한다."
+        },
+        {
+          "word": "hence",
+          "meaning": "그래서, 그 결과",
+          "note": "글말에서 자주 보이는 연결 표현이다."
+        },
+        {
+          "word": "communicative",
+          "meaning": "뜻을 전하는",
+          "note": "상대에게 메시지를 보내는 성격이 있다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "So, most societies invest heavily in preserving their unique traditions such as language, rituals, and customs, as these are considered vital to maintaining cultural identity and continuity.",
+      "explanation": "그래서 대부분의 사회는 자기들만의 전통을 지키는 데 큰 힘을 쏟는다. 언어, 의식, 관습 같은 것들이 문화의 정체성과 이어짐을 지키는 데 아주 중요하다고 보기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "invest heavily in",
+          "meaning": "~에 많은 힘과 돈과 시간을 들이다",
+          "note": "꼭 돈만이 아니라 노력과 관심을 크게 쏟는다는 뜻으로도 쓴다."
+        },
+        {
+          "word": "preserving",
+          "meaning": "지키는 것, 보존하는 것",
+          "note": "없어지지 않게 계속 남겨 두는 것이다."
+        },
+        {
+          "word": "rituals",
+          "meaning": "의식, 정해진 절차의 행사",
+          "note": "종교나 전통과 관련된 경우가 많다."
+        },
+        {
+          "word": "customs",
+          "meaning": "관습, 오랫동안 이어 온 생활 방식",
+          "note": "habit보다 더 사회 전체의 성격이 강하다."
+        },
+        {
+          "word": "vital",
+          "meaning": "아주 중요한",
+          "note": "없으면 큰 문제가 생길 만큼 중요하다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "In other words, a given piece of behaviour may be communicative to some of the participants and only informative to others.",
+      "explanation": "다시 말해, 같은 행동이라도 어떤 사람에게는 분명한 메시지로 보일 수 있고, 다른 사람에게는 그저 정보만 보여 주는 것으로 보일 수 있다.",
+      "vocabulary": [
+        {
+          "word": "In other words",
+          "meaning": "다시 말해",
+          "note": "앞의 내용을 쉽게 풀어 다시 설명할 때 쓴다."
+        },
+        {
+          "word": "a given piece of behaviour",
+          "meaning": "어떤 특정한 행동",
+          "note": "given은 여기서 '주어진'보다 '특정한'에 가깝다."
+        },
+        {
+          "word": "participants",
+          "meaning": "참여한 사람들",
+          "note": "그 상황에 함께 있는 사람들을 가리킨다."
+        },
+        {
+          "word": "communicative",
+          "meaning": "메시지를 전하는",
+          "note": "의도가 담긴 신호라는 뜻이다."
+        },
+        {
+          "word": "informative",
+          "meaning": "정보만 알려 주는",
+          "note": "일부러 뜻을 전하지 않아도 정보가 드러나는 경우를 포함한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

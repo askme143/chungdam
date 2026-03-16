@@ -1,0 +1,272 @@
+{
+  "title": "수업 토론에서 필기의 중요성",
+  "summary": "수업 토론은 학생이 적극적으로 생각하고 말하는 자리이며, 이때 필기는 내용을 정리하고 더 잘 참여하도록 도와주는 중요한 도구이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The purpose of class discussions is to encourage you to be an active participant, not a passive recorder.",
+      "explanation": "수업 토론의 목적은 학생이 가만히 받아 적기만 하는 사람이 아니라, 스스로 참여하는 사람이 되게 하는 데 있다.",
+      "vocabulary": [
+        {
+          "word": "purpose",
+          "meaning": "목적",
+          "note": "왜 그것을 하는지 나타내는 말이다."
+        },
+        {
+          "word": "encourage",
+          "meaning": "용기를 주다, 하게 이끌다",
+          "note": "여기서는 어떤 행동을 하도록 이끈다는 뜻이다."
+        },
+        {
+          "word": "active participant",
+          "meaning": "적극적으로 참여하는 사람",
+          "note": "participant는 '참여자'라는 뜻이다."
+        },
+        {
+          "word": "passive recorder",
+          "meaning": "수동적으로 받아 적기만 하는 사람",
+          "note": "passive는 '스스로 하지 않는', recorder는 여기서 '기록하는 사람'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Much of the emphasis in a discussion is on getting students involved in thinking, reacting, and responding.",
+      "explanation": "토론에서는 학생들이 생각하고, 반응하고, 자기 말을 하도록 만드는 데 큰 비중을 둔다.",
+      "vocabulary": [
+        {
+          "word": "emphasis",
+          "meaning": "강조, 중요하게 두는 점",
+          "note": "무엇을 특히 중요하게 보는지 말할 때 쓴다."
+        },
+        {
+          "word": "get students involved in",
+          "meaning": "학생들이 ~에 참여하게 하다",
+          "note": "involved는 '직접 들어와 함께하는' 느낌이다."
+        },
+        {
+          "word": "reacting",
+          "meaning": "반응하기",
+          "note": "들은 내용에 대해 느낌이나 생각을 보이는 것이다."
+        },
+        {
+          "word": "responding",
+          "meaning": "대답하기, 응답하기",
+          "note": "react보다 조금 더 직접적으로 말이나 행동으로 답하는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "These are important intellectual activities in the learning process, for through them you are supposed to discover and express your opinions.",
+      "explanation": "이런 일들은 배우는 과정에서 아주 중요한 생각 활동이다. 이런 과정을 통해 학생은 자기 생각을 찾아내고 말로 표현해야 한다.",
+      "vocabulary": [
+        {
+          "word": "intellectual activities",
+          "meaning": "생각하는 활동",
+          "note": "어려운 지식 활동이라는 뜻보다, 머리를 써서 생각하는 활동으로 이해하면 된다."
+        },
+        {
+          "word": "learning process",
+          "meaning": "배우는 과정",
+          "note": ""
+        },
+        {
+          "word": "through them",
+          "meaning": "그것들을 통해",
+          "note": "앞에서 말한 thinking, reacting, responding을 가리킨다."
+        },
+        {
+          "word": "be supposed to",
+          "meaning": "~해야 하다, ~하기로 되어 있다",
+          "note": "기대되거나 당연한 일을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "express your opinions",
+          "meaning": "자기 의견을 표현하다",
+          "note": "opinion은 '의견, 생각'이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Writing is an invaluable tool for accomplishing these tasks.",
+      "explanation": "글쓰기는 이런 일들을 해내는 데 매우 값진 도구이다.",
+      "vocabulary": [
+        {
+          "word": "invaluable",
+          "meaning": "매우 소중한, 아주 큰 가치가 있는",
+          "note": "겉으로는 '값을 매길 수 없는'이지만, 실제로는 '아주 귀중한' 뜻으로 많이 쓴다."
+        },
+        {
+          "word": "tool",
+          "meaning": "도구",
+          "note": "여기서는 실제 연장이 아니라 도움이 되는 수단이라는 뜻이다."
+        },
+        {
+          "word": "accomplishing",
+          "meaning": "해내기, 이루기",
+          "note": "accomplish는 목표나 일을 끝내서 이루다는 뜻이다."
+        },
+        {
+          "word": "tasks",
+          "meaning": "해야 할 일들",
+          "note": "앞에서 말한 생각하기, 반응하기, 의견 말하기 같은 일을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Unfortunately, too many times, when class discussion begins, pens and pencils go down.",
+      "explanation": "안타깝게도 수업 토론이 시작되면 많은 경우 학생들은 펜이나 연필을 내려놓고 필기를 멈춘다.",
+      "vocabulary": [
+        {
+          "word": "Unfortunately",
+          "meaning": "안타깝게도",
+          "note": ""
+        },
+        {
+          "word": "too many times",
+          "meaning": "너무 자주, 지나치게 많은 경우에",
+          "note": "자주 일어나는 좋지 않은 일을 말할 때 쓴다."
+        },
+        {
+          "word": "go down",
+          "meaning": "내려놓다",
+          "note": "여기서는 펜과 연필을 손에서 내려놓는다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Admittedly, it is considerably more difficult to take notes from discussions than from lectures, for, unlike lectures, discussions tend to be disorganized and difficult to follow.",
+      "explanation": "물론 토론 내용을 들으면서 필기하는 일은 강의를 들으며 필기하는 것보다 훨씬 더 어렵다. 강의와 달리 토론은 내용이 정리되지 않은 채 흘러가기 쉽고, 따라가기도 어렵기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "Admittedly",
+          "meaning": "물론, 인정하건대",
+          "note": "상대의 말이나 사실을 어느 정도 받아들이며 말할 때 쓴다."
+        },
+        {
+          "word": "considerably",
+          "meaning": "상당히, 꽤 많이",
+          "note": "정도 차이가 크다는 뜻을 더해 준다."
+        },
+        {
+          "word": "take notes",
+          "meaning": "필기하다",
+          "note": ""
+        },
+        {
+          "word": "lectures",
+          "meaning": "강의",
+          "note": ""
+        },
+        {
+          "word": "disorganized",
+          "meaning": "정리되지 않은, 뒤죽박죽인",
+          "note": "organized의 반대말이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Also, students usually don’t know how much of what other students are saying is important.",
+      "explanation": "또 학생들은 다른 학생들이 하는 말 가운데 무엇이 얼마나 중요한지 보통 바로 판단하기 어렵다.",
+      "vocabulary": [
+        {
+          "word": "how much of",
+          "meaning": "~의 얼마나 많은 부분",
+          "note": "전체 중에서 어느 정도를 말하는 표현이다."
+        },
+        {
+          "word": "what other students are saying",
+          "meaning": "다른 학생들이 하고 있는 말",
+          "note": "what은 여기서 '…하는 것'이라는 뜻으로 쓰였다."
+        },
+        {
+          "word": "important",
+          "meaning": "중요한",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "And if you are an active participant, it is not easy to take notes and formulate what you want to say.",
+      "explanation": "그리고 자신이 적극적으로 토론에 참여하고 있다면, 필기를 하면서 동시에 무슨 말을 할지 생각을 정리하는 일은 쉽지 않다.",
+      "vocabulary": [
+        {
+          "word": "active participant",
+          "meaning": "적극적으로 참여하는 사람",
+          "note": ""
+        },
+        {
+          "word": "take notes",
+          "meaning": "필기하다",
+          "note": ""
+        },
+        {
+          "word": "formulate",
+          "meaning": "생각을 말로 정리하다",
+          "note": "머릿속 생각을 분명한 말이나 문장으로 만드는 뜻이다."
+        },
+        {
+          "word": "what you want to say",
+          "meaning": "자기가 하고 싶은 말",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "But note taking in discussions is not only manageable, it is also important.",
+      "explanation": "하지만 토론 중 필기는 불가능한 일이 아니다. 충분히 해낼 수 있고, 또 중요하기도 하다.",
+      "vocabulary": [
+        {
+          "word": "note taking",
+          "meaning": "필기",
+          "note": ""
+        },
+        {
+          "word": "manageable",
+          "meaning": "해낼 수 있는, 감당할 수 있는",
+          "note": "너무 어렵지 않아서 처리할 수 있다는 뜻이다."
+        },
+        {
+          "word": "not only A, it is also B",
+          "meaning": "A일 뿐만 아니라 B이기도 하다",
+          "note": "두 가지 점을 함께 강조하는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Note taking helps to keep you active and alert; it allows you to impose some organization on the discussion; and it can prepare you to speak.",
+      "explanation": "필기는 학생이 계속 적극적으로 깨어 있게 도와준다. 또 토론 내용을 어느 정도 정리해서 볼 수 있게 해 준다. 그리고 나중에 자기 말을 할 준비도 하게 해 준다.",
+      "vocabulary": [
+        {
+          "word": "alert",
+          "meaning": "정신이 또렷한, 집중하고 있는",
+          "note": "졸리거나 멍한 상태가 아니라 바로 반응할 수 있는 상태를 말한다."
+        },
+        {
+          "word": "impose some organization on",
+          "meaning": "~에 어느 정도 질서를 잡다",
+          "note": "흩어진 내용을 스스로 정리해 틀을 세운다는 뜻이다."
+        },
+        {
+          "word": "discussion",
+          "meaning": "토론",
+          "note": ""
+        },
+        {
+          "word": "prepare you to speak",
+          "meaning": "말할 준비를 하게 하다",
+          "note": "자기 의견을 더 잘 말할 수 있게 돕는다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

@@ -19,20 +19,28 @@ _TYPE_MAP = {"모고": "모의고사", "수능": "수능"}
 
 def _display_name(dirname: str) -> str:
     """디렉토리 이름을 사람이 읽기 좋은 형태로 변환한다."""
+    # 모의고사/수능: "고3_2025_3월_모고" → "고3 2025년 3월 모의고사"
     m = re.match(r"(.+?)_(\d{4})_(\d{1,2})월_(.+)", dirname)
-    if not m:
-        return dirname
-    grade, year, month, exam_type = m.groups()
-    exam_label = _TYPE_MAP.get(exam_type, exam_type)
-    return f"{grade} {year}년 {month}월 {exam_label}"
+    if m:
+        grade, year, month, exam_type = m.groups()
+        exam_label = _TYPE_MAP.get(exam_type, exam_type)
+        return f"{grade} {year}년 {month}월 {exam_label}"
+    # 수특: "수특_2027_1강" → "수능특강 2027 1강"
+    m = re.match(r"수특_(\d{4})_(\d{1,2})강", dirname)
+    if m:
+        return f"수능특강 {m.group(1)} {m.group(2)}강"
+    return dirname
 
 
 def _sort_key(dirname: str):
-    """연도·월 기준 내림차순 정렬 키."""
+    """연도·월(또는 강) 기준 내림차순 정렬 키."""
     m = re.match(r".+?_(\d{4})_(\d{1,2})월_", dirname)
     if m:
-        return (-int(m.group(1)), -int(m.group(2)))
-    return (0, 0)
+        return (1, -int(m.group(1)), -int(m.group(2)))
+    m = re.match(r"수특_(\d{4})_(\d{1,2})강", dirname)
+    if m:
+        return (0, -int(m.group(1)), int(m.group(2)))
+    return (2, 0, 0)
 
 
 def generate_index(output_path: Path | None = None) -> str:
@@ -47,13 +55,18 @@ def generate_index(output_path: Path | None = None) -> str:
     groups_html = ""
     for exam_dir in exam_dirs:
         page_dir = exam_dir / "페이지"
-        html_files = sorted(page_dir.glob("*.html"), key=lambda f: int(f.stem) if f.stem.isdigit() else f.stem)
+        html_files = sorted(
+            page_dir.glob("*.html"),
+            key=lambda f: (f.stem.isdigit(), int(f.stem) if f.stem.isdigit() else 0, f.stem),
+        )
 
         display = _display_name(exam_dir.name)
 
         if html_files:
             links = "\n      ".join(
                 f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}번</a>'
+                if f.stem.isdigit()
+                else f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}</a>'
                 for f in html_files
             )
             groups_html += f"""

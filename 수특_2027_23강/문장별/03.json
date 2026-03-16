@@ -1,0 +1,211 @@
+{
+  "title": "눈에 잘 안 보이는 생명체의 세계",
+  "summary": "지구의 생명은 우리가 익숙한 땅 위 동식물만이 아니며, 특히 아주 작은 미생물이 지구 생명의 큰 부분을 이루고 있다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Living things are not confined to the familiar temperate realm of land, water, and sunlight inhabited by plants and plant-eating animals.",
+      "explanation": "생명체는 우리가 익숙하게 아는, 식물과 초식동물이 사는 온화한 땅과 물, 햇빛의 세계에만 있는 것이 아니다.",
+      "vocabulary": [
+        {
+          "word": "confined to",
+          "meaning": "~에만 갇혀 있는, ~로 한정된",
+          "note": "여기서는 생명체가 어떤 환경에만 있는 것이 아니라는 뜻이다."
+        },
+        {
+          "word": "temperate realm",
+          "meaning": "온화한 환경의 세계",
+          "note": "temperate는 덥지도 춥지도 않은 알맞은 기후를 말한다."
+        },
+        {
+          "word": "inhabited by",
+          "meaning": "~이 살고 있는",
+          "note": "inhabit는 어떤 장소에 살다, 거주하다라는 뜻이다."
+        },
+        {
+          "word": "plant-eating animals",
+          "meaning": "식물을 먹는 동물, 초식동물",
+          "note": "herbivores와 비슷한 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "They can be found in the darkest depths of the ocean, in hot volcanic mud, in pools beneath the frozen surface of the Antarctic, and buried kilometers deep in the Earth’s crust.",
+      "explanation": "생명체는 아주 깊고 어두운 바닷속에도 있고, 뜨거운 화산 진흙 속에도 있다. 또 남극의 얼어붙은 표면 아래 물웅덩이에도 있고, 지구 껍질 깊은 곳에 묻힌 채로도 발견된다.",
+      "vocabulary": [
+        {
+          "word": "depths",
+          "meaning": "깊은 곳",
+          "note": "the depths of the ocean은 바다의 아주 깊은 곳을 뜻한다."
+        },
+        {
+          "word": "volcanic mud",
+          "meaning": "화산 진흙",
+          "note": ""
+        },
+        {
+          "word": "beneath",
+          "meaning": "~의 아래에",
+          "note": "under보다 조금 더 글말 느낌이 있다."
+        },
+        {
+          "word": "Earth’s crust",
+          "meaning": "지구의 지각",
+          "note": "지구의 가장 바깥쪽 단단한 부분이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Microorganisms are generally unfamiliar, not only because they are inaccessible, but also because they are mostly microscopic.",
+      "explanation": "미생물은 보통 우리에게 낯설다. 가까이 가서 보기 어렵기도 하고, 대부분 너무 작아서 눈으로 볼 수 없기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "microorganisms",
+          "meaning": "미생물",
+          "note": "아주 작은 생명체를 가리킨다."
+        },
+        {
+          "word": "generally",
+          "meaning": "대체로, 보통",
+          "note": ""
+        },
+        {
+          "word": "inaccessible",
+          "meaning": "쉽게 다가가거나 볼 수 없는",
+          "note": "여기서는 사람이 직접 접하거나 관찰하기 어렵다는 뜻이다."
+        },
+        {
+          "word": "microscopic",
+          "meaning": "현미경으로 봐야 할 만큼 아주 작은",
+          "note": "naked eye(맨눈)로는 보기 어려운 크기다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "They are too small for us to see without special equipment: they tend to go unnoticed, unless they cause a disease or rot the timbers of our houses.",
+      "explanation": "미생물은 특별한 장비 없이는 볼 수 없을 만큼 너무 작다. 그래서 병을 일으키거나 집의 나무를 썩게 하지 않는 한, 우리는 보통 그 존재를 알아차리지 못한다.",
+      "vocabulary": [
+        {
+          "word": "special equipment",
+          "meaning": "특별한 장비",
+          "note": "여기서는 현미경 같은 도구를 말한다."
+        },
+        {
+          "word": "go unnoticed",
+          "meaning": "눈에 띄지 않다, 알아차려지지 않다",
+          "note": ""
+        },
+        {
+          "word": "cause a disease",
+          "meaning": "병을 일으키다",
+          "note": ""
+        },
+        {
+          "word": "rot",
+          "meaning": "썩게 하다",
+          "note": "명사로는 '썩음', 동사로는 '썩다, 썩게 하다'이다."
+        },
+        {
+          "word": "timbers",
+          "meaning": "목재, 나무 들보",
+          "note": "집을 짓는 데 쓰는 나무를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Studies of bacteria have helped us become familiar with those species of industrial importance, such as those used in breaking down waste materials.",
+      "explanation": "박테리아를 연구한 덕분에, 우리는 산업에서 중요하게 쓰이는 몇몇 종류를 알게 되었다. 예를 들어 쓰레기나 버릴 물질을 분해하는 데 쓰이는 것들이다.",
+      "vocabulary": [
+        {
+          "word": "bacteria",
+          "meaning": "박테리아, 세균",
+          "note": "복수형으로 자주 쓰인다."
+        },
+        {
+          "word": "species",
+          "meaning": "종, 종류",
+          "note": "단수와 복수 형태가 같다."
+        },
+        {
+          "word": "industrial importance",
+          "meaning": "산업에서의 중요성",
+          "note": "공장이나 생산 활동에서 중요하게 쓰인다는 뜻이다."
+        },
+        {
+          "word": "breaking down",
+          "meaning": "분해하는",
+          "note": "어떤 물질을 더 작은 부분으로 나누는 뜻이다."
+        },
+        {
+          "word": "waste materials",
+          "meaning": "폐기물, 버리는 물질",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Yet microorganisms make up most of the total mass of living matter on our planet.",
+      "explanation": "하지만 지구에 있는 살아 있는 물질의 전체 양을 따져 보면, 그 대부분은 미생물이 차지한다.",
+      "vocabulary": [
+        {
+          "word": "Yet",
+          "meaning": "하지만, 그런데도",
+          "note": "앞내용과 반대되는 말을 이을 때 쓴다."
+        },
+        {
+          "word": "make up",
+          "meaning": "이루다, 차지하다",
+          "note": "여기서는 전체의 큰 부분을 이룬다는 뜻이다."
+        },
+        {
+          "word": "total mass",
+          "meaning": "전체 질량, 전체 양",
+          "note": "여기서는 모든 살아 있는 것의 양을 말한다."
+        },
+        {
+          "word": "living matter",
+          "meaning": "살아 있는 물질, 생물체",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Only recently, and specifically through the analysis of DNA sequences, have we begun to get a picture of life on Earth that is not grossly distorted by our biased perspective as large animals living on dry land.",
+      "explanation": "아주 최근에야, 그것도 특히 DNA 염기서열을 분석하면서, 우리는 지구 생명의 모습을 조금 제대로 보기 시작했다. 전에는 마른 땅에 사는 큰 동물인 우리 자신의 눈높이 때문에 생명의 전체 모습을 크게 비뚤어지게 보고 있었던 것이다.",
+      "vocabulary": [
+        {
+          "word": "specifically",
+          "meaning": "특히, 정확히 말하면",
+          "note": ""
+        },
+        {
+          "word": "analysis of DNA sequences",
+          "meaning": "DNA 염기서열 분석",
+          "note": "DNA에 들어 있는 정보의 배열을 살펴보는 것이다."
+        },
+        {
+          "word": "grossly distorted",
+          "meaning": "심하게 비뚤어진, 크게 잘못된",
+          "note": "grossly는 '매우, 심하게'라는 뜻이다."
+        },
+        {
+          "word": "biased perspective",
+          "meaning": "치우친 관점",
+          "note": "한쪽으로 기울어진 생각이나 보는 방식이다."
+        },
+        {
+          "word": "dry land",
+          "meaning": "마른 땅, 육지",
+          "note": "바다나 물속과 대비되는 말이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

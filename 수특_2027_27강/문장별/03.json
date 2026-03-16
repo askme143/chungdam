@@ -1,0 +1,159 @@
+{
+  "title": "AI 활용 인식 조사 결과",
+  "summary": "2018년 미국 조사에서 기술 경영진은 일반 대중보다 AI가 어디에 쓰이는지 더 많이 알고 있었고, 예외적으로 드론만 일반 대중의 인식이 더 높았다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The graph above shows results from a 2018 U.S. survey on awareness of AI uses among the general population and tech executives.",
+      "explanation": "위 그래프는 2018년에 미국에서 한 조사 결과를 보여 준다. 이 조사는 일반 사람들과 기술 회사의 경영진이 AI가 어디에 쓰이는지 얼마나 알고 있는지를 살펴본 것이다.",
+      "vocabulary": [
+        {
+          "word": "survey",
+          "meaning": "조사",
+          "note": "사람들에게 물어보고 자료를 모으는 조사이다."
+        },
+        {
+          "word": "awareness",
+          "meaning": "알고 있는 정도, 인식",
+          "note": "여기서는 어떤 사실을 알고 있거나 들어 본 정도를 뜻한다."
+        },
+        {
+          "word": "general population",
+          "meaning": "일반 대중",
+          "note": "특별한 전문가 집단이 아닌 보통 사람들을 가리킨다."
+        },
+        {
+          "word": "tech executives",
+          "meaning": "기술 업계 경영진",
+          "note": "기술 회사에서 높은 자리에 있는 사람들이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Tech executives had a higher awareness of AI uses across the various domains compared to the general population, with the exception of Drones.",
+      "explanation": "기술 경영진은 여러 분야에서 AI 활용에 대해 일반 대중보다 더 잘 알고 있었다. 하지만 드론 분야만은 예외였다.",
+      "vocabulary": [
+        {
+          "word": "across the various domains",
+          "meaning": "여러 분야에 걸쳐",
+          "note": "domain은 여기서 '분야'라는 뜻이다."
+        },
+        {
+          "word": "compared to",
+          "meaning": "~와 비교하면",
+          "note": ""
+        },
+        {
+          "word": "with the exception of",
+          "meaning": "~만 빼고, ~은 예외로 하고",
+          "note": "예외를 말할 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "Drones",
+          "meaning": "드론",
+          "note": "사람이 타지 않고 멀리서 조종하거나 자동으로 움직이는 비행 장치이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The top three AI domains with the highest awareness among tech executives were Voice Assistants, Natural Language Processing, and Text Recognition.",
+      "explanation": "기술 경영진이 가장 많이 알고 있는 AI 분야 세 가지는 음성 비서, 자연어 처리, 문자 인식이었다.",
+      "vocabulary": [
+        {
+          "word": "top three",
+          "meaning": "상위 세 가지",
+          "note": ""
+        },
+        {
+          "word": "Voice Assistants",
+          "meaning": "음성 비서",
+          "note": "사람의 말을 듣고 답하거나 일을 처리해 주는 서비스이다."
+        },
+        {
+          "word": "Natural Language Processing",
+          "meaning": "자연어 처리",
+          "note": "사람이 쓰는 말을 컴퓨터가 이해하고 다루게 하는 기술이다."
+        },
+        {
+          "word": "Text Recognition",
+          "meaning": "문자 인식",
+          "note": "이미지나 문서 속 글자를 읽어 내는 기술이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Ride-Hailing Apps had the lowest awareness levels in both the general population group and the tech executives group.",
+      "explanation": "차를 불러서 타는 앱은 일반 대중과 기술 경영진 두 집단 모두에서 AI 활용에 대한 인식이 가장 낮았다.",
+      "vocabulary": [
+        {
+          "word": "Ride-Hailing Apps",
+          "meaning": "차 호출 앱",
+          "note": "스마트폰으로 차를 부르는 앱을 말한다."
+        },
+        {
+          "word": "lowest awareness levels",
+          "meaning": "가장 낮은 인식 수준",
+          "note": ""
+        },
+        {
+          "word": "both A and B",
+          "meaning": "A와 B 둘 다",
+          "note": "두 대상을 함께 말할 때 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Tech executives’ awareness of AI use in Natural Language Processing was more than double that of the general public.",
+      "explanation": "자연어 처리에서 AI가 쓰인다는 사실을 아는 정도는 기술 경영진이 일반 대중보다 두 배가 넘었다.",
+      "vocabulary": [
+        {
+          "word": "more than double",
+          "meaning": "두 배가 넘는",
+          "note": "double은 '두 배'라는 뜻이다."
+        },
+        {
+          "word": "that of",
+          "meaning": "~의 그것, ~의 수준",
+          "note": "앞에서 나온 awareness를 다시 가리키는 표현이다."
+        },
+        {
+          "word": "general public",
+          "meaning": "일반 대중",
+          "note": "general population과 비슷한 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "The rate of awareness of AI use for Computer Vision and Drones was the same among tech executives, but for the general population, the awareness of Drones was 10 percentage points higher than that of Computer Vision.",
+      "explanation": "기술 경영진 사이에서는 컴퓨터 비전과 드론에 대한 AI 활용 인식 비율이 같았다. 하지만 일반 대중에서는 드론에 대한 인식이 컴퓨터 비전보다 10퍼센트포인트 더 높았다.",
+      "vocabulary": [
+        {
+          "word": "Computer Vision",
+          "meaning": "컴퓨터 비전",
+          "note": "컴퓨터가 이미지나 영상을 보고 이해하게 하는 기술이다."
+        },
+        {
+          "word": "the same",
+          "meaning": "같은",
+          "note": ""
+        },
+        {
+          "word": "percentage points",
+          "meaning": "퍼센트포인트",
+          "note": "퍼센트끼리 차이를 말할 때 쓰는 단위이다."
+        },
+        {
+          "word": "higher than",
+          "meaning": "~보다 더 높은",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}
