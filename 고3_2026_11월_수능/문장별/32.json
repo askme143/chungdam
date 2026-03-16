@@ -1,0 +1,176 @@
+{
+  "title": "좋은 글쓰기와 대화의 공통점",
+  "summary": "좋은 글쓰기는 좋은 대화와 비슷하며, 분명하고 주제에서 벗어나지 않고 알맞은 양의 정보를 주어 독자가 쉽게 이해하도록 해야 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The basic guidelines for good style are not mysterious; in fact, you use them every day in conversation.",
+      "explanation": "좋은 글쓰기 방식의 기본 원칙은 어렵거나 특별한 비밀이 아니다. 사실 우리는 그런 원칙을 날마다 대화할 때 이미 쓰고 있다.",
+      "vocabulary": [
+        {
+          "word": "guidelines",
+          "meaning": "기본 원칙, 안내 기준",
+          "note": "rule보다 조금 더 부드러운 말로, 따라야 할 방향을 알려 준다."
+        },
+        {
+          "word": "style",
+          "meaning": "글의 방식, 문체",
+          "note": "여기서는 옷차림이 아니라 글을 쓰는 방식이라는 뜻이다."
+        },
+        {
+          "word": "mysterious",
+          "meaning": "신비한, 알기 어려운",
+          "note": "여기서는 '이해하기 어려운 특별한 것'이 아니라는 뜻으로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "In conversation and in writing, we all rely heavily on cooperation to make sense of exchanges, and a polished practical style makes cooperation easier.",
+      "explanation": "대화할 때나 글을 읽고 쓸 때나, 우리는 서로 협조해야 말과 글의 뜻을 잘 이해할 수 있다. 그리고 다듬어진 실용적인 문체는 이런 협조가 더 잘 이루어지게 해 준다.",
+      "vocabulary": [
+        {
+          "word": "rely heavily on",
+          "meaning": "크게 기대다, 많이 의지하다",
+          "note": "rely on은 '~에 의지하다'라는 뜻이다."
+        },
+        {
+          "word": "cooperation",
+          "meaning": "협조, 함께 맞춰 가는 것",
+          "note": "여기서는 말하는 사람과 듣는 사람, 또는 글쓴이와 독자가 서로 이해하려고 맞춰 가는 것을 말한다."
+        },
+        {
+          "word": "make sense of",
+          "meaning": "이해하다, 뜻을 파악하다",
+          "note": "직역하면 '말이 되게 만들다'이지만 보통 '이해하다'로 보면 된다."
+        },
+        {
+          "word": "polished",
+          "meaning": "잘 다듬어진",
+          "note": "글이나 말이 매끄럽고 정돈되어 있다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Writers develop such a style by acknowledging that readers expect the same things that listeners expect in conversation: clarity, relevance, and proportion.",
+      "explanation": "글쓴이는 독자도 대화의 청자와 같은 것을 바란다는 점을 인정하면서 그런 문체를 만들어 간다. 독자와 청자가 바라는 것은 분명함, 관련 있는 내용, 그리고 알맞은 정도의 정보이다.",
+      "vocabulary": [
+        {
+          "word": "acknowledging",
+          "meaning": "인정하면서, 받아들이면서",
+          "note": "어떤 사실을 분명히 알고 받아들인다는 뜻이다."
+        },
+        {
+          "word": "clarity",
+          "meaning": "분명함, 알기 쉬움",
+          "note": "글의 뜻이 흐리지 않고 또렷한 상태를 말한다."
+        },
+        {
+          "word": "relevance",
+          "meaning": "관련 있음, 주제와 맞음",
+          "note": "주제와 이어지는 내용인지 보여 주는 말이다."
+        },
+        {
+          "word": "proportion",
+          "meaning": "균형, 알맞은 정도",
+          "note": "여기서는 정보의 양이나 설명의 길이가 지나치지 않고 적절하다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "If you listen to someone who is not clear, who cannot stay on the topic, or who offers too much or too little information, you will quickly lose interest in the conversation.",
+      "explanation": "말이 분명하지 않거나, 주제에서 자꾸 벗어나거나, 정보가 너무 많거나 너무 적은 사람의 말을 듣게 되면, 우리는 그 대화에 금방 흥미를 잃게 된다.",
+      "vocabulary": [
+        {
+          "word": "stay on the topic",
+          "meaning": "주제에서 벗어나지 않다",
+          "note": "대화나 글에서 같은 주제를 계속 이어 가는 것을 말한다."
+        },
+        {
+          "word": "offers",
+          "meaning": "제공하다, 내놓다",
+          "note": "여기서는 정보를 준다는 뜻이다."
+        },
+        {
+          "word": "lose interest",
+          "meaning": "흥미를 잃다",
+          "note": "더 이상 관심이 가지 않게 되는 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Writers, too, need to be clear, stay on the topic, and give information appropriately.",
+      "explanation": "글쓴이도 마찬가지로, 분명하게 쓰고, 주제에서 벗어나지 않으며, 알맞은 양과 방식으로 정보를 주어야 한다.",
+      "vocabulary": [
+        {
+          "word": "appropriately",
+          "meaning": "알맞게, 적절하게",
+          "note": "상황에 맞고 지나치거나 모자라지 않게라는 뜻이다."
+        },
+        {
+          "word": "stay on the topic",
+          "meaning": "주제에서 벗어나지 않다",
+          "note": "글에서도 중심 내용을 계속 붙잡고 가야 한다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "In fact, this attention to audience and appropriateness may be even more important in writing than in conversation because writing does not permit the nonverbal communication and immediate feedback that are part of conversation.",
+      "explanation": "사실 독자를 생각하고 알맞게 쓰려는 태도는 대화보다 글쓰기에서 더 중요할 수도 있다. 글에서는 대화에 있는 몸짓이나 표정 같은 말 없는 신호, 그리고 바로바로 돌아오는 반응을 쓸 수 없기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "attention to audience",
+          "meaning": "독자를 생각하는 태도",
+          "note": "누가 읽을지를 염두에 두고 쓰는 것을 말한다."
+        },
+        {
+          "word": "appropriateness",
+          "meaning": "알맞음, 상황에 맞는 정도",
+          "note": "내용, 표현, 정보의 양이 상황에 맞는지를 가리킨다."
+        },
+        {
+          "word": "nonverbal communication",
+          "meaning": "말이 아닌 의사소통",
+          "note": "표정, 몸짓, 목소리 톤 같은 것을 포함한다."
+        },
+        {
+          "word": "immediate feedback",
+          "meaning": "즉각적인 반응",
+          "note": "상대가 바로 보여 주는 반응이나 대답을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "As writers, we have to anticipate the absent reader’s response; in effect, we have to imagine both halves of a virtual conversation.",
+      "explanation": "글을 쓰는 사람은 눈앞에 없는 독자가 어떻게 반응할지 미리 생각해야 한다. 다시 말해, 실제로는 혼자 글을 쓰고 있어도 마치 대화의 양쪽 역할을 다 상상해야 한다.",
+      "vocabulary": [
+        {
+          "word": "anticipate",
+          "meaning": "미리 생각하다, 예상하다",
+          "note": "앞으로 일어날 반응이나 일을 먼저 떠올리는 것이다."
+        },
+        {
+          "word": "absent reader",
+          "meaning": "눈앞에 없는 독자",
+          "note": "글을 쓸 때 바로 앞에 있지 않은 독자를 가리킨다."
+        },
+        {
+          "word": "in effect",
+          "meaning": "사실상, 다시 말해",
+          "note": "앞말을 조금 쉽게 풀어 말할 때 자주 쓴다."
+        },
+        {
+          "word": "virtual conversation",
+          "meaning": "가상의 대화",
+          "note": "실제로 마주 보고 하는 대화는 아니지만, 그런 것처럼 생각하는 대화를 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "32"
+}

@@ -1,0 +1,254 @@
+{
+  "title": "오랜만에 찾은 어린 시절의 집",
+  "summary": "오랫동안 떠나 있었던 소피가 많이 달라진 마을에서 어릴 때 살던 집을 떠올릴 만한 벽화를 보고 마침내 그 집을 다시 찾는다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "“Where could it be?” Sophie asked herself.",
+      "explanation": "소피는 '그게 어디에 있을까?' 하고 혼잣말처럼 스스로에게 물었다.",
+      "vocabulary": [
+        {
+          "word": "could it be",
+          "meaning": "어디에 있을까, 어디일까",
+          "note": "가능성을 생각하며 조심스럽게 추측할 때 자주 쓰는 말이다."
+        },
+        {
+          "word": "asked herself",
+          "meaning": "혼자 속으로 물었다",
+          "note": "다른 사람에게 묻는 것이 아니라 자기 자신에게 묻는다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "It had been more than ten years since she had last visited the area where she had grown up.",
+      "explanation": "그녀가 자란 동네를 마지막으로 찾아온 뒤로 벌써 10년이 훨씬 넘게 지났다.",
+      "vocabulary": [
+        {
+          "word": "more than",
+          "meaning": "~보다 더, ~이 넘는",
+          "note": ""
+        },
+        {
+          "word": "last visited",
+          "meaning": "마지막으로 방문했다",
+          "note": "가장 최근에 갔던 때를 말한다."
+        },
+        {
+          "word": "the area where she had grown up",
+          "meaning": "그녀가 자란 지역",
+          "note": "grow up은 '자라다, 성장하다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The village had changed a lot over time.",
+      "explanation": "시간이 흐르는 동안 그 마을은 많이 달라져 있었다.",
+      "vocabulary": [
+        {
+          "word": "village",
+          "meaning": "마을",
+          "note": "도시보다 작은 곳을 가리킨다."
+        },
+        {
+          "word": "changed a lot",
+          "meaning": "많이 변했다",
+          "note": ""
+        },
+        {
+          "word": "over time",
+          "meaning": "시간이 지나면서",
+          "note": "조금씩 긴 시간 동안 변하는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Uncertain, she awkwardly looked around at her surroundings.",
+      "explanation": "확신이 없었던 소피는 어색하게 주위를 둘러보았다.",
+      "vocabulary": [
+        {
+          "word": "Uncertain",
+          "meaning": "확신이 없는, 잘 모르겠는",
+          "note": "문장 맨 앞에서 소피의 상태를 보여 준다."
+        },
+        {
+          "word": "awkwardly",
+          "meaning": "어색하게",
+          "note": "자연스럽지 못하고 서툰 느낌을 준다."
+        },
+        {
+          "word": "looked around",
+          "meaning": "주위를 둘러보았다",
+          "note": ""
+        },
+        {
+          "word": "surroundings",
+          "meaning": "주변, 주위 환경",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "She walked the narrow streets of the village, unsure about which way to go.",
+      "explanation": "그녀는 어느 쪽으로 가야 할지 몰라 하면서 마을의 좁은 길들을 걸었다.",
+      "vocabulary": [
+        {
+          "word": "narrow streets",
+          "meaning": "좁은 길들",
+          "note": ""
+        },
+        {
+          "word": "unsure about",
+          "meaning": "~에 대해 확신이 없는",
+          "note": ""
+        },
+        {
+          "word": "which way to go",
+          "meaning": "어느 길로 가야 할지",
+          "note": "방향을 정하지 못한 상태를 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Suddenly, Sophie saw a familiar sight.",
+      "explanation": "그때 갑자기 소피는 눈에 익은 장면을 보았다.",
+      "vocabulary": [
+        {
+          "word": "Suddenly",
+          "meaning": "갑자기",
+          "note": ""
+        },
+        {
+          "word": "familiar",
+          "meaning": "익숙한, 눈에 익은",
+          "note": ""
+        },
+        {
+          "word": "sight",
+          "meaning": "보이는 것, 광경",
+          "note": "see와 관련된 말이지만 여기서는 '눈앞의 모습'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "“Yes, this must be it,” she thought.",
+      "explanation": "소피는 '그래, 바로 여기인 게 틀림없어'라고 생각했다.",
+      "vocabulary": [
+        {
+          "word": "must be",
+          "meaning": "~임이 틀림없다",
+          "note": "강한 확신을 나타낼 때 쓴다."
+        },
+        {
+          "word": "it",
+          "meaning": "그것, 여기서 찾던 장소",
+          "note": "이 문장에서는 찾고 있던 집이나 장소를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "In front of her was a wall with flowers painted on it.",
+      "explanation": "그녀 앞에는 꽃이 그려진 벽이 있었다.",
+      "vocabulary": [
+        {
+          "word": "In front of her",
+          "meaning": "그녀 앞에",
+          "note": ""
+        },
+        {
+          "word": "painted on it",
+          "meaning": "그 위에 그려진",
+          "note": "벽 같은 표면 위에 그림이 있는 상태를 말한다."
+        },
+        {
+          "word": "wall with flowers painted on it",
+          "meaning": "꽃이 그려진 벽",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Although the colors were now faded, the familiar shapes on the wall were the same ones she had painted with her father as a child.",
+      "explanation": "이제 색은 바래 있었지만, 벽에 있는 익숙한 모양들은 소피가 어릴 때 아버지와 함께 그렸던 바로 그 그림들이었다.",
+      "vocabulary": [
+        {
+          "word": "Although",
+          "meaning": "비록 ~이지만",
+          "note": ""
+        },
+        {
+          "word": "faded",
+          "meaning": "빛이 바랜, 흐려진",
+          "note": "색이 오래되어 선명하지 않게 된 상태를 말한다."
+        },
+        {
+          "word": "shapes",
+          "meaning": "모양들",
+          "note": ""
+        },
+        {
+          "word": "as a child",
+          "meaning": "어렸을 때",
+          "note": ""
+        },
+        {
+          "word": "the same ones",
+          "meaning": "바로 그 같은 것들",
+          "note": "예전에 보았던 것과 똑같다는 뜻을 강조한다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Sophie nodded, smiled brightly, and walked toward the gate.",
+      "explanation": "소피는 고개를 끄덕이고 환하게 웃은 뒤, 대문 쪽으로 걸어갔다.",
+      "vocabulary": [
+        {
+          "word": "nodded",
+          "meaning": "고개를 끄덕였다",
+          "note": "알겠다는 뜻이나 확신, 반가움을 나타낼 수 있다."
+        },
+        {
+          "word": "brightly",
+          "meaning": "환하게",
+          "note": "여기서는 표정이 밝고 기쁜 모습을 나타낸다."
+        },
+        {
+          "word": "toward the gate",
+          "meaning": "대문 쪽으로",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "original": "At last, she had finally found the house she had grown up in.",
+      "explanation": "마침내 그녀는 자기가 어린 시절을 보낸 집을 드디어 찾아냈다.",
+      "vocabulary": [
+        {
+          "word": "At last",
+          "meaning": "마침내",
+          "note": "오래 기다리거나 애쓴 끝에 이루어졌다는 느낌이 있다."
+        },
+        {
+          "word": "finally found",
+          "meaning": "드디어 찾았다",
+          "note": ""
+        },
+        {
+          "word": "the house she had grown up in",
+          "meaning": "그녀가 자란 집",
+          "note": "전치사 in이 문장 끝에 와서 '그 집에서 자랐다'는 뜻을 만든다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "19"
+}

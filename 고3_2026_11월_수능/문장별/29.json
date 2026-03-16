@@ -1,0 +1,184 @@
+{
+  "title": "사람이 똑똑해도 혼자서는 다 알 수 없는 이유",
+  "summary": "사람은 똑똑하지만 혼자 힘만으로는 살아가는 데 필요한 모든 지식을 만들 수 없어서, 다른 사람에게 배우며 지식을 쌓아 간다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "We are exceptionally smart, and this helps us adapt to a wide range of environments.",
+      "explanation": "사람은 아주 똑똑하다. 그래서 여러 가지 다른 환경에 맞게 잘 살아갈 수 있다.",
+      "vocabulary": [
+        {
+          "word": "exceptionally",
+          "meaning": "유난히, 아주 뛰어나게",
+          "note": "강조할 때 쓰는 말이다."
+        },
+        {
+          "word": "adapt to",
+          "meaning": "~에 맞추다, ~에 적응하다",
+          "note": "환경이나 상황이 바뀔 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "a wide range of",
+          "meaning": "아주 다양한, 폭넓은",
+          "note": "뒤에 종류나 범위가 넓은 것이 온다."
+        },
+        {
+          "word": "environments",
+          "meaning": "환경들",
+          "note": "자연환경뿐 아니라 사람이 사는 여러 조건도 가리킬 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "But we are not nearly smart enough as individuals to solve the adaptive problems that confronted modern humans as they spread across the globe.",
+      "explanation": "하지만 한 사람씩 따로 보면, 사람들은 세계 곳곳으로 퍼져 나가며 마주친 살아남기 위한 어려움들을 혼자 풀 만큼 충분히 똑똑하지는 않다.",
+      "vocabulary": [
+        {
+          "word": "not nearly ... enough",
+          "meaning": "전혀 충분히 ~하지 않은",
+          "note": "생각보다 많이 부족하다는 뜻을 강하게 말할 때 쓴다."
+        },
+        {
+          "word": "as individuals",
+          "meaning": "개인으로서는, 한 사람씩 보면",
+          "note": "집단이 아니라 각 사람을 따로 볼 때 쓰는 말이다."
+        },
+        {
+          "word": "adaptive problems",
+          "meaning": "환경에 맞춰 살아가기 위한 문제들",
+          "note": "여기서는 살아남고 잘 살기 위해 풀어야 하는 어려움을 뜻한다."
+        },
+        {
+          "word": "confronted",
+          "meaning": "맞닥뜨렸다, 마주했다",
+          "note": "confront의 과거형이다."
+        },
+        {
+          "word": "spread across the globe",
+          "meaning": "전 세계로 퍼져 나가다",
+          "note": "the globe는 '지구, 세계'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The package of tools, foraging techniques, ecological knowledge, and social arrangements used by any group of foragers is far too complex for any individual to create.",
+      "explanation": "어떤 채집 생활 집단이 쓰는 도구, 먹을 것을 찾는 방법, 자연에 대한 지식, 함께 살아가는 방식은 한 사람이 혼자 만들어 내기에는 너무 복잡하다.",
+      "vocabulary": [
+        {
+          "word": "package",
+          "meaning": "한데 묶인 것, 한 묶음",
+          "note": "여기서는 여러 요소가 함께 모인 전체를 뜻한다."
+        },
+        {
+          "word": "foraging techniques",
+          "meaning": "먹을 것을 찾아 얻는 방법",
+          "note": "foraging은 자연에서 식량을 찾는 일을 말한다."
+        },
+        {
+          "word": "ecological knowledge",
+          "meaning": "자연환경에 대한 지식",
+          "note": "동식물, 날씨, 땅 같은 환경에 대한 앎을 가리킨다."
+        },
+        {
+          "word": "social arrangements",
+          "meaning": "사회적 생활 방식, 함께 사는 규칙과 짜임",
+          "note": "집단 안에서 사람들이 역할을 나누고 살아가는 방식을 뜻한다."
+        },
+        {
+          "word": "far too complex",
+          "meaning": "너무나 복잡한",
+          "note": "too complex보다 더 강한 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "We are able to learn all the things we need to know in each of the many different environments in which we live only because we acquire information from others.",
+      "explanation": "우리가 여러 다른 환경에서 살아가면서 꼭 알아야 할 것들을 배울 수 있는 이유는, 다른 사람에게서 정보를 얻기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "be able to",
+          "meaning": "~할 수 있다",
+          "note": "can과 비슷하지만 조금 더 풀어서 말하는 느낌이다."
+        },
+        {
+          "word": "acquire",
+          "meaning": "얻다, 배워서 가지게 되다",
+          "note": "책이나 경험, 다른 사람을 통해 지식이나 기술을 얻을 때 자주 쓴다."
+        },
+        {
+          "word": "information from others",
+          "meaning": "다른 사람에게서 얻는 정보",
+          "note": "이 글에서는 개인이 아닌 사회를 통해 배우는 것을 강조한다."
+        },
+        {
+          "word": "in which we live",
+          "meaning": "우리가 그 안에서 사는",
+          "note": "앞의 environments를 꾸며 주는 관계절이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "We are much better at learning from others than other species are, and we are motivated to learn from others even when we do not understand why our models are doing what they are doing.",
+      "explanation": "사람은 다른 종들보다 남에게서 배우는 데 훨씬 더 뛰어나다. 또 우리가 따라 배우는 사람이 왜 그렇게 하는지 잘 몰라도, 여전히 그 사람에게서 배우려는 마음이 생긴다.",
+      "vocabulary": [
+        {
+          "word": "species",
+          "meaning": "종",
+          "note": "생물의 종류를 나눌 때 쓰는 말이다."
+        },
+        {
+          "word": "motivated to",
+          "meaning": "~하려는 마음이 생긴, ~하고 싶어 하는",
+          "note": "무언가를 하게 만드는 힘이나 마음을 말한다."
+        },
+        {
+          "word": "models",
+          "meaning": "본보기로 삼는 사람들",
+          "note": "여기서는 수학 모형이 아니라 따라 배우는 대상을 뜻한다."
+        },
+        {
+          "word": "even when",
+          "meaning": "~할 때조차, ~인데도",
+          "note": "예상과 다른 상황을 강조할 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "This psychology allows human populations to accumulate pools of adaptive information that greatly exceed the inventive capacities of individuals.",
+      "explanation": "이런 마음의 성향 덕분에 사람 집단은 환경에 맞게 살아가는 데 필요한 지식을 계속 쌓을 수 있다. 그래서 그 지식의 양은 한 사람이 혼자 생각해 낼 수 있는 수준을 훨씬 넘어서게 된다.",
+      "vocabulary": [
+        {
+          "word": "psychology",
+          "meaning": "마음의 작동 방식, 심리",
+          "note": "여기서는 사람이 배우고 따라 하려는 성향을 가리킨다."
+        },
+        {
+          "word": "accumulate",
+          "meaning": "쌓다, 모아 가다",
+          "note": "시간이 지나며 조금씩 늘어나는 느낌이 있다."
+        },
+        {
+          "word": "pools of adaptive information",
+          "meaning": "환경에 맞게 살아가는 데 도움이 되는 지식의 큰 모음",
+          "note": "pool은 여기서 '모여 있는 큰 덩어리'라는 뜻이다."
+        },
+        {
+          "word": "exceed",
+          "meaning": "넘다, 뛰어넘다",
+          "note": "양이나 수준이 더 크다는 뜻이다."
+        },
+        {
+          "word": "inventive capacities",
+          "meaning": "새롭게 생각해 내는 능력",
+          "note": "individuals의 inventive capacities는 한 사람이 혼자 발명하거나 생각해 내는 힘을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "29"
+}
