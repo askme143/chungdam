@@ -38,7 +38,6 @@
 
   .subtitle {
     color: var(--text-sub);
-    margin-bottom: 2rem;
     font-size: 0.95rem;
   }
 
@@ -81,12 +80,46 @@
     background: var(--accent);
     color: #fff;
   }
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .report-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--card);
+    color: var(--text-sub);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .report-btn:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>청담 영어</h1>
-  <p class="subtitle">문장별 해설 뷰어</p>
+  <div class="header">
+    <div>
+      <h1>청담 영어</h1>
+      <p class="subtitle">문장별 해설 뷰어</p>
+    </div>
+    <a class="report-btn" href="https://forms.gle/8qoJmMosuFfEmhZ59" target="_blank" rel="noopener">
+      &#9888;&#65039; 오류 제보
+    </a>
+  </div>
 
   <div class="exam-group">
     <h2>고3 2025년 11월 수능</h2>
@@ -174,6 +207,7 @@
       <a href="고1_2024_3월_모고/페이지/40.html">40번</a>
     </div>
   </div>
+
 
 </div>
 </body>
