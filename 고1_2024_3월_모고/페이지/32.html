@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "리더십과 반대 의견의 가치", "summary": "겉으로는 많은 리더가 반대 의견을 장려한다고 말하며, 진정으로 귀 기울이면 그런 의견이 일을 성사시키는 데 필요한 조건을 알려준다는 내용이다.", "sentences": [{"id": 1, "original": "No respectable boss would say, \"I make it a point to discourage my staff from speaking up, and I maintain a culture that prevents disagreeing viewpoints from ever getting aired.\"", "explanation": "존중받을 만한 상사라면 직원들이 자유롭게 의견을 내지 못하게 일부러 막고, 다른 견해가 아예 드러나지 못하는 조직문화를 유지한다고 대놓고 말하지는 않을 것이다.", "vocabulary": [{"word": "respectable", "meaning": "존경할 만한, 제대로 된", "note": "사람이나 조직의 평판이 괜찮고 사회적으로 인정받는다는 뉘앙스가 있다."}, {"word": "make it a point to", "meaning": "반드시 ~하다, 일부러 ~하다", "note": "의식적으로 중요하게 여겨 꾸준히 한다는 표현."}, {"word": "speaking up", "meaning": "솔직히 의견을 말하기, 목소리를 내기", "note": "특히 침묵하지 않고 문제나 의견을 공개적으로 말하는 뜻."}, {"word": "getting aired", "meaning": "공개되다, 표출되다", "note": "air는 원래 방송하다라는 뜻에서 나와 의견이 세상에 드러나는 의미로도 쓰인다."}]}, {"id": 2, "original": "If anything, most bosses even say that they are pro-dissent.", "explanation": "오히려 대부분의 상사들은 자신이 반대 의견을 지지하는 사람이라고까지 말한다.", "vocabulary": [{"word": "If anything", "meaning": "오히려, 굳이 말하자면", "note": "앞의 내용을 약간 뒤집거나 더 강하게 보완할 때 자주 쓴다."}, {"word": "pro-dissent", "meaning": "반대 의견에 우호적인", "note": "pro-는 '~찬성'이라는 뜻의 접두사이고, dissent는 이견·반대 의견을 뜻한다."}]}, {"id": 3, "original": "This idea can be found throughout the series of conversations with corporate, university, and nonprofit leaders, published weekly in the business sections of newspapers.", "explanation": "이런 생각은 신문 경제면에 매주 실리는 기업, 대학, 비영리단체 지도자들과의 연속 인터뷰 전반에서 공통적으로 나타난다.", "vocabulary": [{"word": "throughout", "meaning": "전반에 걸쳐, 도처에", "note": "어떤 범위 전체에 널리 퍼져 있음을 나타낸다."}, {"word": "nonprofit", "meaning": "비영리의", "note": "profit(이윤)과 대비되는 개념으로, 수익 추구가 주목적이 아닌 조직을 말한다."}, {"word": "business sections", "meaning": "경제면, 비즈니스 섹션", "note": "신문이나 잡지에서 경제·산업 관련 기사가 실리는 지면."}]}, {"id": 4, "original": "In the interviews, the featured leaders are asked about their management techniques, and regularly claim to continually encourage internal protest from more junior staffers.", "explanation": "이 인터뷰들에서 주목받는 리더들은 자신의 경영 방식에 대한 질문을 받고, 더 직급이 낮은 직원들이 내부적으로 이의를 제기하도록 계속 장려한다고 자주 주장한다.", "vocabulary": [{"word": "featured leaders", "meaning": "중점적으로 소개되는 리더들", "note": "feature는 기사나 프로그램에서 특별히 다루다라는 뜻으로 자주 쓰인다."}, {"word": "management techniques", "meaning": "경영 기법, 관리 방식", "note": "조직을 운영하고 사람을 관리하는 방법을 가리킨다."}, {"word": "internal protest", "meaning": "내부의 이의 제기, 조직 내부 반대", "note": "여기서는 거리 시위보다는 조직 안에서 제기되는 반대 의견에 가깝다."}, {"word": "junior staffers", "meaning": "하급 직원들, 직급이 낮은 직원들", "note": "junior는 나이나 경력, 직급이 더 낮다는 뜻."}]}, {"id": 5, "original": "As Bot Pittman remarked in one of these conversations: \"I want us to listen to these dissenters because they may intend to tell you why we can’t do something, but if you listen hard, what they’re really telling you is what you must do to get something done.\"", "explanation": "보트 피트먼의 말처럼, 반대하는 사람들은 겉으로는 왜 어떤 일을 할 수 없는지 말하려는 것처럼 보일 수 있다. 하지만 그들의 말을 주의 깊게 들으면, 실제로는 그 일을 해내기 위해 무엇이 필요한지를 알려주고 있다는 뜻이다.", "vocabulary": [{"word": "remarked", "meaning": "말했다, 언급했다", "note": "say보다 약간 더 격식 있고 인용문 도입에 자주 쓰인다."}, {"word": "dissenters", "meaning": "반대하는 사람들, 이견 제기자들", "note": "dissent(이견을 말하다)에서 나온 명사."}, {"word": "intend to", "meaning": "~하려고 하다, 의도하다", "note": "의도나 목적을 나타내는 기본 표현."}, {"word": "listen hard", "meaning": "주의 깊게 듣다", "note": "hard가 '열심히, 진지하게'의 뜻으로 쓰였다."}, {"word": "get something done", "meaning": "어떤 일을 해내다, 성사시키다", "note": "실제로 결과가 나오게 만든다는 의미의 자주 쓰는 표현."}]}], "problem_number": "32"};
+const DATA = {"title": "리더십과 반대 의견의 가치", "summary": "겉으로는 많은 리더가 반대 의견을 장려한다고 말하며, 진정으로 귀 기울이면 그런 의견이 일을 성사시키는 데 필요한 조건을 알려준다는 내용이다.", "sentences": [{"id": 1, "original": "No respectable boss would say, \"I make it a point to discourage my staff from speaking up, and I maintain a culture that prevents disagreeing viewpoints from ever getting aired.\"", "explanation": "존중받을 만한 상사라면 직원들이 자유롭게 의견을 내지 못하게 일부러 막고, 다른 견해가 아예 드러나지 못하는 조직문화를 유지한다고 대놓고 말하지는 않을 것이다.", "vocabulary": [{"word": "respectable", "meaning": "존경할 만한, 제대로 된", "note": "사람이나 조직의 평판이 괜찮고 사회적으로 인정받는다는 뉘앙스가 있다."}, {"word": "make it a point to", "meaning": "반드시 ~하다, 일부러 ~하다", "note": "의식적으로 중요하게 여겨 꾸준히 한다는 표현."}, {"word": "speaking up", "meaning": "솔직히 의견을 말하기, 목소리를 내기", "note": "특히 침묵하지 않고 문제나 의견을 공개적으로 말하는 뜻."}, {"word": "getting aired", "meaning": "공개되다, 표출되다", "note": "air는 원래 방송하다라는 뜻에서 나와 의견이 세상에 드러나는 의미로도 쓰인다."}]}, {"id": 2, "original": "If anything, most bosses even say that they are pro-dissent.", "explanation": "오히려 대부분의 상사들은 자신이 반대 의견을 지지하는 사람이라고까지 말한다.", "vocabulary": [{"word": "If anything", "meaning": "오히려, 굳이 말하자면", "note": "앞의 내용을 약간 뒤집거나 더 강하게 보완할 때 자주 쓴다."}, {"word": "pro-dissent", "meaning": "반대 의견에 우호적인", "note": "pro-는 '~찬성'이라는 뜻의 접두사이고, dissent는 이견·반대 의견을 뜻한다."}]}, {"id": 3, "original": "This idea can be found throughout the series of conversations with corporate, university, and nonprofit leaders, published weekly in the business sections of newspapers.", "explanation": "이런 생각은 신문 경제면에 매주 실리는 기업, 대학, 비영리단체 지도자들과의 연속 인터뷰 전반에서 공통적으로 나타난다.", "vocabulary": [{"word": "throughout", "meaning": "전반에 걸쳐, 도처에", "note": "어떤 범위 전체에 널리 퍼져 있음을 나타낸다."}, {"word": "nonprofit", "meaning": "비영리의", "note": "profit(이윤)과 대비되는 개념으로, 수익 추구가 주목적이 아닌 조직을 말한다."}, {"word": "business sections", "meaning": "경제면, 비즈니스 섹션", "note": "신문이나 잡지에서 경제·산업 관련 기사가 실리는 지면."}]}, {"id": 4, "original": "In the interviews, the featured leaders are asked about their management techniques, and regularly claim to continually encourage internal protest from more junior staffers.", "explanation": "이 인터뷰들에서 주목받는 리더들은 자신의 경영 방식에 대한 질문을 받고, 더 직급이 낮은 직원들이 내부적으로 이의를 제기하도록 계속 장려한다고 자주 주장한다.", "vocabulary": [{"word": "featured leaders", "meaning": "중점적으로 소개되는 리더들", "note": "feature는 기사나 프로그램에서 특별히 다루다라는 뜻으로 자주 쓰인다."}, {"word": "management techniques", "meaning": "경영 기법, 관리 방식", "note": "조직을 운영하고 사람을 관리하는 방법을 가리킨다."}, {"word": "internal protest", "meaning": "내부의 이의 제기, 조직 내부 반대", "note": "여기서는 거리 시위보다는 조직 안에서 제기되는 반대 의견에 가깝다."}, {"word": "junior staffers", "meaning": "하급 직원들, 직급이 낮은 직원들", "note": "junior는 나이나 경력, 직급이 더 낮다는 뜻."}]}, {"id": 5, "original": "As Bot Pittman remarked in one of these conversations: \"I want us to listen to these dissenters because they may intend to tell you why we can’t do something, but if you listen hard, what they’re really telling you is what you must do to get something done.\"", "explanation": "보트 피트먼의 말처럼, 반대하는 사람들은 겉으로는 왜 어떤 일을 할 수 없는지 말하려는 것처럼 보일 수 있다. 하지만 그들의 말을 주의 깊게 들으면, 실제로는 그 일을 해내기 위해 무엇이 필요한지를 알려주고 있다는 뜻이다.", "vocabulary": [{"word": "remarked", "meaning": "말했다, 언급했다", "note": "say보다 약간 더 격식 있고 인용문 도입에 자주 쓰인다."}, {"word": "dissenters", "meaning": "반대하는 사람들, 이견 제기자들", "note": "dissent(이견을 말하다)에서 나온 명사."}, {"word": "intend to", "meaning": "~하려고 하다, 의도하다", "note": "의도나 목적을 나타내는 기본 표현."}, {"word": "listen hard", "meaning": "주의 깊게 듣다", "note": "hard가 '열심히, 진지하게'의 뜻으로 쓰였다."}, {"word": "get something done", "meaning": "어떤 일을 해내다, 성사시키다", "note": "실제로 결과가 나오게 만든다는 의미의 자주 쓰는 표현."}]}], "problem_number": "32", "exam_info": "고1 2024 3월 모고"};
 const NEXT_PAGE = "33.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

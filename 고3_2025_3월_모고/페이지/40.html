@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "메타 알고리즘과 지적 소유권의 변화", "summary": "메타 알고리즘은 인간이 만든 것처럼 보이지만, 결과가 인간의 통제를 벗어나면 그 과정의 지적 소유권은 인간이 아니라 컴퓨터에 귀속될 수 있다는 주장이다.", "sentences": [{"id": 1, "original": "It may be assumed that meta‑algorithmics, that is, the creation of algorithms that generate other algorithms, is a human creation as well.", "explanation": "메타 알고리즘학, 즉 다른 알고리즘을 만들어 내는 알고리즘을 만드는 일도 역시 인간이 만든 것이라고 보통 생각할 수 있다.", "vocabulary": [{"word": "It may be assumed that", "meaning": "~라고 여겨질 수 있다", "note": "글에서 일반적인 통념이나 가정을 제시할 때 자주 쓰는 표현이다."}, {"word": "meta‑algorithmics", "meaning": "메타 알고리즘학, 알고리즘이 다른 알고리즘을 생성하는 체계", "note": "meta-는 ‘상위의, 자기반영적인’ 의미를 더한다."}, {"word": "generate", "meaning": "생성하다, 만들어 내다", "note": "알고리즘, 데이터, 전력 등 다양한 맥락에서 널리 쓰인다."}, {"word": "human creation", "meaning": "인간의 창조물", "note": "인간이 직접 만들어 낸 산물이라는 뜻이다."}]}, {"id": 2, "original": "A human programmer must have composed the first algorithm that, in turn, generates new algorithms and as such the initial programmer must be in control of the original idea.", "explanation": "처음으로 다른 알고리즘들을 만들어 내는 알고리즘도 결국 인간 프로그래머가 작성했을 것이므로, 그 최초의 프로그래머가 원래 아이디어를 통제하고 있다고 볼 수 있다.", "vocabulary": [{"word": "must have composed", "meaning": "분명 작성했을 것이다", "note": "과거 사실에 대한 강한 추정을 나타내는 표현이다."}, {"word": "in turn", "meaning": "차례로, 그 결과 다시", "note": "앞선 것의 결과로 다음 단계가 이어짐을 나타낸다."}, {"word": "as such", "meaning": "그러한 것으로서, 따라서", "note": "앞서 언급한 성격을 근거로 결론을 이끌 때 쓰인다."}, {"word": "be in control of", "meaning": "~을 통제하고 있다", "note": "사람, 상황, 과정 등에 대한 지배·통제 상태를 뜻한다."}]}, {"id": 3, "original": "However, this is not necessarily true.", "explanation": "하지만 이런 생각이 반드시 옳은 것은 아니다.", "vocabulary": [{"word": "not necessarily", "meaning": "반드시 ~인 것은 아니다", "note": "부분 부정을 나타내는 매우 중요한 표현이다."}]}, {"id": 4, "original": "Unlike humanly conceived ideas, where the author is the intellectual owner of the idea, algorithms are processes that define, describe, and implement a series of actions that in turn produce other actions.", "explanation": "인간이 구상한 아이디어에서는 보통 창작자가 그 아이디어의 지적 소유자가 되지만, 알고리즘은 일련의 행동을 규정하고 설명하며 실행하고, 그 행동들이 다시 다른 행동을 만들어 내는 과정이다.", "vocabulary": [{"word": "humanly conceived", "meaning": "인간에 의해 구상된", "note": "conceive는 ‘생각해 내다, 구상하다’라는 뜻이다."}, {"word": "intellectual owner", "meaning": "지적 소유자", "note": "법적·철학적 맥락에서 아이디어나 창작물의 소유 주체를 가리킨다."}, {"word": "implement", "meaning": "실행하다, 구현하다", "note": "컴퓨터공학에서는 계획이나 설계를 실제로 작동하게 만드는 뜻으로 자주 쓰인다."}, {"word": "a series of actions", "meaning": "일련의 행위/동작", "note": "연속적으로 이어지는 여러 단계의 행동을 뜻한다."}]}, {"id": 5, "original": "During the transfer of actions it is possible for a discrepancy to occur between the original intention and the actual result.", "explanation": "이러한 행동이 전달되고 이어지는 과정에서는 처음 의도와 실제 결과 사이에 차이가 생길 수 있다.", "vocabulary": [{"word": "transfer", "meaning": "전달, 이전", "note": "여기서는 행동이나 과정이 한 단계에서 다음 단계로 넘어가는 것을 뜻한다."}, {"word": "discrepancy", "meaning": "불일치, 차이", "note": "기대한 것과 실제가 어긋날 때 쓰는 격식 있는 표현이다."}, {"word": "original intention", "meaning": "원래 의도", "note": "처음에 설정된 목적이나 생각을 뜻한다."}, {"word": "actual result", "meaning": "실제 결과", "note": "의도와 대비되는 현실의 산출물이다."}]}, {"id": 6, "original": "If that happens then, by definition, the author of the algorithm is not in control of, and therefore does not own intellectually from that point on, the resulting process.", "explanation": "만약 그런 일이 일어난다면, 정의상 알고리즘의 작성자는 그 결과로 나온 과정을 더 이상 통제하지 못하며, 따라서 그 시점부터는 그것에 대한 지적 소유권도 갖지 못한다.", "vocabulary": [{"word": "by definition", "meaning": "정의상, 말하자면 개념적으로", "note": "어떤 개념의 본질적 의미에 근거해 말할 때 쓴다."}, {"word": "resulting process", "meaning": "그 결과로 생긴 과정", "note": "앞선 작동의 결과로 나타난 절차나 흐름을 가리킨다."}, {"word": "from that point on", "meaning": "그 시점부터 계속", "note": "시간의 기준점을 제시하는 표현이다."}, {"word": "own intellectually", "meaning": "지적으로 소유하다, 지적 소유권을 가지다", "note": "일반적인 소유가 아니라 아이디어·창작물에 대한 소유를 뜻한다."}]}, {"id": 7, "original": "Theoretically, ownership of an idea is intrinsically connected to the predictability of its outcome, that is, to its intellectual control.", "explanation": "이론적으로 보면 어떤 아이디어의 소유권은 그 결과를 얼마나 예측할 수 있는지, 다시 말해 그것을 지적으로 얼마나 통제할 수 있는지와 본질적으로 연결되어 있다.", "vocabulary": [{"word": "Theoretically", "meaning": "이론적으로", "note": "현실 사례보다 개념적 원리를 설명할 때 쓰인다."}, {"word": "intrinsically connected to", "meaning": "본질적으로 ~와 연결된", "note": "겉보기 관계가 아니라 근본적인 연관성을 강조한다."}, {"word": "predictability", "meaning": "예측 가능성", "note": "결과를 미리 알 수 있는 정도를 뜻한다."}, {"word": "outcome", "meaning": "결과", "note": "process와 대비되어 최종 산출을 가리킨다."}, {"word": "intellectual control", "meaning": "지적 통제", "note": "생각, 설계, 결과를 이해하고 지배할 수 있는 능력이라는 뜻이다."}]}, {"id": 8, "original": "Therefore, in the absence of human control the ownership of the algorithmic process must be instead credited to the device that produced it, that is, to the computer.", "explanation": "따라서 인간의 통제가 없는 경우에는 알고리즘적 과정의 소유권은 그것을 만들어 낸 장치, 즉 컴퓨터에게 돌려져야 한다.", "vocabulary": [{"word": "in the absence of", "meaning": "~이 없는 경우에", "note": "어떤 요소의 부재를 조건으로 제시하는 표현이다."}, {"word": "algorithmic process", "meaning": "알고리즘적 과정", "note": "알고리즘이 작동하며 결과를 만들어 내는 절차 전체를 뜻한다."}, {"word": "be credited to", "meaning": "~의 공으로 돌려지다, ~에게 귀속되다", "note": "성과, 원인, 책임, 소유 등을 특정 대상에게 연결할 때 쓴다."}, {"word": "device", "meaning": "장치, 기기", "note": "여기서는 컴퓨터를 가리키는 일반적 표현이다."}]}, {"id": 9, "original": "The new notion of intellectual ownership is created by meta‑algorithmics, as algorithms can produce outcomes that are unpredictable to human programmers, potentially attributing ownership to the computer itself.", "explanation": "알고리즘이 인간 프로그래머에게 예측 불가능한 결과를 만들어 낼 수 있기 때문에, 메타 알고리즘학은 지적 소유권에 대한 새로운 개념을 만들어 내며, 그 소유권이 컴퓨터 자체에 돌아갈 가능성까지 제기한다.", "vocabulary": [{"word": "notion", "meaning": "개념, 관념", "note": "학술적 글에서 idea보다 다소 추상적이고 이론적인 느낌이 있다."}, {"word": "unpredictable", "meaning": "예측할 수 없는", "note": "predictable의 반대말이다."}, {"word": "potentially", "meaning": "잠재적으로, 가능성 있게", "note": "확정이 아니라 가능성을 열어 두는 표현이다."}, {"word": "attribute A to B", "meaning": "A를 B의 것으로 돌리다, A를 B에 귀속시키다", "note": "ownership to the computer처럼 소유나 원인을 연결할 때 중요하다."}]}], "problem_number": "40"};
+const DATA = {"title": "메타 알고리즘과 지적 소유권의 변화", "summary": "메타 알고리즘은 인간이 만든 것처럼 보이지만, 결과가 인간의 통제를 벗어나면 그 과정의 지적 소유권은 인간이 아니라 컴퓨터에 귀속될 수 있다는 주장이다.", "sentences": [{"id": 1, "original": "It may be assumed that meta‑algorithmics, that is, the creation of algorithms that generate other algorithms, is a human creation as well.", "explanation": "메타 알고리즘학, 즉 다른 알고리즘을 만들어 내는 알고리즘을 만드는 일도 역시 인간이 만든 것이라고 보통 생각할 수 있다.", "vocabulary": [{"word": "It may be assumed that", "meaning": "~라고 여겨질 수 있다", "note": "글에서 일반적인 통념이나 가정을 제시할 때 자주 쓰는 표현이다."}, {"word": "meta‑algorithmics", "meaning": "메타 알고리즘학, 알고리즘이 다른 알고리즘을 생성하는 체계", "note": "meta-는 ‘상위의, 자기반영적인’ 의미를 더한다."}, {"word": "generate", "meaning": "생성하다, 만들어 내다", "note": "알고리즘, 데이터, 전력 등 다양한 맥락에서 널리 쓰인다."}, {"word": "human creation", "meaning": "인간의 창조물", "note": "인간이 직접 만들어 낸 산물이라는 뜻이다."}]}, {"id": 2, "original": "A human programmer must have composed the first algorithm that, in turn, generates new algorithms and as such the initial programmer must be in control of the original idea.", "explanation": "처음으로 다른 알고리즘들을 만들어 내는 알고리즘도 결국 인간 프로그래머가 작성했을 것이므로, 그 최초의 프로그래머가 원래 아이디어를 통제하고 있다고 볼 수 있다.", "vocabulary": [{"word": "must have composed", "meaning": "분명 작성했을 것이다", "note": "과거 사실에 대한 강한 추정을 나타내는 표현이다."}, {"word": "in turn", "meaning": "차례로, 그 결과 다시", "note": "앞선 것의 결과로 다음 단계가 이어짐을 나타낸다."}, {"word": "as such", "meaning": "그러한 것으로서, 따라서", "note": "앞서 언급한 성격을 근거로 결론을 이끌 때 쓰인다."}, {"word": "be in control of", "meaning": "~을 통제하고 있다", "note": "사람, 상황, 과정 등에 대한 지배·통제 상태를 뜻한다."}]}, {"id": 3, "original": "However, this is not necessarily true.", "explanation": "하지만 이런 생각이 반드시 옳은 것은 아니다.", "vocabulary": [{"word": "not necessarily", "meaning": "반드시 ~인 것은 아니다", "note": "부분 부정을 나타내는 매우 중요한 표현이다."}]}, {"id": 4, "original": "Unlike humanly conceived ideas, where the author is the intellectual owner of the idea, algorithms are processes that define, describe, and implement a series of actions that in turn produce other actions.", "explanation": "인간이 구상한 아이디어에서는 보통 창작자가 그 아이디어의 지적 소유자가 되지만, 알고리즘은 일련의 행동을 규정하고 설명하며 실행하고, 그 행동들이 다시 다른 행동을 만들어 내는 과정이다.", "vocabulary": [{"word": "humanly conceived", "meaning": "인간에 의해 구상된", "note": "conceive는 ‘생각해 내다, 구상하다’라는 뜻이다."}, {"word": "intellectual owner", "meaning": "지적 소유자", "note": "법적·철학적 맥락에서 아이디어나 창작물의 소유 주체를 가리킨다."}, {"word": "implement", "meaning": "실행하다, 구현하다", "note": "컴퓨터공학에서는 계획이나 설계를 실제로 작동하게 만드는 뜻으로 자주 쓰인다."}, {"word": "a series of actions", "meaning": "일련의 행위/동작", "note": "연속적으로 이어지는 여러 단계의 행동을 뜻한다."}]}, {"id": 5, "original": "During the transfer of actions it is possible for a discrepancy to occur between the original intention and the actual result.", "explanation": "이러한 행동이 전달되고 이어지는 과정에서는 처음 의도와 실제 결과 사이에 차이가 생길 수 있다.", "vocabulary": [{"word": "transfer", "meaning": "전달, 이전", "note": "여기서는 행동이나 과정이 한 단계에서 다음 단계로 넘어가는 것을 뜻한다."}, {"word": "discrepancy", "meaning": "불일치, 차이", "note": "기대한 것과 실제가 어긋날 때 쓰는 격식 있는 표현이다."}, {"word": "original intention", "meaning": "원래 의도", "note": "처음에 설정된 목적이나 생각을 뜻한다."}, {"word": "actual result", "meaning": "실제 결과", "note": "의도와 대비되는 현실의 산출물이다."}]}, {"id": 6, "original": "If that happens then, by definition, the author of the algorithm is not in control of, and therefore does not own intellectually from that point on, the resulting process.", "explanation": "만약 그런 일이 일어난다면, 정의상 알고리즘의 작성자는 그 결과로 나온 과정을 더 이상 통제하지 못하며, 따라서 그 시점부터는 그것에 대한 지적 소유권도 갖지 못한다.", "vocabulary": [{"word": "by definition", "meaning": "정의상, 말하자면 개념적으로", "note": "어떤 개념의 본질적 의미에 근거해 말할 때 쓴다."}, {"word": "resulting process", "meaning": "그 결과로 생긴 과정", "note": "앞선 작동의 결과로 나타난 절차나 흐름을 가리킨다."}, {"word": "from that point on", "meaning": "그 시점부터 계속", "note": "시간의 기준점을 제시하는 표현이다."}, {"word": "own intellectually", "meaning": "지적으로 소유하다, 지적 소유권을 가지다", "note": "일반적인 소유가 아니라 아이디어·창작물에 대한 소유를 뜻한다."}]}, {"id": 7, "original": "Theoretically, ownership of an idea is intrinsically connected to the predictability of its outcome, that is, to its intellectual control.", "explanation": "이론적으로 보면 어떤 아이디어의 소유권은 그 결과를 얼마나 예측할 수 있는지, 다시 말해 그것을 지적으로 얼마나 통제할 수 있는지와 본질적으로 연결되어 있다.", "vocabulary": [{"word": "Theoretically", "meaning": "이론적으로", "note": "현실 사례보다 개념적 원리를 설명할 때 쓰인다."}, {"word": "intrinsically connected to", "meaning": "본질적으로 ~와 연결된", "note": "겉보기 관계가 아니라 근본적인 연관성을 강조한다."}, {"word": "predictability", "meaning": "예측 가능성", "note": "결과를 미리 알 수 있는 정도를 뜻한다."}, {"word": "outcome", "meaning": "결과", "note": "process와 대비되어 최종 산출을 가리킨다."}, {"word": "intellectual control", "meaning": "지적 통제", "note": "생각, 설계, 결과를 이해하고 지배할 수 있는 능력이라는 뜻이다."}]}, {"id": 8, "original": "Therefore, in the absence of human control the ownership of the algorithmic process must be instead credited to the device that produced it, that is, to the computer.", "explanation": "따라서 인간의 통제가 없는 경우에는 알고리즘적 과정의 소유권은 그것을 만들어 낸 장치, 즉 컴퓨터에게 돌려져야 한다.", "vocabulary": [{"word": "in the absence of", "meaning": "~이 없는 경우에", "note": "어떤 요소의 부재를 조건으로 제시하는 표현이다."}, {"word": "algorithmic process", "meaning": "알고리즘적 과정", "note": "알고리즘이 작동하며 결과를 만들어 내는 절차 전체를 뜻한다."}, {"word": "be credited to", "meaning": "~의 공으로 돌려지다, ~에게 귀속되다", "note": "성과, 원인, 책임, 소유 등을 특정 대상에게 연결할 때 쓴다."}, {"word": "device", "meaning": "장치, 기기", "note": "여기서는 컴퓨터를 가리키는 일반적 표현이다."}]}, {"id": 9, "original": "The new notion of intellectual ownership is created by meta‑algorithmics, as algorithms can produce outcomes that are unpredictable to human programmers, potentially attributing ownership to the computer itself.", "explanation": "알고리즘이 인간 프로그래머에게 예측 불가능한 결과를 만들어 낼 수 있기 때문에, 메타 알고리즘학은 지적 소유권에 대한 새로운 개념을 만들어 내며, 그 소유권이 컴퓨터 자체에 돌아갈 가능성까지 제기한다.", "vocabulary": [{"word": "notion", "meaning": "개념, 관념", "note": "학술적 글에서 idea보다 다소 추상적이고 이론적인 느낌이 있다."}, {"word": "unpredictable", "meaning": "예측할 수 없는", "note": "predictable의 반대말이다."}, {"word": "potentially", "meaning": "잠재적으로, 가능성 있게", "note": "확정이 아니라 가능성을 열어 두는 표현이다."}, {"word": "attribute A to B", "meaning": "A를 B의 것으로 돌리다, A를 B에 귀속시키다", "note": "ownership to the computer처럼 소유나 원인을 연결할 때 중요하다."}]}], "problem_number": "40", "exam_info": "고3 2025 3월 모고"};
 const NEXT_PAGE = "41.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

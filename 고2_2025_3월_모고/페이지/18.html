@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "폭우로 마라톤 취소 안내", "summary": "주최 측은 경기 당일 큰비가 올 것으로 보여 참가자들의 안전을 위해 마라톤을 취소하고, 가까운 시일 안에 다시 대회를 열겠다고 알리고 있다.", "sentences": [{"id": 1, "original": "Dear Rosydale City Marathon Racers,", "explanation": "로즈데일 시티 마라톤에 참가하는 선수 여러분께 보내는 인사말이다.", "vocabulary": [{"word": "Dear", "meaning": "~께, 친애하는", "note": "편지나 안내문 첫머리에서 상대를 부를 때 자주 쓴다."}, {"word": "Racers", "meaning": "경주 참가자들, 선수들", "note": "race에 나가는 사람들을 뜻한다."}]}, {"id": 2, "original": "We are really grateful to all of you who have signed up for the 10th Rosydale City Marathon that was scheduled for this coming Saturday at 10 a.m.", "explanation": "이번 주 토요일 오전 10시에 열릴 예정이었던 제10회 로즈데일 시티 마라톤에 신청한 모든 분들께 진심으로 고맙다는 뜻이다.", "vocabulary": [{"word": "grateful", "meaning": "고마워하는, 감사한", "note": "be grateful to 사람: ~에게 고마워하다"}, {"word": "signed up", "meaning": "신청했다", "note": "행사나 수업 등에 이름을 올려 참가 신청을 했다는 뜻이다."}, {"word": "scheduled", "meaning": "예정된", "note": "언제 열릴지 미리 정해져 있다는 뜻이다."}, {"word": "this coming Saturday", "meaning": "다가오는 토요일, 이번 주 토요일", "note": "가장 가까이 다가온 토요일을 가리킨다."}]}, {"id": 3, "original": "Unfortunately, as you may already know, the weather forecast says that there is going to be a downpour throughout the race day.", "explanation": "안타깝게도, 이미 알고 있을 수도 있듯이 일기예보에 따르면 대회가 열리는 하루 내내 비가 아주 많이 올 것이라고 한다.", "vocabulary": [{"word": "Unfortunately", "meaning": "안타깝게도", "note": "좋지 않은 소식을 전할 때 자주 쓴다."}, {"word": "weather forecast", "meaning": "일기예보", "note": ""}, {"word": "downpour", "meaning": "폭우, 억수같이 쏟아지는 비", "note": "보통 rain보다 훨씬 강한 비를 말한다."}, {"word": "throughout", "meaning": "~내내, ~동안 줄곧", "note": "시간이나 장소 전체에 걸친다는 뜻이다."}]}, {"id": 4, "original": "We truly hoped that the race would go smoothly.", "explanation": "주최 측은 경기가 문제 없이 잘 진행되기를 정말 바랐다는 뜻이다.", "vocabulary": [{"word": "truly", "meaning": "정말로, 진심으로", "note": ""}, {"word": "go smoothly", "meaning": "순조롭게 진행되다", "note": "문제 없이 잘 흘러간다는 뜻의 자주 쓰는 표현이다."}]}, {"id": 5, "original": "However, it is likely that the heavy rain will make the roads too slippery and dangerous for the racers to run safely.", "explanation": "하지만 큰비 때문에 도로가 너무 미끄럽고 위험해져서 선수들이 안전하게 달리기 어려울 가능성이 크다는 말이다.", "vocabulary": [{"word": "it is likely that", "meaning": "~할 가능성이 크다", "note": "앞으로 일어날 일을 조심스럽게 말할 때 쓴다."}, {"word": "heavy rain", "meaning": "큰비, 많은 비", "note": ""}, {"word": "slippery", "meaning": "미끄러운", "note": "길이나 바닥이 미끄러워 넘어지기 쉬운 상태를 말한다."}, {"word": "dangerous", "meaning": "위험한", "note": ""}]}, {"id": 6, "original": "As a result, we have decided to cancel the race.", "explanation": "그래서 결국 주최 측은 이번 경기를 취소하기로 결정했다는 뜻이다.", "vocabulary": [{"word": "As a result", "meaning": "그 결과, 그래서", "note": "앞의 이유 때문에 뒤의 일이 일어났음을 보여 준다."}, {"word": "decided to", "meaning": "~하기로 결정했다", "note": ""}, {"word": "cancel", "meaning": "취소하다", "note": "행사나 계획을 하지 않기로 할 때 쓴다."}]}, {"id": 7, "original": "We hope you understand and we promise to hold another race in the near future.", "explanation": "이 결정을 이해해 주길 바라고, 머지않아 다시 다른 대회를 열겠다고 약속하는 말이다.", "vocabulary": [{"word": "understand", "meaning": "이해하다", "note": ""}, {"word": "promise", "meaning": "약속하다", "note": ""}, {"word": "hold", "meaning": "열다, 개최하다", "note": "행사나 대회를 연다는 뜻으로 쓰였다."}, {"word": "in the near future", "meaning": "가까운 시일 안에, 머지않아", "note": ""}]}, {"id": 8, "original": "Sincerely,", "explanation": "편지를 정중하게 마무리할 때 쓰는 인사말로, 한국어로는 '진심을 담아' 또는 '감사합니다'처럼 이해하면 된다.", "vocabulary": [{"word": "Sincerely", "meaning": "진심을 담아", "note": "편지 끝맺음 표현으로 자주 쓴다."}]}, {"id": 9, "original": "Martha Kingsley", "explanation": "이 안내문을 보낸 사람의 이름이다.", "vocabulary": []}, {"id": 10, "original": "Race Manager", "explanation": "이 사람의 역할은 대회를 맡아 운영하는 책임자라는 뜻이다.", "vocabulary": [{"word": "Race Manager", "meaning": "대회 운영 책임자", "note": "경기나 대회를 준비하고 관리하는 사람을 말한다."}]}], "problem_number": "18"};
-const NEXT_PAGE = null;
+const DATA = {"title": "폭우로 마라톤 취소 안내", "summary": "주최 측은 경기 당일 큰비가 올 것으로 보여 참가자들의 안전을 위해 마라톤을 취소하고, 가까운 시일 안에 다시 대회를 열겠다고 알리고 있다.", "sentences": [{"id": 1, "original": "Dear Rosydale City Marathon Racers,", "explanation": "로즈데일 시티 마라톤에 참가하는 선수 여러분께 보내는 인사말이다.", "vocabulary": [{"word": "Dear", "meaning": "~께, 친애하는", "note": "편지나 안내문 첫머리에서 상대를 부를 때 자주 쓴다."}, {"word": "Racers", "meaning": "경주 참가자들, 선수들", "note": "race에 나가는 사람들을 뜻한다."}]}, {"id": 2, "original": "We are really grateful to all of you who have signed up for the 10th Rosydale City Marathon that was scheduled for this coming Saturday at 10 a.m.", "explanation": "이번 주 토요일 오전 10시에 열릴 예정이었던 제10회 로즈데일 시티 마라톤에 신청한 모든 분들께 진심으로 고맙다는 뜻이다.", "vocabulary": [{"word": "grateful", "meaning": "고마워하는, 감사한", "note": "be grateful to 사람: ~에게 고마워하다"}, {"word": "signed up", "meaning": "신청했다", "note": "행사나 수업 등에 이름을 올려 참가 신청을 했다는 뜻이다."}, {"word": "scheduled", "meaning": "예정된", "note": "언제 열릴지 미리 정해져 있다는 뜻이다."}, {"word": "this coming Saturday", "meaning": "다가오는 토요일, 이번 주 토요일", "note": "가장 가까이 다가온 토요일을 가리킨다."}]}, {"id": 3, "original": "Unfortunately, as you may already know, the weather forecast says that there is going to be a downpour throughout the race day.", "explanation": "안타깝게도, 이미 알고 있을 수도 있듯이 일기예보에 따르면 대회가 열리는 하루 내내 비가 아주 많이 올 것이라고 한다.", "vocabulary": [{"word": "Unfortunately", "meaning": "안타깝게도", "note": "좋지 않은 소식을 전할 때 자주 쓴다."}, {"word": "weather forecast", "meaning": "일기예보", "note": ""}, {"word": "downpour", "meaning": "폭우, 억수같이 쏟아지는 비", "note": "보통 rain보다 훨씬 강한 비를 말한다."}, {"word": "throughout", "meaning": "~내내, ~동안 줄곧", "note": "시간이나 장소 전체에 걸친다는 뜻이다."}]}, {"id": 4, "original": "We truly hoped that the race would go smoothly.", "explanation": "주최 측은 경기가 문제 없이 잘 진행되기를 정말 바랐다는 뜻이다.", "vocabulary": [{"word": "truly", "meaning": "정말로, 진심으로", "note": ""}, {"word": "go smoothly", "meaning": "순조롭게 진행되다", "note": "문제 없이 잘 흘러간다는 뜻의 자주 쓰는 표현이다."}]}, {"id": 5, "original": "However, it is likely that the heavy rain will make the roads too slippery and dangerous for the racers to run safely.", "explanation": "하지만 큰비 때문에 도로가 너무 미끄럽고 위험해져서 선수들이 안전하게 달리기 어려울 가능성이 크다는 말이다.", "vocabulary": [{"word": "it is likely that", "meaning": "~할 가능성이 크다", "note": "앞으로 일어날 일을 조심스럽게 말할 때 쓴다."}, {"word": "heavy rain", "meaning": "큰비, 많은 비", "note": ""}, {"word": "slippery", "meaning": "미끄러운", "note": "길이나 바닥이 미끄러워 넘어지기 쉬운 상태를 말한다."}, {"word": "dangerous", "meaning": "위험한", "note": ""}]}, {"id": 6, "original": "As a result, we have decided to cancel the race.", "explanation": "그래서 결국 주최 측은 이번 경기를 취소하기로 결정했다는 뜻이다.", "vocabulary": [{"word": "As a result", "meaning": "그 결과, 그래서", "note": "앞의 이유 때문에 뒤의 일이 일어났음을 보여 준다."}, {"word": "decided to", "meaning": "~하기로 결정했다", "note": ""}, {"word": "cancel", "meaning": "취소하다", "note": "행사나 계획을 하지 않기로 할 때 쓴다."}]}, {"id": 7, "original": "We hope you understand and we promise to hold another race in the near future.", "explanation": "이 결정을 이해해 주길 바라고, 머지않아 다시 다른 대회를 열겠다고 약속하는 말이다.", "vocabulary": [{"word": "understand", "meaning": "이해하다", "note": ""}, {"word": "promise", "meaning": "약속하다", "note": ""}, {"word": "hold", "meaning": "열다, 개최하다", "note": "행사나 대회를 연다는 뜻으로 쓰였다."}, {"word": "in the near future", "meaning": "가까운 시일 안에, 머지않아", "note": ""}]}, {"id": 8, "original": "Sincerely,", "explanation": "편지를 정중하게 마무리할 때 쓰는 인사말로, 한국어로는 '진심을 담아' 또는 '감사합니다'처럼 이해하면 된다.", "vocabulary": [{"word": "Sincerely", "meaning": "진심을 담아", "note": "편지 끝맺음 표현으로 자주 쓴다."}]}, {"id": 9, "original": "Martha Kingsley", "explanation": "이 안내문을 보낸 사람의 이름이다.", "vocabulary": []}, {"id": 10, "original": "Race Manager", "explanation": "이 사람의 역할은 대회를 맡아 운영하는 책임자라는 뜻이다.", "vocabulary": [{"word": "Race Manager", "meaning": "대회 운영 책임자", "note": "경기나 대회를 준비하고 관리하는 사람을 말한다."}]}], "problem_number": "18", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "19.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

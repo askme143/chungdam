@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "발렌타인데이 깜짝 계획과 아쉬운 소식", "summary": "피터는 아내 에이미를 위해 특별한 식당을 준비했지만, 이미 예약이 다 차 있어서 실망하게 된다.", "sentences": [{"id": 1, "original": "It was Valentine’s Day on Friday and Peter was certain that his wife, Amy, was going to love his surprise.", "explanation": "금요일은 발렌타인데이였고, 피터는 아내 에이미가 자신이 준비한 깜짝 선물을 분명히 아주 좋아할 거라고 믿고 있었다.", "vocabulary": [{"word": "Valentine’s Day", "meaning": "발렌타인데이", "note": "2월 14일로, 사랑하는 사람에게 마음을 전하는 날이다."}, {"word": "be certain", "meaning": "확신하다, 틀림없다고 생각하다", "note": "certain은 '확실한'이라는 뜻이다."}, {"word": "surprise", "meaning": "깜짝 선물, 놀라게 하려고 준비한 것", "note": "문맥에 따라 '놀람'이 아니라 '깜짝 이벤트' 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "Peter had spent a long time searching online for an event that would be a new way to spend time with Amy.", "explanation": "피터는 에이미와 색다르게 시간을 보낼 수 있는 일을 찾으려고 인터넷에서 오랫동안 찾아보았다.", "vocabulary": [{"word": "spend a long time", "meaning": "오랜 시간을 쓰다", "note": "시간을 많이 들였다는 뜻이다."}, {"word": "search online for", "meaning": "온라인에서 ~을 찾다", "note": "인터넷으로 정보를 찾아볼 때 자주 쓰는 표현이다."}, {"word": "event", "meaning": "행사, 특별한 일", "note": "여기서는 둘이 함께 할 특별한 계획을 가리킨다."}]}, {"id": 3, "original": "He had finally found the perfect thing for her.", "explanation": "그는 마침내 그녀를 위한 딱 맞는 것을 찾았다.", "vocabulary": [{"word": "finally", "meaning": "마침내, 드디어", "note": "오랜 노력 끝에 어떤 결과가 나왔을 때 쓴다."}, {"word": "perfect", "meaning": "완벽한, 딱 맞는", "note": "여기서는 '에이미에게 아주 잘 맞는'이라는 뜻이다."}]}, {"id": 4, "original": "She often told him that she liked to go to places she had never visited before, and he was absolutely sure that she would love going to the new, five-star restaurant downtown.", "explanation": "에이미는 전에 가 본 적 없는 곳에 가는 것을 좋아한다고 자주 말했다. 그래서 피터는 시내에 새로 생긴 5성급 식당에 가면 그녀가 분명 좋아할 거라고 굳게 믿었다.", "vocabulary": [{"word": "visited before", "meaning": "전에 가 본", "note": "have never visited before는 '이전에 한 번도 가 본 적이 없다'는 뜻이다."}, {"word": "absolutely sure", "meaning": "조금도 의심 없이 확신하는", "note": "sure보다 더 강한 표현이다."}, {"word": "five-star restaurant", "meaning": "5성급 식당", "note": "아주 고급스럽고 수준이 높은 식당을 말한다."}, {"word": "downtown", "meaning": "시내에, 도심에", "note": "도시의 중심 지역을 뜻한다."}]}, {"id": 5, "original": "He smiled as he called the restaurant and asked for a reservation for Friday.", "explanation": "그는 웃으면서 식당에 전화를 걸어 금요일 예약을 부탁했다.", "vocabulary": [{"word": "asked for", "meaning": "요청했다, 부탁했다", "note": "무언가를 달라고 말할 때 쓰는 표현이다."}, {"word": "reservation", "meaning": "예약", "note": "식당, 호텔, 비행기 등을 미리 잡아 두는 것이다."}]}, {"id": 6, "original": "Unfortunately, his smile quickly disappeared when he was told that the restaurant was fully reserved.", "explanation": "하지만 식당 예약이 이미 다 찼다는 말을 듣자, 그의 미소는 금방 사라졌다.", "vocabulary": [{"word": "Unfortunately", "meaning": "안타깝게도, 불행하게도", "note": "좋지 않은 일이 이어질 때 문장 앞에 자주 쓴다."}, {"word": "disappeared", "meaning": "사라졌다", "note": "여기서는 미소가 없어졌다는 뜻이다."}, {"word": "fully reserved", "meaning": "예약이 전부 찬", "note": "더 이상 자리가 없다는 뜻이다."}]}, {"id": 7, "original": "“That’s too bad,” he said quietly.", "explanation": "그는 \"정말 아쉽네요\"라고 조용히 말했다.", "vocabulary": [{"word": "too bad", "meaning": "아쉽다, 안됐다", "note": "실망스럽거나 안타까운 상황에서 쓰는 말이다."}, {"word": "quietly", "meaning": "조용히", "note": "작은 목소리로 말하는 느낌을 준다."}]}, {"id": 8, "original": "“I thought that I had found the right place.”", "explanation": "그는 자신이 딱 맞는 장소를 찾았다고 생각했었다.", "vocabulary": [{"word": "thought", "meaning": "생각했다", "note": "think의 과거형이다."}, {"word": "the right place", "meaning": "딱 맞는 장소, 알맞은 곳", "note": "right는 여기서 '오른쪽'이 아니라 '알맞은'이라는 뜻이다."}]}], "problem_number": "19"};
-const NEXT_PAGE = "31.html";
+const DATA = {"title": "발렌타인데이 깜짝 계획과 아쉬운 소식", "summary": "피터는 아내 에이미를 위해 특별한 식당을 준비했지만, 이미 예약이 다 차 있어서 실망하게 된다.", "sentences": [{"id": 1, "original": "It was Valentine’s Day on Friday and Peter was certain that his wife, Amy, was going to love his surprise.", "explanation": "금요일은 발렌타인데이였고, 피터는 아내 에이미가 자신이 준비한 깜짝 선물을 분명히 아주 좋아할 거라고 믿고 있었다.", "vocabulary": [{"word": "Valentine’s Day", "meaning": "발렌타인데이", "note": "2월 14일로, 사랑하는 사람에게 마음을 전하는 날이다."}, {"word": "be certain", "meaning": "확신하다, 틀림없다고 생각하다", "note": "certain은 '확실한'이라는 뜻이다."}, {"word": "surprise", "meaning": "깜짝 선물, 놀라게 하려고 준비한 것", "note": "문맥에 따라 '놀람'이 아니라 '깜짝 이벤트' 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "Peter had spent a long time searching online for an event that would be a new way to spend time with Amy.", "explanation": "피터는 에이미와 색다르게 시간을 보낼 수 있는 일을 찾으려고 인터넷에서 오랫동안 찾아보았다.", "vocabulary": [{"word": "spend a long time", "meaning": "오랜 시간을 쓰다", "note": "시간을 많이 들였다는 뜻이다."}, {"word": "search online for", "meaning": "온라인에서 ~을 찾다", "note": "인터넷으로 정보를 찾아볼 때 자주 쓰는 표현이다."}, {"word": "event", "meaning": "행사, 특별한 일", "note": "여기서는 둘이 함께 할 특별한 계획을 가리킨다."}]}, {"id": 3, "original": "He had finally found the perfect thing for her.", "explanation": "그는 마침내 그녀를 위한 딱 맞는 것을 찾았다.", "vocabulary": [{"word": "finally", "meaning": "마침내, 드디어", "note": "오랜 노력 끝에 어떤 결과가 나왔을 때 쓴다."}, {"word": "perfect", "meaning": "완벽한, 딱 맞는", "note": "여기서는 '에이미에게 아주 잘 맞는'이라는 뜻이다."}]}, {"id": 4, "original": "She often told him that she liked to go to places she had never visited before, and he was absolutely sure that she would love going to the new, five-star restaurant downtown.", "explanation": "에이미는 전에 가 본 적 없는 곳에 가는 것을 좋아한다고 자주 말했다. 그래서 피터는 시내에 새로 생긴 5성급 식당에 가면 그녀가 분명 좋아할 거라고 굳게 믿었다.", "vocabulary": [{"word": "visited before", "meaning": "전에 가 본", "note": "have never visited before는 '이전에 한 번도 가 본 적이 없다'는 뜻이다."}, {"word": "absolutely sure", "meaning": "조금도 의심 없이 확신하는", "note": "sure보다 더 강한 표현이다."}, {"word": "five-star restaurant", "meaning": "5성급 식당", "note": "아주 고급스럽고 수준이 높은 식당을 말한다."}, {"word": "downtown", "meaning": "시내에, 도심에", "note": "도시의 중심 지역을 뜻한다."}]}, {"id": 5, "original": "He smiled as he called the restaurant and asked for a reservation for Friday.", "explanation": "그는 웃으면서 식당에 전화를 걸어 금요일 예약을 부탁했다.", "vocabulary": [{"word": "asked for", "meaning": "요청했다, 부탁했다", "note": "무언가를 달라고 말할 때 쓰는 표현이다."}, {"word": "reservation", "meaning": "예약", "note": "식당, 호텔, 비행기 등을 미리 잡아 두는 것이다."}]}, {"id": 6, "original": "Unfortunately, his smile quickly disappeared when he was told that the restaurant was fully reserved.", "explanation": "하지만 식당 예약이 이미 다 찼다는 말을 듣자, 그의 미소는 금방 사라졌다.", "vocabulary": [{"word": "Unfortunately", "meaning": "안타깝게도, 불행하게도", "note": "좋지 않은 일이 이어질 때 문장 앞에 자주 쓴다."}, {"word": "disappeared", "meaning": "사라졌다", "note": "여기서는 미소가 없어졌다는 뜻이다."}, {"word": "fully reserved", "meaning": "예약이 전부 찬", "note": "더 이상 자리가 없다는 뜻이다."}]}, {"id": 7, "original": "“That’s too bad,” he said quietly.", "explanation": "그는 \"정말 아쉽네요\"라고 조용히 말했다.", "vocabulary": [{"word": "too bad", "meaning": "아쉽다, 안됐다", "note": "실망스럽거나 안타까운 상황에서 쓰는 말이다."}, {"word": "quietly", "meaning": "조용히", "note": "작은 목소리로 말하는 느낌을 준다."}]}, {"id": 8, "original": "“I thought that I had found the right place.”", "explanation": "그는 자신이 딱 맞는 장소를 찾았다고 생각했었다.", "vocabulary": [{"word": "thought", "meaning": "생각했다", "note": "think의 과거형이다."}, {"word": "the right place", "meaning": "딱 맞는 장소, 알맞은 곳", "note": "right는 여기서 '오른쪽'이 아니라 '알맞은'이라는 뜻이다."}]}], "problem_number": "19", "exam_info": "고3 2025 11월 수능"};
+const NEXT_PAGE = "20.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

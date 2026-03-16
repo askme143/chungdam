@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "잉카의 달리기 전령 제도", "summary": "잉카 제국은 말이 없어도 길마다 전령을 두고 이어 달리게 해서 아주 빠르게 소식을 전했다.", "sentences": [{"id": 1, "original": "With no horses available, the Inca empire excelled at delivering messages on foot.", "explanation": "쓸 수 있는 말이 없었기 때문에, 잉카 제국은 사람이 직접 뛰어서 소식을 전하는 일에 아주 뛰어났다.", "vocabulary": [{"word": "available", "meaning": "쓸 수 있는, 이용할 수 있는", "note": "여기서는 '구할 수 있는 말'이라는 뜻이다."}, {"word": "excel at", "meaning": "~을 아주 잘하다", "note": "be good at보다 더 뛰어남을 강하게 보여 준다."}, {"word": "on foot", "meaning": "걸어서, 발로", "note": "탈것을 타지 않고 직접 이동한다는 뜻이다."}]}, {"id": 2, "original": "The messengers were stationed on the royal roads to deliver the Inca king’s orders and reports coming from his lands.", "explanation": "전령들은 왕의 길에 배치되어 있었다. 그들은 잉카 왕의 명령을 전하고, 나라 곳곳에서 올라오는 보고를 전달하는 일을 했다.", "vocabulary": [{"word": "stationed", "meaning": "배치된, 머무르게 된", "note": "특정한 자리에 보내 두었다는 뜻이다."}, {"word": "royal roads", "meaning": "왕의 길, 왕이 쓰는 큰 길", "note": "잉카 제국의 중요한 도로를 가리킨다."}, {"word": "orders", "meaning": "명령", "note": "왕이나 윗사람이 내리는 지시를 말한다."}, {"word": "reports", "meaning": "보고, 보고 내용", "note": "어떤 지역의 상황을 알려 주는 소식이다."}, {"word": "lands", "meaning": "영토, 나라의 땅", "note": "왕이 다스리는 지역 전체를 뜻한다."}]}, {"id": 3, "original": "Called Chasquis, they lived in groups of four to six in huts, placed from one to two miles apart along the roads.", "explanation": "이 전령들은 '차스키'라고 불렸다. 그들은 길을 따라 1~2마일 간격으로 놓인 오두막에서 4명에서 6명씩 함께 살았다.", "vocabulary": [{"word": "Called Chasquis", "meaning": "차스키라고 불리는", "note": "Chasquis는 잉카의 전령을 가리키는 이름이다."}, {"word": "in groups of four to six", "meaning": "4명에서 6명씩 무리를 지어", "note": ""}, {"word": "huts", "meaning": "오두막", "note": "작고 단순한 집을 말한다."}, {"word": "apart", "meaning": "떨어져", "note": "거리 간격이 있음을 나타낸다."}, {"word": "along the roads", "meaning": "길을 따라", "note": ""}]}, {"id": 4, "original": "They were all young men and especially good runners who watched the road in both directions.", "explanation": "그들은 모두 젊은 남자들이었고, 특히 달리기를 아주 잘했다. 또 길의 양쪽 방향을 모두 살피고 있었다.", "vocabulary": [{"word": "especially", "meaning": "특히", "note": ""}, {"word": "runners", "meaning": "달리는 사람들, 달리기 선수", "note": "여기서는 빨리 달리는 전령을 뜻한다."}, {"word": "in both directions", "meaning": "양쪽 방향으로, 두 방향 모두", "note": ""}, {"word": "watched", "meaning": "살폈다, 지켜보았다", "note": "그냥 보는 것이 아니라 주의 깊게 본다는 느낌이다."}]}, {"id": 5, "original": "If they caught sight of another messenger coming, they hurried out to meet them.", "explanation": "다른 전령이 오는 것이 보이면, 그들은 급히 밖으로 나가 그 전령을 맞으러 갔다.", "vocabulary": [{"word": "caught sight of", "meaning": "~이 보이다, ~을 발견하다", "note": "갑자기 눈에 들어왔다는 느낌이 있다."}, {"word": "hurried out", "meaning": "급히 밖으로 나갔다", "note": ""}, {"word": "meet", "meaning": "맞으러 가다, 만나다", "note": "여기서는 오는 사람을 받으러 나가는 뜻이다."}]}, {"id": 6, "original": "The Inca built the huts on high ground, in sight of one another.", "explanation": "잉카 사람들은 오두막들을 높은 곳에 지었다. 그래서 오두막들이 서로 보일 수 있었다.", "vocabulary": [{"word": "high ground", "meaning": "높은 지대", "note": ""}, {"word": "in sight of one another", "meaning": "서로 보이는 곳에", "note": "서로의 위치를 눈으로 확인할 수 있다는 뜻이다."}]}, {"id": 7, "original": "When a messenger neared the next hut, he began to call out and repeated the message three or four times to the one who was running out to meet him.", "explanation": "전령이 다음 오두막 가까이에 오면 큰 소리로 외치기 시작했다. 그리고 자신을 맞으러 뛰어나오는 전령에게 그 말을 세 번이나 네 번 되풀이해서 전했다.", "vocabulary": [{"word": "neared", "meaning": "가까이 갔다, 가까워졌다", "note": "near가 동사로 쓰인 모습이다."}, {"word": "call out", "meaning": "큰 소리로 외치다", "note": ""}, {"word": "repeated", "meaning": "되풀이했다", "note": "같은 말을 여러 번 다시 말했다는 뜻이다."}, {"word": "running out to meet him", "meaning": "그를 맞으러 뛰어나오는", "note": ""}]}, {"id": 8, "original": "The Inca empire could relay messages 1,000 miles (1,610 km) in three or four days under good conditions.", "explanation": "조건이 좋으면, 잉카 제국은 1,000마일(1,610km) 떨어진 곳까지도 소식을 3~4일 만에 전달할 수 있었다.", "vocabulary": [{"word": "relay", "meaning": "이어 전달하다", "note": "한 사람이 끝까지 가는 것이 아니라 중간중간 넘겨 주는 방식이다."}, {"word": "under good conditions", "meaning": "상황이 좋을 때, 조건이 좋으면", "note": "날씨나 길 상태 같은 것이 좋을 때를 말한다."}]}], "problem_number": "37"};
+const DATA = {"title": "잉카의 달리기 전령 제도", "summary": "잉카 제국은 말이 없어도 길마다 전령을 두고 이어 달리게 해서 아주 빠르게 소식을 전했다.", "sentences": [{"id": 1, "original": "With no horses available, the Inca empire excelled at delivering messages on foot.", "explanation": "쓸 수 있는 말이 없었기 때문에, 잉카 제국은 사람이 직접 뛰어서 소식을 전하는 일에 아주 뛰어났다.", "vocabulary": [{"word": "available", "meaning": "쓸 수 있는, 이용할 수 있는", "note": "여기서는 '구할 수 있는 말'이라는 뜻이다."}, {"word": "excel at", "meaning": "~을 아주 잘하다", "note": "be good at보다 더 뛰어남을 강하게 보여 준다."}, {"word": "on foot", "meaning": "걸어서, 발로", "note": "탈것을 타지 않고 직접 이동한다는 뜻이다."}]}, {"id": 2, "original": "The messengers were stationed on the royal roads to deliver the Inca king’s orders and reports coming from his lands.", "explanation": "전령들은 왕의 길에 배치되어 있었다. 그들은 잉카 왕의 명령을 전하고, 나라 곳곳에서 올라오는 보고를 전달하는 일을 했다.", "vocabulary": [{"word": "stationed", "meaning": "배치된, 머무르게 된", "note": "특정한 자리에 보내 두었다는 뜻이다."}, {"word": "royal roads", "meaning": "왕의 길, 왕이 쓰는 큰 길", "note": "잉카 제국의 중요한 도로를 가리킨다."}, {"word": "orders", "meaning": "명령", "note": "왕이나 윗사람이 내리는 지시를 말한다."}, {"word": "reports", "meaning": "보고, 보고 내용", "note": "어떤 지역의 상황을 알려 주는 소식이다."}, {"word": "lands", "meaning": "영토, 나라의 땅", "note": "왕이 다스리는 지역 전체를 뜻한다."}]}, {"id": 3, "original": "Called Chasquis, they lived in groups of four to six in huts, placed from one to two miles apart along the roads.", "explanation": "이 전령들은 '차스키'라고 불렸다. 그들은 길을 따라 1~2마일 간격으로 놓인 오두막에서 4명에서 6명씩 함께 살았다.", "vocabulary": [{"word": "Called Chasquis", "meaning": "차스키라고 불리는", "note": "Chasquis는 잉카의 전령을 가리키는 이름이다."}, {"word": "in groups of four to six", "meaning": "4명에서 6명씩 무리를 지어", "note": ""}, {"word": "huts", "meaning": "오두막", "note": "작고 단순한 집을 말한다."}, {"word": "apart", "meaning": "떨어져", "note": "거리 간격이 있음을 나타낸다."}, {"word": "along the roads", "meaning": "길을 따라", "note": ""}]}, {"id": 4, "original": "They were all young men and especially good runners who watched the road in both directions.", "explanation": "그들은 모두 젊은 남자들이었고, 특히 달리기를 아주 잘했다. 또 길의 양쪽 방향을 모두 살피고 있었다.", "vocabulary": [{"word": "especially", "meaning": "특히", "note": ""}, {"word": "runners", "meaning": "달리는 사람들, 달리기 선수", "note": "여기서는 빨리 달리는 전령을 뜻한다."}, {"word": "in both directions", "meaning": "양쪽 방향으로, 두 방향 모두", "note": ""}, {"word": "watched", "meaning": "살폈다, 지켜보았다", "note": "그냥 보는 것이 아니라 주의 깊게 본다는 느낌이다."}]}, {"id": 5, "original": "If they caught sight of another messenger coming, they hurried out to meet them.", "explanation": "다른 전령이 오는 것이 보이면, 그들은 급히 밖으로 나가 그 전령을 맞으러 갔다.", "vocabulary": [{"word": "caught sight of", "meaning": "~이 보이다, ~을 발견하다", "note": "갑자기 눈에 들어왔다는 느낌이 있다."}, {"word": "hurried out", "meaning": "급히 밖으로 나갔다", "note": ""}, {"word": "meet", "meaning": "맞으러 가다, 만나다", "note": "여기서는 오는 사람을 받으러 나가는 뜻이다."}]}, {"id": 6, "original": "The Inca built the huts on high ground, in sight of one another.", "explanation": "잉카 사람들은 오두막들을 높은 곳에 지었다. 그래서 오두막들이 서로 보일 수 있었다.", "vocabulary": [{"word": "high ground", "meaning": "높은 지대", "note": ""}, {"word": "in sight of one another", "meaning": "서로 보이는 곳에", "note": "서로의 위치를 눈으로 확인할 수 있다는 뜻이다."}]}, {"id": 7, "original": "When a messenger neared the next hut, he began to call out and repeated the message three or four times to the one who was running out to meet him.", "explanation": "전령이 다음 오두막 가까이에 오면 큰 소리로 외치기 시작했다. 그리고 자신을 맞으러 뛰어나오는 전령에게 그 말을 세 번이나 네 번 되풀이해서 전했다.", "vocabulary": [{"word": "neared", "meaning": "가까이 갔다, 가까워졌다", "note": "near가 동사로 쓰인 모습이다."}, {"word": "call out", "meaning": "큰 소리로 외치다", "note": ""}, {"word": "repeated", "meaning": "되풀이했다", "note": "같은 말을 여러 번 다시 말했다는 뜻이다."}, {"word": "running out to meet him", "meaning": "그를 맞으러 뛰어나오는", "note": ""}]}, {"id": 8, "original": "The Inca empire could relay messages 1,000 miles (1,610 km) in three or four days under good conditions.", "explanation": "조건이 좋으면, 잉카 제국은 1,000마일(1,610km) 떨어진 곳까지도 소식을 3~4일 만에 전달할 수 있었다.", "vocabulary": [{"word": "relay", "meaning": "이어 전달하다", "note": "한 사람이 끝까지 가는 것이 아니라 중간중간 넘겨 주는 방식이다."}, {"word": "under good conditions", "meaning": "상황이 좋을 때, 조건이 좋으면", "note": "날씨나 길 상태 같은 것이 좋을 때를 말한다."}]}], "problem_number": "37", "exam_info": "고1 2024 3월 모고"};
 const NEXT_PAGE = "38.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

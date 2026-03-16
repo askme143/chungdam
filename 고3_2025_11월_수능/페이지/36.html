@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "평판이 계약 이행을 지탱하는 농업 공동체", "summary": "작고 긴밀한 농업 공동체에서는 농부와 지주가 쌓아 온 평판이 계약 위반을 억제하고, 상대를 희생해 이익을 얻으려는 사람은 미래 거래에서 배제될 수 있다.", "sentences": [{"id": 1, "original": "The potential for market enforcement is greater when contracting parties have developed reputational capital that can be devalued when contracts are violated.", "explanation": "계약을 맺는 당사자들이 평판이라는 자산을 쌓아 두었고, 계약을 어기면 그 평판의 가치가 떨어질 수 있을 때 시장을 통한 자율적 제재가 더 잘 작동한다는 뜻이다.", "vocabulary": [{"word": "market enforcement", "meaning": "시장에 의한 강제·제재, 시장 규율", "note": "법적 강제보다 거래 관계와 시장 평가를 통해 규칙이 지켜지게 하는 것을 뜻함."}, {"word": "contracting parties", "meaning": "계약 당사자들", "note": "contract의 현재분사형이 아니라 '계약을 맺는'이라는 형용사적 표현."}, {"word": "reputational capital", "meaning": "평판 자본", "note": "좋은 평판이 경제적 가치나 신뢰 자산처럼 기능한다는 의미."}, {"word": "devalued", "meaning": "가치가 떨어지다, 평가절하되다", "note": "여기서는 돈의 가치가 아니라 평판의 가치가 낮아지는 것을 말함."}, {"word": "violated", "meaning": "위반된, 어겨진", "note": "contracts are violated = 계약이 위반되다."}]}, {"id": 2, "original": "Farmers and landowners develop reputations for honesty, fairness, producing high yields, and consistently demonstrating that they are good at what they do.", "explanation": "농부와 지주는 정직함, 공정함, 높은 생산량, 그리고 자신의 일을 꾸준히 잘해 낸다는 점을 통해 좋은 평판을 쌓아 간다.", "vocabulary": [{"word": "landowners", "meaning": "토지 소유주, 지주", "note": ""}, {"word": "reputations for honesty", "meaning": "정직하다는 평판", "note": "reputation for A = A하다는 평판."}, {"word": "fairness", "meaning": "공정함", "note": ""}, {"word": "high yields", "meaning": "높은 수확량, 높은 생산량", "note": "yield는 농업에서 '수확량'으로 자주 쓰임."}, {"word": "consistently demonstrating", "meaning": "꾸준히 보여 주다, 지속적으로 입증하다", "note": "일회성이 아니라 계속해서 능력을 증명하는 뉘앙스."}]}, {"id": 3, "original": "In small, close‑knit farming communities, reputations are well known.", "explanation": "규모가 작고 서로 긴밀하게 연결된 농촌 공동체에서는 누가 어떤 사람인지에 대한 평판이 널리 알려져 있다.", "vocabulary": [{"word": "close-knit", "meaning": "유대가 긴밀한, 결속력이 강한", "note": "사람들 사이의 관계가 매우 촘촘한 공동체를 묘사할 때 자주 씀."}, {"word": "farming communities", "meaning": "농업 공동체, 농촌 사회", "note": ""}, {"word": "well known", "meaning": "잘 알려진", "note": "여기서는 공동체 구성원들 사이에서 평판이 널리 공유된다는 뜻."}]}, {"id": 4, "original": "Over time landowners indirectly monitor farmers by observing the reported output, the general quality of the soil, and any unusual or extreme behavior.", "explanation": "시간이 지나면서 지주들은 보고된 생산량, 토양의 전반적 상태, 그리고 비정상적이거나 지나친 행동을 살펴보며 농부들을 간접적으로 감시한다.", "vocabulary": [{"word": "indirectly monitor", "meaning": "간접적으로 감시하다, 살피다", "note": "직접 통제하지 않고 여러 징후를 통해 상태를 파악하는 것."}, {"word": "reported output", "meaning": "보고된 생산량", "note": "output은 여기서 농산물 생산 결과를 뜻함."}, {"word": "general quality of the soil", "meaning": "토양의 전반적인 상태", "note": ""}, {"word": "unusual or extreme behavior", "meaning": "이상하거나 극단적인 행동", "note": "정상적인 관리 범위를 벗어나는 행위를 가리킴."}]}, {"id": 5, "original": "Farmer and landowner reputations act as a bond.", "explanation": "농부와 지주의 평판은 서로가 약속을 지키도록 묶어 두는 일종의 담보나 보증 역할을 한다.", "vocabulary": [{"word": "act as", "meaning": "~의 역할을 하다", "note": ""}, {"word": "bond", "meaning": "유대, 담보, 보증 장치", "note": "여기서는 관계를 묶어 두고 약속 이행을 유도하는 장치라는 뜻."}]}, {"id": 6, "original": "In any growing season a farmer can reduce effort, overuse soil, or underreport the crop.", "explanation": "어느 한 재배 기간 동안이라도 농부는 일을 덜 하거나, 토지를 과도하게 사용하거나, 실제 수확량보다 적게 보고할 수 있다.", "vocabulary": [{"word": "growing season", "meaning": "재배 기간, 생장기", "note": "작물이 자라는 한 철을 뜻함."}, {"word": "reduce effort", "meaning": "노력을 줄이다, 일을 덜 하다", "note": ""}, {"word": "overuse soil", "meaning": "토지를 과도하게 사용하다", "note": "토양을 무리하게 써서 지력을 떨어뜨리는 뉘앙스."}, {"word": "underreport", "meaning": "축소 보고하다", "note": "실제보다 적게 보고하는 것."}, {"word": "the crop", "meaning": "수확물, 작물 생산량", "note": "문맥상 수확량 전체를 가리킴."}]}, {"id": 7, "original": "Similarly, a landowner can undermaintain fences, ditches, and irrigation systems.", "explanation": "마찬가지로 지주도 울타리, 배수로, 관개 시설의 관리를 충분히 하지 않을 수 있다.", "vocabulary": [{"word": "Similarly", "meaning": "마찬가지로, 이와 비슷하게", "note": ""}, {"word": "undermaintain", "meaning": "유지·관리를 충분히 하지 않다", "note": "일반적인 일상어라기보다 문맥상 '필요 수준보다 덜 관리하다'는 의미."}, {"word": "ditches", "meaning": "도랑, 배수로", "note": "농지의 물길 관리와 관련된 시설."}, {"word": "irrigation systems", "meaning": "관개 시설, 관수 시스템", "note": ""}]}, {"id": 8, "original": "Accurate assessments of farmer and landowner behavior will be made over time, and those farmers and landowners who attempt to gain at each other’s expense will find that others may refuse to deal with them in the future.", "explanation": "시간이 지나면 농부와 지주의 행동에 대한 정확한 평가가 이루어지고, 상대방에게 손해를 끼치면서 자기 이익을 챙기려 한 사람들은 앞으로 다른 이들이 그들과 거래를 거부할 수 있음을 알게 될 것이다.", "vocabulary": [{"word": "accurate assessments", "meaning": "정확한 평가", "note": ""}, {"word": "over time", "meaning": "시간이 지나면서", "note": ""}, {"word": "gain at each other’s expense", "meaning": "상대의 희생을 대가로 이익을 얻다", "note": "at someone's expense = 누군가의 손해를 바탕으로."}, {"word": "refuse to deal with", "meaning": "거래를 거부하다, 상대하지 않다", "note": "경제적 거래뿐 아니라 관계를 끊는 의미로도 쓰임."}, {"word": "in the future", "meaning": "앞으로, 미래에", "note": ""}]}], "problem_number": "36"};
+const DATA = {"title": "평판이 계약 이행을 지탱하는 농업 공동체", "summary": "작고 긴밀한 농업 공동체에서는 농부와 지주가 쌓아 온 평판이 계약 위반을 억제하고, 상대를 희생해 이익을 얻으려는 사람은 미래 거래에서 배제될 수 있다.", "sentences": [{"id": 1, "original": "The potential for market enforcement is greater when contracting parties have developed reputational capital that can be devalued when contracts are violated.", "explanation": "계약을 맺는 당사자들이 평판이라는 자산을 쌓아 두었고, 계약을 어기면 그 평판의 가치가 떨어질 수 있을 때 시장을 통한 자율적 제재가 더 잘 작동한다는 뜻이다.", "vocabulary": [{"word": "market enforcement", "meaning": "시장에 의한 강제·제재, 시장 규율", "note": "법적 강제보다 거래 관계와 시장 평가를 통해 규칙이 지켜지게 하는 것을 뜻함."}, {"word": "contracting parties", "meaning": "계약 당사자들", "note": "contract의 현재분사형이 아니라 '계약을 맺는'이라는 형용사적 표현."}, {"word": "reputational capital", "meaning": "평판 자본", "note": "좋은 평판이 경제적 가치나 신뢰 자산처럼 기능한다는 의미."}, {"word": "devalued", "meaning": "가치가 떨어지다, 평가절하되다", "note": "여기서는 돈의 가치가 아니라 평판의 가치가 낮아지는 것을 말함."}, {"word": "violated", "meaning": "위반된, 어겨진", "note": "contracts are violated = 계약이 위반되다."}]}, {"id": 2, "original": "Farmers and landowners develop reputations for honesty, fairness, producing high yields, and consistently demonstrating that they are good at what they do.", "explanation": "농부와 지주는 정직함, 공정함, 높은 생산량, 그리고 자신의 일을 꾸준히 잘해 낸다는 점을 통해 좋은 평판을 쌓아 간다.", "vocabulary": [{"word": "landowners", "meaning": "토지 소유주, 지주", "note": ""}, {"word": "reputations for honesty", "meaning": "정직하다는 평판", "note": "reputation for A = A하다는 평판."}, {"word": "fairness", "meaning": "공정함", "note": ""}, {"word": "high yields", "meaning": "높은 수확량, 높은 생산량", "note": "yield는 농업에서 '수확량'으로 자주 쓰임."}, {"word": "consistently demonstrating", "meaning": "꾸준히 보여 주다, 지속적으로 입증하다", "note": "일회성이 아니라 계속해서 능력을 증명하는 뉘앙스."}]}, {"id": 3, "original": "In small, close‑knit farming communities, reputations are well known.", "explanation": "규모가 작고 서로 긴밀하게 연결된 농촌 공동체에서는 누가 어떤 사람인지에 대한 평판이 널리 알려져 있다.", "vocabulary": [{"word": "close-knit", "meaning": "유대가 긴밀한, 결속력이 강한", "note": "사람들 사이의 관계가 매우 촘촘한 공동체를 묘사할 때 자주 씀."}, {"word": "farming communities", "meaning": "농업 공동체, 농촌 사회", "note": ""}, {"word": "well known", "meaning": "잘 알려진", "note": "여기서는 공동체 구성원들 사이에서 평판이 널리 공유된다는 뜻."}]}, {"id": 4, "original": "Over time landowners indirectly monitor farmers by observing the reported output, the general quality of the soil, and any unusual or extreme behavior.", "explanation": "시간이 지나면서 지주들은 보고된 생산량, 토양의 전반적 상태, 그리고 비정상적이거나 지나친 행동을 살펴보며 농부들을 간접적으로 감시한다.", "vocabulary": [{"word": "indirectly monitor", "meaning": "간접적으로 감시하다, 살피다", "note": "직접 통제하지 않고 여러 징후를 통해 상태를 파악하는 것."}, {"word": "reported output", "meaning": "보고된 생산량", "note": "output은 여기서 농산물 생산 결과를 뜻함."}, {"word": "general quality of the soil", "meaning": "토양의 전반적인 상태", "note": ""}, {"word": "unusual or extreme behavior", "meaning": "이상하거나 극단적인 행동", "note": "정상적인 관리 범위를 벗어나는 행위를 가리킴."}]}, {"id": 5, "original": "Farmer and landowner reputations act as a bond.", "explanation": "농부와 지주의 평판은 서로가 약속을 지키도록 묶어 두는 일종의 담보나 보증 역할을 한다.", "vocabulary": [{"word": "act as", "meaning": "~의 역할을 하다", "note": ""}, {"word": "bond", "meaning": "유대, 담보, 보증 장치", "note": "여기서는 관계를 묶어 두고 약속 이행을 유도하는 장치라는 뜻."}]}, {"id": 6, "original": "In any growing season a farmer can reduce effort, overuse soil, or underreport the crop.", "explanation": "어느 한 재배 기간 동안이라도 농부는 일을 덜 하거나, 토지를 과도하게 사용하거나, 실제 수확량보다 적게 보고할 수 있다.", "vocabulary": [{"word": "growing season", "meaning": "재배 기간, 생장기", "note": "작물이 자라는 한 철을 뜻함."}, {"word": "reduce effort", "meaning": "노력을 줄이다, 일을 덜 하다", "note": ""}, {"word": "overuse soil", "meaning": "토지를 과도하게 사용하다", "note": "토양을 무리하게 써서 지력을 떨어뜨리는 뉘앙스."}, {"word": "underreport", "meaning": "축소 보고하다", "note": "실제보다 적게 보고하는 것."}, {"word": "the crop", "meaning": "수확물, 작물 생산량", "note": "문맥상 수확량 전체를 가리킴."}]}, {"id": 7, "original": "Similarly, a landowner can undermaintain fences, ditches, and irrigation systems.", "explanation": "마찬가지로 지주도 울타리, 배수로, 관개 시설의 관리를 충분히 하지 않을 수 있다.", "vocabulary": [{"word": "Similarly", "meaning": "마찬가지로, 이와 비슷하게", "note": ""}, {"word": "undermaintain", "meaning": "유지·관리를 충분히 하지 않다", "note": "일반적인 일상어라기보다 문맥상 '필요 수준보다 덜 관리하다'는 의미."}, {"word": "ditches", "meaning": "도랑, 배수로", "note": "농지의 물길 관리와 관련된 시설."}, {"word": "irrigation systems", "meaning": "관개 시설, 관수 시스템", "note": ""}]}, {"id": 8, "original": "Accurate assessments of farmer and landowner behavior will be made over time, and those farmers and landowners who attempt to gain at each other’s expense will find that others may refuse to deal with them in the future.", "explanation": "시간이 지나면 농부와 지주의 행동에 대한 정확한 평가가 이루어지고, 상대방에게 손해를 끼치면서 자기 이익을 챙기려 한 사람들은 앞으로 다른 이들이 그들과 거래를 거부할 수 있음을 알게 될 것이다.", "vocabulary": [{"word": "accurate assessments", "meaning": "정확한 평가", "note": ""}, {"word": "over time", "meaning": "시간이 지나면서", "note": ""}, {"word": "gain at each other’s expense", "meaning": "상대의 희생을 대가로 이익을 얻다", "note": "at someone's expense = 누군가의 손해를 바탕으로."}, {"word": "refuse to deal with", "meaning": "거래를 거부하다, 상대하지 않다", "note": "경제적 거래뿐 아니라 관계를 끊는 의미로도 쓰임."}, {"word": "in the future", "meaning": "앞으로, 미래에", "note": ""}]}], "problem_number": "36", "exam_info": "고3 2025 11월 수능"};
 const NEXT_PAGE = "37.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "로마 시대 건축가의 높아진 자리", "summary": "로마 시대에는 건축이 정치적으로 중요한 뜻을 가지게 되면서 건축가의 사회적 자리가 높아졌고, 비트루비우스는 좋은 건축가가 되려면 손으로 하는 기술과 책으로 배우는 지식을 함께 갖춰야 한다고 말했다.", "sentences": [{"id": 1, "original": "The position of the architect rose during the Roman Empire, as architecture symbolically became a particularly important political statement.", "explanation": "로마 제국 시대에는 건축가의 사회적 지위가 높아졌다. 건축이 단순히 건물을 짓는 일을 넘어서, 정치적인 뜻을 보여 주는 아주 중요한 수단이 되었기 때문이다.", "vocabulary": [{"word": "position", "meaning": "지위, 자리", "note": "여기서는 물리적인 위치가 아니라 사회에서의 자리라는 뜻이다."}, {"word": "rose", "meaning": "높아졌다", "note": "rise의 과거형이다."}, {"word": "symbolically", "meaning": "상징적으로", "note": "겉모습이나 형태를 통해 어떤 뜻을 보여 준다는 말이다."}, {"word": "political statement", "meaning": "정치적 메시지, 정치적 뜻을 드러내는 표현", "note": "말로만 하는 주장이 아니라 건축 같은 행동이나 결과물로 뜻을 드러내는 경우에도 쓴다."}]}, {"id": 2, "original": "Cicero classed the architect with the physician and the teacher and Vitruvius spoke of “so great a profession as this.”", "explanation": "키케로는 건축가를 의사와 교사와 같은 부류로 보았다. 또 비트루비우스는 건축이라는 일을 매우 위대한 직업이라고 말했다.", "vocabulary": [{"word": "classed A with B", "meaning": "A를 B와 같은 부류로 보았다", "note": "class를 동사로 써서 ‘분류하다’라는 뜻이 된다."}, {"word": "physician", "meaning": "의사", "note": "doctor보다 조금 더 격식 있는 말이다."}, {"word": "profession", "meaning": "전문 직업", "note": "오랜 공부와 훈련이 필요한 일을 가리킬 때 자주 쓴다."}, {"word": "so great a profession", "meaning": "이처럼 위대한 직업", "note": "강조하는 표현이다."}]}, {"id": 3, "original": "Marcus Vitruvius Pollio, a practicing architect during the rule of Augustus Caesar, recognized that architecture requires both practical and theoretical knowledge, and he listed the disciplines he felt the aspiring architect should master: literature and writing, draftsmanship, mathematics, history, philosophy, music, medicine, law, and astronomy — a curriculum that still has much to recommend it.", "explanation": "아우구스투스 카이사르가 다스리던 때 실제로 일하던 건축가였던 마르쿠스 비트루비우스 폴리오는, 건축에는 실제로 해 보는 기술과 이론 지식이 둘 다 필요하다고 보았다. 그래서 그는 훌륭한 건축가를 꿈꾸는 사람이 익혀야 할 공부로 문학과 글쓰기, 제도, 수학, 역사, 철학, 음악, 의학, 법, 천문학을 꼽았다. 이런 배움의 내용은 지금 봐도 배울 만한 점이 많다.", "vocabulary": [{"word": "practicing architect", "meaning": "실제로 일하고 있는 건축가", "note": "자격만 있는 사람이 아니라 현장에서 활동하는 사람이라는 뜻이다."}, {"word": "practical and theoretical knowledge", "meaning": "실제 기술과 이론 지식", "note": "둘 중 하나만이 아니라 둘 다 필요하다는 점이 중요하다."}, {"word": "aspiring architect", "meaning": "건축가를 꿈꾸는 사람", "note": "aspiring은 ‘~이 되기를 바라는’이라는 뜻이다."}, {"word": "master", "meaning": "완전히 익히다", "note": "명사가 아니라 동사로 쓰였다."}, {"word": "curriculum", "meaning": "교육 내용, 교과 과정", "note": "학교나 훈련 과정에서 배우는 전체 내용을 말한다."}]}, {"id": 4, "original": "All of this study was necessary, he argued, because architects who have aimed at acquiring manual skill without scholarship have never been able to reach a position of authority to correspond to their plans, while those who have relied only upon theories and scholarship were obviously “hunting the shadow, not the substance.”", "explanation": "그는 이런 공부가 모두 꼭 필요하다고 말했다. 학문적 배움 없이 손기술만 익히려 한 건축가들은 자기 계획에 걸맞은 권위 있는 자리에 오를 수 없었기 때문이다. 반대로 이론과 학문에만 기대는 사람들은 실제 중요한 것은 놓치고, 겉모습만 좇는 셈이라고 보았다.", "vocabulary": [{"word": "manual skill", "meaning": "손으로 하는 기술, 실기 능력", "note": "직접 만들고 다루는 능력을 말한다."}, {"word": "scholarship", "meaning": "학문적 배움, 학식", "note": "장학금이라는 뜻도 있지만 여기서는 공부해서 쌓은 지식을 뜻한다."}, {"word": "position of authority", "meaning": "권위 있는 자리, 책임 있는 지위", "note": "다른 사람들에게 인정받고 영향력을 가지는 자리를 말한다."}, {"word": "relied only upon", "meaning": "오직 ~에만 의지했다", "note": "한쪽에만 기대는 느낌을 준다."}, {"word": "hunting the shadow, not the substance", "meaning": "본질이 아니라 겉만 좇는 것", "note": "shadow는 그림자, substance는 실체라는 뜻이다. 비유적인 표현이다."}]}], "problem_number": "21"};
-const NEXT_PAGE = "31.html";
+const DATA = {"title": "로마 시대 건축가의 높아진 자리", "summary": "로마 시대에는 건축이 정치적으로 중요한 뜻을 가지게 되면서 건축가의 사회적 자리가 높아졌고, 비트루비우스는 좋은 건축가가 되려면 손으로 하는 기술과 책으로 배우는 지식을 함께 갖춰야 한다고 말했다.", "sentences": [{"id": 1, "original": "The position of the architect rose during the Roman Empire, as architecture symbolically became a particularly important political statement.", "explanation": "로마 제국 시대에는 건축가의 사회적 지위가 높아졌다. 건축이 단순히 건물을 짓는 일을 넘어서, 정치적인 뜻을 보여 주는 아주 중요한 수단이 되었기 때문이다.", "vocabulary": [{"word": "position", "meaning": "지위, 자리", "note": "여기서는 물리적인 위치가 아니라 사회에서의 자리라는 뜻이다."}, {"word": "rose", "meaning": "높아졌다", "note": "rise의 과거형이다."}, {"word": "symbolically", "meaning": "상징적으로", "note": "겉모습이나 형태를 통해 어떤 뜻을 보여 준다는 말이다."}, {"word": "political statement", "meaning": "정치적 메시지, 정치적 뜻을 드러내는 표현", "note": "말로만 하는 주장이 아니라 건축 같은 행동이나 결과물로 뜻을 드러내는 경우에도 쓴다."}]}, {"id": 2, "original": "Cicero classed the architect with the physician and the teacher and Vitruvius spoke of “so great a profession as this.”", "explanation": "키케로는 건축가를 의사와 교사와 같은 부류로 보았다. 또 비트루비우스는 건축이라는 일을 매우 위대한 직업이라고 말했다.", "vocabulary": [{"word": "classed A with B", "meaning": "A를 B와 같은 부류로 보았다", "note": "class를 동사로 써서 ‘분류하다’라는 뜻이 된다."}, {"word": "physician", "meaning": "의사", "note": "doctor보다 조금 더 격식 있는 말이다."}, {"word": "profession", "meaning": "전문 직업", "note": "오랜 공부와 훈련이 필요한 일을 가리킬 때 자주 쓴다."}, {"word": "so great a profession", "meaning": "이처럼 위대한 직업", "note": "강조하는 표현이다."}]}, {"id": 3, "original": "Marcus Vitruvius Pollio, a practicing architect during the rule of Augustus Caesar, recognized that architecture requires both practical and theoretical knowledge, and he listed the disciplines he felt the aspiring architect should master: literature and writing, draftsmanship, mathematics, history, philosophy, music, medicine, law, and astronomy — a curriculum that still has much to recommend it.", "explanation": "아우구스투스 카이사르가 다스리던 때 실제로 일하던 건축가였던 마르쿠스 비트루비우스 폴리오는, 건축에는 실제로 해 보는 기술과 이론 지식이 둘 다 필요하다고 보았다. 그래서 그는 훌륭한 건축가를 꿈꾸는 사람이 익혀야 할 공부로 문학과 글쓰기, 제도, 수학, 역사, 철학, 음악, 의학, 법, 천문학을 꼽았다. 이런 배움의 내용은 지금 봐도 배울 만한 점이 많다.", "vocabulary": [{"word": "practicing architect", "meaning": "실제로 일하고 있는 건축가", "note": "자격만 있는 사람이 아니라 현장에서 활동하는 사람이라는 뜻이다."}, {"word": "practical and theoretical knowledge", "meaning": "실제 기술과 이론 지식", "note": "둘 중 하나만이 아니라 둘 다 필요하다는 점이 중요하다."}, {"word": "aspiring architect", "meaning": "건축가를 꿈꾸는 사람", "note": "aspiring은 ‘~이 되기를 바라는’이라는 뜻이다."}, {"word": "master", "meaning": "완전히 익히다", "note": "명사가 아니라 동사로 쓰였다."}, {"word": "curriculum", "meaning": "교육 내용, 교과 과정", "note": "학교나 훈련 과정에서 배우는 전체 내용을 말한다."}]}, {"id": 4, "original": "All of this study was necessary, he argued, because architects who have aimed at acquiring manual skill without scholarship have never been able to reach a position of authority to correspond to their plans, while those who have relied only upon theories and scholarship were obviously “hunting the shadow, not the substance.”", "explanation": "그는 이런 공부가 모두 꼭 필요하다고 말했다. 학문적 배움 없이 손기술만 익히려 한 건축가들은 자기 계획에 걸맞은 권위 있는 자리에 오를 수 없었기 때문이다. 반대로 이론과 학문에만 기대는 사람들은 실제 중요한 것은 놓치고, 겉모습만 좇는 셈이라고 보았다.", "vocabulary": [{"word": "manual skill", "meaning": "손으로 하는 기술, 실기 능력", "note": "직접 만들고 다루는 능력을 말한다."}, {"word": "scholarship", "meaning": "학문적 배움, 학식", "note": "장학금이라는 뜻도 있지만 여기서는 공부해서 쌓은 지식을 뜻한다."}, {"word": "position of authority", "meaning": "권위 있는 자리, 책임 있는 지위", "note": "다른 사람들에게 인정받고 영향력을 가지는 자리를 말한다."}, {"word": "relied only upon", "meaning": "오직 ~에만 의지했다", "note": "한쪽에만 기대는 느낌을 준다."}, {"word": "hunting the shadow, not the substance", "meaning": "본질이 아니라 겉만 좇는 것", "note": "shadow는 그림자, substance는 실체라는 뜻이다. 비유적인 표현이다."}]}], "problem_number": "21", "exam_info": "고3 2025 11월 수능"};
+const NEXT_PAGE = "22.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

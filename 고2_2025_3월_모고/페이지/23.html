@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "산업 시대가 바꾼 시간과 노동", "summary": "산업화가 시작되면서 공장은 쉬지 않고 돌아가게 되었고, 그에 따라 노동 시간, 임금, 사회의 움직임도 시계와 생산량 중심으로 바뀌었다.", "sentences": [{"id": 1, "original": "The arrival of the Industrial Age changed the relationship among time, labor, and capital.", "explanation": "산업 시대가 오면서 시간, 노동, 자본이 서로 이어지는 방식이 달라졌다는 뜻이다. 즉, 사람들의 일하는 시간과 일, 돈의 관계가 예전과 다르게 바뀌었다.", "vocabulary": [{"word": "arrival", "meaning": "도래, 찾아옴", "note": "여기서는 어떤 시대가 시작되어 나타난 것을 뜻한다."}, {"word": "Industrial Age", "meaning": "산업 시대", "note": "기계와 공장이 중심이 된 시대를 말한다."}, {"word": "labor", "meaning": "노동, 일", "note": "사람이 몸이나 시간을 들여 일하는 것을 뜻한다."}, {"word": "capital", "meaning": "자본, 돈", "note": "사업이나 생산에 쓰이는 돈이나 재산을 말한다."}, {"word": "relationship", "meaning": "관계", "note": "사물이나 개념이 서로 이어지는 방식을 뜻한다."}]}, {"id": 2, "original": "Factories could produce around the clock, and they could do so with greater speed and volume than ever before.", "explanation": "공장들은 하루 종일 쉬지 않고 물건을 만들 수 있게 되었고, 예전보다 더 빠르게, 더 많은 양을 만들어 낼 수 있게 되었다.", "vocabulary": [{"word": "around the clock", "meaning": "하루 종일, 24시간 내내", "note": "쉬지 않고 계속된다는 뜻의 표현이다."}, {"word": "produce", "meaning": "생산하다, 만들어 내다", "note": ""}, {"word": "volume", "meaning": "양, 생산량", "note": "여기서는 소리 크기가 아니라 만들어 내는 양을 뜻한다."}, {"word": "than ever before", "meaning": "이전 어느 때보다도", "note": "과거와 비교해 가장 크거나 많다는 뜻을 준다."}]}, {"id": 3, "original": "A machine that runs twelve hours a day will produce more widgets than one that runs for only eight hours per day — and a machine that runs twenty-four hours per day will produce the most widgets of all.", "explanation": "하루에 12시간 돌아가는 기계는 8시간만 돌아가는 기계보다 더 많은 물건을 만든다. 그리고 24시간 내내 돌아가는 기계가 가장 많은 물건을 만든다는 말이다.", "vocabulary": [{"word": "run", "meaning": "가동되다, 돌아가다", "note": "기계가 작동하는 뜻으로 쓰였다."}, {"word": "widget", "meaning": "제품, 물건", "note": "정확한 종류를 정하지 않고 예시로 든 물건을 뜻한다."}, {"word": "produce", "meaning": "생산하다", "note": ""}, {"word": "of all", "meaning": "그중에서 가장", "note": "여럿 가운데 최고라는 뜻을 더해 준다."}]}, {"id": 4, "original": "As such, at many factories, the workday is divided into eight-hour shifts, so that there will always be people on hand to keep the widget machines humming.", "explanation": "그래서 많은 공장에서는 하루 일을 8시간씩 나누어 교대로 일하게 한다. 그렇게 해야 언제나 사람이 있어서 기계가 계속 멈추지 않고 돌아갈 수 있기 때문이다.", "vocabulary": [{"word": "As such", "meaning": "그래서, 그런 이유로", "note": "앞의 내용을 받아 결과를 말할 때 쓴다."}, {"word": "workday", "meaning": "근무일의 일과 시간, 작업 시간", "note": ""}, {"word": "shift", "meaning": "교대 근무 시간", "note": "여러 사람이 시간을 나누어 번갈아 일하는 방식이다."}, {"word": "on hand", "meaning": "곁에 있는, 바로 투입할 수 있는", "note": "필요할 때 바로 있는 상태를 뜻한다."}, {"word": "humming", "meaning": "계속 윙윙거리며 잘 돌아가는", "note": "기계가 멈추지 않고 부드럽게 작동하는 모습을 나타낸다."}]}, {"id": 5, "original": "Industrialization raised the potential value of every single work hour — the more hours you worked, the more widgets you produced, and the more money you made — and thus wages became tied to effort and production.", "explanation": "산업화는 일하는 한 시간 한 시간의 값어치를 더 크게 만들었다. 더 오래 일할수록 더 많은 물건을 만들고, 그러면 더 많은 돈을 벌 수 있게 되었다. 그래서 임금은 사람이 들인 노력과 만들어 낸 양에 연결되기 시작했다.", "vocabulary": [{"word": "Industrialization", "meaning": "산업화", "note": "공장과 기계 중심으로 사회가 바뀌는 과정을 말한다."}, {"word": "potential value", "meaning": "가능한 가치, 커질 수 있는 값어치", "note": "상황에 따라 더 크게 드러날 수 있는 가치를 뜻한다."}, {"word": "wage", "meaning": "임금, 일한 대가로 받는 돈", "note": "보통 노동의 대가로 받는 돈을 말한다."}, {"word": "be tied to", "meaning": "~와 연결되다, ~에 달려 있다", "note": "서로 깊게 이어져 있다는 뜻이다."}, {"word": "effort", "meaning": "노력", "note": ""}]}, {"id": 6, "original": "Labor, previously guided by harvest cycles, became clock-oriented, and society started to reorganize around new principles of productivity.", "explanation": "예전에는 농사철과 수확 시기에 맞춰 일이 이루어졌지만, 이제는 시계 시간에 맞춰 일하게 되었다. 그리고 사회 전체도 생산을 더 많이 하고 더 잘하는 것을 중요하게 여기며 새롭게 바뀌기 시작했다.", "vocabulary": [{"word": "harvest cycles", "meaning": "수확의 주기, 농사철의 흐름", "note": "농작물이 자라고 거두는 때에 따라 반복되는 시간을 말한다."}, {"word": "clock-oriented", "meaning": "시계 시간 중심의", "note": "자연의 흐름보다 정해진 시간표를 더 따르는 뜻이다."}, {"word": "reorganize", "meaning": "다시 짜다, 새롭게 바꾸다", "note": "구조나 움직이는 방식을 다시 정리하는 뜻이다."}, {"word": "principles", "meaning": "기본 생각, 기본 원리", "note": "어떤 행동이나 판단의 바탕이 되는 생각이다."}, {"word": "productivity", "meaning": "생산성, 얼마나 많이 잘 만들어 내는가", "note": "같은 시간이나 힘으로 얼마나 많은 결과를 내는지를 말한다."}]}], "problem_number": "23"};
-const NEXT_PAGE = null;
+const DATA = {"title": "산업 시대가 바꾼 시간과 노동", "summary": "산업화가 시작되면서 공장은 쉬지 않고 돌아가게 되었고, 그에 따라 노동 시간, 임금, 사회의 움직임도 시계와 생산량 중심으로 바뀌었다.", "sentences": [{"id": 1, "original": "The arrival of the Industrial Age changed the relationship among time, labor, and capital.", "explanation": "산업 시대가 오면서 시간, 노동, 자본이 서로 이어지는 방식이 달라졌다는 뜻이다. 즉, 사람들의 일하는 시간과 일, 돈의 관계가 예전과 다르게 바뀌었다.", "vocabulary": [{"word": "arrival", "meaning": "도래, 찾아옴", "note": "여기서는 어떤 시대가 시작되어 나타난 것을 뜻한다."}, {"word": "Industrial Age", "meaning": "산업 시대", "note": "기계와 공장이 중심이 된 시대를 말한다."}, {"word": "labor", "meaning": "노동, 일", "note": "사람이 몸이나 시간을 들여 일하는 것을 뜻한다."}, {"word": "capital", "meaning": "자본, 돈", "note": "사업이나 생산에 쓰이는 돈이나 재산을 말한다."}, {"word": "relationship", "meaning": "관계", "note": "사물이나 개념이 서로 이어지는 방식을 뜻한다."}]}, {"id": 2, "original": "Factories could produce around the clock, and they could do so with greater speed and volume than ever before.", "explanation": "공장들은 하루 종일 쉬지 않고 물건을 만들 수 있게 되었고, 예전보다 더 빠르게, 더 많은 양을 만들어 낼 수 있게 되었다.", "vocabulary": [{"word": "around the clock", "meaning": "하루 종일, 24시간 내내", "note": "쉬지 않고 계속된다는 뜻의 표현이다."}, {"word": "produce", "meaning": "생산하다, 만들어 내다", "note": ""}, {"word": "volume", "meaning": "양, 생산량", "note": "여기서는 소리 크기가 아니라 만들어 내는 양을 뜻한다."}, {"word": "than ever before", "meaning": "이전 어느 때보다도", "note": "과거와 비교해 가장 크거나 많다는 뜻을 준다."}]}, {"id": 3, "original": "A machine that runs twelve hours a day will produce more widgets than one that runs for only eight hours per day — and a machine that runs twenty-four hours per day will produce the most widgets of all.", "explanation": "하루에 12시간 돌아가는 기계는 8시간만 돌아가는 기계보다 더 많은 물건을 만든다. 그리고 24시간 내내 돌아가는 기계가 가장 많은 물건을 만든다는 말이다.", "vocabulary": [{"word": "run", "meaning": "가동되다, 돌아가다", "note": "기계가 작동하는 뜻으로 쓰였다."}, {"word": "widget", "meaning": "제품, 물건", "note": "정확한 종류를 정하지 않고 예시로 든 물건을 뜻한다."}, {"word": "produce", "meaning": "생산하다", "note": ""}, {"word": "of all", "meaning": "그중에서 가장", "note": "여럿 가운데 최고라는 뜻을 더해 준다."}]}, {"id": 4, "original": "As such, at many factories, the workday is divided into eight-hour shifts, so that there will always be people on hand to keep the widget machines humming.", "explanation": "그래서 많은 공장에서는 하루 일을 8시간씩 나누어 교대로 일하게 한다. 그렇게 해야 언제나 사람이 있어서 기계가 계속 멈추지 않고 돌아갈 수 있기 때문이다.", "vocabulary": [{"word": "As such", "meaning": "그래서, 그런 이유로", "note": "앞의 내용을 받아 결과를 말할 때 쓴다."}, {"word": "workday", "meaning": "근무일의 일과 시간, 작업 시간", "note": ""}, {"word": "shift", "meaning": "교대 근무 시간", "note": "여러 사람이 시간을 나누어 번갈아 일하는 방식이다."}, {"word": "on hand", "meaning": "곁에 있는, 바로 투입할 수 있는", "note": "필요할 때 바로 있는 상태를 뜻한다."}, {"word": "humming", "meaning": "계속 윙윙거리며 잘 돌아가는", "note": "기계가 멈추지 않고 부드럽게 작동하는 모습을 나타낸다."}]}, {"id": 5, "original": "Industrialization raised the potential value of every single work hour — the more hours you worked, the more widgets you produced, and the more money you made — and thus wages became tied to effort and production.", "explanation": "산업화는 일하는 한 시간 한 시간의 값어치를 더 크게 만들었다. 더 오래 일할수록 더 많은 물건을 만들고, 그러면 더 많은 돈을 벌 수 있게 되었다. 그래서 임금은 사람이 들인 노력과 만들어 낸 양에 연결되기 시작했다.", "vocabulary": [{"word": "Industrialization", "meaning": "산업화", "note": "공장과 기계 중심으로 사회가 바뀌는 과정을 말한다."}, {"word": "potential value", "meaning": "가능한 가치, 커질 수 있는 값어치", "note": "상황에 따라 더 크게 드러날 수 있는 가치를 뜻한다."}, {"word": "wage", "meaning": "임금, 일한 대가로 받는 돈", "note": "보통 노동의 대가로 받는 돈을 말한다."}, {"word": "be tied to", "meaning": "~와 연결되다, ~에 달려 있다", "note": "서로 깊게 이어져 있다는 뜻이다."}, {"word": "effort", "meaning": "노력", "note": ""}]}, {"id": 6, "original": "Labor, previously guided by harvest cycles, became clock-oriented, and society started to reorganize around new principles of productivity.", "explanation": "예전에는 농사철과 수확 시기에 맞춰 일이 이루어졌지만, 이제는 시계 시간에 맞춰 일하게 되었다. 그리고 사회 전체도 생산을 더 많이 하고 더 잘하는 것을 중요하게 여기며 새롭게 바뀌기 시작했다.", "vocabulary": [{"word": "harvest cycles", "meaning": "수확의 주기, 농사철의 흐름", "note": "농작물이 자라고 거두는 때에 따라 반복되는 시간을 말한다."}, {"word": "clock-oriented", "meaning": "시계 시간 중심의", "note": "자연의 흐름보다 정해진 시간표를 더 따르는 뜻이다."}, {"word": "reorganize", "meaning": "다시 짜다, 새롭게 바꾸다", "note": "구조나 움직이는 방식을 다시 정리하는 뜻이다."}, {"word": "principles", "meaning": "기본 생각, 기본 원리", "note": "어떤 행동이나 판단의 바탕이 되는 생각이다."}, {"word": "productivity", "meaning": "생산성, 얼마나 많이 잘 만들어 내는가", "note": "같은 시간이나 힘으로 얼마나 많은 결과를 내는지를 말한다."}]}], "problem_number": "23", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "24.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

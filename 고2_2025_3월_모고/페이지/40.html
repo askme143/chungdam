@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "천연 재료가 늘 더 안전한 것은 아니다", "summary": "합성 식품 재료는 만들 때 더 정확하게 관리할 수 있고, 천연 재료는 상태가 자주 달라져서 오히려 안전성을 따지기 더 어려울 수 있다.", "sentences": [{"id": 1, "original": "People often assume that synthetic food ingredients are more harmful than natural ones, but this is not always the case.", "explanation": "사람들은 합성 식품 재료가 천연 재료보다 더 해롭다고 흔히 생각한다. 하지만 언제나 그런 것은 아니다.", "vocabulary": [{"word": "assume", "meaning": "그렇다고 여기다, 당연하다고 생각하다", "note": "증거가 충분하지 않아도 그렇게 생각할 때 자주 쓴다."}, {"word": "synthetic", "meaning": "합성의, 인공적으로 만든", "note": "natural(천연의)과 반대되는 말이다."}, {"word": "harmful", "meaning": "해로운, 몸에 나쁜", "note": ""}, {"word": "the case", "meaning": "사실, 실제 상황", "note": "not always the case는 '항상 그런 것은 아니다'라는 자주 쓰는 표현이다."}]}, {"id": 2, "original": "Typically, synthetic ingredients can be made in a precisely controlled fashion and have well-defined compositions and properties, allowing careful evaluation of their potential toxicity.", "explanation": "보통 합성 재료는 만드는 과정을 아주 정확하게 조절할 수 있다. 또 어떤 성분으로 이루어져 있는지와 어떤 성질을 가졌는지가 분명하다. 그래서 몸에 해로울 가능성을 더 꼼꼼하게 살펴볼 수 있다.", "vocabulary": [{"word": "precisely controlled", "meaning": "정확하게 조절되는", "note": "precisely는 '아주 정확하게'라는 뜻이다."}, {"word": "well-defined", "meaning": "분명하게 정해진, 뚜렷한", "note": "내용이나 경계가 모호하지 않을 때 쓴다."}, {"word": "composition", "meaning": "구성, 성분 구성", "note": "무엇으로 이루어져 있는지를 말한다."}, {"word": "properties", "meaning": "성질, 특성", "note": "물질이 가진 특징을 뜻한다."}, {"word": "potential toxicity", "meaning": "해로울 가능성, 독성 가능성", "note": "toxicity는 '독성, 몸에 해로운 성질'이다."}]}, {"id": 3, "original": "On the other hand, natural ingredients often vary appreciably in their composition and properties depending on their origin, the time of year they were harvested, the climate they experienced throughout their lifetime, the soil quality, and how they were isolated and stored.", "explanation": "반대로 천연 재료는 성분과 성질이 꽤 많이 달라지는 경우가 많다. 어디에서 왔는지, 어느 계절에 수확했는지, 자라는 동안 어떤 날씨를 겪었는지, 흙의 상태가 어땠는지, 또 어떻게 분리하고 보관했는지에 따라 달라진다.", "vocabulary": [{"word": "vary appreciably", "meaning": "눈에 띄게 달라지다", "note": "appreciably는 '꽤 많이, 분명히'라는 뜻이다."}, {"word": "origin", "meaning": "출처, 원산지", "note": ""}, {"word": "harvested", "meaning": "수확된", "note": "농작물이나 식물 등을 거두어들일 때 쓴다."}, {"word": "throughout their lifetime", "meaning": "살아 있는 동안 내내", "note": "throughout은 '처음부터 끝까지 내내'라는 느낌이 있다."}, {"word": "isolated and stored", "meaning": "분리되고 보관된", "note": "여기서 isolated는 다른 성분에서 떼어 내는 뜻이다."}]}, {"id": 4, "original": "These variations can make testing their safety extremely difficult — one is never sure about the potential toxicity of minor components that may vary from time to time.", "explanation": "이런 차이들 때문에 그 재료가 안전한지 검사하는 일이 매우 어려워질 수 있다. 특히 조금씩 들어 있는 작은 성분들이 때때로 달라질 수 있어서, 그것들이 몸에 해로울 가능성을 확실히 알기 어렵다.", "vocabulary": [{"word": "variations", "meaning": "차이, 달라짐", "note": ""}, {"word": "extremely", "meaning": "매우, 아주", "note": ""}, {"word": "minor components", "meaning": "소량의 성분들, 작은 성분들", "note": "주된 성분이 아니라 적게 들어 있는 성분을 말한다."}, {"word": "from time to time", "meaning": "때때로, 가끔", "note": "자주 쓰는 표현이다."}, {"word": "be sure about", "meaning": "확실히 알다, 자신하다", "note": ""}]}, {"id": 5, "original": "In some cases, a natural food component has been consumed for hundreds or thousands of years without causing any obvious health problems and can, therefore, be assumed to be safe.", "explanation": "어떤 경우에는 천연 식품 성분이 수백 년, 또는 수천 년 동안 먹혀 왔는데도 뚜렷한 건강 문제가 나타나지 않았다. 그래서 그런 성분은 안전하다고 여길 수 있다.", "vocabulary": [{"word": "component", "meaning": "성분, 구성 요소", "note": ""}, {"word": "has been consumed", "meaning": "먹혀 왔다, 섭취되어 왔다", "note": "현재완료 수동태로, 과거부터 지금까지 계속된 일을 나타낸다."}, {"word": "obvious", "meaning": "분명한, 뚜렷한", "note": ""}, {"word": "therefore", "meaning": "그래서, 그러므로", "note": "앞의 내용을 바탕으로 결론을 말할 때 쓴다."}, {"word": "be assumed to be safe", "meaning": "안전하다고 여겨지다", "note": ""}]}, {"id": 6, "original": "However, one must still be very careful.", "explanation": "하지만 그래도 아주 조심해야 한다.", "vocabulary": [{"word": "however", "meaning": "하지만, 그러나", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "must", "meaning": "반드시 ~해야 한다", "note": "강한 필요나 중요함을 나타낸다."}]}, {"id": 7, "original": "The controllability of the production process for synthetic food ingredients and the variability of natural food ingredients may challenge people’s commonly held assumption that the natural ingredients are more secure.", "explanation": "합성 식품 재료는 만드는 과정을 더 잘 조절할 수 있고, 천연 식품 재료는 상태가 자주 달라질 수 있다. 이런 점은 '천연 재료가 더 안전하다'는 사람들이 흔히 가진 생각에 의문을 던진다.", "vocabulary": [{"word": "controllability", "meaning": "조절하기 쉬움, 관리하기 쉬움", "note": "control에 -ability가 붙어 '조절할 수 있는 정도'를 뜻한다."}, {"word": "production process", "meaning": "생산 과정, 만드는 과정", "note": ""}, {"word": "variability", "meaning": "잘 달라지는 성질, 변화가 큰 성질", "note": ""}, {"word": "challenge", "meaning": "의문을 던지다, 다시 생각하게 만들다", "note": "여기서는 '도전하다'보다 '기존 생각을 흔들다'에 가깝다."}, {"word": "commonly held assumption", "meaning": "많은 사람이 흔히 믿는 생각", "note": "assumption은 근거 없이 미리 하는 생각일 수 있다."}]}], "problem_number": "40"};
-const NEXT_PAGE = null;
+const DATA = {"title": "천연 재료가 늘 더 안전한 것은 아니다", "summary": "합성 식품 재료는 만들 때 더 정확하게 관리할 수 있고, 천연 재료는 상태가 자주 달라져서 오히려 안전성을 따지기 더 어려울 수 있다.", "sentences": [{"id": 1, "original": "People often assume that synthetic food ingredients are more harmful than natural ones, but this is not always the case.", "explanation": "사람들은 합성 식품 재료가 천연 재료보다 더 해롭다고 흔히 생각한다. 하지만 언제나 그런 것은 아니다.", "vocabulary": [{"word": "assume", "meaning": "그렇다고 여기다, 당연하다고 생각하다", "note": "증거가 충분하지 않아도 그렇게 생각할 때 자주 쓴다."}, {"word": "synthetic", "meaning": "합성의, 인공적으로 만든", "note": "natural(천연의)과 반대되는 말이다."}, {"word": "harmful", "meaning": "해로운, 몸에 나쁜", "note": ""}, {"word": "the case", "meaning": "사실, 실제 상황", "note": "not always the case는 '항상 그런 것은 아니다'라는 자주 쓰는 표현이다."}]}, {"id": 2, "original": "Typically, synthetic ingredients can be made in a precisely controlled fashion and have well-defined compositions and properties, allowing careful evaluation of their potential toxicity.", "explanation": "보통 합성 재료는 만드는 과정을 아주 정확하게 조절할 수 있다. 또 어떤 성분으로 이루어져 있는지와 어떤 성질을 가졌는지가 분명하다. 그래서 몸에 해로울 가능성을 더 꼼꼼하게 살펴볼 수 있다.", "vocabulary": [{"word": "precisely controlled", "meaning": "정확하게 조절되는", "note": "precisely는 '아주 정확하게'라는 뜻이다."}, {"word": "well-defined", "meaning": "분명하게 정해진, 뚜렷한", "note": "내용이나 경계가 모호하지 않을 때 쓴다."}, {"word": "composition", "meaning": "구성, 성분 구성", "note": "무엇으로 이루어져 있는지를 말한다."}, {"word": "properties", "meaning": "성질, 특성", "note": "물질이 가진 특징을 뜻한다."}, {"word": "potential toxicity", "meaning": "해로울 가능성, 독성 가능성", "note": "toxicity는 '독성, 몸에 해로운 성질'이다."}]}, {"id": 3, "original": "On the other hand, natural ingredients often vary appreciably in their composition and properties depending on their origin, the time of year they were harvested, the climate they experienced throughout their lifetime, the soil quality, and how they were isolated and stored.", "explanation": "반대로 천연 재료는 성분과 성질이 꽤 많이 달라지는 경우가 많다. 어디에서 왔는지, 어느 계절에 수확했는지, 자라는 동안 어떤 날씨를 겪었는지, 흙의 상태가 어땠는지, 또 어떻게 분리하고 보관했는지에 따라 달라진다.", "vocabulary": [{"word": "vary appreciably", "meaning": "눈에 띄게 달라지다", "note": "appreciably는 '꽤 많이, 분명히'라는 뜻이다."}, {"word": "origin", "meaning": "출처, 원산지", "note": ""}, {"word": "harvested", "meaning": "수확된", "note": "농작물이나 식물 등을 거두어들일 때 쓴다."}, {"word": "throughout their lifetime", "meaning": "살아 있는 동안 내내", "note": "throughout은 '처음부터 끝까지 내내'라는 느낌이 있다."}, {"word": "isolated and stored", "meaning": "분리되고 보관된", "note": "여기서 isolated는 다른 성분에서 떼어 내는 뜻이다."}]}, {"id": 4, "original": "These variations can make testing their safety extremely difficult — one is never sure about the potential toxicity of minor components that may vary from time to time.", "explanation": "이런 차이들 때문에 그 재료가 안전한지 검사하는 일이 매우 어려워질 수 있다. 특히 조금씩 들어 있는 작은 성분들이 때때로 달라질 수 있어서, 그것들이 몸에 해로울 가능성을 확실히 알기 어렵다.", "vocabulary": [{"word": "variations", "meaning": "차이, 달라짐", "note": ""}, {"word": "extremely", "meaning": "매우, 아주", "note": ""}, {"word": "minor components", "meaning": "소량의 성분들, 작은 성분들", "note": "주된 성분이 아니라 적게 들어 있는 성분을 말한다."}, {"word": "from time to time", "meaning": "때때로, 가끔", "note": "자주 쓰는 표현이다."}, {"word": "be sure about", "meaning": "확실히 알다, 자신하다", "note": ""}]}, {"id": 5, "original": "In some cases, a natural food component has been consumed for hundreds or thousands of years without causing any obvious health problems and can, therefore, be assumed to be safe.", "explanation": "어떤 경우에는 천연 식품 성분이 수백 년, 또는 수천 년 동안 먹혀 왔는데도 뚜렷한 건강 문제가 나타나지 않았다. 그래서 그런 성분은 안전하다고 여길 수 있다.", "vocabulary": [{"word": "component", "meaning": "성분, 구성 요소", "note": ""}, {"word": "has been consumed", "meaning": "먹혀 왔다, 섭취되어 왔다", "note": "현재완료 수동태로, 과거부터 지금까지 계속된 일을 나타낸다."}, {"word": "obvious", "meaning": "분명한, 뚜렷한", "note": ""}, {"word": "therefore", "meaning": "그래서, 그러므로", "note": "앞의 내용을 바탕으로 결론을 말할 때 쓴다."}, {"word": "be assumed to be safe", "meaning": "안전하다고 여겨지다", "note": ""}]}, {"id": 6, "original": "However, one must still be very careful.", "explanation": "하지만 그래도 아주 조심해야 한다.", "vocabulary": [{"word": "however", "meaning": "하지만, 그러나", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "must", "meaning": "반드시 ~해야 한다", "note": "강한 필요나 중요함을 나타낸다."}]}, {"id": 7, "original": "The controllability of the production process for synthetic food ingredients and the variability of natural food ingredients may challenge people’s commonly held assumption that the natural ingredients are more secure.", "explanation": "합성 식품 재료는 만드는 과정을 더 잘 조절할 수 있고, 천연 식품 재료는 상태가 자주 달라질 수 있다. 이런 점은 '천연 재료가 더 안전하다'는 사람들이 흔히 가진 생각에 의문을 던진다.", "vocabulary": [{"word": "controllability", "meaning": "조절하기 쉬움, 관리하기 쉬움", "note": "control에 -ability가 붙어 '조절할 수 있는 정도'를 뜻한다."}, {"word": "production process", "meaning": "생산 과정, 만드는 과정", "note": ""}, {"word": "variability", "meaning": "잘 달라지는 성질, 변화가 큰 성질", "note": ""}, {"word": "challenge", "meaning": "의문을 던지다, 다시 생각하게 만들다", "note": "여기서는 '도전하다'보다 '기존 생각을 흔들다'에 가깝다."}, {"word": "commonly held assumption", "meaning": "많은 사람이 흔히 믿는 생각", "note": "assumption은 근거 없이 미리 하는 생각일 수 있다."}]}], "problem_number": "40", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "41.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

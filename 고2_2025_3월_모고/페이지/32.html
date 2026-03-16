@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "교육이 길러 주는 생각하는 힘", "summary": "좋은 교육은 지식을 알려 주는 데서 끝나지 않고, 감정에 휩쓸리지 않고 한 번 더 생각할 수 있는 힘을 길러 준다.", "sentences": [{"id": 1, "original": "Education, at its best, teaches more than just knowledge.", "explanation": "교육이 가장 좋은 모습일 때는, 단순히 지식만 가르치는 것이 아니다. 그보다 더 중요한 것도 함께 가르친다는 뜻이다.", "vocabulary": [{"word": "at its best", "meaning": "가장 좋을 때, 가장 잘 이루어질 때", "note": "사람이나 사물의 가장 좋은 상태를 말할 때 자주 쓴다."}, {"word": "more than just", "meaning": "단지 ~만이 아닌, ~보다 더 많은", "note": "뒤에 오는 것을 넘어서 더 큰 뜻이 있음을 보여 준다."}, {"word": "knowledge", "meaning": "지식, 아는 내용", "note": ""}]}, {"id": 2, "original": "It teaches critical thinking: the ability to stop and think before acting, to avoid succumbing to emotional pressures.", "explanation": "교육은 비판적으로 생각하는 힘도 가르친다. 즉, 바로 행동하지 않고 잠깐 멈춰 생각하며, 감정에서 오는 압박에 쉽게 끌려가지 않는 힘이다.", "vocabulary": [{"word": "critical thinking", "meaning": "비판적 사고, 따져 보고 생각하는 힘", "note": "무조건 믿지 않고 이유와 근거를 살피는 생각 방식이다."}, {"word": "before acting", "meaning": "행동하기 전에", "note": "충동적으로 움직이지 않는 태도를 보여 준다."}, {"word": "succumb to", "meaning": "~에 굴복하다, ~에 지다", "note": "압박, 유혹, 감정 등에 못 이겨 따를 때 쓴다."}, {"word": "emotional pressures", "meaning": "감정적 압박, 감정에서 오는 강한 끌림", "note": "화, 두려움, 불안 같은 감정이 사람을 밀어붙이는 상황이다."}]}, {"id": 3, "original": "This is not thought control.", "explanation": "이것은 다른 사람의 생각을 억지로 조종하는 일이 아니다.", "vocabulary": [{"word": "thought control", "meaning": "생각 통제, 생각을 마음대로 조종함", "note": "자유롭게 생각하지 못하게 막는 느낌이 있다."}]}, {"id": 4, "original": "It is the very reverse: mental liberation.", "explanation": "오히려 그 반대다. 마음이 더 자유로워지는 것이다.", "vocabulary": [{"word": "the very reverse", "meaning": "정반대, 완전히 반대되는 것", "note": "reverse만 써도 반대라는 뜻이지만, very가 들어가 더 강하게 말한다."}, {"word": "mental liberation", "meaning": "정신의 해방, 마음의 자유", "note": "남의 말이나 순간 감정에 묶이지 않는 상태를 가리킨다."}]}, {"id": 5, "original": "Even the most advanced intellectual will be imperfect at this skill.", "explanation": "아무리 뛰어난 지식인이라도 이 능력을 완벽하게 해내지는 못한다.", "vocabulary": [{"word": "advanced intellectual", "meaning": "매우 뛰어난 지식인, 높은 수준의 생각을 하는 사람", "note": "intellectual은 지적인 사람, 학자 같은 사람을 가리킬 수 있다."}, {"word": "imperfect", "meaning": "완벽하지 않은, 부족한", "note": ""}, {"word": "skill", "meaning": "기술, 능력", "note": "여기서는 몸기술보다 생각하는 능력에 가깝다."}]}, {"id": 6, "original": "But even imperfect possession of it frees a person from the burden of being ‘stimulus-driven’, constantly reacting to the immediate environment, the brightest colours or loudest sounds.", "explanation": "하지만 이 능력을 완벽하지 않게라도 가지고 있으면, 사람은 자극에 끌려다니는 상태에서 어느 정도 벗어날 수 있다. 즉, 바로 눈앞의 환경이나 가장 눈에 띄는 색, 가장 큰 소리에 계속 반응만 하며 사는 부담에서 자유로워질 수 있다.", "vocabulary": [{"word": "possession of it", "meaning": "그것을 가지고 있음", "note": "여기서는 물건이 아니라 능력을 갖춘 상태를 뜻한다."}, {"word": "frees A from B", "meaning": "A를 B에서 벗어나게 하다", "note": "구조째 알아 두면 좋다."}, {"word": "burden", "meaning": "부담, 짐", "note": "몸의 짐이 아니라 마음이나 삶의 무거움을 말한다."}, {"word": "stimulus-driven", "meaning": "자극에 끌려 움직이는", "note": "stimulus는 자극이라는 뜻이다. 눈에 띄는 것에 바로 반응하는 상태를 말한다."}, {"word": "immediate environment", "meaning": "바로 눈앞의 환경, 주변 상황", "note": ""}]}, {"id": 7, "original": "Being driven by heuristic responses, living by instinct and emotion all the time, is a very easy way to live, in many ways: thought is effortful, especially for the inexperienced.", "explanation": "간단한 감으로 바로 반응하고, 늘 본능과 감정에 따라 사는 것은 여러 면에서 쉬운 삶의 방식이다. 왜냐하면 생각하는 일은 힘이 들기 때문이다. 특히 아직 익숙하지 않은 사람에게는 더 그렇다.", "vocabulary": [{"word": "heuristic responses", "meaning": "대충 빠르게 하는 반응, 간단한 판단에 따른 반응", "note": "깊이 따지기보다 경험이나 감으로 빨리 판단하는 방식이다."}, {"word": "instinct", "meaning": "본능", "note": ""}, {"word": "effortful", "meaning": "힘이 드는, 애써야 하는", "note": "effort에서 나온 말이다."}, {"word": "the inexperienced", "meaning": "경험이 적은 사람들", "note": "형용사 앞에 the가 붙어 사람들 전체를 가리킨다."}]}, {"id": 8, "original": "But emotions are also exhausting, and short-term reactions may not, in the long term, be the most beneficial for health and survival.", "explanation": "하지만 감정도 사람을 몹시 지치게 한다. 또 순간적인 반응은 길게 보면 건강과 살아남는 데 가장 좋은 선택이 아닐 수 있다.", "vocabulary": [{"word": "exhausting", "meaning": "몹시 지치게 하는", "note": "몸이나 마음의 힘을 많이 빼앗는다는 뜻이다."}, {"word": "short-term reactions", "meaning": "짧은 순간의 반응, 당장의 반응", "note": ""}, {"word": "in the long term", "meaning": "길게 보면, 오랜 시간으로 보면", "note": "short term과 함께 자주 비교해서 쓴다."}, {"word": "beneficial", "meaning": "도움이 되는, 이로운", "note": "for와 함께 써서 '~에 좋은' 뜻으로 자주 나온다."}, {"word": "survival", "meaning": "생존, 살아남음", "note": ""}]}, {"id": 9, "original": "Just as we reach for burgers for the sake of convenience, storing up the arterial fat which may one day kill us, so our reliance on feelings can do us great harm.", "explanation": "우리는 편하다는 이유로 햄버거를 쉽게 집어 들고, 그 결과 언젠가 우리를 해칠 수도 있는 지방을 몸속 혈관에 쌓아 둔다. 이와 마찬가지로 감정에 기대는 습관도 우리에게 큰 해를 줄 수 있다.", "vocabulary": [{"word": "reach for", "meaning": "~을 집어 들다, ~을 손이 가다", "note": "필요하거나 원해서 어떤 것을 바로 선택하는 느낌이 있다."}, {"word": "for the sake of convenience", "meaning": "편의를 위해, 편하다는 이유로", "note": "for the sake of는 '~을 위해'라는 뜻이다."}, {"word": "store up", "meaning": "쌓아 두다", "note": "좋은 것뿐 아니라 문제를 키우는 것도 쌓아 둘 수 있다."}, {"word": "arterial fat", "meaning": "동맥에 쌓이는 지방", "note": "arterial은 동맥의라는 뜻이다."}, {"word": "reliance on", "meaning": "~에 의지함, ~에 기대는 것", "note": "rely on의 명사형 표현이다."}]}], "problem_number": "32"};
-const NEXT_PAGE = null;
+const DATA = {"title": "교육이 길러 주는 생각하는 힘", "summary": "좋은 교육은 지식을 알려 주는 데서 끝나지 않고, 감정에 휩쓸리지 않고 한 번 더 생각할 수 있는 힘을 길러 준다.", "sentences": [{"id": 1, "original": "Education, at its best, teaches more than just knowledge.", "explanation": "교육이 가장 좋은 모습일 때는, 단순히 지식만 가르치는 것이 아니다. 그보다 더 중요한 것도 함께 가르친다는 뜻이다.", "vocabulary": [{"word": "at its best", "meaning": "가장 좋을 때, 가장 잘 이루어질 때", "note": "사람이나 사물의 가장 좋은 상태를 말할 때 자주 쓴다."}, {"word": "more than just", "meaning": "단지 ~만이 아닌, ~보다 더 많은", "note": "뒤에 오는 것을 넘어서 더 큰 뜻이 있음을 보여 준다."}, {"word": "knowledge", "meaning": "지식, 아는 내용", "note": ""}]}, {"id": 2, "original": "It teaches critical thinking: the ability to stop and think before acting, to avoid succumbing to emotional pressures.", "explanation": "교육은 비판적으로 생각하는 힘도 가르친다. 즉, 바로 행동하지 않고 잠깐 멈춰 생각하며, 감정에서 오는 압박에 쉽게 끌려가지 않는 힘이다.", "vocabulary": [{"word": "critical thinking", "meaning": "비판적 사고, 따져 보고 생각하는 힘", "note": "무조건 믿지 않고 이유와 근거를 살피는 생각 방식이다."}, {"word": "before acting", "meaning": "행동하기 전에", "note": "충동적으로 움직이지 않는 태도를 보여 준다."}, {"word": "succumb to", "meaning": "~에 굴복하다, ~에 지다", "note": "압박, 유혹, 감정 등에 못 이겨 따를 때 쓴다."}, {"word": "emotional pressures", "meaning": "감정적 압박, 감정에서 오는 강한 끌림", "note": "화, 두려움, 불안 같은 감정이 사람을 밀어붙이는 상황이다."}]}, {"id": 3, "original": "This is not thought control.", "explanation": "이것은 다른 사람의 생각을 억지로 조종하는 일이 아니다.", "vocabulary": [{"word": "thought control", "meaning": "생각 통제, 생각을 마음대로 조종함", "note": "자유롭게 생각하지 못하게 막는 느낌이 있다."}]}, {"id": 4, "original": "It is the very reverse: mental liberation.", "explanation": "오히려 그 반대다. 마음이 더 자유로워지는 것이다.", "vocabulary": [{"word": "the very reverse", "meaning": "정반대, 완전히 반대되는 것", "note": "reverse만 써도 반대라는 뜻이지만, very가 들어가 더 강하게 말한다."}, {"word": "mental liberation", "meaning": "정신의 해방, 마음의 자유", "note": "남의 말이나 순간 감정에 묶이지 않는 상태를 가리킨다."}]}, {"id": 5, "original": "Even the most advanced intellectual will be imperfect at this skill.", "explanation": "아무리 뛰어난 지식인이라도 이 능력을 완벽하게 해내지는 못한다.", "vocabulary": [{"word": "advanced intellectual", "meaning": "매우 뛰어난 지식인, 높은 수준의 생각을 하는 사람", "note": "intellectual은 지적인 사람, 학자 같은 사람을 가리킬 수 있다."}, {"word": "imperfect", "meaning": "완벽하지 않은, 부족한", "note": ""}, {"word": "skill", "meaning": "기술, 능력", "note": "여기서는 몸기술보다 생각하는 능력에 가깝다."}]}, {"id": 6, "original": "But even imperfect possession of it frees a person from the burden of being ‘stimulus-driven’, constantly reacting to the immediate environment, the brightest colours or loudest sounds.", "explanation": "하지만 이 능력을 완벽하지 않게라도 가지고 있으면, 사람은 자극에 끌려다니는 상태에서 어느 정도 벗어날 수 있다. 즉, 바로 눈앞의 환경이나 가장 눈에 띄는 색, 가장 큰 소리에 계속 반응만 하며 사는 부담에서 자유로워질 수 있다.", "vocabulary": [{"word": "possession of it", "meaning": "그것을 가지고 있음", "note": "여기서는 물건이 아니라 능력을 갖춘 상태를 뜻한다."}, {"word": "frees A from B", "meaning": "A를 B에서 벗어나게 하다", "note": "구조째 알아 두면 좋다."}, {"word": "burden", "meaning": "부담, 짐", "note": "몸의 짐이 아니라 마음이나 삶의 무거움을 말한다."}, {"word": "stimulus-driven", "meaning": "자극에 끌려 움직이는", "note": "stimulus는 자극이라는 뜻이다. 눈에 띄는 것에 바로 반응하는 상태를 말한다."}, {"word": "immediate environment", "meaning": "바로 눈앞의 환경, 주변 상황", "note": ""}]}, {"id": 7, "original": "Being driven by heuristic responses, living by instinct and emotion all the time, is a very easy way to live, in many ways: thought is effortful, especially for the inexperienced.", "explanation": "간단한 감으로 바로 반응하고, 늘 본능과 감정에 따라 사는 것은 여러 면에서 쉬운 삶의 방식이다. 왜냐하면 생각하는 일은 힘이 들기 때문이다. 특히 아직 익숙하지 않은 사람에게는 더 그렇다.", "vocabulary": [{"word": "heuristic responses", "meaning": "대충 빠르게 하는 반응, 간단한 판단에 따른 반응", "note": "깊이 따지기보다 경험이나 감으로 빨리 판단하는 방식이다."}, {"word": "instinct", "meaning": "본능", "note": ""}, {"word": "effortful", "meaning": "힘이 드는, 애써야 하는", "note": "effort에서 나온 말이다."}, {"word": "the inexperienced", "meaning": "경험이 적은 사람들", "note": "형용사 앞에 the가 붙어 사람들 전체를 가리킨다."}]}, {"id": 8, "original": "But emotions are also exhausting, and short-term reactions may not, in the long term, be the most beneficial for health and survival.", "explanation": "하지만 감정도 사람을 몹시 지치게 한다. 또 순간적인 반응은 길게 보면 건강과 살아남는 데 가장 좋은 선택이 아닐 수 있다.", "vocabulary": [{"word": "exhausting", "meaning": "몹시 지치게 하는", "note": "몸이나 마음의 힘을 많이 빼앗는다는 뜻이다."}, {"word": "short-term reactions", "meaning": "짧은 순간의 반응, 당장의 반응", "note": ""}, {"word": "in the long term", "meaning": "길게 보면, 오랜 시간으로 보면", "note": "short term과 함께 자주 비교해서 쓴다."}, {"word": "beneficial", "meaning": "도움이 되는, 이로운", "note": "for와 함께 써서 '~에 좋은' 뜻으로 자주 나온다."}, {"word": "survival", "meaning": "생존, 살아남음", "note": ""}]}, {"id": 9, "original": "Just as we reach for burgers for the sake of convenience, storing up the arterial fat which may one day kill us, so our reliance on feelings can do us great harm.", "explanation": "우리는 편하다는 이유로 햄버거를 쉽게 집어 들고, 그 결과 언젠가 우리를 해칠 수도 있는 지방을 몸속 혈관에 쌓아 둔다. 이와 마찬가지로 감정에 기대는 습관도 우리에게 큰 해를 줄 수 있다.", "vocabulary": [{"word": "reach for", "meaning": "~을 집어 들다, ~을 손이 가다", "note": "필요하거나 원해서 어떤 것을 바로 선택하는 느낌이 있다."}, {"word": "for the sake of convenience", "meaning": "편의를 위해, 편하다는 이유로", "note": "for the sake of는 '~을 위해'라는 뜻이다."}, {"word": "store up", "meaning": "쌓아 두다", "note": "좋은 것뿐 아니라 문제를 키우는 것도 쌓아 둘 수 있다."}, {"word": "arterial fat", "meaning": "동맥에 쌓이는 지방", "note": "arterial은 동맥의라는 뜻이다."}, {"word": "reliance on", "meaning": "~에 의지함, ~에 기대는 것", "note": "rely on의 명사형 표현이다."}]}], "problem_number": "32", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "33.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

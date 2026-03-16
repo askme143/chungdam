@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "20세기 스포츠 관광과 자동차의 영향", "summary": "20세기에는 교통이 더 발달하면서 스포츠 관광이 크게 늘었고, 그중에서도 자동차는 사람과 장비를 먼 곳까지 쉽게 옮길 수 있게 해 큰 역할을 했다.", "sentences": [{"id": 1, "original": "The expansion of sports tourism in the twentieth century has been influenced by further developments in transportation.", "explanation": "20세기에 스포츠 관광이 더 커진 데에는 교통수단이 계속 발전한 일이 큰 영향을 주었다는 뜻이다.", "vocabulary": [{"word": "expansion", "meaning": "확대, 커짐", "note": "규모가 더 커지거나 넓어지는 것을 말한다."}, {"word": "sports tourism", "meaning": "스포츠 관광", "note": "스포츠를 보거나 즐기기 위해 떠나는 여행을 뜻한다."}, {"word": "influenced by", "meaning": "~의 영향을 받은", "note": "뒤에 영향을 준 원인이나 대상을 붙여 쓴다."}, {"word": "transportation", "meaning": "교통, 운송 수단", "note": "사람이나 물건을 옮기는 방법 전체를 가리킨다."}]}, {"id": 2, "original": "Just as the railways revolutionized travel in the nineteenth century, so the automobile produced even more dramatic changes in the twentieth.", "explanation": "19세기에는 철도가 여행 방식을 완전히 바꾸었고, 20세기에는 자동차가 그보다도 더 큰 변화를 만들어 냈다는 말이다.", "vocabulary": [{"word": "Just as ..., so ...", "meaning": "~인 것처럼, ...도 그렇다", "note": "앞뒤 내용을 비교하며 이어 주는 표현이다."}, {"word": "railways", "meaning": "철도", "note": "기차가 다니는 길과 그 교통 체계를 함께 가리킨다."}, {"word": "revolutionized", "meaning": "완전히 바꾸었다", "note": "원래는 '혁명을 일으키다'라는 뜻이지만 여기서는 큰 변화를 만들었다는 뜻이다."}, {"word": "automobile", "meaning": "자동차", "note": "car보다 조금 더 격식 있는 말이다."}, {"word": "dramatic", "meaning": "매우 큰, 눈에 띄는", "note": "여기서는 '극적인'보다 '변화가 아주 큰' 뜻에 가깝다."}]}, {"id": 3, "original": "The significance of the car in the development of sport and tourism generally has attracted considerable coverage and it has had no less an impact on sports tourism specifically.", "explanation": "스포츠와 관광이 발전하는 데에서 자동차가 얼마나 중요한지는 많이 다루어져 왔다. 그리고 스포츠 관광이라는 더 좁은 분야에서도 자동차는 그만큼 큰 영향을 주었다는 뜻이다.", "vocabulary": [{"word": "significance", "meaning": "중요성", "note": "어떤 것이 얼마나 뜻이 크고 중요한지를 말한다."}, {"word": "considerable coverage", "meaning": "상당히 많은 다룸, 많은 보도나 설명", "note": "신문, 책, 연구 등에서 많이 다뤄졌다는 뜻이다."}, {"word": "no less", "meaning": "그에 못지않게", "note": "앞에서 말한 정도와 비슷하게 크다는 뜻이다."}, {"word": "impact", "meaning": "영향", "note": "좋은 영향과 나쁜 영향 모두에 쓸 수 있다."}, {"word": "specifically", "meaning": "특히, 딱 그 분야에서", "note": "범위를 좁혀 분명하게 말할 때 쓴다."}]}, {"id": 4, "original": "Although originally invented towards the end of the nineteenth century, it started to become a mass form of transport in the 1920s in the USA and rather later in Britain.", "explanation": "자동차는 원래 19세기 끝무렵에 발명되었지만, 많은 사람이 쓰는 교통수단이 된 것은 미국에서는 1920년대였고 영국에서는 그보다 조금 더 늦었다는 뜻이다.", "vocabulary": [{"word": "originally", "meaning": "처음에는, 원래", "note": "처음 상태나 처음 시점을 말할 때 쓴다."}, {"word": "towards the end of", "meaning": "~의 끝무렵에", "note": "정확한 마지막 순간이 아니라 거의 끝나 갈 때를 뜻한다."}, {"word": "mass form of transport", "meaning": "많은 사람이 쓰는 교통수단", "note": "소수만이 아니라 대중이 널리 이용하는 형태라는 뜻이다."}, {"word": "rather later", "meaning": "꽤 더 늦게, 조금 더 뒤에", "note": "앞에서 말한 시점보다 늦다는 뜻이다."}]}, {"id": 5, "original": "Apart from its convenience and flexibility, the car has the additional advantages of affording access to many areas not served by public transport, as well as allowing the easy transport of luggage and equipment.", "explanation": "자동차는 편리하고 자유롭게 움직일 수 있다는 점 말고도 다른 장점이 있다. 대중교통이 가지 않는 많은 곳에도 갈 수 있고, 짐과 장비도 쉽게 옮길 수 있다는 것이다.", "vocabulary": [{"word": "Apart from", "meaning": "~말고도, ~뿐 아니라", "note": "무언가를 더 덧붙일 때 자주 쓴다."}, {"word": "flexibility", "meaning": "융통성, 자유롭게 움직일 수 있음", "note": "여기서는 시간과 길을 비교적 마음대로 정할 수 있다는 뜻이다."}, {"word": "affording access to", "meaning": "~에 갈 수 있게 해 주는", "note": "afford는 여기서 '제공하다'에 가까운 뜻이다."}, {"word": "served by public transport", "meaning": "대중교통이 닿는, 대중교통이 운행되는", "note": "not served by public transport는 버스나 기차가 가지 않는다는 뜻이다."}, {"word": "luggage and equipment", "meaning": "짐과 장비", "note": "luggage는 여행 짐, equipment는 활동에 필요한 도구나 장비를 말한다."}]}, {"id": 6, "original": "As a result, it was invaluable for the development of many forms of sports tourism but especially those which require the transportation of people and equipment to relatively remote locations.", "explanation": "그래서 자동차는 여러 종류의 스포츠 관광이 발전하는 데 아주 큰 도움이 되었다. 특히 사람들과 장비를 비교적 멀고 외진 곳까지 옮겨야 하는 활동에서 더 중요했다는 뜻이다.", "vocabulary": [{"word": "As a result", "meaning": "그 결과", "note": "앞에서 말한 이유 때문에 뒤의 일이 생겼다는 뜻이다."}, {"word": "invaluable", "meaning": "매우 귀중한, 아주 큰 도움이 되는", "note": "값을 매길 수 없을 만큼 중요하다는 뜻으로 쓰인다."}, {"word": "forms of sports tourism", "meaning": "스포츠 관광의 여러 형태", "note": "종류, 방식이라는 뜻의 forms가 쓰였다."}, {"word": "require", "meaning": "필요로 하다", "note": "반드시 있어야 함을 나타낼 때 쓴다."}, {"word": "remote locations", "meaning": "멀고 외진 곳", "note": "도시 중심에서 떨어져 있고 가기 쉽지 않은 장소를 말한다."}]}], "problem_number": "35"};
-const NEXT_PAGE = null;
+const DATA = {"title": "20세기 스포츠 관광과 자동차의 영향", "summary": "20세기에는 교통이 더 발달하면서 스포츠 관광이 크게 늘었고, 그중에서도 자동차는 사람과 장비를 먼 곳까지 쉽게 옮길 수 있게 해 큰 역할을 했다.", "sentences": [{"id": 1, "original": "The expansion of sports tourism in the twentieth century has been influenced by further developments in transportation.", "explanation": "20세기에 스포츠 관광이 더 커진 데에는 교통수단이 계속 발전한 일이 큰 영향을 주었다는 뜻이다.", "vocabulary": [{"word": "expansion", "meaning": "확대, 커짐", "note": "규모가 더 커지거나 넓어지는 것을 말한다."}, {"word": "sports tourism", "meaning": "스포츠 관광", "note": "스포츠를 보거나 즐기기 위해 떠나는 여행을 뜻한다."}, {"word": "influenced by", "meaning": "~의 영향을 받은", "note": "뒤에 영향을 준 원인이나 대상을 붙여 쓴다."}, {"word": "transportation", "meaning": "교통, 운송 수단", "note": "사람이나 물건을 옮기는 방법 전체를 가리킨다."}]}, {"id": 2, "original": "Just as the railways revolutionized travel in the nineteenth century, so the automobile produced even more dramatic changes in the twentieth.", "explanation": "19세기에는 철도가 여행 방식을 완전히 바꾸었고, 20세기에는 자동차가 그보다도 더 큰 변화를 만들어 냈다는 말이다.", "vocabulary": [{"word": "Just as ..., so ...", "meaning": "~인 것처럼, ...도 그렇다", "note": "앞뒤 내용을 비교하며 이어 주는 표현이다."}, {"word": "railways", "meaning": "철도", "note": "기차가 다니는 길과 그 교통 체계를 함께 가리킨다."}, {"word": "revolutionized", "meaning": "완전히 바꾸었다", "note": "원래는 '혁명을 일으키다'라는 뜻이지만 여기서는 큰 변화를 만들었다는 뜻이다."}, {"word": "automobile", "meaning": "자동차", "note": "car보다 조금 더 격식 있는 말이다."}, {"word": "dramatic", "meaning": "매우 큰, 눈에 띄는", "note": "여기서는 '극적인'보다 '변화가 아주 큰' 뜻에 가깝다."}]}, {"id": 3, "original": "The significance of the car in the development of sport and tourism generally has attracted considerable coverage and it has had no less an impact on sports tourism specifically.", "explanation": "스포츠와 관광이 발전하는 데에서 자동차가 얼마나 중요한지는 많이 다루어져 왔다. 그리고 스포츠 관광이라는 더 좁은 분야에서도 자동차는 그만큼 큰 영향을 주었다는 뜻이다.", "vocabulary": [{"word": "significance", "meaning": "중요성", "note": "어떤 것이 얼마나 뜻이 크고 중요한지를 말한다."}, {"word": "considerable coverage", "meaning": "상당히 많은 다룸, 많은 보도나 설명", "note": "신문, 책, 연구 등에서 많이 다뤄졌다는 뜻이다."}, {"word": "no less", "meaning": "그에 못지않게", "note": "앞에서 말한 정도와 비슷하게 크다는 뜻이다."}, {"word": "impact", "meaning": "영향", "note": "좋은 영향과 나쁜 영향 모두에 쓸 수 있다."}, {"word": "specifically", "meaning": "특히, 딱 그 분야에서", "note": "범위를 좁혀 분명하게 말할 때 쓴다."}]}, {"id": 4, "original": "Although originally invented towards the end of the nineteenth century, it started to become a mass form of transport in the 1920s in the USA and rather later in Britain.", "explanation": "자동차는 원래 19세기 끝무렵에 발명되었지만, 많은 사람이 쓰는 교통수단이 된 것은 미국에서는 1920년대였고 영국에서는 그보다 조금 더 늦었다는 뜻이다.", "vocabulary": [{"word": "originally", "meaning": "처음에는, 원래", "note": "처음 상태나 처음 시점을 말할 때 쓴다."}, {"word": "towards the end of", "meaning": "~의 끝무렵에", "note": "정확한 마지막 순간이 아니라 거의 끝나 갈 때를 뜻한다."}, {"word": "mass form of transport", "meaning": "많은 사람이 쓰는 교통수단", "note": "소수만이 아니라 대중이 널리 이용하는 형태라는 뜻이다."}, {"word": "rather later", "meaning": "꽤 더 늦게, 조금 더 뒤에", "note": "앞에서 말한 시점보다 늦다는 뜻이다."}]}, {"id": 5, "original": "Apart from its convenience and flexibility, the car has the additional advantages of affording access to many areas not served by public transport, as well as allowing the easy transport of luggage and equipment.", "explanation": "자동차는 편리하고 자유롭게 움직일 수 있다는 점 말고도 다른 장점이 있다. 대중교통이 가지 않는 많은 곳에도 갈 수 있고, 짐과 장비도 쉽게 옮길 수 있다는 것이다.", "vocabulary": [{"word": "Apart from", "meaning": "~말고도, ~뿐 아니라", "note": "무언가를 더 덧붙일 때 자주 쓴다."}, {"word": "flexibility", "meaning": "융통성, 자유롭게 움직일 수 있음", "note": "여기서는 시간과 길을 비교적 마음대로 정할 수 있다는 뜻이다."}, {"word": "affording access to", "meaning": "~에 갈 수 있게 해 주는", "note": "afford는 여기서 '제공하다'에 가까운 뜻이다."}, {"word": "served by public transport", "meaning": "대중교통이 닿는, 대중교통이 운행되는", "note": "not served by public transport는 버스나 기차가 가지 않는다는 뜻이다."}, {"word": "luggage and equipment", "meaning": "짐과 장비", "note": "luggage는 여행 짐, equipment는 활동에 필요한 도구나 장비를 말한다."}]}, {"id": 6, "original": "As a result, it was invaluable for the development of many forms of sports tourism but especially those which require the transportation of people and equipment to relatively remote locations.", "explanation": "그래서 자동차는 여러 종류의 스포츠 관광이 발전하는 데 아주 큰 도움이 되었다. 특히 사람들과 장비를 비교적 멀고 외진 곳까지 옮겨야 하는 활동에서 더 중요했다는 뜻이다.", "vocabulary": [{"word": "As a result", "meaning": "그 결과", "note": "앞에서 말한 이유 때문에 뒤의 일이 생겼다는 뜻이다."}, {"word": "invaluable", "meaning": "매우 귀중한, 아주 큰 도움이 되는", "note": "값을 매길 수 없을 만큼 중요하다는 뜻으로 쓰인다."}, {"word": "forms of sports tourism", "meaning": "스포츠 관광의 여러 형태", "note": "종류, 방식이라는 뜻의 forms가 쓰였다."}, {"word": "require", "meaning": "필요로 하다", "note": "반드시 있어야 함을 나타낼 때 쓴다."}, {"word": "remote locations", "meaning": "멀고 외진 곳", "note": "도시 중심에서 떨어져 있고 가기 쉽지 않은 장소를 말한다."}]}], "problem_number": "35", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "36.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

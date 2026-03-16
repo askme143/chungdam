@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "감정을 이해하는 힘과 모둠 소통", "summary": "감정을 잘 이해하고 말로 잘 표현하는 사람은 모둠 안에서 서로를 더 잘 이해하게 돕고, 갈등도 더 좋은 방향으로 풀 수 있다.", "sentences": [{"id": 1, "original": "The ability to understand emotions — to have a diverse emotion vocabulary and to understand the causes and consequences of emotion — is particularly relevant in group settings.", "explanation": "감정을 이해하는 능력은 모둠이나 팀처럼 여러 사람이 함께 있는 상황에서 특히 중요하다. 여기에는 감정을 나타내는 말을 다양하게 알고, 감정이 왜 생기는지와 그 감정이 어떤 결과를 가져오는지 이해하는 것이 들어 있다.", "vocabulary": [{"word": "diverse emotion vocabulary", "meaning": "다양한 감정 어휘, 감정을 여러 가지 말로 나타내는 말들", "note": "단순히 happy, sad만 아는 것이 아니라 감정을 더 자세히 말할 수 있는 능력을 뜻한다."}, {"word": "causes and consequences", "meaning": "원인과 결과", "note": "왜 일어났는지와 그 뒤에 어떤 일이 생기는지를 함께 말할 때 자주 쓴다."}, {"word": "particularly relevant", "meaning": "특히 중요하다, 특히 관계가 깊다", "note": "relevant는 어떤 상황과 잘 맞고 중요하다는 뜻이다."}, {"word": "group settings", "meaning": "모둠 상황, 집단 환경", "note": "학교 모둠 활동, 팀 프로젝트, 회사 팀 같은 상황을 가리킨다."}]}, {"id": 2, "original": "Individuals who are skilled in this domain are able to express emotions, feelings and moods accurately and thus, may facilitate clear communication between co-workers.", "explanation": "이런 능력이 뛰어난 사람은 자신의 감정, 느낌, 기분을 정확하게 말할 수 있다. 그래서 함께 일하는 사람들 사이에 오해가 적고 분명한 소통이 이루어지도록 도울 수 있다.", "vocabulary": [{"word": "skilled in this domain", "meaning": "이 분야에 능숙한", "note": "domain은 여기서 '분야' 또는 '영역'이라는 뜻이다."}, {"word": "accurately", "meaning": "정확하게", "note": "틀리지 않게, 분명하게라는 뜻으로 자주 쓰인다."}, {"word": "facilitate", "meaning": "더 잘 되게 돕다, 쉽게 만들다", "note": "격식 있는 말이지만 글에서 자주 나온다."}, {"word": "co-workers", "meaning": "함께 일하는 사람들, 동료", "note": "coworkers라고 붙여 쓰기도 한다."}]}, {"id": 3, "original": "Furthermore, they may be more likely to act in ways that accommodate their own needs as well as the needs of others (i.e. cooperate).", "explanation": "또 이런 사람들은 자기 필요만 보지 않고 다른 사람의 필요도 함께 생각하며 행동할 가능성이 크다. 쉽게 말해, 서로 맞춰 가며 협력하기 쉽다는 뜻이다.", "vocabulary": [{"word": "Furthermore", "meaning": "게다가, 더 나아가", "note": "앞의 내용을 덧붙일 때 쓰는 연결 말이다."}, {"word": "be more likely to", "meaning": "~할 가능성이 더 크다", "note": "가능성을 말할 때 매우 자주 쓰는 표현이다."}, {"word": "accommodate", "meaning": "받아들이다, 맞추다, 배려하다", "note": "여기서는 서로의 필요에 맞게 행동한다는 뜻이다."}, {"word": "as well as", "meaning": "~뿐 아니라 ~도 함께", "note": "A as well as B는 A와 B 둘 다를 포함하는 느낌이다."}, {"word": "cooperate", "meaning": "협력하다", "note": "함께 힘을 모아 일한다는 뜻이다."}]}, {"id": 4, "original": "In a group conflict situation, for example, a member with a strong ability to understand emotion will be able to express how he feels about the problem and why he feels this way.", "explanation": "예를 들어 모둠 안에 갈등이 생겼을 때, 감정을 잘 이해하는 사람은 그 문제에 대해 자신이 어떻게 느끼는지, 또 왜 그렇게 느끼는지를 말할 수 있다.", "vocabulary": [{"word": "group conflict situation", "meaning": "집단 갈등 상황, 모둠 안의 다툼 상황", "note": "의견 차이, 오해, 불만 때문에 부딪히는 상황을 말한다."}, {"word": "member", "meaning": "구성원, 멤버", "note": "모둠이나 팀에 속한 사람 한 명을 뜻한다."}, {"word": "strong ability", "meaning": "뛰어난 능력", "note": "능력이 크고 좋다는 뜻이다."}, {"word": "express", "meaning": "표현하다", "note": "생각, 감정, 의견을 말이나 글로 드러내는 것이다."}]}, {"id": 5, "original": "He also should be able to take the perspective of the other group members and understand why they are reacting in a certain manner.", "explanation": "그 사람은 다른 모둠원들의 입장에서도 생각해 보고, 그들이 왜 그런 식으로 반응하는지도 이해할 수 있어야 한다.", "vocabulary": [{"word": "take the perspective of", "meaning": "~의 입장에서 보다", "note": "상대가 어떻게 느끼고 생각하는지 그쪽에서 생각해 보는 표현이다."}, {"word": "reacting", "meaning": "반응하는", "note": "어떤 말이나 상황에 대해 행동이나 감정을 보이는 것이다."}, {"word": "in a certain manner", "meaning": "어떤 방식으로, 그런 식으로", "note": "manner는 행동하는 방식이나 태도를 뜻한다."}]}, {"id": 6, "original": "Appreciation of differences creates an arena for open communication and promotes constructive conflict resolution and improved group functioning.", "explanation": "서로의 차이를 인정하고 소중하게 여기면 솔직하게 이야기할 수 있는 분위기가 만들어진다. 그러면 갈등을 더 좋은 쪽으로 풀 수 있고, 모둠도 더 잘 움직이게 된다.", "vocabulary": [{"word": "Appreciation of differences", "meaning": "차이를 인정하고 소중하게 여김", "note": "단순히 '다르다'고 보는 것이 아니라 그 차이를 받아들이는 태도를 말한다."}, {"word": "arena", "meaning": "장, 공간, 분위기", "note": "원래는 경기장이지만 여기서는 어떤 일이 이루어지는 '자리'라는 뜻이다."}, {"word": "open communication", "meaning": "열린 소통, 솔직한 대화", "note": "숨기지 않고 편하게 말할 수 있는 소통을 뜻한다."}, {"word": "constructive", "meaning": "도움이 되는, 좋은 방향의", "note": "문제를 키우지 않고 해결에 도움이 되는 느낌이다."}, {"word": "group functioning", "meaning": "집단의 움직임, 모둠이 돌아가는 상태", "note": "팀이 얼마나 잘 협력하고 일하는지를 말한다."}]}], "problem_number": "22"};
-const NEXT_PAGE = null;
+const DATA = {"title": "감정을 이해하는 힘과 모둠 소통", "summary": "감정을 잘 이해하고 말로 잘 표현하는 사람은 모둠 안에서 서로를 더 잘 이해하게 돕고, 갈등도 더 좋은 방향으로 풀 수 있다.", "sentences": [{"id": 1, "original": "The ability to understand emotions — to have a diverse emotion vocabulary and to understand the causes and consequences of emotion — is particularly relevant in group settings.", "explanation": "감정을 이해하는 능력은 모둠이나 팀처럼 여러 사람이 함께 있는 상황에서 특히 중요하다. 여기에는 감정을 나타내는 말을 다양하게 알고, 감정이 왜 생기는지와 그 감정이 어떤 결과를 가져오는지 이해하는 것이 들어 있다.", "vocabulary": [{"word": "diverse emotion vocabulary", "meaning": "다양한 감정 어휘, 감정을 여러 가지 말로 나타내는 말들", "note": "단순히 happy, sad만 아는 것이 아니라 감정을 더 자세히 말할 수 있는 능력을 뜻한다."}, {"word": "causes and consequences", "meaning": "원인과 결과", "note": "왜 일어났는지와 그 뒤에 어떤 일이 생기는지를 함께 말할 때 자주 쓴다."}, {"word": "particularly relevant", "meaning": "특히 중요하다, 특히 관계가 깊다", "note": "relevant는 어떤 상황과 잘 맞고 중요하다는 뜻이다."}, {"word": "group settings", "meaning": "모둠 상황, 집단 환경", "note": "학교 모둠 활동, 팀 프로젝트, 회사 팀 같은 상황을 가리킨다."}]}, {"id": 2, "original": "Individuals who are skilled in this domain are able to express emotions, feelings and moods accurately and thus, may facilitate clear communication between co-workers.", "explanation": "이런 능력이 뛰어난 사람은 자신의 감정, 느낌, 기분을 정확하게 말할 수 있다. 그래서 함께 일하는 사람들 사이에 오해가 적고 분명한 소통이 이루어지도록 도울 수 있다.", "vocabulary": [{"word": "skilled in this domain", "meaning": "이 분야에 능숙한", "note": "domain은 여기서 '분야' 또는 '영역'이라는 뜻이다."}, {"word": "accurately", "meaning": "정확하게", "note": "틀리지 않게, 분명하게라는 뜻으로 자주 쓰인다."}, {"word": "facilitate", "meaning": "더 잘 되게 돕다, 쉽게 만들다", "note": "격식 있는 말이지만 글에서 자주 나온다."}, {"word": "co-workers", "meaning": "함께 일하는 사람들, 동료", "note": "coworkers라고 붙여 쓰기도 한다."}]}, {"id": 3, "original": "Furthermore, they may be more likely to act in ways that accommodate their own needs as well as the needs of others (i.e. cooperate).", "explanation": "또 이런 사람들은 자기 필요만 보지 않고 다른 사람의 필요도 함께 생각하며 행동할 가능성이 크다. 쉽게 말해, 서로 맞춰 가며 협력하기 쉽다는 뜻이다.", "vocabulary": [{"word": "Furthermore", "meaning": "게다가, 더 나아가", "note": "앞의 내용을 덧붙일 때 쓰는 연결 말이다."}, {"word": "be more likely to", "meaning": "~할 가능성이 더 크다", "note": "가능성을 말할 때 매우 자주 쓰는 표현이다."}, {"word": "accommodate", "meaning": "받아들이다, 맞추다, 배려하다", "note": "여기서는 서로의 필요에 맞게 행동한다는 뜻이다."}, {"word": "as well as", "meaning": "~뿐 아니라 ~도 함께", "note": "A as well as B는 A와 B 둘 다를 포함하는 느낌이다."}, {"word": "cooperate", "meaning": "협력하다", "note": "함께 힘을 모아 일한다는 뜻이다."}]}, {"id": 4, "original": "In a group conflict situation, for example, a member with a strong ability to understand emotion will be able to express how he feels about the problem and why he feels this way.", "explanation": "예를 들어 모둠 안에 갈등이 생겼을 때, 감정을 잘 이해하는 사람은 그 문제에 대해 자신이 어떻게 느끼는지, 또 왜 그렇게 느끼는지를 말할 수 있다.", "vocabulary": [{"word": "group conflict situation", "meaning": "집단 갈등 상황, 모둠 안의 다툼 상황", "note": "의견 차이, 오해, 불만 때문에 부딪히는 상황을 말한다."}, {"word": "member", "meaning": "구성원, 멤버", "note": "모둠이나 팀에 속한 사람 한 명을 뜻한다."}, {"word": "strong ability", "meaning": "뛰어난 능력", "note": "능력이 크고 좋다는 뜻이다."}, {"word": "express", "meaning": "표현하다", "note": "생각, 감정, 의견을 말이나 글로 드러내는 것이다."}]}, {"id": 5, "original": "He also should be able to take the perspective of the other group members and understand why they are reacting in a certain manner.", "explanation": "그 사람은 다른 모둠원들의 입장에서도 생각해 보고, 그들이 왜 그런 식으로 반응하는지도 이해할 수 있어야 한다.", "vocabulary": [{"word": "take the perspective of", "meaning": "~의 입장에서 보다", "note": "상대가 어떻게 느끼고 생각하는지 그쪽에서 생각해 보는 표현이다."}, {"word": "reacting", "meaning": "반응하는", "note": "어떤 말이나 상황에 대해 행동이나 감정을 보이는 것이다."}, {"word": "in a certain manner", "meaning": "어떤 방식으로, 그런 식으로", "note": "manner는 행동하는 방식이나 태도를 뜻한다."}]}, {"id": 6, "original": "Appreciation of differences creates an arena for open communication and promotes constructive conflict resolution and improved group functioning.", "explanation": "서로의 차이를 인정하고 소중하게 여기면 솔직하게 이야기할 수 있는 분위기가 만들어진다. 그러면 갈등을 더 좋은 쪽으로 풀 수 있고, 모둠도 더 잘 움직이게 된다.", "vocabulary": [{"word": "Appreciation of differences", "meaning": "차이를 인정하고 소중하게 여김", "note": "단순히 '다르다'고 보는 것이 아니라 그 차이를 받아들이는 태도를 말한다."}, {"word": "arena", "meaning": "장, 공간, 분위기", "note": "원래는 경기장이지만 여기서는 어떤 일이 이루어지는 '자리'라는 뜻이다."}, {"word": "open communication", "meaning": "열린 소통, 솔직한 대화", "note": "숨기지 않고 편하게 말할 수 있는 소통을 뜻한다."}, {"word": "constructive", "meaning": "도움이 되는, 좋은 방향의", "note": "문제를 키우지 않고 해결에 도움이 되는 느낌이다."}, {"word": "group functioning", "meaning": "집단의 움직임, 모둠이 돌아가는 상태", "note": "팀이 얼마나 잘 협력하고 일하는지를 말한다."}]}], "problem_number": "22", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "23.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

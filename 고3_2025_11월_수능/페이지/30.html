@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "경쟁이 오히려 의욕을 떨어뜨리는 이유", "summary": "이 글은 경쟁이 항상 사람을 더 열심히 하게 만드는 것은 아니며, 관계에 대한 걱정이나 죄책감 같은 감정 때문에 오히려 의욕과 성과가 낮아질 수 있다고 말한다.", "sentences": [{"id": 1, "original": "Studies in psychology have reported cases in which competitive incentives resulted in lower task effort, and their focus was on the psychological underpinnings of the reduction in motivation.", "explanation": "심리학 연구들에서는 경쟁을 하게 만드는 보상이 오히려 일을 하려는 노력을 줄인 경우가 있다고 말했다. 그리고 그런 의욕 감소가 왜 생기는지, 사람 마음속 이유를 알아보는 데 초점을 맞췄다.", "vocabulary": [{"word": "competitive incentives", "meaning": "경쟁하게 만드는 보상이나 자극", "note": "incentive는 사람을 어떤 행동을 하게 만드는 보상이나 이유를 뜻한다."}, {"word": "resulted in", "meaning": "결국 ~한 결과를 낳았다", "note": "뒤에 결과가 올 때 자주 쓰는 표현이다."}, {"word": "task effort", "meaning": "과제를 하려고 들이는 노력", "note": ""}, {"word": "psychological underpinnings", "meaning": "심리적인 바탕, 마음속 근본 이유", "note": "underpinning은 어떤 현상을 떠받치는 바탕이라는 뜻이다."}, {"word": "reduction in motivation", "meaning": "의욕의 감소", "note": ""}]}, {"id": 2, "original": "For example, competition presents an inevitable conflict between the motivation to achieve one’s personal goal and the desire to maintain good relationships with others.", "explanation": "예를 들어 경쟁은 내 목표를 이루고 싶은 마음과 다른 사람들과 좋은 관계를 지키고 싶은 마음이 부딪치게 만든다. 이런 충돌은 피하기 어렵다.", "vocabulary": [{"word": "presents", "meaning": "보여 주다, 만들어 내다", "note": "여기서는 어떤 문제나 상황을 생기게 한다는 뜻에 가깝다."}, {"word": "inevitable conflict", "meaning": "피할 수 없는 충돌", "note": "inevitable은 '어쩔 수 없이 일어나는'이라는 뜻이다."}, {"word": "achieve one’s personal goal", "meaning": "개인의 목표를 이루다", "note": "achieve는 목표, 성공, 결과 등을 이루다라는 뜻으로 자주 쓰인다."}, {"word": "maintain good relationships", "meaning": "좋은 관계를 유지하다", "note": "maintain은 계속 지키다, 유지하다라는 뜻이다."}]}, {"id": 3, "original": "When the maintenance of interpersonal relationships is important, with their counterparts in particular or with others generally, competitors experience an internal conflict that can harm their desire to achieve their goal and taint the good feeling brought about by winning.", "explanation": "사람들과의 관계를 지키는 일이 중요할 때, 특히 경쟁 상대와의 관계나 다른 사람들과의 관계를 중요하게 여길 때, 경쟁하는 사람은 마음속에서 갈등을 느낀다. 그 갈등은 목표를 이루고 싶은 마음을 약하게 만들 수 있다. 또 이겼을 때 느끼는 좋은 기분도 흐리게 만들 수 있다.", "vocabulary": [{"word": "interpersonal relationships", "meaning": "사람들 사이의 관계, 대인관계", "note": "interpersonal은 '사람과 사람 사이의'라는 뜻이다."}, {"word": "counterparts", "meaning": "상대방, 대응되는 사람들", "note": "여기서는 경쟁 상대나 맞은편에 있는 사람을 가리킨다."}, {"word": "internal conflict", "meaning": "마음속 갈등", "note": ""}, {"word": "harm", "meaning": "해치다, 약하게 만들다", "note": "사람의 몸뿐 아니라 감정, 기회, 의욕 등을 해칠 때도 쓴다."}, {"word": "taint", "meaning": "더럽히다, 흐리게 만들다", "note": "좋은 느낌이나 이미지가 순수하지 않게 되는 느낌을 준다."}]}, {"id": 4, "original": "Exline and Lobel found that the perception of oneself as a target for upward social comparison often makes people uncomfortable.", "explanation": "Exline과 Lobel은 사람들이 자신이 다른 사람들의 '위쪽 비교' 대상이라고 느낄 때 자주 불편함을 느낀다는 것을 알아냈다. 즉, 다른 사람이 나를 보며 '저 사람은 나보다 더 낫다'고 비교한다고 느끼면 마음이 편하지 않다는 뜻이다.", "vocabulary": [{"word": "perception of oneself", "meaning": "자기 자신에 대한 인식", "note": ""}, {"word": "target", "meaning": "대상", "note": "여기서는 공격 대상이 아니라 비교의 대상이라는 뜻이다."}, {"word": "upward social comparison", "meaning": "자기보다 더 나은 사람과 견주는 비교", "note": "사회심리학에서 자주 나오는 표현이다. 보통 더 잘난 사람과 자신을 비교하는 것을 말한다."}, {"word": "uncomfortable", "meaning": "불편한, 마음이 편하지 않은", "note": "몸이 불편할 때도, 마음이 불편할 때도 쓸 수 있다."}]}, {"id": 5, "original": "When they believe that others are making envious comparisons with them, people feel uneasiness, distress, or sorrow.", "explanation": "사람들은 다른 사람들이 자신을 부러워하며 비교하고 있다고 믿으면 마음이 불안하고 괴롭거나 슬퍼진다.", "vocabulary": [{"word": "envious comparisons", "meaning": "부러워하는 마음이 담긴 비교", "note": "envious는 '부러워하는, 시기하는'이라는 뜻이다."}, {"word": "uneasiness", "meaning": "불안함, 마음 편하지 않음", "note": ""}, {"word": "distress", "meaning": "괴로움, 큰 스트레스", "note": "보통 단순한 걱정보다 더 강한 괴로움을 말한다."}, {"word": "sorrow", "meaning": "슬픔", "note": "조금 문어적인 느낌이 있는 단어다."}]}, {"id": 6, "original": "Feelings of guilt, an emotion generally associated with high motivation for goal-achievement, lead to weaker motivation and performance in the pursuit of competitive goals.", "explanation": "죄책감은 보통 목표를 이루려는 강한 의욕과 이어지는 감정으로 여겨진다. 하지만 경쟁 목표를 좇는 상황에서는 오히려 의욕과 성과를 더 약하게 만들 수 있다.", "vocabulary": [{"word": "guilt", "meaning": "죄책감", "note": ""}, {"word": "associated with", "meaning": "~와 관련된", "note": "함께 자주 나타나거나 연결될 때 쓰는 표현이다."}, {"word": "goal-achievement", "meaning": "목표 이루기", "note": ""}, {"word": "lead to", "meaning": "~로 이어지다", "note": "원인과 결과를 말할 때 매우 자주 쓰인다."}, {"word": "in the pursuit of", "meaning": "~을 이루려고 애쓰는 과정에서", "note": "pursuit는 어떤 목표를 계속 좇는 것을 뜻한다."}]}, {"id": 7, "original": "Consequences of this emotional state include lower task motivation in a competition and preferences for more cooperative and altruistic outcomes, such as diminishing the significance of the outcome or sharing the winner’s reward.", "explanation": "이런 감정 상태가 가져오는 결과로는 경쟁에서 과제를 하려는 의욕이 낮아지는 것이 있다. 또 서로 더 협력적이고 남을 돕는 쪽의 결과를 더 바라게 된다. 예를 들어 결과의 중요성을 일부러 작게 보거나, 이긴 사람이 받은 보상을 다른 사람과 나누려 할 수 있다.", "vocabulary": [{"word": "Consequences", "meaning": "결과들", "note": ""}, {"word": "emotional state", "meaning": "감정 상태", "note": ""}, {"word": "cooperative", "meaning": "협력하는", "note": ""}, {"word": "altruistic outcomes", "meaning": "남을 돕는 쪽의 결과", "note": "altruistic은 자기 이익보다 다른 사람을 생각하는 뜻이다."}, {"word": "diminishing the significance of the outcome", "meaning": "결과의 중요성을 줄여서 보기", "note": "significance는 중요함, 의미를 뜻한다."}]}], "problem_number": "30"};
+const DATA = {"title": "경쟁이 오히려 의욕을 떨어뜨리는 이유", "summary": "이 글은 경쟁이 항상 사람을 더 열심히 하게 만드는 것은 아니며, 관계에 대한 걱정이나 죄책감 같은 감정 때문에 오히려 의욕과 성과가 낮아질 수 있다고 말한다.", "sentences": [{"id": 1, "original": "Studies in psychology have reported cases in which competitive incentives resulted in lower task effort, and their focus was on the psychological underpinnings of the reduction in motivation.", "explanation": "심리학 연구들에서는 경쟁을 하게 만드는 보상이 오히려 일을 하려는 노력을 줄인 경우가 있다고 말했다. 그리고 그런 의욕 감소가 왜 생기는지, 사람 마음속 이유를 알아보는 데 초점을 맞췄다.", "vocabulary": [{"word": "competitive incentives", "meaning": "경쟁하게 만드는 보상이나 자극", "note": "incentive는 사람을 어떤 행동을 하게 만드는 보상이나 이유를 뜻한다."}, {"word": "resulted in", "meaning": "결국 ~한 결과를 낳았다", "note": "뒤에 결과가 올 때 자주 쓰는 표현이다."}, {"word": "task effort", "meaning": "과제를 하려고 들이는 노력", "note": ""}, {"word": "psychological underpinnings", "meaning": "심리적인 바탕, 마음속 근본 이유", "note": "underpinning은 어떤 현상을 떠받치는 바탕이라는 뜻이다."}, {"word": "reduction in motivation", "meaning": "의욕의 감소", "note": ""}]}, {"id": 2, "original": "For example, competition presents an inevitable conflict between the motivation to achieve one’s personal goal and the desire to maintain good relationships with others.", "explanation": "예를 들어 경쟁은 내 목표를 이루고 싶은 마음과 다른 사람들과 좋은 관계를 지키고 싶은 마음이 부딪치게 만든다. 이런 충돌은 피하기 어렵다.", "vocabulary": [{"word": "presents", "meaning": "보여 주다, 만들어 내다", "note": "여기서는 어떤 문제나 상황을 생기게 한다는 뜻에 가깝다."}, {"word": "inevitable conflict", "meaning": "피할 수 없는 충돌", "note": "inevitable은 '어쩔 수 없이 일어나는'이라는 뜻이다."}, {"word": "achieve one’s personal goal", "meaning": "개인의 목표를 이루다", "note": "achieve는 목표, 성공, 결과 등을 이루다라는 뜻으로 자주 쓰인다."}, {"word": "maintain good relationships", "meaning": "좋은 관계를 유지하다", "note": "maintain은 계속 지키다, 유지하다라는 뜻이다."}]}, {"id": 3, "original": "When the maintenance of interpersonal relationships is important, with their counterparts in particular or with others generally, competitors experience an internal conflict that can harm their desire to achieve their goal and taint the good feeling brought about by winning.", "explanation": "사람들과의 관계를 지키는 일이 중요할 때, 특히 경쟁 상대와의 관계나 다른 사람들과의 관계를 중요하게 여길 때, 경쟁하는 사람은 마음속에서 갈등을 느낀다. 그 갈등은 목표를 이루고 싶은 마음을 약하게 만들 수 있다. 또 이겼을 때 느끼는 좋은 기분도 흐리게 만들 수 있다.", "vocabulary": [{"word": "interpersonal relationships", "meaning": "사람들 사이의 관계, 대인관계", "note": "interpersonal은 '사람과 사람 사이의'라는 뜻이다."}, {"word": "counterparts", "meaning": "상대방, 대응되는 사람들", "note": "여기서는 경쟁 상대나 맞은편에 있는 사람을 가리킨다."}, {"word": "internal conflict", "meaning": "마음속 갈등", "note": ""}, {"word": "harm", "meaning": "해치다, 약하게 만들다", "note": "사람의 몸뿐 아니라 감정, 기회, 의욕 등을 해칠 때도 쓴다."}, {"word": "taint", "meaning": "더럽히다, 흐리게 만들다", "note": "좋은 느낌이나 이미지가 순수하지 않게 되는 느낌을 준다."}]}, {"id": 4, "original": "Exline and Lobel found that the perception of oneself as a target for upward social comparison often makes people uncomfortable.", "explanation": "Exline과 Lobel은 사람들이 자신이 다른 사람들의 '위쪽 비교' 대상이라고 느낄 때 자주 불편함을 느낀다는 것을 알아냈다. 즉, 다른 사람이 나를 보며 '저 사람은 나보다 더 낫다'고 비교한다고 느끼면 마음이 편하지 않다는 뜻이다.", "vocabulary": [{"word": "perception of oneself", "meaning": "자기 자신에 대한 인식", "note": ""}, {"word": "target", "meaning": "대상", "note": "여기서는 공격 대상이 아니라 비교의 대상이라는 뜻이다."}, {"word": "upward social comparison", "meaning": "자기보다 더 나은 사람과 견주는 비교", "note": "사회심리학에서 자주 나오는 표현이다. 보통 더 잘난 사람과 자신을 비교하는 것을 말한다."}, {"word": "uncomfortable", "meaning": "불편한, 마음이 편하지 않은", "note": "몸이 불편할 때도, 마음이 불편할 때도 쓸 수 있다."}]}, {"id": 5, "original": "When they believe that others are making envious comparisons with them, people feel uneasiness, distress, or sorrow.", "explanation": "사람들은 다른 사람들이 자신을 부러워하며 비교하고 있다고 믿으면 마음이 불안하고 괴롭거나 슬퍼진다.", "vocabulary": [{"word": "envious comparisons", "meaning": "부러워하는 마음이 담긴 비교", "note": "envious는 '부러워하는, 시기하는'이라는 뜻이다."}, {"word": "uneasiness", "meaning": "불안함, 마음 편하지 않음", "note": ""}, {"word": "distress", "meaning": "괴로움, 큰 스트레스", "note": "보통 단순한 걱정보다 더 강한 괴로움을 말한다."}, {"word": "sorrow", "meaning": "슬픔", "note": "조금 문어적인 느낌이 있는 단어다."}]}, {"id": 6, "original": "Feelings of guilt, an emotion generally associated with high motivation for goal-achievement, lead to weaker motivation and performance in the pursuit of competitive goals.", "explanation": "죄책감은 보통 목표를 이루려는 강한 의욕과 이어지는 감정으로 여겨진다. 하지만 경쟁 목표를 좇는 상황에서는 오히려 의욕과 성과를 더 약하게 만들 수 있다.", "vocabulary": [{"word": "guilt", "meaning": "죄책감", "note": ""}, {"word": "associated with", "meaning": "~와 관련된", "note": "함께 자주 나타나거나 연결될 때 쓰는 표현이다."}, {"word": "goal-achievement", "meaning": "목표 이루기", "note": ""}, {"word": "lead to", "meaning": "~로 이어지다", "note": "원인과 결과를 말할 때 매우 자주 쓰인다."}, {"word": "in the pursuit of", "meaning": "~을 이루려고 애쓰는 과정에서", "note": "pursuit는 어떤 목표를 계속 좇는 것을 뜻한다."}]}, {"id": 7, "original": "Consequences of this emotional state include lower task motivation in a competition and preferences for more cooperative and altruistic outcomes, such as diminishing the significance of the outcome or sharing the winner’s reward.", "explanation": "이런 감정 상태가 가져오는 결과로는 경쟁에서 과제를 하려는 의욕이 낮아지는 것이 있다. 또 서로 더 협력적이고 남을 돕는 쪽의 결과를 더 바라게 된다. 예를 들어 결과의 중요성을 일부러 작게 보거나, 이긴 사람이 받은 보상을 다른 사람과 나누려 할 수 있다.", "vocabulary": [{"word": "Consequences", "meaning": "결과들", "note": ""}, {"word": "emotional state", "meaning": "감정 상태", "note": ""}, {"word": "cooperative", "meaning": "협력하는", "note": ""}, {"word": "altruistic outcomes", "meaning": "남을 돕는 쪽의 결과", "note": "altruistic은 자기 이익보다 다른 사람을 생각하는 뜻이다."}, {"word": "diminishing the significance of the outcome", "meaning": "결과의 중요성을 줄여서 보기", "note": "significance는 중요함, 의미를 뜻한다."}]}], "problem_number": "30", "exam_info": "고3 2025 11월 수능"};
 const NEXT_PAGE = "31.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "잠잘 때 감각이 둔해지는 이유", "summary": "잠을 자는 동안에는 바깥 자극을 제대로 받아들이지 못하고, 이런 상태가 잠을 지키는 데 중요한 구실을 한다는 내용이다.", "sentences": [{"id": 1, "original": "One of the most striking characteristics of a sleeping animal or person is that they do not respond normally to environmental stimuli.", "explanation": "잠자는 동물이나 사람의 아주 눈에 띄는 특징 가운데 하나는, 주위에서 오는 자극에 평소처럼 반응하지 않는다는 것이다.", "vocabulary": [{"word": "striking", "meaning": "아주 눈에 띄는, 두드러진", "note": "여기서는 '때리는' 뜻이 아니라 '강하게 눈에 들어오는' 뜻이다."}, {"word": "characteristics", "meaning": "특징", "note": ""}, {"word": "respond", "meaning": "반응하다", "note": "respond to ~ 형태로 '~에 반응하다'라고 쓴다."}, {"word": "environmental stimuli", "meaning": "주변 환경에서 오는 자극", "note": "stimuli는 stimulus의 복수형이다."}]}, {"id": 2, "original": "If you open the eyelids of a sleeping mammal the eyes will not see normally — they are functionally blind.", "explanation": "잠자는 포유류의 눈꺼풀을 억지로 열어도, 그 눈은 평소처럼 보지 못한다. 다시 말해, 눈은 떠 있어도 실제로는 거의 보지 못하는 상태이다.", "vocabulary": [{"word": "eyelids", "meaning": "눈꺼풀", "note": ""}, {"word": "mammal", "meaning": "포유류", "note": "사람, 개, 고양이 같은 동물을 가리킨다."}, {"word": "functionally blind", "meaning": "기능상 보지 못하는 상태의", "note": "눈이 완전히 망가졌다는 뜻이 아니라, 제구실을 못 한다는 뜻이다."}]}, {"id": 3, "original": "Some visual information apparently gets in, but it is not normally processed as it is shortened or weakened; same with the other sensing systems.", "explanation": "어느 정도의 시각 정보는 들어오는 것처럼 보이지만, 그 정보는 줄어들거나 약해져서 평소처럼 처리되지 않는다. 다른 감각 기관들도 마찬가지이다.", "vocabulary": [{"word": "visual information", "meaning": "시각 정보", "note": "눈으로 들어오는 정보라는 뜻이다."}, {"word": "apparently", "meaning": "보기에, 겉으로 보면", "note": "확실하다고 단정하기보다 '그런 것 같다'는 느낌이 있다."}, {"word": "processed", "meaning": "처리된", "note": "여기서는 뇌가 정보를 받아들여 이해하는 것을 말한다."}, {"word": "shortened or weakened", "meaning": "줄어들거나 약해진", "note": "자극의 양이나 힘이 작아진다는 뜻이다."}, {"word": "sensing systems", "meaning": "감각 체계", "note": "시각, 청각, 촉각 같은 감각 작용 전체를 가리킨다."}]}, {"id": 4, "original": "Stimuli are registered but not processed normally and they fail to wake the individual.", "explanation": "자극이 아예 들어오지 않는 것은 아니다. 하지만 평소처럼 제대로 처리되지 않기 때문에, 그 자극만으로는 그 사람이나 동물을 깨우지 못한다.", "vocabulary": [{"word": "registered", "meaning": "감지된, 받아들여진", "note": "여기서는 자극이 완전히 무시되지는 않는다는 뜻이다."}, {"word": "fail to", "meaning": "~하지 못하다", "note": "뒤에 동사원형이 온다."}, {"word": "individual", "meaning": "그 개체, 그 사람이나 동물", "note": "문맥에 따라 사람일 수도 있고 동물일 수도 있다."}]}, {"id": 5, "original": "Perceptual disengagement probably serves the function of protecting sleep, so some authors do not count it as part of the definition of sleep itself.", "explanation": "감각이 바깥세상과 어느 정도 떨어지는 상태는 아마 잠을 지켜 주는 일을 한다. 그래서 어떤 학자들은 이것을 잠 자체의 뜻에 꼭 들어가는 부분으로 보지 않는다.", "vocabulary": [{"word": "Perceptual disengagement", "meaning": "지각적 분리, 감각이 바깥과 떨어진 상태", "note": "쉽게 말해 바깥 자극에 마음과 감각이 덜 연결된 상태이다."}, {"word": "serves the function of", "meaning": "~하는 구실을 하다", "note": "어떤 역할을 한다는 뜻이다."}, {"word": "authors", "meaning": "학자들, 글쓴이들", "note": "이 글에서는 관련 내용을 쓴 연구자들을 가리킨다."}, {"word": "count A as B", "meaning": "A를 B로 여기다", "note": "'A를 B의 일부로 보다'라는 뜻으로 자주 쓴다."}, {"word": "definition", "meaning": "정의", "note": "어떤 것을 무엇이라고 보는지 설명한 내용이다."}]}, {"id": 6, "original": "But as sleep would be impossible without it, it seems essential to its definition.", "explanation": "하지만 그런 상태가 없으면 잠 자체가 불가능할 것이므로, 그것은 잠을 설명할 때 꼭 필요한 요소처럼 보인다.", "vocabulary": [{"word": "impossible", "meaning": "불가능한", "note": ""}, {"word": "without it", "meaning": "그것이 없으면", "note": "여기서 it은 앞 문장의 perceptual disengagement를 가리킨다."}, {"word": "essential", "meaning": "꼭 필요한, 매우 중요한", "note": ""}]}, {"id": 7, "original": "Nevertheless, many animals (including humans) use the intermediate state of drowsiness to derive some benefits of sleep without total perceptual disengagement.", "explanation": "그렇지만 많은 동물은 사람을 포함해서, 완전히 감각을 끊지 않은 채로도 졸린 중간 상태를 이용해 잠의 좋은 점을 어느 정도 얻는다.", "vocabulary": [{"word": "Nevertheless", "meaning": "그렇지만, 그런데도", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "intermediate state", "meaning": "중간 상태", "note": ""}, {"word": "drowsiness", "meaning": "졸림, 잠이 오는 상태", "note": "drowsy는 '졸린'이라는 뜻이다."}, {"word": "derive", "meaning": "얻다", "note": "여기서는 어떤 상태에서 이익이나 좋은 점을 얻는다는 뜻이다."}, {"word": "total perceptual disengagement", "meaning": "완전한 감각 차단 상태", "note": "바깥 자극과의 연결이 거의 완전히 끊긴 상태를 말한다."}]}], "problem_number": "33"};
+const DATA = {"title": "잠잘 때 감각이 둔해지는 이유", "summary": "잠을 자는 동안에는 바깥 자극을 제대로 받아들이지 못하고, 이런 상태가 잠을 지키는 데 중요한 구실을 한다는 내용이다.", "sentences": [{"id": 1, "original": "One of the most striking characteristics of a sleeping animal or person is that they do not respond normally to environmental stimuli.", "explanation": "잠자는 동물이나 사람의 아주 눈에 띄는 특징 가운데 하나는, 주위에서 오는 자극에 평소처럼 반응하지 않는다는 것이다.", "vocabulary": [{"word": "striking", "meaning": "아주 눈에 띄는, 두드러진", "note": "여기서는 '때리는' 뜻이 아니라 '강하게 눈에 들어오는' 뜻이다."}, {"word": "characteristics", "meaning": "특징", "note": ""}, {"word": "respond", "meaning": "반응하다", "note": "respond to ~ 형태로 '~에 반응하다'라고 쓴다."}, {"word": "environmental stimuli", "meaning": "주변 환경에서 오는 자극", "note": "stimuli는 stimulus의 복수형이다."}]}, {"id": 2, "original": "If you open the eyelids of a sleeping mammal the eyes will not see normally — they are functionally blind.", "explanation": "잠자는 포유류의 눈꺼풀을 억지로 열어도, 그 눈은 평소처럼 보지 못한다. 다시 말해, 눈은 떠 있어도 실제로는 거의 보지 못하는 상태이다.", "vocabulary": [{"word": "eyelids", "meaning": "눈꺼풀", "note": ""}, {"word": "mammal", "meaning": "포유류", "note": "사람, 개, 고양이 같은 동물을 가리킨다."}, {"word": "functionally blind", "meaning": "기능상 보지 못하는 상태의", "note": "눈이 완전히 망가졌다는 뜻이 아니라, 제구실을 못 한다는 뜻이다."}]}, {"id": 3, "original": "Some visual information apparently gets in, but it is not normally processed as it is shortened or weakened; same with the other sensing systems.", "explanation": "어느 정도의 시각 정보는 들어오는 것처럼 보이지만, 그 정보는 줄어들거나 약해져서 평소처럼 처리되지 않는다. 다른 감각 기관들도 마찬가지이다.", "vocabulary": [{"word": "visual information", "meaning": "시각 정보", "note": "눈으로 들어오는 정보라는 뜻이다."}, {"word": "apparently", "meaning": "보기에, 겉으로 보면", "note": "확실하다고 단정하기보다 '그런 것 같다'는 느낌이 있다."}, {"word": "processed", "meaning": "처리된", "note": "여기서는 뇌가 정보를 받아들여 이해하는 것을 말한다."}, {"word": "shortened or weakened", "meaning": "줄어들거나 약해진", "note": "자극의 양이나 힘이 작아진다는 뜻이다."}, {"word": "sensing systems", "meaning": "감각 체계", "note": "시각, 청각, 촉각 같은 감각 작용 전체를 가리킨다."}]}, {"id": 4, "original": "Stimuli are registered but not processed normally and they fail to wake the individual.", "explanation": "자극이 아예 들어오지 않는 것은 아니다. 하지만 평소처럼 제대로 처리되지 않기 때문에, 그 자극만으로는 그 사람이나 동물을 깨우지 못한다.", "vocabulary": [{"word": "registered", "meaning": "감지된, 받아들여진", "note": "여기서는 자극이 완전히 무시되지는 않는다는 뜻이다."}, {"word": "fail to", "meaning": "~하지 못하다", "note": "뒤에 동사원형이 온다."}, {"word": "individual", "meaning": "그 개체, 그 사람이나 동물", "note": "문맥에 따라 사람일 수도 있고 동물일 수도 있다."}]}, {"id": 5, "original": "Perceptual disengagement probably serves the function of protecting sleep, so some authors do not count it as part of the definition of sleep itself.", "explanation": "감각이 바깥세상과 어느 정도 떨어지는 상태는 아마 잠을 지켜 주는 일을 한다. 그래서 어떤 학자들은 이것을 잠 자체의 뜻에 꼭 들어가는 부분으로 보지 않는다.", "vocabulary": [{"word": "Perceptual disengagement", "meaning": "지각적 분리, 감각이 바깥과 떨어진 상태", "note": "쉽게 말해 바깥 자극에 마음과 감각이 덜 연결된 상태이다."}, {"word": "serves the function of", "meaning": "~하는 구실을 하다", "note": "어떤 역할을 한다는 뜻이다."}, {"word": "authors", "meaning": "학자들, 글쓴이들", "note": "이 글에서는 관련 내용을 쓴 연구자들을 가리킨다."}, {"word": "count A as B", "meaning": "A를 B로 여기다", "note": "'A를 B의 일부로 보다'라는 뜻으로 자주 쓴다."}, {"word": "definition", "meaning": "정의", "note": "어떤 것을 무엇이라고 보는지 설명한 내용이다."}]}, {"id": 6, "original": "But as sleep would be impossible without it, it seems essential to its definition.", "explanation": "하지만 그런 상태가 없으면 잠 자체가 불가능할 것이므로, 그것은 잠을 설명할 때 꼭 필요한 요소처럼 보인다.", "vocabulary": [{"word": "impossible", "meaning": "불가능한", "note": ""}, {"word": "without it", "meaning": "그것이 없으면", "note": "여기서 it은 앞 문장의 perceptual disengagement를 가리킨다."}, {"word": "essential", "meaning": "꼭 필요한, 매우 중요한", "note": ""}]}, {"id": 7, "original": "Nevertheless, many animals (including humans) use the intermediate state of drowsiness to derive some benefits of sleep without total perceptual disengagement.", "explanation": "그렇지만 많은 동물은 사람을 포함해서, 완전히 감각을 끊지 않은 채로도 졸린 중간 상태를 이용해 잠의 좋은 점을 어느 정도 얻는다.", "vocabulary": [{"word": "Nevertheless", "meaning": "그렇지만, 그런데도", "note": "앞내용과 반대되는 말을 이을 때 쓴다."}, {"word": "intermediate state", "meaning": "중간 상태", "note": ""}, {"word": "drowsiness", "meaning": "졸림, 잠이 오는 상태", "note": "drowsy는 '졸린'이라는 뜻이다."}, {"word": "derive", "meaning": "얻다", "note": "여기서는 어떤 상태에서 이익이나 좋은 점을 얻는다는 뜻이다."}, {"word": "total perceptual disengagement", "meaning": "완전한 감각 차단 상태", "note": "바깥 자극과의 연결이 거의 완전히 끊긴 상태를 말한다."}]}], "problem_number": "33", "exam_info": "고1 2024 3월 모고"};
 const NEXT_PAGE = "34.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

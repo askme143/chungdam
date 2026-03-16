@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,8 +684,8 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "문학이 언어 학습에 도움이 되는 이유", "summary": "문학 작품을 읽으면 학습자가 이야기와 인물에 깊이 빠져들게 되고, 그 덕분에 언어를 기계적으로만 보지 않고 더 자연스럽고 깊게 배울 수 있다.", "sentences": [{"id": 1, "original": "Literature can be helpful in the language learning process because of the personal involvement it fosters in readers.", "explanation": "문학은 언어를 배우는 데 도움이 될 수 있다. 그 이유는 문학이 독자가 글에 개인적으로 깊이 빠져들게 만들기 때문이다.", "vocabulary": [{"word": "literature", "meaning": "문학, 문학 작품", "note": "소설, 시, 희곡 같은 글을 넓게 가리킨다."}, {"word": "language learning process", "meaning": "언어를 배우는 과정", "note": ""}, {"word": "personal involvement", "meaning": "개인적인 몰입, 자기 일처럼 깊이 참여함", "note": "단순히 읽는 것이 아니라 마음을 담아 빠져드는 느낌이다."}, {"word": "foster", "meaning": "기르다, 북돋우다", "note": "좋은 성질이나 변화를 자라게 하거나 더 커지게 할 때 쓴다."}]}, {"id": 2, "original": "Core language teaching materials must concentrate on how a language operates both as a rule-based system and as a sociosemantic system.", "explanation": "기본이 되는 언어 교육 자료는 언어가 어떻게 움직이는지에 집중해야 한다. 언어는 규칙으로 이루어진 체계이기도 하고, 사회 속에서 뜻을 주고받는 체계이기도 하다.", "vocabulary": [{"word": "core", "meaning": "핵심의, 가장 기본이 되는", "note": ""}, {"word": "concentrate on", "meaning": "~에 집중하다", "note": ""}, {"word": "operate", "meaning": "작동하다, 움직이다", "note": "여기서는 언어가 어떤 방식으로 기능하는지를 말한다."}, {"word": "rule-based system", "meaning": "규칙에 바탕을 둔 체계", "note": "문법 같은 규칙 중심의 면을 가리킨다."}, {"word": "sociosemantic system", "meaning": "사회와 의미가 함께 얽힌 체계", "note": "사람들 사이의 관계와 상황 속에서 뜻이 만들어지는 면을 말한다."}]}, {"id": 3, "original": "Very often, the process of learning is essentially analytic, piecemeal, and, at the level of the personality, fairly superficial.", "explanation": "아주 자주, 배우는 과정은 기본적으로 분석 중심이고, 조각조각 나뉘어 있으며, 사람의 마음이나 성격 차원에서는 꽤 얕은 데에 머문다.", "vocabulary": [{"word": "essentially", "meaning": "기본적으로, 본질적으로", "note": ""}, {"word": "analytic", "meaning": "분석적인", "note": "전체보다 부분을 나누어 살피는 방식이다."}, {"word": "piecemeal", "meaning": "조각조각의, 부분적인", "note": "전체를 한꺼번에 보기보다 조금씩 따로 배우는 느낌이다."}, {"word": "at the level of the personality", "meaning": "개인의 마음과 성격의 차원에서", "note": ""}, {"word": "superficial", "meaning": "피상적인, 얕은", "note": "깊이 들어가지 못하고 겉만 다루는 상태를 말한다."}]}, {"id": 4, "original": "Engaging imaginatively with literature enables learners to shift the focus of their attention beyond the more mechanical aspects of the foreign language system.", "explanation": "문학을 상상력을 써 가며 읽고 받아들이면, 학습자는 외국어의 기계적이고 딱딱한 부분만 보던 데서 벗어날 수 있다. 더 넓고 살아 있는 쪽으로 관심을 옮기게 된다.", "vocabulary": [{"word": "engage with", "meaning": "~에 적극적으로 빠져들다, 깊이 다루다", "note": ""}, {"word": "imaginatively", "meaning": "상상력을 발휘해서", "note": ""}, {"word": "enable", "meaning": "~할 수 있게 하다", "note": ""}, {"word": "shift the focus of their attention", "meaning": "관심의 초점을 옮기다", "note": ""}, {"word": "mechanical aspects", "meaning": "기계적인 면, 딱딱한 부분", "note": "규칙만 따지는 식의 면을 가리킨다."}]}, {"id": 5, "original": "When a novel, play or short story is explored over a period of time, the result is that the reader begins to ‘inhabit’ the text.", "explanation": "소설, 희곡, 또는 단편소설을 어느 정도 긴 시간 동안 읽고 살펴보면, 독자는 점점 그 글 속에서 사는 것 같은 느낌을 받기 시작한다.", "vocabulary": [{"word": "explore", "meaning": "깊이 읽고 살펴보다", "note": "여기서는 장소를 탐험한다는 뜻이 아니라 작품을 자세히 이해해 간다는 뜻이다."}, {"word": "over a period of time", "meaning": "어느 기간 동안, 시간이 지나면서", "note": ""}, {"word": "the result is that", "meaning": "그 결과 ~하게 된다", "note": ""}, {"word": "inhabit", "meaning": "살다, 머물다", "note": "여기서는 실제로 사는 것이 아니라 글의 세계 안에 들어가 있는 듯한 느낌을 비유적으로 말한다."}]}, {"id": 6, "original": "He or she is drawn into the book.", "explanation": "독자는 그 책 속으로 자연스럽게 끌려 들어간다.", "vocabulary": [{"word": "be drawn into", "meaning": "~에 이끌려 들어가다, 빠져들다", "note": "수동형으로 자주 쓰이며, 스스로라기보다 자연스럽게 끌리는 느낌이 있다."}, {"word": "book", "meaning": "책, 작품", "note": "여기서는 단순한 물건이 아니라 이야기 세계를 뜻한다."}]}, {"id": 7, "original": "Pinpointing what individual words or phrases may mean becomes less important than pursuing the development of the story.", "explanation": "낱말이나 표현 하나하나의 뜻을 정확히 짚어 내는 일은, 이야기의 전개를 따라가는 것보다 덜 중요해진다.", "vocabulary": [{"word": "pinpoint", "meaning": "정확히 짚어 내다", "note": ""}, {"word": "individual words or phrases", "meaning": "개개의 단어와 표현", "note": ""}, {"word": "pursue", "meaning": "좇아가다, 따라가다", "note": "여기서는 이야기의 흐름을 계속 따라간다는 뜻이다."}, {"word": "development of the story", "meaning": "이야기의 전개", "note": ""}]}, {"id": 8, "original": "The reader is eager to find out what happens as events unfold; he or she feels close to certain characters and shares their emotional responses.", "explanation": "독자는 사건이 어떻게 펼쳐지는지 몹시 알고 싶어 한다. 또 어떤 인물들에게 친밀함을 느끼고, 그들의 감정에도 함께 공감하게 된다.", "vocabulary": [{"word": "be eager to", "meaning": "몹시 ~하고 싶어 하다", "note": ""}, {"word": "find out", "meaning": "알아내다", "note": ""}, {"word": "unfold", "meaning": "펼쳐지다, 전개되다", "note": "사건이나 이야기가 차례로 드러날 때 자주 쓴다."}, {"word": "feel close to", "meaning": "~에게 가깝게 느끼다, 친밀감을 느끼다", "note": ""}, {"word": "emotional responses", "meaning": "감정적인 반응", "note": "기쁨, 슬픔, 두려움 같은 마음의 움직임을 말한다."}]}, {"id": 9, "original": "The language becomes ‘transparent’ — the fiction draws the whole person into its own world.", "explanation": "이때 언어는 거의 눈에 띄지 않게 된다. 독자는 말 자체보다 이야기 세계에 더 깊이 빠져들고, 소설은 그 사람 전체를 자기 세계 안으로 끌어들인다.", "vocabulary": [{"word": "transparent", "meaning": "투명한, 거의 느껴지지 않는", "note": "여기서는 언어가 방해물처럼 느껴지지 않고 자연스럽게 받아들여진다는 뜻이다."}, {"word": "fiction", "meaning": "허구의 이야기, 소설", "note": ""}, {"word": "draw", "meaning": "끌어당기다", "note": ""}, {"word": "the whole person", "meaning": "그 사람 전체", "note": "생각, 감정, 상상력까지 모두 포함한 사람 전체를 뜻한다."}]}], "problem_number": "31"};
-const NEXT_PAGE = null;
+const DATA = {"title": "문학이 언어 학습에 도움이 되는 이유", "summary": "문학 작품을 읽으면 학습자가 이야기와 인물에 깊이 빠져들게 되고, 그 덕분에 언어를 기계적으로만 보지 않고 더 자연스럽고 깊게 배울 수 있다.", "sentences": [{"id": 1, "original": "Literature can be helpful in the language learning process because of the personal involvement it fosters in readers.", "explanation": "문학은 언어를 배우는 데 도움이 될 수 있다. 그 이유는 문학이 독자가 글에 개인적으로 깊이 빠져들게 만들기 때문이다.", "vocabulary": [{"word": "literature", "meaning": "문학, 문학 작품", "note": "소설, 시, 희곡 같은 글을 넓게 가리킨다."}, {"word": "language learning process", "meaning": "언어를 배우는 과정", "note": ""}, {"word": "personal involvement", "meaning": "개인적인 몰입, 자기 일처럼 깊이 참여함", "note": "단순히 읽는 것이 아니라 마음을 담아 빠져드는 느낌이다."}, {"word": "foster", "meaning": "기르다, 북돋우다", "note": "좋은 성질이나 변화를 자라게 하거나 더 커지게 할 때 쓴다."}]}, {"id": 2, "original": "Core language teaching materials must concentrate on how a language operates both as a rule-based system and as a sociosemantic system.", "explanation": "기본이 되는 언어 교육 자료는 언어가 어떻게 움직이는지에 집중해야 한다. 언어는 규칙으로 이루어진 체계이기도 하고, 사회 속에서 뜻을 주고받는 체계이기도 하다.", "vocabulary": [{"word": "core", "meaning": "핵심의, 가장 기본이 되는", "note": ""}, {"word": "concentrate on", "meaning": "~에 집중하다", "note": ""}, {"word": "operate", "meaning": "작동하다, 움직이다", "note": "여기서는 언어가 어떤 방식으로 기능하는지를 말한다."}, {"word": "rule-based system", "meaning": "규칙에 바탕을 둔 체계", "note": "문법 같은 규칙 중심의 면을 가리킨다."}, {"word": "sociosemantic system", "meaning": "사회와 의미가 함께 얽힌 체계", "note": "사람들 사이의 관계와 상황 속에서 뜻이 만들어지는 면을 말한다."}]}, {"id": 3, "original": "Very often, the process of learning is essentially analytic, piecemeal, and, at the level of the personality, fairly superficial.", "explanation": "아주 자주, 배우는 과정은 기본적으로 분석 중심이고, 조각조각 나뉘어 있으며, 사람의 마음이나 성격 차원에서는 꽤 얕은 데에 머문다.", "vocabulary": [{"word": "essentially", "meaning": "기본적으로, 본질적으로", "note": ""}, {"word": "analytic", "meaning": "분석적인", "note": "전체보다 부분을 나누어 살피는 방식이다."}, {"word": "piecemeal", "meaning": "조각조각의, 부분적인", "note": "전체를 한꺼번에 보기보다 조금씩 따로 배우는 느낌이다."}, {"word": "at the level of the personality", "meaning": "개인의 마음과 성격의 차원에서", "note": ""}, {"word": "superficial", "meaning": "피상적인, 얕은", "note": "깊이 들어가지 못하고 겉만 다루는 상태를 말한다."}]}, {"id": 4, "original": "Engaging imaginatively with literature enables learners to shift the focus of their attention beyond the more mechanical aspects of the foreign language system.", "explanation": "문학을 상상력을 써 가며 읽고 받아들이면, 학습자는 외국어의 기계적이고 딱딱한 부분만 보던 데서 벗어날 수 있다. 더 넓고 살아 있는 쪽으로 관심을 옮기게 된다.", "vocabulary": [{"word": "engage with", "meaning": "~에 적극적으로 빠져들다, 깊이 다루다", "note": ""}, {"word": "imaginatively", "meaning": "상상력을 발휘해서", "note": ""}, {"word": "enable", "meaning": "~할 수 있게 하다", "note": ""}, {"word": "shift the focus of their attention", "meaning": "관심의 초점을 옮기다", "note": ""}, {"word": "mechanical aspects", "meaning": "기계적인 면, 딱딱한 부분", "note": "규칙만 따지는 식의 면을 가리킨다."}]}, {"id": 5, "original": "When a novel, play or short story is explored over a period of time, the result is that the reader begins to ‘inhabit’ the text.", "explanation": "소설, 희곡, 또는 단편소설을 어느 정도 긴 시간 동안 읽고 살펴보면, 독자는 점점 그 글 속에서 사는 것 같은 느낌을 받기 시작한다.", "vocabulary": [{"word": "explore", "meaning": "깊이 읽고 살펴보다", "note": "여기서는 장소를 탐험한다는 뜻이 아니라 작품을 자세히 이해해 간다는 뜻이다."}, {"word": "over a period of time", "meaning": "어느 기간 동안, 시간이 지나면서", "note": ""}, {"word": "the result is that", "meaning": "그 결과 ~하게 된다", "note": ""}, {"word": "inhabit", "meaning": "살다, 머물다", "note": "여기서는 실제로 사는 것이 아니라 글의 세계 안에 들어가 있는 듯한 느낌을 비유적으로 말한다."}]}, {"id": 6, "original": "He or she is drawn into the book.", "explanation": "독자는 그 책 속으로 자연스럽게 끌려 들어간다.", "vocabulary": [{"word": "be drawn into", "meaning": "~에 이끌려 들어가다, 빠져들다", "note": "수동형으로 자주 쓰이며, 스스로라기보다 자연스럽게 끌리는 느낌이 있다."}, {"word": "book", "meaning": "책, 작품", "note": "여기서는 단순한 물건이 아니라 이야기 세계를 뜻한다."}]}, {"id": 7, "original": "Pinpointing what individual words or phrases may mean becomes less important than pursuing the development of the story.", "explanation": "낱말이나 표현 하나하나의 뜻을 정확히 짚어 내는 일은, 이야기의 전개를 따라가는 것보다 덜 중요해진다.", "vocabulary": [{"word": "pinpoint", "meaning": "정확히 짚어 내다", "note": ""}, {"word": "individual words or phrases", "meaning": "개개의 단어와 표현", "note": ""}, {"word": "pursue", "meaning": "좇아가다, 따라가다", "note": "여기서는 이야기의 흐름을 계속 따라간다는 뜻이다."}, {"word": "development of the story", "meaning": "이야기의 전개", "note": ""}]}, {"id": 8, "original": "The reader is eager to find out what happens as events unfold; he or she feels close to certain characters and shares their emotional responses.", "explanation": "독자는 사건이 어떻게 펼쳐지는지 몹시 알고 싶어 한다. 또 어떤 인물들에게 친밀함을 느끼고, 그들의 감정에도 함께 공감하게 된다.", "vocabulary": [{"word": "be eager to", "meaning": "몹시 ~하고 싶어 하다", "note": ""}, {"word": "find out", "meaning": "알아내다", "note": ""}, {"word": "unfold", "meaning": "펼쳐지다, 전개되다", "note": "사건이나 이야기가 차례로 드러날 때 자주 쓴다."}, {"word": "feel close to", "meaning": "~에게 가깝게 느끼다, 친밀감을 느끼다", "note": ""}, {"word": "emotional responses", "meaning": "감정적인 반응", "note": "기쁨, 슬픔, 두려움 같은 마음의 움직임을 말한다."}]}, {"id": 9, "original": "The language becomes ‘transparent’ — the fiction draws the whole person into its own world.", "explanation": "이때 언어는 거의 눈에 띄지 않게 된다. 독자는 말 자체보다 이야기 세계에 더 깊이 빠져들고, 소설은 그 사람 전체를 자기 세계 안으로 끌어들인다.", "vocabulary": [{"word": "transparent", "meaning": "투명한, 거의 느껴지지 않는", "note": "여기서는 언어가 방해물처럼 느껴지지 않고 자연스럽게 받아들여진다는 뜻이다."}, {"word": "fiction", "meaning": "허구의 이야기, 소설", "note": ""}, {"word": "draw", "meaning": "끌어당기다", "note": ""}, {"word": "the whole person", "meaning": "그 사람 전체", "note": "생각, 감정, 상상력까지 모두 포함한 사람 전체를 뜻한다."}]}], "problem_number": "31", "exam_info": "고2 2025 3월 모고"};
+const NEXT_PAGE = "32.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

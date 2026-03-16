@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "등산을 통해 회복된 부자 관계", "summary": "서먹해진 아버지와 아들이 함께 등산을 하며 서로의 마음을 다시 확인하고 관계를 회복하는 이야기이다.", "sentences": [{"id": 1, "original": "“Do you remember when Sean used to tell me that I was the best dad in the world?”", "explanation": "에단은 예전에 션이 자신을 세상에서 가장 좋은 아빠라고 말하곤 했던 때를 그레이스가 기억하는지 물었다.", "vocabulary": [{"word": "used to", "meaning": "예전에는 ~하곤 했다", "note": "과거의 반복적 습관이나 상태를 나타낸다."}, {"word": "the best dad in the world", "meaning": "세상에서 가장 좋은 아빠", "note": "과장된 애정 표현으로 자주 쓰일 수 있다."}]}, {"id": 2, "original": "Ethan asked his wife, Grace.", "explanation": "에단이 아내 그레이스에게 그렇게 물었다.", "vocabulary": [{"word": "asked", "meaning": "물었다", "note": "앞 문장의 직접화법을 받는 동사이다."}]}, {"id": 3, "original": "“Yes, I do. I always envied your relationship with Sean,”", "explanation": "그레이스는 그렇다고 하며, 션과 에단의 관계를 늘 부러워했다고 말했다.", "vocabulary": [{"word": "envied", "meaning": "부러워했다, 질투했다", "note": "envy의 과거형."}, {"word": "relationship", "meaning": "관계", "note": "사람 사이의 유대나 관계를 뜻한다."}]}, {"id": 4, "original": "she replied.", "explanation": "그녀가 그렇게 대답했다.", "vocabulary": [{"word": "replied", "meaning": "대답했다", "note": "reply는 질문이나 말에 응답한다는 뜻이다."}]}, {"id": 5, "original": "Ethan then shared how things had changed since his son started middle school.", "explanation": "에단은 아들이 중학교에 들어간 뒤로 상황이 어떻게 달라졌는지 이야기했다.", "vocabulary": [{"word": "shared", "meaning": "이야기했다, 털어놓았다", "note": "단순히 공유하다보다 개인적인 이야기를 전한다는 뉘앙스가 있다."}, {"word": "had changed", "meaning": "달라져 있었다, 변했다", "note": "과거완료로 어떤 시점 이전의 변화를 나타낸다."}, {"word": "middle school", "meaning": "중학교", "note": "미국식 학제 표현이다."}]}, {"id": 6, "original": "Grace had noticed Ethan often pushing Sean to study harder.", "explanation": "그레이스는 에단이 션에게 더 열심히 공부하라고 자주 압박하는 것을 알아차리고 있었다.", "vocabulary": [{"word": "had noticed", "meaning": "알아차리고 있었다", "note": "이전부터 인지해 온 상태를 나타낸다."}, {"word": "pushing", "meaning": "압박하는 것, 몰아붙이는 것", "note": "여기서는 물리적으로 미는 것이 아니라 강하게 재촉하는 뜻이다."}, {"word": "study harder", "meaning": "더 열심히 공부하다", "note": "harder는 비교급으로 노력의 강도를 높인다는 의미다."}]}, {"id": 7, "original": "“Maybe he isn’t that into school right now.", "explanation": "그레이스는 지금 션이 학교생활이나 공부에 그다지 큰 관심이 없는 것일 수도 있다고 말했다.", "vocabulary": [{"word": "be into", "meaning": "~에 관심이 있다, 빠져 있다", "note": "구어체에서 매우 자주 쓰이는 표현이다."}, {"word": "right now", "meaning": "지금 당장은, 현재", "note": "현재 시점을 강조한다."}]}, {"id": 8, "original": "How about going hiking, just the two of you?” she suggested.", "explanation": "그리고 둘만 함께 등산을 가보는 게 어떻겠냐고 그녀는 제안했다.", "vocabulary": [{"word": "How about ~?", "meaning": "~하는 게 어때?", "note": "제안할 때 쓰는 대표 표현이다."}, {"word": "just the two of you", "meaning": "너희 둘만", "note": "다른 사람 없이 둘만 함께한다는 뜻이다."}, {"word": "suggested", "meaning": "제안했다", "note": "부드럽게 의견을 내는 느낌이다."}]}, {"id": 9, "original": "He agreed, and realizing that both his and Sean’s hiking jackets were still at the laundry, he asked his wife to go and pick them up with him.", "explanation": "에단은 그 제안에 동의했고, 자신과 션의 등산 재킷이 아직 세탁소에 있다는 것을 깨닫고 아내에게 함께 가서 찾아오자고 했다.", "vocabulary": [{"word": "agreed", "meaning": "동의했다", "note": "제안을 받아들였다는 뜻이다."}, {"word": "the laundry", "meaning": "세탁소", "note": "문맥상 세탁 서비스 업체를 뜻한다."}, {"word": "pick them up", "meaning": "그것들을 찾아오다", "note": "맡겨 둔 물건을 수령한다는 의미다."}]}, {"id": 10, "original": "“When did you bring the jackets in?” the clerk at the laundry asked.", "explanation": "세탁소 직원이 재킷을 언제 맡겼는지 물었다.", "vocabulary": [{"word": "bring in", "meaning": "가져오다, 맡기다", "note": "세탁소 문맥에서는 세탁을 위해 맡기다는 뜻으로 쓰인다."}, {"word": "clerk", "meaning": "점원, 직원", "note": "가게나 서비스 장소의 직원을 가리킨다."}, {"word": "laundry", "meaning": "세탁소", "note": "세탁물 자체가 아니라 장소를 뜻한다."}]}, {"id": 11, "original": "“Maybe two weeks ago,” Ethan replied.", "explanation": "에단은 아마 2주쯤 전일 것이라고 대답했다.", "vocabulary": [{"word": "Maybe", "meaning": "아마", "note": "기억이 확실하지 않을 때 쓴다."}, {"word": "two weeks ago", "meaning": "2주 전에", "note": "과거 시점을 나타내는 표현이다."}]}, {"id": 12, "original": "Then, Grace quickly reminded him, “Honey, we actually left them here a month ago.”", "explanation": "그러자 그레이스는 재빨리, 사실 그 재킷들을 한 달 전에 맡겼다고 에단에게 상기시켰다.", "vocabulary": [{"word": "reminded", "meaning": "상기시켰다, 일깨워 주었다", "note": "잊고 있던 사실을 다시 떠올리게 할 때 쓴다."}, {"word": "Honey", "meaning": "여보, 자기", "note": "부부 사이의 애칭이다."}, {"word": "actually", "meaning": "사실은, 실제로는", "note": "상대의 말과 다른 사실을 바로잡을 때 자주 쓴다."}]}, {"id": 13, "original": "The clerk went into the storage area to look for the clothes.", "explanation": "직원은 옷을 찾기 위해 보관 구역 안으로 들어갔다.", "vocabulary": [{"word": "storage area", "meaning": "보관 구역, 창고 공간", "note": "물건을 쌓아 두는 장소를 뜻한다."}, {"word": "look for", "meaning": "찾다", "note": "무언가를 발견하려고 찾는 행위이다."}]}, {"id": 14, "original": "Finally, he returned with the jackets and handed them to Ethan.", "explanation": "마침내 그는 재킷들을 가지고 돌아와 에단에게 건네주었다.", "vocabulary": [{"word": "Finally", "meaning": "마침내", "note": "시간이 걸린 끝에 결과가 나왔음을 나타낸다."}, {"word": "handed", "meaning": "건네주었다", "note": "손으로 전달했다는 뜻이다."}]}, {"id": 15, "original": "The clerk politely said, “I am sorry, but please collect your items earlier next time.", "explanation": "직원은 정중하게 미안하지만 다음부터는 물건을 좀 더 일찍 찾아가 달라고 말했다.", "vocabulary": [{"word": "politely", "meaning": "정중하게", "note": "예의를 갖춘 태도를 나타낸다."}, {"word": "collect", "meaning": "수거하다, 찾아가다", "note": "여기서는 맡겨 둔 물건을 찾아간다는 뜻이다."}, {"word": "items", "meaning": "물품들", "note": "옷이나 소지품 등을 두루 가리키는 말이다."}]}, {"id": 16, "original": "Our storage is too full.”", "explanation": "보관 공간이 너무 꽉 차 있다는 뜻이다.", "vocabulary": [{"word": "storage", "meaning": "보관 공간", "note": "창고나 보관 장소를 뜻한다."}, {"word": "too full", "meaning": "너무 가득 찬", "note": "수용할 여유가 거의 없다는 의미다."}]}, {"id": 17, "original": "Ethan felt embarrassed for the late collection and apologized.", "explanation": "에단은 늦게 찾아간 것이 부끄러워 사과했다.", "vocabulary": [{"word": "embarrassed", "meaning": "민망한, 부끄러운", "note": "실수나 난처한 상황에서 느끼는 감정이다."}, {"word": "late collection", "meaning": "늦은 수령, 늦게 찾아감", "note": "맡긴 물건을 제때 찾지 않은 상황을 말한다."}, {"word": "apologized", "meaning": "사과했다", "note": "apologize의 과거형."}]}, {"id": 18, "original": "Ethan and Grace came back home with the jackets and checked if Sean had everything else he needed for hiking.", "explanation": "에단과 그레이스는 재킷을 가지고 집에 돌아와 션이 등산에 필요한 다른 것들을 다 갖추었는지 확인했다.", "vocabulary": [{"word": "came back home", "meaning": "집으로 돌아왔다", "note": "return home과 비슷한 표현이다."}, {"word": "checked if", "meaning": "~인지 확인했다", "note": "사실 여부를 점검할 때 쓴다."}, {"word": "everything else", "meaning": "그 밖의 모든 것", "note": "이미 언급된 것 외의 나머지를 뜻한다."}]}, {"id": 19, "original": "Luckily, in his drawers they found his hat, shoes, sunglasses, and hiking sticks.", "explanation": "다행히도 그의 서랍들에서 모자, 신발, 선글라스, 등산 스틱을 찾았다.", "vocabulary": [{"word": "Luckily", "meaning": "다행히", "note": "좋은 결과가 나왔음을 나타낸다."}, {"word": "drawers", "meaning": "서랍들", "note": "drawer의 복수형."}, {"word": "hiking sticks", "meaning": "등산 스틱", "note": "trekking poles와 비슷한 말이다."}]}, {"id": 20, "original": "When Sean returned from school, Ethan softly said, “Sean, let’s go hiking this Saturday, just the two of us.”", "explanation": "션이 학교에서 돌아오자 에단은 부드럽게 이번 토요일에 둘만 등산 가자고 말했다.", "vocabulary": [{"word": "softly", "meaning": "부드럽게, 조용히", "note": "말투가 온화함을 나타낸다."}, {"word": "let’s go hiking", "meaning": "등산 가자", "note": "함께 어떤 행동을 제안하는 표현이다."}, {"word": "this Saturday", "meaning": "이번 토요일", "note": "가까운 미래의 특정 시점을 가리킨다."}]}, {"id": 21, "original": "Though Sean thanked him for the suggestion, he said he had to go to the library.", "explanation": "션은 제안에 대해 고맙다고 했지만, 도서관에 가야 한다고 말했다.", "vocabulary": [{"word": "Though", "meaning": "비록 ~이지만", "note": "양보를 나타내는 접속사이다."}, {"word": "suggestion", "meaning": "제안", "note": "상대가 내놓은 의견이나 아이디어."}, {"word": "had to", "meaning": "~해야 했다", "note": "의무나 필요를 나타낸다."}]}, {"id": 22, "original": "Grace stepped in, “You know, the weather this weekend will be the best of the year.", "explanation": "그때 그레이스가 끼어들어 이번 주말 날씨가 올해 최고일 거라고 말했다.", "vocabulary": [{"word": "stepped in", "meaning": "끼어들었다, 나섰다", "note": "대화나 상황에 개입한다는 뜻이다."}, {"word": "You know", "meaning": "있잖아, 알다시피", "note": "상대의 주의를 부드럽게 끌 때 쓰는 구어 표현이다."}, {"word": "the best of the year", "meaning": "올해 최고", "note": "한 해 중 가장 좋다는 뜻이다."}]}, {"id": 23, "original": "Why not enjoy it?”", "explanation": "그 좋은 날씨를 즐겨보는 게 어떻겠냐는 뜻이다.", "vocabulary": [{"word": "Why not ~?", "meaning": "~하는 게 어때?", "note": "제안이나 권유를 할 때 쓰는 표현이다."}, {"word": "enjoy it", "meaning": "그것을 즐기다", "note": "여기서는 좋은 날씨를 즐기라는 뜻이다."}]}, {"id": 24, "original": "After a moment’s hesitation, he agreed.", "explanation": "잠시 망설인 끝에 션은 동의했다.", "vocabulary": [{"word": "a moment’s hesitation", "meaning": "잠깐의 망설임", "note": "결정을 바로 내리지 못하는 짧은 주저함을 뜻한다."}, {"word": "agreed", "meaning": "동의했다", "note": "결국 제안을 받아들였다는 의미다."}]}, {"id": 25, "original": "The weather was perfect.", "explanation": "날씨는 더할 나위 없이 완벽했다.", "vocabulary": [{"word": "perfect", "meaning": "완벽한", "note": "조건이 매우 이상적이라는 뜻이다."}]}, {"id": 26, "original": "Ethan and Sean set off hiking along the valley by Aicken Mountain.", "explanation": "에단과 션은 아이컨 산 근처 계곡을 따라 등산을 시작했다.", "vocabulary": [{"word": "set off", "meaning": "출발했다", "note": "여행이나 길을 나설 때 자주 쓰는 표현이다."}, {"word": "along the valley", "meaning": "계곡을 따라", "note": "지형을 따라 이동하는 모습을 나타낸다."}, {"word": "by Aicken Mountain", "meaning": "아이컨 산 근처의", "note": "by는 ~옆에, ~근처에의 의미다."}]}, {"id": 27, "original": "They walked in silence until Sean fell over a rock and twisted his ankle.", "explanation": "두 사람은 말없이 걷다가 션이 바위에 걸려 넘어지며 발목을 삐었다.", "vocabulary": [{"word": "in silence", "meaning": "침묵 속에서, 말없이", "note": "대화 없이 조용한 상태를 뜻한다."}, {"word": "fell over", "meaning": "넘어졌다", "note": "무언가에 걸리거나 균형을 잃어 쓰러지는 것."}, {"word": "twisted his ankle", "meaning": "발목을 삐었다", "note": "운동이나 보행 중 흔히 쓰는 표현이다."}]}, {"id": 28, "original": "Realizing he couldn’t walk, Ethan carried his son down on his back.", "explanation": "션이 걸을 수 없다는 것을 알고 에단은 아들을 업고 아래로 내려왔다.", "vocabulary": [{"word": "Realizing", "meaning": "깨닫고", "note": "분사구문으로 이유나 상황 인식을 나타낸다."}, {"word": "on his back", "meaning": "등에 업고", "note": "carry someone on one’s back은 업다는 뜻이다."}, {"word": "carried his son down", "meaning": "아들을 데리고 아래로 옮겼다", "note": "산길 아래쪽으로 이동시켰다는 의미다."}]}, {"id": 29, "original": "He felt Sean’s heartbeat, something he hadn’t felt since Sean was a baby.", "explanation": "그는 션의 심장 박동을 느꼈는데, 그것은 션이 아기였던 이후로 한 번도 느껴보지 못했던 것이었다.", "vocabulary": [{"word": "heartbeat", "meaning": "심장 박동", "note": "heart + beat의 합성어."}, {"word": "hadn’t felt", "meaning": "느껴보지 못했다", "note": "과거완료로 그 이전부터의 경험 부재를 나타낸다."}, {"word": "since Sean was a baby", "meaning": "션이 아기였던 이후로", "note": "오랜 시간의 간격을 강조한다."}]}, {"id": 30, "original": "Suddenly, Sean said, “Dad, I’m sorry.", "explanation": "갑자기 션이 아빠에게 미안하다고 말했다.", "vocabulary": [{"word": "Suddenly", "meaning": "갑자기", "note": "예상치 못한 전환을 나타낸다."}, {"word": "I’m sorry", "meaning": "미안해요", "note": "사과나 유감을 표현하는 기본 표현이다."}]}, {"id": 31, "original": "At some point, I started to become afraid of disappointing you.", "explanation": "션은 어느 순간부터 아빠를 실망시킬까 봐 두려워지기 시작했다고 털어놓았다.", "vocabulary": [{"word": "At some point", "meaning": "어느 순간, 언젠가부터", "note": "정확하지 않은 시점을 가리킨다."}, {"word": "become afraid of", "meaning": "~을 두려워하게 되다", "note": "감정 상태의 변화를 나타낸다."}, {"word": "disappointing you", "meaning": "당신을 실망시키는 것", "note": "disappoint는 기대에 못 미치게 하다는 뜻이다."}]}, {"id": 32, "original": "But you are still the best dad.”", "explanation": "하지만 아빠는 여전히 최고의 아빠라고 션은 말했다.", "vocabulary": [{"word": "still", "meaning": "여전히", "note": "변함없음을 강조한다."}, {"word": "the best dad", "meaning": "최고의 아빠", "note": "처음 부분의 표현이 다시 반복되어 감정적 울림을 준다."}]}, {"id": 33, "original": "Energized, he felt no weight on his back and replied, “You are the best son, no matter what.”", "explanation": "힘이 난 에단은 등에 무게가 전혀 느껴지지 않았고, 무슨 일이 있어도 너는 최고의 아들이라고 답했다.", "vocabulary": [{"word": "Energized", "meaning": "힘이 난, 기운이 솟은", "note": "감정적으로 북돋워진 상태를 뜻한다."}, {"word": "felt no weight", "meaning": "무게가 느껴지지 않았다", "note": "실제 무게보다 감정적 가벼움을 강조하는 표현이다."}, {"word": "no matter what", "meaning": "무슨 일이 있어도", "note": "조건과 상관없이 변하지 않음을 나타낸다."}]}], "problem_number": "43"};
+const DATA = {"title": "등산을 통해 회복된 부자 관계", "summary": "서먹해진 아버지와 아들이 함께 등산을 하며 서로의 마음을 다시 확인하고 관계를 회복하는 이야기이다.", "sentences": [{"id": 1, "original": "“Do you remember when Sean used to tell me that I was the best dad in the world?”", "explanation": "에단은 예전에 션이 자신을 세상에서 가장 좋은 아빠라고 말하곤 했던 때를 그레이스가 기억하는지 물었다.", "vocabulary": [{"word": "used to", "meaning": "예전에는 ~하곤 했다", "note": "과거의 반복적 습관이나 상태를 나타낸다."}, {"word": "the best dad in the world", "meaning": "세상에서 가장 좋은 아빠", "note": "과장된 애정 표현으로 자주 쓰일 수 있다."}]}, {"id": 2, "original": "Ethan asked his wife, Grace.", "explanation": "에단이 아내 그레이스에게 그렇게 물었다.", "vocabulary": [{"word": "asked", "meaning": "물었다", "note": "앞 문장의 직접화법을 받는 동사이다."}]}, {"id": 3, "original": "“Yes, I do. I always envied your relationship with Sean,”", "explanation": "그레이스는 그렇다고 하며, 션과 에단의 관계를 늘 부러워했다고 말했다.", "vocabulary": [{"word": "envied", "meaning": "부러워했다, 질투했다", "note": "envy의 과거형."}, {"word": "relationship", "meaning": "관계", "note": "사람 사이의 유대나 관계를 뜻한다."}]}, {"id": 4, "original": "she replied.", "explanation": "그녀가 그렇게 대답했다.", "vocabulary": [{"word": "replied", "meaning": "대답했다", "note": "reply는 질문이나 말에 응답한다는 뜻이다."}]}, {"id": 5, "original": "Ethan then shared how things had changed since his son started middle school.", "explanation": "에단은 아들이 중학교에 들어간 뒤로 상황이 어떻게 달라졌는지 이야기했다.", "vocabulary": [{"word": "shared", "meaning": "이야기했다, 털어놓았다", "note": "단순히 공유하다보다 개인적인 이야기를 전한다는 뉘앙스가 있다."}, {"word": "had changed", "meaning": "달라져 있었다, 변했다", "note": "과거완료로 어떤 시점 이전의 변화를 나타낸다."}, {"word": "middle school", "meaning": "중학교", "note": "미국식 학제 표현이다."}]}, {"id": 6, "original": "Grace had noticed Ethan often pushing Sean to study harder.", "explanation": "그레이스는 에단이 션에게 더 열심히 공부하라고 자주 압박하는 것을 알아차리고 있었다.", "vocabulary": [{"word": "had noticed", "meaning": "알아차리고 있었다", "note": "이전부터 인지해 온 상태를 나타낸다."}, {"word": "pushing", "meaning": "압박하는 것, 몰아붙이는 것", "note": "여기서는 물리적으로 미는 것이 아니라 강하게 재촉하는 뜻이다."}, {"word": "study harder", "meaning": "더 열심히 공부하다", "note": "harder는 비교급으로 노력의 강도를 높인다는 의미다."}]}, {"id": 7, "original": "“Maybe he isn’t that into school right now.", "explanation": "그레이스는 지금 션이 학교생활이나 공부에 그다지 큰 관심이 없는 것일 수도 있다고 말했다.", "vocabulary": [{"word": "be into", "meaning": "~에 관심이 있다, 빠져 있다", "note": "구어체에서 매우 자주 쓰이는 표현이다."}, {"word": "right now", "meaning": "지금 당장은, 현재", "note": "현재 시점을 강조한다."}]}, {"id": 8, "original": "How about going hiking, just the two of you?” she suggested.", "explanation": "그리고 둘만 함께 등산을 가보는 게 어떻겠냐고 그녀는 제안했다.", "vocabulary": [{"word": "How about ~?", "meaning": "~하는 게 어때?", "note": "제안할 때 쓰는 대표 표현이다."}, {"word": "just the two of you", "meaning": "너희 둘만", "note": "다른 사람 없이 둘만 함께한다는 뜻이다."}, {"word": "suggested", "meaning": "제안했다", "note": "부드럽게 의견을 내는 느낌이다."}]}, {"id": 9, "original": "He agreed, and realizing that both his and Sean’s hiking jackets were still at the laundry, he asked his wife to go and pick them up with him.", "explanation": "에단은 그 제안에 동의했고, 자신과 션의 등산 재킷이 아직 세탁소에 있다는 것을 깨닫고 아내에게 함께 가서 찾아오자고 했다.", "vocabulary": [{"word": "agreed", "meaning": "동의했다", "note": "제안을 받아들였다는 뜻이다."}, {"word": "the laundry", "meaning": "세탁소", "note": "문맥상 세탁 서비스 업체를 뜻한다."}, {"word": "pick them up", "meaning": "그것들을 찾아오다", "note": "맡겨 둔 물건을 수령한다는 의미다."}]}, {"id": 10, "original": "“When did you bring the jackets in?” the clerk at the laundry asked.", "explanation": "세탁소 직원이 재킷을 언제 맡겼는지 물었다.", "vocabulary": [{"word": "bring in", "meaning": "가져오다, 맡기다", "note": "세탁소 문맥에서는 세탁을 위해 맡기다는 뜻으로 쓰인다."}, {"word": "clerk", "meaning": "점원, 직원", "note": "가게나 서비스 장소의 직원을 가리킨다."}, {"word": "laundry", "meaning": "세탁소", "note": "세탁물 자체가 아니라 장소를 뜻한다."}]}, {"id": 11, "original": "“Maybe two weeks ago,” Ethan replied.", "explanation": "에단은 아마 2주쯤 전일 것이라고 대답했다.", "vocabulary": [{"word": "Maybe", "meaning": "아마", "note": "기억이 확실하지 않을 때 쓴다."}, {"word": "two weeks ago", "meaning": "2주 전에", "note": "과거 시점을 나타내는 표현이다."}]}, {"id": 12, "original": "Then, Grace quickly reminded him, “Honey, we actually left them here a month ago.”", "explanation": "그러자 그레이스는 재빨리, 사실 그 재킷들을 한 달 전에 맡겼다고 에단에게 상기시켰다.", "vocabulary": [{"word": "reminded", "meaning": "상기시켰다, 일깨워 주었다", "note": "잊고 있던 사실을 다시 떠올리게 할 때 쓴다."}, {"word": "Honey", "meaning": "여보, 자기", "note": "부부 사이의 애칭이다."}, {"word": "actually", "meaning": "사실은, 실제로는", "note": "상대의 말과 다른 사실을 바로잡을 때 자주 쓴다."}]}, {"id": 13, "original": "The clerk went into the storage area to look for the clothes.", "explanation": "직원은 옷을 찾기 위해 보관 구역 안으로 들어갔다.", "vocabulary": [{"word": "storage area", "meaning": "보관 구역, 창고 공간", "note": "물건을 쌓아 두는 장소를 뜻한다."}, {"word": "look for", "meaning": "찾다", "note": "무언가를 발견하려고 찾는 행위이다."}]}, {"id": 14, "original": "Finally, he returned with the jackets and handed them to Ethan.", "explanation": "마침내 그는 재킷들을 가지고 돌아와 에단에게 건네주었다.", "vocabulary": [{"word": "Finally", "meaning": "마침내", "note": "시간이 걸린 끝에 결과가 나왔음을 나타낸다."}, {"word": "handed", "meaning": "건네주었다", "note": "손으로 전달했다는 뜻이다."}]}, {"id": 15, "original": "The clerk politely said, “I am sorry, but please collect your items earlier next time.", "explanation": "직원은 정중하게 미안하지만 다음부터는 물건을 좀 더 일찍 찾아가 달라고 말했다.", "vocabulary": [{"word": "politely", "meaning": "정중하게", "note": "예의를 갖춘 태도를 나타낸다."}, {"word": "collect", "meaning": "수거하다, 찾아가다", "note": "여기서는 맡겨 둔 물건을 찾아간다는 뜻이다."}, {"word": "items", "meaning": "물품들", "note": "옷이나 소지품 등을 두루 가리키는 말이다."}]}, {"id": 16, "original": "Our storage is too full.”", "explanation": "보관 공간이 너무 꽉 차 있다는 뜻이다.", "vocabulary": [{"word": "storage", "meaning": "보관 공간", "note": "창고나 보관 장소를 뜻한다."}, {"word": "too full", "meaning": "너무 가득 찬", "note": "수용할 여유가 거의 없다는 의미다."}]}, {"id": 17, "original": "Ethan felt embarrassed for the late collection and apologized.", "explanation": "에단은 늦게 찾아간 것이 부끄러워 사과했다.", "vocabulary": [{"word": "embarrassed", "meaning": "민망한, 부끄러운", "note": "실수나 난처한 상황에서 느끼는 감정이다."}, {"word": "late collection", "meaning": "늦은 수령, 늦게 찾아감", "note": "맡긴 물건을 제때 찾지 않은 상황을 말한다."}, {"word": "apologized", "meaning": "사과했다", "note": "apologize의 과거형."}]}, {"id": 18, "original": "Ethan and Grace came back home with the jackets and checked if Sean had everything else he needed for hiking.", "explanation": "에단과 그레이스는 재킷을 가지고 집에 돌아와 션이 등산에 필요한 다른 것들을 다 갖추었는지 확인했다.", "vocabulary": [{"word": "came back home", "meaning": "집으로 돌아왔다", "note": "return home과 비슷한 표현이다."}, {"word": "checked if", "meaning": "~인지 확인했다", "note": "사실 여부를 점검할 때 쓴다."}, {"word": "everything else", "meaning": "그 밖의 모든 것", "note": "이미 언급된 것 외의 나머지를 뜻한다."}]}, {"id": 19, "original": "Luckily, in his drawers they found his hat, shoes, sunglasses, and hiking sticks.", "explanation": "다행히도 그의 서랍들에서 모자, 신발, 선글라스, 등산 스틱을 찾았다.", "vocabulary": [{"word": "Luckily", "meaning": "다행히", "note": "좋은 결과가 나왔음을 나타낸다."}, {"word": "drawers", "meaning": "서랍들", "note": "drawer의 복수형."}, {"word": "hiking sticks", "meaning": "등산 스틱", "note": "trekking poles와 비슷한 말이다."}]}, {"id": 20, "original": "When Sean returned from school, Ethan softly said, “Sean, let’s go hiking this Saturday, just the two of us.”", "explanation": "션이 학교에서 돌아오자 에단은 부드럽게 이번 토요일에 둘만 등산 가자고 말했다.", "vocabulary": [{"word": "softly", "meaning": "부드럽게, 조용히", "note": "말투가 온화함을 나타낸다."}, {"word": "let’s go hiking", "meaning": "등산 가자", "note": "함께 어떤 행동을 제안하는 표현이다."}, {"word": "this Saturday", "meaning": "이번 토요일", "note": "가까운 미래의 특정 시점을 가리킨다."}]}, {"id": 21, "original": "Though Sean thanked him for the suggestion, he said he had to go to the library.", "explanation": "션은 제안에 대해 고맙다고 했지만, 도서관에 가야 한다고 말했다.", "vocabulary": [{"word": "Though", "meaning": "비록 ~이지만", "note": "양보를 나타내는 접속사이다."}, {"word": "suggestion", "meaning": "제안", "note": "상대가 내놓은 의견이나 아이디어."}, {"word": "had to", "meaning": "~해야 했다", "note": "의무나 필요를 나타낸다."}]}, {"id": 22, "original": "Grace stepped in, “You know, the weather this weekend will be the best of the year.", "explanation": "그때 그레이스가 끼어들어 이번 주말 날씨가 올해 최고일 거라고 말했다.", "vocabulary": [{"word": "stepped in", "meaning": "끼어들었다, 나섰다", "note": "대화나 상황에 개입한다는 뜻이다."}, {"word": "You know", "meaning": "있잖아, 알다시피", "note": "상대의 주의를 부드럽게 끌 때 쓰는 구어 표현이다."}, {"word": "the best of the year", "meaning": "올해 최고", "note": "한 해 중 가장 좋다는 뜻이다."}]}, {"id": 23, "original": "Why not enjoy it?”", "explanation": "그 좋은 날씨를 즐겨보는 게 어떻겠냐는 뜻이다.", "vocabulary": [{"word": "Why not ~?", "meaning": "~하는 게 어때?", "note": "제안이나 권유를 할 때 쓰는 표현이다."}, {"word": "enjoy it", "meaning": "그것을 즐기다", "note": "여기서는 좋은 날씨를 즐기라는 뜻이다."}]}, {"id": 24, "original": "After a moment’s hesitation, he agreed.", "explanation": "잠시 망설인 끝에 션은 동의했다.", "vocabulary": [{"word": "a moment’s hesitation", "meaning": "잠깐의 망설임", "note": "결정을 바로 내리지 못하는 짧은 주저함을 뜻한다."}, {"word": "agreed", "meaning": "동의했다", "note": "결국 제안을 받아들였다는 의미다."}]}, {"id": 25, "original": "The weather was perfect.", "explanation": "날씨는 더할 나위 없이 완벽했다.", "vocabulary": [{"word": "perfect", "meaning": "완벽한", "note": "조건이 매우 이상적이라는 뜻이다."}]}, {"id": 26, "original": "Ethan and Sean set off hiking along the valley by Aicken Mountain.", "explanation": "에단과 션은 아이컨 산 근처 계곡을 따라 등산을 시작했다.", "vocabulary": [{"word": "set off", "meaning": "출발했다", "note": "여행이나 길을 나설 때 자주 쓰는 표현이다."}, {"word": "along the valley", "meaning": "계곡을 따라", "note": "지형을 따라 이동하는 모습을 나타낸다."}, {"word": "by Aicken Mountain", "meaning": "아이컨 산 근처의", "note": "by는 ~옆에, ~근처에의 의미다."}]}, {"id": 27, "original": "They walked in silence until Sean fell over a rock and twisted his ankle.", "explanation": "두 사람은 말없이 걷다가 션이 바위에 걸려 넘어지며 발목을 삐었다.", "vocabulary": [{"word": "in silence", "meaning": "침묵 속에서, 말없이", "note": "대화 없이 조용한 상태를 뜻한다."}, {"word": "fell over", "meaning": "넘어졌다", "note": "무언가에 걸리거나 균형을 잃어 쓰러지는 것."}, {"word": "twisted his ankle", "meaning": "발목을 삐었다", "note": "운동이나 보행 중 흔히 쓰는 표현이다."}]}, {"id": 28, "original": "Realizing he couldn’t walk, Ethan carried his son down on his back.", "explanation": "션이 걸을 수 없다는 것을 알고 에단은 아들을 업고 아래로 내려왔다.", "vocabulary": [{"word": "Realizing", "meaning": "깨닫고", "note": "분사구문으로 이유나 상황 인식을 나타낸다."}, {"word": "on his back", "meaning": "등에 업고", "note": "carry someone on one’s back은 업다는 뜻이다."}, {"word": "carried his son down", "meaning": "아들을 데리고 아래로 옮겼다", "note": "산길 아래쪽으로 이동시켰다는 의미다."}]}, {"id": 29, "original": "He felt Sean’s heartbeat, something he hadn’t felt since Sean was a baby.", "explanation": "그는 션의 심장 박동을 느꼈는데, 그것은 션이 아기였던 이후로 한 번도 느껴보지 못했던 것이었다.", "vocabulary": [{"word": "heartbeat", "meaning": "심장 박동", "note": "heart + beat의 합성어."}, {"word": "hadn’t felt", "meaning": "느껴보지 못했다", "note": "과거완료로 그 이전부터의 경험 부재를 나타낸다."}, {"word": "since Sean was a baby", "meaning": "션이 아기였던 이후로", "note": "오랜 시간의 간격을 강조한다."}]}, {"id": 30, "original": "Suddenly, Sean said, “Dad, I’m sorry.", "explanation": "갑자기 션이 아빠에게 미안하다고 말했다.", "vocabulary": [{"word": "Suddenly", "meaning": "갑자기", "note": "예상치 못한 전환을 나타낸다."}, {"word": "I’m sorry", "meaning": "미안해요", "note": "사과나 유감을 표현하는 기본 표현이다."}]}, {"id": 31, "original": "At some point, I started to become afraid of disappointing you.", "explanation": "션은 어느 순간부터 아빠를 실망시킬까 봐 두려워지기 시작했다고 털어놓았다.", "vocabulary": [{"word": "At some point", "meaning": "어느 순간, 언젠가부터", "note": "정확하지 않은 시점을 가리킨다."}, {"word": "become afraid of", "meaning": "~을 두려워하게 되다", "note": "감정 상태의 변화를 나타낸다."}, {"word": "disappointing you", "meaning": "당신을 실망시키는 것", "note": "disappoint는 기대에 못 미치게 하다는 뜻이다."}]}, {"id": 32, "original": "But you are still the best dad.”", "explanation": "하지만 아빠는 여전히 최고의 아빠라고 션은 말했다.", "vocabulary": [{"word": "still", "meaning": "여전히", "note": "변함없음을 강조한다."}, {"word": "the best dad", "meaning": "최고의 아빠", "note": "처음 부분의 표현이 다시 반복되어 감정적 울림을 준다."}]}, {"id": 33, "original": "Energized, he felt no weight on his back and replied, “You are the best son, no matter what.”", "explanation": "힘이 난 에단은 등에 무게가 전혀 느껴지지 않았고, 무슨 일이 있어도 너는 최고의 아들이라고 답했다.", "vocabulary": [{"word": "Energized", "meaning": "힘이 난, 기운이 솟은", "note": "감정적으로 북돋워진 상태를 뜻한다."}, {"word": "felt no weight", "meaning": "무게가 느껴지지 않았다", "note": "실제 무게보다 감정적 가벼움을 강조하는 표현이다."}, {"word": "no matter what", "meaning": "무슨 일이 있어도", "note": "조건과 상관없이 변하지 않음을 나타낸다."}]}], "problem_number": "43", "exam_info": "고3 2025 11월 수능"};
 const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {

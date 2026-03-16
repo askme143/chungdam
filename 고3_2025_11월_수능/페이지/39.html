@@ -503,7 +503,7 @@
     margin-top: .15rem;
   }
   .wrong-close-btn {
-    margin-top: 1rem;
+    margin-top: .5rem;
     width: 100%;
     background: var(--accent);
     color: #fff;
@@ -513,6 +513,97 @@
     font-size: .95rem;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* ── Next Passage Confirm ── */
@@ -593,7 +684,7 @@
 
 <script>
 // ── DATA (injected by generate_html) ──
-const DATA = {"title": "유지보수와 사물의 비선형적 생애", "summary": "유지보수와 수리는 사물의 수명을 연장하는 실천이지만, 실제로 사물의 삶은 단순한 선형적 수명 주기보다 훨씬 복잡하고 유동적이라는 점을 설명한다.", "sentences": [{"id": 1, "original": "By their very nature, the concepts of maintenance and repair are predominantly examined from a process‑oriented perspective.", "explanation": "유지보수와 수리라는 개념은 그 본질상, 주로 하나의 진행 과정이나 절차라는 관점에서 분석된다는 뜻이다.", "vocabulary": [{"word": "by their very nature", "meaning": "그 본질상, 본래부터", "note": "강조 표현으로 '본성상 당연히'라는 뉘앙스를 준다."}, {"word": "maintenance", "meaning": "유지보수, 정비", "note": "기계·시설·시스템 등을 정상 상태로 유지하는 활동을 뜻한다."}, {"word": "predominantly", "meaning": "주로, 대부분", "note": "predominant(지배적인)에서 나온 부사형이다."}, {"word": "process-oriented", "meaning": "과정 중심의", "note": "결과보다 진행 절차와 흐름에 초점을 두는 표현이다."}]}, {"id": 2, "original": "The focus in related scholarly discourse often revolves around the lifespan or lifecycle of objects and technologies.", "explanation": "관련 학술 담론에서는 대체로 사물과 기술이 얼마나 오래 지속되는지, 그리고 어떤 생애 주기를 거치는지에 관심이 집중된다는 말이다.", "vocabulary": [{"word": "scholarly discourse", "meaning": "학술적 담론", "note": "학문적 논의나 연구자들 사이의 논의를 가리킨다."}, {"word": "revolve around", "meaning": "~을 중심으로 전개되다, ~에 초점을 맞추다", "note": "직역하면 '주위를 돌다'이지만 비유적으로 자주 쓰인다."}, {"word": "lifespan", "meaning": "수명, 지속 기간", "note": "사람뿐 아니라 사물·기술에도 쓸 수 있다."}, {"word": "lifecycle", "meaning": "생애 주기, 수명 주기", "note": "도입·사용·폐기 등 일련의 단계를 포함하는 개념이다."}]}, {"id": 3, "original": "In this context, maintenance and repair are considered practices that have the potential to prolong the existence of objects, ensuring their sustained utilization over an extended period.", "explanation": "이러한 맥락에서 유지보수와 수리는 사물의 존재 기간을 늘리고, 오랜 시간 계속 사용될 수 있게 만드는 실천으로 여겨진다.", "vocabulary": [{"word": "in this context", "meaning": "이러한 맥락에서", "note": "앞선 논의를 이어 받아 해석 범위를 한정하는 표현이다."}, {"word": "prolong", "meaning": "연장하다, 더 오래 지속시키다", "note": "시간이나 기간을 늘릴 때 자주 쓰인다."}, {"word": "sustained utilization", "meaning": "지속적인 활용, 계속된 사용", "note": "utilization은 다소 격식 있는 표현으로 'use'보다 공식적이다."}, {"word": "over an extended period", "meaning": "장기간에 걸쳐", "note": "긴 시간 동안이라는 뜻의 학술적 표현이다."}]}, {"id": 4, "original": "Krebs and Weber critically engage with anthropomorphic metaphors that imply a biography of things, appropriately highlighting that conventional understanding of the lifecycle of a technology, from its acquisition to its disposal from the household, provides an incomplete definition.", "explanation": "크렙스와 베버는 사물에도 마치 인간의 전기처럼 삶의 이야기가 있다는 식의 의인화된 비유를 비판적으로 검토하면서, 기술의 생애 주기를 가정 내로 들여오는 시점부터 버려지는 시점까지로만 이해하는 전통적 관점은 불완전하다고 적절히 지적한다.", "vocabulary": [{"word": "critically engage with", "meaning": "비판적으로 다루다, 비판적으로 검토하다", "note": "단순 비난이 아니라 분석적으로 논의한다는 뜻이다."}, {"word": "anthropomorphic", "meaning": "의인화된, 인간의 특성을 부여한", "note": "anthropo-(인간) + morph(형태) 어원이다."}, {"word": "biography of things", "meaning": "사물의 전기, 사물의 생애 서사", "note": "사물에도 인간처럼 삶의 이력이 있다는 비유적 표현이다."}, {"word": "acquisition", "meaning": "획득, 구입", "note": "여기서는 가정이 기술 제품을 들여오는 일을 뜻한다."}, {"word": "disposal", "meaning": "처분, 폐기", "note": "throwing away보다 더 격식 있는 표현이다."}]}, {"id": 5, "original": "In reality, objects do not conform to a linear lifecycle model; instead, they undergo breakdowns, await repairs, are stored away, or find themselves relegated to the basement, only to be rediscovered and repurposed later.", "explanation": "실제로 사물은 일직선적인 생애 주기 모델을 따르지 않는다. 오히려 고장이 나기도 하고, 수리를 기다리기도 하며, 치워져 보관되거나 지하실 같은 곳으로 밀려났다가 나중에 다시 발견되어 다른 용도로 활용되기도 한다.", "vocabulary": [{"word": "conform to", "meaning": "~에 따르다, ~에 부합하다", "note": "규범·모델·기준 등에 맞는다는 뜻으로 자주 쓰인다."}, {"word": "linear lifecycle model", "meaning": "선형적 생애 주기 모델", "note": "시작에서 끝으로 일방향으로 진행된다고 보는 틀이다."}, {"word": "undergo", "meaning": "겪다, 경험하다", "note": "변화나 과정, 좋지 않은 일을 겪을 때 자주 쓰인다."}, {"word": "relegated to", "meaning": "~로 밀려나다, ~로 보내지다", "note": "중요하지 않은 위치로 내려보내는 뉘앙스가 있다."}, {"word": "repurposed", "meaning": "다른 용도로 재활용된, 용도를 바꿔 다시 쓰인", "note": "purpose(용도)에서 나온 말로 현대 담론에서 자주 보인다."}]}, {"id": 6, "original": "Additionally, objects may enter recycling or second‑hand cycles, leading to a dynamic afterlife marked by diverse applications.", "explanation": "또한 사물은 재활용되거나 중고 유통의 순환에 들어가면서, 여러 방식으로 다시 쓰이는 역동적인 ‘이후의 삶’을 갖게 될 수도 있다.", "vocabulary": [{"word": "second-hand cycles", "meaning": "중고 유통의 순환", "note": "중고 거래·재사용의 흐름을 가리킨다."}, {"word": "dynamic afterlife", "meaning": "역동적인 사후 생애, 이후의 삶", "note": "afterlife는 여기서 종교적 의미가 아니라 사물이 원래 용도 이후에도 이어지는 존재 방식을 뜻한다."}, {"word": "marked by", "meaning": "~으로 특징지어지는", "note": "어떤 성질이 두드러짐을 나타내는 표현이다."}, {"word": "diverse applications", "meaning": "다양한 활용 방식", "note": "application은 여기서 '적용, 사용 방식'이라는 뜻이다."}]}, {"id": 7, "original": "As such, the life of an object exhibits a far more complicated and adaptive path than a simplistic linear progression.", "explanation": "따라서 사물의 삶은 단순한 직선적 진행으로 설명될 수 있는 것이 아니라, 훨씬 더 복잡하고 상황에 따라 유연하게 변하는 경로를 보여 준다.", "vocabulary": [{"word": "as such", "meaning": "따라서, 그런 점에서", "note": "앞선 내용을 받아 결론을 이끌 때 쓰인다."}, {"word": "exhibit", "meaning": "보이다, 드러내다", "note": "학술 문체에서 'show'보다 격식 있게 쓰인다."}, {"word": "adaptive", "meaning": "적응적인, 유연하게 변화하는", "note": "환경이나 조건에 맞춰 변할 수 있다는 뜻이다."}, {"word": "simplistic", "meaning": "지나치게 단순화한", "note": "simple과 달리 비판적 뉘앙스가 있다."}, {"word": "linear progression", "meaning": "선형적 진행", "note": "한 방향으로 단순하게 이어지는 발전 또는 변화 과정을 뜻한다."}]}], "problem_number": "39"};
+const DATA = {"title": "유지보수와 사물의 비선형적 생애", "summary": "유지보수와 수리는 사물의 수명을 연장하는 실천이지만, 실제로 사물의 삶은 단순한 선형적 수명 주기보다 훨씬 복잡하고 유동적이라는 점을 설명한다.", "sentences": [{"id": 1, "original": "By their very nature, the concepts of maintenance and repair are predominantly examined from a process‑oriented perspective.", "explanation": "유지보수와 수리라는 개념은 그 본질상, 주로 하나의 진행 과정이나 절차라는 관점에서 분석된다는 뜻이다.", "vocabulary": [{"word": "by their very nature", "meaning": "그 본질상, 본래부터", "note": "강조 표현으로 '본성상 당연히'라는 뉘앙스를 준다."}, {"word": "maintenance", "meaning": "유지보수, 정비", "note": "기계·시설·시스템 등을 정상 상태로 유지하는 활동을 뜻한다."}, {"word": "predominantly", "meaning": "주로, 대부분", "note": "predominant(지배적인)에서 나온 부사형이다."}, {"word": "process-oriented", "meaning": "과정 중심의", "note": "결과보다 진행 절차와 흐름에 초점을 두는 표현이다."}]}, {"id": 2, "original": "The focus in related scholarly discourse often revolves around the lifespan or lifecycle of objects and technologies.", "explanation": "관련 학술 담론에서는 대체로 사물과 기술이 얼마나 오래 지속되는지, 그리고 어떤 생애 주기를 거치는지에 관심이 집중된다는 말이다.", "vocabulary": [{"word": "scholarly discourse", "meaning": "학술적 담론", "note": "학문적 논의나 연구자들 사이의 논의를 가리킨다."}, {"word": "revolve around", "meaning": "~을 중심으로 전개되다, ~에 초점을 맞추다", "note": "직역하면 '주위를 돌다'이지만 비유적으로 자주 쓰인다."}, {"word": "lifespan", "meaning": "수명, 지속 기간", "note": "사람뿐 아니라 사물·기술에도 쓸 수 있다."}, {"word": "lifecycle", "meaning": "생애 주기, 수명 주기", "note": "도입·사용·폐기 등 일련의 단계를 포함하는 개념이다."}]}, {"id": 3, "original": "In this context, maintenance and repair are considered practices that have the potential to prolong the existence of objects, ensuring their sustained utilization over an extended period.", "explanation": "이러한 맥락에서 유지보수와 수리는 사물의 존재 기간을 늘리고, 오랜 시간 계속 사용될 수 있게 만드는 실천으로 여겨진다.", "vocabulary": [{"word": "in this context", "meaning": "이러한 맥락에서", "note": "앞선 논의를 이어 받아 해석 범위를 한정하는 표현이다."}, {"word": "prolong", "meaning": "연장하다, 더 오래 지속시키다", "note": "시간이나 기간을 늘릴 때 자주 쓰인다."}, {"word": "sustained utilization", "meaning": "지속적인 활용, 계속된 사용", "note": "utilization은 다소 격식 있는 표현으로 'use'보다 공식적이다."}, {"word": "over an extended period", "meaning": "장기간에 걸쳐", "note": "긴 시간 동안이라는 뜻의 학술적 표현이다."}]}, {"id": 4, "original": "Krebs and Weber critically engage with anthropomorphic metaphors that imply a biography of things, appropriately highlighting that conventional understanding of the lifecycle of a technology, from its acquisition to its disposal from the household, provides an incomplete definition.", "explanation": "크렙스와 베버는 사물에도 마치 인간의 전기처럼 삶의 이야기가 있다는 식의 의인화된 비유를 비판적으로 검토하면서, 기술의 생애 주기를 가정 내로 들여오는 시점부터 버려지는 시점까지로만 이해하는 전통적 관점은 불완전하다고 적절히 지적한다.", "vocabulary": [{"word": "critically engage with", "meaning": "비판적으로 다루다, 비판적으로 검토하다", "note": "단순 비난이 아니라 분석적으로 논의한다는 뜻이다."}, {"word": "anthropomorphic", "meaning": "의인화된, 인간의 특성을 부여한", "note": "anthropo-(인간) + morph(형태) 어원이다."}, {"word": "biography of things", "meaning": "사물의 전기, 사물의 생애 서사", "note": "사물에도 인간처럼 삶의 이력이 있다는 비유적 표현이다."}, {"word": "acquisition", "meaning": "획득, 구입", "note": "여기서는 가정이 기술 제품을 들여오는 일을 뜻한다."}, {"word": "disposal", "meaning": "처분, 폐기", "note": "throwing away보다 더 격식 있는 표현이다."}]}, {"id": 5, "original": "In reality, objects do not conform to a linear lifecycle model; instead, they undergo breakdowns, await repairs, are stored away, or find themselves relegated to the basement, only to be rediscovered and repurposed later.", "explanation": "실제로 사물은 일직선적인 생애 주기 모델을 따르지 않는다. 오히려 고장이 나기도 하고, 수리를 기다리기도 하며, 치워져 보관되거나 지하실 같은 곳으로 밀려났다가 나중에 다시 발견되어 다른 용도로 활용되기도 한다.", "vocabulary": [{"word": "conform to", "meaning": "~에 따르다, ~에 부합하다", "note": "규범·모델·기준 등에 맞는다는 뜻으로 자주 쓰인다."}, {"word": "linear lifecycle model", "meaning": "선형적 생애 주기 모델", "note": "시작에서 끝으로 일방향으로 진행된다고 보는 틀이다."}, {"word": "undergo", "meaning": "겪다, 경험하다", "note": "변화나 과정, 좋지 않은 일을 겪을 때 자주 쓰인다."}, {"word": "relegated to", "meaning": "~로 밀려나다, ~로 보내지다", "note": "중요하지 않은 위치로 내려보내는 뉘앙스가 있다."}, {"word": "repurposed", "meaning": "다른 용도로 재활용된, 용도를 바꿔 다시 쓰인", "note": "purpose(용도)에서 나온 말로 현대 담론에서 자주 보인다."}]}, {"id": 6, "original": "Additionally, objects may enter recycling or second‑hand cycles, leading to a dynamic afterlife marked by diverse applications.", "explanation": "또한 사물은 재활용되거나 중고 유통의 순환에 들어가면서, 여러 방식으로 다시 쓰이는 역동적인 ‘이후의 삶’을 갖게 될 수도 있다.", "vocabulary": [{"word": "second-hand cycles", "meaning": "중고 유통의 순환", "note": "중고 거래·재사용의 흐름을 가리킨다."}, {"word": "dynamic afterlife", "meaning": "역동적인 사후 생애, 이후의 삶", "note": "afterlife는 여기서 종교적 의미가 아니라 사물이 원래 용도 이후에도 이어지는 존재 방식을 뜻한다."}, {"word": "marked by", "meaning": "~으로 특징지어지는", "note": "어떤 성질이 두드러짐을 나타내는 표현이다."}, {"word": "diverse applications", "meaning": "다양한 활용 방식", "note": "application은 여기서 '적용, 사용 방식'이라는 뜻이다."}]}, {"id": 7, "original": "As such, the life of an object exhibits a far more complicated and adaptive path than a simplistic linear progression.", "explanation": "따라서 사물의 삶은 단순한 직선적 진행으로 설명될 수 있는 것이 아니라, 훨씬 더 복잡하고 상황에 따라 유연하게 변하는 경로를 보여 준다.", "vocabulary": [{"word": "as such", "meaning": "따라서, 그런 점에서", "note": "앞선 내용을 받아 결론을 이끌 때 쓰인다."}, {"word": "exhibit", "meaning": "보이다, 드러내다", "note": "학술 문체에서 'show'보다 격식 있게 쓰인다."}, {"word": "adaptive", "meaning": "적응적인, 유연하게 변화하는", "note": "환경이나 조건에 맞춰 변할 수 있다는 뜻이다."}, {"word": "simplistic", "meaning": "지나치게 단순화한", "note": "simple과 달리 비판적 뉘앙스가 있다."}, {"word": "linear progression", "meaning": "선형적 진행", "note": "한 방향으로 단순하게 이어지는 발전 또는 변화 과정을 뜻한다."}]}], "problem_number": "39", "exam_info": "고3 2025 11월 수능"};
 const NEXT_PAGE = "40.html";
 
 // ── Levenshtein distance ──
@@ -743,6 +834,7 @@ let quizQueue = [];
 let quizIdx = 0;
 let quizAnswered = false;
 const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
 
 // Collect all vocab from entire passage for distractor pool
 function getAllVocab() {
@@ -800,6 +892,7 @@ function go(dir) {
 function startQuiz() {
   const s = DATA.sentences[cur];
   if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
     if (cur === total - 1) { showWrongSummary(); return; }
     cur++; render();
     return;
@@ -888,6 +981,7 @@ function advanceQuiz() {
 
   // Quiz done for this sentence
   quizActive = false;
+  completedSentences.add(cur);
   const isLast = cur === total - 1;
 
   if (isLast) {
@@ -899,25 +993,50 @@ function advanceQuiz() {
   }
 }
 
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
 function showWrongSummary() {
   const overlay = document.createElement('div');
   overlay.className = 'wrong-summary-overlay';
 
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
   let inner = '';
-  if (allWrongWords.length === 0) {
-    inner = `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
   } else {
-    inner = `<div class="wrong-summary-title">틀린 단어 (${allWrongWords.length}개)</div>`;
-    // Deduplicate
-    const seen = new Set();
-    for (const w of allWrongWords) {
-      const key = w.word + '|' + w.meaning;
-      if (seen.has(key)) continue;
-      seen.add(key);
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
       inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
     }
   }
-  inner += `<button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>`;
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
 
   overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
   document.body.appendChild(overlay);
@@ -927,6 +1046,60 @@ function closeWrongSummary() {
   const el = document.querySelector('.wrong-summary-overlay');
   if (el) el.remove();
   showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
 }
 
 function showNextConfirm() {
