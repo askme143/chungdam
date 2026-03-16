@@ -1,0 +1,159 @@
+{
+  "title": "바쁠수록 자기 돌봄을 챙겨야 하는 이유",
+  "summary": "사람들은 바쁜 일과 때문에 운동이나 휴식 같은 자기 돌봄을 자주 뒤로 미루지만, 이런 일이 계속 쌓이면 큰 영향을 줄 수 있으니 가끔의 예외가 아니라 늘 그런 상태가 되지 않게 해야 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "There are few of us who don’t at least want to make time for self-care activities such as exercise, hobbies, or relaxation.",
+      "explanation": "우리 대부분은 운동, 취미, 휴식 같은 자기 돌봄 활동을 위해서 적어도 시간을 내고 싶어 한다. 다시 말해, 이런 시간을 아예 원하지 않는 사람은 거의 없다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "make time for",
+          "meaning": "~을 위해 시간을 내다",
+          "note": "바쁜 가운데서도 일부러 시간을 마련한다는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "self-care activities",
+          "meaning": "자기 돌봄 활동, 스스로를 챙기는 활동",
+          "note": "운동, 휴식, 취미처럼 몸과 마음을 돌보는 일을 말한다."
+        },
+        {
+          "word": "relaxation",
+          "meaning": "휴식, 긴장 풀기",
+          "note": "relax는 '쉬다, 긴장을 풀다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "We start each day with the best of intentions but then get stuck by the flood of email messages or pulled into an unexpected meeting.",
+      "explanation": "우리는 매일 좋은 마음으로 하루를 시작한다. 하지만 곧 쏟아지는 이메일에 발이 묶이거나, 갑자기 잡힌 회의에 끌려 들어가게 된다.",
+      "vocabulary": [
+        {
+          "word": "with the best of intentions",
+          "meaning": "아주 좋은 마음으로, 잘해 보려는 마음으로",
+          "note": "처음 계획이나 마음가짐은 좋았다는 뜻이다."
+        },
+        {
+          "word": "get stuck by",
+          "meaning": "~때문에 꼼짝 못 하게 되다",
+          "note": "여기서는 이메일이 너무 많아서 다른 일을 못 하게 되는 뜻이다."
+        },
+        {
+          "word": "the flood of email messages",
+          "meaning": "쏟아지는 많은 이메일",
+          "note": "flood는 원래 '홍수'인데, 여기서는 아주 많이 몰려오는 것을 비유한다."
+        },
+        {
+          "word": "pulled into",
+          "meaning": "~에 끌려 들어가다",
+          "note": "자기 뜻과 상관없이 어떤 일에 참여하게 되는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "As we struggle to reprioritize so we can get everything done before our deadlines, often our self-care activities are the first thing to be given up.",
+      "explanation": "마감 전에 모든 일을 끝내려고 우리는 일의 순서를 다시 정하느라 애쓴다. 그럴 때 자기 돌봄 활동은 가장 먼저 포기되는 경우가 많다.",
+      "vocabulary": [
+        {
+          "word": "struggle to",
+          "meaning": "~하려고 애쓰다",
+          "note": "쉽지 않아서 힘들게 노력하는 느낌이 있다."
+        },
+        {
+          "word": "reprioritize",
+          "meaning": "우선순위를 다시 정하다",
+          "note": "re-는 '다시'라는 뜻이다."
+        },
+        {
+          "word": "deadlines",
+          "meaning": "마감 시간, 마감일",
+          "note": "일을 끝내야 하는 정해진 때를 말한다."
+        },
+        {
+          "word": "be given up",
+          "meaning": "포기되다, 그만두게 되다",
+          "note": "give up의 수동형이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "No matter how much we plan, we all occasionally have days when that happens.",
+      "explanation": "우리가 아무리 계획을 잘 세워도, 그런 일이 생기는 날은 누구에게나 가끔 있다.",
+      "vocabulary": [
+        {
+          "word": "No matter how much",
+          "meaning": "아무리 ~해도",
+          "note": "양보의 뜻을 나타내는 표현이다."
+        },
+        {
+          "word": "occasionally",
+          "meaning": "가끔, 때때로",
+          "note": "always나 often보다 빈도가 낮다."
+        },
+        {
+          "word": "that happens",
+          "meaning": "그런 일이 생기다",
+          "note": "앞에서 말한, 자기 돌봄을 못 챙기는 상황을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In the short term, the impact of missing that grant deadline may be greater than the impact of missing a woodworking class.",
+      "explanation": "짧게 보면, 연구비 신청 같은 중요한 마감을 놓치는 일은 목공 수업을 빠지는 것보다 더 큰 영향을 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "In the short term",
+          "meaning": "짧게 보면, 당장에는",
+          "note": "반대말은 in the long term이다."
+        },
+        {
+          "word": "impact",
+          "meaning": "영향",
+          "note": "어떤 일이 끼치는 결과나 힘을 말한다."
+        },
+        {
+          "word": "grant deadline",
+          "meaning": "지원금 신청 마감",
+          "note": "grant는 연구비나 장학금 같은 지원금을 뜻할 수 있다."
+        },
+        {
+          "word": "woodworking class",
+          "meaning": "목공 수업",
+          "note": "woodworking은 나무로 물건을 만드는 일을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "But it’s important to recognize the cumulative impact of not prioritizing self-care and to make sure that in the long term, this is the exception rather than the norm.",
+      "explanation": "하지만 자기 돌봄을 우선으로 두지 않는 일이 계속되면 그 영향이 차곡차곡 쌓인다는 점을 알아차리는 것이 중요하다. 그리고 길게 봤을 때 이런 일이 늘 있는 보통 상태가 아니라, 가끔 있는 예외가 되도록 해야 한다.",
+      "vocabulary": [
+        {
+          "word": "recognize",
+          "meaning": "알아차리다, 깨닫다",
+          "note": "단순히 '알다'보다 분명히 보거나 깨닫는 느낌이 있다."
+        },
+        {
+          "word": "cumulative impact",
+          "meaning": "쌓여서 커지는 영향",
+          "note": "한 번은 작아 보여도 계속되면 크게 느껴질 수 있다는 뜻이다."
+        },
+        {
+          "word": "prioritizing",
+          "meaning": "더 먼저 챙기기, 우선으로 두기",
+          "note": "priority는 '우선순위'라는 뜻이다."
+        },
+        {
+          "word": "the exception rather than the norm",
+          "meaning": "보통이 아니라 예외",
+          "note": "norm은 '보통 상태, 흔한 기준'을 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "35"
+}

@@ -1,0 +1,245 @@
+{
+  "title": "시계는 물건이 아니라 되풀이되는 과정이다",
+  "summary": "우리는 시계를 보통 물건으로 생각하지만, 글쓴이는 시계의 본질이 일정하게 되풀이되는 과정에 있다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "We usually think of a clock as a physical thing, like an alarm clock or a wristwatch.",
+      "explanation": "우리는 보통 시계를 알람시계나 손목시계처럼 눈에 보이고 만질 수 있는 물건이라고 생각한다.",
+      "vocabulary": [
+        {
+          "word": "think of A as B",
+          "meaning": "A를 B라고 생각하다",
+          "note": "아주 자주 쓰는 표현이다."
+        },
+        {
+          "word": "physical thing",
+          "meaning": "실제로 형태가 있는 물건",
+          "note": "눈에 보이고 만질 수 있는 것을 말한다."
+        },
+        {
+          "word": "alarm clock",
+          "meaning": "알람시계",
+          "note": ""
+        },
+        {
+          "word": "wristwatch",
+          "meaning": "손목시계",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "But a clock is really a process embodied in a machine, and the nature of that process is repetitive.",
+      "explanation": "하지만 사실 시계는 기계 안에 담겨 있는 하나의 과정이다. 그리고 그 과정의 가장 중요한 특징은 같은 일이 되풀이된다는 점이다.",
+      "vocabulary": [
+        {
+          "word": "process",
+          "meaning": "과정",
+          "note": "여기서는 시간이 흘러가게 보여 주는 작동의 흐름을 뜻한다."
+        },
+        {
+          "word": "embodied in",
+          "meaning": "~에 담겨 있는, ~의 모습으로 나타난",
+          "note": "추상적인 것이 구체적인 형태로 드러날 때 쓴다."
+        },
+        {
+          "word": "nature",
+          "meaning": "본질, 가장 중요한 성질",
+          "note": ""
+        },
+        {
+          "word": "repetitive",
+          "meaning": "반복되는, 되풀이되는",
+          "note": "repeat와 관련된 말이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "A clock can be almost any process that repeats itself over and over again for an indefinite period.",
+      "explanation": "시계는 거의 어떤 것이든 될 수 있다. 오랫동안 끝이 정해지지 않은 채 같은 일이 계속 반복되기만 하면 된다.",
+      "vocabulary": [
+        {
+          "word": "repeats itself",
+          "meaning": "스스로 반복되다",
+          "note": ""
+        },
+        {
+          "word": "over and over again",
+          "meaning": "몇 번이고 계속, 반복해서",
+          "note": "강조 표현이다."
+        },
+        {
+          "word": "indefinite period",
+          "meaning": "끝이 정해지지 않은 기간",
+          "note": "언제 끝날지 딱 정해지지 않은 시간을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Water clocks drip at a steady pace; quartz crystals vibrate regularly.",
+      "explanation": "물시계는 물방울이 일정한 속도로 떨어진다. 수정 결정은 규칙적으로 떨린다.",
+      "vocabulary": [
+        {
+          "word": "drip",
+          "meaning": "뚝뚝 떨어지다",
+          "note": "물방울이 조금씩 떨어질 때 쓴다."
+        },
+        {
+          "word": "steady pace",
+          "meaning": "일정한 속도",
+          "note": "빠르기가 크게 바뀌지 않는 상태이다."
+        },
+        {
+          "word": "quartz crystal",
+          "meaning": "수정 결정",
+          "note": "시계에 쓰이는 물질로, 일정하게 진동하는 성질이 있다."
+        },
+        {
+          "word": "vibrate",
+          "meaning": "떨리다, 진동하다",
+          "note": ""
+        },
+        {
+          "word": "regularly",
+          "meaning": "규칙적으로",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Indeed, it is almost impossible to think of a clock that does not depend on a repetitive cycle of events.",
+      "explanation": "정말로, 되풀이되는 사건의 순서에 기대지 않는 시계를 떠올리기는 거의 불가능하다.",
+      "vocabulary": [
+        {
+          "word": "Indeed",
+          "meaning": "정말로, 사실",
+          "note": "앞말을 더 강하게 확인할 때 쓴다."
+        },
+        {
+          "word": "depend on",
+          "meaning": "~에 기대다, ~에 달려 있다",
+          "note": ""
+        },
+        {
+          "word": "repetitive cycle",
+          "meaning": "반복되는 주기",
+          "note": "같은 순서가 계속 돌아오는 것을 말한다."
+        },
+        {
+          "word": "events",
+          "meaning": "사건들, 일어나는 일들",
+          "note": "여기서는 시계 안에서 일어나는 작은 변화들을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "The only example that comes to mind readily is a candle marked in hours.",
+      "explanation": "바로 쉽게 떠오르는 거의 유일한 예는 시간 표시가 되어 있는 초이다.",
+      "vocabulary": [
+        {
+          "word": "come to mind",
+          "meaning": "생각이 나다, 떠오르다",
+          "note": "자주 쓰는 표현이다."
+        },
+        {
+          "word": "readily",
+          "meaning": "쉽게, 바로",
+          "note": "큰 어려움 없이 금방이라는 뜻이다."
+        },
+        {
+          "word": "marked in hours",
+          "meaning": "시간 단위로 표시된",
+          "note": "초에 시간 눈금이 적혀 있는 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "But here too there is iteration — the repeated burning of molecules of wax — so this too is an iterative process, although at first masked.",
+      "explanation": "하지만 이것도 마찬가지로 반복이 있다. 초의 왁스 분자들이 계속 타 들어가는 일이 되풀이되기 때문이다. 그래서 이것도 반복되는 과정이다. 다만 처음에는 그 점이 잘 드러나지 않을 뿐이다.",
+      "vocabulary": [
+        {
+          "word": "iteration",
+          "meaning": "반복",
+          "note": "같은 일이 다시 일어나는 것을 말한다."
+        },
+        {
+          "word": "molecules of wax",
+          "meaning": "왁스 분자들",
+          "note": "초를 이루는 아주 작은 물질 단위이다."
+        },
+        {
+          "word": "iterative",
+          "meaning": "반복적인",
+          "note": "iteration과 같은 뿌리의 말이다."
+        },
+        {
+          "word": "masked",
+          "meaning": "가려진, 겉으로 잘 보이지 않는",
+          "note": "처음에는 드러나지 않는다는 뜻으로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "The use of radiocarbon dating is another, much longer scale clock that also appears to be like this.",
+      "explanation": "방사성 탄소 연대 측정도 또 다른 시계라고 볼 수 있다. 다만 훨씬 더 긴 시간 범위에서 작동하며, 이것도 겉으로 보기에는 앞의 예와 비슷해 보인다.",
+      "vocabulary": [
+        {
+          "word": "radiocarbon dating",
+          "meaning": "방사성 탄소 연대 측정",
+          "note": "탄소-14의 변화를 이용해 오래된 물건의 나이를 알아보는 방법이다."
+        },
+        {
+          "word": "scale",
+          "meaning": "범위, 크기",
+          "note": "여기서는 시간의 크기나 길이를 뜻한다."
+        },
+        {
+          "word": "appears to be",
+          "meaning": "~처럼 보이다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "It seems to yield a smooth time scale but in fact does not: the decay of atoms of carbon-14 is repetitive, although on a large scale it gives the appearance of being continuous.",
+      "explanation": "이것은 겉으로 보면 시간이 매끈하게 끊기지 않고 이어지는 것처럼 보인다. 하지만 사실은 그렇지 않다. 탄소-14 원자들이 붕괴하는 일도 하나하나 반복해서 일어나며, 다만 아주 크게 보면 그것이 계속 이어지는 것처럼 보일 뿐이다.",
+      "vocabulary": [
+        {
+          "word": "yield",
+          "meaning": "만들어 내다, 보여 주다",
+          "note": "여기서는 어떤 결과를 나타낸다는 뜻이다."
+        },
+        {
+          "word": "smooth time scale",
+          "meaning": "매끈하게 이어지는 시간의 흐름",
+          "note": "끊김 없이 연속적인 것처럼 보이는 시간을 말한다."
+        },
+        {
+          "word": "decay",
+          "meaning": "붕괴",
+          "note": "방사성 원자가 저절로 변하는 일을 말한다."
+        },
+        {
+          "word": "carbon-14",
+          "meaning": "탄소-14",
+          "note": "방사성 탄소의 한 종류이다."
+        },
+        {
+          "word": "continuous",
+          "meaning": "계속 이어지는, 연속적인",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "problem_number": "36"
+}
