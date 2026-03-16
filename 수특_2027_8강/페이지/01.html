@@ -685,7 +685,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "유학지별 학생 주거 형태 비교", "summary": "2022년 여러 유학지의 학생 주거 형태를 비교하면, 대부분은 대학 기숙사가 더 많았지만 영국과 유럽에서는 PBSA 비율이 더 높거나 비슷한 다른 모습이 나타났다.", "sentences": [{"id": 1, "original": "The graph above shows the proportion of student housing by accommodation type for selected study destinations in 2022.", "explanation": "위 그래프는 2022년에 몇몇 유학지에서 학생들이 어떤 종류의 집이나 숙소에 살았는지 그 비율을 보여 준다.", "vocabulary": [{"word": "proportion", "meaning": "비율", "note": "전체 중에서 어느 정도를 차지하는지를 말할 때 자주 쓴다."}, {"word": "student housing", "meaning": "학생 주거, 학생 숙소", "note": "학생들이 사는 집이나 숙소를 넓게 가리키는 말이다."}, {"word": "accommodation type", "meaning": "숙소 유형", "note": "어떤 종류의 숙소인지 나누어 말할 때 쓴다."}, {"word": "selected study destinations", "meaning": "선별된 유학지들", "note": "여기서는 조사 대상으로 고른 나라나 지역을 뜻한다."}]}, {"id": 2, "original": "share of student housing, except in the UK, where PBSAs were the most common type.", "explanation": "영국을 빼면, 학생 주거에서 가장 큰 비율을 차지한 것은 다른 유형이었다. 하지만 영국에서는 PBSA가 가장 흔한 형태였다.", "vocabulary": [{"word": "except in", "meaning": "~을 빼고는", "note": "예외를 말할 때 쓰는 표현이다."}, {"word": "PBSAs", "meaning": "민간 목적형 학생 숙소", "note": "Purpose-Built Student Accommodation의 줄임말이다. 학생을 위해 따로 지은 민간 숙소를 뜻한다."}, {"word": "the most common type", "meaning": "가장 흔한 유형", "note": "가장 많이 보이는 종류라는 뜻이다."}]}, {"id": 3, "original": "Among the study destinations, the UK had the highest percentage of University Accommodations and PBSAs.", "explanation": "비교한 유학지들 가운데 영국은 대학 기숙사와 PBSA의 비율이 가장 높았다.", "vocabulary": [{"word": "Among", "meaning": "~가운데", "note": "여러 대상 중에서 고를 때 쓴다."}, {"word": "the highest percentage", "meaning": "가장 높은 비율", "note": "수치가 가장 클 때 쓰는 표현이다."}, {"word": "University Accommodations", "meaning": "대학 기숙사, 대학 제공 숙소", "note": "학교가 직접 제공하는 숙소를 뜻한다."}]}, {"id": 4, "original": "University Accommodations were used by fewer than one-third of students in every study destination, with Australia showing the lowest proportion.", "explanation": "모든 유학지에서 대학 기숙사를 이용한 학생은 3분의 1보다 적었다. 그중에서도 호주가 가장 낮은 비율을 보였다.", "vocabulary": [{"word": "fewer than one-third", "meaning": "3분의 1보다 적은", "note": "33.3%보다 낮다는 뜻이다."}, {"word": "in every study destination", "meaning": "모든 유학지에서", "note": "비교 대상이 된 모든 나라나 지역을 가리킨다."}, {"word": "showing the lowest proportion", "meaning": "가장 낮은 비율을 보이며", "note": "분사구문으로, 앞의 내용을 덧붙여 설명한다."}]}, {"id": 5, "original": "Australia showed the greatest difference between University Accommodations and PBSAs, with a 10-percentage-point gap, while the USA showed the smallest difference, with a 1-percentage-point gap.", "explanation": "호주는 대학 기숙사와 PBSA 사이의 차이가 가장 컸고, 그 차이는 10%포인트였다. 반면 미국은 차이가 가장 작았고, 1%포인트밖에 나지 않았다.", "vocabulary": [{"word": "the greatest difference", "meaning": "가장 큰 차이", "note": "여러 대상 중 차이가 가장 클 때 쓴다."}, {"word": "gap", "meaning": "격차, 차이", "note": "수치 차이를 말할 때 자주 쓴다."}, {"word": "percentage-point", "meaning": "퍼센트포인트", "note": "예를 들어 20%와 30%의 차이는 10%가 아니라 10퍼센트포인트라고 한다."}, {"word": "while", "meaning": "반면에", "note": "두 내용을 서로 비교할 때 자주 쓴다."}]}, {"id": 6, "original": "Europe was the only study destination where the percentage of PBSAs was greater than that of University Accommodations, showing the opposite pattern to the other study destinations.", "explanation": "유럽은 PBSA의 비율이 대학 기숙사 비율보다 더 높은 유일한 유학지였다. 그래서 다른 유학지들과는 반대되는 모습을 보였다.", "vocabulary": [{"word": "the only study destination", "meaning": "유일한 유학지", "note": "하나밖에 없는 대상을 강조하는 표현이다."}, {"word": "greater than", "meaning": "~보다 더 큰", "note": "수치를 비교할 때 쓰는 기본 표현이다."}, {"word": "that of", "meaning": "그것의, 앞에 나온 것의", "note": "여기서는 앞의 percentage를 다시 가리켜 같은 말을 반복하지 않으려고 썼다."}, {"word": "the opposite pattern", "meaning": "반대되는 양상", "note": "다른 대상들과 다른 흐름이나 모습을 뜻한다."}]}], "problem_number": "01", "exam_info": "수특 2027 8강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "02.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -713,11 +713,15 @@ function tokenize(text) {
 }
 
 function findConsecutive(text, phraseWords) {
+  const BE = ['am','is','are','was','were','been','being'];
   const tokens = tokenize(text);
   for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
     let ok = true;
-    for (let j = 0; j < phraseWords.length; j++)
-      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    for (let j = 0; j < phraseWords.length; j++) {
+      const tw = tokens[i+j].text.toLowerCase();
+      const pw = phraseWords[j];
+      if (tw !== pw && !(pw === 'be' && BE.includes(tw))) { ok = false; break; }
+    }
     if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
   }
   return null;
@@ -747,7 +751,7 @@ function highlightSentence(text, vocabList) {
     const tokens = tokenize(text);
     for (const w of pw) {
       let bestD = Infinity, bestT = null;
-      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      const thresh = w.length <= 2 ? 0 : Math.floor(w.length * 0.35);
       for (const t of tokens) {
         const d = lev(w, t.text.toLowerCase());
         if (d < bestD) { bestD = d; bestT = t; }

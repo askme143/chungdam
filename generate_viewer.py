@@ -789,11 +789,15 @@ function tokenize(text) {
 }
 
 function findConsecutive(text, phraseWords) {
+  const BE = ['am','is','are','was','were','been','being'];
   const tokens = tokenize(text);
   for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
     let ok = true;
-    for (let j = 0; j < phraseWords.length; j++)
-      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    for (let j = 0; j < phraseWords.length; j++) {
+      const tw = tokens[i+j].text.toLowerCase();
+      const pw = phraseWords[j];
+      if (tw !== pw && !(pw === 'be' && BE.includes(tw))) { ok = false; break; }
+    }
     if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
   }
   return null;
@@ -823,7 +827,7 @@ function highlightSentence(text, vocabList) {
     const tokens = tokenize(text);
     for (const w of pw) {
       let bestD = Infinity, bestT = null;
-      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      const thresh = w.length <= 2 ? 0 : Math.floor(w.length * 0.35);
       for (const t of tokens) {
         const d = lev(w, t.text.toLowerCase());
         if (d < bestD) { bestD = d; bestT = t; }

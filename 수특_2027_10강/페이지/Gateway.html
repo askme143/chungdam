@@ -685,7 +685,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "학교 종소리 공모 안내", "summary": "웨이크빌 고등학교가 즐거운 학교생활을 주제로 학교 종소리 공모전을 열고, 학생들의 참여를 받고 있다.", "sentences": [{"id": 1, "original": "School Bell Sound Contest", "explanation": "학교 종소리를 뽑는 공모전 제목이다.", "vocabulary": [{"word": "contest", "meaning": "공모전, 대회", "note": "여기서는 작품이나 아이디어를 뽑는 행사라는 뜻이다."}, {"word": "bell sound", "meaning": "종소리", "note": "school bell sound는 학교에서 울리는 종소리를 말한다."}]}, {"id": 2, "original": "Wakeville High School is holding a school bell sound contest.", "explanation": "웨이크빌 고등학교가 학교 종소리 공모전을 열고 있다는 뜻이다.", "vocabulary": [{"word": "hold", "meaning": "열다, 개최하다", "note": "행사나 대회를 열 때 자주 쓰인다."}, {"word": "school bell sound contest", "meaning": "학교 종소리 공모전", "note": "학교에서 쓸 종소리를 뽑는 대회라는 뜻이다."}]}, {"id": 3, "original": "The theme of this contest is Happy School Life.", "explanation": "이 공모전의 주제는 즐거운 학교생활이라는 뜻이다.", "vocabulary": [{"word": "theme", "meaning": "주제", "note": "글, 행사, 작품에서 중심이 되는 생각이다."}, {"word": "Happy School Life", "meaning": "즐거운 학교생활", "note": "공모전에 맞는 분위기나 방향을 보여 주는 말이다."}]}, {"id": 4, "original": "Deadline: December 12, 2025", "explanation": "마감일은 2025년 12월 12일이다.", "vocabulary": [{"word": "deadline", "meaning": "마감일", "note": "신청서나 과제를 꼭 내야 하는 마지막 날이다."}]}, {"id": 5, "original": "Participants: Wakeville High School students of all grades", "explanation": "참가할 수 있는 사람은 웨이크빌 고등학교의 모든 학년 학생들이다.", "vocabulary": [{"word": "participants", "meaning": "참가자들", "note": "행사나 대회에 참여하는 사람들을 말한다."}, {"word": "of all grades", "meaning": "모든 학년의", "note": "1학년부터 모든 학년이 다 포함된다는 뜻이다."}]}, {"id": 6, "original": "Application Details", "explanation": "신청과 관련된 자세한 내용을 알려 주는 부분 제목이다.", "vocabulary": [{"word": "application", "meaning": "신청", "note": "대회나 프로그램에 참여하려고 내는 절차를 말한다."}, {"word": "details", "meaning": "자세한 내용", "note": "구체적으로 알아야 할 정보라는 뜻이다."}]}, {"id": 7, "original": "Selection Method", "explanation": "어떤 기준과 방법으로 뽑는지 알려 주는 부분 제목이다.", "vocabulary": [{"word": "selection", "meaning": "선발, 선택", "note": "여러 후보 가운데 뽑는 것을 말한다."}, {"word": "method", "meaning": "방법", "note": "어떤 일을 하는 방식이다."}]}, {"id": 8, "original": "based on creativity and suitability.", "explanation": "창의성과 잘 어울리는 정도를 기준으로 뽑는다는 뜻이다.", "vocabulary": [{"word": "based on", "meaning": "~을 바탕으로, ~을 기준으로", "note": "판단이나 결정의 기준을 말할 때 자주 쓴다."}, {"word": "creativity", "meaning": "창의성", "note": "새롭고 기발한 생각을 해내는 힘이다."}, {"word": "suitability", "meaning": "알맞음, 잘 어울림", "note": "주제나 목적에 잘 맞는 정도를 뜻한다."}]}, {"id": 9, "original": "Awards", "explanation": "수상 내용이나 상에 대한 정보를 알려 주는 부분 제목이다.", "vocabulary": [{"word": "awards", "meaning": "상, 수상 내용", "note": "대회에서 주는 상이나 상의 종류를 말한다."}]}, {"id": 10, "original": "sounds.", "explanation": "문장 일부만 남아 있어 뜻이 완전하지 않지만, 종소리와 관련된 수상작이나 제출 작품을 가리키는 말로 보인다.", "vocabulary": [{"word": "sounds", "meaning": "소리들, 음향", "note": "이 글에서는 학교 종소리와 관련된 말로 보인다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 10강"};
-const NEXT_PAGE = "01.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -713,11 +713,15 @@ function tokenize(text) {
 }
 
 function findConsecutive(text, phraseWords) {
+  const BE = ['am','is','are','was','were','been','being'];
   const tokens = tokenize(text);
   for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
     let ok = true;
-    for (let j = 0; j < phraseWords.length; j++)
-      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    for (let j = 0; j < phraseWords.length; j++) {
+      const tw = tokens[i+j].text.toLowerCase();
+      const pw = phraseWords[j];
+      if (tw !== pw && !(pw === 'be' && BE.includes(tw))) { ok = false; break; }
+    }
     if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
   }
   return null;
@@ -747,7 +751,7 @@ function highlightSentence(text, vocabList) {
     const tokens = tokenize(text);
     for (const w of pw) {
       let bestD = Infinity, bestT = null;
-      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      const thresh = w.length <= 2 ? 0 : Math.floor(w.length * 0.35);
       for (const t of tokens) {
         const d = lev(w, t.text.toLowerCase());
         if (d < bestD) { bestD = d; bestT = t; }
