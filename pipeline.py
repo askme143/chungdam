@@ -36,22 +36,27 @@ from generate_index import generate_index
 ROOT = Path(__file__).parent
 
 
+def _page_sort_key(stem: str) -> tuple[bool, int, str]:
+    """비숫자(Gateway 등)를 앞에, 숫자를 뒤에 정렬한다."""
+    try:
+        return (True, int(stem), "")
+    except ValueError:
+        return (False, 0, stem)
+
+
 def _find_next_page(html_path: Path) -> str | None:
     """같은 페이지 디렉토리에서 다음 번호의 HTML 파일명을 반환한다."""
     page_dir = html_path.parent
-    current_num = int(html_path.stem)
-    siblings = sorted(
-        [f for f in page_dir.glob("*.html") if f.stem.isdigit()],
-        key=lambda f: int(f.stem),
-    )
+    current = html_path.stem
+
     # 아직 생성 안 된 파일도 고려: 현재 파일 포함
-    nums = [int(f.stem) for f in siblings]
-    if current_num not in nums:
-        nums.append(current_num)
-        nums.sort()
-    idx = nums.index(current_num)
-    if idx < len(nums) - 1:
-        return f"{nums[idx + 1]}.html"
+    stems = sorted(
+        {f.stem for f in page_dir.glob("*.html")} | {current},
+        key=_page_sort_key,
+    )
+    idx = stems.index(current)
+    if idx < len(stems) - 1:
+        return f"{stems[idx + 1]}.html"
     return None
 
 

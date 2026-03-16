@@ -1,0 +1,235 @@
+{
+  "title": "고통과 삶의 의미의 관계",
+  "summary": "이 글은 힘든 일을 겪는 경험이 행복은 줄일 수 있지만, 삶을 더 뜻깊게 느끼게 하는 데는 큰 도움을 줄 수 있다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "the sufferings they have experienced.",
+      "explanation": "그들이 지금까지 겪어 온 고통을 가리키는 말이다. 앞내용과 이어지는 짧은 조각이지만, 이 글에서는 사람들이 겪은 힘든 경험이 중요하다는 뜻을 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "sufferings",
+          "meaning": "고통, 괴로운 경험들",
+          "note": "suffering의 복수형으로, 여러 가지 힘든 일을 뜻한다."
+        },
+        {
+          "word": "have experienced",
+          "meaning": "겪어 왔다, 경험했다",
+          "note": "지금까지의 경험을 말할 때 자주 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "One research project investigated the differences between people who found their lives to be happy and those who found them to be meaningful.",
+      "explanation": "한 연구에서는 자기 삶을 행복하다고 느끼는 사람들과, 자기 삶이 뜻깊다고 느끼는 사람들 사이에 어떤 차이가 있는지 살펴보았다.",
+      "vocabulary": [
+        {
+          "word": "research project",
+          "meaning": "연구 과제, 연구 활동",
+          "note": ""
+        },
+        {
+          "word": "investigated",
+          "meaning": "조사했다, 자세히 살펴보았다",
+          "note": "investigate는 어떤 것을 알아보기 위해 깊이 살피는 뜻이다."
+        },
+        {
+          "word": "the differences between A and B",
+          "meaning": "A와 B 사이의 차이",
+          "note": "비교할 때 자주 나오는 표현이다."
+        },
+        {
+          "word": "meaningful",
+          "meaning": "뜻깊은, 의미 있는",
+          "note": "단순히 즐거운 것이 아니라, 가치가 있다고 느끼는 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "While, on average, happy lives and meaningful lives overlap a great deal, the researchers focused on those aspects of a meaningful life that were distinct from happiness.",
+      "explanation": "보통은 행복한 삶과 뜻깊은 삶이 많이 겹치지만, 연구자들은 그중에서도 행복과는 다른, 뜻깊은 삶만의 특징에 집중했다.",
+      "vocabulary": [
+        {
+          "word": "on average",
+          "meaning": "보통, 평균적으로 보면",
+          "note": ""
+        },
+        {
+          "word": "overlap a great deal",
+          "meaning": "많이 겹치다",
+          "note": "overlap은 공통되는 부분이 있다는 뜻이다."
+        },
+        {
+          "word": "focused on",
+          "meaning": "집중했다",
+          "note": "focus on은 어떤 한 점에 관심을 모으는 표현이다."
+        },
+        {
+          "word": "aspects",
+          "meaning": "면, 부분, 특징",
+          "note": ""
+        },
+        {
+          "word": "distinct from",
+          "meaning": "~와 다른, 구별되는",
+          "note": "be distinct from은 분명히 다르다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "And, remarkably, they found that people who had more meaningful lives reported that they had more experience suffering through past negative events.",
+      "explanation": "그리고 놀랍게도, 더 뜻깊은 삶을 산다고 한 사람들은 지난 안 좋은 일을 더 많이 겪으며 고통을 경험했다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "remarkably",
+          "meaning": "놀랍게도",
+          "note": ""
+        },
+        {
+          "word": "reported",
+          "meaning": "말했다, 보고했다",
+          "note": "연구 결과를 전할 때 자주 쓰인다."
+        },
+        {
+          "word": "suffering through",
+          "meaning": "괴로운 일을 겪어 내며 버티는",
+          "note": "힘든 일을 그냥 겪는 것을 넘어 견디는 느낌이 있다."
+        },
+        {
+          "word": "past negative events",
+          "meaning": "과거의 안 좋은 사건들",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "They also reported worrying more and enduring more things that caused them stress.",
+      "explanation": "그 사람들은 또 걱정을 더 많이 했고, 스트레스를 주는 일도 더 많이 견뎌 냈다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "worrying more",
+          "meaning": "더 많이 걱정하는 것",
+          "note": ""
+        },
+        {
+          "word": "enduring",
+          "meaning": "견디는 것, 버티는 것",
+          "note": "endure는 힘든 것을 오래 참는 느낌이 있다."
+        },
+        {
+          "word": "caused them stress",
+          "meaning": "그들에게 스트레스를 주었다",
+          "note": "cause A stress는 A에게 스트레스를 주다라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "On the other hand, these past experiences with suffering tended to reduce people’s overall levels of happiness.",
+      "explanation": "반대로, 이런 과거의 고통 경험은 사람들의 전체적인 행복감을 낮추는 쪽으로 이어지는 경향이 있었다.",
+      "vocabulary": [
+        {
+          "word": "On the other hand",
+          "meaning": "반면에, 다른 한편으로는",
+          "note": "앞의 내용과 반대되는 말을 꺼낼 때 쓴다."
+        },
+        {
+          "word": "tended to",
+          "meaning": "~하는 경향이 있었다",
+          "note": "항상 그런 것은 아니지만 대체로 그렇다는 뜻이다."
+        },
+        {
+          "word": "reduce",
+          "meaning": "줄이다, 낮추다",
+          "note": ""
+        },
+        {
+          "word": "overall levels of happiness",
+          "meaning": "전반적인 행복의 정도",
+          "note": "overall은 전체적으로 본다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The difficult times that we endure play a key role in helping us to lead more meaningful lives.",
+      "explanation": "우리가 견뎌 내는 힘든 시간은 우리 삶을 더 뜻깊게 살아가게 돕는 데 아주 중요한 구실을 한다.",
+      "vocabulary": [
+        {
+          "word": "endure",
+          "meaning": "견디다, 버티다",
+          "note": ""
+        },
+        {
+          "word": "play a key role",
+          "meaning": "중요한 구실을 하다",
+          "note": "아주 중요한 역할을 한다는 뜻이다."
+        },
+        {
+          "word": "lead more meaningful lives",
+          "meaning": "더 뜻깊은 삶을 살다",
+          "note": "lead a life는 삶을 살아가다라는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "As Jean-Paul Sartre put it, “Human life begins on the far side of despair.”",
+      "explanation": "장폴 사르트르의 말처럼, '인간의 삶은 깊은 절망을 지나간 뒤에 비로소 시작된다'는 뜻이다. 아주 힘든 순간을 넘긴 뒤에 삶의 진짜 모습이 보일 수 있다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "As ~ put it",
+          "meaning": "~의 말대로, ~가 표현한 대로",
+          "note": "유명한 말이나 생각을 소개할 때 자주 쓴다."
+        },
+        {
+          "word": "the far side of",
+          "meaning": "~의 저편, ~을 지나간 뒤",
+          "note": "비유적으로 어떤 어려움을 넘은 뒤를 뜻한다."
+        },
+        {
+          "word": "despair",
+          "meaning": "절망",
+          "note": "희망이 거의 없다고 느끼는 아주 깊은 슬픔이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "That is, many of the ways people feel their lives are meaningful are grounded in Our sufferings, then, seem to help to provide people with the sense that their lives are more meaningful, even if these events are associated with lower feelings of happiness.",
+      "explanation": "즉, 사람들이 자기 삶이 뜻깊다고 느끼는 많은 이유는 자신이 겪은 고통에 바탕을 두고 있다. 그래서 고통은 행복감을 낮출 수 있어도, 삶이 더 뜻깊다는 느낌을 주는 데는 도움이 되는 것처럼 보인다.",
+      "vocabulary": [
+        {
+          "word": "That is",
+          "meaning": "즉, 다시 말해",
+          "note": ""
+        },
+        {
+          "word": "are grounded in",
+          "meaning": "~에 바탕을 두고 있다",
+          "note": "어떤 생각이나 느낌의 뿌리가 어디에 있는지 말할 때 쓴다."
+        },
+        {
+          "word": "provide A with B",
+          "meaning": "A에게 B를 주다",
+          "note": "provide people with the sense처럼 자주 쓰인다."
+        },
+        {
+          "word": "associated with",
+          "meaning": "~와 관련이 있는",
+          "note": "함께 이어져 나타나는 관계를 말한다."
+        },
+        {
+          "word": "lower feelings of happiness",
+          "meaning": "더 낮은 행복감",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "problem_number": "06"
+}

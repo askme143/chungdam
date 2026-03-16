@@ -1,0 +1,19 @@
+Perhaps nothing has revolutionized the study of
+human-environment interactions more than the development of
+spatially explicit methods for collecting and analyzing data.
+Just a few decades ago, most natural and social scientists
+collected their data without precise spatial referents.
+References were made to watersheds, to communities,
+to villages, to cities, to proximity to rivers, and so on.
+In some cases (in anthropology mostly), there was even the
+custom of changing the name of the community and even its
+location, “to protect the informants.” While confidentiality
+remains an important concern when working with human subjects,
+the extreme to which this was done was largely unjustified.
+Everyone knew more or less where these studied communities
+were, and anyone interested could have found out. Be that as it
+may, there was very little interest, except in geography, to
+precisely locate a study area on a map with coordinates.
+Geography persisted, and finally convinced the rest of us, that
+place was fundamentally important to understand
+human-environment dynamics.

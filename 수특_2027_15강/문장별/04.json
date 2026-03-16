@@ -1,0 +1,194 @@
+{
+  "title": "속임수 없이도 효과가 있을 수 있는 플라시보",
+  "summary": "플라시보는 믿음이 중요하지만, 꼭 속여야만 효과가 나는 것은 아니며, 미리 사실을 알려줘도 어느 정도 좋아질 수 있다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Because belief is so crucial in the placebo effect, it would seem that deception is necessary in order to trigger a patient’s trust in the actual drug he might be taking.",
+      "explanation": "플라시보 효과에서는 환자의 믿음이 아주 중요하다. 그래서 겉으로 보기에는 환자가 자신이 진짜 약을 먹고 있다고 믿게 하려면 어느 정도 속이는 일이 필요해 보인다.",
+      "vocabulary": [
+        {
+          "word": "crucial",
+          "meaning": "아주 중요한",
+          "note": "비슷한 말로 very important가 있다."
+        },
+        {
+          "word": "placebo effect",
+          "meaning": "플라시보 효과, 가짜 약인데도 좋아지는 효과",
+          "note": "약 자체보다 믿음 때문에 몸 상태가 나아지는 경우를 말한다."
+        },
+        {
+          "word": "deception",
+          "meaning": "속임, 속이는 일",
+          "note": "deceive는 '속이다'라는 뜻이다."
+        },
+        {
+          "word": "trigger",
+          "meaning": "일으키다, 나오게 하다",
+          "note": "어떤 반응이나 감정을 시작하게 할 때 자주 쓴다."
+        },
+        {
+          "word": "actual drug",
+          "meaning": "진짜 약",
+          "note": "placebo와 반대되는 말로 볼 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "investigating the possibility of doing away with the element of deception.",
+      "explanation": "이 문장은 앞내용과 이어서, 속이는 요소를 없애는 방법이 가능한지 살펴보고 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "investigating",
+          "meaning": "조사하고 있는, 알아보고 있는",
+          "note": "investigate는 '조사하다'라는 뜻이다."
+        },
+        {
+          "word": "possibility",
+          "meaning": "가능성",
+          "note": ""
+        },
+        {
+          "word": "do away with",
+          "meaning": "없애다, 버리다",
+          "note": "일상 영어에서도 자주 나오는 표현이다."
+        },
+        {
+          "word": "element",
+          "meaning": "요소",
+          "note": "여기서는 어떤 일의 한 부분이라는 뜻이다."
+        },
+        {
+          "word": "deception",
+          "meaning": "속임, 속이는 일",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "He tells patients up front that they will be taking a placebo, but he also informs them about how powerful and effective placebos can be.",
+      "explanation": "그는 환자들에게 처음부터 솔직하게 플라시보를 먹게 될 것이라고 말한다. 하지만 동시에 플라시보도 꽤 강한 효과를 낼 수 있다는 점도 함께 알려 준다.",
+      "vocabulary": [
+        {
+          "word": "up front",
+          "meaning": "처음부터 솔직하게, 미리",
+          "note": "돈의 '선불로'라는 뜻으로도 쓰이지만 여기서는 '숨기지 않고 바로'라는 뜻이다."
+        },
+        {
+          "word": "placebo",
+          "meaning": "플라시보, 가짜 약",
+          "note": "겉모습은 약 같지만 약효 성분은 없는 경우가 많다."
+        },
+        {
+          "word": "inform",
+          "meaning": "알려 주다",
+          "note": "tell보다 조금 더 공식적인 느낌이 있다."
+        },
+        {
+          "word": "powerful",
+          "meaning": "강한 힘이 있는, 효과가 큰",
+          "note": ""
+        },
+        {
+          "word": "effective",
+          "meaning": "효과적인",
+          "note": "실제로 도움이 되는 결과를 낼 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "In one trial with irritable bowel syndrome, it was found that roughly 59 percent of those on an open placebo treatment reported improvements, as compared with 35 percent of the control group that received no treatment.",
+      "explanation": "과민성 대장 증후군 환자를 대상으로 한 한 실험에서, 미리 플라시보라고 알고 치료를 받은 사람들 가운데 약 59퍼센트가 상태가 좋아졌다고 말했다. 반면 아무 치료도 받지 않은 비교 집단에서는 35퍼센트가 좋아졌다고 했다.",
+      "vocabulary": [
+        {
+          "word": "trial",
+          "meaning": "실험, 시험",
+          "note": "의학에서는 치료법을 시험해 보는 연구를 뜻할 때가 많다."
+        },
+        {
+          "word": "irritable bowel syndrome",
+          "meaning": "과민성 대장 증후군",
+          "note": "줄여서 IBS라고도 한다."
+        },
+        {
+          "word": "open placebo treatment",
+          "meaning": "공개 플라시보 치료",
+          "note": "환자에게 플라시보라는 사실을 숨기지 않고 하는 치료를 말한다."
+        },
+        {
+          "word": "reported improvements",
+          "meaning": "호전되었다고 말했다",
+          "note": "report는 여기서 '보고하다, 말하다'의 뜻이다."
+        },
+        {
+          "word": "control group",
+          "meaning": "비교 집단, 대조군",
+          "note": "실험 결과를 비교하기 위해 따로 둔 집단이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "damage their trust in healthcare providers, potentially leading to doubt about future treatments.",
+      "explanation": "환자를 속이면 의료진에 대한 믿음이 깨질 수 있다. 그러면 앞으로 받게 될 치료까지도 의심하게 될 가능성이 있다.",
+      "vocabulary": [
+        {
+          "word": "damage",
+          "meaning": "해치다, 망가뜨리다",
+          "note": "물건뿐 아니라 관계나 믿음에도 쓸 수 있다."
+        },
+        {
+          "word": "trust",
+          "meaning": "믿음, 신뢰",
+          "note": ""
+        },
+        {
+          "word": "healthcare providers",
+          "meaning": "의료진, 의료 서비스를 주는 사람들",
+          "note": "의사, 간호사, 병원 관계자 등을 넓게 가리킨다."
+        },
+        {
+          "word": "potentially",
+          "meaning": "그럴 가능성이 있게",
+          "note": "반드시 그렇다는 뜻은 아니고 가능성을 말할 때 쓴다."
+        },
+        {
+          "word": "future treatments",
+          "meaning": "앞으로의 치료",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "The results may seem modest, but they make the point that giving a placebo isn’t the same as doing nothing.",
+      "explanation": "이 결과는 아주 대단해 보이지는 않을 수 있다. 그래도 플라시보를 주는 일은 그냥 아무것도 하지 않는 것과는 다르다는 점을 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "modest",
+          "meaning": "크지 않은, 두드러지지 않은",
+          "note": "여기서는 결과가 엄청 크지는 않다는 뜻이다."
+        },
+        {
+          "word": "make the point",
+          "meaning": "분명히 보여 주다, 핵심을 말해 주다",
+          "note": "글이나 말에서 중요한 점을 드러낼 때 쓰는 표현이다."
+        },
+        {
+          "word": "giving a placebo",
+          "meaning": "플라시보를 주는 것",
+          "note": ""
+        },
+        {
+          "word": "isn’t the same as",
+          "meaning": "~와 같지 않다",
+          "note": "둘이 비슷해 보여도 같지는 않다고 말할 때 쓴다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

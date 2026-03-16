@@ -1,0 +1,184 @@
+{
+  "title": "사람은 서로에게서 배우며 살아남는다",
+  "summary": "사람은 혼자서 모든 문제를 풀 만큼 똑똑하지는 않지만, 다른 사람에게서 배우는 힘 덕분에 여러 환경에서 살아갈 수 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "We are exceptionally smart, and this helps us adapt to a wide range of environments.",
+      "explanation": "인간은 아주 똑똑하다. 그래서 매우 다양한 환경에 맞춰 살아갈 수 있다.",
+      "vocabulary": [
+        {
+          "word": "exceptionally",
+          "meaning": "유난히, 아주 뛰어나게",
+          "note": "강조할 때 쓰는 말이다."
+        },
+        {
+          "word": "adapt to",
+          "meaning": "~에 맞추다, ~에 적응하다",
+          "note": "환경이나 상황에 익숙해질 때 자주 쓴다."
+        },
+        {
+          "word": "a wide range of",
+          "meaning": "아주 다양한",
+          "note": "뒤에 여러 종류의 것들이 올 때 많이 쓴다."
+        },
+        {
+          "word": "environments",
+          "meaning": "환경들",
+          "note": "자연환경뿐 아니라 사람이 사는 조건이나 상황도 가리킬 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "But we are not nearly smart enough as individuals to solve the adaptive problems that confronted modern humans as they spread across the globe.",
+      "explanation": "하지만 사람 한 명 한 명은, 현대 인류가 세계 곳곳으로 퍼져 나가면서 마주한 살아남기 위한 문제들을 혼자 풀 수 있을 만큼 충분히 똑똑하지는 않다.",
+      "vocabulary": [
+        {
+          "word": "not nearly ... enough",
+          "meaning": "전혀 충분히 ~하지 않은",
+          "note": "생각보다 많이 부족하다는 뜻을 강하게 나타낸다."
+        },
+        {
+          "word": "as individuals",
+          "meaning": "개인으로서는, 한 사람씩 보면",
+          "note": "집단이 아니라 한 사람 기준으로 본다는 뜻이다."
+        },
+        {
+          "word": "adaptive problems",
+          "meaning": "환경에 맞춰 살아가기 위한 문제들",
+          "note": "살아남기 위해 풀어야 하는 문제라는 뜻으로 이해하면 된다."
+        },
+        {
+          "word": "confronted",
+          "meaning": "맞닥뜨린, 마주한",
+          "note": "confront의 과거형이다."
+        },
+        {
+          "word": "across the globe",
+          "meaning": "전 세계에 걸쳐, 세계 곳곳으로",
+          "note": "globe는 여기서 '지구, 세계'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The package of tools, foraging techniques, ecological knowledge, and social arrangements used by any group of foragers being far too complex for any individual to create.",
+      "explanation": "어떤 채집 생활 집단이 쓰는 도구, 먹을 것을 찾는 방법, 자연에 대한 지식, 사회 질서는 한 사람이 혼자 만들어 내기에는 너무 복잡하다.",
+      "vocabulary": [
+        {
+          "word": "package",
+          "meaning": "한데 묶인 것들, 한 묶음",
+          "note": "여기서는 여러 요소가 함께 모인 전체를 뜻한다."
+        },
+        {
+          "word": "foraging techniques",
+          "meaning": "먹을 것을 찾아 얻는 방법",
+          "note": "foraging은 동식물이나 먹을거리를 찾아다니는 일을 말한다."
+        },
+        {
+          "word": "ecological knowledge",
+          "meaning": "자연환경에 대한 지식",
+          "note": "동물, 식물, 기후 같은 환경에 대한 앎을 가리킨다."
+        },
+        {
+          "word": "social arrangements",
+          "meaning": "사회적 질서, 함께 살아가는 방식",
+          "note": "집단 안에서 역할을 나누고 규칙을 정하는 방식까지 포함할 수 있다."
+        },
+        {
+          "word": "far too complex",
+          "meaning": "너무 복잡한",
+          "note": "too complex보다 더 강한 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "We are able to learn all the things we need to know in each of the many different environments in which we live only because we acquire information from others.",
+      "explanation": "우리가 여러 다른 환경에서 살아가며 꼭 알아야 할 것들을 배울 수 있는 이유는, 오직 다른 사람들에게서 정보를 얻기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "be able to",
+          "meaning": "~할 수 있다",
+          "note": "can과 비슷하지만 조금 더 풀어 쓴 느낌이다."
+        },
+        {
+          "word": "acquire",
+          "meaning": "얻다, 익히다",
+          "note": "정보, 기술, 지식 등을 얻을 때 자주 쓴다."
+        },
+        {
+          "word": "information from others",
+          "meaning": "다른 사람들에게서 얻는 정보",
+          "note": "혼자 발견한 것이 아니라 남에게서 배운 것이라는 점이 중요하다."
+        },
+        {
+          "word": "in which",
+          "meaning": "그 안에서, 거기에서",
+          "note": "앞의 environments를 꾸며 주는 관계대명사 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "We are much better at learning from others than other species are, and we are motivated to learn from others even when we do not understand why our models are doing what they are doing.",
+      "explanation": "인간은 다른 종들보다 남에게서 배우는 데 훨씬 더 뛰어나다. 또 우리가 따라 배우는 사람들이 왜 그렇게 하는지 잘 몰라도, 여전히 그들에게서 배우려는 마음이 있다.",
+      "vocabulary": [
+        {
+          "word": "species",
+          "meaning": "종",
+          "note": "생물의 종류를 나눌 때 쓰는 말이다."
+        },
+        {
+          "word": "be motivated to",
+          "meaning": "~하려는 마음이 생기다, ~할 의욕이 있다",
+          "note": "하고자 하는 힘이나 이유가 있다는 뜻이다."
+        },
+        {
+          "word": "even when",
+          "meaning": "~할 때조차, ~인데도",
+          "note": "예상과 다른 상황을 이어 줄 때 쓴다."
+        },
+        {
+          "word": "models",
+          "meaning": "본보기로 삼는 사람들",
+          "note": "여기서는 '모형'이 아니라 따라 배우는 대상이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "This psychology allows human populations to accumulate pools of adaptive information that greatly exceed the inventive capacities of individuals.",
+      "explanation": "이런 마음의 성향 덕분에 인간 집단은, 한 사람이 새로 생각해 낼 수 있는 수준을 훨씬 넘는 많은 살아남기 위한 정보를 차곡차곡 쌓을 수 있다.",
+      "vocabulary": [
+        {
+          "word": "psychology",
+          "meaning": "마음의 작동 방식, 심리",
+          "note": "여기서는 사람에게 있는 배우려는 성향을 가리킨다."
+        },
+        {
+          "word": "populations",
+          "meaning": "집단, 사람 무리",
+          "note": "여기서는 한 지역이나 사회를 이루는 사람들 전체를 뜻한다."
+        },
+        {
+          "word": "accumulate",
+          "meaning": "쌓다, 모으다",
+          "note": "시간이 지나며 조금씩 늘어나는 느낌이 있다."
+        },
+        {
+          "word": "pools of adaptive information",
+          "meaning": "살아가는 데 도움이 되는 정보의 큰 모음",
+          "note": "pool은 여기서 물웅덩이가 아니라 '많이 모인 것'이라는 뜻이다."
+        },
+        {
+          "word": "inventive capacities",
+          "meaning": "새롭게 생각해 내는 능력",
+          "note": "inventive는 새로운 것을 만들어 내는 데 강한 성질을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

@@ -1,0 +1,80 @@
+============================================================
+29강 - 정치, 경제, 사회, 법
+============================================================
+[Gateway]
+When gathering the preferences of multiple agents into one
+collective choice, it is easily seen that certain cases
+. For example, if there are
+two alternatives, a and b, and two agents such that one prefers
+a and the other one b, there is no deterministic way of selecting
+a single alternative without violating one of two basic fairness
+conditions known as anonymity and neutrality. Anonymity
+requires that the collective choice ought to be independent of the
+agents’ identities whereas neutrality requires impartiality towards
+the alternatives. Allowing lotteries as social outcomes hence
+seems like a necessity for impartial collective choice.
+Indeed, most common “deterministic” social choice functions such
+as plurality rule are only deterministic as long as there is no
+tie, which is usually resolved by drawing a lot. The use of
+lotteries for the selection of officials interestingly goes back to
+the world’s first democracy in Athens, where it was widely
+regarded as a principal characteristic of democracy, and has
+recently gained increasing attention in political science.
+[01]
+Along with the mistaken notion that the law resides in the
+books goes the equally mistaken idea that law is secret, or at
+least inaccessible to the ordinary person. To understand and
+apply the law at the advanced, technical level that lawyers do
+requires professional knowledge, but to understand the basic
+substance of the law does not. Law reflects life.
+The principles and issues embodied in the law are not different
+from those that we experience in other aspects of our lives.
+Contract law, for example, is a commentary on the way people
+make, interpret, keep, and break their promises in commercial
+and noncommercial settings. Few non-lawyers can describe the
+objective theory of contract formation or the Statute of
+Frauds, but they have thought a lot about contracts and
+promises. If you cross your fingers when you make a promise,
+★
+does it mean that the promise doesn’t count? If your newly
+purchased television doesn’t work, can you return it to the store?
+And so on.
+[02]
+The internet has transformed the fashion marketplace, making it
+increasingly difficult to predict the demand for the selling season.
+Consumers can browse for product information and prices and
+gain comparative information almost instantaneously, making
+them more informed than ever before, transferring the balance of
+power from the retailer to the customer. This is exacerbated
+by open and real-time access to fashion shows, facilitated
+through live-streaming, coupled with social media access to
+celebrity looks and lifestyles and the sharing of all aspects of
+life on social media. Consumers use fashion choices to express
+their individual style and personality, especially those promoting
+‘brand me’ on social media. The traditional two-season offer is
+no longer seen as enough, with consumers demanding new
+products throughout the whole year. This creates a problem for
+fashion retailers as many consumers are looking for more
+exclusive pieces to differentiate themselves, forcing up the
+desire for trend-led ever more rapidly changing styles, while
+still demanding affordable prices.
+[03]
+What deeply affected so many Black communities globally was
+not only that they could not metaphorically breathe because of
+the oppressive forms and limits of white supremacy, but
+also that so many Black communities literally cannot breathe
+because of environmental racism.
+are also more likely to live near landfills, industrial plants and
+fossil-fuel infrastructure. While some Black Americans have
+started community projects to turn neglected or run-down areas
+into youth centers or art spaces, these efforts often face
+challenges because of a lack of local support and simple safety
+concerns. The process by which this hazardous infrastructure
+is deliberately situated close to African American communities is
+called redlining. This process means that fossil-fuelled
+★
+power plants and hazardous-waste facilities are
+disproportionately and deliberately situated in Black or
+ethnic-minority neighbourhoods. As a result of this, Black
+Americans are three times more likely to die from exposure to
+air pollutants than their white counterparts.

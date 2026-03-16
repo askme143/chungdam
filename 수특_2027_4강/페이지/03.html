@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문장별 해설 뷰어</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --highlight: #fef08a;
+    --highlight-border: #eab308;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --vocab-bg: #f1f5f9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .home-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .home-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .quiz-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle.off {
+    background: var(--border);
+    color: var(--text-sub);
+  }
+  .quiz-toggle.off:hover {
+    background: #cbd5e1;
+    color: var(--text);
+  }
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .progress-row {
+    margin-top: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--text-sub);
+  }
+  .progress-bar {
+    width: 120px; height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width .3s;
+  }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 7rem;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: .5rem;
+  }
+
+  /* Original sentence */
+  .original-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    word-break: keep-all;
+  }
+  .original-card .hw {
+    background: var(--highlight);
+    border-bottom: 2px solid var(--highlight-border);
+    border-radius: 3px;
+    padding: 0 1px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .original-card .hw:hover {
+    background: #fde047;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+  }
+  .vocab-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    max-width: 320px;
+    width: max-content;
+    animation: tooltipIn .15s ease;
+  }
+  .vocab-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+  }
+  .vocab-tooltip.above::after {
+    top: 100%;
+    border-top-color: var(--card);
+  }
+  .vocab-tooltip.below::after {
+    bottom: 100%;
+    border-bottom-color: var(--card);
+  }
+  .vocab-tooltip .tt-word {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: .95rem;
+    margin-bottom: .2rem;
+  }
+  .vocab-tooltip .tt-meaning {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+  .vocab-tooltip .tt-note {
+    font-size: .8rem;
+    color: var(--text-sub);
+    margin-top: .15rem;
+    line-height: 1.4;
+  }
+  .vocab-tooltip .tt-sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: .5rem 0;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Explanation */
+  .explain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  /* Vocabulary */
+  .vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .vocab-item {
+    background: var(--vocab-bg);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  .vocab-meaning {
+    margin-top: .25rem;
+    font-size: .93rem;
+  }
+  .vocab-note {
+    margin-top: .2rem;
+    font-size: .82rem;
+    color: var(--text-sub);
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1rem;
+    padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+    z-index: 10;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem 1.1rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 5.5rem;
+    justify-content: center;
+  }
+  .nav-btn:active { transform: scale(.96); }
+  .nav-btn:not(:disabled):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-indicator {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  main > * { animation: fadeIn .3s ease; }
+
+  /* ── Quiz Modal ── */
+  .quiz-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .quiz-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .quiz-progress {
+    font-size: .82rem;
+    color: var(--text-sub);
+    font-weight: 600;
+  }
+  .quiz-direction {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    margin-bottom: .6rem;
+  }
+  .quiz-direction.en2ko {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  .quiz-direction.ko2en {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .quiz-prompt {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  .quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .quiz-choice {
+    width: 100%;
+    text-align: left;
+    background: var(--vocab-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem 1rem;
+    font-size: .95rem;
+    font-family: inherit;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .quiz-choice:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .quiz-choice:disabled {
+    cursor: default;
+  }
+  .quiz-choice.chosen-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-choice.chosen-wrong {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+  .quiz-choice.reveal-correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+    font-weight: 600;
+  }
+  .quiz-feedback {
+    margin-top: .8rem;
+    padding: .75rem 1rem;
+    border-radius: 10px;
+    font-size: .93rem;
+    line-height: 1.5;
+    animation: fadeIn .2s ease;
+  }
+  .quiz-feedback.correct {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .quiz-feedback.wrong {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  .quiz-feedback .fb-answer {
+    font-weight: 700;
+  }
+  .quiz-next-btn {
+    margin-top: .8rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .quiz-next-btn:hover {
+    background: #1d4ed8;
+  }
+
+  /* ── Wrong Words Summary ── */
+  .wrong-summary-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .wrong-summary-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    animation: fadeIn .25s ease;
+  }
+  .wrong-summary-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-summary-perfect {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .wrong-item {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: .8rem 1rem;
+    margin-bottom: .5rem;
+  }
+  .wrong-item .wi-word {
+    font-weight: 700;
+    color: #1d4ed8;
+    font-size: .95rem;
+  }
+  .wrong-item .wi-meaning {
+    font-size: .9rem;
+    color: var(--text);
+    margin-top: .15rem;
+  }
+  .wrong-close-btn {
+    margin-top: .5rem;
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* ── Result Stats ── */
+  .wrong-summary-stats {
+    display: flex;
+    gap: .75rem;
+    margin-bottom: 1.2rem;
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-radius: 12px;
+    padding: .8rem .5rem;
+  }
+  .stat-item.correct {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-item.wrong {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  .stat-label {
+    display: block;
+    font-size: .8rem;
+    color: #64748b;
+    margin-bottom: .25rem;
+  }
+  .stat-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .stat-item.correct .stat-value { color: #166534; }
+  .stat-item.wrong .stat-value { color: #991b1b; }
+
+  /* ── Share Button ── */
+  .wrong-summary-actions {
+    margin-top: 1.2rem;
+  }
+  .share-kakao-btn {
+    width: 100%;
+    background: #FEE500;
+    color: #3C1E1E;
+    border: none;
+    border-radius: 10px;
+    padding: .7rem;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    transition: opacity .15s;
+  }
+  .share-kakao-btn:active { opacity: .8; }
+  .share-kakao-btn:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  .share-kakao-btn:disabled .kakao-icon path { fill: #94a3b8; }
+  .share-disabled-msg {
+    text-align: center;
+    font-size: .78rem;
+    color: #94a3b8;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1e293b;
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Next Passage Confirm ── */
+  .next-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn .2s ease;
+  }
+  .next-confirm-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    text-align: center;
+    animation: fadeIn .25s ease;
+  }
+  .next-confirm-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .next-confirm-btns {
+    display: flex;
+    gap: .6rem;
+  }
+  .next-confirm-btns button {
+    flex: 1;
+    padding: .7rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .nc-yes {
+    background: var(--accent);
+    color: #fff;
+  }
+  .nc-yes:hover { background: #1d4ed8; }
+  .nc-no {
+    background: var(--border);
+    color: var(--text);
+  }
+  .nc-no:hover { background: #cbd5e1; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-btn" href="../../">&#8592; 홈</a>
+  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <h1 id="pageTitle">문장별 해설</h1>
+  <div class="progress-row">
+    <span id="progressLabel">1 / ?</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="go(-1)">&#8249; 이전</button>
+  <span class="nav-indicator" id="navIndicator">1 / ?</span>
+  <button class="nav-btn" id="nextBtn" onclick="go(1)">다음 &#8250;</button>
+</nav>
+
+<script>
+// ── DATA (injected by generate_html) ──
+const DATA = {"title": "과학에서 증거와 비판적 사고의 중요성", "summary": "이 글은 모든 생각이 다 똑같이 맞는 것은 아니며, 과학은 증거와 검증을 바탕으로 진실에 더 가까이 가야 한다고 말한다.", "sentences": [{"id": 1, "original": "It is a myth that all ideas are equally valid, even those with little or no objective proof.", "explanation": "객관적인 증거가 거의 없거나 아예 없는 생각까지 모두 똑같이 맞다고 여기는 것은 잘못된 믿음이라는 뜻이다.", "vocabulary": [{"word": "myth", "meaning": "잘못 알려진 믿음, 근거 없는 생각", "note": "여기서는 '신화'보다 '사실이 아닌 믿음'이라는 뜻에 가깝다."}, {"word": "equally valid", "meaning": "똑같이 타당한, 똑같이 맞는", "note": "valid는 상황에 따라 '타당한, 맞는, 인정할 만한' 뜻으로 쓰인다."}, {"word": "objective proof", "meaning": "객관적인 증거", "note": "개인의 느낌이 아니라 누구나 확인할 수 있는 증거를 말한다."}]}, {"id": 2, "original": "The existence of science is the commitment to objective truth.", "explanation": "과학이 존재하는 가장 큰 바탕에는 객관적인 진실을 찾고 지키려는 굳은 태도가 있다는 말이다.", "vocabulary": [{"word": "existence", "meaning": "존재", "note": ""}, {"word": "commitment to", "meaning": "~에 대한 굳은 의지, 계속 지키려는 태도", "note": "단순한 관심이 아니라 끝까지 중요하게 여기는 마음을 뜻한다."}, {"word": "objective truth", "meaning": "객관적인 진실", "note": "사람마다 다르게 느끼는 것이 아니라, 사실에 바탕을 둔 진실이다."}]}, {"id": 3, "original": "After all, science is true: fire is hot, the wheel is efficient, birds and planes can fly, we’ve landed on a comet and traveled to the Moon, antibiotics treat illness, and immunizations keep us from getting sick.", "explanation": "결국 과학은 실제로 맞는 내용을 보여 준다. 불은 뜨겁고, 바퀴는 쓸모가 크고, 새와 비행기는 날 수 있다. 또 사람은 혜성에 탐사선을 보내고 달에도 갔으며, 항생제는 병을 치료하고 예방접종은 우리가 병에 걸리지 않게 도와준다.", "vocabulary": [{"word": "After all", "meaning": "결국, 따지고 보면", "note": "앞말을 뒷받침하며 '생각해 보면'이라는 느낌을 준다."}, {"word": "efficient", "meaning": "효율적인, 적은 힘으로 잘 작동하는", "note": ""}, {"word": "landed on a comet", "meaning": "혜성에 착륙했다", "note": "사람이 직접 내렸다는 뜻이 아니라 탐사선이 착륙한 일을 가리킨다."}, {"word": "antibiotics", "meaning": "항생제", "note": "세균 때문에 생기는 병을 치료하는 약이다."}, {"word": "immunizations", "meaning": "예방접종", "note": "병에 걸리지 않도록 몸의 방어 힘을 키우는 주사나 접종이다."}]}, {"id": 4, "original": "These accomplishments are made possible by objective truths.", "explanation": "이런 성과들은 객관적인 진실을 바탕으로 했기 때문에 가능했다는 뜻이다.", "vocabulary": [{"word": "accomplishments", "meaning": "성과, 이뤄 낸 일", "note": ""}, {"word": "made possible by", "meaning": "~ 때문에 가능해진", "note": "어떤 일이 이루어질 수 있게 만든 원인을 나타낸다."}, {"word": "objective truths", "meaning": "객관적인 진실들", "note": ""}]}, {"id": 5, "original": "A plausible theory can, and frequently does, push science forward.", "explanation": "그럴듯한 이론은 과학을 앞으로 나아가게 할 수 있고, 실제로 그런 경우도 자주 있다는 말이다.", "vocabulary": [{"word": "plausible", "meaning": "그럴듯한, 말이 되는 것처럼 보이는", "note": "반드시 맞다는 뜻은 아니고, 일단 가능해 보인다는 뜻이다."}, {"word": "theory", "meaning": "이론", "note": ""}, {"word": "push science forward", "meaning": "과학을 앞으로 나아가게 하다", "note": "과학 발전에 도움을 준다는 뜻이다."}, {"word": "frequently", "meaning": "자주", "note": ""}]}, {"id": 6, "original": "However, an intuition must be followed with testing that confirms or disproves its veracity.", "explanation": "하지만 직감이 떠올랐다면, 그것이 정말 맞는지 아니면 틀린지 확인해 주는 시험과 검증이 꼭 뒤따라야 한다.", "vocabulary": [{"word": "intuition", "meaning": "직감, 바로 느끼는 생각", "note": "깊이 따지기 전에 순간적으로 드는 생각을 말한다."}, {"word": "be followed with testing", "meaning": "검사가 뒤따라야 하다, 시험해 봐야 하다", "note": ""}, {"word": "confirms or disproves", "meaning": "맞다는 것을 확인하거나 틀렸다는 것을 밝혀내다", "note": "disprove는 '거짓임을 보이다'라는 뜻이다."}, {"word": "veracity", "meaning": "진실성, 사실 여부", "note": "조금 어려운 말이지만 여기서는 '정말 맞는지' 정도로 이해하면 된다."}]}, {"id": 7, "original": "If a theory is disproved, one should consider it as a reason to reject or alter the hypothesis, not a justification to just keep firmly holding to the hypothesis because you are instinctively wedded to it.", "explanation": "어떤 이론이 틀린 것으로 밝혀지면, 그 가설을 버리거나 고쳐야 할 이유로 받아들여야 한다. 본능적으로 그 생각에 정이 가거나 익숙하다는 이유만으로, 계속 굳게 붙잡고 있어도 된다는 핑계로 삼아서는 안 된다.", "vocabulary": [{"word": "reject or alter", "meaning": "버리거나 바꾸다", "note": "alter는 완전히 새로 만드는 것보다 일부를 고친다는 느낌이 있다."}, {"word": "hypothesis", "meaning": "가설", "note": "아직 완전히 증명되지 않은 설명이나 생각이다."}, {"word": "justification", "meaning": "정당화하는 이유, 핑계", "note": "어떤 행동이 괜찮다고 말해 주는 이유를 뜻한다."}, {"word": "firmly holding to", "meaning": "굳게 붙잡고 있는", "note": "생각을 바꾸지 않고 계속 믿는다는 뜻이다."}, {"word": "instinctively wedded to", "meaning": "본능적으로 강하게 매여 있는", "note": "wedded to는 원래 '결혼한'에서 온 말로, 여기서는 어떤 생각에 아주 깊이 붙어 있는 뜻이다."}]}, {"id": 8, "original": "Critical thinking is an absolute must, and we must respect evidence.", "explanation": "비판적으로 생각하는 힘은 꼭 필요하다. 그리고 우리는 증거를 중요하게 여기고 따라야 한다.", "vocabulary": [{"word": "Critical thinking", "meaning": "비판적 사고", "note": "그냥 믿지 않고 따져 보고 판단하는 생각법이다."}, {"word": "an absolute must", "meaning": "반드시 필요한 것", "note": "없어서는 안 된다는 강한 표현이다."}, {"word": "respect evidence", "meaning": "증거를 존중하다, 증거를 중요하게 여기다", "note": "증거를 무시하지 말고 판단의 기준으로 삼으라는 뜻이다."}]}, {"id": 9, "original": "It’s the only reason for anyone to trust anything about reality.", "explanation": "우리가 현실에 대해 어떤 것을 믿을 수 있는 유일한 이유는 바로 이런 증거와 검증이 있기 때문이라는 말이다.", "vocabulary": [{"word": "trust", "meaning": "믿다", "note": ""}, {"word": "reality", "meaning": "현실, 실제 세계", "note": ""}, {"word": "the only reason", "meaning": "유일한 이유", "note": ""}]}, {"id": 10, "original": "Without testing and evidence, intuition is useful, but it is never the ultimate word.", "explanation": "시험과 증거가 없다면 직감이 어느 정도 도움이 될 수는 있다. 하지만 그것이 마지막 판단 기준이 되어서는 안 된다.", "vocabulary": [{"word": "Without testing and evidence", "meaning": "검증과 증거가 없다면", "note": ""}, {"word": "intuition", "meaning": "직감", "note": ""}, {"word": "ultimate word", "meaning": "최종 판단, 마지막 결정", "note": "여기서는 '더 따질 것 없는 마지막 결론'이라는 뜻이다."}]}], "problem_number": "03", "exam_info": "수특 2027 4강"};
+const NEXT_PAGE = null;
+
+// ── Levenshtein distance ──
+function lev(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = Math.min(
+        dp[i-1][j] + 1,
+        dp[i][j-1] + 1,
+        dp[i-1][j-1] + (a[i-1] !== b[j-1] ? 1 : 0)
+      );
+  return dp[m][n];
+}
+
+// ── Tokenizer ──
+function tokenize(text) {
+  const re = /[A-Za-z\u2019']+(?:-[A-Za-z\u2019']+)*/g;
+  const tokens = []; let m;
+  while ((m = re.exec(text)) !== null)
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  return tokens;
+}
+
+function findConsecutive(text, phraseWords) {
+  const tokens = tokenize(text);
+  for (let i = 0; i <= tokens.length - phraseWords.length; i++) {
+    let ok = true;
+    for (let j = 0; j < phraseWords.length; j++)
+      if (tokens[i+j].text.toLowerCase() !== phraseWords[j]) { ok = false; break; }
+    if (ok) return { start: tokens[i].start, end: tokens[i + phraseWords.length - 1].end };
+  }
+  return null;
+}
+
+// ── Highlight logic ──
+function highlightSentence(text, vocabList) {
+  const ranges = [];
+  const lower = text.toLowerCase();
+
+  for (let vi = 0; vi < vocabList.length; vi++) {
+    const v = vocabList[vi];
+    const phrase = v.word.toLowerCase().replace(/\s*\(.*?\)\s*/g, '').trim();
+
+    // 1) Exact substring
+    const idx = lower.indexOf(phrase);
+    if (idx !== -1) { ranges.push({ start: idx, end: idx + phrase.length, vi }); continue; }
+
+    // 2) Multi-word consecutive
+    const pw = phrase.split(/\s+/);
+    if (pw.length > 1) {
+      const found = findConsecutive(text, pw);
+      if (found) { ranges.push({ ...found, vi }); continue; }
+    }
+
+    // 3) Fuzzy per token
+    const tokens = tokenize(text);
+    for (const w of pw) {
+      let bestD = Infinity, bestT = null;
+      const thresh = Math.max(2, Math.floor(w.length * 0.35));
+      for (const t of tokens) {
+        const d = lev(w, t.text.toLowerCase());
+        if (d < bestD) { bestD = d; bestT = t; }
+      }
+      if (bestT && bestD <= thresh) ranges.push({ start: bestT.start, end: bestT.end, vi });
+    }
+  }
+
+  // Merge overlapping (collect vocab indices)
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r.start <= merged[merged.length-1].end) {
+      merged[merged.length-1].end = Math.max(merged[merged.length-1].end, r.end);
+      merged[merged.length-1].vis.add(r.vi);
+    } else {
+      merged.push({ start: r.start, end: r.end, vis: new Set([r.vi]) });
+    }
+  }
+
+  let result = '', last = 0;
+  for (const r of merged) {
+    result += esc(text.slice(last, r.start));
+    const idxs = [...r.vis].join(',');
+    result += '<span class="hw" data-vocab="' + idxs + '">' + esc(text.slice(r.start, r.end)) + '</span>';
+    last = r.end;
+  }
+  return result + esc(text.slice(last));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render ──
+let cur = 0;
+const total = DATA.sentences ? DATA.sentences.length : 0;
+
+function render() {
+  if (!total) { document.getElementById('content').innerHTML = '<p>데이터가 없습니다.</p>'; return; }
+  const s = DATA.sentences[cur];
+  const vocabHtml = s.vocabulary.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${esc(v.word)}</div>
+      <div class="vocab-meaning">${esc(v.meaning)}</div>
+      ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="section-label">원문</div>
+    <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
+    <div class="section-label">해설</div>
+    <div class="explain-card">${esc(s.explanation)}</div>
+    <div class="section-label">주요 단어</div>
+    <div class="vocab-list">${vocabHtml}</div>`;
+
+  const label = `${cur+1} / ${total}`;
+  document.getElementById('progressLabel').textContent = label;
+  document.getElementById('navIndicator').textContent = label;
+  document.getElementById('progressFill').style.width = `${((cur+1)/total)*100}%`;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = !quizEnabled && cur === total - 1 && !NEXT_PAGE;
+  document.getElementById('nextBtn').textContent = (quizEnabled && cur === total - 1) ? '결과 \u203A' : '다음 \u203A';
+  document.getElementById('content').scrollTop = 0;
+}
+
+// ── Quiz Mode Toggle ──
+let quizEnabled = true;
+
+function toggleQuizMode() {
+  quizEnabled = !quizEnabled;
+  const btn = document.getElementById('quizToggle');
+  btn.textContent = quizEnabled ? '퀴즈 ON' : '퀴즈 OFF';
+  btn.classList.toggle('off', !quizEnabled);
+  // Update next button text
+  if (cur === total - 1) {
+    document.getElementById('nextBtn').textContent = quizEnabled ? '결과 \u203A' : '다음 \u203A';
+  }
+}
+
+// ── Quiz State ──
+let quizActive = false;
+let quizQueue = [];
+let quizIdx = 0;
+let quizAnswered = false;
+const allWrongWords = []; // {word, meaning} across entire passage
+const completedSentences = new Set(); // track which sentences' quizzes were fully completed
+
+// Collect all vocab from entire passage for distractor pool
+function getAllVocab() {
+  const all = [];
+  for (const s of DATA.sentences) {
+    if (s.vocabulary) {
+      for (const v of s.vocabulary) all.push(v);
+    }
+  }
+  return all;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function makeChoices(q) {
+  const allVocab = getAllVocab();
+  const correct = q.isEn2Ko ? q.meaning : q.word;
+  // Gather distractors from other vocab
+  const pool = allVocab
+    .map(v => q.isEn2Ko ? v.meaning : v.word)
+    .filter(t => t !== correct);
+  // Deduplicate
+  const unique = [...new Set(pool)];
+  shuffle(unique);
+  const distractors = unique.slice(0, 3);
+  // Combine and shuffle
+  const choices = [correct, ...distractors];
+  shuffle(choices);
+  return { choices, correctIdx: choices.indexOf(correct) };
+}
+
+function go(dir) {
+  if (quizActive) return;
+  if (dir === -1 && cur === 0) return;
+
+  // Going forward → show quiz for current sentence first
+  if (dir === 1) {
+    if (quizEnabled) {
+      startQuiz();
+    } else {
+      if (cur < total - 1) { cur++; render(); }
+      else { showNextConfirm(); }
+    }
+    return;
+  }
+  cur = cur + dir; render();
+}
+
+function startQuiz() {
+  const s = DATA.sentences[cur];
+  if (!s.vocabulary || s.vocabulary.length === 0) {
+    completedSentences.add(cur);
+    if (cur === total - 1) { showWrongSummary(); return; }
+    cur++; render();
+    return;
+  }
+
+  quizQueue = s.vocabulary.map(v => {
+    const isEn2Ko = Math.random() < 0.5;
+    return { word: v.word, meaning: v.meaning, isEn2Ko };
+  });
+  shuffle(quizQueue);
+  quizIdx = 0;
+  quizActive = true;
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  quizAnswered = false;
+  const q = quizQueue[quizIdx];
+  const dirClass = q.isEn2Ko ? 'en2ko' : 'ko2en';
+  const dirLabel = q.isEn2Ko ? 'English → 한국어' : '한국어 → English';
+  const prompt = q.isEn2Ko ? q.word : q.meaning;
+  const { choices, correctIdx } = makeChoices(q);
+
+  const choicesHtml = choices.map((c, i) =>
+    `<button class="quiz-choice" data-idx="${i}" data-correct="${i === correctIdx ? 1 : 0}" onclick="pickChoice(this)">${esc(c)}</button>`
+  ).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'quiz-overlay';
+  overlay.id = 'quizOverlay';
+  overlay.innerHTML = `
+    <div class="quiz-box">
+      <div class="quiz-header">
+        <span class="quiz-title">단어 퀴즈</span>
+        <span class="quiz-progress">${quizIdx + 1} / ${quizQueue.length}</span>
+      </div>
+      <span class="quiz-direction ${dirClass}">${dirLabel}</span>
+      <div class="quiz-prompt">${esc(prompt)}</div>
+      <div class="quiz-choices">${choicesHtml}</div>
+      <div id="quizFeedback"></div>
+    </div>`;
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) { overlay.remove(); quizActive = false; }
+  });
+  document.body.appendChild(overlay);
+}
+
+function pickChoice(btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = quizQueue[quizIdx];
+  const isCorrect = btn.dataset.correct === '1';
+
+  // Disable all buttons
+  const allBtns = document.querySelectorAll('.quiz-choice');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    if (b.dataset.correct === '1') b.classList.add('reveal-correct');
+  });
+
+  if (isCorrect) {
+    btn.classList.add('chosen-correct');
+    const fb = document.getElementById('quizFeedback');
+    fb.innerHTML = `<div class="quiz-feedback correct">정답!</div>`;
+    setTimeout(() => advanceQuiz(), 500);
+  } else {
+    btn.classList.add('chosen-wrong');
+    allWrongWords.push({ word: q.word, meaning: q.meaning });
+    const fb = document.getElementById('quizFeedback');
+    const correctFull = q.isEn2Ko ? q.meaning : q.word;
+    const label = quizIdx < quizQueue.length - 1 ? '다음 문제' : '완료';
+    fb.innerHTML = `<div class="quiz-feedback wrong">오답! 정답: <span class="fb-answer">${esc(correctFull)}</span></div>
+      <button class="quiz-next-btn" onclick="advanceQuiz()">${label}</button>`;
+  }
+}
+
+function advanceQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  if (overlay) overlay.remove();
+
+  quizIdx++;
+  if (quizIdx < quizQueue.length) {
+    showQuizQuestion();
+    return;
+  }
+
+  // Quiz done for this sentence
+  quizActive = false;
+  completedSentences.add(cur);
+  const isLast = cur === total - 1;
+
+  if (isLast) {
+    // Show wrong words summary after last sentence
+    showWrongSummary();
+  } else {
+    cur++;
+    render();
+  }
+}
+
+function getResultData() {
+  const totalVocab = DATA.sentences.reduce((sum, s) => sum + (s.vocabulary ? s.vocabulary.length : 0), 0);
+  const seen = new Set();
+  const uniqueWrong = [];
+  for (const w of allWrongWords) {
+    const key = w.word + '|' + w.meaning;
+    if (!seen.has(key)) { seen.add(key); uniqueWrong.push(w); }
+  }
+  return { totalVocab, uniqueWrong, wrongCount: uniqueWrong.length, correctCount: totalVocab - uniqueWrong.length };
+}
+
+function showWrongSummary() {
+  const overlay = document.createElement('div');
+  overlay.className = 'wrong-summary-overlay';
+
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const allCompleted = completedSentences.size === total;
+
+  let inner = '';
+
+  // Stats
+  inner += `<div class="wrong-summary-stats">
+    <div class="stat-item correct"><span class="stat-label">맞은 단어</span><span class="stat-value">${correctCount}개</span></div>
+    <div class="stat-item wrong"><span class="stat-label">틀린 단어</span><span class="stat-value">${wrongCount}개</span></div>
+  </div>`;
+
+  if (wrongCount === 0) {
+    inner += `<div class="wrong-summary-perfect">모든 단어를 맞혔습니다!</div>`;
+  } else {
+    inner += `<div class="wrong-summary-title">틀린 단어 목록</div>`;
+    for (const w of uniqueWrong) {
+      inner += `<div class="wrong-item"><div class="wi-word">${esc(w.word)}</div><div class="wi-meaning">${esc(w.meaning)}</div></div>`;
+    }
+  }
+
+  // Actions
+  inner += `<div class="wrong-summary-actions">
+    <button class="share-kakao-btn" onclick="shareResult()" ${allCompleted ? '' : 'disabled'}>
+      <svg class="kakao-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.53-.96 3.4-.99 3.63 0 0-.02.15.08.21.1.06.22.02.22.02.29-.04 3.37-2.2 3.9-2.57.68.1 1.39.15 2.13.15 5.52 0 10-3.58 10-7.94C22 6.58 17.52 3 12 3z" fill="#3C1E1E"/></svg>
+      카카오톡 공유
+    </button>
+    ${allCompleted ? '' : '<div class="share-disabled-msg">모든 문장의 퀴즈를 완료해야 공유할 수 있습니다</div>'}
+    <button class="wrong-close-btn" onclick="closeWrongSummary()">닫기</button>
+  </div>`;
+
+  overlay.innerHTML = `<div class="wrong-summary-box">${inner}</div>`;
+  document.body.appendChild(overlay);
+}
+
+function closeWrongSummary() {
+  const el = document.querySelector('.wrong-summary-overlay');
+  if (el) el.remove();
+  showNextConfirm();
+}
+
+function shareResult() {
+  const { uniqueWrong, wrongCount, correctCount } = getResultData();
+  const exam = DATA.exam_info || '';
+  const title = DATA.problem_number ? DATA.problem_number + '번' : '';
+  const subtitle = DATA.title || '';
+
+  let text = '[단어 시험 결과]\n';
+  if (exam) text += exam + '\n';
+  if (title || subtitle) text += title + (title && subtitle ? ' · ' : '') + subtitle + '\n';
+  text += '\n맞은 단어: ' + correctCount + '개\n틀린 단어: ' + wrongCount + '개\n';
+  if (uniqueWrong.length > 0) {
+    text += '\n[틀린 단어 목록]\n';
+    for (const w of uniqueWrong) text += '- ' + w.word + ': ' + w.meaning + '\n';
+  }
+
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(function() {});
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('클립보드에 복사되었습니다');
+    }).catch(function() { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  ta.remove();
+  showToast('클립보드에 복사되었습니다');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function() { t.classList.add('show'); }, 10);
+  setTimeout(function() {
+    t.classList.remove('show');
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2500);
+}
+
+function showNextConfirm() {
+  if (!NEXT_PAGE) return;
+  if (document.querySelector('.next-confirm-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'next-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="next-confirm-box">
+      <div class="next-confirm-msg">다음 지문으로 넘어갈까요?</div>
+      <div class="next-confirm-btns">
+        <button class="nc-no" onclick="this.closest('.next-confirm-overlay').remove()">아니요</button>
+        <button class="nc-yes" onclick="location.href=NEXT_PAGE">네</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (quizActive) return;
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'ArrowRight') go(1);
+});
+// Swipe
+let sx = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  if (quizActive) return;
+  const d = e.changedTouches[0].clientX - sx;
+  if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
+});
+
+// ── Tooltip ──
+function hideTooltip() {
+  document.querySelectorAll('.vocab-tooltip, .tooltip-overlay').forEach(el => el.remove());
+}
+
+function showTooltip(hwEl) {
+  hideTooltip();
+  const s = DATA.sentences[cur];
+  const idxs = hwEl.dataset.vocab.split(',').map(Number);
+  const vocabs = idxs.map(i => s.vocabulary[i]).filter(Boolean);
+  if (!vocabs.length) return;
+
+  // Build tooltip content
+  const inner = vocabs.map((v, i) =>
+    (i > 0 ? '<hr class="tt-sep">' : '') +
+    '<div class="tt-word">' + esc(v.word) + '</div>' +
+    '<div class="tt-meaning">' + esc(v.meaning) + '</div>' +
+    (v.note ? '<div class="tt-note">' + esc(v.note) + '</div>' : '')
+  ).join('');
+
+  // Overlay to catch outside clicks
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.addEventListener('click', hideTooltip);
+  document.body.appendChild(overlay);
+
+  // Tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'vocab-tooltip';
+  tip.innerHTML = inner;
+  document.body.appendChild(tip);
+
+  // Position
+  const rect = hwEl.getBoundingClientRect();
+  const tipH = tip.offsetHeight;
+  const tipW = tip.offsetWidth;
+  const spaceAbove = rect.top;
+  const showAbove = spaceAbove > tipH + 16;
+
+  let top, leftPos;
+  if (showAbove) {
+    top = rect.top + window.scrollY - tipH - 10;
+    tip.classList.add('above');
+  } else {
+    top = rect.bottom + window.scrollY + 10;
+    tip.classList.add('below');
+  }
+  leftPos = rect.left + window.scrollX + rect.width / 2 - tipW / 2;
+  leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tipW - 8));
+
+  tip.style.top = top + 'px';
+  tip.style.left = leftPos + 'px';
+}
+
+document.addEventListener('click', e => {
+  const hw = e.target.closest('.hw');
+  if (hw && hw.dataset.vocab) { e.stopPropagation(); showTooltip(hw); }
+});
+
+// Init
+if (DATA.title) {
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  document.getElementById('pageTitle').textContent = prefix + DATA.title;
+  document.title = prefix + DATA.title;
+}
+render();
+</script>
+</body>
+</html>

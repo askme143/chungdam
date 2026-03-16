@@ -1,0 +1,171 @@
+{
+  "title": "바쁠수록 자기 돌봄을 먼저 챙기기",
+  "summary": "사람들은 바쁠 때 운동이나 취미 같은 자기 돌봄을 가장 먼저 포기하기 쉽지만, 긴 눈으로 보면 이런 시간을 일부러 먼저 챙기는 것이 더 중요하다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "There are few of us who don’t at least want to make time for self-care activities such as exercise, hobbies, or relaxation.",
+      "explanation": "운동, 취미, 휴식 같은 자기 돌봄 활동을 위해서라도 시간을 내고 싶지 않은 사람은 거의 없다는 뜻이다. 즉, 대부분의 사람은 이런 시간이 필요하다고 생각한다.",
+      "vocabulary": [
+        {
+          "word": "make time for",
+          "meaning": "~을 위해 시간을 내다",
+          "note": "일정이 바빠도 일부러 시간을 비워 둔다는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "self-care activities",
+          "meaning": "자기 돌봄 활동",
+          "note": "몸과 마음을 건강하게 지키기 위해 하는 활동을 말한다."
+        },
+        {
+          "word": "relaxation",
+          "meaning": "휴식, 긴장 풀기",
+          "note": "relax의 명사형이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "We start each day with the best of intentions but then get stuck by the flood of email messages or pulled into an unexpected meeting.",
+      "explanation": "우리는 매일 좋은 마음으로 하루를 시작하지만, 곧 쏟아지는 이메일에 발이 묶이거나 갑자기 잡힌 회의에 끌려 들어가게 된다.",
+      "vocabulary": [
+        {
+          "word": "with the best of intentions",
+          "meaning": "좋은 뜻으로, 잘해 보려는 마음으로",
+          "note": "처음 마음은 좋았다는 뜻을 나타내는 표현이다."
+        },
+        {
+          "word": "get stuck",
+          "meaning": "꼼짝 못 하게 되다, 발이 묶이다",
+          "note": "일이 막혀 더 나아가지 못하는 느낌으로도 자주 쓴다."
+        },
+        {
+          "word": "the flood of email messages",
+          "meaning": "쏟아지는 많은 이메일",
+          "note": "flood는 원래 홍수이지만 여기서는 아주 많이 몰려오는 것을 비유한다."
+        },
+        {
+          "word": "pulled into",
+          "meaning": "~에 끌려 들어가다",
+          "note": "원하지 않았는데 어떤 일에 참여하게 되는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "As we struggle to reprioritize so we can get everything done before our deadlines, often our self-care activities are the first thing to be given up.",
+      "explanation": "마감 전에 모든 일을 끝내려고 일의 순서를 다시 정하느라 애쓰다 보면, 자기 돌봄 활동이 가장 먼저 빠지거나 포기되는 경우가 많다.",
+      "vocabulary": [
+        {
+          "word": "struggle to",
+          "meaning": "~하려고 애쓰다",
+          "note": "쉽지 않아서 힘들게 노력하는 느낌이 있다."
+        },
+        {
+          "word": "reprioritize",
+          "meaning": "우선순위를 다시 정하다",
+          "note": "re-는 다시라는 뜻이다."
+        },
+        {
+          "word": "deadlines",
+          "meaning": "마감 기한",
+          "note": "정해진 때까지 끝내야 하는 마지막 시점을 말한다."
+        },
+        {
+          "word": "be given up",
+          "meaning": "포기되다, 그만두게 되다",
+          "note": "여기서는 자기 돌봄 활동이 먼저 제외된다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "when that happens.",
+      "explanation": "그런 일이 실제로 일어날 때를 가리키는 짧은 말이다. 앞문장과 이어서, 자기 돌봄을 포기하는 상황을 말한다.",
+      "vocabulary": [
+        {
+          "word": "when that happens",
+          "meaning": "그런 일이 일어날 때",
+          "note": "보통 앞에서 말한 상황을 다시 가리킬 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In the short term, the impact of missing that grant deadline may be greater than the impact of missing a woodworking class.",
+      "explanation": "짧게 보면, 연구비 신청 같은 중요한 마감을 놓치는 일이 목공 수업을 한 번 빠지는 것보다 더 큰 영향을 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "In the short term",
+          "meaning": "짧게 보면, 당장에는",
+          "note": "가까운 미래나 바로 눈앞의 상황을 말한다."
+        },
+        {
+          "word": "impact",
+          "meaning": "영향",
+          "note": "좋은 영향도, 나쁜 영향도 모두 가리킬 수 있다."
+        },
+        {
+          "word": "grant deadline",
+          "meaning": "지원금 신청 마감",
+          "note": "grant는 연구비나 장학금 같은 지원금을 뜻할 수 있다."
+        },
+        {
+          "word": "woodworking class",
+          "meaning": "목공 수업",
+          "note": "나무로 물건을 만드는 법을 배우는 수업이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Needless to say, we should try to enroll in the woodworking class before the design class because it is more competitive to get into and more beneficial to us.",
+      "explanation": "말할 것도 없이, 우리는 디자인 수업보다 목공 수업에 먼저 등록하려고 해야 한다. 그 수업은 들어가기가 더 어렵고, 우리에게 더 도움이 되기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "Needless to say",
+          "meaning": "말할 것도 없이",
+          "note": "아주 분명한 내용을 강조할 때 쓴다."
+        },
+        {
+          "word": "enroll in",
+          "meaning": "~에 등록하다",
+          "note": "학교 수업, 강좌, 프로그램에 신청할 때 자주 쓴다."
+        },
+        {
+          "word": "competitive to get into",
+          "meaning": "들어가기가 경쟁이 치열한",
+          "note": "지원하는 사람이 많아서 들어가기 어려운 뜻이다."
+        },
+        {
+          "word": "beneficial",
+          "meaning": "도움이 되는, 유익한",
+          "note": "benefit(도움, 이익)과 함께 알아 두면 좋다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "prioritizing self-care and to make sure that in the long term, this is the exception rather than the norm.",
+      "explanation": "긴 눈으로 보면, 자기 돌봄을 우선으로 두어야 한다는 뜻이다. 그리고 자기 돌봄을 포기하는 일은 늘 있는 일이 아니라 가끔 있는 예외가 되게 해야 한다.",
+      "vocabulary": [
+        {
+          "word": "prioritizing self-care",
+          "meaning": "자기 돌봄을 우선으로 두기",
+          "note": "중요한 일 목록에서 앞자리에 놓는다는 뜻이다."
+        },
+        {
+          "word": "in the long term",
+          "meaning": "길게 보면, 오랜 시간으로 보면",
+          "note": "당장보다 앞으로의 더 긴 시간을 생각하는 표현이다."
+        },
+        {
+          "word": "the exception rather than the norm",
+          "meaning": "보통이 아니라 예외",
+          "note": "늘 그런 것이 아니라 드물게만 그래야 한다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

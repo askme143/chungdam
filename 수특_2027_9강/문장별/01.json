@@ -1,0 +1,247 @@
+{
+  "title": "퍼킨과 보라색 염료의 발견",
+  "summary": "윌리엄 헨리 퍼킨은 우연한 실험 실패 속에서 보라색 합성 염료를 발견했고, 이 일은 전 세계에서 선명한 색을 더 쉽게 싸게 쓰게 만드는 데 큰 도움을 주었다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "William Henry Perkin was born in London in 1838 to a family of builders and was expected to follow the same path.",
+      "explanation": "윌리엄 헨리 퍼킨은 1838년에 런던에서 태어났다. 그의 집안은 건축 일을 하는 집안이었고, 퍼킨도 자연스럽게 같은 일을 하게 될 것으로 여겨졌다.",
+      "vocabulary": [
+        {
+          "word": "builders",
+          "meaning": "건축 일을 하는 사람들, 건축업자들",
+          "note": "여기서는 퍼킨의 가족이 건축 관련 일을 했다는 뜻이다."
+        },
+        {
+          "word": "be expected to",
+          "meaning": "~할 것으로 여겨지다, 기대되다",
+          "note": "주변 사람들이 그렇게 생각했다는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "follow the same path",
+          "meaning": "같은 길을 가다, 같은 진로를 따르다",
+          "note": "직업이나 삶의 방향이 비슷하다는 뜻의 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "However, his life changed when, at the age of twelve, a friend introduced him to a simple chemistry set.",
+      "explanation": "하지만 열두 살 때 한 친구가 그에게 간단한 화학 실험 도구를 보여 주면서 그의 삶은 달라지기 시작했다.",
+      "vocabulary": [
+        {
+          "word": "introduced him to",
+          "meaning": "그에게 ~를 접하게 해 주었다",
+          "note": "사람뿐 아니라 새로운 물건이나 분야를 처음 알게 해 줄 때도 쓴다."
+        },
+        {
+          "word": "chemistry set",
+          "meaning": "화학 실험 도구 세트",
+          "note": "학생들이 간단한 실험을 해 볼 수 있게 만든 도구 모음이다."
+        },
+        {
+          "word": "at the age of twelve",
+          "meaning": "열두 살에",
+          "note": "나이를 말할 때 자주 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "He later studied at the Royal College of Chemistry, where he was taught by the distinguished German chemist August Wilhelm von Hofmann.",
+      "explanation": "그 뒤 퍼킨은 왕립 화학 대학에서 공부했다. 그곳에서 이름난 독일 화학자 아우구스트 빌헬름 폰 호프만에게 배웠다.",
+      "vocabulary": [
+        {
+          "word": "distinguished",
+          "meaning": "유명한, 뛰어난",
+          "note": "좋은 평가를 받는 사람에게 자주 붙는 말이다."
+        },
+        {
+          "word": "chemist",
+          "meaning": "화학자",
+          "note": ""
+        },
+        {
+          "word": "was taught by",
+          "meaning": "~에게 배웠다",
+          "note": "가르침을 받은 대상을 말하는 수동 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Perkin’s curiosity led him to build a small laboratory at home, where he continued his experiments.",
+      "explanation": "퍼킨은 궁금한 것이 많아서 집에 작은 실험실을 만들었다. 그리고 그곳에서 실험을 계속했다.",
+      "vocabulary": [
+        {
+          "word": "curiosity",
+          "meaning": "호기심, 궁금해하는 마음",
+          "note": ""
+        },
+        {
+          "word": "laboratory",
+          "meaning": "실험실",
+          "note": "줄여서 lab이라고도 많이 쓴다."
+        },
+        {
+          "word": "continued",
+          "meaning": "계속했다",
+          "note": "continue의 과거형이다."
+        },
+        {
+          "word": "experiments",
+          "meaning": "실험들",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "At eighteen, he conducted an experiment that would change his life.",
+      "explanation": "열여덟 살에 그는 자기 인생을 바꾸게 될 실험을 했다.",
+      "vocabulary": [
+        {
+          "word": "conducted",
+          "meaning": "실시했다, 했다",
+          "note": "conduct an experiment는 '실험을 하다'라는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "would change his life",
+          "meaning": "그의 삶을 바꾸게 될",
+          "note": "나중에 큰 영향을 주게 됨을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "He tried to make quinine, a costly medicine for malaria.",
+      "explanation": "그는 말라리아 치료에 쓰이는 값비싼 약인 퀴닌을 만들려고 했다.",
+      "vocabulary": [
+        {
+          "word": "quinine",
+          "meaning": "퀴닌",
+          "note": "말라리아 치료에 쓰이던 약 성분이다."
+        },
+        {
+          "word": "costly",
+          "meaning": "값비싼",
+          "note": "expensive와 비슷한 뜻이다."
+        },
+        {
+          "word": "malaria",
+          "meaning": "말라리아",
+          "note": "모기에 의해 옮겨지는 병이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "He failed and produced only an ugly black substance, in which he became interested.",
+      "explanation": "하지만 그는 실패했고, 보기 안 좋은 검은 물질만 만들어 냈다. 그런데 그는 그 물질에 오히려 흥미를 느꼈다.",
+      "vocabulary": [
+        {
+          "word": "produced",
+          "meaning": "만들어 냈다",
+          "note": "실험 결과 어떤 물질이 생겨났다는 뜻이다."
+        },
+        {
+          "word": "substance",
+          "meaning": "물질",
+          "note": "화학이나 과학 글에서 자주 나온다."
+        },
+        {
+          "word": "became interested",
+          "meaning": "흥미를 가지게 되었다",
+          "note": "interest는 '관심, 흥미'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "When he dissolved it in methylated spirit, the mixture blossomed into a rich and bright purple.",
+      "explanation": "그가 그 물질을 변성 알코올에 녹였을 때, 그 혼합물은 짙고 선명한 보라색으로 확 바뀌었다.",
+      "vocabulary": [
+        {
+          "word": "dissolved",
+          "meaning": "녹였다",
+          "note": "고체를 액체에 풀어 넣을 때 쓰는 말이다."
+        },
+        {
+          "word": "methylated spirit",
+          "meaning": "변성 알코올",
+          "note": "실험이나 청소 등에 쓰는 알코올의 한 종류이다."
+        },
+        {
+          "word": "mixture",
+          "meaning": "혼합물",
+          "note": ""
+        },
+        {
+          "word": "blossomed into",
+          "meaning": "~로 활짝 변했다",
+          "note": "원래는 꽃이 피다는 뜻인데, 여기서는 색이 아름답게 나타났다는 뜻으로 쓰였다."
+        },
+        {
+          "word": "rich and bright purple",
+          "meaning": "짙고 선명한 보라색",
+          "note": "rich는 여기서 '풍부한'보다 '짙은'에 가깝다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "This led to the creation of the first synthetic dye, mauve.",
+      "explanation": "이 일로 첫 번째 합성 염료인 모브가 만들어지게 되었다.",
+      "vocabulary": [
+        {
+          "word": "led to",
+          "meaning": "~로 이어졌다",
+          "note": "어떤 결과를 가져왔다는 뜻이다."
+        },
+        {
+          "word": "synthetic dye",
+          "meaning": "합성 염료",
+          "note": "자연에서 바로 얻은 것이 아니라 사람이 화학적으로 만든 색소이다."
+        },
+        {
+          "word": "mauve",
+          "meaning": "연보라빛, 모브",
+          "note": "퍼킨이 만든 유명한 보라 계열 염료 이름이다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Perkin's discovery helped start the synthetic dye industry, making vibrant colors more accessible and affordable around the world.",
+      "explanation": "퍼킨의 발견은 합성 염료 산업이 시작되는 데 큰 도움을 주었다. 그 덕분에 전 세계 사람들이 선명한 색을 더 쉽게, 더 싼 값에 쓸 수 있게 되었다.",
+      "vocabulary": [
+        {
+          "word": "discovery",
+          "meaning": "발견",
+          "note": ""
+        },
+        {
+          "word": "industry",
+          "meaning": "산업",
+          "note": "같은 종류의 일을 하는 큰 분야를 말한다."
+        },
+        {
+          "word": "vibrant",
+          "meaning": "선명한, 생생한",
+          "note": "색이 아주 또렷하고 힘 있어 보일 때 쓴다."
+        },
+        {
+          "word": "accessible",
+          "meaning": "쉽게 구할 수 있는, 쉽게 이용할 수 있는",
+          "note": ""
+        },
+        {
+          "word": "affordable",
+          "meaning": "값이 부담되지 않는, 살 만한",
+          "note": "가격이 너무 비싸지 않다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "01"
+}

@@ -1,0 +1,169 @@
+{
+  "title": "지식이 먹을거리를 만드는 힘",
+  "summary": "사람은 태양 에너지를 그냥 먹는 것이 아니라, 오랜 세월 쌓아 온 농사 지식을 통해 그것을 먹을거리로 바꾸며 더 잘 살아오게 되었다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "There’s a saying that “you can’t eat information.”",
+      "explanation": "“정보는 먹을 수 없다”라는 말이 있다는 뜻이다. 정보만으로는 배를 채울 수 없다는 생각을 먼저 꺼내고 있다.",
+      "vocabulary": [
+        {
+          "word": "There’s a saying that",
+          "meaning": "~라는 말이 있다",
+          "note": "자주 쓰는 표현이다. 속담이나 널리 알려진 말을 꺼낼 때 쓴다."
+        },
+        {
+          "word": "information",
+          "meaning": "정보",
+          "note": "여기서는 단순한 자료가 아니라 사람이 알고 있는 지식까지 넓게 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "That may be so, but the food we eat today is the fruit of thousands of years of increasingly high-quality information — the knowledge of how to farm — what seeds, what tools and how to use them, what times of year, what irrigation, what sequence of one crop after another on the same land.",
+      "explanation": "그 말이 어느 정도 맞을 수는 있지만, 오늘날 우리가 먹는 음식은 수천 년 동안 쌓여 온 더 좋고 더 정확한 농사 지식의 결과라는 뜻이다. 어떤 씨앗을 써야 하는지, 어떤 도구를 어떻게 써야 하는지, 어느 계절에 심고 거둬야 하는지, 물은 어떻게 대야 하는지, 같은 땅에서 작물을 어떤 순서로 바꿔 가며 길러야 하는지 같은 지식이 지금의 먹을거리를 만들었다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "may be so",
+          "meaning": "그럴 수도 있다",
+          "note": "앞말을 어느 정도 인정하면서도 뒤에서 다른 말을 이어 갈 때 자주 쓴다."
+        },
+        {
+          "word": "the fruit of",
+          "meaning": "~의 결과",
+          "note": "직역하면 '열매'지만, 비유적으로는 오랜 노력 끝에 나온 결과를 뜻한다."
+        },
+        {
+          "word": "increasingly high-quality",
+          "meaning": "점점 더 질이 높아지는",
+          "note": "시간이 갈수록 더 좋아진다는 느낌을 준다."
+        },
+        {
+          "word": "irrigation",
+          "meaning": "물 대기, 관개",
+          "note": "농사에서 밭이나 논에 물을 공급하는 일이다."
+        },
+        {
+          "word": "sequence",
+          "meaning": "순서",
+          "note": "여기서는 같은 땅에 작물을 어떤 차례로 심는지를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "What we eat is solar energy, filtered, concentrated, and distilled through the lens of human knowledge.",
+      "explanation": "우리가 먹는 것은 결국 태양 에너지라는 뜻이다. 다만 그 에너지가 사람의 지식을 거치면서 걸러지고, 모아지고, 더 쓸모 있는 형태로 바뀌어 음식이 된다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "solar energy",
+          "meaning": "태양 에너지",
+          "note": ""
+        },
+        {
+          "word": "filtered",
+          "meaning": "걸러진",
+          "note": "불필요한 것을 빼고 필요한 것을 남긴다는 느낌이다."
+        },
+        {
+          "word": "concentrated",
+          "meaning": "농축된, 모아진",
+          "note": "흩어진 것을 더 진하고 강하게 모은 상태를 말한다."
+        },
+        {
+          "word": "distilled",
+          "meaning": "정제된, 더 순하게 가려진",
+          "note": "원래는 액체를 증류하는 말이지만, 여기서는 더 순하고 쓸모 있게 다듬어진다는 비유다."
+        },
+        {
+          "word": "through the lens of",
+          "meaning": "~의 눈으로, ~을 거쳐",
+          "note": "어떤 관점이나 틀을 통해 본다는 뜻이다. 여기서는 인간의 지식을 거친다는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The energy the Earth receives from the sun each year has remained more or less constant through all of human civilization.",
+      "explanation": "인류 문명이 이어져 온 동안, 지구가 해마다 태양으로부터 받는 에너지의 양은 대체로 크게 달라지지 않았다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "receives",
+          "meaning": "받다",
+          "note": ""
+        },
+        {
+          "word": "more or less",
+          "meaning": "대체로, 거의",
+          "note": "완전히 똑같지는 않지만 큰 차이는 없다는 뜻이다."
+        },
+        {
+          "word": "constant",
+          "meaning": "거의 일정한",
+          "note": "크게 변하지 않고 비슷하게 이어지는 상태를 말한다."
+        },
+        {
+          "word": "human civilization",
+          "meaning": "인류 문명",
+          "note": "사람들이 오랜 시간 이루어 온 삶의 방식과 문화, 사회를 넓게 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "What’s allowed us to flourish is our increasingly sophisticated knowledge of how to capture an ever-growing but still tiny fraction of that energy in a form that can fuel our bodies.",
+      "explanation": "그런데도 사람이 잘 살아가고 크게 발전할 수 있었던 까닭은, 그 태양 에너지 가운데 아주 작은 일부라도 우리 몸을 움직일 수 있는 먹을거리 형태로 바꾸어 얻는 방법을 점점 더 잘 알게 되었기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "flourish",
+          "meaning": "번성하다, 잘 살아가다",
+          "note": "사람이나 사회가 힘차게 발전하고 잘 되는 모습을 말한다."
+        },
+        {
+          "word": "sophisticated",
+          "meaning": "정교한, 매우 발달한",
+          "note": "단순히 복잡하다는 뜻보다, 잘 다듬어지고 수준이 높다는 뜻에 가깝다."
+        },
+        {
+          "word": "capture",
+          "meaning": "붙잡다, 얻어 내다",
+          "note": "여기서는 에너지를 이용 가능한 형태로 확보한다는 뜻이다."
+        },
+        {
+          "word": "fraction",
+          "meaning": "일부, 아주 작은 몫",
+          "note": "전체 중에서 작은 부분을 말한다."
+        },
+        {
+          "word": "fuel our bodies",
+          "meaning": "우리 몸에 힘을 주다",
+          "note": "연료를 넣듯이 몸이 움직일 에너지를 준다는 비유다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Every step in the advancement of our knowledge has brought with it an increase in the amount of energy we can tap into.",
+      "explanation": "사람의 지식이 한 걸음씩 발전할 때마다, 우리가 끌어다 쓸 수 있는 에너지의 양도 함께 늘어났다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "advancement",
+          "meaning": "발전, 나아감",
+          "note": ""
+        },
+        {
+          "word": "has brought with it",
+          "meaning": "그와 함께 ~을 가져왔다",
+          "note": "어떤 변화가 일어날 때 다른 결과도 같이 따라왔다는 말이다."
+        },
+        {
+          "word": "tap into",
+          "meaning": "끌어다 쓰다, 이용하다",
+          "note": "원래는 관을 연결해 자원을 빼내는 느낌에서 나온 표현이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "01"
+}

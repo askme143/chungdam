@@ -1,0 +1,270 @@
+{
+  "title": "철학에서 비유가 하는 두 가지 일",
+  "summary": "이 글은 철학에서 비유가 단순히 설명을 돕는 데 쓰일 때도 있고, 어떤 결론을 이끌어 내는 논리의 중요한 부분이 될 때도 있다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "serve simply to illustrate.",
+      "explanation": "이 말은 어떤 것이 그저 설명을 쉽게 하려고 쓰인다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "serve",
+          "meaning": "~하는 데 쓰이다",
+          "note": "여기서는 '봉사하다'가 아니라 '어떤 역할을 하다'라는 뜻이다."
+        },
+        {
+          "word": "simply",
+          "meaning": "그저, 단지",
+          "note": "강조를 약하게 하며 '오직 그것뿐'이라는 느낌을 준다."
+        },
+        {
+          "word": "illustrate",
+          "meaning": "설명하다, 알기 쉽게 보여 주다",
+          "note": "그림을 넣는다는 뜻도 있지만 여기서는 '예를 들어 이해를 돕다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "When Socrates compares the Good with the sun, he may simply be using the image of the sun to help bring to life his arguments about the Good.",
+      "explanation": "소크라테스가 '선'을 태양에 빗대어 말할 때, 그것은 선에 대한 자기 생각을 더 생생하고 쉽게 이해하게 하려고 태양의 모습을 빌려 쓰는 것일 수 있다.",
+      "vocabulary": [
+        {
+          "word": "compares A with B",
+          "meaning": "A를 B와 비교하다",
+          "note": "비슷한 점을 보여 주려고 함께 놓고 보는 표현이다."
+        },
+        {
+          "word": "the Good",
+          "meaning": "선, 가장 좋고 바른 것",
+          "note": "플라톤 철학에서 중요한 개념이다. 그냥 '좋은 것'보다 더 큰 뜻으로 쓰인다."
+        },
+        {
+          "word": "image",
+          "meaning": "모습, 이미지",
+          "note": "여기서는 실제 그림보다 '머릿속에 떠오르는 모습'에 가깝다."
+        },
+        {
+          "word": "bring to life",
+          "meaning": "생생하게 만들다",
+          "note": "직역하면 '생명을 불어넣다'이지만, 여기서는 내용을 더 살아 있게 느끼게 한다는 뜻이다."
+        },
+        {
+          "word": "arguments",
+          "meaning": "주장, 논거",
+          "note": "단순한 말다툼이 아니라 어떤 생각을 뒷받침하는 이유를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "On other occasions, however, the analogy can be an integral part of an argument.",
+      "explanation": "하지만 다른 경우에는 비유가 단순한 설명이 아니라, 주장 전체를 이루는 아주 중요한 부분이 될 수 있다.",
+      "vocabulary": [
+        {
+          "word": "On other occasions",
+          "meaning": "다른 경우에는",
+          "note": "상황이나 때가 달라질 때를 말한다."
+        },
+        {
+          "word": "however",
+          "meaning": "하지만, 그러나",
+          "note": "앞말과 반대되는 내용을 이어 준다."
+        },
+        {
+          "word": "analogy",
+          "meaning": "비유, 유추",
+          "note": "두 대상의 비슷한 점을 바탕으로 설명하거나 생각하는 방식이다."
+        },
+        {
+          "word": "integral",
+          "meaning": "빼놓을 수 없는, 아주 중요한",
+          "note": "없으면 전체가 제대로 서지 않는다는 느낌이 있다."
+        },
+        {
+          "word": "argument",
+          "meaning": "주장, 논증",
+          "note": "이유를 들어 결론을 세우는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Analogies can serve two different functions in philosophy.",
+      "explanation": "철학에서 비유는 서로 다른 두 가지 일을 할 수 있다.",
+      "vocabulary": [
+        {
+          "word": "Analogies",
+          "meaning": "비유들, 유추들",
+          "note": "analogy의 복수형이다."
+        },
+        {
+          "word": "serve",
+          "meaning": "역할을 하다",
+          "note": "여기서도 '쓰이다'라는 뜻이다."
+        },
+        {
+          "word": "functions",
+          "meaning": "기능, 역할",
+          "note": "무엇을 하는지, 어떤 일을 맡는지를 말한다."
+        },
+        {
+          "word": "philosophy",
+          "meaning": "철학",
+          "note": "세상, 인간, 옳고 그름 같은 큰 물음을 따지는 학문이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Sometimes, as seems often the case in Plato, for example, they serve simply to illustrate.",
+      "explanation": "예를 들어 플라톤의 글에서는 자주 그런 것처럼, 비유가 그저 설명을 쉽게 하려고 쓰일 때가 있다.",
+      "vocabulary": [
+        {
+          "word": "Sometimes",
+          "meaning": "때로는",
+          "note": ""
+        },
+        {
+          "word": "as seems often the case",
+          "meaning": "자주 그런 것처럼 보이듯이",
+          "note": "어떤 일이 흔히 일어난다는 뜻을 부드럽게 말하는 표현이다."
+        },
+        {
+          "word": "Plato",
+          "meaning": "플라톤",
+          "note": "고대 그리스 철학자이다."
+        },
+        {
+          "word": "for example",
+          "meaning": "예를 들어",
+          "note": ""
+        },
+        {
+          "word": "illustrate",
+          "meaning": "설명을 돕다",
+          "note": "이해하기 쉽게 보여 준다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Consider one of the most popular arguments for the existence of God, the ‘ argument from design’, which has been advanced by many thinkers, from the ancient Stoics to British theologian William Paley.",
+      "explanation": "신이 존재한다고 말하는 가장 널리 알려진 주장 가운데 하나를 생각해 보자. 그것은 '설계 논증'인데, 고대 스토아학파 사람들부터 영국의 신학자 윌리엄 페일리에 이르기까지 많은 사상가들이 내세운 주장이다.",
+      "vocabulary": [
+        {
+          "word": "Consider",
+          "meaning": "생각해 보자",
+          "note": "글에서 독자의 주의를 끌 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "the existence of God",
+          "meaning": "신의 존재",
+          "note": "신이 실제로 있다고 보는 문제를 말한다."
+        },
+        {
+          "word": "argument from design",
+          "meaning": "설계 논증",
+          "note": "세상이 질서 있게 짜여 있으니 만든 이가 있어야 한다고 보는 주장이다."
+        },
+        {
+          "word": "advanced",
+          "meaning": "내세운, 주장한",
+          "note": "여기서는 '발전된'이 아니라 어떤 생각을 제시했다는 뜻이다."
+        },
+        {
+          "word": "theologian",
+          "meaning": "신학자",
+          "note": "신과 종교를 깊이 연구하는 사람이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The argument holds that just as an artefact such as a watch implies the existence of an artisan, so the universe implies the existence of a divine creator.",
+      "explanation": "이 주장은 시계 같은 인공물은 그것을 만든 사람이 있음을 보여 주듯이, 우주도 신적인 창조자가 있음을 보여 준다고 말한다.",
+      "vocabulary": [
+        {
+          "word": "holds that",
+          "meaning": "~라고 본다, ~라고 주장한다",
+          "note": "주장의 내용을 이어 줄 때 자주 쓰인다."
+        },
+        {
+          "word": "artefact",
+          "meaning": "인공물, 사람이 만든 물건",
+          "note": "영국식 철자이다. 미국식은 artifact이다."
+        },
+        {
+          "word": "implies",
+          "meaning": "있음을 보여 주다, 넌지시 뜻하다",
+          "note": "여기서는 어떤 것이 다른 것의 존재를 가리킨다는 뜻이다."
+        },
+        {
+          "word": "artisan",
+          "meaning": "기술을 가진 장인, 수공업자",
+          "note": "손으로 물건을 잘 만드는 사람을 말한다."
+        },
+        {
+          "word": "divine creator",
+          "meaning": "신적인 창조자",
+          "note": "보통 신을 가리키는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Here the analogy with the watch is not meant simply to illustrate a point.",
+      "explanation": "여기서 시계에 빗댄 비유는 그저 어떤 생각을 쉽게 설명하려는 데 그치지 않는다.",
+      "vocabulary": [
+        {
+          "word": "analogy with the watch",
+          "meaning": "시계와의 비유",
+          "note": "시계를 예로 들어 우주를 설명하는 방식을 말한다."
+        },
+        {
+          "word": "is not meant to",
+          "meaning": "~하려는 것이 아니다",
+          "note": "의도나 목적을 말할 때 쓰인다."
+        },
+        {
+          "word": "simply",
+          "meaning": "그저, 단지",
+          "note": ""
+        },
+        {
+          "word": "illustrate a point",
+          "meaning": "어떤 점을 설명하다",
+          "note": "point는 여기서 '요점, 주장'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Rather, the analogy is supposed to show why we should conclude that the universe has a creator.",
+      "explanation": "오히려 이 비유는 왜 우리가 우주에 창조자가 있다고 결론 내려야 하는지를 보여 주려는 것이다.",
+      "vocabulary": [
+        {
+          "word": "Rather",
+          "meaning": "오히려",
+          "note": "앞의 내용을 바로잡거나 더 정확히 말할 때 쓴다."
+        },
+        {
+          "word": "is supposed to",
+          "meaning": "~하도록 되어 있다, ~하려는 것이다",
+          "note": "여기서는 의도된 역할을 말한다."
+        },
+        {
+          "word": "conclude",
+          "meaning": "결론 내리다",
+          "note": "여러 이유를 따져 보고 마지막 판단을 내리는 것이다."
+        },
+        {
+          "word": "the universe has a creator",
+          "meaning": "우주에는 창조자가 있다",
+          "note": "설계 논증의 핵심 결론이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

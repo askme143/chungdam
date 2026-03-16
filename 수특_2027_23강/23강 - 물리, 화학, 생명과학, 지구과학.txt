@@ -1,0 +1,70 @@
+============================================================
+23강 - 물리, 화학, 생명과학, 지구과학
+============================================================
+[Gateway]
+A good example of chaos is the magnetic pendulum sold as an
+executive toy. It has four magnets arranged in a square at the
+base and a pendulum that swings back and forth between them.
+Release the pendulum and note the magnets that it visits,
+and in what order. If the pendulum is released from the
+same position a second time, the pattern of movement may
+at first be the same but soon it will become completely
+different. In fact, the pattern of its movement is chaotic.
+No matter how much care is taken to start the pendulum in
+the same position, it will visit an entirely different set of
+points on the two occasions. Chaotic systems are generated
+by iteration, though not all iteration leads to chaos.
+In order to produce chaos, the iteration has to be within
+what is called a nonlinear system. Nor are all nonlinear
+systems chaotic: to become so they need to be pushed
+beyond a certain point, called a bifurcation. Before that
+point is reached they may behave in a quite orderly fashion.
+[01]
+There is one important thing to note about momentum.
+Since motion is relative, only relative velocities are relevant.
+In fact, when you think about it, all velocities are relative.
+Thus, on the surface of the earth, we always reckon velocity
+with respect to the ground — the velocity of the earth itself
+does not matter. There is a true story of a French pilot in World
+War II who stretched his hand out of his small airplane window
+and caught a bullet. How is this possible? The velocity of the
+bullet must have been about the same as the velocity of his
+plane. This can happen, because a bullet slows down to such a
+velocity toward the end of its flight path due to the action of air
+drag. Since only relative velocity matters, the momentum of the
+bullet was negligible as far as the pilot was concerned.
+Thus, he would have had little problem in catching the bullet.
+[02]
+Hipparchus of Nicaea was the most important astronomer of
+the Hellenistic Age after Aristarchus of Samos.
+Unlike Aristarchus, Hipparchus believed in the geocentric
+universe of Aristotle. A noted mathematician,
+Hipparchus gauged the movement of the sun and the moon
+using an astronomical model devised by Apollonius of Perga.
+Hipparchus worked at Alexandria and Rhodes; at the latter city,
+he created a kind of astronomical research center in which he
+cataloged the stars according to brightness. He produced a star
+chart of about 850 stars, tracking their movements and relative
+brightness. Hipparchus made more accurate measurements than
+Aristarchus did of the distance of the moon and sun from the
+earth. To account for the orbit of the sun around the earth he
+developed the idea of the eccentric, which Ptolemy of
+Alexandria would expand upon.
+[03]
+Living things are not confined to the familiar temperate realm
+of land, water, and sunlight inhabited by plants and plant-eating
+animals. They can be found in the darkest depths of the ocean,
+in hot volcanic mud, in pools beneath the frozen surface of the
+Antarctic, and buried kilometers deep in the Earth’s crust.
+generally unfamiliar, not only because they are inaccessible, but
+also because they are mostly microscopic.
+for us to see without special equipment: they tend to go
+unnoticed, unless they cause a disease or rot the timbers of our
+houses. Studies of bacteria have helped us become familiar
+with those species of industrial importance, such as those used
+in breaking down waste materials. Yet microorganisms make
+up most of the total mass of living matter on our planet.
+and specifically through the analysis of DNA sequences, have
+we begun to get a picture of life on Earth that is not grossly
+distorted by our biased perspective as large animals living on
+dry land.

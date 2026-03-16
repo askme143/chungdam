@@ -1,0 +1,164 @@
+{
+  "title": "기술이 사람다움을 약하게 만들 수 있다는 걱정",
+  "summary": "이 글은 기술이 사람의 능력을 넓혀 주기도 하지만, 그만큼 우리가 원래 하던 능력을 잃게 만들 수 있다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The strongest criticisms of the overextension of technology involve claims of dehumanization, and these arguments are not new.",
+      "explanation": "기술이 너무 지나치게 넓게 쓰이는 일을 가장 강하게 비판하는 사람들은, 그것이 사람다움을 약하게 만든다고 말한다. 그리고 이런 주장은 새로 나온 이야기가 아니다.",
+      "vocabulary": [
+        {
+          "word": "the overextension of technology",
+          "meaning": "기술이 지나치게 넓게 쓰이는 것",
+          "note": "단순히 기술 발전이 아니라, 기술이 너무 많은 영역에 들어오는 상황을 말한다."
+        },
+        {
+          "word": "involve",
+          "meaning": "포함하다, 관련되다",
+          "note": "여기서는 비판 내용 안에 이런 주장이 들어 있다는 뜻이다."
+        },
+        {
+          "word": "claims of dehumanization",
+          "meaning": "사람다움을 잃게 된다는 주장",
+          "note": "dehumanization은 사람을 사람답지 않게 만드는 것을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Canadian philosopher of the electronic age, Marshall McLuhan was primarily a techno-utopian, but he was also a critical thinker, who cautioned decades ago against too much human extension into technology.",
+      "explanation": "전자 시대의 캐나다 철학자 마셜 맥루언은 기본적으로 기술을 좋게 보는 사람이었다. 하지만 그는 비판적으로 생각하는 사람이기도 해서, 사람이 자기 능력을 기술 쪽으로 너무 많이 넘기는 일을 수십 년 전에 이미 조심하라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "philosopher",
+          "meaning": "철학자",
+          "note": ""
+        },
+        {
+          "word": "primarily",
+          "meaning": "기본적으로, 주로",
+          "note": ""
+        },
+        {
+          "word": "techno-utopian",
+          "meaning": "기술 낙관론자",
+          "note": "기술이 사람과 사회를 더 좋게 만들 것이라고 믿는 사람이다."
+        },
+        {
+          "word": "critical thinker",
+          "meaning": "비판적으로 생각하는 사람",
+          "note": "무조건 받아들이지 않고 따져 보는 사람을 말한다."
+        },
+        {
+          "word": "cautioned against",
+          "meaning": "~을 조심하라고 경고했다",
+          "note": "caution은 위험할 수 있으니 주의하라고 말하는 것이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "McLuhan famously claimed that every media extension of man is an amputation.",
+      "explanation": "맥루언은 아주 유명하게도, 사람이 미디어를 통해 능력을 넓힐 때마다 그 대신 어떤 능력은 잘라 내듯 잃게 된다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "famously claimed",
+          "meaning": "유명하게도 주장했다",
+          "note": ""
+        },
+        {
+          "word": "media extension of man",
+          "meaning": "미디어를 통한 인간 능력의 확장",
+          "note": "도구나 매체가 사람의 감각과 능력을 바깥으로 늘려 주는 것을 말한다."
+        },
+        {
+          "word": "amputation",
+          "meaning": "절단, 잘라 냄",
+          "note": "여기서는 몸을 실제로 자른다는 뜻이 아니라, 원래 능력을 잃는다는 비유이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "For example, once we have a car, we don’t walk to the shops any more; once we have a computer hard-drive, we don’t have to remember things; and now that we have personal GPS (Global Positioning System) on our cell phones, no one can find their way about without it.",
+      "explanation": "예를 들어 차가 생기면 우리는 더 이상 가게까지 걸어가지 않는다. 컴퓨터 하드드라이브가 있으면 많은 것을 굳이 기억하지 않아도 된다. 그리고 이제 휴대전화에 개인용 GPS가 있으니, 그것 없이는 길을 찾지 못하는 사람이 많아졌다.",
+      "vocabulary": [
+        {
+          "word": "hard-drive",
+          "meaning": "하드드라이브, 저장 장치",
+          "note": "컴퓨터 안에 자료를 저장하는 장치이다."
+        },
+        {
+          "word": "personal GPS",
+          "meaning": "개인용 위치 안내 장치",
+          "note": "휴대전화에서 길 찾기에 쓰는 기능을 가리킨다."
+        },
+        {
+          "word": "find their way about",
+          "meaning": "길을 찾아 다니다, 스스로 길을 찾다",
+          "note": "about은 여기서 이리저리 다니는 상황을 더해 준다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Based on McLuhan’s philosophy, we are becoming post-literate because we rely on screens full of pictures, rather than print media, such as books.",
+      "explanation": "맥루언의 생각에 따르면, 우리는 글을 깊이 읽는 힘이 약해지는 쪽으로 가고 있다. 책 같은 인쇄 매체보다 그림이 가득한 화면에 더 기대고 있기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "Based on",
+          "meaning": "~에 따르면, ~을 바탕으로",
+          "note": ""
+        },
+        {
+          "word": "post-literate",
+          "meaning": "글 읽기 능력이 약해진 상태의",
+          "note": "글을 전혀 못 읽는다는 뜻이라기보다, 글보다 화면과 이미지에 더 기대는 상태를 말한다."
+        },
+        {
+          "word": "rely on",
+          "meaning": "~에 기대다, ~에 의지하다",
+          "note": ""
+        },
+        {
+          "word": "print media",
+          "meaning": "인쇄 매체",
+          "note": "책, 신문, 잡지처럼 종이에 인쇄된 매체를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "It is thus possible that extensions of human faculties, through techno- and bio-enhancement, will bring about arrested development in the natural evolution of higher human.",
+      "explanation": "그래서 기술 강화와 생명 기술 강화를 통해 사람의 능력을 넓히는 일이, 더 나은 인간으로 자연스럽게 자라 가는 과정을 오히려 멈추게 할 수도 있다.",
+      "vocabulary": [
+        {
+          "word": "human faculties",
+          "meaning": "인간의 능력",
+          "note": "생각하는 힘, 기억력, 감각 같은 여러 능력을 가리킨다."
+        },
+        {
+          "word": "techno- and bio-enhancement",
+          "meaning": "기술 강화와 생명 기술 강화",
+          "note": "기계나 생명 기술로 사람의 능력을 더 키우는 일을 말한다."
+        },
+        {
+          "word": "bring about",
+          "meaning": "불러오다, 일으키다",
+          "note": ""
+        },
+        {
+          "word": "arrested development",
+          "meaning": "성장이 멈춘 상태",
+          "note": "정상적으로 자라거나 발전해야 할 것이 중간에 멈춘다는 뜻이다."
+        },
+        {
+          "word": "natural evolution",
+          "meaning": "자연스러운 진화",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

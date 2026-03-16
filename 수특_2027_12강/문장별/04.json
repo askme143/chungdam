@@ -1,0 +1,208 @@
+{
+  "title": "문학은 읽을 때마다 새롭게 보인다",
+  "summary": "문학은 정보를 한 번 전하는 글이 아니라, 읽는 사람의 생각과 삶의 경험에 따라 시간이 지나면서 다른 뜻과 느낌을 주는 글이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Literature is not a disposable carrier of nuggets of information.",
+      "explanation": "문학은 정보를 조금 담아 두었다가 한 번 쓰고 버리는 그릇 같은 것이 아니다.",
+      "vocabulary": [
+        {
+          "word": "disposable",
+          "meaning": "한 번 쓰고 버리는",
+          "note": "물건뿐 아니라 생각이나 글의 가치가 오래가지 않는다는 뜻으로도 자주 쓴다."
+        },
+        {
+          "word": "carrier",
+          "meaning": "실어 나르는 것, 담는 것",
+          "note": "여기서는 정보를 담아 전달하는 매개체라는 뜻이다."
+        },
+        {
+          "word": "nuggets of information",
+          "meaning": "짧고 작은 정보 조각들",
+          "note": "nugget은 원래 작은 덩어리라는 뜻이다. 여기서는 유용한 정보 한 토막을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Literature (as opposed to everyday reading) invites us back again and again to re-experience what it offers and to reassess its meanings.",
+      "explanation": "문학은 일상적인 읽기와 달리, 우리를 여러 번 다시 불러들인다. 그래서 그 글이 주는 것을 다시 느끼고, 그 뜻을 새롭게 다시 생각하게 만든다.",
+      "vocabulary": [
+        {
+          "word": "as opposed to",
+          "meaning": "~와 달리",
+          "note": "두 대상을 비교하며 차이를 보여 줄 때 자주 쓴다."
+        },
+        {
+          "word": "invites us back",
+          "meaning": "다시 돌아오게 한다",
+          "note": "직역하면 초대한다이지만, 여기서는 다시 읽고 싶게 만든다는 뜻이다."
+        },
+        {
+          "word": "re-experience",
+          "meaning": "다시 경험하다, 다시 느끼다",
+          "note": "처음 읽을 때와는 다른 느낌으로 다시 겪는다는 뜻이다."
+        },
+        {
+          "word": "reassess",
+          "meaning": "다시 살펴보다, 다시 판단하다",
+          "note": "한 번 내린 생각을 바꾸거나 고쳐 보는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Literature continues to communicate meaning and significance over time, and, most remarkably, to shift its meaning based on our perspective.",
+      "explanation": "문학은 시간이 지나도 계속 뜻과 중요함을 전한다. 더 놀라운 점은, 우리가 어떤 눈으로 보느냐에 따라 그 뜻이 달라져 보인다는 것이다.",
+      "vocabulary": [
+        {
+          "word": "significance",
+          "meaning": "중요함, 큰 뜻",
+          "note": "단순한 meaning보다 더 깊고 무게 있는 뜻을 말할 때 쓴다."
+        },
+        {
+          "word": "most remarkably",
+          "meaning": "가장 놀랍게도",
+          "note": "글쓴이가 특히 강조하고 싶은 점을 앞세울 때 쓰는 표현이다."
+        },
+        {
+          "word": "shift",
+          "meaning": "달라지다, 바뀌다",
+          "note": "여기서는 문학 작품의 뜻이 고정되지 않고 움직인다는 뜻이다."
+        },
+        {
+          "word": "perspective",
+          "meaning": "관점, 바라보는 눈",
+          "note": "사람의 경험, 나이, 생각에 따라 달라질 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "We have all had the experience of taking up a classic work of literature after several years and finding in it details and significance we missed the first (or fifth) time through.",
+      "explanation": "우리 모두는 몇 년이 지난 뒤 고전 문학 작품을 다시 읽으면서, 처음이나 심지어 다섯 번째 읽을 때도 못 봤던 세부 내용과 중요한 뜻을 새로 발견한 적이 있다.",
+      "vocabulary": [
+        {
+          "word": "taking up",
+          "meaning": "집어 들다, 읽기 시작하다",
+          "note": "어떤 책이나 활동을 시작한다는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "classic work of literature",
+          "meaning": "고전 문학 작품",
+          "note": "오랫동안 가치가 인정된 작품을 말한다."
+        },
+        {
+          "word": "details",
+          "meaning": "세부 내용",
+          "note": "작은 부분이지만 뜻을 이해하는 데 중요한 요소일 수 있다."
+        },
+        {
+          "word": "time through",
+          "meaning": "~번째 읽을 때, ~번째 해 볼 때",
+          "note": "the first time through는 처음 끝까지 읽었을 때라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "What has changed is not the work of literature exactly but our experiences that are now reflected in the text.",
+      "explanation": "정확히 말하면 바뀐 것은 작품 자체가 아니다. 이제는 우리의 삶의 경험이 그 글을 읽는 데 비쳐 들어가서, 글이 다르게 보이는 것이다.",
+      "vocabulary": [
+        {
+          "word": "exactly",
+          "meaning": "정확히 말하면",
+          "note": "앞말을 조금 바로잡거나 더 분명하게 할 때 쓴다."
+        },
+        {
+          "word": "reflected in",
+          "meaning": "~에 비쳐 나타나는",
+          "note": "거울처럼 그대로 비친다는 뜻에서 나온 표현이다."
+        },
+        {
+          "word": "text",
+          "meaning": "글, 작품의 내용",
+          "note": "여기서는 책 속의 문장과 내용 전체를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "One’s perception of Shakespeare’s grand drama on aging under existential threat, King Lear, is a different experience read in one’s twenties than it is in one’s seventies.",
+      "explanation": "셰익스피어의 『리어 왕』처럼, 늙어 감과 삶이 무너질지 모른다는 두려움을 다룬 큰 비극은 스무 살에 읽을 때와 일흔 살에 읽을 때 느낌이 다르다.",
+      "vocabulary": [
+        {
+          "word": "perception",
+          "meaning": "느낌, 인식, 받아들이는 방식",
+          "note": "같은 것을 봐도 사람마다 perception이 다를 수 있다."
+        },
+        {
+          "word": "grand drama",
+          "meaning": "큰 규모의 비극적 이야기, 장대한 극",
+          "note": "grand는 여기서 단순히 화려하다는 뜻보다 크고 무게 있다는 뜻에 가깝다."
+        },
+        {
+          "word": "aging",
+          "meaning": "늙어 감, 나이 들어 감",
+          "note": "사람이 나이를 먹어 가는 과정을 말한다."
+        },
+        {
+          "word": "existential threat",
+          "meaning": "삶 자체를 흔드는 위협",
+          "note": "그냥 위험이 아니라 존재와 삶의 바탕이 무너질 수 있는 큰 위협을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "This is true because reading literature, as opposed to everyday reading, requires full reader participation, activating not just our informational processing skills but our analysis, imagination, and emotions.",
+      "explanation": "이 말이 맞는 이유는, 문학 읽기는 일상적인 읽기와 달리 독자가 온전히 참여해야 하기 때문이다. 정보를 처리하는 능력만 쓰는 것이 아니라, 생각해 보는 힘, 상상하는 힘, 감정까지 함께 움직이게 된다.",
+      "vocabulary": [
+        {
+          "word": "requires full reader participation",
+          "meaning": "독자의 온전한 참여가 필요하다",
+          "note": "가만히 정보만 받는 것이 아니라 적극적으로 읽어야 한다는 뜻이다."
+        },
+        {
+          "word": "activating",
+          "meaning": "움직이게 하며, 작동하게 하며",
+          "note": "잠자고 있던 능력을 켠다는 느낌이 있다."
+        },
+        {
+          "word": "informational processing skills",
+          "meaning": "정보를 읽고 처리하는 능력",
+          "note": "글의 내용을 파악하고 정리하는 기본 능력을 말한다."
+        },
+        {
+          "word": "analysis",
+          "meaning": "깊이 따져 보는 생각",
+          "note": "문맥상 분석이라는 말보다 쉽게 풀어 썼다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "These change over time in every person, and those changes explain how works of literature are more dynamic과 than everyday reading.",
+      "explanation": "이런 능력들은 누구에게나 시간이 지나면서 달라진다. 그리고 바로 그런 변화 때문에 문학 작품은 일상적인 읽기보다 더 살아 움직이듯 달라지고 새롭게 느껴진다.",
+      "vocabulary": [
+        {
+          "word": "over time",
+          "meaning": "시간이 지나면서",
+          "note": "조금씩 변화가 쌓이는 느낌을 준다."
+        },
+        {
+          "word": "dynamic",
+          "meaning": "살아 움직이듯 변하는",
+          "note": "고정되어 있지 않고 계속 새롭게 반응하는 느낌이다."
+        },
+        {
+          "word": "works of literature",
+          "meaning": "문학 작품들",
+          "note": "소설, 시, 희곡 같은 문학 작품을 넓게 가리킨다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

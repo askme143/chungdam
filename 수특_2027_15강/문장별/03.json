@@ -1,0 +1,196 @@
+{
+  "title": "수학에서 추상화가 중요한 이유",
+  "summary": "수학은 비슷한 대상을 한데 묶어 한 번에 다루는 학문이며, 이런 생각은 일상에서 공통된 성질을 보고 판단할 때와도 비슷하다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The standard school mathematics curriculum doesn’t stress enough that mathematics is all about abstraction.",
+      "explanation": "보통 학교 수학 과정에서는 수학이 가장 크게는 '추상화'를 다루는 학문이라는 점을 충분히 강조하지 않는다. 즉, 수학은 눈앞의 하나하나만 보는 것이 아니라, 공통된 특징을 뽑아내어 더 넓게 생각하는 일이라는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "curriculum",
+          "meaning": "교육 과정",
+          "note": "학교에서 무엇을 배우는지 정해 놓은 내용이다."
+        },
+        {
+          "word": "stress",
+          "meaning": "강조하다",
+          "note": "여기서는 '힘을 주다'가 아니라 '중요하게 말하다'라는 뜻이다."
+        },
+        {
+          "word": "all about",
+          "meaning": "가장 핵심이 ~이다",
+          "note": "어떤 것의 중심 내용을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "abstraction",
+          "meaning": "추상화, 공통된 특징만 뽑아 생각하기",
+          "note": "구체적인 것들에서 공통점을 찾아 더 넓은 개념으로 보는 것이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Mathematicians study specific objects but, usually, they aim to cluster them together and study them all at the same time.",
+      "explanation": "수학자들은 어떤 구체적인 대상을 연구하기도 한다. 하지만 보통은 그것들을 비슷한 것끼리 묶어서, 여러 대상을 한 번에 함께 연구하려고 한다.",
+      "vocabulary": [
+        {
+          "word": "specific",
+          "meaning": "구체적인, 특정한",
+          "note": ""
+        },
+        {
+          "word": "aim to",
+          "meaning": "~하려고 하다, 목표로 삼다",
+          "note": ""
+        },
+        {
+          "word": "cluster",
+          "meaning": "묶다, 한데 모으다",
+          "note": "비슷한 것들을 모아 한 집단으로 만드는 느낌이다."
+        },
+        {
+          "word": "at the same time",
+          "meaning": "동시에, 한 번에",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "must prove properties only once, for the whole class of objects, instead of studying each object individually.",
+      "explanation": "이렇게 하면 대상 하나하나를 따로 연구하는 대신, 그 대상들이 들어 있는 전체 묶음에 대해 성질을 한 번만 증명하면 된다. 그러면 같은 묶음에 속한 것들에 모두 그 결과를 적용할 수 있다.",
+      "vocabulary": [
+        {
+          "word": "prove",
+          "meaning": "증명하다",
+          "note": "수학에서 어떤 말이 틀림없음을 논리적으로 보이는 것이다."
+        },
+        {
+          "word": "properties",
+          "meaning": "성질, 특징",
+          "note": "수학에서는 대상이 가진 규칙이나 특징을 뜻한다."
+        },
+        {
+          "word": "the whole class of objects",
+          "meaning": "대상들의 전체 부류",
+          "note": "여기서 class는 '학급'이 아니라 '같은 특징을 가진 묶음'이다."
+        },
+        {
+          "word": "individually",
+          "meaning": "하나씩 따로",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "within a class has a particular property, even the objects that haven’t been defined yet.",
+      "explanation": "어떤 묶음 안의 모든 대상이 어떤 성질을 가진다고 알게 되면, 아직 정확히 정의하지 않은 대상이라도 그 묶음에 들어가기만 하면 그 성질을 가진다고 말할 수 있다.",
+      "vocabulary": [
+        {
+          "word": "within",
+          "meaning": "~안에, ~범위 안에서",
+          "note": ""
+        },
+        {
+          "word": "particular",
+          "meaning": "특정한",
+          "note": ""
+        },
+        {
+          "word": "property",
+          "meaning": "성질, 특징",
+          "note": ""
+        },
+        {
+          "word": "defined",
+          "meaning": "정의된",
+          "note": "수학에서는 뜻과 조건이 분명하게 정해진 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Often, when mathematicians want to prove that an important object behaves in a particular way, they prove instead that it belongs to a class already known to have this property.",
+      "explanation": "수학자들은 중요한 어떤 대상이 특별한 방식으로 움직이거나 성질을 보인다는 것을 직접 증명하려고 하기보다, 그 대상이 이미 그런 성질을 가진 것으로 알려진 묶음에 속한다는 것을 보이는 경우가 많다.",
+      "vocabulary": [
+        {
+          "word": "behaves",
+          "meaning": "작동하다, 성질을 보이다",
+          "note": "사람의 '행동하다'가 아니라 대상이 어떤 규칙대로 나타난다는 뜻이다."
+        },
+        {
+          "word": "in a particular way",
+          "meaning": "특정한 방식으로",
+          "note": ""
+        },
+        {
+          "word": "belongs to",
+          "meaning": "~에 속하다",
+          "note": ""
+        },
+        {
+          "word": "already known",
+          "meaning": "이미 알려진",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Mathematical calculation ability serves as a key indicator of academic development, as it reflects a student’s numerical proficiency, problem-solving skills, and cognitive growth.",
+      "explanation": "수학 계산 능력은 학생의 학업 발달을 보여 주는 중요한 기준이 된다. 왜냐하면 이 능력은 숫자를 다루는 힘, 문제를 푸는 힘, 그리고 생각하는 힘이 얼마나 자라고 있는지를 드러내기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "serves as",
+          "meaning": "~의 역할을 하다",
+          "note": ""
+        },
+        {
+          "word": "indicator",
+          "meaning": "지표, 보여 주는 기준",
+          "note": "어떤 상태를 알아보게 해 주는 기준이다."
+        },
+        {
+          "word": "numerical proficiency",
+          "meaning": "숫자를 잘 다루는 능력",
+          "note": "proficiency는 '능숙함'이라는 뜻이다."
+        },
+        {
+          "word": "cognitive growth",
+          "meaning": "생각하는 힘의 성장",
+          "note": "cognitive는 기억, 이해, 판단 같은 생각 능력과 관련 있다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "We reason similarly in everyday life: since all fruits have seeds, and an apple is a fruit, then an apple must have seeds.",
+      "explanation": "우리는 일상생활에서도 비슷한 방식으로 생각한다. 모든 과일에는 씨가 있고, 사과는 과일이므로, 사과에도 씨가 있다고 판단하는 것이다.",
+      "vocabulary": [
+        {
+          "word": "reason",
+          "meaning": "생각해 판단하다",
+          "note": "이유를 따져 결론을 내리는 것을 말한다."
+        },
+        {
+          "word": "similarly",
+          "meaning": "비슷하게",
+          "note": ""
+        },
+        {
+          "word": "everyday life",
+          "meaning": "일상생활",
+          "note": ""
+        },
+        {
+          "word": "since",
+          "meaning": "~이므로",
+          "note": "여기서는 시간 뜻이 아니라 이유를 나타낸다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

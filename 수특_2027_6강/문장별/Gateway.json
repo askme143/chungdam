@@ -1,0 +1,188 @@
+{
+  "title": "대중교통에서 속도보다 더 중요한 것",
+  "summary": "대중교통은 빠르기만 해서는 부족하고, 내가 필요할 때 있고 곧 와야 실제로 도움이 된다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Emphasizing speed over frequency can make sense in contexts where everyone is expected to plan around the timetable, including peak-only commute services and very long trips with low demand.",
+      "explanation": "배차 간격보다 속도를 더 중요하게 보는 것이 맞을 때도 있다. 예를 들어, 모두가 시간표에 맞춰 움직여야 하는 상황이 그렇다. 출퇴근 시간에만 다니는 교통편이나, 이용하는 사람이 적은 아주 긴 거리 이동이 그런 경우에 들어간다.",
+      "vocabulary": [
+        {
+          "word": "Emphasizing",
+          "meaning": "강조하는 것",
+          "note": "동사 emphasize는 '중요하게 보다, 두드러지게 말하다'라는 뜻이다."
+        },
+        {
+          "word": "frequency",
+          "meaning": "운행 간격, 자주 오는 정도",
+          "note": "대중교통에서는 보통 차가 얼마나 자주 오는지를 말한다."
+        },
+        {
+          "word": "plan around",
+          "meaning": "~에 맞춰 계획하다",
+          "note": "시간표나 일정 같은 것을 기준으로 움직일 때 자주 쓴다."
+        },
+        {
+          "word": "peak-only commute services",
+          "meaning": "출퇴근 혼잡 시간에만 운행하는 교통편",
+          "note": "peak는 사람이 가장 몰리는 시간대이다."
+        },
+        {
+          "word": "low demand",
+          "meaning": "수요가 적음, 이용하는 사람이 적음",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "In all other contexts, though, it seems to be a common motorist’s error.",
+      "explanation": "하지만 그런 특별한 경우가 아니라면, 이렇게 생각하는 것은 자동차 이용자들이 흔히 하는 착각처럼 보인다.",
+      "vocabulary": [
+        {
+          "word": "contexts",
+          "meaning": "상황들, 경우들",
+          "note": ""
+        },
+        {
+          "word": "motorist",
+          "meaning": "자동차 운전자",
+          "note": "여기서는 차를 주로 이용하는 사람이라는 느낌으로 쓰였다."
+        },
+        {
+          "word": "error",
+          "meaning": "실수, 잘못된 생각",
+          "note": "여기서는 단순한 계산 실수보다 '판단 착오'에 가깝다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Roads are there all the time, so their speed is the most important fact that distinguishes them.",
+      "explanation": "도로는 언제나 이용할 수 있다. 그래서 도로를 비교할 때는 얼마나 빨리 갈 수 있는지가 가장 중요한 차이점이 된다.",
+      "vocabulary": [
+        {
+          "word": "distinguishes",
+          "meaning": "구별해 준다, 차이를 만든다",
+          "note": "distinguish는 '구별하다'라는 뜻이다."
+        },
+        {
+          "word": "fact",
+          "meaning": "사실, 중요한 요소",
+          "note": "여기서는 '눈에 띄는 특징'에 가깝게 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "But transit is only there if it’s coming soon.",
+      "explanation": "하지만 대중교통은 곧 도착할 때에만 실제로 있다고 느낄 수 있다. 너무 오래 기다려야 하면, 있는 것이나 없는 것이나 비슷해진다.",
+      "vocabulary": [
+        {
+          "word": "transit",
+          "meaning": "대중교통",
+          "note": "버스, 지하철, 기차 같은 교통수단을 넓게 가리킨다."
+        },
+        {
+          "word": "coming soon",
+          "meaning": "곧 오는",
+          "note": "대중교통에서는 기다리는 시간이 짧다는 뜻으로 이해하면 된다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "If you have a car, you can use a road whenever you want and experience its speed.",
+      "explanation": "차가 있으면 내가 원할 때 언제든 도로를 이용할 수 있고, 그 도로의 빠르기를 바로 누릴 수 있다.",
+      "vocabulary": [
+        {
+          "word": "whenever you want",
+          "meaning": "원할 때 언제든",
+          "note": ""
+        },
+        {
+          "word": "experience",
+          "meaning": "직접 느끼다, 겪다",
+          "note": "여기서는 도로의 속도를 실제로 체감한다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "But transit has to exist when you need it (span), and it needs to be coming soon (frequency).",
+      "explanation": "하지만 대중교통은 내가 필요로 하는 시간대에 운행하고 있어야 한다. 이것이 운행 시간대이다. 또 너무 오래 기다리지 않게 곧 와야 하는데, 이것이 배차 간격이다.",
+      "vocabulary": [
+        {
+          "word": "exist",
+          "meaning": "있다, 운행하고 있다",
+          "note": "여기서는 실제로 그 시간에 서비스가 제공된다는 뜻이다."
+        },
+        {
+          "word": "span",
+          "meaning": "운행 시간대",
+          "note": "하루 중 언제부터 언제까지 다니는지를 말한다."
+        },
+        {
+          "word": "frequency",
+          "meaning": "배차 간격, 자주 오는 정도",
+          "note": "간격이 짧을수록 frequency가 높다고 말한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Otherwise, waiting time will wipe out any time savings from a faster service.",
+      "explanation": "그렇지 않으면 기다리는 시간이, 더 빠른 교통편으로 아낀 시간을 다 없애 버린다.",
+      "vocabulary": [
+        {
+          "word": "Otherwise",
+          "meaning": "그렇지 않으면",
+          "note": ""
+        },
+        {
+          "word": "wipe out",
+          "meaning": "없애 버리다, 날려 버리다",
+          "note": "여기서는 이득을 완전히 사라지게 만든다는 뜻이다."
+        },
+        {
+          "word": "time savings",
+          "meaning": "절약한 시간",
+          "note": "faster service로 줄어든 시간을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Unless you’re comfortable planning your life around a particular scheduled trip, speed is worthless without frequency, so a transit map that screams about speed and whispers about frequency may simply be planting confusion.",
+      "explanation": "정해진 한 교통편 시간에 맞춰 내 생활을 짜는 것이 괜찮은 사람이 아니라면, 배차 간격이 없는 속도는 아무 가치가 없다. 그래서 속도만 아주 크게 내세우고, 배차 간격은 작게 다루는 대중교통 지도는 사람들에게 헷갈림만 심어 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "comfortable",
+          "meaning": "꺼리지 않는, 괜찮게 여기는",
+          "note": "여기서는 '익숙하고 불편하지 않은'이라는 뜻이다."
+        },
+        {
+          "word": "scheduled trip",
+          "meaning": "시간이 정해진 운행편",
+          "note": "정해진 시각에 출발하는 버스나 기차를 말한다."
+        },
+        {
+          "word": "worthless",
+          "meaning": "가치가 없는",
+          "note": ""
+        },
+        {
+          "word": "screams about",
+          "meaning": "아주 강하게 드러내다, 크게 강조하다",
+          "note": "비유적인 표현이다."
+        },
+        {
+          "word": "planting confusion",
+          "meaning": "혼란을 심다, 헷갈리게 만들다",
+          "note": "사람들 머릿속에 잘못된 인상을 남긴다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

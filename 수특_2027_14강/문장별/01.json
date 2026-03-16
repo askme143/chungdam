@@ -1,0 +1,126 @@
+{
+  "title": "같은 일을 다르게 느끼는 어른과 아기",
+  "summary": "사람들은 같은 일을 함께 겪어도 서로 다른 눈으로 느낀다. 특히 어른과 아기는 경험과 아는 것이 달라서 같은 상황도 아주 다르게 받아들일 수 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Sharing meanings and experiences is not a simple, automatic process: whenever two or more people observe or participate in the same ongoing event they experience it from different perspectives, with different histories, with different background knowledge.",
+      "explanation": "생각이나 경험을 서로 똑같이 나누는 일은 쉽고 저절로 되는 일이 아니다. 두 사람 이상이 같은 일을 보고 함께 겪어도, 각자 살아온 일과 알고 있는 것이 다르기 때문에 그 일을 서로 다르게 느끼고 이해한다.",
+      "vocabulary": [
+        {
+          "word": "automatic",
+          "meaning": "저절로 되는, 자동적인",
+          "note": "여기서는 '힘들이지 않아도 자연히 되는' 뜻으로 쓰였다."
+        },
+        {
+          "word": "ongoing",
+          "meaning": "지금 진행 중인",
+          "note": "끝나지 않고 계속되고 있는 상태를 말한다."
+        },
+        {
+          "word": "perspectives",
+          "meaning": "관점, 보는 눈",
+          "note": "같은 일을 어떻게 바라보는지를 뜻한다."
+        },
+        {
+          "word": "histories",
+          "meaning": "지나온 경험, 살아온 배경",
+          "note": "단순히 '역사'가 아니라 각 사람이 지금까지 겪어 온 일을 가리킨다."
+        },
+        {
+          "word": "background knowledge",
+          "meaning": "배경지식, 미리 알고 있는 것",
+          "note": "어떤 일을 이해할 때 바탕이 되는 지식이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "These differences are most glaring when the individuals involved include an infant or very young child and an adult, although an adult arranging an event for an infant may find it difficult to keep these differences in mind.",
+      "explanation": "이런 차이는 함께 있는 사람들 가운데 아기나 아주 어린아이와 어른이 있을 때 가장 뚜렷하게 드러난다. 하지만 어른은 아기를 위해 어떤 일을 준비하면서도, 아기와 자기의 느낌과 생각이 다를 수 있다는 점을 잊기 쉽다.",
+      "vocabulary": [
+        {
+          "word": "glaring",
+          "meaning": "아주 뚜렷한, 확 눈에 띄는",
+          "note": "좋지 않은 차이나 문제점이 분명히 보일 때도 자주 쓴다."
+        },
+        {
+          "word": "infant",
+          "meaning": "아기, 젖먹이",
+          "note": "아주 어린 아이를 뜻한다."
+        },
+        {
+          "word": "arranging",
+          "meaning": "준비하는, 마련하는",
+          "note": "arrange는 일을 계획하고 갖추는 뜻이다."
+        },
+        {
+          "word": "keep these differences in mind",
+          "meaning": "이런 차이를 늘 생각하다",
+          "note": "in mind는 '마음속에 두고 잊지 않다'는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "When giving a bath, for example, a parent whose experience with water play has been fun, whose knowledge about the source of the water and its disposition provides confidence, and whose body control ensures that the baby is safely held and not in danger, expects the infant to enjoy splashing water.",
+      "explanation": "예를 들어 목욕을 시킬 때, 부모는 물놀이를 즐거운 것으로 경험해 왔고, 물이 어디서 오고 어떻게 쓰이는지 알고 있어서 불안하지 않다. 또 자기 몸을 잘 움직여 아기를 안전하게 안고 위험하지 않게 할 수 있다. 그래서 부모는 아기도 물을 튀기며 즐거워할 것이라고 생각한다.",
+      "vocabulary": [
+        {
+          "word": "disposition",
+          "meaning": "처리 방식, 다루는 방식",
+          "note": "여기서는 물이 어떻게 흘러가고 쓰이는지, 어떻게 다뤄지는지를 가리킨다."
+        },
+        {
+          "word": "provides confidence",
+          "meaning": "안심하게 해 준다, 자신감을 준다",
+          "note": "무서워하지 않게 만드는 느낌을 말한다."
+        },
+        {
+          "word": "ensures",
+          "meaning": "확실하게 해 준다, 보장한다",
+          "note": "어떤 일이 틀림없이 그렇게 되게 한다는 뜻이다."
+        },
+        {
+          "word": "safely held",
+          "meaning": "안전하게 안겨 있는",
+          "note": "아기가 떨어지거나 다치지 않도록 붙들린 상태이다."
+        },
+        {
+          "word": "splashing water",
+          "meaning": "물을 튀기기",
+          "note": "손이나 발로 물을 철벅거리며 튀기는 행동이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Yet the baby may make it clear (perhaps by terrified crying) that her perspective is quite different from that of the adult.",
+      "explanation": "하지만 아기는 아주 무서워하며 울 수도 있고, 그렇게 해서 자기 느낌이 어른과 아주 다르다는 것을 분명하게 보여 줄 수 있다.",
+      "vocabulary": [
+        {
+          "word": "make it clear",
+          "meaning": "분명하게 보여 주다",
+          "note": "말로 하든 행동으로 하든 확실히 알게 한다는 뜻이다."
+        },
+        {
+          "word": "terrified",
+          "meaning": "몹시 무서워하는",
+          "note": "단순히 scared보다 더 강한 두려움을 나타낸다."
+        },
+        {
+          "word": "perspective",
+          "meaning": "관점, 느끼는 방식",
+          "note": "여기서는 그 상황을 받아들이는 아기의 입장을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "The two .",
+      "explanation": "이 문장은 본문이 중간에서 끊겨 있어서 뜻이 완전히 드러나지 않는다. 앞의 흐름으로 보면, 어른과 아기가 같은 목욕 상황을 서로 아주 다르게 느낀다는 말을 이어 가려는 부분으로 보인다.",
+      "vocabulary": []
+    }
+  ],
+  "problem_number": "01"
+}

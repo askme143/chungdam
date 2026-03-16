@@ -1,0 +1,238 @@
+{
+  "title": "손그림과 컴퓨터 설계의 차이",
+  "summary": "이 글은 건축에서 손으로 그리는 스케치가 컴퓨터 설계로 바뀌면서, 창의성이나 감정이 담긴 표현이 줄어들 수 있다는 걱정을 다룬다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "In 2012, the Yale School of Architecture held a symposium called “Is Drawing Dead?”",
+      "explanation": "2012년에 예일대 건축대학은 ‘그리기는 죽었는가?’라는 이름의 학술 모임을 열었다.",
+      "vocabulary": [
+        {
+          "word": "held",
+          "meaning": "열었다, 개최했다",
+          "note": "hold a symposium처럼 모임이나 행사를 ‘열다’라는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "symposium",
+          "meaning": "학술 모임, 토론회",
+          "note": "전문가들이 한 주제를 놓고 발표하고 이야기하는 자리이다."
+        },
+        {
+          "word": "called",
+          "meaning": "~라고 불리는, ~라는 이름의",
+          "note": "뒤에 행사명이나 제목이 온다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The bold title reflects a growing sense that the architect’s freehand sketch is being displaced by the computer.",
+      "explanation": "이 눈에 띄는 제목은 건축가의 손그림 스케치가 컴퓨터에 밀려나고 있다는 생각이 점점 커지고 있음을 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "bold",
+          "meaning": "눈에 띄는, 과감한",
+          "note": "여기서는 ‘강하고 도발적인’ 제목이라는 느낌이다."
+        },
+        {
+          "word": "reflects",
+          "meaning": "보여 준다, 드러낸다",
+          "note": "거울처럼 비춘다는 뜻에서 나온 말이다."
+        },
+        {
+          "word": "freehand sketch",
+          "meaning": "손으로 자유롭게 그린 스케치",
+          "note": "자나 컴퓨터 도움 없이 손으로 바로 그린 그림을 말한다."
+        },
+        {
+          "word": "be displaced by",
+          "meaning": "~에 밀려나다, ~로 대체되다",
+          "note": "원래 있던 것이 다른 것 때문에 자리를 잃는다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The transition from sketchpad to screen entails, many architects believe, a loss of creativity, of adventurousness.",
+      "explanation": "많은 건축가들은 스케치북에서 화면으로 작업 방식이 바뀌면 창의성과 과감하게 시도하는 마음이 줄어든다고 생각한다.",
+      "vocabulary": [
+        {
+          "word": "transition",
+          "meaning": "변화, 옮겨 감",
+          "note": "한 상태에서 다른 상태로 바뀌는 것을 말한다."
+        },
+        {
+          "word": "sketchpad",
+          "meaning": "스케치북",
+          "note": "간단한 그림이나 아이디어를 그릴 때 쓰는 공책이다."
+        },
+        {
+          "word": "entails",
+          "meaning": "불러온다, 함께 따라온다",
+          "note": "어떤 결과가 자연스럽게 뒤따른다는 뜻이다."
+        },
+        {
+          "word": "adventurousness",
+          "meaning": "과감하게 새것을 해 보려는 성향",
+          "note": "모험심, 새로운 시도를 두려워하지 않는 태도를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Thanks to the precision and apparent completeness of screen renderings, a designer working at a computer has a tendency to lock in, visually and cognitively, on a design at an early stage.",
+      "explanation": "화면에 나온 설계 그림은 아주 정확하고 이미 다 갖춰진 것처럼 보이기 때문에, 컴퓨터로 작업하는 디자이너는 이른 단계부터 한 설계안에 눈으로도 생각으로도 굳어지기 쉽다.",
+      "vocabulary": [
+        {
+          "word": "precision",
+          "meaning": "정확함, 정밀함",
+          "note": "작은 부분까지 틀림없이 맞는 상태를 말한다."
+        },
+        {
+          "word": "apparent completeness",
+          "meaning": "겉으로 보기에 다 완성된 듯함",
+          "note": "실제로 완전한지와는 다르게, 보기에는 끝난 것처럼 느껴지는 상태이다."
+        },
+        {
+          "word": "renderings",
+          "meaning": "표현 그림, 완성된 모습의 시각 자료",
+          "note": "건축이나 디자인에서 결과 모습을 보여 주는 그림이나 이미지이다."
+        },
+        {
+          "word": "has a tendency to",
+          "meaning": "~하는 경향이 있다",
+          "note": "자주 그렇게 되기 쉽다는 뜻이다."
+        },
+        {
+          "word": "lock in",
+          "meaning": "굳어지다, 한쪽으로 정해 버리다",
+          "note": "다른 가능성을 덜 보게 되는 느낌을 준다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "He bypasses much of the reflective and exploratory playfulness that springs from the uncertainty and ambiguity of sketching.",
+      "explanation": "그렇게 되면 스케치를 할 때의 불확실함과 여러 뜻으로 보일 수 있는 애매함에서 나오는, 곰곰이 생각해 보고 이것저것 시험해 보는 자유로운 과정의 많은 부분을 건너뛰게 된다.",
+      "vocabulary": [
+        {
+          "word": "bypasses",
+          "meaning": "건너뛴다, 거치지 않는다",
+          "note": "중요한 과정이나 단계를 그냥 지나치는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "reflective",
+          "meaning": "곰곰이 생각하는",
+          "note": "깊이 돌아보며 생각하는 태도를 말한다."
+        },
+        {
+          "word": "exploratory",
+          "meaning": "이것저것 시험해 보는, 탐색하는",
+          "note": "정답을 바로 정하지 않고 가능성을 살펴보는 느낌이다."
+        },
+        {
+          "word": "playfulness",
+          "meaning": "장난스럽고 자유로운 태도",
+          "note": "여기서는 부담 없이 여러 시도를 해 보는 가벼운 마음을 뜻한다."
+        },
+        {
+          "word": "ambiguity",
+          "meaning": "애매함, 여러 뜻으로 보일 수 있음",
+          "note": "하나로 딱 정해지지 않아 여러 방향으로 생각할 수 있는 상태이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Researchers term this phenomenon “premature fixation” and trace its cause to “the disincentive for design changes once a large amount of detail and interconnectedness is built too quickly into a CAD (Computer-Aided Design) model.”",
+      "explanation": "연구자들은 이런 현상을 ‘너무 이른 고정’이라고 부른다. 그리고 그 원인은 CAD 모델에 많은 세부 요소와 서로 얽힌 부분이 너무 빨리 들어가면, 나중에 설계를 바꾸려는 마음이 줄어들기 때문이라고 본다.",
+      "vocabulary": [
+        {
+          "word": "term",
+          "meaning": "~라고 부르다",
+          "note": "이 문장에서는 동사로 쓰여 ‘이름 붙이다’라는 뜻이다."
+        },
+        {
+          "word": "phenomenon",
+          "meaning": "현상",
+          "note": "눈에 보이거나 관찰되는 일을 가리킨다."
+        },
+        {
+          "word": "premature fixation",
+          "meaning": "너무 이른 고정",
+          "note": "아직 더 살펴봐야 하는데 한 생각이나 안에 너무 빨리 묶이는 상태를 말한다."
+        },
+        {
+          "word": "trace A to B",
+          "meaning": "A의 원인을 B에서 찾다",
+          "note": "문제나 현상의 시작점을 찾아 올라가는 표현이다."
+        },
+        {
+          "word": "disincentive",
+          "meaning": "하려는 마음을 꺾는 것",
+          "note": "보상이나 이익이 적어서 행동할 의욕이 줄어드는 상황을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The designer at the computer also tends to emphasize formal experimentation at the expense of expressiveness.",
+      "explanation": "또 컴퓨터로 작업하는 디자이너는 감정이나 느낌을 드러내는 표현보다, 형태를 이것저것 바꿔 보는 실험에 더 치우치기 쉽다.",
+      "vocabulary": [
+        {
+          "word": "emphasize",
+          "meaning": "더 중요하게 여기다, 강조하다",
+          "note": "어떤 부분에 힘을 실어 더 눈에 띄게 하는 것이다."
+        },
+        {
+          "word": "formal experimentation",
+          "meaning": "형태 실험",
+          "note": "디자인의 모양과 구조를 여러 방식으로 바꿔 보는 것을 말한다."
+        },
+        {
+          "word": "at the expense of",
+          "meaning": "~을 희생하면서, ~보다 더 앞세워",
+          "note": "한쪽을 얻는 대신 다른 쪽이 약해진다는 뜻이다."
+        },
+        {
+          "word": "expressiveness",
+          "meaning": "감정이나 느낌을 잘 드러내는 힘",
+          "note": "작품이 사람의 마음을 얼마나 잘 표현하는지를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "By weakening an architect’s “personal, emotional connection with the work,” a renowned American architect and designer Michael Graves argues, CAD software produces designs that, “while complex and interesting in their own way,” often “lack the emotional content of a design derived from hand.”",
+      "explanation": "미국의 유명한 건축가이자 디자이너인 마이클 그레이브스는 CAD 소프트웨어가 건축가와 작품 사이의 개인적이고 감정적인 이어짐을 약하게 만든다고 말한다. 그래서 그런 설계는 나름대로 복잡하고 흥미롭기는 해도, 손으로 만든 설계가 가진 감정의 깊이는 자주 부족하다고 본다.",
+      "vocabulary": [
+        {
+          "word": "weakening",
+          "meaning": "약하게 만들면서",
+          "note": "힘이나 정도를 줄인다는 뜻이다."
+        },
+        {
+          "word": "renowned",
+          "meaning": "유명한, 널리 알려진",
+          "note": "좋은 평가와 함께 많이 알려진 경우에 자주 쓴다."
+        },
+        {
+          "word": "connection with the work",
+          "meaning": "작품과의 이어짐, 작품에 대한 깊은 관계",
+          "note": "단순히 일을 한다는 뜻이 아니라 마음이 연결된 상태를 말한다."
+        },
+        {
+          "word": "in their own way",
+          "meaning": "그 나름대로",
+          "note": "완전히 같지는 않지만 각자 가진 장점이 있다는 뜻이다."
+        },
+        {
+          "word": "derived from hand",
+          "meaning": "손에서 나온, 손으로 만든",
+          "note": "여기서는 손으로 직접 그린 설계를 가리킨다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

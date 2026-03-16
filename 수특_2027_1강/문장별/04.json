@@ -1,0 +1,263 @@
+{
+  "title": "자동차 대출 상환을 부탁하는 편지",
+  "summary": "새 직장은 잘 지내는지 묻고, 자동차를 살 때 빌려준 1,500달러 중 적어도 절반은 몇 주 안에 갚아 달라고 정중하게 부탁하는 편지이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Dear Mr. Johnson,",
+      "explanation": "존슨 씨께 보내는 편지의 첫인사이다.",
+      "vocabulary": [
+        {
+          "word": "Dear",
+          "meaning": "~에게, 친애하는",
+          "note": "편지 첫머리에서 상대를 정중하게 부를 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Have you “settled into” your new job by now, and do you still feel as enthusiastic about it as you did at the beginning?",
+      "explanation": "이제는 새 직장에 어느 정도 익숙해졌는지, 그리고 처음처럼 아직도 그 일에 큰 의욕을 느끼는지 묻고 있다.",
+      "vocabulary": [
+        {
+          "word": "settled into",
+          "meaning": "~에 익숙해지다, 자리를 잡다",
+          "note": "새 환경이나 새 일에 적응했다는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "by now",
+          "meaning": "이제쯤, 지금쯤",
+          "note": ""
+        },
+        {
+          "word": "enthusiastic",
+          "meaning": "열정적인, 의욕이 큰",
+          "note": "about와 함께 써서 '~에 큰 관심과 의욕이 있는' 뜻이 된다."
+        },
+        {
+          "word": "at the beginning",
+          "meaning": "처음에, 시작할 때",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Of course, any job has its tiresome tasks, but all in all, from what you told us, it sounds like a good match for you.",
+      "explanation": "물론 어떤 일이든 지루하고 귀찮은 일은 있기 마련이지만, 전체적으로 보면 당신이 전에 말해 준 내용을 바탕으로 그 일은 당신과 잘 맞는 것 같다고 말하고 있다.",
+      "vocabulary": [
+        {
+          "word": "tiresome",
+          "meaning": "지루한, 귀찮은, 피곤하게 하는",
+          "note": ""
+        },
+        {
+          "word": "all in all",
+          "meaning": "전체적으로 보면, 대체로",
+          "note": "글이나 말의 끝에서 전체 판단을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "from what you told us",
+          "meaning": "당신이 우리에게 말해 준 바로는",
+          "note": "상대가 전에 한 말을 바탕으로 판단할 때 쓰는 표현이다."
+        },
+        {
+          "word": "a good match",
+          "meaning": "잘 맞는 것",
+          "note": "사람과 일, 사람과 사람의 궁합이 잘 맞는다는 뜻으로 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "We’re writing to ask when we can expect repayment of the $1,500 loan for your car.",
+      "explanation": "당신의 자동차를 위해 빌려준 1,500달러를 언제쯤 돌려받을 수 있는지 묻기 위해 이 편지를 쓴다고 말하고 있다.",
+      "vocabulary": [
+        {
+          "word": "expect",
+          "meaning": "기대하다, 예상하다",
+          "note": "여기서는 '언제 받을 수 있을지 생각하다'에 가깝다."
+        },
+        {
+          "word": "repayment",
+          "meaning": "상환, 돈을 갚음",
+          "note": "빌린 돈을 다시 갚는 것을 말한다."
+        },
+        {
+          "word": "loan",
+          "meaning": "대출금, 빌린 돈",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "We were glad to help you with the purchase of your car so that you’d have transportation back and forth to your new job.",
+      "explanation": "새 직장에 오가며 다닐 수 있도록 자동차를 사는 일을 도와줄 수 있어서 기뻤다고 말하고 있다.",
+      "vocabulary": [
+        {
+          "word": "purchase",
+          "meaning": "구입, 구매",
+          "note": "buy보다 조금 더 격식 있는 말이다."
+        },
+        {
+          "word": "so that",
+          "meaning": "~할 수 있도록",
+          "note": "목적을 나타내는 표현이다."
+        },
+        {
+          "word": "transportation",
+          "meaning": "교통수단, 이동 수단",
+          "note": "여기서는 차처럼 이동할 때 쓰는 수단을 뜻한다."
+        },
+        {
+          "word": "back and forth",
+          "meaning": "왔다 갔다 하며",
+          "note": "집과 직장처럼 두 곳 사이를 오가는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "You agreed to pay all, or at least half, of the loan by June.",
+      "explanation": "당신은 6월까지 빌린 돈 전부를, 아니면 적어도 절반은 갚기로 약속했다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "agreed to",
+          "meaning": "~하기로 동의했다, 약속했다",
+          "note": ""
+        },
+        {
+          "word": "at least",
+          "meaning": "적어도",
+          "note": ""
+        },
+        {
+          "word": "by June",
+          "meaning": "6월까지",
+          "note": "6월 이전이나 늦어도 6월 안에는라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "If you have decided that you cannot repay the total $1,500 at once, we understand.",
+      "explanation": "만약 1,500달러 전부를 한 번에 갚을 수 없다고 결정했다면, 그 사정을 이해하겠다고 말하고 있다.",
+      "vocabulary": [
+        {
+          "word": "repay",
+          "meaning": "갚다, 상환하다",
+          "note": "빌린 돈을 돌려주는 뜻이다."
+        },
+        {
+          "word": "the total $1,500",
+          "meaning": "총 1,500달러 전부",
+          "note": ""
+        },
+        {
+          "word": "at once",
+          "meaning": "한꺼번에, 한 번에",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "But we do need to receive at least half that amount within the next 2 or 3 weeks.",
+      "explanation": "하지만 앞으로 2주나 3주 안에는 그 돈의 적어도 절반은 꼭 받아야 한다고 강조하고 있다.",
+      "vocabulary": [
+        {
+          "word": "do need",
+          "meaning": "정말 필요하다, 꼭 필요하다",
+          "note": "do를 넣어 필요함을 강하게 강조한 표현이다."
+        },
+        {
+          "word": "at least half that amount",
+          "meaning": "그 금액의 적어도 절반",
+          "note": ""
+        },
+        {
+          "word": "within the next 2 or 3 weeks",
+          "meaning": "앞으로 2주 또는 3주 안에",
+          "note": "정해진 기간 안쪽을 뜻하는 within이 중요하다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "We hope you are satisfied with the car you chose.",
+      "explanation": "당신이 고른 차에 만족하고 있기를 바란다고 말하고 있다.",
+      "vocabulary": [
+        {
+          "word": "satisfied with",
+          "meaning": "~에 만족하는",
+          "note": ""
+        },
+        {
+          "word": "chose",
+          "meaning": "choose의 과거형, 골랐다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "We, too, thought it was a good buy.",
+      "explanation": "우리도 그 차가 값에 비해 잘 산 물건이라고 생각했다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "too",
+          "meaning": "또한, 역시",
+          "note": "쉼표와 함께 쓰여 '우리도 역시'라는 뜻을 더 분명하게 한다."
+        },
+        {
+          "word": "a good buy",
+          "meaning": "잘 산 물건, 값어치 있는 구매",
+          "note": "가격에 비해 품질이 좋다고 느낄 때 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "original": "Please let us know how things are going.",
+      "explanation": "요즘 일이 어떻게 되어 가는지 알려 달라고 정중하게 부탁하고 있다.",
+      "vocabulary": [
+        {
+          "word": "let us know",
+          "meaning": "우리에게 알려 주다",
+          "note": "편지나 이메일에서 자주 쓰는 공손한 표현이다."
+        },
+        {
+          "word": "how things are going",
+          "meaning": "일이 어떻게 되어 가는지, 형편이 어떤지",
+          "note": "상대의 근황이나 상황을 넓게 묻는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "original": "Sincerely,",
+      "explanation": "편지를 끝맺을 때 쓰는 정중한 인사말이다.",
+      "vocabulary": [
+        {
+          "word": "Sincerely",
+          "meaning": "진심을 담아, 안부를 전하며",
+          "note": "편지 끝인사로 자주 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "original": "Joseph Brown Financial Advisor",
+      "explanation": "편지를 보낸 사람의 이름은 조지프 브라운이고, 재정 상담가라는 직함을 가지고 있다.",
+      "vocabulary": [
+        {
+          "word": "Financial Advisor",
+          "meaning": "재정 상담가",
+          "note": "돈 관리나 대출, 투자 같은 문제를 도와주는 사람이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

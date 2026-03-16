@@ -1,0 +1,73 @@
+============================================================
+27강 - 컴퓨터, 인터넷, 정보, 미디어, 교통
+============================================================
+[Gateway]
+Information and meaning are, clearly, not the same thing.
+The former refers to uninterpreted data or sensory states whose
+probability in a certain situation can be easily measured; the
+latter refers to the interpretation of the data or sensory states,
+including the special kinds of nuances and values that the
+information entails, or is intended to have, in the given situation.
+This applies to any type of information, from alarm signals to
+sophisticated statements. Take, for instance, a coin-tossing
+game in which it is decided that throwing three heads in a row
+constitutes a win. If a certain player ends up consistently with
+the desired outcome, defeating all who challenge that player,
+then we tend to interpret the outcome either as the work of
+Fortune, or else as clever and undetectable cheating on the part
+of the winning player. Interpretation is at the core of everything
+we do, think about, and feel.
+[01]
+protest movements have changed and become ever more
+prominent through what the sociologist Manuel Castells has
+called Networks of Outrage and Hope. We now have a swirling
+world of ‘online activism’, digital rebellion, information politics
+and People’s Platforms. Smartphones and social networking now
+provide a more fluid, leaderless, participatory activism that arises
+more spontaneously. The early examples like the Occupy
+Movement (2011), the Arab Spring in Egypt (2010), the
+Umbrella Movement in Hong Kong (2014, 2019), the Gezi Park
+Movement in Turkey (2013), and the Pussy Riots in Russia
+(2011) galvanized large numbers of people and attracted world
+attention. While some suggest that these new politics are
+enhancing democracy, others maintain that they do not really
+challenge the dominant power groups. Looking back, most of
+them have proved unsuccessful, clamped down upon by the
+state. There seems a limit to the power of new social
+movements.
+[02]
+The advent of automobiles drastically altered urban landscapes
+by enabling the growth of suburbs. Cars provided individuals the
+ability to live farther from city centers, where land was cheaper
+and more abundant. This expansion created the modern
+suburb, characterized by residential zones separate from
+commercial and industrial areas, promoting a shift from
+high-density urban living to the spacious suburbs.
+The flexibility cars offered meant people could commute
+daily, uniting work, leisure, and homelife in new ways.
+In response, urban planning evolved, placing emphasis on roads
+and highways to accommodate increased travel.
+This centralization led to altered living patterns, encouraging
+families to seek homes in quieter, suburban environments while
+maintaining access to urban job markets. The sprawling growth
+ fueled demands for expanded infrastructure and services in
+these areas, bringing in new economic opportunities. Cars were
+ instrumental in shaping this living model by significantly
+detaching home locations from places of employment and
+recreation.
+[03]
+The graph above shows results from a 2018 U.S. survey on
+awareness of AI uses among the general population and tech
+executives. Tech executives had a higher awareness of AI
+uses across the various domains compared to the general
+population, with the exception of Drones. The top three AI
+domains with the highest awareness among tech executives were
+Voice Assistants, Natural Language Processing, and Text
+Recognition. Ride-Hailing Apps had the lowest awareness
+levels in both the general population group and the tech
+executives group. Tech executives’ awareness of AI use in
+Natural Language Processing was more than double that of the
+general public. The rate of awareness of AI use for Computer
+Vision and Drones was the same among tech executives, but for
+the general population, the awareness of Drones was 10
+percentage points higher than that of Computer Vision.

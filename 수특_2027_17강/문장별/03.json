@@ -1,0 +1,193 @@
+{
+  "title": "우울증은 한 가지 모습이 아니다",
+  "summary": "우울증은 많은 사람이 겪는 힘든 문제이지만, 원인과 증상이 매우 다양해서 한 가지 방식으로 이해하거나 치료하기 어렵다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "episode in their lifetime.",
+      "explanation": "이 부분만 보면 문장이 앞에서 잘린 상태입니다. 뜻은 보통 '살면서 한 번쯤 그런 일을 겪는다'는 말입니다. 여기서는 우울증 삽화를 뜻하는 것으로 보입니다.",
+      "vocabulary": [
+        {
+          "word": "episode",
+          "meaning": "한 차례의 증상, 한 번의 발병",
+          "note": "우울증 이야기에서는 'depressive episode'처럼 자주 씁니다."
+        },
+        {
+          "word": "in their lifetime",
+          "meaning": "평생 동안, 살아 있는 동안",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "It is a tragedy on an individual and a societal level, yet we — and by we, I mean all of us, including doctors — struggle to grasp it.",
+      "explanation": "우울증은 개인에게도 큰 비극이고, 사회 전체로 봐도 큰 문제입니다. 그런데 우리 모두는, 의사들까지도, 이것을 제대로 이해하는 데 어려움을 겪습니다.",
+      "vocabulary": [
+        {
+          "word": "tragedy",
+          "meaning": "비극, 매우 안타까운 일",
+          "note": ""
+        },
+        {
+          "word": "on an individual and a societal level",
+          "meaning": "개인 차원과 사회 차원에서",
+          "note": "둘 다 중요하다는 뜻입니다."
+        },
+        {
+          "word": "struggle to grasp",
+          "meaning": "이해하려 애쓰지만 어렵다",
+          "note": "grasp는 여기서 '손으로 잡다'가 아니라 '이해하다' 뜻입니다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "This is because depression is not one disease; it is a collection of symptoms that appears similar across sufferers, despite resulting from a melting pot of diverse causes and mechanisms.",
+      "explanation": "그 이유는 우울증이 하나의 병이 아니기 때문입니다. 겉으로는 환자들 사이에서 비슷해 보일 수 있지만, 실제로는 아주 여러 가지 원인과 몸속 작동 방식이 뒤섞여 생깁니다.",
+      "vocabulary": [
+        {
+          "word": "collection of symptoms",
+          "meaning": "여러 증상이 모인 것",
+          "note": "하나의 뚜렷한 병이라기보다 증상 묶음이라는 뜻입니다."
+        },
+        {
+          "word": "sufferers",
+          "meaning": "고통을 겪는 사람들, 환자들",
+          "note": ""
+        },
+        {
+          "word": "melting pot",
+          "meaning": "여러 가지가 뒤섞인 상태",
+          "note": "원래는 여러 문화가 섞인 사회를 말할 때도 씁니다."
+        },
+        {
+          "word": "mechanisms",
+          "meaning": "작동 방식, 일어나는 과정",
+          "note": "여기서는 병이 생기는 몸과 마음의 방식입니다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "There is no single 0re4a. s글on의 fo흐r름 d으ep로re s보s아io,n :주 o어ne진 p문er장so이n ’s들 d어e가pr기es에si v가e 장e p적is절od한e s곳e은em?s to clearly stem from recent life events, another from historic trauma and loss, yet another out of the blue, with no clear psychological or social cause whatsoever.",
+      "explanation": "본문 중간에 글자가 많이 깨져 있지만, 전체 뜻은 분명합니다. 우울증에는 한 가지 원인만 있는 것이 아닙니다. 어떤 사람의 우울증은 최근에 겪은 힘든 일에서 분명히 시작된 것처럼 보이고, 또 어떤 사람은 오래전 상처나 상실 때문일 수 있습니다. 또 다른 사람은 뚜렷한 마음의 이유나 사회적 이유 없이 갑자기 생기기도 합니다.",
+      "vocabulary": [
+        {
+          "word": "stem from",
+          "meaning": "~에서 비롯되다, ~때문에 생기다",
+          "note": ""
+        },
+        {
+          "word": "historic trauma and loss",
+          "meaning": "오래전의 마음 상처와 상실",
+          "note": "historic은 여기서 '역사적으로 유명한'보다 '오래전부터 이어진' 느낌에 가깝습니다."
+        },
+        {
+          "word": "out of the blue",
+          "meaning": "갑자기, 뜻밖에",
+          "note": "이유를 잘 모르겠는데 अचानक 생길 때 쓰는 표현입니다."
+        },
+        {
+          "word": "whatsoever",
+          "meaning": "전혀, 조금도",
+          "note": "부정을 더 강하게 만드는 말입니다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "There is also no one presentation of depression: in fact, there are 227 possible symptom combinations that meet the diagnostic criteria for major depressive disorder.",
+      "explanation": "우울증은 나타나는 모습도 한 가지가 아닙니다. 실제로 주요 우울장애라고 진단할 기준에 맞는 증상 조합이 227가지나 됩니다.",
+      "vocabulary": [
+        {
+          "word": "presentation",
+          "meaning": "겉으로 나타나는 모습, 증상 양상",
+          "note": "의학에서는 병이 어떻게 보이는지 말할 때 씁니다."
+        },
+        {
+          "word": "symptom combinations",
+          "meaning": "증상 조합",
+          "note": ""
+        },
+        {
+          "word": "meet the diagnostic criteria",
+          "meaning": "진단 기준에 맞다",
+          "note": "의사가 병을 판단할 때 쓰는 기준을 충족한다는 뜻입니다."
+        },
+        {
+          "word": "major depressive disorder",
+          "meaning": "주요 우울장애",
+          "note": "우울증의 대표적인 진단 이름입니다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Perhaps understandably, there is no one treatment for this condition, either.",
+      "explanation": "그래서 어쩌면 당연하게도, 이 상태를 고치는 방법도 한 가지만 있는 것은 아닙니다.",
+      "vocabulary": [
+        {
+          "word": "understandably",
+          "meaning": "어쩌면 당연하게도, 이해할 만하게도",
+          "note": ""
+        },
+        {
+          "word": "condition",
+          "meaning": "상태, 질환",
+          "note": "disease보다 조금 넓게 쓰이는 말입니다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Depression is terrible, and it is common.",
+      "explanation": "우울증은 매우 힘들고 괴로운 문제입니다. 그리고 생각보다 많은 사람이 겪습니다.",
+      "vocabulary": [
+        {
+          "word": "terrible",
+          "meaning": "매우 힘든, 끔찍한",
+          "note": ""
+        },
+        {
+          "word": "common",
+          "meaning": "흔한, 자주 있는",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Roughly one in seven people will experience at least one full-blown depressive Antidepressants lead to improvement in roughly a third of patients, offer some kind of improvement in another third, while a final third remain completely unaffected.",
+      "explanation": "이 문장도 중간이 잘린 상태입니다. 앞부분의 뜻은 대체로 '약 7명 중 1명은 살면서 적어도 한 번 심한 우울증을 겪는다'입니다. 이어서 항우울제 효과를 설명하는데, 대략 환자의 3분의 1은 뚜렷하게 좋아지고, 또 다른 3분의 1은 어느 정도 좋아지지만, 마지막 3분의 1은 거의 효과를 보지 못한다는 뜻입니다.",
+      "vocabulary": [
+        {
+          "word": "roughly one in seven",
+          "meaning": "대략 7명 중 1명",
+          "note": "정확한 수치라기보다 대강의 비율입니다."
+        },
+        {
+          "word": "full-blown",
+          "meaning": "아주 심한, 본격적인",
+          "note": "증상이 분명하고 강하게 나타날 때 씁니다."
+        },
+        {
+          "word": "Antidepressants",
+          "meaning": "항우울제",
+          "note": "우울증 치료에 쓰는 약입니다."
+        },
+        {
+          "word": "lead to improvement",
+          "meaning": "호전되게 하다, 좋아지게 하다",
+          "note": ""
+        },
+        {
+          "word": "unaffected",
+          "meaning": "영향을 받지 않은, 효과가 없는",
+          "note": "여기서는 약을 먹어도 달라지지 않는다는 뜻입니다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

@@ -1,0 +1,164 @@
+{
+  "title": "미국 청소년의 친구와의 소통 방식 그래프 분석",
+  "summary": "이 글은 2014~2015년 조사 자료를 바탕으로, 미국 청소년이 친구와 시간을 보낼 때 어떤 소통 방식을 얼마나 자주 쓰는지 비교해 보여 준다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The graph above shows the percentages of U.S. teenagers who spent time with friends by communication type, based on a survey conducted between 2014 and 2015.",
+      "explanation": "위 그래프는 미국 청소년들이 친구와 시간을 보낼 때 어떤 소통 방식을 썼는지, 그 비율을 보여 준다. 이 내용은 2014년부터 2015년 사이에 한 조사를 바탕으로 한 것이다.",
+      "vocabulary": [
+        {
+          "word": "percentages",
+          "meaning": "비율, 퍼센트",
+          "note": "그래프나 통계 자료에서 자주 쓰인다."
+        },
+        {
+          "word": "by communication type",
+          "meaning": "소통 방식별로",
+          "note": "by는 여기서 '…에 따라, …별로'라는 뜻이다."
+        },
+        {
+          "word": "based on",
+          "meaning": "~을 바탕으로 한",
+          "note": "뒤에 근거가 되는 자료나 사실이 온다."
+        },
+        {
+          "word": "conducted",
+          "meaning": "실시된, 진행된",
+          "note": "conduct a survey는 '조사를 실시하다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "In the category of Every Day, text messaging showed the highest percentage among the four types of communication that teenagers used to spend time with friends.",
+      "explanation": "‘Every Day’ 항목에서는 청소년들이 친구와 시간을 보낼 때 쓴 네 가지 소통 방식 가운데 문자 메시지가 가장 높은 비율을 보였다.",
+      "vocabulary": [
+        {
+          "word": "category",
+          "meaning": "항목, 분류",
+          "note": "그래프나 표에서 나눈 기준을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "text messaging",
+          "meaning": "문자 메시지 주고받기",
+          "note": "texting이라고도 많이 쓴다."
+        },
+        {
+          "word": "showed the highest percentage",
+          "meaning": "가장 높은 비율을 보였다",
+          "note": ""
+        },
+        {
+          "word": "among",
+          "meaning": "~가운데서",
+          "note": "셋 이상을 비교할 때 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "In the category of Less Often, the percentage of teenagers who spent time with friends through talking on the phone was more than twice that of teenagers who did so through text messaging.",
+      "explanation": "‘Less Often’ 항목에서는 전화 통화로 친구와 시간을 보낸 청소년의 비율이, 문자 메시지로 그렇게 한 청소년의 비율보다 두 배가 넘었다.",
+      "vocabulary": [
+        {
+          "word": "Less Often",
+          "meaning": "덜 자주, 자주 하지 않음",
+          "note": "빈도를 나타내는 항목 이름이다."
+        },
+        {
+          "word": "through",
+          "meaning": "~을 통해, ~로",
+          "note": "수단이나 방법을 나타낸다."
+        },
+        {
+          "word": "talking on the phone",
+          "meaning": "전화 통화하기",
+          "note": "phone call보다 조금 더 풀어서 쓴 표현이다."
+        },
+        {
+          "word": "more than twice",
+          "meaning": "두 배가 넘는",
+          "note": "twice는 '두 배'라는 뜻이다."
+        },
+        {
+          "word": "did so",
+          "meaning": "그렇게 했다",
+          "note": "앞에서 나온 행동을 다시 말하지 않고 대신 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The percentage of teenagers who spent time with friends through talking on the phone in the category of Every Day was lower than that of teenagers who did so in the category of Less Often.",
+      "explanation": "전화 통화로 친구와 시간을 보낸 청소년의 비율은 ‘Every Day’ 항목이 ‘Less Often’ 항목보다 더 낮았다.",
+      "vocabulary": [
+        {
+          "word": "lower than",
+          "meaning": "~보다 더 낮은",
+          "note": "수치 비교에서 자주 쓰는 표현이다."
+        },
+        {
+          "word": "that of",
+          "meaning": "~의 그것, ~의 비율",
+          "note": "앞에 나온 percentage를 반복하지 않으려고 쓰는 표현이다."
+        },
+        {
+          "word": "did so",
+          "meaning": "그렇게 했다",
+          "note": "여기서는 '전화 통화로 친구와 시간을 보냈다'를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In the category of Less Often, emailing was the second highest in percentage among the types of communication listed above.",
+      "explanation": "‘Less Often’ 항목에서는 위에 나온 소통 방식들 가운데 이메일이 두 번째로 높은 비율을 차지했다.",
+      "vocabulary": [
+        {
+          "word": "emailing",
+          "meaning": "이메일 주고받기",
+          "note": "동명사 형태로 쓰였다."
+        },
+        {
+          "word": "second highest",
+          "meaning": "두 번째로 높은",
+          "note": ""
+        },
+        {
+          "word": "listed above",
+          "meaning": "위에 나열된",
+          "note": "앞에서 제시된 항목들을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "The percentage of teenagers who spent time with friends through video chatting in the category of Less Often was higher than that of teenagers who did so in the category of Every Day.",
+      "explanation": "영상 통화로 친구와 시간을 보낸 청소년의 비율은 ‘Less Often’ 항목이 ‘Every Day’ 항목보다 더 높았다.",
+      "vocabulary": [
+        {
+          "word": "video chatting",
+          "meaning": "영상 통화하기",
+          "note": "화상으로 대화하는 것을 말한다."
+        },
+        {
+          "word": "higher than",
+          "meaning": "~보다 더 높은",
+          "note": "수치가 더 클 때 쓰는 표현이다."
+        },
+        {
+          "word": "that of",
+          "meaning": "~의 그것, ~의 비율",
+          "note": "앞의 percentage를 대신하는 말이다."
+        },
+        {
+          "word": "did so",
+          "meaning": "그렇게 했다",
+          "note": "여기서는 '영상 통화로 친구와 시간을 보냈다'를 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

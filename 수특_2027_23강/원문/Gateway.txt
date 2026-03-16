@@ -1,0 +1,17 @@
+A good example of chaos is the magnetic pendulum sold as an
+executive toy. It has four magnets arranged in a square at the
+base and a pendulum that swings back and forth between them.
+Release the pendulum and note the magnets that it visits,
+and in what order. If the pendulum is released from the
+same position a second time, the pattern of movement may
+at first be the same but soon it will become completely
+different. In fact, the pattern of its movement is chaotic.
+No matter how much care is taken to start the pendulum in
+the same position, it will visit an entirely different set of
+points on the two occasions. Chaotic systems are generated
+by iteration, though not all iteration leads to chaos.
+In order to produce chaos, the iteration has to be within
+what is called a nonlinear system. Nor are all nonlinear
+systems chaotic: to become so they need to be pushed
+beyond a certain point, called a bifurcation. Before that
+point is reached they may behave in a quite orderly fashion.

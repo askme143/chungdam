@@ -1,0 +1,174 @@
+{
+  "title": "측정 기구와 자릿수 읽기",
+  "summary": "측정 기구는 가능한 한 가장 자세하게 읽어야 하며, 자릿수가 많을수록 측정값은 더 정확하고 자세하다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The most fundamental rule regarding the use of any measuring device is that the device should always be read to its optimum capability with regard to precision.",
+      "explanation": "어떤 측정 기구를 쓰든 가장 기본이 되는 규칙은, 그 기구가 보여 줄 수 있는 만큼 최대한 자세하게 값을 읽어야 한다는 뜻이다. 즉, 정확도를 살릴 수 있는 데까지 읽어야 한다.",
+      "vocabulary": [
+        {
+          "word": "fundamental",
+          "meaning": "가장 기본이 되는",
+          "note": "중요한 바탕이 되는 것을 말한다."
+        },
+        {
+          "word": "regarding",
+          "meaning": "~에 관한, ~와 관련된",
+          "note": "about와 비슷하게 쓰인다."
+        },
+        {
+          "word": "measuring device",
+          "meaning": "측정 기구",
+          "note": "길이, 무게, 온도 등을 재는 도구를 말한다."
+        },
+        {
+          "word": "optimum capability",
+          "meaning": "가장 잘 해낼 수 있는 범위",
+          "note": "기구가 낼 수 있는 최고 수준이라는 뜻이다."
+        },
+        {
+          "word": "with regard to precision",
+          "meaning": "정확하게 읽는 면에서",
+          "note": "precision은 값이 얼마나 세밀한지를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Precision is reflected in the number of digits in a measurement; the more digits this measurement has, the more precise it is.",
+      "explanation": "측정값이 얼마나 자세한지는 숫자의 자릿수에 드러난다. 자릿수가 많을수록 그 측정값은 더 자세하고 더 정확하게 읽은 것이다.",
+      "vocabulary": [
+        {
+          "word": "be reflected in",
+          "meaning": "~에 드러나다, ~에 나타나다",
+          "note": "결과나 특징이 어떤 것에 보인다는 뜻이다."
+        },
+        {
+          "word": "digits",
+          "meaning": "숫자, 자릿수",
+          "note": "여기서는 측정값에 들어 있는 숫자 자리를 말한다."
+        },
+        {
+          "word": "measurement",
+          "meaning": "측정값",
+          "note": "재어서 얻은 숫자 값이다."
+        },
+        {
+          "word": "precise",
+          "meaning": "정확한, 아주 자세한",
+          "note": "precision의 형용사형이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "For example, the measurement 345.2 inches is more precise than the measurement 345 inches.",
+      "explanation": "예를 들어 345.2인치는 345인치보다 더 자세한 값이다. 소수 첫째 자리까지 적혀 있어서 더 많은 정보를 담고 있기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "For example",
+          "meaning": "예를 들어",
+          "note": "앞의 설명을 실제 예로 보여 줄 때 쓴다."
+        },
+        {
+          "word": "345.2 inches",
+          "meaning": "345.2인치",
+          "note": "소수점 아래 숫자까지 있어 더 자세한 측정값이다."
+        },
+        {
+          "word": "more precise than",
+          "meaning": "~보다 더 정확한, 더 자세한",
+          "note": "둘을 비교할 때 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "In addition, many calculators today offer advanced graphing features that are useful in visualizing mathematical functions.",
+      "explanation": "또 요즘 많은 계산기는 그래프를 그리는 여러 기능을 제공한다. 이런 기능은 수학 함수를 눈으로 보기 쉽게 이해하는 데 도움이 된다.",
+      "vocabulary": [
+        {
+          "word": "In addition",
+          "meaning": "또한, 게다가",
+          "note": "앞내용에 덧붙일 때 쓰는 표현이다."
+        },
+        {
+          "word": "advanced",
+          "meaning": "발달한, 수준 높은",
+          "note": "기능이 더 다양하고 뛰어나다는 뜻이다."
+        },
+        {
+          "word": "graphing features",
+          "meaning": "그래프 기능",
+          "note": "그래프를 그리거나 보여 주는 기능이다."
+        },
+        {
+          "word": "visualizing",
+          "meaning": "눈으로 보듯 떠올리기, 그림으로 보기",
+          "note": "복잡한 내용을 시각적으로 이해하는 것을 말한다."
+        },
+        {
+          "word": "mathematical functions",
+          "meaning": "수학 함수",
+          "note": "x값에 따라 y값이 정해지는 관계를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "If it is possible to obtain the first digit to the right of the decimal point from a device, then that digit should be recorded; if it is possible to obtain the second digit to the right of a decimal point, then that digit should be recorded, and so on.",
+      "explanation": "측정 기구로 소수점 오른쪽 첫째 자리까지 읽을 수 있다면 그 자리도 적어야 한다. 둘째 자리까지 읽을 수 있다면 그것도 적어야 한다. 이런 식으로 읽을 수 있는 데까지 계속 적어야 한다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "obtain",
+          "meaning": "얻다, 알아내다",
+          "note": "여기서는 기구에서 숫자를 읽어 낸다는 뜻이다."
+        },
+        {
+          "word": "to the right of the decimal point",
+          "meaning": "소수점 오른쪽에",
+          "note": "소수 부분의 자리를 가리킨다."
+        },
+        {
+          "word": "recorded",
+          "meaning": "기록된, 적힌",
+          "note": "측정한 값을 써 두는 것을 말한다."
+        },
+        {
+          "word": "and so on",
+          "meaning": "이런 식으로 계속",
+          "note": "같은 방식이 이어진다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "most digits possible from whatever device is being used whether it is digital or nondigital.",
+      "explanation": "즉, 디지털 기구이든 눈금이 있는 기구이든, 지금 쓰는 기구에서 읽을 수 있는 자릿수는 가능한 한 가장 많이 적어야 한다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "most digits possible",
+          "meaning": "가능한 한 가장 많은 자릿수",
+          "note": "읽을 수 있는 숫자를 최대한 많이 적으라는 뜻이다."
+        },
+        {
+          "word": "whatever device is being used",
+          "meaning": "어떤 기구를 쓰고 있든",
+          "note": "쓰는 기구의 종류와 상관없다는 뜻이다."
+        },
+        {
+          "word": "digital",
+          "meaning": "디지털식의",
+          "note": "숫자가 화면에 바로 표시되는 방식이다."
+        },
+        {
+          "word": "nondigital",
+          "meaning": "디지털이 아닌, 아날로그식의",
+          "note": "눈금이나 바늘로 읽는 방식이 여기에 들어간다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

@@ -1,0 +1,277 @@
+{
+  "title": "건강보조식품과 약의 차이",
+  "summary": "이 글은 건강보조식품은 약과 다르고, 약보다 정부의 검사와 관리가 훨씬 약하다는 점을 설명한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Dietary supplements are not drugs.",
+      "explanation": "건강보조식품은 의약품이 아니다. 즉, 법과 관리 방식이 약과 다르다.",
+      "vocabulary": [
+        {
+          "word": "Dietary supplements",
+          "meaning": "건강보조식품, 식이보충제",
+          "note": "비타민, 미네랄, 허브 제품 같은 것을 가리킨다."
+        },
+        {
+          "word": "drugs",
+          "meaning": "의약품, 약",
+          "note": "여기서는 불법 약물이 아니라 치료 목적으로 쓰는 약을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "A drug is intended to diagnose, cure, mitigate, treat, or prevent disease.",
+      "explanation": "의약품은 병을 알아내거나, 낫게 하거나, 증상을 줄이거나, 치료하거나, 병을 막기 위한 목적으로 만들어진다.",
+      "vocabulary": [
+        {
+          "word": "is intended to",
+          "meaning": "~할 목적으로 만들어지다",
+          "note": "목적이나 쓰임을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "diagnose",
+          "meaning": "진단하다",
+          "note": "병의 종류나 상태를 알아내는 것이다."
+        },
+        {
+          "word": "mitigate",
+          "meaning": "줄이다, 완화하다",
+          "note": "고통이나 문제를 덜 심하게 만든다는 뜻이다."
+        },
+        {
+          "word": "prevent",
+          "meaning": "예방하다, 막다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Before marketing, drugs must undergo extensive studies of effectiveness, safety, interactions with other substances, and dosing.",
+      "explanation": "약은 시장에 나오기 전에 효과가 있는지, 안전한지, 다른 물질과 함께 썼을 때 문제가 없는지, 얼마나 써야 하는지를 넓고 자세하게 검사받아야 한다.",
+      "vocabulary": [
+        {
+          "word": "Before marketing",
+          "meaning": "판매하기 전에",
+          "note": "marketing은 여기서 광고보다 '시장에 내놓아 파는 것'에 가깝다."
+        },
+        {
+          "word": "undergo",
+          "meaning": "겪다, 받다",
+          "note": "검사, 치료, 변화 등을 받을 때 자주 쓴다."
+        },
+        {
+          "word": "extensive studies",
+          "meaning": "광범위한 연구, 매우 자세한 검사",
+          "note": ""
+        },
+        {
+          "word": "effectiveness",
+          "meaning": "효과가 있음, 효과성",
+          "note": "실제로 도움이 되는지를 말한다."
+        },
+        {
+          "word": "dosing",
+          "meaning": "복용량 정하기",
+          "note": "얼마나 많이, 얼마나 자주 써야 하는지와 관련 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The FDA gives formal premarket approval to a drug and monitors its safety after the drug is on the market.",
+      "explanation": "FDA는 약이 팔리기 전에 공식 허가를 내주고, 약이 시장에 나온 뒤에도 안전한지 계속 살핀다.",
+      "vocabulary": [
+        {
+          "word": "FDA",
+          "meaning": "미국 식품의약국",
+          "note": "미국에서 식품과 약의 안전을 관리하는 기관이다."
+        },
+        {
+          "word": "formal premarket approval",
+          "meaning": "정식 시판 전 승인",
+          "note": "제품을 팔기 전에 정부가 공식으로 허락하는 것이다."
+        },
+        {
+          "word": "monitors",
+          "meaning": "계속 지켜보다, 관리하다",
+          "note": "한 번만 보는 것이 아니라 꾸준히 확인하는 뜻이다."
+        },
+        {
+          "word": "on the market",
+          "meaning": "시장에 나와 있는, 판매 중인",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "If a drug is subsequently shown to be dangerous, the FDA can act quickly to have it removed from the market.",
+      "explanation": "나중에 어떤 약이 위험하다는 사실이 밝혀지면, FDA는 그 약을 시장에서 빨리 없애도록 바로 움직일 수 있다.",
+      "vocabulary": [
+        {
+          "word": "subsequently",
+          "meaning": "그 뒤에, 나중에",
+          "note": ""
+        },
+        {
+          "word": "shown to be",
+          "meaning": "~인 것으로 밝혀지다",
+          "note": "연구나 증거로 드러날 때 쓰는 표현이다."
+        },
+        {
+          "word": "act quickly",
+          "meaning": "빨리 조치를 취하다",
+          "note": ""
+        },
+        {
+          "word": "removed from the market",
+          "meaning": "시장에서 퇴출되다, 판매 중지되다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "None of this is true for dietary supplements.",
+      "explanation": "하지만 이런 내용은 건강보조식품에는 해당되지 않는다.",
+      "vocabulary": [
+        {
+          "word": "None of this",
+          "meaning": "이런 것들 가운데 어느 것도 ~아니다",
+          "note": "앞에서 말한 여러 내용을 한꺼번에 가리킨다."
+        },
+        {
+          "word": "is true for",
+          "meaning": "~에 해당되다, ~에도 맞다",
+          "note": ""
+        },
+        {
+          "word": "dietary supplements",
+          "meaning": "건강보조식품",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The current law gives the FDA only limited authority over supplements, making it possible for the government to remove unsafe supplements from the marketplace.",
+      "explanation": "지금 법은 건강보조식품에 대해 FDA에 아주 적은 권한만 준다. 그래서 정부가 위험한 보조식품을 시장에서 없앨 수는 있지만, 그 힘이 크지는 않다.",
+      "vocabulary": [
+        {
+          "word": "current law",
+          "meaning": "현재 법",
+          "note": ""
+        },
+        {
+          "word": "limited authority",
+          "meaning": "제한된 권한",
+          "note": "할 수 있는 일이 많지 않다는 뜻이다."
+        },
+        {
+          "word": "over supplements",
+          "meaning": "보조식품에 대한",
+          "note": "over는 여기서 '지배하다'가 아니라 '관할하다'에 가깝다."
+        },
+        {
+          "word": "unsafe",
+          "meaning": "안전하지 않은, 위험한",
+          "note": ""
+        },
+        {
+          "word": "marketplace",
+          "meaning": "시장, 판매되는 곳",
+          "note": "market과 비슷하지만 조금 더 넓은 느낌이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "The FDA does not evaluate the safety and effectiveness of supplements before they hit the marketplace.",
+      "explanation": "FDA는 건강보조식품이 시장에 나오기 전에 그것이 안전한지, 효과가 있는지를 미리 검사하지 않는다.",
+      "vocabulary": [
+        {
+          "word": "evaluate",
+          "meaning": "평가하다, 따져 보다",
+          "note": ""
+        },
+        {
+          "word": "safety and effectiveness",
+          "meaning": "안전성과 효과",
+          "note": "제품이 해롭지 않은지, 실제로 도움이 되는지를 함께 말한다."
+        },
+        {
+          "word": "hit the marketplace",
+          "meaning": "시장에 나오다, 판매되기 시작하다",
+          "note": "hit은 여기서 '치다'가 아니라 '등장하다'라는 뜻으로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "There are some legislators in Congress who want to improve the law by requiring supplement makers to put safer products on the shelves and label products more clearly.",
+      "explanation": "미국 의회에는 법을 더 좋게 바꾸고 싶어 하는 의원들이 있다. 그들은 보조식품 회사가 더 안전한 제품을 팔게 하고, 제품 표시도 더 분명하게 하도록 법으로 요구하길 원한다.",
+      "vocabulary": [
+        {
+          "word": "legislators",
+          "meaning": "의원들, 법을 만드는 사람들",
+          "note": ""
+        },
+        {
+          "word": "Congress",
+          "meaning": "미국 의회",
+          "note": ""
+        },
+        {
+          "word": "requiring",
+          "meaning": "~하도록 요구하는",
+          "note": "법이나 규칙으로 하게 만든다는 뜻이다."
+        },
+        {
+          "word": "on the shelves",
+          "meaning": "매대에 놓인, 가게에서 팔리는",
+          "note": "실제로 판매되는 상태를 가리킨다."
+        },
+        {
+          "word": "label",
+          "meaning": "라벨을 붙이다, 표시하다",
+          "note": "여기서는 동사로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "The objective is to ensure that consumers can tell the difference between dietary supplements that are safe and those that have potentially serious side effects or drug interactions.",
+      "explanation": "목표는 소비자들이 안전한 건강보조식품과, 심각한 부작용이나 약과의 나쁜 반응이 생길 수 있는 제품을 서로 구별할 수 있게 하는 것이다.",
+      "vocabulary": [
+        {
+          "word": "objective",
+          "meaning": "목표",
+          "note": ""
+        },
+        {
+          "word": "ensure",
+          "meaning": "확실하게 하다",
+          "note": "어떤 일이 틀림없이 되게 만든다는 뜻이다."
+        },
+        {
+          "word": "tell the difference",
+          "meaning": "차이를 구별하다",
+          "note": ""
+        },
+        {
+          "word": "potentially serious",
+          "meaning": "심각해질 수 있는",
+          "note": "아직 꼭 그렇다는 뜻은 아니지만 그럴 가능성이 있다는 말이다."
+        },
+        {
+          "word": "side effects or drug interactions",
+          "meaning": "부작용 또는 약물 상호작용",
+          "note": "drug interactions는 다른 약과 함께 썼을 때 생기는 좋지 않은 반응을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

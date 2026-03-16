@@ -1,0 +1,181 @@
+{
+  "title": "데카르트와 감각에 대한 의심",
+  "summary": "데카르트는 우리의 감각이 우리를 속일 수 있다고 보고, 모든 것을 의심해도 생각하는 나 자신의 존재만은 확실하다고 말했다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The idea that our senses may be deceiving us was taken up by the French philosopher and mathematician René Descartes.",
+      "explanation": "우리의 감각이 우리를 속일지도 모른다는 생각을 프랑스의 철학자이자 수학자인 르네 데카르트가 받아들여 깊이 다루었다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "senses",
+          "meaning": "감각, 보고 듣고 느끼는 능력",
+          "note": "보통 sight, hearing, touch 같은 것을 말한다."
+        },
+        {
+          "word": "may be deceiving us",
+          "meaning": "우리를 속이고 있을지도 모른다",
+          "note": "deceive는 '속이다'라는 뜻이다."
+        },
+        {
+          "word": "was taken up by",
+          "meaning": "~에 의해 다루어졌다, 받아들여졌다",
+          "note": "어떤 생각이나 주제를 본격적으로 생각하고 이야기할 때 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "He realized that sometimes our senses give us a false impression — a straight stick in a glass of water appears to be bent, for example.",
+      "explanation": "그는 우리의 감각이 가끔 잘못된 느낌을 준다는 것을 깨달았다. 예를 들어, 곧은 막대기가 물컵 안에 들어가 있으면 휘어 보일 수 있다.",
+      "vocabulary": [
+        {
+          "word": "realized",
+          "meaning": "깨달았다, 알아차렸다",
+          "note": ""
+        },
+        {
+          "word": "false impression",
+          "meaning": "잘못된 인상, 틀린 느낌",
+          "note": "겉으로는 그렇게 보이지만 사실은 아닌 경우를 말한다."
+        },
+        {
+          "word": "appears to be",
+          "meaning": "~처럼 보이다",
+          "note": "실제로 그렇다는 뜻이 아니라 겉보기 느낌을 말한다."
+        },
+        {
+          "word": "bent",
+          "meaning": "휘어진",
+          "note": "bend의 과거분사형이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "And if we know that they can be unreliable, it would be wrong to trust them completely — everything that we experience with our senses might be false.",
+      "explanation": "그리고 감각이 믿을 수 없을 때가 있다는 것을 안다면, 그것을 완전히 믿는 것은 잘못일 수 있다. 우리가 감각으로 느끼는 모든 것이 거짓일지도 모르기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "unreliable",
+          "meaning": "믿기 어려운, 믿을 수 없는",
+          "note": "reliable은 '믿을 만한'이라는 뜻이다."
+        },
+        {
+          "word": "trust them completely",
+          "meaning": "그것들을 완전히 믿다",
+          "note": "여기서 them은 our senses를 가리킨다."
+        },
+        {
+          "word": "experience with our senses",
+          "meaning": "감각으로 경험하다",
+          "note": "눈, 귀, 촉감 등으로 알게 되는 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "It might even be that we are asleep, and that the world we are experiencing is no more than a dream, or that God or some mischievous power is making us believe things that are not really true.",
+      "explanation": "심지어 우리가 지금 잠들어 있고, 우리가 겪고 있는 세상이 그저 꿈일 수도 있다. 또는 신이나 장난스럽게 속이는 어떤 힘이 사실이 아닌 것을 사실이라고 믿게 만들고 있을 수도 있다.",
+      "vocabulary": [
+        {
+          "word": "asleep",
+          "meaning": "잠든",
+          "note": ""
+        },
+        {
+          "word": "no more than",
+          "meaning": "그저 ~일 뿐인",
+          "note": "강하게 범위를 줄여 말할 때 쓴다."
+        },
+        {
+          "word": "mischievous power",
+          "meaning": "장난스럽게 속이는 힘",
+          "note": "여기서는 사람을 헷갈리게 하거나 속이는 어떤 존재나 힘을 뜻한다."
+        },
+        {
+          "word": "making us believe",
+          "meaning": "우리가 믿게 만들다",
+          "note": "make + 목적어 + 동사원형 형태이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "If that is the case, though, we can never know anything for sure.",
+      "explanation": "하지만 정말 그렇다면, 우리는 어떤 것도 확실하게 안다고 말할 수 없게 된다.",
+      "vocabulary": [
+        {
+          "word": "If that is the case",
+          "meaning": "만약 그렇다면",
+          "note": "앞에서 말한 상황을 받아 이어 말할 때 쓰는 표현이다."
+        },
+        {
+          "word": "for sure",
+          "meaning": "확실하게",
+          "note": "일상 영어에서도 아주 자주 쓰인다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "But Descartes then showed that there was one thing he could be sure of: In order to be deceived, he must exist, and exist as a thing that thinks.",
+      "explanation": "하지만 데카르트는 그 가운데서도 한 가지는 확실하다고 말했다. 속으려면 먼저 속는 내가 있어야 하므로, 그는 생각하는 존재로서 자신이 반드시 존재한다고 본 것이다.",
+      "vocabulary": [
+        {
+          "word": "showed",
+          "meaning": "보여 주었다, 밝혀냈다",
+          "note": "여기서는 논리로 설명해 냈다는 뜻에 가깝다."
+        },
+        {
+          "word": "be sure of",
+          "meaning": "~을 확실하다고 여기다",
+          "note": ""
+        },
+        {
+          "word": "In order to",
+          "meaning": "~하기 위해, ~하려면",
+          "note": "목적이나 조건을 말할 때 자주 쓴다."
+        },
+        {
+          "word": "be deceived",
+          "meaning": "속다",
+          "note": "deceive의 수동형이다."
+        },
+        {
+          "word": "a thing that thinks",
+          "meaning": "생각하는 존재",
+          "note": "데카르트의 핵심 생각을 보여 주는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "So, although his senses could not be trusted, he could be sure he existed as something that was capable of thinking and reasoning.",
+      "explanation": "그래서 그의 감각은 믿을 수 없었지만, 생각하고 따져 볼 수 있는 존재로서 자신이 있다는 사실만은 확실하다고 할 수 있었다.",
+      "vocabulary": [
+        {
+          "word": "although",
+          "meaning": "비록 ~이지만",
+          "note": ""
+        },
+        {
+          "word": "could not be trusted",
+          "meaning": "믿을 수 없었다",
+          "note": "trust의 수동형 표현이다."
+        },
+        {
+          "word": "capable of",
+          "meaning": "~할 수 있는",
+          "note": "뒤에는 보통 명사나 동명사가 온다."
+        },
+        {
+          "word": "reasoning",
+          "meaning": "이치를 따져 생각하기",
+          "note": "단순히 생각하는 것을 넘어, 논리적으로 판단하는 것을 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

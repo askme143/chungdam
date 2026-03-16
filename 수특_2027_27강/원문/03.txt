@@ -1,0 +1,15 @@
+The graph above shows results from a 2018 U.S. survey on
+awareness of AI uses among the general population and tech
+executives. Tech executives had a higher awareness of AI
+uses across the various domains compared to the general
+population, with the exception of Drones. The top three AI
+domains with the highest awareness among tech executives were
+Voice Assistants, Natural Language Processing, and Text
+Recognition. Ride-Hailing Apps had the lowest awareness
+levels in both the general population group and the tech
+executives group. Tech executives’ awareness of AI use in
+Natural Language Processing was more than double that of the
+general public. The rate of awareness of AI use for Computer
+Vision and Drones was the same among tech executives, but for
+the general population, the awareness of Drones was 10
+percentage points higher than that of Computer Vision.

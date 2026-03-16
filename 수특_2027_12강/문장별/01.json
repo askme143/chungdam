@@ -1,0 +1,216 @@
+{
+  "title": "도덕적 분노와 사회 질서",
+  "summary": "도덕적 분노는 사람들이 위험을 감수하면서도 잘못한 사람을 벌하게 만들고, 이런 감정이 협력하는 사회를 지키는 데 중요한 구실을 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Moral outrage is the psychological tool that motivates people to punish wrongdoers, even at cost or risk to themselves.",
+      "explanation": "도덕적 분노는 사람들이 자기에게 손해가 있거나 위험할 수 있어도 잘못한 사람을 벌하도록 움직이게 하는 마음의 장치이다.",
+      "vocabulary": [
+        {
+          "word": "moral outrage",
+          "meaning": "도덕적 분노",
+          "note": "옳고 그름의 기준에서 생기는 강한 분노를 말한다."
+        },
+        {
+          "word": "psychological tool",
+          "meaning": "마음속에서 작동하는 도구",
+          "note": "사람의 생각과 행동을 움직이게 하는 수단이라는 뜻이다."
+        },
+        {
+          "word": "motivates",
+          "meaning": "움직이게 한다, 하도록 만든다",
+          "note": "motivate A to do: A가 ~하게 만들다"
+        },
+        {
+          "word": "wrongdoers",
+          "meaning": "나쁜 일을 한 사람들, 잘못한 사람들",
+          "note": "wrongdoer는 규칙이나 도덕을 어긴 사람을 뜻한다."
+        },
+        {
+          "word": "at cost or risk to themselves",
+          "meaning": "자기에게 손해나 위험이 따르더라도",
+          "note": "cost는 손해, risk는 위험이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "It is a “commitment device,” something that commits people to punishment, even though trying to punish someone can be dangerous.",
+      "explanation": "이것은 이른바 '마음을 굳히게 하는 장치'이다. 즉, 누군가를 벌하는 일이 위험할 수 있어도 사람들로 하여금 끝까지 벌하려고 하게 만든다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "commitment device",
+          "meaning": "마음을 굳히게 하는 장치",
+          "note": "한번 정한 행동을 계속하게 만드는 장치를 비유적으로 이르는 말이다."
+        },
+        {
+          "word": "commits people to punishment",
+          "meaning": "사람들이 벌을 주는 쪽으로 마음먹게 한다",
+          "note": "commit A to B는 A가 B를 하도록 묶어 두다에 가깝다."
+        },
+        {
+          "word": "even though",
+          "meaning": "비록 ~일지라도",
+          "note": "양보를 나타내는 표현이다."
+        },
+        {
+          "word": "dangerous",
+          "meaning": "위험한",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "When we witness unjust harm, whether someone committing interpersonal violence or obvious cheating, we have an embodied physical reaction.",
+      "explanation": "우리가 부당한 피해를 보게 되면, 예를 들어 누군가가 다른 사람에게 폭력을 쓰거나 누가 봐도 뻔한 속임수를 쓰는 장면을 볼 때, 몸에서 바로 반응이 나타난다.",
+      "vocabulary": [
+        {
+          "word": "witness",
+          "meaning": "목격하다",
+          "note": "직접 보다라는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "unjust harm",
+          "meaning": "부당한 피해",
+          "note": "정당하지 않게 남에게 해를 끼치는 일을 말한다."
+        },
+        {
+          "word": "interpersonal violence",
+          "meaning": "사람 사이의 폭력",
+          "note": "개인과 개인 사이에서 일어나는 폭력을 뜻한다."
+        },
+        {
+          "word": "obvious cheating",
+          "meaning": "뻔한 속임수, 명백한 부정행위",
+          "note": "obvious는 누가 봐도 분명한이라는 뜻이다."
+        },
+        {
+          "word": "embodied physical reaction",
+          "meaning": "몸으로 나타나는 신체 반응",
+          "note": "감정이 생각에만 머무르지 않고 몸에도 드러난다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "We get angry, our blood pressure spikes, our heart beats faster; we thirst for retribution.",
+      "explanation": "우리는 화가 나고, 혈압이 갑자기 오르고, 심장이 더 빨리 뛴다. 그리고 상대를 벌하고 싶다는 마음이 강하게 생긴다.",
+      "vocabulary": [
+        {
+          "word": "blood pressure spikes",
+          "meaning": "혈압이 갑자기 치솟다",
+          "note": "spike는 갑자기 크게 오르다라는 뜻이다."
+        },
+        {
+          "word": "beats faster",
+          "meaning": "더 빨리 뛴다",
+          "note": "여기서는 심장이 빨리 뛰는 것을 말한다."
+        },
+        {
+          "word": "thirst for",
+          "meaning": "몹시 원하다",
+          "note": "원래는 목마르다이지만, 여기서는 강하게 바라다라는 비유 표현이다."
+        },
+        {
+          "word": "retribution",
+          "meaning": "응징, 벌",
+          "note": "잘못에 대한 대가로 주는 벌이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Outrage leads us to ignore와 the irrationality of risking our own safety to punish someone.",
+      "explanation": "분노는 우리가 누군가를 벌하려고 자기 안전까지 걸는 일이 이치에 맞지 않을 수 있다는 점을 못 보게 만든다.",
+      "vocabulary": [
+        {
+          "word": "outrage",
+          "meaning": "강한 분노",
+          "note": "앞의 moral outrage를 가리킨다."
+        },
+        {
+          "word": "irrationality",
+          "meaning": "이치에 맞지 않음, 비합리성",
+          "note": "감정 때문에 차분한 판단을 하지 못하는 상태를 말한다."
+        },
+        {
+          "word": "risking our own safety",
+          "meaning": "자기 안전을 위험에 빠뜨리는 것",
+          "note": "자기 몸을 위험하게 만드는 상황이다."
+        },
+        {
+          "word": "ignore",
+          "meaning": "무시하다, 못 본 체하다",
+          "note": "본문에는 'ignore와'라고 적혀 있지만 핵심 표현은 ignore이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "In any single situation, there is rarely an immediate personal benefit for meting out punishment, and often there is real risk, because the person you are serving justice against could lash out at you or get revenge in the future.",
+      "explanation": "한 번의 개별 상황만 놓고 보면, 누군가를 벌한다고 해서 바로 내게 이익이 생기는 경우는 거의 없다. 오히려 진짜 위험이 따를 때가 많다. 내가 벌하려는 사람이 나에게 갑자기 공격적으로 나올 수도 있고, 나중에 복수할 수도 있기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "immediate personal benefit",
+          "meaning": "바로 생기는 개인적 이익",
+          "note": "immediate는 즉시, personal benefit은 개인에게 돌아오는 이익이다."
+        },
+        {
+          "word": "meting out punishment",
+          "meaning": "벌을 내리는 것",
+          "note": "mete out은 벌이나 대우를 나누어 주듯 내리다라는 뜻이다."
+        },
+        {
+          "word": "serving justice against",
+          "meaning": "정당한 벌을 내리다",
+          "note": "조금 딱딱한 표현이지만, 잘못에 맞는 벌을 주는 뜻이다."
+        },
+        {
+          "word": "lash out at",
+          "meaning": "~에게 거칠게 공격하다",
+          "note": "말이나 행동으로 갑자기 세게 나오는 것을 말한다."
+        },
+        {
+          "word": "get revenge",
+          "meaning": "복수하다",
+          "note": "revenge는 앙갚음, 복수라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "But the powerful feeling of outrage leads us to momentarily forget this unfavorable evaluation and get involved in a situation we would be better off avoiding, and science reveals how this feeling and forgetting is essential for maintaining a cooperative society.",
+      "explanation": "하지만 아주 강한 분노를 느끼면, 우리는 이런 불리한 판단을 잠깐 잊고 원래는 피하는 편이 더 나은 일에 뛰어들게 된다. 그리고 과학은 이런 감정과 이런 '잠깐 잊음'이 서로 돕고 살아가는 사회를 지키는 데 꼭 필요하다고 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "momentarily",
+          "meaning": "잠깐, 잠시",
+          "note": ""
+        },
+        {
+          "word": "unfavorable evaluation",
+          "meaning": "자기에게 불리한 판단",
+          "note": "이 행동이 손해라고 보는 판단을 뜻한다."
+        },
+        {
+          "word": "get involved in",
+          "meaning": "~에 끼어들다, 관여하게 되다",
+          "note": "어떤 일에 직접 들어가게 되는 뜻이다."
+        },
+        {
+          "word": "be better off avoiding",
+          "meaning": "피하는 편이 더 낫다",
+          "note": "better off는 더 나은 상태라는 뜻이다."
+        },
+        {
+          "word": "maintaining a cooperative society",
+          "meaning": "서로 협력하는 사회를 유지하는 것",
+          "note": "사람들이 함께 규칙을 지키며 살아가는 사회를 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "01"
+}

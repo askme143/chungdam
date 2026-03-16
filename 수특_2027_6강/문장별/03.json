@@ -1,0 +1,157 @@
+{
+  "title": "컴퓨터 비유로 보는 마음의 한계",
+  "summary": "이 글은 사람의 마음을 컴퓨터처럼 보는 생각이 도움이 되기도 하지만 한계도 크며, 사람의 생각을 이해하려면 문화와 이야기 같은 인간다운 요소도 함께 봐야 한다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The reliance on the computer as a model for the operations of the human mind may well prove to be as limited as an earlier fascination with behaviorism.",
+      "explanation": "사람의 마음이 어떻게 움직이는지를 설명할 때 컴퓨터를 본보기로 삼는 생각도, 예전에 행동주의에 지나치게 끌렸던 것만큼 한계가 클 수 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "reliance on",
+          "meaning": "~에 의지함, ~을 믿고 기대는 것",
+          "note": "뒤에 대상이 오면 on을 함께 자주 쓴다."
+        },
+        {
+          "word": "as a model for",
+          "meaning": "~의 본보기로, ~을 설명하는 틀로",
+          "note": "model은 여기서 '모형'보다 '설명 틀'에 가깝다."
+        },
+        {
+          "word": "may well",
+          "meaning": "아마 정말 ~일 수 있다",
+          "note": "가능성이 꽤 높다고 말할 때 쓴다."
+        },
+        {
+          "word": "prove to be",
+          "meaning": "결국 ~으로 드러나다",
+          "note": "처음 생각과 달리 나중에 밝혀지는 느낌이 있다."
+        },
+        {
+          "word": "behaviorism",
+          "meaning": "행동주의",
+          "note": "사람의 마음보다 겉으로 보이는 행동을 더 중요하게 보는 심리학 흐름이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Psychologists have already begun to recognize the flaws of the mind-as-computer metaphor.",
+      "explanation": "심리학자들은 이미 사람의 마음을 컴퓨터에 빗대어 설명하는 방식에 문제가 있다는 것을 알아보기 시작했다.",
+      "vocabulary": [
+        {
+          "word": "recognize",
+          "meaning": "알아보다, 인정하다",
+          "note": "여기서는 '문제가 있음을 깨닫다'라는 뜻이다."
+        },
+        {
+          "word": "flaw",
+          "meaning": "결점, 문제점",
+          "note": "복수형 flaws로 쓰여 여러 문제를 가리킨다."
+        },
+        {
+          "word": "mind-as-computer metaphor",
+          "meaning": "마음을 컴퓨터로 보는 비유",
+          "note": "A-as-B 형태는 'A를 B로 보는' 뜻을 만든다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Some have turned to cultural anthropology as a way of understanding the factors outside any particular individual’s brain that help the individual make sense out of the world.",
+      "explanation": "어떤 사람들은 한 사람의 뇌 바깥에 있는 여러 요소들이 그 사람이 세상을 이해하는 데 어떻게 도움을 주는지 알아보기 위해 문화인류학으로 눈을 돌렸다.",
+      "vocabulary": [
+        {
+          "word": "turn to",
+          "meaning": "~로 눈을 돌리다, ~에 의지하다",
+          "note": "새로운 방법이나 도움거리를 찾을 때 자주 쓴다."
+        },
+        {
+          "word": "cultural anthropology",
+          "meaning": "문화인류학",
+          "note": "사람들의 문화와 삶의 방식을 연구하는 학문이다."
+        },
+        {
+          "word": "factor",
+          "meaning": "요소, 원인",
+          "note": "어떤 결과에 영향을 주는 것을 말한다."
+        },
+        {
+          "word": "particular",
+          "meaning": "특정한",
+          "note": "any particular individual은 '어느 한 특정한 개인'이라는 뜻이다."
+        },
+        {
+          "word": "make sense out of",
+          "meaning": "~을 이해하다, 뜻이 통하게 만들다",
+          "note": "조금 복잡한 것을 이해 가능한 것으로 만드는 느낌이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Others, such as Jerome Bruner, one of the founders of cognitive psychology, find that the computer analogy carries with it an unfortunate shift “from the construction of meaning to the processing of information.”",
+      "explanation": "또 다른 사람들, 이를테면 인지심리학을 세운 사람 가운데 한 명인 제롬 브루너는, 컴퓨터에 빗대는 생각이 사람의 생각을 '의미를 만들어 내는 일'에서 '정보를 처리하는 일' 쪽으로 안 좋게 옮겨 가게 만든다고 본다.",
+      "vocabulary": [
+        {
+          "word": "cognitive psychology",
+          "meaning": "인지심리학",
+          "note": "사람이 생각하고 기억하고 이해하는 과정을 다루는 심리학이다."
+        },
+        {
+          "word": "analogy",
+          "meaning": "비유, 유사한 점을 바탕으로 한 비교",
+          "note": "metaphor와 비슷하지만 비교의 틀이라는 느낌이 더 있다."
+        },
+        {
+          "word": "carry with it",
+          "meaning": "~을 함께 가져오다",
+          "note": "어떤 생각이나 선택이 다른 결과를 같이 불러온다는 뜻이다."
+        },
+        {
+          "word": "unfortunate shift",
+          "meaning": "바람직하지 않은 변화",
+          "note": "shift는 관심이나 방향이 옮겨 가는 것을 말한다."
+        },
+        {
+          "word": "construction of meaning",
+          "meaning": "의미를 만들어 냄",
+          "note": "사람이 스스로 뜻을 만들고 이해를 세우는 과정을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Bruner’s reflections on the limits of the machine model lead him back to a humanistic emphasis on narrative and story-telling as essential ingredients in understanding human cognition, a fascinating intellectual journey that reveals both the power and the limits of computers as guides to the way we think.",
+      "explanation": "기계 모형의 한계를 생각해 본 브루너는 다시 인간을 중요하게 보는 관점으로 돌아간다. 그는 사람이 어떻게 생각하는지 이해하려면 이야기와 서사가 꼭 필요하다고 강조한다. 이런 생각의 흐름은, 컴퓨터가 우리의 사고방식을 이해하는 데 도움이 되기도 하지만 분명한 한계도 있다는 점을 함께 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "reflection",
+          "meaning": "깊이 생각함, 성찰",
+          "note": "reflections는 어떤 주제에 대해 곰곰이 생각한 내용들이다."
+        },
+        {
+          "word": "humanistic",
+          "meaning": "인간을 중요하게 보는",
+          "note": "기계나 숫자보다 사람의 가치와 경험을 더 중시하는 느낌이다."
+        },
+        {
+          "word": "narrative",
+          "meaning": "이야기, 서사",
+          "note": "story보다 조금 더 '이야기의 짜임'을 가리킬 때가 많다."
+        },
+        {
+          "word": "essential ingredient",
+          "meaning": "꼭 필요한 요소",
+          "note": "ingredient는 원래 요리 재료지만 여기서는 비유적으로 쓰였다."
+        },
+        {
+          "word": "cognition",
+          "meaning": "인지, 생각하고 이해하는 작용",
+          "note": "쉽게 말해 사람이 알고, 생각하고, 이해하는 마음의 움직임이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

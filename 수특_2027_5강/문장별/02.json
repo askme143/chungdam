@@ -1,0 +1,189 @@
+{
+  "title": "건강 정보는 믿을 만한 곳에서 찾아야 한다",
+  "summary": "많은 사람들이 건강은 스스로 관리할 수 있다고 생각하지만, 인터넷에는 틀리거나 헷갈리게 하는 정보도 많아서 정부 기관, 대학, 병원 같은 믿을 만한 곳의 정보를 먼저 보는 것이 중요하다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Consumer surveys indicate that the majority of Americans (91%) believe they have some control over their health, and 72% believe that food and nutrition play the greatest role.",
+      "explanation": "소비자 조사에 따르면, 미국 사람들 대부분은 자기 건강을 어느 정도 스스로 관리할 수 있다고 생각한다. 또 많은 사람들은 건강에 가장 큰 영향을 주는 것이 음식과 영양이라고 믿는다.",
+      "vocabulary": [
+        {
+          "word": "consumer surveys",
+          "meaning": "소비자 조사",
+          "note": "사람들의 생각이나 행동을 알아보기 위해 묻는 조사이다."
+        },
+        {
+          "word": "the majority of",
+          "meaning": "대부분의",
+          "note": "절반보다 훨씬 많은 수를 말할 때 자주 쓴다."
+        },
+        {
+          "word": "have some control over",
+          "meaning": "어느 정도 통제할 수 있다, 스스로 관리할 수 있다",
+          "note": "over 뒤에는 관리하거나 영향을 줄 수 있는 대상이 온다."
+        },
+        {
+          "word": "play the greatest role",
+          "meaning": "가장 큰 역할을 하다",
+          "note": "어떤 결과에 가장 크게 영향을 준다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "However, 75% of consumers rely on media outlets including the Internet as their major sources of health and nutrition information, and only half use medical sources.",
+      "explanation": "하지만 소비자의 75%는 건강과 영양 정보를 얻을 때 인터넷을 포함한 매스컴에 주로 의지한다. 반면에 병원이나 의사 같은 의료 쪽 정보를 이용하는 사람은 절반뿐이다.",
+      "vocabulary": [
+        {
+          "word": "rely on",
+          "meaning": "의지하다, 믿고 쓰다",
+          "note": "정보나 도움을 얻기 위해 어떤 대상에 기대는 뜻이다."
+        },
+        {
+          "word": "media outlets",
+          "meaning": "매스컴, 언론 매체",
+          "note": "신문, 방송, 인터넷 매체 등을 넓게 가리킨다."
+        },
+        {
+          "word": "major sources",
+          "meaning": "주된 정보원",
+          "note": "가장 많이 정보를 얻는 곳이라는 뜻이다."
+        },
+        {
+          "word": "medical sources",
+          "meaning": "의료 정보원",
+          "note": "병원, 의사, 의료 기관 등에서 나오는 정보를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "A Google search for “nutrition listservs” yielded over 100,000 sites, but it is likely that many of these writings are not reviewed by nutrition experts.",
+      "explanation": "구글에서 'nutrition listservs'를 검색하면 10만 개가 넘는 사이트가 나온다. 하지만 그 글들 가운데 많은 것은 영양 전문가의 확인을 거치지 않았을 가능성이 크다.",
+      "vocabulary": [
+        {
+          "word": "yielded",
+          "meaning": "나오게 했다, 결과로 보여 주었다",
+          "note": "검색이나 조사에서 어떤 결과가 나왔다는 뜻으로 쓰였다."
+        },
+        {
+          "word": "listservs",
+          "meaning": "리스트서브, 메시지 전송 시스템",
+          "note": "이메일로 여러 사람에게 글을 보내고 나누는 시스템을 말한다."
+        },
+        {
+          "word": "it is likely that",
+          "meaning": "~일 가능성이 크다",
+          "note": "가능성을 말할 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "reviewed by",
+          "meaning": "~의 검토를 받은",
+          "note": "전문가가 내용을 살펴보고 맞는지 확인했다는 뜻이다."
+        },
+        {
+          "word": "nutrition experts",
+          "meaning": "영양 전문가",
+          "note": "영양학을 전문으로 공부하거나 일하는 사람들이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Internet sites marketing herbs, drugs, and health devices are not monitored by government regulatory agencies and often contain misleading information.",
+      "explanation": "약초, 약, 건강 기구를 파는 인터넷 사이트들은 정부의 관리 기관이 살피지 않는 경우가 많다. 그래서 그 안에는 사람을 헷갈리게 하거나 잘못 이끄는 정보가 자주 들어 있다.",
+      "vocabulary": [
+        {
+          "word": "marketing",
+          "meaning": "판매하는, 홍보하는",
+          "note": "여기서는 물건을 팔기 위해 내세우는 뜻이다."
+        },
+        {
+          "word": "herbs",
+          "meaning": "약초, 허브",
+          "note": "건강에 좋다고 알려진 식물 재료를 가리킨다."
+        },
+        {
+          "word": "health devices",
+          "meaning": "건강 기구",
+          "note": "건강 관리에 쓴다고 광고하는 기계나 도구를 말한다."
+        },
+        {
+          "word": "monitored",
+          "meaning": "감시되다, 관리되다",
+          "note": "문제가 없는지 계속 살펴본다는 뜻이다."
+        },
+        {
+          "word": "misleading information",
+          "meaning": "헷갈리게 하거나 잘못 이끄는 정보",
+          "note": "사람이 사실과 다르게 믿게 만들 수 있는 정보이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Reputable food companies provide helpful facts about the nutrient content of their products, but commercial sites devoted to sales often post misleading health claims.",
+      "explanation": "믿을 만한 식품 회사들은 자기 제품에 어떤 영양 성분이 들어 있는지 도움이 되는 사실을 알려 준다. 하지만 판매에만 힘쓰는 상업 사이트들은 건강에 좋다는 헷갈리는 주장을 자주 올린다.",
+      "vocabulary": [
+        {
+          "word": "reputable",
+          "meaning": "믿을 만한, 평판이 좋은",
+          "note": "오랫동안 신뢰를 얻은 대상에 자주 쓴다."
+        },
+        {
+          "word": "nutrient content",
+          "meaning": "영양 성분 함량",
+          "note": "제품 안에 어떤 영양소가 얼마나 들어 있는지를 말한다."
+        },
+        {
+          "word": "commercial sites",
+          "meaning": "상업 사이트",
+          "note": "주로 물건을 팔거나 이익을 내기 위한 사이트이다."
+        },
+        {
+          "word": "devoted to sales",
+          "meaning": "판매에 집중한",
+          "note": "다른 목적보다 물건 파는 데 더 힘을 쏟는다는 뜻이다."
+        },
+        {
+          "word": "health claims",
+          "meaning": "건강 관련 주장",
+          "note": "이 제품이 건강에 좋다고 말하는 광고성 표현일 때가 많다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Internet sites maintained by government agencies, universities, state extension services, and medical facilities provide evidence-based information and should be the first source for public information on foods, nutrition, and health.",
+      "explanation": "정부 기관, 대학, 주의 확장 서비스 기관, 의료 시설이 운영하는 인터넷 사이트는 근거가 있는 정보를 제공한다. 그래서 음식, 영양, 건강에 대한 정보를 찾을 때 사람들이 가장 먼저 봐야 할 곳이다.",
+      "vocabulary": [
+        {
+          "word": "maintained by",
+          "meaning": "~가 운영하는, 관리하는",
+          "note": "사이트를 계속 돌보고 정보를 올리는 주체를 나타낸다."
+        },
+        {
+          "word": "state extension services",
+          "meaning": "주 확장 서비스 기관",
+          "note": "지역 주민에게 농업, 식생활, 교육 같은 정보를 알려 주는 공공 서비스 기관이다."
+        },
+        {
+          "word": "medical facilities",
+          "meaning": "의료 시설",
+          "note": "병원, 진료소 같은 곳을 넓게 이르는 말이다."
+        },
+        {
+          "word": "evidence-based information",
+          "meaning": "근거에 바탕을 둔 정보",
+          "note": "연구 결과나 확인된 자료를 바탕으로 한 정보라는 뜻이다."
+        },
+        {
+          "word": "the first source",
+          "meaning": "가장 먼저 찾을 정보원",
+          "note": "처음에 우선해서 참고해야 하는 곳을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

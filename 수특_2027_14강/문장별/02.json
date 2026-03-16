@@ -1,0 +1,147 @@
+{
+  "title": "과학 발견의 공로를 가리기 어려운 이유",
+  "summary": "과학 연구는 겉으로 보기보다 훨씬 복잡하고 어지럽게 이루어지며, 그래서 누가 언제 무엇을 밝혀냈는지 공로를 나누는 일이 쉽지 않다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "A detailed anthropological study of daily scientific practice in the Salk Institute laboratory in La Jolla, California shows how difficult it is to assign credit and dates.",
+      "explanation": "캘리포니아 라호야에 있는 솔크 연구소 실험실에서 과학자들이 날마다 어떻게 일하는지를 자세히 살펴본 인류학 연구는, 어떤 발견의 공로를 누구에게 돌리고 그 시점을 언제로 정하는 일이 얼마나 어려운지 보여 준다.",
+      "vocabulary": [
+        {
+          "word": "anthropological study",
+          "meaning": "인류학 연구",
+          "note": "사람들의 행동과 문화, 생활 방식을 살피는 연구를 말한다."
+        },
+        {
+          "word": "daily scientific practice",
+          "meaning": "날마다 이루어지는 과학 연구 활동",
+          "note": "교과서 속 이론이 아니라 실제 연구 현장에서 하는 일을 가리킨다."
+        },
+        {
+          "word": "assign credit",
+          "meaning": "공로를 돌리다",
+          "note": "누가 성과를 이루었는지 인정해 주는 뜻이다."
+        },
+        {
+          "word": "dates",
+          "meaning": "시점, 날짜",
+          "note": "여기서는 발견이 언제 이루어졌는지를 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Bruno Latour describes how scientists arrived at the elucidation of TRF (thyrotropin-releasing factor), a hormone that is secreted by the brain.",
+      "explanation": "브루노 라투르는 과학자들이 뇌에서 분비되는 호르몬인 TRF를 어떻게 밝혀내게 되었는지 설명한다.",
+      "vocabulary": [
+        {
+          "word": "arrived at",
+          "meaning": "도달했다, 알아내게 되었다",
+          "note": "여기서는 연구 끝에 어떤 결론에 이르렀다는 뜻이다."
+        },
+        {
+          "word": "elucidation",
+          "meaning": "규명, 분명히 밝힘",
+          "note": "어렵거나 불분명한 것을 또렷하게 밝혀내는 말이다."
+        },
+        {
+          "word": "thyrotropin-releasing factor",
+          "meaning": "갑상샘자극호르몬 분비 유도 인자(TRF)",
+          "note": "본문에서는 TRF라는 이름으로 줄여 쓴다."
+        },
+        {
+          "word": "secreted",
+          "meaning": "분비되는",
+          "note": "몸속 기관이 어떤 물질을 만들어 내보내는 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "He says that his observations led him to “the conviction that a body of practices widely regarded by outsiders as well organized, logical, and coherent, in fact consists of a disordered array of observations with which scientists struggle to produce order.”",
+      "explanation": "그는 자신의 관찰을 통해 이런 확신에 이르렀다고 말한다. 바깥사람들은 과학 연구가 잘 짜여 있고 논리적이며 질서정연하다고 생각하지만, 실제로는 여러 관찰 결과가 어지럽게 흩어져 있고, 과학자들은 그 속에서 질서를 만들어 내려고 애쓴다는 것이다.",
+      "vocabulary": [
+        {
+          "word": "observations",
+          "meaning": "관찰, 관찰한 내용",
+          "note": "연구자가 직접 보고 기록한 사실들을 말한다."
+        },
+        {
+          "word": "conviction",
+          "meaning": "확신",
+          "note": "강하게 믿는 생각이다."
+        },
+        {
+          "word": "widely regarded",
+          "meaning": "널리 여겨지는",
+          "note": "많은 사람들이 그렇게 생각한다는 뜻이다."
+        },
+        {
+          "word": "coherent",
+          "meaning": "앞뒤가 잘 맞는, 일관된",
+          "note": "내용이 서로 잘 이어져 이해하기 쉬운 상태를 말한다."
+        },
+        {
+          "word": "disordered array",
+          "meaning": "어지럽게 흩어진 모음",
+          "note": "array는 여기서 '배열'보다 '여러 개가 모여 있는 상태'에 가깝다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The final consensus formulation of TRF (i.e., when it became a scientific “fact”) emerged some time between January 1968 and January 1970.",
+      "explanation": "TRF에 대한 최종 합의된 설명, 다시 말해 그것이 과학적 '사실'로 받아들여진 형태는 1968년 1월과 1970년 1월 사이 어느 때에 자리 잡았다.",
+      "vocabulary": [
+        {
+          "word": "consensus",
+          "meaning": "의견 일치, 합의",
+          "note": "여러 사람이 같은 판단에 이른 상태를 말한다."
+        },
+        {
+          "word": "formulation",
+          "meaning": "정리된 설명, 표현 방식",
+          "note": "연구 결과를 일정한 말과 형태로 정리한 것을 뜻한다."
+        },
+        {
+          "word": "scientific fact",
+          "meaning": "과학적 사실",
+          "note": "과학자 사회에서 받아들여진 사실이라는 뜻이다."
+        },
+        {
+          "word": "emerged",
+          "meaning": "나타났다, 드러났다",
+          "note": "갑자기 생겼다기보다 점차 분명해졌다는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Half of the Nobel Prize in Medicine for 1977 for this discovery was shared between the Salk group and another competing group in New Orleans (the other half went to Rosalind Yalow for the techniques she developed that were used in these studies), but each of these two competing groups strongly felt that they deserved sole credit and that the other did not deserve even a share of the award.",
+      "explanation": "이 발견으로 받은 1977년 노벨 생리의학상 절반은 솔크 연구팀과 뉴올리언스의 다른 경쟁 연구팀이 함께 받았다. 나머지 절반은 이 연구들에 쓰인 기술을 만든 로절린 얄로에게 돌아갔다. 하지만 이 두 경쟁 연구팀은 각각 자신들만이 모든 공로를 받아야 하고, 상대 팀은 상의 일부조차 받을 자격이 없다고 강하게 생각했다.",
+      "vocabulary": [
+        {
+          "word": "competing group",
+          "meaning": "서로 경쟁하는 연구팀",
+          "note": "같은 주제를 먼저 밝혀내려고 다투는 팀을 말한다."
+        },
+        {
+          "word": "techniques",
+          "meaning": "기술, 연구 방법",
+          "note": "실험이나 측정에 쓰는 방법을 뜻한다."
+        },
+        {
+          "word": "deserved sole credit",
+          "meaning": "혼자서만 공로를 받을 자격이 있었다",
+          "note": "sole은 '오직 하나의, 단독의'라는 뜻이다."
+        },
+        {
+          "word": "a share of the award",
+          "meaning": "상의 일부",
+          "note": "상을 나누어 받는 몫을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

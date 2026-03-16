@@ -1,0 +1,227 @@
+{
+  "title": "배경지식이 읽기 이해를 바꾸는 이유",
+  "summary": "글을 잘 읽는 힘만으로는 충분하지 않을 때가 있다. 어떤 주제에 대해 미리 알고 있는 지식이 글 이해에 큰 영향을 준다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The importance of is highlighted in a study discussed by Hirsch in The Knowledge Deficit.",
+      "explanation": "허시가 『The Knowledge Deficit』에서 소개한 한 연구는, 어떤 것이 얼마나 중요한지를 뚜렷하게 보여 준다. 다만 이 문장에는 'The importance of' 뒤에 중요한 말이 빠져 있다.",
+      "vocabulary": [
+        {
+          "word": "highlighted",
+          "meaning": "두드러지게 보여지다, 강조되다",
+          "note": "highlight는 원래 '눈에 띄게 하다'라는 뜻이다."
+        },
+        {
+          "word": "discussed",
+          "meaning": "다루어진, 설명된",
+          "note": "책이나 글에서 어떤 내용을 이야기할 때 자주 쓴다."
+        },
+        {
+          "word": "The Knowledge Deficit",
+          "meaning": "『지식의 부족』(책 제목)",
+          "note": "deficit은 '부족, 모자람'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "This study consisted of two groups of students who were asked to read a passage about baseball.",
+      "explanation": "이 연구에서는 학생들을 두 집단으로 나누고, 야구에 관한 글 한 편을 읽게 했다.",
+      "vocabulary": [
+        {
+          "word": "consisted of",
+          "meaning": "~로 이루어졌다",
+          "note": "be consisted of는 보통 쓰지 않고 consist of를 쓴다."
+        },
+        {
+          "word": "groups",
+          "meaning": "집단, 무리",
+          "note": "연구에서는 사람들을 나눈 팀이나 부류를 뜻한다."
+        },
+        {
+          "word": "passage",
+          "meaning": "글의 한 부분, 지문",
+          "note": "시험 지문을 말할 때도 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The first group was made up of strong readers who knew little about baseball.",
+      "explanation": "첫 번째 집단은 글 읽기 실력은 좋지만, 야구에 대해서는 거의 모르는 학생들로 이루어져 있었다.",
+      "vocabulary": [
+        {
+          "word": "made up of",
+          "meaning": "~로 이루어진",
+          "note": "be composed of와 비슷한 뜻이다."
+        },
+        {
+          "word": "strong readers",
+          "meaning": "읽기 실력이 좋은 학생들",
+          "note": "단순히 '많이 읽는 사람'보다 '읽기 능력이 좋은 사람'에 가깝다."
+        },
+        {
+          "word": "knew little about",
+          "meaning": "~에 대해 거의 몰랐다",
+          "note": "little은 여기서 '거의 없는 정도로 적게'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The second group was composed of struggling readers who were knowledgeable about baseball.",
+      "explanation": "두 번째 집단은 읽기를 어려워하지만, 야구에 대해서는 잘 아는 학생들로 이루어져 있었다.",
+      "vocabulary": [
+        {
+          "word": "composed of",
+          "meaning": "~로 이루어진",
+          "note": "made up of와 같은 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "struggling readers",
+          "meaning": "읽기를 힘들어하는 학생들",
+          "note": "struggling은 '애쓰는, 어려움을 겪는'이라는 느낌이 있다."
+        },
+        {
+          "word": "knowledgeable",
+          "meaning": "잘 아는, 지식이 많은",
+          "note": "about와 함께 써서 '어떤 것에 대해 잘 아는' 뜻이 된다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "After reading the passage, students in each group had their comprehension tested.",
+      "explanation": "글을 읽은 뒤, 두 집단의 학생들은 내용을 얼마나 이해했는지 평가를 받았다.",
+      "vocabulary": [
+        {
+          "word": "comprehension",
+          "meaning": "이해, 이해력",
+          "note": "reading comprehension은 '독해'를 뜻한다."
+        },
+        {
+          "word": "had their comprehension tested",
+          "meaning": "이해력을 평가받았다",
+          "note": "have + 목적어 + p.p. 형태로 '무엇을 받다, 당하다' 뜻을 만든다."
+        },
+        {
+          "word": "each group",
+          "meaning": "각 집단",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Guess which group scored higher?",
+      "explanation": "어느 집단이 더 높은 점수를 받았는지 한번 맞혀 보자.",
+      "vocabulary": [
+        {
+          "word": "scored higher",
+          "meaning": "더 높은 점수를 받았다",
+          "note": "score는 시험, 경기 등에서 점수를 얻는다는 뜻이다."
+        },
+        {
+          "word": "Guess",
+          "meaning": "맞혀 봐라, 추측해 봐라",
+          "note": "독자의 관심을 끌 때 자주 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The struggling readers.",
+      "explanation": "바로 읽기를 어려워하던 학생들이다.",
+      "vocabulary": [
+        {
+          "word": "struggling readers",
+          "meaning": "읽기를 힘들어하는 학생들",
+          "note": "앞 문장의 답으로 짧게 쓴 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Having strong reading skills was not enough for the students who came to the page with a knowledge deficit about the topic.",
+      "explanation": "그 주제에 대해 아는 것이 부족한 학생들에게는, 읽기 실력이 좋은 것만으로는 충분하지 않았다.",
+      "vocabulary": [
+        {
+          "word": "reading skills",
+          "meaning": "읽기 능력",
+          "note": "글을 읽고 이해하는 힘을 말한다."
+        },
+        {
+          "word": "knowledge deficit",
+          "meaning": "지식 부족",
+          "note": "deficit은 필요한 만큼 모자란 상태를 뜻한다."
+        },
+        {
+          "word": "came to the page",
+          "meaning": "글을 읽으러 왔다, 글을 접했다",
+          "note": "직역보다 '그 글을 읽게 되었다'로 이해하면 자연스럽다."
+        },
+        {
+          "word": "about the topic",
+          "meaning": "그 주제에 대해",
+          "note": "topic은 글의 중심 내용이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Though the second group of readers were not strong readers, their prior knowledge enabled them to outscore readers with far better abilities.",
+      "explanation": "두 번째 집단은 읽기 실력이 뛰어나지는 않았지만, 미리 알고 있던 지식 덕분에 훨씬 더 읽기 능력이 좋은 학생들보다 높은 점수를 받을 수 있었다.",
+      "vocabulary": [
+        {
+          "word": "prior knowledge",
+          "meaning": "미리 알고 있던 지식, 배경지식",
+          "note": "글을 읽기 전에 이미 가지고 있는 지식을 말한다."
+        },
+        {
+          "word": "enabled",
+          "meaning": "~할 수 있게 했다",
+          "note": "enable A to B는 'A가 B할 수 있게 하다'라는 뜻이다."
+        },
+        {
+          "word": "outscore",
+          "meaning": "~보다 점수가 더 높다",
+          "note": "시험이나 경기에서 상대보다 높은 점수를 얻는다는 뜻이다."
+        },
+        {
+          "word": "abilities",
+          "meaning": "능력",
+          "note": "far better abilities는 '훨씬 더 좋은 능력'이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Prior knowledge, or, in the case of the good readers, the lack of prior knowledge, was the x-factor.",
+      "explanation": "결국 가장 큰 차이를 만든 것은 배경지식이었다. 읽기를 잘하던 학생들의 경우에는, 오히려 그런 배경지식이 없었다는 점이 결과를 갈랐다.",
+      "vocabulary": [
+        {
+          "word": "Prior knowledge",
+          "meaning": "배경지식, 미리 알고 있는 지식",
+          "note": "이 글의 핵심 개념이다."
+        },
+        {
+          "word": "the lack of",
+          "meaning": "~의 부족, ~이 없음",
+          "note": "lack는 '없음, 부족함'이라는 뜻이다."
+        },
+        {
+          "word": "in the case of",
+          "meaning": "~의 경우에는",
+          "note": "특정한 경우를 따로 말할 때 쓴다."
+        },
+        {
+          "word": "x-factor",
+          "meaning": "결과를 크게 바꾸는 숨은 요소",
+          "note": "정확히 설명하기 어렵지만 큰 영향을 주는 중요한 요인을 뜻한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

@@ -1,0 +1,179 @@
+{
+  "title": "위기 때 사람들이 찾는 정보 매체",
+  "summary": "사람들은 위기의 종류와 나이 같은 조건에 따라 전통 매체와 소셜 미디어를 다르게 고르며, 두 매체 모두 위기 상황에서 중요한 정보를 전하는 데 큰 몫을 한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "During crises that present immediate danger (e.g., natural disasters, acts of violence or terrorism, transportation crises), people seek trusted and verified sources to ease their immediate concerns, thus turning to traditional sources such as television and radio.",
+      "explanation": "바로 눈앞에 위험이 닥친 위기에서는 사람들이 불안을 빨리 줄이기 위해 믿을 수 있고 확인된 정보를 찾는다. 그래서 텔레비전이나 라디오 같은 전통 매체로 많이 간다.",
+      "vocabulary": [
+        {
+          "word": "present immediate danger",
+          "meaning": "즉각적인 위험을 일으키다, 바로 위험한 상태를 보이다",
+          "note": "present는 여기서 '보여 주다'보다 '일으키다, 나타내다'에 가깝다."
+        },
+        {
+          "word": "verified sources",
+          "meaning": "사실이 확인된 정보 출처",
+          "note": "verified는 '검증된, 확인된'이라는 뜻이다."
+        },
+        {
+          "word": "ease their immediate concerns",
+          "meaning": "당장의 걱정을 덜다",
+          "note": "ease는 '쉽게 하다'가 아니라 여기서는 '줄이다, 덜어 주다'라는 뜻이다."
+        },
+        {
+          "word": "traditional sources",
+          "meaning": "전통적인 정보 매체",
+          "note": "이 글에서는 주로 television, radio 같은 기존 매체를 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "For other crisis types, such as public health and political crises, however, people are more likely to turn to social media where they can seek multiple voices and a variety of expert opinions, as, unlike the first set of crises, public health and political crises may be more subjective and less straightforward, and thus necessitate a deeper dive into supplementary information and evidence.",
+      "explanation": "하지만 공중보건 위기나 정치적 위기처럼 다른 종류의 위기에서는 사람들이 소셜 미디어를 더 많이 찾는다. 그곳에서는 여러 사람의 말과 다양한 전문가 의견을 볼 수 있기 때문이다. 이런 위기들은 앞에서 말한 위기보다 사람마다 보는 관점이 다를 수 있고, 내용도 단순하지 않다. 그래서 더 많은 추가 정보와 근거를 자세히 살펴볼 필요가 있다.",
+      "vocabulary": [
+        {
+          "word": "turn to social media",
+          "meaning": "소셜 미디어로 향하다, 소셜 미디어를 찾다",
+          "note": ""
+        },
+        {
+          "word": "multiple voices",
+          "meaning": "여러 사람의 다양한 목소리",
+          "note": "한 가지 의견이 아니라 여러 관점을 뜻한다."
+        },
+        {
+          "word": "subjective",
+          "meaning": "사람에 따라 다르게 볼 수 있는, 주관적인",
+          "note": "objective(객관적인)와 반대말로 자주 나온다."
+        },
+        {
+          "word": "straightforward",
+          "meaning": "단순하고 분명한",
+          "note": "less straightforward는 '쉽게 딱 잘라 말하기 어려운' 뜻이다."
+        },
+        {
+          "word": "a deeper dive into supplementary information and evidence",
+          "meaning": "추가 정보와 근거를 더 깊이 살펴봄",
+          "note": "deeper dive는 일상적으로 '더 자세히 파고들어 보기'라는 뜻으로 많이 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "In addition to the type of crisis at hand, Liu, a communication scholar, and colleagues argued that traditional and social media have different effects on different audiences regarding the motivation to follow instructions and recommended behaviors during crises.",
+      "explanation": "지금 닥친 위기의 종류뿐 아니라, 전통 매체와 소셜 미디어가 사람들에게 주는 영향도 서로 다르다고 소통 연구자 류와 동료들은 말했다. 특히 위기 때 사람들이 지시사항이나 권장 행동을 따르려는 마음에 두 매체가 다르게 작용할 수 있다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "the type of crisis at hand",
+          "meaning": "지금 눈앞에 닥친 위기의 종류",
+          "note": "at hand는 '가까이에 있는, 당장 맞닥뜨린'이라는 뜻이다."
+        },
+        {
+          "word": "communication scholar",
+          "meaning": "소통/커뮤니케이션 분야 연구자",
+          "note": "scholar는 '학자, 연구자'를 뜻한다."
+        },
+        {
+          "word": "different audiences",
+          "meaning": "서로 다른 청중, 서로 다른 사람 집단",
+          "note": "여기서는 나이대나 성향이 다른 사람들을 넓게 가리킨다."
+        },
+        {
+          "word": "motivation to follow instructions",
+          "meaning": "지시를 따르려는 마음, 따를 의지",
+          "note": "motivation은 '동기'이지만 쉬운 말로는 '하려는 마음'이라고 볼 수 있다."
+        },
+        {
+          "word": "recommended behaviors",
+          "meaning": "권장되는 행동",
+          "note": "위기 상황에서 안전을 위해 하라고 권하는 행동들이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "For example, although younger audiences seem to favor social media to traditional media sources during times of crisis, older audiences indicate a preference for traditional media.",
+      "explanation": "예를 들어 위기 상황에서 젊은 사람들은 전통 매체보다 소셜 미디어를 더 좋아하는 것처럼 보인다. 반면 나이가 많은 사람들은 전통 매체를 더 선호한다고 나타난다.",
+      "vocabulary": [
+        {
+          "word": "favor",
+          "meaning": "더 좋아하다, 더 선호하다",
+          "note": "favor A to B는 'B보다 A를 더 좋아하다'라는 뜻이다."
+        },
+        {
+          "word": "during times of crisis",
+          "meaning": "위기 상황일 때",
+          "note": ""
+        },
+        {
+          "word": "indicate a preference for",
+          "meaning": "~을 더 좋아한다고 보여 주다",
+          "note": "indicate는 '나타내다, 보여 주다'라는 뜻이다."
+        },
+        {
+          "word": "traditional media",
+          "meaning": "전통 매체",
+          "note": "보통 TV, 라디오, 신문 등을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Thus, both traditional and social media play a prominent role in delivering important scientific information to the public during crises.",
+      "explanation": "그래서 위기 상황에서는 전통 매체와 소셜 미디어가 모두 대중에게 중요한 과학 정보를 전하는 데 큰 역할을 한다.",
+      "vocabulary": [
+        {
+          "word": "play a prominent role",
+          "meaning": "중요한 역할을 하다",
+          "note": "prominent는 여기서 '눈에 띄는, 중요한' 뜻이다."
+        },
+        {
+          "word": "delivering",
+          "meaning": "전달하는 것",
+          "note": "deliver는 물건 배달뿐 아니라 정보 전달에도 쓴다."
+        },
+        {
+          "word": "scientific information",
+          "meaning": "과학 정보",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "While people select traditional media for (A) crises and social media for complex and subjective issues, (B) factors also influence how different population groups approach these media choices during emergencies.",
+      "explanation": "사람들은 급하고 분명한 위기에서는 전통 매체를 고르고, 복잡하고 사람마다 다르게 볼 수 있는 문제에서는 소셜 미디어를 고른다. 그리고 비상 상황에서는 이런 선택 방식에 여러 사람 집단의 특징 같은 다른 요인들도 영향을 준다.",
+      "vocabulary": [
+        {
+          "word": "complex and subjective issues",
+          "meaning": "복잡하고 사람마다 다르게 볼 수 있는 문제",
+          "note": "subjective를 쉬운 말로 풀면 '주관적인'이다."
+        },
+        {
+          "word": "factors",
+          "meaning": "요인들, 영향을 주는 것들",
+          "note": ""
+        },
+        {
+          "word": "population groups",
+          "meaning": "여러 사람 집단",
+          "note": "예: 젊은 층, 노년층 같은 집단"
+        },
+        {
+          "word": "approach these media choices",
+          "meaning": "이런 매체 선택을 대하는 방식",
+          "note": "approach는 여기서 '접근하다'보다 '대하다, 다루다'에 가깝다."
+        },
+        {
+          "word": "during emergencies",
+          "meaning": "비상 상황에서",
+          "note": "emergency는 갑작스럽고 위험한 상황을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

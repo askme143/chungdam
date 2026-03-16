@@ -1,0 +1,491 @@
+{
+  "title": "고기완자 냄새값 이야기",
+  "summary": "윌리엄은 고기완자를 사지 않았는데도 냄새를 맡았다는 이유로 돈을 내라는 말을 듣는다. 그래서 그는 동전 소리로 값을 치렀다고 말하며 재치 있게 맞선다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "One evening, little William was on his way home from his friend’s.",
+      "explanation": "어느 저녁, 어린 윌리엄은 친구 집에서 놀고 집으로 돌아가는 길이었다.",
+      "vocabulary": [
+        {
+          "word": "on his way home",
+          "meaning": "집에 가는 길에",
+          "note": "way는 여기서 '길'이라는 뜻으로 쓰였다."
+        },
+        {
+          "word": "from his friend’s",
+          "meaning": "친구 집에서",
+          "note": "friend’s는 friend’s house를 줄여 쓴 말이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "He was passing through the market.",
+      "explanation": "그는 시장을 지나가고 있었다.",
+      "vocabulary": [
+        {
+          "word": "pass through",
+          "meaning": "지나가다, 통과하다",
+          "note": "장소 안을 가로질러 가는 느낌이 있다."
+        },
+        {
+          "word": "market",
+          "meaning": "시장",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "On his way, he came across the beautiful aroma of some meatballs sold by an elderly vendor just across the road.",
+      "explanation": "가던 길에 그는 길 건너편에서 나이 많은 장사꾼이 파는 고기완자의 아주 좋은 냄새를 맡게 되었다.",
+      "vocabulary": [
+        {
+          "word": "came across",
+          "meaning": "우연히 마주치다, 접하다",
+          "note": "사람뿐 아니라 냄새나 상황에도 쓸 수 있다."
+        },
+        {
+          "word": "aroma",
+          "meaning": "향기, 좋은 냄새",
+          "note": "보통 기분 좋은 냄새를 말한다."
+        },
+        {
+          "word": "elderly vendor",
+          "meaning": "나이 많은 노점상, 장사꾼",
+          "note": "vendor는 길거리에서 물건을 파는 사람을 자주 가리킨다."
+        },
+        {
+          "word": "just across the road",
+          "meaning": "길 바로 건너편에",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The smell was so pleasant that little William had to stop by the stand to purchase some meatballs.",
+      "explanation": "냄새가 너무 좋아서 어린 윌리엄은 그 가게에 들러 고기완자를 좀 사야겠다고 느꼈다.",
+      "vocabulary": [
+        {
+          "word": "pleasant",
+          "meaning": "기분 좋은",
+          "note": ""
+        },
+        {
+          "word": "stop by",
+          "meaning": "잠깐 들르다",
+          "note": "오래 머무르지 않고 잠시 가는 느낌이다."
+        },
+        {
+          "word": "stand",
+          "meaning": "가판대, 노점",
+          "note": ""
+        },
+        {
+          "word": "purchase",
+          "meaning": "사다, 구입하다",
+          "note": "buy보다 조금 더 딱딱한 말이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "However, the meatballs didn’t have a listed price, so he decided to head directly home.",
+      "explanation": "하지만 고기완자에는 적혀 있는 값이 없어서, 그는 그냥 바로 집으로 가기로 했다.",
+      "vocabulary": [
+        {
+          "word": "listed price",
+          "meaning": "적혀 있는 가격",
+          "note": "가게에 표시된 값을 말한다."
+        },
+        {
+          "word": "head directly home",
+          "meaning": "곧장 집으로 가다",
+          "note": "head는 '향하다'라는 뜻으로 자주 쓰인다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Just as little William turned to leave, a firm voice stopped him.",
+      "explanation": "어린 윌리엄이 막 돌아서서 가려는 순간, 단호한 목소리가 그를 멈춰 세웠다.",
+      "vocabulary": [
+        {
+          "word": "Just as",
+          "meaning": "막 ~하려는 바로 그때",
+          "note": "어떤 일이 일어나는 정확한 순간을 보여 준다."
+        },
+        {
+          "word": "turned to leave",
+          "meaning": "떠나려고 돌아서다",
+          "note": ""
+        },
+        {
+          "word": "firm voice",
+          "meaning": "단호한 목소리",
+          "note": "부드럽지 않고 분명하게 말하는 느낌이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "It was the elderly vendor.",
+      "explanation": "그 목소리의 주인은 바로 그 나이 많은 장사꾼이었다.",
+      "vocabulary": [
+        {
+          "word": "elderly vendor",
+          "meaning": "나이 많은 장사꾼",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "“Wait! You can’t just leave.",
+      "explanation": "그는 '잠깐! 그냥 가면 안 된다.'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "can’t just leave",
+          "meaning": "그냥 떠나면 안 되다",
+          "note": "상대가 아무 일 없다는 듯 가는 것을 막는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Before you go, you have to pay,” he said.",
+      "explanation": "그는 '가기 전에 돈을 내야 한다.'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "have to pay",
+          "meaning": "돈을 내야 하다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Little William was surprised at the statement made by the elderly vendor.",
+      "explanation": "어린 윌리엄은 그 나이 많은 장사꾼의 말에 깜짝 놀랐다.",
+      "vocabulary": [
+        {
+          "word": "be surprised at",
+          "meaning": "~에 놀라다",
+          "note": ""
+        },
+        {
+          "word": "statement",
+          "meaning": "말, 주장",
+          "note": "여기서는 공식 발표가 아니라 상대가 한 말을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "original": "He asked him, “Payment for what, Sir?",
+      "explanation": "그는 '무엇에 대한 돈인가요, 아저씨?' 하고 물었다.",
+      "vocabulary": [
+        {
+          "word": "payment for what",
+          "meaning": "무엇에 대한 돈",
+          "note": "왜 돈을 내야 하는지 따지는 표현이다."
+        },
+        {
+          "word": "Sir",
+          "meaning": "선생님, 아저씨",
+          "note": "상대를 공손하게 부르는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "original": "I didn’t purchase any meatballs.”",
+      "explanation": "그는 '저는 고기완자를 하나도 사지 않았어요.'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "didn’t purchase",
+          "meaning": "사지 않았다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "original": "The vendor insisted that although little William did not purchase any meatballs, he enjoyed the pleasant smell of his meatballs for quite a long time.",
+      "explanation": "장사꾼은 윌리엄이 고기완자를 사지는 않았지만, 꽤 오랫동안 그 좋은 냄새를 즐겼다고 우겼다.",
+      "vocabulary": [
+        {
+          "word": "insisted",
+          "meaning": "우겼다, 강하게 말했다",
+          "note": "자기 생각이 맞다고 세게 말할 때 쓴다."
+        },
+        {
+          "word": "although",
+          "meaning": "비록 ~이지만",
+          "note": ""
+        },
+        {
+          "word": "for quite a long time",
+          "meaning": "꽤 오랫동안",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "original": "He truly believed that little William had to pay for it because smelling was as good as eating.",
+      "explanation": "그는 냄새를 맡는 것도 먹는 것만큼이나 같다고 생각했기 때문에, 윌리엄이 꼭 돈을 내야 한다고 진심으로 믿었다.",
+      "vocabulary": [
+        {
+          "word": "truly believed",
+          "meaning": "정말로 믿었다",
+          "note": ""
+        },
+        {
+          "word": "pay for it",
+          "meaning": "그것에 대해 돈을 내다",
+          "note": ""
+        },
+        {
+          "word": "as good as",
+          "meaning": "~만큼이나 다름없는",
+          "note": "거의 같은 값어치라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "original": "Little William was upset about this.",
+      "explanation": "어린 윌리엄은 이 일 때문에 속상했다.",
+      "vocabulary": [
+        {
+          "word": "upset",
+          "meaning": "속상한, 화가 난",
+          "note": "슬프고 화난 마음이 함께 들어 있을 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "original": "He didn’t know how merely smelling the meatballs meant that he had to pay for them.",
+      "explanation": "그는 그저 냄새만 맡았다는 이유로 왜 돈을 내야 하는지 이해할 수 없었다.",
+      "vocabulary": [
+        {
+          "word": "merely",
+          "meaning": "그저, 단지",
+          "note": "아주 적은 정도를 강조한다."
+        },
+        {
+          "word": "meant that",
+          "meaning": "~라는 뜻이 되다",
+          "note": "어떤 일이 다른 결과로 이어진다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "original": "After observing the man for a short while, little William dipped his hands in his pocket and jingled a few coins.",
+      "explanation": "잠시 그 남자를 지켜본 뒤, 어린 윌리엄은 주머니에 손을 넣고 동전 몇 개를 짤랑거리게 했다.",
+      "vocabulary": [
+        {
+          "word": "observing",
+          "meaning": "지켜보다",
+          "note": "가만히 보며 살피는 느낌이다."
+        },
+        {
+          "word": "for a short while",
+          "meaning": "잠깐 동안",
+          "note": ""
+        },
+        {
+          "word": "dipped his hands in his pocket",
+          "meaning": "주머니에 손을 넣었다",
+          "note": "dip은 잠깐 넣는 느낌을 준다."
+        },
+        {
+          "word": "jingled",
+          "meaning": "짤랑거리게 했다",
+          "note": "동전이나 열쇠가 부딪혀 나는 소리를 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "original": "The elderly vendor was excited to hear the coin sound.",
+      "explanation": "나이 많은 장사꾼은 동전 소리를 듣고 신이 났다.",
+      "vocabulary": [
+        {
+          "word": "be excited to",
+          "meaning": "~해서 신이 나다",
+          "note": ""
+        },
+        {
+          "word": "coin sound",
+          "meaning": "동전 소리",
+          "note": "자연스러운 표현으로는 sound of coins도 많이 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "original": "He said, “Now hurry up, boy.",
+      "explanation": "그는 '자, 어서 해라, 얘야.'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "hurry up",
+          "meaning": "서두르다, 빨리 하다",
+          "note": ""
+        },
+        {
+          "word": "boy",
+          "meaning": "얘야, 소년",
+          "note": "나이 많은 사람이 어린 남자아이를 부를 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "original": "Pay the money fast.”",
+      "explanation": "그는 '빨리 돈을 내라.'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "fast",
+          "meaning": "빨리",
+          "note": "여기서는 형용사가 아니라 부사로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "original": "Little William replied, “I have already paid the money, Sir.",
+      "explanation": "어린 윌리엄은 '저는 이미 돈을 냈어요, 아저씨.'라고 대답했다.",
+      "vocabulary": [
+        {
+          "word": "replied",
+          "meaning": "대답했다",
+          "note": ""
+        },
+        {
+          "word": "already",
+          "meaning": "이미",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "original": "You didn’t understand?”",
+      "explanation": "그는 '이해하지 못하셨나요?'라고 덧붙였다.",
+      "vocabulary": [
+        {
+          "word": "understand",
+          "meaning": "이해하다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "original": "The shopkeeper angrily shouted, “When did you pay the money?",
+      "explanation": "가게 주인은 화가 나서 '네가 언제 돈을 냈다는 거냐?' 하고 소리쳤다.",
+      "vocabulary": [
+        {
+          "word": "shopkeeper",
+          "meaning": "가게 주인",
+          "note": "앞에서는 vendor라고 했지만 같은 사람을 가리킨다."
+        },
+        {
+          "word": "angrily",
+          "meaning": "화가 나서",
+          "note": ""
+        },
+        {
+          "word": "shouted",
+          "meaning": "소리쳤다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "original": "You reached into your pocket but came out empty-handed!”",
+      "explanation": "그는 '너는 주머니에 손을 넣었지만 아무것도 꺼내지 않았잖아!'라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "reached into",
+          "meaning": "~ 안으로 손을 넣다",
+          "note": ""
+        },
+        {
+          "word": "empty-handed",
+          "meaning": "빈손으로",
+          "note": "아무것도 들고 있지 않은 상태를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "original": "Little William made it clear that he had just paid, reminding the shopkeeper that he had heard the jingle of the coins from his pocket.",
+      "explanation": "어린 윌리엄은 방금 자기가 돈을 냈다고 분명히 말하면서, 가게 주인이 자기 주머니에서 나는 동전 소리를 들었다는 점을 떠올리게 했다.",
+      "vocabulary": [
+        {
+          "word": "made it clear",
+          "meaning": "분명히 밝혔다",
+          "note": ""
+        },
+        {
+          "word": "reminding",
+          "meaning": "다시 떠올리게 하며",
+          "note": ""
+        },
+        {
+          "word": "jingle",
+          "meaning": "짤랑거리는 소리",
+          "note": "앞의 jingled와 같은 말뿌리다."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "original": "He added that if smelling is as good as eating, then hearing the sound of the coins should also be as good as receiving them.",
+      "explanation": "그는 냄새 맡는 것이 먹는 것과 같다면, 동전 소리를 듣는 것도 실제로 돈을 받는 것과 같아야 한다고 덧붙였다.",
+      "vocabulary": [
+        {
+          "word": "He added that",
+          "meaning": "그는 덧붙여 말했다",
+          "note": ""
+        },
+        {
+          "word": "hearing the sound of the coins",
+          "meaning": "동전 소리를 듣는 것",
+          "note": ""
+        },
+        {
+          "word": "receiving them",
+          "meaning": "그것들을 받는 것",
+          "note": "여기서 them은 동전을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "original": "He smiled proudly and walked home from there, leaving the man completely surprised.",
+      "explanation": "그는 뿌듯하게 웃고 그곳을 떠나 집으로 걸어갔고, 그 남자는 아주 놀란 채 남겨졌다.",
+      "vocabulary": [
+        {
+          "word": "proudly",
+          "meaning": "뿌듯하게, 자랑스럽게",
+          "note": ""
+        },
+        {
+          "word": "leaving the man completely surprised",
+          "meaning": "그 남자를 아주 놀라게 한 채로",
+          "note": "분사구문으로, 앞일의 결과를 보여 준다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

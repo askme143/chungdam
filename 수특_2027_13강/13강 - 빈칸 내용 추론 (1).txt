@@ -1,0 +1,93 @@
+============================================================
+13강 - 빈칸 내용 추론 (1)
+============================================================
+[Gateway]
+The early grain trade firms were active in both surplus -
+producing and food deficit regions, and these firms made it their
+business to know the state of supply and demand in both.
+Because this information was the key to their profitability,
+these firms worked in relative secrecy, frequently built on family
+ties, trust, and loyalty. In addition, these firms were able to
+benefit from the rise of commodity exchanges and commodities
+futures markets that emerged in the mid-1800s.
+Agricultural markets are naturally unstable, due to changes in
+harvest size that result from variable weather patterns and other
+factors. Locking-in prices by buying and selling grain for future
+delivery helped these firms to minimize such risks.
+It made sense for the grain trading companies to manage their
+risks within a single firm that was operating in more than one
+country, rather than operating as independent national companies
+trading with each other. Their access to information in multiple
+markets enabled them to easily cover the risks associated with
+agricultural commodity trade.
+[01]
+In the Physics, Aristotle asks whether nature acts for the sake
+of something. He offers an account of rain as water that rises
+when heated by the Sun, then cools, condenses, and falls to
+Earth, but is not particularly concerned with explaining rain as
+such. Rather, he addresses a more general question: how to
+account for natural objects, events, and processes that appear
+with regularity. He queries whether the sharpness of front teeth
+and the bluntness of molars is coincidental and rejects that
+possibility, because this arrangement occurs with regularity and
+that regularity is linked to purposefulness.
+The sharpness of front teeth allows them to tear while the
+bluntness of those in the back enables them to crush food; both
+are useful for eating. In Aristotle's view, all natural things
+happen in a given way and occur for the sake of something; that
+is the final cause.
+* query 의문을 제기하다 ** bluntness 뭉툭함 *** molar 어금니
+[02]
+AI is a prolific idea generator. Human brainstorming groups
+tend to focus on the quality of creative ideas and almost
+immediately lean into variations of first suggestions, but good
+ideas are more likely when groups focus first on quantity.
+As Linus Pauling put it, “The best way to have a good idea is to
+have lots of ideas.” Psychologist Dean Keith Simonton called this
+the “equal odds rule” arguing that creative success is correlated
+to the total number of works created. Many studies have
+confirmed that creative quality comes from quantity of ideas
+(what Bob Sutton at a design and innovation consulting company
+called “idea ratio”), and one Stanford study pegged the number
+of ideas that distinguish a successful product from a failure at
+more than two thousand. This is why design thinking and
+innovation are so focused on the processes (what Utley and
+Klebahn call “idea flow”) of creating possibilities without judgment.
+[03]
+Becoming aware of our internal sensations can help us handle
+our own emotions. Perhaps more surprisingly, the body’s
+interoceptive faculty can also bring us into closer contact with
+other people’s emotions. That's because the brain, on its own,
+has no direct access to the contents of other people’s minds, no
+way to feel what others are feeling. Interpreting others’ spoken
+words and facial expressions may yield only a coolly abstract
+sense of the emotions that stir within. The body acts as a
+critical conduit, supplying the brain with the visceral
+information it lacks. It does so in this way: When interacting
+with other people, we subtly and unconsciously mimic their facial
+expressions, gestures, posture, and vocal pitch.
+Then, via the interoception of our own bodies’ signals, we
+perceive what the other person is feeling because we feel it in
+ourselves. We bring other people’s feelings onboard, and the
+body is the bridge. In an act similar to taking a bite off our
+partner’s plate, or borrowing an earbud to hear the song our
+friend is listening to, we are sampling their emotions.
+* interoceptive 내부 감각 수용의 ** conduit 전달자
+[04]
+The strongest criticisms of the overextension of technology
+involve claims of dehumanization, and these arguments are not
+new. Canadian philosopher of the electronic age, Marshall
+McLuhan was primarily a techno-utopian, but he was also a
+critical thinker, who cautioned decades ago against too much
+human extension into technology. McLuhan famously claimed
+that every media extension of man is an amputation.
+For example, once we have a car, we don’t walk to the shops
+any more; once we have a computer hard-drive, we don’t have
+to remember things; and now that we have personal GPS
+(Global Positioning System) on our cell phones, no one can find
+their way about without it. Based on McLuhan’s philosophy,
+we are becoming post-literate because we rely on screens
+full of pictures, rather than print media, such as books. It is thus
+possible that extensions of human faculties, through techno- and
+bio-enhancement, will bring about arrested development in the natural evolution of higher human.
+* techno-utopian 기술 낙관론자 ** amputation 절단

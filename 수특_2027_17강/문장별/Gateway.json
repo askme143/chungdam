@@ -1,0 +1,230 @@
+{
+  "title": "이야기가 생각과 정체성에 미치는 힘",
+  "summary": "사람은 세상을 이해하려고 이야기를 만들고, 그 이야기는 우리의 생각과 판단, 나아가 자기 모습까지 크게 좌우한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "incumbent and a new challenger.",
+      "explanation": "이 부분만 보면 앞문장과 이어진 조각입니다. 보통 '기존의 강한 쪽과 새로 도전하는 쪽'이라는 뜻으로 쓰입니다.",
+      "vocabulary": [
+        {
+          "word": "incumbent",
+          "meaning": "기존의 자리나 힘을 가진 사람(쪽)",
+          "note": "선거나 경쟁 이야기에서 자주 쓰입니다."
+        },
+        {
+          "word": "challenger",
+          "meaning": "도전하는 사람, 도전자",
+          "note": "기존의 강한 상대에게 맞서는 사람을 말합니다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "As storytelling creatures, we routinely form narratives to help us understand the world around us.",
+      "explanation": "사람은 이야기를 만들어 내는 존재라서, 우리 주변 세상을 이해하려고 늘 머릿속에서 이야기를 만듭니다.",
+      "vocabulary": [
+        {
+          "word": "storytelling creatures",
+          "meaning": "이야기를 만들고 전하는 존재",
+          "note": "여기서는 인간의 성향을 말합니다."
+        },
+        {
+          "word": "routinely",
+          "meaning": "늘, 습관처럼",
+          "note": "아주 자주 자연스럽게 한다는 느낌입니다."
+        },
+        {
+          "word": "form narratives",
+          "meaning": "이야기를 만들어 내다",
+          "note": "narrative는 단순한 이야기보다 '사건을 엮어 만든 해석'에 가깝습니다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "When we experience different events or encounter various facts, our minds seek to make sense of them by forming stories around them.",
+      "explanation": "우리가 여러 일을 겪거나 여러 사실을 접하면, 머릿속은 그것들을 이해하려고 그 주위에 이야기를 붙여 하나로 엮습니다.",
+      "vocabulary": [
+        {
+          "word": "encounter",
+          "meaning": "마주치다, 접하다",
+          "note": "사람뿐 아니라 사실이나 문제를 접할 때도 씁니다."
+        },
+        {
+          "word": "seek to",
+          "meaning": "하려고 하다",
+          "note": "조금 더 글말 느낌의 표현입니다."
+        },
+        {
+          "word": "make sense of",
+          "meaning": "이해하다, 뜻이 통하게 만들다",
+          "note": "흩어진 정보가 말이 되게 이해하는 뜻입니다."
+        },
+        {
+          "word": "forming stories around them",
+          "meaning": "그것들을 둘러싸고 이야기를 만들다",
+          "note": "사실들을 하나의 줄거리처럼 엮는다는 뜻입니다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "For example, if you have had some bad experiences with graduates from a particular university, you may create a negative narrative in your mind about people who went to that school.",
+      "explanation": "예를 들어, 어떤 대학교 출신 사람들과 안 좋은 일을 몇 번 겪었다면, 그 학교를 나온 사람들에 대해 머릿속에 나쁜 이야기를 만들 수 있습니다.",
+      "vocabulary": [
+        {
+          "word": "graduates",
+          "meaning": "졸업생들",
+          "note": ""
+        },
+        {
+          "word": "particular",
+          "meaning": "특정한",
+          "note": "여럿 가운데 하나를 딱 집어 말할 때 씁니다."
+        },
+        {
+          "word": "negative narrative",
+          "meaning": "부정적인 이야기틀, 나쁜 쪽으로 짜인 생각",
+          "note": "그 집단을 안 좋게 보는 머릿속 이야기입니다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Suddenly, you judge everyone from the university by what you’ve experienced on just a few unfortunate occasions.",
+      "explanation": "그러면 어느 순간, 몇 번의 안 좋은 경험만 가지고 그 대학교 사람들 모두를 판단하게 됩니다.",
+      "vocabulary": [
+        {
+          "word": "judge",
+          "meaning": "판단하다",
+          "note": "사람을 좋다 나쁘다 평가하는 뜻이 강합니다."
+        },
+        {
+          "word": "on just a few",
+          "meaning": "겨우 몇 번의 ~만으로",
+          "note": "근거가 아주 적다는 느낌을 줍니다."
+        },
+        {
+          "word": "unfortunate occasions",
+          "meaning": "운이 나빴던 경우들, 좋지 않았던 몇 번의 일",
+          "note": "여기서는 불쾌하거나 안 좋았던 경험을 말합니다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Sometimes these internal narratives we form not only shape our beliefs and opinions but also become deeply rooted in our identity.",
+      "explanation": "가끔 우리가 마음속에 만든 이런 이야기들은 우리의 믿음과 생각을 바꿀 뿐 아니라, 우리 자신이 어떤 사람이라고 여기는 모습 속에 깊이 자리 잡기도 합니다.",
+      "vocabulary": [
+        {
+          "word": "internal narratives",
+          "meaning": "마음속 이야기, 내면의 이야기",
+          "note": "겉으로 말하지 않아도 머릿속에 있는 해석입니다."
+        },
+        {
+          "word": "shape",
+          "meaning": "모양을 만들다, 영향을 주어 바꾸다",
+          "note": "여기서는 생각과 믿음에 큰 영향을 준다는 뜻입니다."
+        },
+        {
+          "word": "deeply rooted",
+          "meaning": "깊이 뿌리내린",
+          "note": "쉽게 바뀌지 않을 만큼 단단히 자리 잡은 상태입니다."
+        },
+        {
+          "word": "identity",
+          "meaning": "자기 모습, 나는 어떤 사람인가에 대한 생각",
+          "note": "학생에게는 '자아 정체성'보다 이렇게 풀어 쓰는 것이 쉽습니다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "While stories clearly dominate statistics from both memorability and persuasiveness perspectives, it’s rarely a battle between facts and anecdotes—or even facts and other facts.",
+      "explanation": "이야기는 기억에 남는 힘과 사람을 믿게 만드는 힘에서 숫자나 통계보다 훨씬 강합니다. 하지만 실제로는 이것이 단순히 사실과 일화의 싸움, 또는 사실과 다른 사실의 싸움인 경우는 드뭅니다.",
+      "vocabulary": [
+        {
+          "word": "dominate",
+          "meaning": "훨씬 강하다, 우세하다",
+          "note": "비교 대상보다 힘이 더 크다는 뜻입니다."
+        },
+        {
+          "word": "statistics",
+          "meaning": "통계, 숫자로 나타낸 자료",
+          "note": ""
+        },
+        {
+          "word": "memorability",
+          "meaning": "기억에 남기 쉬운 정도",
+          "note": "remember와 관련된 말입니다."
+        },
+        {
+          "word": "persuasiveness",
+          "meaning": "남을 믿게 만드는 힘",
+          "note": "persuade(설득하다)에서 나온 말입니다."
+        },
+        {
+          "word": "anecdotes",
+          "meaning": "짧은 개인 경험담, 일화",
+          "note": "증거라기보다 사례 이야기로 자주 쓰입니다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "The real clash is actually between stories: the predominant",
+      "explanation": "진짜 부딪히는 것은 사실과 사실이 아니라 이야기와 이야기입니다. 다만 이 문장은 뒤가 잘려 있어서, '더 힘이 센 이야기' 같은 말로 이어지는 부분으로 보입니다.",
+      "vocabulary": [
+        {
+          "word": "clash",
+          "meaning": "충돌, 부딪힘",
+          "note": "의견이나 생각이 세게 맞서는 상황에도 씁니다."
+        },
+        {
+          "word": "between stories",
+          "meaning": "이야기들 사이에서",
+          "note": "서로 다른 해석이나 관점의 대결을 뜻합니다."
+        },
+        {
+          "word": "predominant",
+          "meaning": "가장 힘이 센, 주된",
+          "note": "문장이 잘려 있어 뒤 명사를 꾸미는 말로 보입니다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "For example, the narratives you have formed around gun control or climate change are most likely related with your political ideology—who you are as an individual.",
+      "explanation": "예를 들어, 총기 규제나 기후 변화에 대해 당신이 만들어 놓은 이야기는 아마 당신의 정치적 생각과 이어져 있을 가능성이 큽니다. 다시 말해, 그것은 당신이 어떤 사람인지와도 연결됩니다.",
+      "vocabulary": [
+        {
+          "word": "gun control",
+          "meaning": "총기 규제",
+          "note": "총의 소유나 사용을 법으로 제한하는 문제입니다."
+        },
+        {
+          "word": "climate change",
+          "meaning": "기후 변화",
+          "note": ""
+        },
+        {
+          "word": "related with",
+          "meaning": "~와 관련된",
+          "note": "보통 related to가 더 자주 쓰이지만 뜻은 같습니다."
+        },
+        {
+          "word": "political ideology",
+          "meaning": "정치적 생각의 틀, 정치 이념",
+          "note": "세상을 보는 정치적 기준이나 믿음을 말합니다."
+        },
+        {
+          "word": "as an individual",
+          "meaning": "한 개인으로서",
+          "note": "집단이 아니라 한 사람 자체로서라는 뜻입니다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

@@ -1,0 +1,216 @@
+{
+  "title": "초기 곡물 무역 회사들의 정보와 위험 관리",
+  "summary": "초기 곡물 무역 회사들은 여러 지역의 수요와 공급 정보를 바탕으로 비밀스럽게 움직였고, 선물시장과 여러 나라에 걸친 운영을 통해 가격 변동 위험을 줄였다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "The early grain trade firms were active in both surplus-producing and food deficit regions, and these firms made it their business to know the state of supply and demand in both.",
+      "explanation": "초기의 곡물 무역 회사들은 곡물이 남는 지역과 식량이 부족한 지역 둘 다에서 활발하게 일했다. 그리고 두 지역의 공급과 수요가 어떤 상태인지 알아내는 일을 아주 중요하게 여겼다.",
+      "vocabulary": [
+        {
+          "word": "grain trade firms",
+          "meaning": "곡물 무역 회사들",
+          "note": "grain은 밀, 옥수수 같은 곡물을 뜻한다."
+        },
+        {
+          "word": "surplus-producing",
+          "meaning": "남는 것을 만들어 내는, 잉여를 생산하는",
+          "note": "여기서는 곡물이 많이 나와 남는 지역을 말한다."
+        },
+        {
+          "word": "food deficit regions",
+          "meaning": "식량이 부족한 지역들",
+          "note": "deficit은 필요한 양보다 모자란 상태를 뜻한다."
+        },
+        {
+          "word": "made it their business to",
+          "meaning": "~을 자기들의 중요한 일로 삼았다",
+          "note": "단순히 '사업했다'보다 '꼭 챙겼다'는 뜻에 가깝다."
+        },
+        {
+          "word": "the state of supply and demand",
+          "meaning": "수요와 공급의 상태",
+          "note": "물건이 얼마나 필요하고 얼마나 있는지를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Because this information was the key to their profitability, these firms worked in relative secrecy, frequently built on family ties, trust, and loyalty.",
+      "explanation": "이런 정보는 회사가 돈을 버는 데 아주 중요했다. 그래서 이 회사들은 다른 사람들에게 많이 드러내지 않고 일하는 경우가 많았고, 가족 관계와 믿음, 충성을 바탕으로 운영되는 일이 자주 있었다.",
+      "vocabulary": [
+        {
+          "word": "profitability",
+          "meaning": "수익성, 돈을 벌 수 있는 정도",
+          "note": "profit(이익)에서 나온 말이다."
+        },
+        {
+          "word": "relative secrecy",
+          "meaning": "어느 정도 비밀스러움",
+          "note": "완전히 숨긴다는 뜻은 아니고, 비교적 드러내지 않았다는 뜻이다."
+        },
+        {
+          "word": "built on",
+          "meaning": "~을 바탕으로 세워진",
+          "note": "관계나 조직의 기초를 말할 때 자주 쓴다."
+        },
+        {
+          "word": "family ties",
+          "meaning": "가족 관계, 집안 인맥",
+          "note": "ties는 사람들 사이의 연결을 뜻한다."
+        },
+        {
+          "word": "loyalty",
+          "meaning": "충성심, 한결같이 믿고 따르는 마음",
+          "note": "회사나 사람에게 꾸준히 헌신하는 태도를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "In addition, these firms were able to benefit from the rise of commodity exchanges and commodities futures markets that emerged in the mid-1800s.",
+      "explanation": "또 이런 회사들은 1800년대 중반에 나타난 상품 거래소와 상품 선물시장이 커지는 흐름에서도 이익을 얻을 수 있었다.",
+      "vocabulary": [
+        {
+          "word": "benefit from",
+          "meaning": "~로부터 이익을 얻다",
+          "note": "좋은 변화나 조건 덕분에 도움을 받는다는 뜻이다."
+        },
+        {
+          "word": "commodity exchanges",
+          "meaning": "상품 거래소",
+          "note": "곡물, 금속, 원자재 같은 물건을 사고파는 시장이다."
+        },
+        {
+          "word": "futures markets",
+          "meaning": "선물시장",
+          "note": "미래의 일정한 시점에 정한 가격으로 거래하기로 약속하는 시장이다."
+        },
+        {
+          "word": "emerged",
+          "meaning": "나타났다, 생겨났다",
+          "note": "새로운 제도나 현상이 등장할 때 자주 쓴다."
+        },
+        {
+          "word": "mid-1800s",
+          "meaning": "1800년대 중반",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Agricultural markets are naturally unstable, due to changes in harvest size that result from variable weather patterns and other factors.",
+      "explanation": "농산물 시장은 원래 안정적이지 않다. 날씨가 해마다 다르고 다른 여러 이유도 있어서 수확량이 달라지기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "naturally unstable",
+          "meaning": "원래 불안정한",
+          "note": "본래 성질상 쉽게 흔들린다는 뜻이다."
+        },
+        {
+          "word": "harvest size",
+          "meaning": "수확량",
+          "note": "한 해에 거둬들인 농작물의 양을 말한다."
+        },
+        {
+          "word": "result from",
+          "meaning": "~에서 비롯되다",
+          "note": "어떤 원인 때문에 생긴다는 뜻이다."
+        },
+        {
+          "word": "variable weather patterns",
+          "meaning": "자주 달라지는 날씨 흐름",
+          "note": "해마다 또는 시기마다 일정하지 않은 날씨를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Locking-in prices by buying and selling grain for future delivery helped these firms to minimize such risks.",
+      "explanation": "앞으로 곡물을 넘기기로 하고 미리 사고팔아서 가격을 정해 두는 일은, 이런 회사들이 그런 위험을 줄이는 데 도움이 되었다.",
+      "vocabulary": [
+        {
+          "word": "locking-in prices",
+          "meaning": "가격을 미리 확정해 두기",
+          "note": "나중에 가격이 바뀌어도 처음 정한 가격을 따르게 하는 것이다."
+        },
+        {
+          "word": "future delivery",
+          "meaning": "미래 인도, 나중에 물건 넘기기",
+          "note": "지금 계약하고 실제 물건은 나중에 주고받는 방식이다."
+        },
+        {
+          "word": "minimize",
+          "meaning": "가능한 한 줄이다",
+          "note": "완전히 없애는 것이 아니라 아주 작게 만드는 뜻이다."
+        },
+        {
+          "word": "such risks",
+          "meaning": "그런 위험들",
+          "note": "앞 문장에서 말한 가격 변동과 수확량 변화의 위험을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "It made sense for the grain trading companies to manage their risks within a single firm that was operating in more than one country, rather than operating as independent national companies trading with each other.",
+      "explanation": "곡물 무역 회사들이 위험을 관리할 때는, 나라별로 따로 떨어진 회사들이 서로 거래하는 방식보다 여러 나라에서 함께 움직이는 하나의 회사 안에서 처리하는 편이 더 알맞았다.",
+      "vocabulary": [
+        {
+          "word": "made sense",
+          "meaning": "알맞았다, 말이 되었다",
+          "note": "상황에 비추어 보아 더 좋은 선택이라는 뜻이다."
+        },
+        {
+          "word": "manage their risks",
+          "meaning": "위험을 관리하다",
+          "note": "손해가 커지지 않게 조절하고 대비하는 것을 말한다."
+        },
+        {
+          "word": "within a single firm",
+          "meaning": "하나의 회사 안에서",
+          "note": "여러 조직으로 나누지 않고 한 회사 체계 안에서라는 뜻이다."
+        },
+        {
+          "word": "independent national companies",
+          "meaning": "서로 따로인 나라별 회사들",
+          "note": "각 나라에서 따로 운영되는 회사를 말한다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Their access to information in multiple markets enabled them to easily cover the risks associated with agricultural commodity trade.",
+      "explanation": "이 회사들은 여러 시장의 정보에 닿을 수 있었기 때문에, 농산물 무역과 관련된 위험에 더 쉽게 대비할 수 있었다.",
+      "vocabulary": [
+        {
+          "word": "access to information",
+          "meaning": "정보를 얻을 수 있는 길, 정보 접근",
+          "note": "필요한 정보를 손쉽게 구하고 이용할 수 있다는 뜻이다."
+        },
+        {
+          "word": "multiple markets",
+          "meaning": "여러 시장",
+          "note": "여러 지역이나 나라의 시장을 가리킨다."
+        },
+        {
+          "word": "enabled",
+          "meaning": "~할 수 있게 했다",
+          "note": "가능하게 만들었다는 뜻이다."
+        },
+        {
+          "word": "cover the risks",
+          "meaning": "위험에 대비하다, 위험을 메우다",
+          "note": "손해가 나더라도 감당할 수 있게 준비하는 뜻이다."
+        },
+        {
+          "word": "associated with",
+          "meaning": "~와 관련된",
+          "note": "어떤 일과 연결되어 있다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

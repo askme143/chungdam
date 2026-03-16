@@ -1,0 +1,302 @@
+{
+  "title": "과로가 널리 퍼진 이유와 일자리의 갈라짐",
+  "summary": "1970년대 이후 경제와 일자리 환경이 바뀌면서 많은 사람의 과로가 심해졌고, 한쪽은 너무 많이 일하고 다른 한쪽은 안정된 일자리를 구하지 못하는 갈라짐도 커졌다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Since the 1970s, a combination of forces has made the problem of overwork more widespread.",
+      "explanation": "1970년대 이후 여러 가지 이유가 한꺼번에 작용하면서, 너무 많이 일하는 문제가 더 많은 곳으로 퍼지게 되었다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "a combination of forces",
+          "meaning": "여러 가지 힘, 여러 원인이 함께 작용함",
+          "note": "여기서는 사회·경제적 여러 변화가 같이 영향을 준다는 뜻이다."
+        },
+        {
+          "word": "overwork",
+          "meaning": "과로, 너무 많이 일함",
+          "note": "work가 아니라 '지나치게 일하는 상태'를 가리킨다."
+        },
+        {
+          "word": "widespread",
+          "meaning": "널리 퍼진",
+          "note": "많은 곳에서 흔하게 나타난다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The service sectors in Western economies have grown dramatically while employment in manufacturing has declined.",
+      "explanation": "서양 나라들의 경제에서는 서비스업이 크게 커진 반면, 물건을 만드는 제조업의 일자리는 줄어들었다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "service sectors",
+          "meaning": "서비스업 분야",
+          "note": "예: 금융, 교육, 의료, 판매 같은 일들이다."
+        },
+        {
+          "word": "Western economies",
+          "meaning": "서양의 경제권, 서구 나라들의 경제",
+          "note": ""
+        },
+        {
+          "word": "dramatically",
+          "meaning": "크게, 눈에 띄게",
+          "note": "변화의 폭이 아주 컸다는 느낌을 준다."
+        },
+        {
+          "word": "manufacturing",
+          "meaning": "제조업",
+          "note": "공장에서 물건을 만드는 산업을 말한다."
+        },
+        {
+          "word": "decline",
+          "meaning": "줄어들다, 감소하다",
+          "note": "명사로도 쓰이고 동사로도 쓰인다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The shrinking of labor unions and workplace protections has let employers push for longer hours while global competition, decreased job security, and flat wages have forced workers to work harder to stay in place.",
+      "explanation": "노동조합의 힘이 약해지고 직장에서 일하는 사람을 지켜 주는 장치도 줄어들면서, 회사는 더 긴 노동시간을 요구할 수 있게 되었다. 또 세계적인 경쟁, 낮아진 고용 안정, 오르지 않는 임금 때문에 노동자들은 지금 자리를 겨우 지키기 위해서도 더 열심히 일해야 하게 되었다.",
+      "vocabulary": [
+        {
+          "word": "labor unions",
+          "meaning": "노동조합",
+          "note": "일하는 사람들이 함께 권리를 지키기 위해 만든 단체이다."
+        },
+        {
+          "word": "workplace protections",
+          "meaning": "직장 내 보호 장치, 노동자 보호 제도",
+          "note": "안전 규정, 해고 보호, 근로 조건 관련 규칙 등을 포함한다."
+        },
+        {
+          "word": "push for",
+          "meaning": "강하게 요구하다, 밀어붙이다",
+          "note": "여기서는 회사가 더 긴 노동시간을 요구한다는 뜻이다."
+        },
+        {
+          "word": "job security",
+          "meaning": "고용 안정",
+          "note": "직장을 계속 유지할 수 있다는 믿음이나 안정감이다."
+        },
+        {
+          "word": "flat wages",
+          "meaning": "오르지 않는 임금, 제자리인 월급",
+          "note": "flat은 여기서 '평평한'이 아니라 '변화 없는' 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Corporations now shed staff in the course of restructuring and “process reengineering,” forcing surviving workers to carry heavier workloads.",
+      "explanation": "요즘 큰 회사들은 구조조정이나 이른바 '업무 과정 다시 짜기'를 하면서 직원을 줄인다. 그래서 남아 있는 사람들은 더 많은 일을 떠안게 된다.",
+      "vocabulary": [
+        {
+          "word": "shed staff",
+          "meaning": "직원을 줄이다, 해고하다",
+          "note": "shed는 원래 '벗다, 떨어뜨리다'인데 여기서는 인원을 덜어낸다는 뜻이다."
+        },
+        {
+          "word": "in the course of",
+          "meaning": "~하는 과정에서",
+          "note": ""
+        },
+        {
+          "word": "restructuring",
+          "meaning": "구조조정",
+          "note": "회사 조직이나 운영 방식을 크게 바꾸는 일이다."
+        },
+        {
+          "word": "process reengineering",
+          "meaning": "업무 과정 재설계",
+          "note": "일하는 방식을 처음부터 다시 짜는 경영 방식이다."
+        },
+        {
+          "word": "workloads",
+          "meaning": "업무량",
+          "note": "맡아서 해야 하는 일의 양을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "The 2008 recession and recovery has reinforced a pattern in which companies seek to grow by increasing demands on existing workers rather than hiring new ones.",
+      "explanation": "2008년 경기 침체와 그 뒤의 회복 과정은, 회사들이 새 사람을 뽑기보다 이미 있는 직원들에게 더 많은 일을 시켜서 성장하려는 흐름을 더 강하게 만들었다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "recession",
+          "meaning": "경기 침체",
+          "note": "경제 활동이 줄고 일자리도 어려워지는 시기이다."
+        },
+        {
+          "word": "recovery",
+          "meaning": "회복, 경기 회복",
+          "note": "침체 뒤에 경제가 다시 나아지는 것을 말한다."
+        },
+        {
+          "word": "reinforce",
+          "meaning": "더 강하게 만들다",
+          "note": "이미 있던 흐름이나 생각을 더 굳히는 뜻이다."
+        },
+        {
+          "word": "existing workers",
+          "meaning": "기존 직원들",
+          "note": "새로 뽑은 사람이 아니라 이미 일하고 있는 사람들이다."
+        },
+        {
+          "word": "rather than",
+          "meaning": "~하기보다",
+          "note": "둘 중 하나를 비교하며 앞보다 뒤를 선택하지 않는다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "A few industries have turned into fast-moving, winner-take-all contests: small numbers of people stand to make huge fortunes when their tech company goes public, their hedge fund investment pays off, or their song goes viral — and since no one knows how long they have until fashions change, technology evolves, or the bubble bursts, it makes sense to go all-in right now.",
+      "explanation": "몇몇 산업은 변화가 아주 빠르고, 이긴 소수만 큰 보상을 가져가는 경쟁판이 되었다. 기술 회사가 주식시장에 상장되거나, 헤지펀드 투자가 크게 성공하거나, 노래가 온라인에서 폭발적으로 퍼지면 아주 적은 사람만 큰돈을 벌 수 있다. 그런데 유행이 언제 바뀔지, 기술이 언제 달라질지, 거품이 언제 꺼질지 아무도 모르기 때문에, 사람들은 지금 당장 모든 힘을 쏟는 것이 맞다고 느끼게 된다.",
+      "vocabulary": [
+        {
+          "word": "winner-take-all",
+          "meaning": "이긴 사람이 거의 다 가져가는",
+          "note": "소수의 승자에게 보상이 몰리는 상황을 말한다."
+        },
+        {
+          "word": "go public",
+          "meaning": "상장하다",
+          "note": "회사가 주식을 일반 사람들에게 공개해 주식시장에서 거래되게 하는 것이다."
+        },
+        {
+          "word": "pays off",
+          "meaning": "성과를 내다, 큰 이익을 주다",
+          "note": "투자나 노력이 좋은 결과로 이어질 때 쓴다."
+        },
+        {
+          "word": "go viral",
+          "meaning": "급속히 퍼지다, 온라인에서 폭발적으로 유명해지다",
+          "note": "인터넷과 SNS에서 매우 빠르게 퍼질 때 자주 쓴다."
+        },
+        {
+          "word": "go all-in",
+          "meaning": "모든 것을 걸다, 전력을 다하다",
+          "note": "원래 도박 표현이지만 일이나 투자에도 비유로 많이 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "As a result, many of us are actually working longer hours.",
+      "explanation": "그 결과, 실제로 많은 사람들이 예전보다 더 오래 일하고 있다는 말이다.",
+      "vocabulary": [
+        {
+          "word": "As a result",
+          "meaning": "그 결과",
+          "note": "앞의 내용 때문에 뒤의 일이 생겼다는 연결 표현이다."
+        },
+        {
+          "word": "actually",
+          "meaning": "실제로",
+          "note": "생각과 다르게 현실은 이렇다는 느낌을 준다."
+        },
+        {
+          "word": "longer hours",
+          "meaning": "더 긴 노동시간",
+          "note": "일하는 시간이 더 늘어났다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Working hours generally decline with increased productivity, but in the 1970s, increased productivity ceased to yield shorter working hours, despite the expectations of generations of economists.",
+      "explanation": "보통은 생산성이 높아지면 일하는 시간이 줄어드는 편이다. 하지만 1970년대에는 생산성이 높아져도 노동시간이 더 짧아지지 않게 되었다. 이것은 여러 세대의 경제학자들이 기대했던 것과 다른 일이었다.",
+      "vocabulary": [
+        {
+          "word": "productivity",
+          "meaning": "생산성",
+          "note": "같은 시간에 얼마나 많은 결과를 내는지를 말한다."
+        },
+        {
+          "word": "cease to",
+          "meaning": "더 이상 ~하지 않게 되다",
+          "note": "뒤에는 동사원형이 온다."
+        },
+        {
+          "word": "yield",
+          "meaning": "낳다, 가져오다",
+          "note": "여기서는 어떤 결과를 만들어 내다는 뜻이다."
+        },
+        {
+          "word": "despite",
+          "meaning": "~에도 불구하고",
+          "note": "예상과 반대되는 내용이 뒤에 올 때 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Working hours started to rise in the United States in the 1980s, especially among salaried workers and professionals like doctors, lawyers, bankers, and academics; in contrast, working hours (and full-time jobs and salaries) in less skilled, hourly professions began to fall.",
+      "explanation": "미국에서는 1980년대에 노동시간이 다시 늘어나기 시작했다. 특히 월급을 받는 사무직이나 의사, 변호사, 은행원, 대학 연구자 같은 전문직에서 그랬다. 반대로, 더 낮은 기술을 요구하고 시급으로 일하는 직업에서는 노동시간뿐 아니라 정규 일자리와 임금도 줄어들기 시작했다.",
+      "vocabulary": [
+        {
+          "word": "salaried workers",
+          "meaning": "월급제 노동자",
+          "note": "시간당 임금을 받는 사람이 아니라 정해진 월급을 받는 사람들이다."
+        },
+        {
+          "word": "professionals",
+          "meaning": "전문직 종사자",
+          "note": "높은 교육이나 전문 지식이 필요한 일을 하는 사람들이다."
+        },
+        {
+          "word": "in contrast",
+          "meaning": "반대로, 이에 비해",
+          "note": "앞뒤 내용을 뚜렷하게 비교할 때 쓴다."
+        },
+        {
+          "word": "hourly professions",
+          "meaning": "시급제로 일하는 직업",
+          "note": "일한 시간만큼 돈을 받는 일자리이다."
+        },
+        {
+          "word": "less skilled",
+          "meaning": "비교적 높은 기술이 필요하지 않은",
+          "note": "사람의 능력이 낮다는 비난이 아니라, 일의 성격을 설명하는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Since then, this divide has spread to other parts of the world: today, well-off, well-educated people in Western Europe, Australia, and South Korea are also more likely to be overworked, while poorer people struggle to find stable jobs and face chronic underemployment.",
+      "explanation": "그 뒤로 이런 갈라짐은 세계 다른 곳으로도 퍼졌다. 오늘날 서유럽, 호주, 한국에서도 돈이 넉넉하고 교육을 많이 받은 사람들은 과로할 가능성이 더 크다. 반면 더 가난한 사람들은 안정된 일자리를 구하기 힘들고, 계속해서 일을 충분히 하지 못하는 상태에 놓이기 쉽다.",
+      "vocabulary": [
+        {
+          "word": "divide",
+          "meaning": "갈라짐, 격차",
+          "note": "여기서는 많이 일하는 사람들과 일자리가 부족한 사람들 사이의 차이를 말한다."
+        },
+        {
+          "word": "well-off",
+          "meaning": "형편이 좋은, 돈이 넉넉한",
+          "note": ""
+        },
+        {
+          "word": "stable jobs",
+          "meaning": "안정된 일자리",
+          "note": "쉽게 끊기지 않고 꾸준히 일할 수 있는 직업이다."
+        },
+        {
+          "word": "chronic",
+          "meaning": "오랫동안 계속되는",
+          "note": "병에만 쓰는 말이 아니라 문제 상황이 오래 이어질 때도 쓴다."
+        },
+        {
+          "word": "underemployment",
+          "meaning": "불완전 고용, 일이 충분하지 않은 상태",
+          "note": "일은 하지만 시간이나 수입이 충분하지 않은 상태를 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "03"
+}

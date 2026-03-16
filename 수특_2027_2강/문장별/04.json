@@ -1,0 +1,257 @@
+{
+  "title": "비 오는 날, 마음을 녹인 작은 친절",
+  "summary": "비와 피곤함에 지친 베라는 집에 가는 길에 카페에 들렀고, 그곳에서 받은 따뜻한 미소 덕분에 자신에게 정말 필요했던 것이 무엇인지 깨닫게 된다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Vera couldn’t wait for her car to get fixed, but that was going to require longer than initially expected.",
+      "explanation": "베라는 차가 빨리 고쳐지기만을 몹시 바라고 있었다. 그런데 차를 고치는 데는 처음 생각했던 것보다 더 오랜 시간이 걸릴 예정이었다.",
+      "vocabulary": [
+        {
+          "word": "couldn’t wait",
+          "meaning": "몹시 바라다, 빨리 되기를 기다리다",
+          "note": "직역하면 '기다릴 수 없다'이지만, 실제로는 어떤 일이 아주 빨리 일어나길 바란다는 뜻이다."
+        },
+        {
+          "word": "get fixed",
+          "meaning": "수리되다, 고쳐지다",
+          "note": "get + p.p. 형태로 '…되다'라는 뜻으로 자주 쓴다."
+        },
+        {
+          "word": "require",
+          "meaning": "필요로 하다",
+          "note": "여기서는 시간이나 노력이 더 들어간다는 뜻이다."
+        },
+        {
+          "word": "initially",
+          "meaning": "처음에, 처음에는",
+          "note": "initial의 부사형이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Unfortunately, that meant relying on the bus for her commute.",
+      "explanation": "안타깝게도 그 말은 베라가 출퇴근할 때 버스에 의지해야 한다는 뜻이었다.",
+      "vocabulary": [
+        {
+          "word": "Unfortunately",
+          "meaning": "안타깝게도, 불행하게도",
+          "note": ""
+        },
+        {
+          "word": "meant",
+          "meaning": "뜻했다",
+          "note": "mean의 과거형이다."
+        },
+        {
+          "word": "relying on",
+          "meaning": "의지하는 것",
+          "note": "rely on은 '…에 기대다, …을 믿고 쓰다'라는 뜻이다."
+        },
+        {
+          "word": "commute",
+          "meaning": "출퇴근",
+          "note": "집과 직장 사이를 오가는 일을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "To add to the cruel irony, it hadn’t stopped raining for the past three days.",
+      "explanation": "엎친 데 덮친 격으로, 지난 사흘 동안 비가 한 번도 그치지 않고 계속 내리고 있었다.",
+      "vocabulary": [
+        {
+          "word": "To add to",
+          "meaning": "게다가, 더해서",
+          "note": "안 좋은 상황이 더해질 때 자주 쓴다."
+        },
+        {
+          "word": "cruel irony",
+          "meaning": "잔인한 아이러니, 참 얄궂은 상황",
+          "note": "기대와 정반대로 흘러가 더 속상한 상황을 말한다."
+        },
+        {
+          "word": "hadn’t stopped raining",
+          "meaning": "비가 그치지 않았다",
+          "note": "과거의 어떤 시점까지 계속 비가 왔다는 뜻이다."
+        },
+        {
+          "word": "for the past three days",
+          "meaning": "지난 사흘 동안",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "It was already past 7 PM when she stepped off the bus, cold and soaked to the bone, having left her umbrella at the gym.",
+      "explanation": "그녀가 버스에서 내렸을 때는 이미 저녁 7시가 넘은 뒤였다. 그녀는 추위에 떨고 있었고, 옷이 뼛속까지 젖은 것처럼 흠뻑 젖어 있었다. 게다가 우산은 체육관에 두고 온 상태였다.",
+      "vocabulary": [
+        {
+          "word": "past 7 PM",
+          "meaning": "저녁 7시가 지난",
+          "note": ""
+        },
+        {
+          "word": "stepped off",
+          "meaning": "내렸다",
+          "note": "버스나 기차 같은 탈것에서 내릴 때 쓴다."
+        },
+        {
+          "word": "soaked to the bone",
+          "meaning": "뼛속까지 젖은 듯 흠뻑 젖은",
+          "note": "아주 심하게 젖었을 때 쓰는 표현이다."
+        },
+        {
+          "word": "having left",
+          "meaning": "두고 온 상태로, 두고 와서",
+          "note": "앞에서 이미 일어난 일을 덧붙여 말하는 표현이다."
+        },
+        {
+          "word": "gym",
+          "meaning": "체육관, 헬스장",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Her place was just one block down the street, but it felt like ten miles in this weather.",
+      "explanation": "그녀의 집은 길을 따라 한 블록만 더 가면 되는 가까운 곳에 있었다. 하지만 이런 날씨 속에서는 그 거리가 마치 아주 멀게 느껴졌다.",
+      "vocabulary": [
+        {
+          "word": "one block down the street",
+          "meaning": "길을 따라 한 블록 아래에, 조금만 더 가면",
+          "note": "도시에서 가까운 거리를 말할 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "felt like",
+          "meaning": "…처럼 느껴졌다",
+          "note": ""
+        },
+        {
+          "word": "ten miles",
+          "meaning": "10마일, 아주 먼 거리",
+          "note": "여기서는 정확한 거리보다 '엄청 멀게 느껴짐'을 강조한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Her legs moved on their own, and suddenly, the Cups & Blossoms’ bell was ringing above her head.",
+      "explanation": "그녀는 거의 무의식적으로 발걸음을 옮겼다. 그러다 어느새 컵스 앤 블로섬스라는 가게 문 위의 종이 머리 위에서 울리고 있었다.",
+      "vocabulary": [
+        {
+          "word": "on their own",
+          "meaning": "저절로, 스스로",
+          "note": "의식하지 않아도 몸이 움직이는 느낌을 나타낸다."
+        },
+        {
+          "word": "suddenly",
+          "meaning": "갑자기",
+          "note": ""
+        },
+        {
+          "word": "bell was ringing",
+          "meaning": "종이 울리고 있었다",
+          "note": "가게 문을 열고 들어갈 때 나는 소리를 떠올리면 된다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The warm, floral scent wrapped around her like a blanket, but it was another kind of welcome that surprised her — a smile from the café owner, soft and unassuming.",
+      "explanation": "따뜻하고 꽃향기 같은 냄새가 담요처럼 그녀를 감싸 주었다. 하지만 그녀를 더 놀라게 한 것은 다른 종류의 반가움이었다. 바로 카페 주인이 보여 준 부드럽고 꾸밈없는 미소였다.",
+      "vocabulary": [
+        {
+          "word": "floral scent",
+          "meaning": "꽃향기",
+          "note": "floral은 '꽃의, 꽃 같은'이라는 뜻이다."
+        },
+        {
+          "word": "wrapped around",
+          "meaning": "감싸 안았다, 둘러쌌다",
+          "note": ""
+        },
+        {
+          "word": "like a blanket",
+          "meaning": "담요처럼",
+          "note": "따뜻하고 포근한 느낌을 살리는 표현이다."
+        },
+        {
+          "word": "another kind of welcome",
+          "meaning": "또 다른 반가운 맞이",
+          "note": "단순한 공간의 따뜻함이 아니라 사람의 친절을 가리킨다."
+        },
+        {
+          "word": "unassuming",
+          "meaning": "꾸밈없고 수수한",
+          "note": "잘난 척하지 않고 편안한 느낌을 주는 모습을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "She was also polite enough not to ask why Vera looked so tired, which was appreciated.",
+      "explanation": "그 카페 주인은 베라가 왜 그렇게 지쳐 보이는지 굳이 묻지 않을 만큼 예의가 있었다. 베라는 그런 배려가 참 고맙게 느껴졌다.",
+      "vocabulary": [
+        {
+          "word": "polite enough not to ask",
+          "meaning": "묻지 않을 만큼 예의가 있는",
+          "note": "상대의 사정을 캐묻지 않는 배려를 나타낸다."
+        },
+        {
+          "word": "looked so tired",
+          "meaning": "몹시 지쳐 보였다",
+          "note": ""
+        },
+        {
+          "word": "which was appreciated",
+          "meaning": "그 점이 고맙게 여겨졌다",
+          "note": "베라가 그 행동을 좋게 받아들였다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Vera now seemed to realize what she had truly needed.",
+      "explanation": "그제야 베라는 자신에게 정말로 필요했던 것이 무엇인지 깨닫는 듯했다.",
+      "vocabulary": [
+        {
+          "word": "seemed to realize",
+          "meaning": "깨닫는 것 같았다",
+          "note": ""
+        },
+        {
+          "word": "truly needed",
+          "meaning": "정말로 필요했던",
+          "note": "겉으로 필요한 것 말고 마음속에서 원하던 것을 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "Just a friendly face to ease the weight she carried.",
+      "explanation": "그것은 바로, 자신이 짊어지고 있던 마음의 무게를 조금 덜어 줄 다정한 얼굴 하나였다.",
+      "vocabulary": [
+        {
+          "word": "friendly face",
+          "meaning": "친근한 얼굴, 다정한 사람의 표정",
+          "note": "여기서는 따뜻하게 대해 주는 사람을 뜻한다."
+        },
+        {
+          "word": "ease",
+          "meaning": "덜어 주다, 편하게 하다",
+          "note": ""
+        },
+        {
+          "word": "the weight she carried",
+          "meaning": "그녀가 짊어지고 있던 무게",
+          "note": "실제 짐이 아니라 피곤함, 외로움, 마음고생 같은 것을 비유해서 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "04"
+}

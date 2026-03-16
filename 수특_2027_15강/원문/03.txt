@@ -1,0 +1,16 @@
+The standard school mathematics curriculum doesn’t stress
+enough that mathematics is all about abstraction. Mathematicians
+study specific objects but, usually, they aim to cluster them
+together and study them all at the same time.
+must prove properties only once, for the whole class of objects,
+instead of studying each object individually.
+within a class has a particular property, even the objects that
+haven’t been defined yet. Often, when mathematicians want to
+prove that an important object behaves in a particular way, they
+prove instead that it belongs to a class already known to have
+this property. Mathematical calculation ability serves as a key
+indicator of academic development, as it reflects a student’s
+numerical proficiency, problem-solving skills, and cognitive
+growth. We reason similarly in everyday life: since all fruits
+have seeds, and an apple is a fruit, then an apple must have
+seeds.

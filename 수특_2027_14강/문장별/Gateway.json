@@ -1,0 +1,228 @@
+{
+  "title": "건물 설계에서 다양한 사용자의 의견 듣기",
+  "summary": "설계가 진행되는 동안 의뢰인과 실제 사용자들의 반응을 충분히 듣고 이해하면, 더 좋은 건물을 만들 수 있고 만족도와 일의 효율도 높아질 수 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Giving clients sufficient opportunity to react to your designs while in progress is a key to professional success.",
+      "explanation": "설계가 아직 진행 중일 때, 의뢰인이 그 설계안을 보고 충분히 의견을 낼 수 있게 하는 것은 전문가로서 성공하는 데 아주 중요하다.",
+      "vocabulary": [
+        {
+          "word": "sufficient opportunity",
+          "meaning": "충분한 기회",
+          "note": "opportunity는 '기회'라는 뜻이다."
+        },
+        {
+          "word": "react to",
+          "meaning": "~에 반응하다, 의견을 보이다",
+          "note": "여기서는 설계안을 보고 생각이나 느낌을 말하는 뜻이다."
+        },
+        {
+          "word": "while in progress",
+          "meaning": "진행 중일 때",
+          "note": "일이 아직 끝나지 않고 계속되고 있는 상태를 말한다."
+        },
+        {
+          "word": "a key to",
+          "meaning": "~의 핵심, ~에 매우 중요한 것",
+          "note": "직역하면 '열쇠'지만, 실제로는 '중요한 비결'이라는 뜻으로 많이 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Similarly, involving prospective building users as well as clients is even more valuable in the long run.",
+      "explanation": "이와 비슷하게, 의뢰인뿐 아니라 앞으로 그 건물을 쓰게 될 사람들까지 함께 참여시키는 것은 시간이 지나서 보면 더 큰 가치가 있다.",
+      "vocabulary": [
+        {
+          "word": "prospective",
+          "meaning": "앞으로 ~하게 될, 미래의",
+          "note": "future와 비슷하지만 조금 더 공식적인 느낌이 있다."
+        },
+        {
+          "word": "as well as",
+          "meaning": "~뿐 아니라",
+          "note": "A as well as B는 'B뿐 아니라 A도'라는 뜻으로 자주 나온다."
+        },
+        {
+          "word": "in the long run",
+          "meaning": "결국에는, 오랜 시간으로 보면",
+          "note": "짧은 기간이 아니라 긴 시간 동안의 결과를 말한다."
+        },
+        {
+          "word": "valuable",
+          "meaning": "가치 있는, 도움이 되는",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Say your client is a large corporation, such as a health care provider.",
+      "explanation": "예를 들어, 당신의 의뢰인이 의료 서비스를 제공하는 큰 회사라고 해 보자.",
+      "vocabulary": [
+        {
+          "word": "Say",
+          "meaning": "가령, 예를 들어",
+          "note": "문장 맨 앞에서 '가정해 보자'라는 뜻으로 자주 쓰인다."
+        },
+        {
+          "word": "corporation",
+          "meaning": "대기업, 큰 회사",
+          "note": "회사 규모가 큰 조직을 가리킬 때 많이 쓴다."
+        },
+        {
+          "word": "health care provider",
+          "meaning": "의료 서비스 제공 기관",
+          "note": "병원, 의료 재단 같은 곳을 넓게 가리키는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "While the hospital administration may serve as your client, no doubt the perspectives of administration personnel will differ significantly from those of doctors, interns, residents, nurses, and other medical staff who use the building regularly.",
+      "explanation": "병원 행정 부서가 당신의 의뢰인 역할을 할 수는 있지만, 행정 직원들의 생각은 그 건물을 늘 사용하는 의사, 인턴, 전공의, 간호사, 다른 의료진의 생각과 분명히 크게 다를 것이다.",
+      "vocabulary": [
+        {
+          "word": "administration",
+          "meaning": "행정 부서, 운영진",
+          "note": "여기서는 병원을 관리하고 운영하는 쪽을 말한다."
+        },
+        {
+          "word": "serve as",
+          "meaning": "~의 역할을 하다",
+          "note": ""
+        },
+        {
+          "word": "no doubt",
+          "meaning": "틀림없이, 분명히",
+          "note": ""
+        },
+        {
+          "word": "perspectives",
+          "meaning": "관점, 생각",
+          "note": "사람이 어떤 일을 바라보는 방식이다."
+        },
+        {
+          "word": "differ significantly from",
+          "meaning": "~와 크게 다르다",
+          "note": "significantly는 '눈에 띄게, 많이'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In addition, the experiences of patients and visitors who use the building irregularly, often as a result of life-threatening emergencies, are altogether different as well.",
+      "explanation": "게다가 그 건물을 가끔만 이용하는 환자와 방문객의 경험도 완전히 다르다. 이들은 종종 생명이 위험한 응급상황 때문에 그 건물을 찾기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "In addition",
+          "meaning": "게다가, 더해서",
+          "note": ""
+        },
+        {
+          "word": "irregularly",
+          "meaning": "불규칙하게, 가끔씩",
+          "note": "여기서는 '자주가 아니라 필요할 때만'이라는 느낌이다."
+        },
+        {
+          "word": "as a result of",
+          "meaning": "~의 결과로, ~때문에",
+          "note": ""
+        },
+        {
+          "word": "life-threatening emergencies",
+          "meaning": "생명이 위험한 응급상황",
+          "note": "매우 위급한 상황을 말한다."
+        },
+        {
+          "word": "altogether",
+          "meaning": "완전히, 전혀",
+          "note": "여기서는 차이가 매우 크다는 뜻을 더해 준다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "Understanding how each type of user experiences the current medical environment as well as how each reacts to your prospective designs inevitably produces a better building.",
+      "explanation": "각 사용자 집단이 지금의 의료 환경을 어떻게 겪고 있는지, 또 당신의 앞으로의 설계안에 어떻게 반응하는지를 이해하면, 결국 더 좋은 건물을 만들게 된다.",
+      "vocabulary": [
+        {
+          "word": "each type of user",
+          "meaning": "각 사용자 집단",
+          "note": "사용하는 사람들을 종류별로 나눈 표현이다."
+        },
+        {
+          "word": "medical environment",
+          "meaning": "의료 환경",
+          "note": "병원 건물, 공간 분위기, 이용 방식 등을 넓게 포함하는 말이다."
+        },
+        {
+          "word": "prospective designs",
+          "meaning": "앞으로 제안할 설계안",
+          "note": "아직 완성되지 않은 미래의 설계안을 뜻한다."
+        },
+        {
+          "word": "inevitably",
+          "meaning": "결국 반드시, 피할 수 없이",
+          "note": "어떤 결과가 거의 틀림없이 나온다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "People are likely to be more satisfied with a new building or addition if they .",
+      "explanation": "사람들은 새 건물이나 증축된 공간에 자신들의 의견이 반영되었다고 느끼면 더 만족할 가능성이 크다. 다만 이 문장은 끝부분이 빠져 있어서 뜻이 완전히 적혀 있지는 않다.",
+      "vocabulary": [
+        {
+          "word": "are likely to",
+          "meaning": "~할 가능성이 크다",
+          "note": ""
+        },
+        {
+          "word": "satisfied with",
+          "meaning": "~에 만족하는",
+          "note": ""
+        },
+        {
+          "word": "addition",
+          "meaning": "증축 건물, 덧붙여 지은 부분",
+          "note": "여기서는 '추가'가 아니라 기존 건물에 새로 붙여 지은 공간을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "For a large institution, this can translate into increased productivity on the job, reduced absenteeism, less turnover, and lower costs.",
+      "explanation": "큰 기관에서는 이런 점이 일할 때의 효율이 높아지고, 결근이 줄고, 사람을 자주 바꾸는 일도 줄고, 비용도 낮아지는 결과로 이어질 수 있다.",
+      "vocabulary": [
+        {
+          "word": "institution",
+          "meaning": "기관, 큰 조직",
+          "note": "병원, 학교, 공공기관 같은 조직을 가리킬 수 있다."
+        },
+        {
+          "word": "translate into",
+          "meaning": "~로 이어지다, ~라는 결과가 되다",
+          "note": "직역하면 '번역되다'지만 여기서는 결과가 나타난다는 뜻이다."
+        },
+        {
+          "word": "productivity",
+          "meaning": "생산성, 일의 효율",
+          "note": "같은 시간에 얼마나 많은 일을 잘 해내는지를 말한다."
+        },
+        {
+          "word": "absenteeism",
+          "meaning": "결근이 잦은 상태",
+          "note": "직장이나 학교에 자주 빠지는 것을 가리킨다."
+        },
+        {
+          "word": "turnover",
+          "meaning": "인력 교체, 직원이 자주 바뀜",
+          "note": "문맥에 따라 '매출' 뜻도 있지만 여기서는 사람이 떠나고 새로 들어오는 일을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "Gateway"
+}

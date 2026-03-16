@@ -1,0 +1,203 @@
+{
+  "title": "찰스 프레더릭 워스의 어린 시절과 배움",
+  "summary": "찰스 프레더릭 워스는 어려운 집안 형편 속에서도 런던으로 가서 천과 옷에 관한 일을 배우고, 미술관에서 옛 의상 지식까지 쌓아 훗날 큰 패션 디자이너가 되었다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Charles Frederick Worth was the most famous fashion designer of the 19th century.",
+      "explanation": "찰스 프레더릭 워스는 19세기에 가장 이름난 패션 디자이너였다.",
+      "vocabulary": [
+        {
+          "word": "fashion designer",
+          "meaning": "패션 디자이너, 옷을 만드는 일을 하는 사람",
+          "note": ""
+        },
+        {
+          "word": "of the 19th century",
+          "meaning": "19세기의",
+          "note": "century는 100년을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "He was born in 1825 in Bourne, Lincolnshire, one of five children.",
+      "explanation": "그는 1825년에 링컨셔의 본이라는 곳에서 태어났다. 형제자매 다섯 명 중 한 명이었다.",
+      "vocabulary": [
+        {
+          "word": "was born",
+          "meaning": "태어났다",
+          "note": ""
+        },
+        {
+          "word": "Lincolnshire",
+          "meaning": "링컨셔",
+          "note": "영국의 지명이다."
+        },
+        {
+          "word": "one of five children",
+          "meaning": "다섯 자녀 중 한 명",
+          "note": "형제자매가 모두 다섯이라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "His father abandoned the family by the time he was 11, leaving them impoverished.",
+      "explanation": "그의 아버지는 그가 11살이 될 무렵 가족을 떠났다. 그래서 가족은 매우 가난해졌다.",
+      "vocabulary": [
+        {
+          "word": "abandoned",
+          "meaning": "버렸다, 떠났다",
+          "note": "abandon은 책임을 두고 떠나는 느낌이 있다."
+        },
+        {
+          "word": "by the time",
+          "meaning": "~할 무렵에는",
+          "note": ""
+        },
+        {
+          "word": "impoverished",
+          "meaning": "몹시 가난한",
+          "note": "poor보다 더 심한 가난을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "His mother was left with little choice but to find an apprenticeship for him at a printer’s shop, but the young boy hated the work.",
+      "explanation": "그의 어머니는 그를 인쇄소의 도제 자리로 보내는 것 말고는 다른 방법이 거의 없었다. 하지만 어린 워스는 그 일을 싫어했다.",
+      "vocabulary": [
+        {
+          "word": "was left with little choice but to",
+          "meaning": "~하는 것 말고는 다른 방법이 거의 없었다",
+          "note": "자주 쓰이는 표현이다."
+        },
+        {
+          "word": "apprenticeship",
+          "meaning": "도제 생활, 기술을 배우는 수습 일",
+          "note": "일을 하며 기술을 배우는 과정이다."
+        },
+        {
+          "word": "printer’s shop",
+          "meaning": "인쇄소",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "He persuaded his mother to allow him to move to London to gain employment at Swan & Edgar, a haberdashery located in the recently constructed Regent Street.",
+      "explanation": "그는 어머니를 설득해서 런던으로 가게 했다. 그리고 최근에 새로 만들어진 리전트가에 있는 스완 앤드 에드거라는 잡화점에서 일자리를 얻으려 했다.",
+      "vocabulary": [
+        {
+          "word": "persuaded",
+          "meaning": "설득했다",
+          "note": "상대가 하도록 마음을 움직였다는 뜻이다."
+        },
+        {
+          "word": "gain employment",
+          "meaning": "일자리를 얻다",
+          "note": ""
+        },
+        {
+          "word": "haberdashery",
+          "meaning": "의류 잡화점, 바느질용품이나 옷감을 파는 가게",
+          "note": "요즘은 잘 쓰지 않는 말이지만 글에서는 중요한 단어다."
+        },
+        {
+          "word": "located in",
+          "meaning": "~에 있는",
+          "note": ""
+        },
+        {
+          "word": "recently constructed",
+          "meaning": "최근에 지어진",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "There, he was given the opportunity to work with textiles, which gave him an outstanding grounding for the future.",
+      "explanation": "그곳에서 그는 천과 옷감과 관련된 일을 할 기회를 얻었다. 이 경험은 나중 일을 위한 아주 튼튼한 기초가 되었다.",
+      "vocabulary": [
+        {
+          "word": "the opportunity to",
+          "meaning": "~할 기회",
+          "note": ""
+        },
+        {
+          "word": "textiles",
+          "meaning": "직물, 옷감, 천",
+          "note": ""
+        },
+        {
+          "word": "outstanding",
+          "meaning": "아주 뛰어난",
+          "note": ""
+        },
+        {
+          "word": "grounding",
+          "meaning": "기초, 기본 바탕",
+          "note": "기본기를 잘 닦아 준다는 뜻으로 쓰였다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Perhaps equally important were his frequent visits to the new National Gallery, within walking distance of Swan & Edgar.",
+      "explanation": "어쩌면 그만큼 중요했던 것은 그가 새로 생긴 내셔널 갤러리에 자주 갔다는 점이다. 그 미술관은 스완 앤드 에드거에서 걸어갈 수 있는 거리에 있었다.",
+      "vocabulary": [
+        {
+          "word": "equally important",
+          "meaning": "그만큼 중요하게",
+          "note": ""
+        },
+        {
+          "word": "frequent visits",
+          "meaning": "잦은 방문",
+          "note": "자주 갔다는 뜻이다."
+        },
+        {
+          "word": "within walking distance",
+          "meaning": "걸어갈 수 있는 거리 안에",
+          "note": ""
+        },
+        {
+          "word": "National Gallery",
+          "meaning": "내셔널 갤러리",
+          "note": "영국의 유명한 미술관이다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Worth’s knowledge of costume history, gained from observing portraits in the National Gallery, was very helpful to his career.",
+      "explanation": "워스는 내셔널 갤러리에서 초상화를 보며 옛날 의상에 대한 지식을 얻었다. 이 지식은 그의 직업 생활에 큰 도움이 되었다.",
+      "vocabulary": [
+        {
+          "word": "costume history",
+          "meaning": "의상 역사",
+          "note": "옛 시대 사람들이 입던 옷의 역사이다."
+        },
+        {
+          "word": "gained from",
+          "meaning": "~을 통해 얻은",
+          "note": ""
+        },
+        {
+          "word": "observing portraits",
+          "meaning": "초상화를 관찰하는 것",
+          "note": "portrait는 사람의 모습을 그린 그림이다."
+        },
+        {
+          "word": "helpful to his career",
+          "meaning": "그의 직업 생활에 도움이 되는",
+          "note": "career는 직업, 경력이라는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}

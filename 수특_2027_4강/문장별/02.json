@@ -1,0 +1,157 @@
+{
+  "title": "지역 뉴스의 주인이 된 시민들",
+  "summary": "기존 언론이 많은 지역을 떠난 자리에서, 이제 시민들이 지역 뉴스를 직접 찾고 알리며 더 큰 책임도 함께 져야 한다는 내용이다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Increased community engagement by professional journalists, on their own, will not solve the problem of making the news more relevant to everyone because traditional news organizations already have abandoned many communities, leaving behind news deserts.",
+      "explanation": "전문 기자들이 지역 사람들과 더 많이 어울리고 소통한다고 해도, 그것만으로는 뉴스를 모든 사람에게 더 꼭 필요한 것으로 만들 수 없다. 왜냐하면 기존 언론사는 이미 많은 지역을 떠났고, 그 결과 그곳에는 지역 소식을 제대로 다루는 뉴스가 거의 없는 상태가 남았기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "community engagement",
+          "meaning": "지역 사회와의 소통과 참여",
+          "note": "기자나 기관이 지역 사람들과 가까이 연결되어 활동하는 것을 말한다."
+        },
+        {
+          "word": "on their own",
+          "meaning": "그것만으로는, 혼자 힘으로는",
+          "note": "다른 도움이나 변화 없이 단독으로라는 뜻이다."
+        },
+        {
+          "word": "relevant",
+          "meaning": "관련 있는, 꼭 필요한",
+          "note": "여기서는 뉴스가 사람들의 실제 삶과 잘 맞닿아 있다는 뜻이다."
+        },
+        {
+          "word": "abandoned",
+          "meaning": "버렸다, 떠났다",
+          "note": "사람이나 지역을 더 이상 돌보지 않고 남겨 둔 느낌이 있다."
+        },
+        {
+          "word": "news deserts",
+          "meaning": "뉴스 사막, 지역 뉴스가 거의 없는 곳",
+          "note": "사막처럼 필요한 뉴스가 부족한 지역을 비유해서 이르는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "In those places, citizens must take up the responsibility for discovering information, holding the powerful accountable, and telling the news for themselves and their neighbors.",
+      "explanation": "그런 곳에서는 시민들이 직접 정보를 찾아야 한다. 또 힘 있는 사람들을 감시하고 책임을 묻는 일도 해야 한다. 그리고 자기 자신과 이웃을 위해 지역 소식을 직접 알려야 한다.",
+      "vocabulary": [
+        {
+          "word": "take up the responsibility",
+          "meaning": "책임을 맡다",
+          "note": "남이 하던 일이나 필요한 일을 스스로 맡아 한다는 뜻이다."
+        },
+        {
+          "word": "discovering information",
+          "meaning": "정보를 찾아내는 것",
+          "note": "숨겨진 사실이나 필요한 내용을 직접 알아내는 것을 말한다."
+        },
+        {
+          "word": "holding the powerful accountable",
+          "meaning": "힘 있는 사람들에게 책임을 묻는 것",
+          "note": "정치인, 기업, 기관처럼 영향력이 큰 사람이나 집단을 감시하는 뜻이다."
+        },
+        {
+          "word": "neighbors",
+          "meaning": "이웃",
+          "note": "가까이 사는 사람들뿐 아니라 같은 지역 사람들까지 넓게 가리킬 수 있다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "The democratization of information — through the disruptions caused by computers and the internet — allows citizens to retake control of local news in ways that never have existed before, and it calls them to take greater care in the gathering and dissemination of what they discover or think they know.",
+      "explanation": "컴퓨터와 인터넷이 가져온 큰 변화 때문에, 정보가 더 많은 사람에게 열리게 되었다. 그 덕분에 시민들은 예전에는 없던 방식으로 지역 뉴스를 다시 자기 손에 쥘 수 있게 되었다. 하지만 동시에, 자신이 찾아낸 것이나 알고 있다고 생각하는 것을 모으고 퍼뜨릴 때 더 조심하고 책임 있게 행동해야 한다는 요구도 받게 된다.",
+      "vocabulary": [
+        {
+          "word": "democratization of information",
+          "meaning": "정보의 민주화, 정보가 많은 사람에게 열리는 것",
+          "note": "소수만 정보를 가지던 상태에서 누구나 더 쉽게 정보에 접근하는 변화를 말한다."
+        },
+        {
+          "word": "disruptions",
+          "meaning": "큰 변화, 기존 질서를 흔드는 변화",
+          "note": "기술이 들어오면서 예전 방식이 깨지는 상황을 가리킨다."
+        },
+        {
+          "word": "retake control",
+          "meaning": "다시 통제권을 가지다",
+          "note": "한번 잃었던 주도권을 되찾는 느낌이다."
+        },
+        {
+          "word": "dissemination",
+          "meaning": "퍼뜨림, 널리 알림",
+          "note": "정보나 생각을 여러 사람에게 전하는 것을 뜻한다."
+        },
+        {
+          "word": "take greater care",
+          "meaning": "더 조심하다, 더 신중하게 하다",
+          "note": "특히 사실 확인과 책임 있는 전달의 중요성을 보여 준다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Journalism, perhaps like never before, belongs to the people rather than to professional journalists, wealthy publishers, or even corporate shareholders.",
+      "explanation": "어쩌면 지금은 예전 어느 때보다도 저널리즘이 전문 기자나 돈 많은 발행인, 또는 회사 주주의 것이 아니라 사람들 모두의 것이 되었다고 볼 수 있다.",
+      "vocabulary": [
+        {
+          "word": "perhaps like never before",
+          "meaning": "어쩌면 전에 없을 만큼",
+          "note": "지금 상황이 특히 더 두드러진다는 뜻을 강조한다."
+        },
+        {
+          "word": "belongs to",
+          "meaning": "~의 것이다, ~에게 속하다",
+          "note": "여기서는 법적인 소유보다도 누가 중심이 되는가를 말한다."
+        },
+        {
+          "word": "publishers",
+          "meaning": "발행인, 출판·보도 책임자",
+          "note": "신문이나 잡지를 내는 사람 또는 회사를 가리킨다."
+        },
+        {
+          "word": "corporate shareholders",
+          "meaning": "기업의 주주들",
+          "note": "회사의 지분을 가진 사람들이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "The same technology that has shifted the balance of power toward the people gives them the tools to act as broadcasters and publishers of information essential to their immediate community — and, more critically, to serve as gatekeepers to information for other people around them.",
+      "explanation": "권력의 무게를 사람들 쪽으로 옮겨 놓은 바로 그 기술이, 이제 시민들에게도 정보를 널리 알리고 내보낼 수 있는 도구를 준다. 그래서 시민들은 자기 지역에 꼭 필요한 정보를 전하는 사람이 될 수 있다. 더 중요하게는, 주변 사람들에게 어떤 정보가 믿을 만하고 중요한지 가려 주는 역할까지 하게 된다.",
+      "vocabulary": [
+        {
+          "word": "shifted the balance of power",
+          "meaning": "힘의 균형을 바꾸었다",
+          "note": "누가 더 큰 영향력을 가지는지가 달라졌다는 뜻이다."
+        },
+        {
+          "word": "broadcasters",
+          "meaning": "방송하듯 널리 알리는 사람들",
+          "note": "꼭 방송국 사람이 아니어도 정보를 많은 사람에게 전하는 사람을 뜻할 수 있다."
+        },
+        {
+          "word": "essential",
+          "meaning": "꼭 필요한",
+          "note": "없으면 안 될 만큼 중요하다는 뜻이다."
+        },
+        {
+          "word": "immediate community",
+          "meaning": "바로 가까운 지역 사회",
+          "note": "자신이 실제로 살고 있는 주변 동네나 지역을 가리킨다."
+        },
+        {
+          "word": "gatekeepers",
+          "meaning": "정보를 걸러 주는 사람들",
+          "note": "어떤 정보를 받아들이고 전할지 판단하는 역할을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "02"
+}
