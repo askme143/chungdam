@@ -1,0 +1,191 @@
+{
+  "title": "철학과 인지과학의 관계",
+  "summary": "이 글은 철학이 큰 틀에서 질문을 던지고 여러 학문을 이어 주는 데 중요하지만, 의식을 더 깊이 이해하려면 신경과학의 실험과 함께 가야 한다고 말한다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "Philosophy allows us to ask much broader questions than many other scientific disciplines.",
+      "explanation": "철학은 다른 많은 과학 분야보다 훨씬 더 넓고 큰 질문을 하게 해 준다.",
+      "vocabulary": [
+        {
+          "word": "broader questions",
+          "meaning": "더 넓은 질문, 더 큰 범위의 질문",
+          "note": "단순한 사실 하나보다 큰 주제나 근본적인 문제를 묻는다는 뜻이다."
+        },
+        {
+          "word": "scientific disciplines",
+          "meaning": "과학의 여러 분야",
+          "note": "discipline은 여기서 '훈련'이 아니라 '학문 분야'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "It is capable of looking at the bigger picture and providing important insights into the relationships between different areas of knowledge.",
+      "explanation": "철학은 전체 모습을 크게 바라볼 수 있고, 서로 다른 지식 분야들이 어떻게 이어지는지에 대해 중요한 생각거리를 준다.",
+      "vocabulary": [
+        {
+          "word": "capable of",
+          "meaning": "~할 수 있는",
+          "note": "be capable of 뒤에는 보통 동사 -ing 형태가 온다."
+        },
+        {
+          "word": "the bigger picture",
+          "meaning": "전체 그림, 큰 흐름",
+          "note": "세부 내용보다 전체적인 모습을 본다는 말이다."
+        },
+        {
+          "word": "insights",
+          "meaning": "깊이 있는 이해, 중요한 깨달음",
+          "note": "단순한 정보가 아니라 사물을 꿰뚫어 보는 생각을 말한다."
+        },
+        {
+          "word": "areas of knowledge",
+          "meaning": "지식의 여러 분야",
+          "note": "학문 분야나 연구 영역으로 이해하면 쉽다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Philosophy is particularly important for the interdisciplinary efforts of cognitive science, where it helps to bridge gaps between different disciplines and pioneer new ways for research.",
+      "explanation": "철학은 인지과학처럼 여러 학문이 함께하는 연구에서 특히 중요하다. 서로 다른 분야 사이의 빈틈을 이어 주고, 새로운 연구 방법을 여는 데 도움을 준다.",
+      "vocabulary": [
+        {
+          "word": "particularly important",
+          "meaning": "특히 중요하다",
+          "note": ""
+        },
+        {
+          "word": "interdisciplinary efforts",
+          "meaning": "여러 학문이 함께하는 노력",
+          "note": "interdisciplinary는 한 분야만이 아니라 여러 분야를 함께 다루는 뜻이다."
+        },
+        {
+          "word": "bridge gaps",
+          "meaning": "차이와 빈틈을 이어 주다",
+          "note": "분야 사이의 거리나 차이를 줄인다는 비유적 표현이다."
+        },
+        {
+          "word": "pioneer",
+          "meaning": "새로운 길을 열다",
+          "note": "명사로는 '개척자', 동사로는 '처음 시도하다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Unlike scientific methods, philosophizing is a non-empirical approach that attempts to validate concepts through logical thinking and argumentation.",
+      "explanation": "과학적 방법과 달리, 철학적으로 생각하는 일은 실험이나 관찰에만 기대지 않는다. 대신 논리적인 생각과 따져 보는 말을 통해 개념이 맞는지 살펴보려 한다.",
+      "vocabulary": [
+        {
+          "word": "Unlike",
+          "meaning": "~와 달리",
+          "note": ""
+        },
+        {
+          "word": "non-empirical",
+          "meaning": "경험이나 실험에만 기대지 않는",
+          "note": "empirical은 관찰, 경험, 실험에 바탕을 둔다는 뜻이다."
+        },
+        {
+          "word": "validate",
+          "meaning": "옳은지 확인하다, 타당함을 보여 주다",
+          "note": "완전히 증명한다기보다 맞는지 따져 본다는 느낌이다."
+        },
+        {
+          "word": "argumentation",
+          "meaning": "논리를 세워 따져 말하기",
+          "note": "단순한 말다툼이 아니라 이유를 들어 주장하는 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Philosophers tend to ask questions rather than provide definitive answers, and their contributions often consist of challenging established assumptions and proposing new research approaches.",
+      "explanation": "철학자들은 딱 잘라 답을 내리기보다 질문을 던지는 편이다. 그리고 이미 당연하다고 여겨지는 생각에 의문을 제기하고, 새로운 연구 방법을 내놓는 방식으로 도움을 주는 경우가 많다.",
+      "vocabulary": [
+        {
+          "word": "tend to",
+          "meaning": "~하는 편이다",
+          "note": "항상 그렇다는 뜻은 아니고, 대체로 그렇다는 말이다."
+        },
+        {
+          "word": "definitive answers",
+          "meaning": "분명하고 최종적인 답",
+          "note": "더는 논쟁할 여지가 없는 확실한 답이라는 느낌이다."
+        },
+        {
+          "word": "established assumptions",
+          "meaning": "이미 널리 받아들여진 생각",
+          "note": "사람들이 당연하다고 믿고 있는 전제를 뜻한다."
+        },
+        {
+          "word": "proposing",
+          "meaning": "제안하는",
+          "note": "propose의 현재분사 형태이다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "However, for a more comprehensive understanding of the nature of consciousness, close collaboration between philosophy and neuroscience is required.",
+      "explanation": "하지만 의식이 무엇인지 더 넓고 깊게 이해하려면, 철학과 신경과학이 아주 가깝게 함께 연구해야 한다.",
+      "vocabulary": [
+        {
+          "word": "comprehensive understanding",
+          "meaning": "넓고 깊은 이해",
+          "note": "한쪽만이 아니라 여러 면을 두루 보는 이해를 말한다."
+        },
+        {
+          "word": "the nature of consciousness",
+          "meaning": "의식의 본질, 의식이 무엇인지",
+          "note": "consciousness는 깨어 있음, 자각, 의식 같은 뜻으로 쓰인다."
+        },
+        {
+          "word": "close collaboration",
+          "meaning": "긴밀한 협력, 아주 가까운 협력",
+          "note": "서로 따로 하지 않고 함께 맞춰 가며 일하는 것을 뜻한다."
+        },
+        {
+          "word": "neuroscience",
+          "meaning": "신경과학",
+          "note": "뇌와 신경계가 어떻게 작동하는지 연구하는 학문이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "This means that while philosophy can provide valuable insights into theoretical concepts and broader ethical questions, it needs to be supplemented by empirical findings and experiments to reach a more comprehensive understanding.",
+      "explanation": "이 말은 철학이 이론적인 개념이나 더 큰 윤리 문제를 이해하는 데 값진 생각거리를 줄 수는 있지만, 더 충분한 이해에 이르려면 실험 결과와 실제 관찰 자료가 함께 보태져야 한다는 뜻이다.",
+      "vocabulary": [
+        {
+          "word": "valuable insights",
+          "meaning": "값진 깨달음, 중요한 이해",
+          "note": ""
+        },
+        {
+          "word": "theoretical concepts",
+          "meaning": "이론적인 개념",
+          "note": "직접 눈에 보이는 사실보다 생각 속 틀이나 원리를 가리킨다."
+        },
+        {
+          "word": "ethical questions",
+          "meaning": "윤리적인 문제",
+          "note": "무엇이 옳고 그른지에 대한 질문을 말한다."
+        },
+        {
+          "word": "supplemented by",
+          "meaning": "~에 의해 보완되다",
+          "note": "부족한 부분을 더 채운다는 뜻이다."
+        },
+        {
+          "word": "empirical findings",
+          "meaning": "관찰과 실험에서 얻은 결과",
+          "note": "실제로 확인한 자료나 결과라고 이해하면 쉽다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "37"
+}

@@ -1,0 +1,243 @@
+{
+  "title": "공연 예술의 특징과 어려움",
+  "summary": "공연 예술은 현장에서 직접 이루어지는 특별한 경험을 주기 때문에, 돈 문제로 어려움을 겪어도 그 가치를 중요하게 여기는 관객들에게 계속 사랑받는다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "In modern societies, the performing arts form a distinct category of public entertainment in opposition to the mass distribution through the media of expertly staged performances which have been recorded and edited.",
+      "explanation": "현대 사회에서 공연 예술은 대중이 즐기는 다른 오락과는 구별되는 따로의 분야로 여겨진다. 특히 녹화하고 편집한 뒤 미디어를 통해 널리 퍼지는 공연과는 다른 성격을 가진다.",
+      "vocabulary": [
+        {
+          "word": "performing arts",
+          "meaning": "공연 예술",
+          "note": "연극, 무용, 음악회처럼 사람들 앞에서 직접 보여 주는 예술을 말한다."
+        },
+        {
+          "word": "distinct category",
+          "meaning": "뚜렷이 구별되는 종류",
+          "note": "다른 것과 분명히 나뉜다는 뜻이다."
+        },
+        {
+          "word": "in opposition to",
+          "meaning": "~와 반대로, ~에 맞서",
+          "note": "두 대상이 서로 다른 성격을 보일 때 자주 쓴다."
+        },
+        {
+          "word": "mass distribution",
+          "meaning": "대량 보급, 널리 퍼뜨림",
+          "note": "많은 사람에게 한꺼번에 전달하는 것을 말한다."
+        },
+        {
+          "word": "staged",
+          "meaning": "무대에 올린, 연출된",
+          "note": "stage는 명사로는 '무대', 동사로는 '공연하다, 연출하다'라는 뜻이 있다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "By contrast, theater, ballet, circus, concert, rodeo, storytelling, etc., unfold their signs in real space and time, and engage audiences who respond cognitively and emotionally on the spot.",
+      "explanation": "반면 연극, 발레, 서커스, 음악회, 로데오, 이야기 들려주기 같은 공연은 실제 공간과 실제 시간 속에서 바로 펼쳐진다. 그래서 관객은 그 자리에서 생각으로도 느끼고 감정으로도 반응하게 된다.",
+      "vocabulary": [
+        {
+          "word": "By contrast",
+          "meaning": "반면에",
+          "note": "앞 문장과 내용을 비교하며 다르게 말할 때 쓰는 표현이다."
+        },
+        {
+          "word": "unfold",
+          "meaning": "펼쳐지다, 전개되다",
+          "note": "이 글에서는 공연이 눈앞에서 진행된다는 뜻으로 쓰였다."
+        },
+        {
+          "word": "engage",
+          "meaning": "사람을 끌어들이다, 몰입하게 하다",
+          "note": "관객의 관심과 참여를 이끈다는 뜻이다."
+        },
+        {
+          "word": "cognitively",
+          "meaning": "생각하고 이해하는 면에서",
+          "note": "cognitive는 '인지의, 생각하는'이라는 뜻이다."
+        },
+        {
+          "word": "on the spot",
+          "meaning": "그 자리에서 즉시",
+          "note": "바로 현장에서 일어남을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Performers and audiences are involved in shared enjoyment.",
+      "explanation": "공연자와 관객은 함께 즐거움을 나누며 공연에 참여한다.",
+      "vocabulary": [
+        {
+          "word": "performers",
+          "meaning": "공연자들",
+          "note": "배우, 무용수, 연주자처럼 공연을 하는 사람들이다."
+        },
+        {
+          "word": "be involved in",
+          "meaning": "~에 참여하다, ~와 관계되다",
+          "note": "어떤 일 속에 함께 들어가 있다는 뜻이다."
+        },
+        {
+          "word": "shared enjoyment",
+          "meaning": "함께 나누는 즐거움",
+          "note": "공연자와 관객이 같은 순간을 같이 즐긴다는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "But sometimes frustration occurs within the boundaries of such ritualistic events.",
+      "explanation": "하지만 이런 의식 같은 성격의 공연 안에서는 때때로 답답함이나 실망이 생기기도 한다.",
+      "vocabulary": [
+        {
+          "word": "frustration",
+          "meaning": "답답함, 실망, 좌절감",
+          "note": "원하는 대로 되지 않을 때 느끼는 감정이다."
+        },
+        {
+          "word": "within the boundaries of",
+          "meaning": "~의 범위 안에서",
+          "note": "어떤 한계나 틀 안을 말한다."
+        },
+        {
+          "word": "ritualistic",
+          "meaning": "의식 같은, 정해진 형식을 따르는",
+          "note": "ritual은 '의식, 의례'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "In industrialized and computerized cultures, the performing arts become economically unstable because the institutions which sustain them increasingly depend on public and corporate funding.",
+      "explanation": "산업화되고 컴퓨터 기술이 널리 쓰이는 사회에서는 공연 예술이 돈 문제로 불안정해진다. 그것을 떠받치는 기관들이 점점 더 정부나 기업의 지원금에 기대기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "industrialized",
+          "meaning": "산업화된",
+          "note": "공업과 산업이 크게 발달한 상태를 말한다."
+        },
+        {
+          "word": "economically unstable",
+          "meaning": "경제적으로 불안정한",
+          "note": "돈이 꾸준히 들어오지 않아 흔들리기 쉬운 상태이다."
+        },
+        {
+          "word": "sustain",
+          "meaning": "떠받치다, 유지하다",
+          "note": "이 글에서는 공연 예술이 계속 이어지게 돕는다는 뜻이다."
+        },
+        {
+          "word": "depend on",
+          "meaning": "~에 의지하다, 기대다",
+          "note": "스스로 해결하지 못하고 다른 것의 도움을 받는다는 뜻이다."
+        },
+        {
+          "word": "funding",
+          "meaning": "자금 지원",
+          "note": "활동에 필요한 돈을 대 주는 것을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "However, they retain their power of fascination for large, if not massive audiences, who prize the experiential, risk-loaded and one-time event quality they afford.",
+      "explanation": "하지만 공연 예술은 여전히 많은 관객을 끌어당기는 힘을 가지고 있다. 아주 엄청나게 많지는 않더라도 큰 규모의 관객이 그것을 소중하게 여긴다. 그 이유는 공연 예술이 직접 겪는 경험, 예측할 수 없는 긴장감, 그리고 한 번 지나가면 끝나는 특별함을 주기 때문이다.",
+      "vocabulary": [
+        {
+          "word": "retain",
+          "meaning": "계속 지니다, 유지하다",
+          "note": "없어지지 않고 그대로 가지고 있다는 뜻이다."
+        },
+        {
+          "word": "fascination",
+          "meaning": "강한 매력, 사람을 끄는 힘",
+          "note": "fascinate는 '매료시키다'라는 뜻이다."
+        },
+        {
+          "word": "prize",
+          "meaning": "소중하게 여기다",
+          "note": "명사 '상'이 아니라 동사로 쓰였다."
+        },
+        {
+          "word": "risk-loaded",
+          "meaning": "위험 요소가 담긴, 긴장감이 있는",
+          "note": "공연이 생방송처럼 예측할 수 없다는 느낌을 준다."
+        },
+        {
+          "word": "afford",
+          "meaning": "제공하다",
+          "note": "여기서는 '여유가 있다'가 아니라 '무언가를 주다'라는 뜻이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "In traditional and local cultures, performances still survive and provide their audiences with a unique fulfillment in smaller scale, economically sustainable institutional settings.",
+      "explanation": "전통 문화나 지역 문화에서는 공연이 아직도 살아남아 있다. 그리고 더 작은 규모이지만 돈을 감당할 수 있는 환경 속에서 관객에게 특별한 만족감을 준다.",
+      "vocabulary": [
+        {
+          "word": "survive",
+          "meaning": "살아남다, 계속 이어지다",
+          "note": "없어지지 않고 남아 있다는 뜻이다."
+        },
+        {
+          "word": "unique fulfillment",
+          "meaning": "특별한 만족감",
+          "note": "fulfillment는 마음이 차는 만족을 말한다."
+        },
+        {
+          "word": "smaller scale",
+          "meaning": "더 작은 규모",
+          "note": "큰 상업 공연이 아닌 비교적 작은 형태를 가리킨다."
+        },
+        {
+          "word": "economically sustainable",
+          "meaning": "경제적으로 계속 유지할 수 있는",
+          "note": "지나치게 많은 돈이 들지 않아 오래 이어 갈 수 있다는 뜻이다."
+        },
+        {
+          "word": "institutional settings",
+          "meaning": "제도적 환경, 운영되는 틀",
+          "note": "공연장이나 지역 단체 같은 운영 기반을 넓게 가리킨다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "In a situation of financial challenges due to reliance on external funding, the performing arts, which provide unique and live experiences, secure audiences who value those experiences.",
+      "explanation": "바깥의 자금 지원에 기대기 때문에 돈 문제를 겪는 상황에서도, 공연 예술은 특별하고 현장감 있는 경험을 주기 때문에 그런 경험을 중요하게 생각하는 관객을 계속 확보한다.",
+      "vocabulary": [
+        {
+          "word": "financial challenges",
+          "meaning": "재정적 어려움, 돈 문제",
+          "note": "financial은 '돈과 관련된'이라는 뜻이다."
+        },
+        {
+          "word": "reliance on",
+          "meaning": "~에 대한 의존",
+          "note": "어떤 것에 기대어 버티는 상태를 말한다."
+        },
+        {
+          "word": "external funding",
+          "meaning": "외부 자금 지원",
+          "note": "정부, 기업, 후원자 등 바깥에서 들어오는 돈이다."
+        },
+        {
+          "word": "secure audiences",
+          "meaning": "관객을 확보하다",
+          "note": "계속 찾아오는 관객을 얻는다는 뜻이다."
+        },
+        {
+          "word": "live experiences",
+          "meaning": "현장에서 직접 겪는 경험",
+          "note": "녹화된 것이 아니라 바로 눈앞에서 일어나는 경험을 말한다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "40"
+}

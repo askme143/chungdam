@@ -1,0 +1,191 @@
+{
+  "title": "게임 속 아바타와 지각의 확장",
+  "summary": "게임에서 플레이어는 자기 몸이 아니라 아바타를 통해 세계를 보고 움직이며, 그래서 우리의 지각 체계가 게임 속으로 뻗어 나간다고 말할 수 있다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "A video game has its own model of reality, internal to itself and separate from the player’s external reality, the player’s bodily space and the avatar’s bodily space.",
+      "explanation": "비디오게임은 자기만의 현실 구조를 가지고 있다. 이 현실은 게임 안에 있는 것이고, 플레이어가 실제로 사는 바깥 현실, 플레이어의 몸이 있는 공간, 그리고 아바타의 몸이 있는 공간과는 구별된다.",
+      "vocabulary": [
+        {
+          "word": "model of reality",
+          "meaning": "현실을 만들어 놓은 방식, 현실의 틀",
+          "note": "여기서는 게임이 세계를 어떻게 구성하는지를 뜻한다."
+        },
+        {
+          "word": "internal to itself",
+          "meaning": "그 자체 안에 있는",
+          "note": "게임 바깥이 아니라 게임 안에서만 성립한다는 뜻이다."
+        },
+        {
+          "word": "external reality",
+          "meaning": "바깥의 실제 현실",
+          "note": "플레이어가 실제로 살고 있는 현실 세계를 가리킨다."
+        },
+        {
+          "word": "bodily space",
+          "meaning": "몸이 차지하고 움직이는 공간",
+          "note": "사람이나 아바타가 몸으로 행동할 수 있는 범위를 떠올리면 된다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "The avatar’s bodily space, the potential actions of the avatar in the game world, is the only way in which the reality of the external reality of the game world can be perceived.",
+      "explanation": "게임 세계를 느끼고 알아차릴 수 있는 길은 아바타의 몸을 통한 방식뿐이다. 다시 말해, 게임 속에서 아바타가 할 수 있는 행동들이 있어야 플레이어가 그 세계를 현실처럼 경험할 수 있다.",
+      "vocabulary": [
+        {
+          "word": "potential actions",
+          "meaning": "할 수 있는 가능한 행동들",
+          "note": "아직 하지 않았지만 할 수 있는 행동의 범위를 말한다."
+        },
+        {
+          "word": "game world",
+          "meaning": "게임 세계",
+          "note": ""
+        },
+        {
+          "word": "can be perceived",
+          "meaning": "지각될 수 있다, 느껴질 수 있다",
+          "note": "perceive는 눈으로 보기만이 아니라 감각으로 알아차리는 것을 넓게 뜻한다."
+        },
+        {
+          "word": "the only way",
+          "meaning": "유일한 방법",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "As in the real world, perception requires action.",
+      "explanation": "현실 세계와 마찬가지로, 무언가를 느끼고 알아차리려면 행동이 필요하다.",
+      "vocabulary": [
+        {
+          "word": "As in",
+          "meaning": "~에서와 마찬가지로",
+          "note": "비교를 시작할 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "perception",
+          "meaning": "지각, 느끼고 알아차림",
+          "note": "쉬운 말로는 '보고 듣고 느껴서 아는 것'이다."
+        },
+        {
+          "word": "requires",
+          "meaning": "필요로 한다",
+          "note": "require는 need보다 조금 더 딱딱한 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "The difference is that the action in the game world can only be explored through the virtual bodily space of the avatar.",
+      "explanation": "다른 점은 게임 세계에서의 행동이 아바타의 가상 몸을 통해서만 시험되고 경험될 수 있다는 것이다.",
+      "vocabulary": [
+        {
+          "word": "The difference is that",
+          "meaning": "다른 점은 ~라는 것이다",
+          "note": "설명을 이어 갈 때 자주 쓰는 틀이다."
+        },
+        {
+          "word": "explored",
+          "meaning": "살펴볼 수 있다, 직접 해 보며 알아볼 수 있다",
+          "note": "여기서는 공간을 탐험한다기보다 행동 가능성을 경험해 본다는 뜻에 가깝다."
+        },
+        {
+          "word": "virtual bodily space",
+          "meaning": "가상의 몸 공간",
+          "note": "실제 몸이 아니라 게임 속 몸이 움직이는 공간을 말한다."
+        },
+        {
+          "word": "avatar",
+          "meaning": "아바타, 게임 속 분신 캐릭터",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Players extend their perceptual field into the game, encompassing the available actions of the avatar.",
+      "explanation": "플레이어는 자기의 지각 범위를 게임 속으로 넓힌다. 그래서 아바타가 할 수 있는 행동들까지 자기 감각의 범위 안에 넣게 된다.",
+      "vocabulary": [
+        {
+          "word": "extend",
+          "meaning": "넓히다, 뻗다",
+          "note": ""
+        },
+        {
+          "word": "perceptual field",
+          "meaning": "지각 범위, 감각이 미치는 범위",
+          "note": "무엇을 보고 느끼며 알아차릴 수 있는 범위를 뜻한다."
+        },
+        {
+          "word": "encompassing",
+          "meaning": "포함하면서, 아우르면서",
+          "note": "encompass는 여러 것을 한데 넣어 감싼다는 느낌이 있다."
+        },
+        {
+          "word": "available actions",
+          "meaning": "할 수 있는 행동들",
+          "note": "게임 안에서 실제로 선택 가능한 행동을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "The feedback loop of perception and action that enables you to navigate the world around you is now one step removed: instead of perceiving primarily through interaction of your own body with the external world, you’re perceiving the game world through interaction of the avatar.",
+      "explanation": "원래 우리는 내 몸으로 바깥세상과 부딪치고 반응하면서 주변 세계를 파악한다. 그런데 게임에서는 이 과정이 한 단계 더 돌아간다. 내 몸이 바로 세상과 만나는 대신, 아바타가 게임 세계와 상호작용하는 것을 통해 그 세계를 느끼게 되는 것이다.",
+      "vocabulary": [
+        {
+          "word": "feedback loop",
+          "meaning": "되돌아오는 반응의 반복 구조",
+          "note": "행동을 하면 반응이 오고, 그 반응을 바탕으로 다시 행동하는 흐름을 말한다."
+        },
+        {
+          "word": "navigate",
+          "meaning": "길을 찾아 움직이다, 헤쳐 나가다",
+          "note": "원래는 항해하다라는 뜻이지만 여기서는 공간 속에서 움직이며 파악하는 뜻이다."
+        },
+        {
+          "word": "one step removed",
+          "meaning": "한 단계 떨어진, 한 번 거쳐 있는",
+          "note": "직접이 아니라 중간 매개를 거친 상태를 뜻한다."
+        },
+        {
+          "word": "interaction",
+          "meaning": "서로 주고받는 작용, 상호작용",
+          "note": "쉬운 말로는 '서로 영향을 주고받음'이다."
+        },
+        {
+          "word": "primarily",
+          "meaning": "주로",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "The entire perceptual system has been extended into the game world.",
+      "explanation": "결국 우리의 지각 체계 전체가 게임 세계 안으로 뻗어 들어간 셈이다.",
+      "vocabulary": [
+        {
+          "word": "entire",
+          "meaning": "전체의",
+          "note": ""
+        },
+        {
+          "word": "perceptual system",
+          "meaning": "지각 체계, 느끼고 알아차리는 전체 방식",
+          "note": "눈, 귀 같은 감각과 그것을 바탕으로 이해하는 과정까지 함께 가리킨다."
+        },
+        {
+          "word": "has been extended into",
+          "meaning": "~안으로 확장되었다",
+          "note": "어떤 범위가 더 넓어져 다른 곳까지 이어졌다는 뜻이다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "39"
+}

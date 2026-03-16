@@ -1,0 +1,553 @@
+{
+  "title": "가족 독서 모임이 다시 이어 준 마음",
+  "summary": "휴대폰에만 빠져 있던 미아는 가족 독서 모임을 시작한 뒤 부모와 더 가까워지고, 함께 이야기 나누는 즐거움을 느끼게 된다.",
+  "sentences": [
+    {
+      "id": 1,
+      "original": "“Mia, let’s go walk our dog!”",
+      "explanation": "줄리아가 미아에게 같이 강아지 산책을 가자고 말했다.",
+      "vocabulary": [
+        {
+          "word": "let’s",
+          "meaning": "~하자",
+          "note": "상대와 함께 무엇을 하자고 제안할 때 쓴다."
+        },
+        {
+          "word": "walk our dog",
+          "meaning": "우리 강아지를 산책시키다",
+          "note": "dog를 walk한다기보다 '강아지와 산책하다'라는 뜻으로 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Julia called out, but there was no answer.",
+      "explanation": "줄리아가 큰 소리로 불렀지만, 아무 대답도 없었다.",
+      "vocabulary": [
+        {
+          "word": "called out",
+          "meaning": "큰 소리로 불렀다",
+          "note": "멀리 있는 사람에게 들리게 말할 때 자주 쓴다."
+        },
+        {
+          "word": "there was no answer",
+          "meaning": "대답이 없었다",
+          "note": "직역하면 '아무 대답도 없었다'이다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "She checked her daughter’s room and found that Mia was absorbed in her smartphone, wearing her earbuds.",
+      "explanation": "그녀는 딸 방을 확인했고, 미아가 이어버드를 낀 채 스마트폰에 푹 빠져 있는 것을 보았다.",
+      "vocabulary": [
+        {
+          "word": "checked",
+          "meaning": "확인했다",
+          "note": ""
+        },
+        {
+          "word": "absorbed in",
+          "meaning": "~에 푹 빠진",
+          "note": "어떤 일에 정신이 완전히 쏠린 상태를 말한다."
+        },
+        {
+          "word": "earbuds",
+          "meaning": "이어버드, 무선 이어폰",
+          "note": "귀에 꽂는 작은 이어폰을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "original": "Julia was concerned about her daughter.",
+      "explanation": "줄리아는 딸이 걱정되었다.",
+      "vocabulary": [
+        {
+          "word": "concerned about",
+          "meaning": "~이 걱정되는",
+          "note": "사람이나 상황을 걱정할 때 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "She turned to her husband, Sam.",
+      "explanation": "그녀는 남편 샘을 바라보며 말을 건넸다.",
+      "vocabulary": [
+        {
+          "word": "turned to",
+          "meaning": "~에게로 향했다, ~에게 의지했다",
+          "note": "몸을 돌리는 뜻도 있고, 누군가에게 말하거나 도움을 구하는 뜻도 있다."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "original": "“Mia seems to live inside her phone, not with us.”",
+      "explanation": "줄리아는 미아가 가족과 함께 지내기보다 휴대폰 속에서 사는 것처럼 보인다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "seems to",
+          "meaning": "~인 것 같다",
+          "note": ""
+        },
+        {
+          "word": "live inside her phone",
+          "meaning": "휴대폰 속에서 사는 것 같다",
+          "note": "정말로 사는 것이 아니라, 휴대폰에 너무 빠져 있다는 비유적 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Sam nodded, “I know. I feel like she is growing distant from us. Why don’t we set up a family reading club?”",
+      "explanation": "샘은 고개를 끄덕이며 자신도 그렇게 느낀다고 말했다. 그리고 미아가 점점 가족과 멀어지는 것 같으니, 가족 독서 모임을 만들어 보자고 제안했다.",
+      "vocabulary": [
+        {
+          "word": "nodded",
+          "meaning": "고개를 끄덕였다",
+          "note": ""
+        },
+        {
+          "word": "growing distant from",
+          "meaning": "~와 점점 멀어지는",
+          "note": "마음이나 관계가 예전보다 멀어질 때 쓴다."
+        },
+        {
+          "word": "Why don’t we ~?",
+          "meaning": "~하는 게 어때?",
+          "note": "제안할 때 자주 쓰는 표현이다."
+        },
+        {
+          "word": "set up",
+          "meaning": "만들다, 시작하다",
+          "note": "모임이나 계획을 새로 마련할 때도 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Julia brightened at the suggestion, and Sam promised to talk with Mia about it.",
+      "explanation": "줄리아는 그 제안을 듣고 얼굴이 밝아졌고, 샘은 그 일에 대해 미아와 이야기해 보겠다고 약속했다.",
+      "vocabulary": [
+        {
+          "word": "brightened",
+          "meaning": "표정이 밝아졌다",
+          "note": "기분이 좋아져 얼굴빛이 밝아지는 모습을 나타낸다."
+        },
+        {
+          "word": "suggestion",
+          "meaning": "제안",
+          "note": ""
+        },
+        {
+          "word": "promised to",
+          "meaning": "~하겠다고 약속했다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "When Sam suggested starting a family reading club, Mia immediately shook her head and said, “No, Dad. I don’t have time to read books. You know how busy I am with exams all semester.”",
+      "explanation": "샘이 가족 독서 모임을 시작하자고 하자, 미아는 바로 고개를 저으며 싫다고 말했다. 한 학기 내내 시험 때문에 바빠서 책 읽을 시간이 없다고 한 것이다.",
+      "vocabulary": [
+        {
+          "word": "suggested",
+          "meaning": "제안했다",
+          "note": ""
+        },
+        {
+          "word": "immediately",
+          "meaning": "바로, 즉시",
+          "note": ""
+        },
+        {
+          "word": "shook her head",
+          "meaning": "고개를 저었다",
+          "note": "보통 반대하거나 싫다는 뜻을 나타낸다."
+        },
+        {
+          "word": "all semester",
+          "meaning": "한 학기 내내",
+          "note": "semester는 보통 학교의 '학기'를 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "original": "He didn’t give up.",
+      "explanation": "하지만 샘은 포기하지 않았다.",
+      "vocabulary": [
+        {
+          "word": "give up",
+          "meaning": "포기하다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "original": "“But wouldn’t it be fun if we all read the same story and shared our thoughts? You could simply read for 20 minutes, maybe during your lunch break.”",
+      "explanation": "샘은 모두가 같은 이야기를 읽고 생각을 나누면 재미있지 않겠냐고 말했다. 그리고 점심시간 같은 때에 20분만 가볍게 읽어도 된다고 했다.",
+      "vocabulary": [
+        {
+          "word": "wouldn’t it be fun",
+          "meaning": "재미있지 않겠니",
+          "note": "상대가 좋게 느끼도록 부드럽게 제안하는 말이다."
+        },
+        {
+          "word": "shared our thoughts",
+          "meaning": "우리 생각을 나누다",
+          "note": "읽은 내용에 대한 느낌이나 의견을 말하는 뜻이다."
+        },
+        {
+          "word": "simply",
+          "meaning": "그냥, 간단히",
+          "note": ""
+        },
+        {
+          "word": "lunch break",
+          "meaning": "점심시간",
+          "note": "학교나 직장에서 쉬는 점심 시간을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "original": "After some persuasion, Mia reluctantly agreed.",
+      "explanation": "조금 더 설득한 끝에, 미아는 마지못해 동의했다.",
+      "vocabulary": [
+        {
+          "word": "persuasion",
+          "meaning": "설득",
+          "note": "persuade(설득하다)에서 나온 말이다."
+        },
+        {
+          "word": "reluctantly",
+          "meaning": "마지못해",
+          "note": "마음은 내키지 않지만 어쩔 수 없이 하는 느낌이다."
+        },
+        {
+          "word": "agreed",
+          "meaning": "동의했다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "original": "Deep down, she knew she was spending too much time on her phone.",
+      "explanation": "미아는 마음속으로 자신이 휴대폰에 너무 많은 시간을 쓰고 있다는 것을 알고 있었다.",
+      "vocabulary": [
+        {
+          "word": "Deep down",
+          "meaning": "마음속 깊이",
+          "note": "겉으로는 안 보여도 속으로는 그렇게 느끼는 상태를 말한다."
+        },
+        {
+          "word": "spending too much time on",
+          "meaning": "~에 너무 많은 시간을 쓰다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "original": "So she asked, “Dad, can I choose the first book?”",
+      "explanation": "그래서 미아는 첫 번째 책은 자기가 골라도 되냐고 물었다.",
+      "vocabulary": [
+        {
+          "word": "choose",
+          "meaning": "고르다",
+          "note": ""
+        },
+        {
+          "word": "the first book",
+          "meaning": "첫 번째 책",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "original": "Sam gladly said, “Yes.”",
+      "explanation": "샘은 기쁘게 그러라고 말했다.",
+      "vocabulary": [
+        {
+          "word": "gladly",
+          "meaning": "기쁘게, 흔쾌히",
+          "note": "상대의 부탁을 반갑게 받아들일 때 쓰기 좋다."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "original": "At the library, Mia scanned the shelves for nearly an hour, feeling lost among the endless titles.",
+      "explanation": "도서관에서 미아는 거의 한 시간 동안 책장을 훑어보았다. 하지만 끝도 없이 많은 책 제목들 사이에서 무엇을 골라야 할지 몰라 막막했다.",
+      "vocabulary": [
+        {
+          "word": "scanned",
+          "meaning": "훑어보았다",
+          "note": "자세히 읽기보다 빠르게 전체를 살펴보는 뜻이다."
+        },
+        {
+          "word": "shelves",
+          "meaning": "책장, 선반",
+          "note": ""
+        },
+        {
+          "word": "feeling lost",
+          "meaning": "막막한 느낌이 드는",
+          "note": "길을 잃은 뜻도 있지만 여기서는 무엇을 해야 할지 모르는 상태이다."
+        },
+        {
+          "word": "endless titles",
+          "meaning": "끝도 없이 많은 책 제목들",
+          "note": "title은 여기서 '제목'을 뜻한다."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "original": "Then, a librarian approached and asked, “Looking for something in particular?”",
+      "explanation": "그때 사서 한 사람이 다가와서 특별히 찾는 책이 있냐고 물었다.",
+      "vocabulary": [
+        {
+          "word": "librarian",
+          "meaning": "사서",
+          "note": "도서관에서 일하는 사람이다."
+        },
+        {
+          "word": "approached",
+          "meaning": "다가왔다",
+          "note": ""
+        },
+        {
+          "word": "in particular",
+          "meaning": "특별히, 딱 집어서",
+          "note": "여러 것 중에서 특정한 것을 말할 때 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "original": "“I need a book for my family’s reading club,” Mia admitted.",
+      "explanation": "미아는 가족 독서 모임에 쓸 책이 필요하다고 솔직하게 말했다.",
+      "vocabulary": [
+        {
+          "word": "reading club",
+          "meaning": "독서 모임",
+          "note": ""
+        },
+        {
+          "word": "admitted",
+          "meaning": "솔직히 말했다",
+          "note": "조금 망설이던 말을 털어놓는 느낌이 있다."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "original": "“What genre do you enjoy?” she asked kindly.",
+      "explanation": "사서는 친절하게 어떤 종류의 이야기를 좋아하냐고 물었다.",
+      "vocabulary": [
+        {
+          "word": "genre",
+          "meaning": "장르, 종류",
+          "note": "책, 영화, 음악 등의 종류를 말할 때 쓴다."
+        },
+        {
+          "word": "kindly",
+          "meaning": "친절하게",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "original": "“Hmm, I like mysteries,” Mia replied.",
+      "explanation": "미아는 추리 이야기를 좋아한다고 대답했다.",
+      "vocabulary": [
+        {
+          "word": "mysteries",
+          "meaning": "추리물, 미스터리 이야기",
+          "note": "범인이나 비밀을 밝혀 가는 이야기 장르이다."
+        },
+        {
+          "word": "replied",
+          "meaning": "대답했다",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "original": "The librarian handed her a book titled Café Paris and said with a smile, “You’ll love this one.”",
+      "explanation": "사서는 미아에게 《Café Paris》라는 제목의 책을 건네며, 이 책을 아주 좋아하게 될 거라고 웃으며 말했다.",
+      "vocabulary": [
+        {
+          "word": "handed",
+          "meaning": "건네주었다",
+          "note": ""
+        },
+        {
+          "word": "titled",
+          "meaning": "~라는 제목의",
+          "note": "책이나 영화 제목을 소개할 때 쓴다."
+        },
+        {
+          "word": "You’ll love this one",
+          "meaning": "너 이 책 정말 좋아할 거야",
+          "note": "상대에게 자신 있게 추천할 때 쓰는 말이다."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "original": "Mia thanked her and checked it out.",
+      "explanation": "미아는 사서에게 감사 인사를 하고 그 책을 빌렸다.",
+      "vocabulary": [
+        {
+          "word": "checked it out",
+          "meaning": "그 책을 대출했다",
+          "note": "도서관에서는 책을 빌리는 뜻으로 자주 쓴다."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "original": "Mia’s family held their first book club meeting on Saturday afternoon.",
+      "explanation": "미아의 가족은 토요일 오후에 첫 독서 모임을 열었다.",
+      "vocabulary": [
+        {
+          "word": "held",
+          "meaning": "열었다",
+          "note": "모임이나 행사를 '개최하다'라는 뜻으로 쓰인다."
+        },
+        {
+          "word": "book club meeting",
+          "meaning": "독서 모임",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "original": "Everyone enjoyed the book Mia had chosen.",
+      "explanation": "가족 모두 미아가 고른 책을 재미있게 읽었다.",
+      "vocabulary": [
+        {
+          "word": "had chosen",
+          "meaning": "골랐던",
+          "note": "과거의 어떤 시점보다 더 먼저 일어난 일을 나타낸다."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "original": "Julia was the first to speak: “Dr. Duvall nearly invented a drug for eternal life, yet disappeared one day and ended up running Café Paris. That’s such a mystery.”",
+      "explanation": "줄리아가 먼저 입을 열었다. 듀발 박사는 영원히 살게 하는 약을 거의 만들 뻔했지만, 어느 날 사라진 뒤 결국 카페 파리를 운영하게 되었다고 하며 정말 수수께끼 같다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "eternal life",
+          "meaning": "영원한 삶",
+          "note": ""
+        },
+        {
+          "word": "disappeared",
+          "meaning": "사라졌다",
+          "note": ""
+        },
+        {
+          "word": "ended up",
+          "meaning": "결국 ~하게 되었다",
+          "note": "처음 예상과 다른 결과에 이르렀을 때 자주 쓴다."
+        },
+        {
+          "word": "running",
+          "meaning": "운영하는",
+          "note": "가게나 회사를 '운영하다'라는 뜻이다."
+        },
+        {
+          "word": "mystery",
+          "meaning": "수수께끼, 미스터리",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "original": "Mia responded, her eyes sparkling, “Mom, I understand him. He always dreamed of being a barista, and his dream came true.”",
+      "explanation": "미아는 눈을 반짝이며 대답했다. 자신은 그를 이해할 수 있고, 그 사람은 늘 바리스타가 되는 꿈을 꾸었는데 그 꿈이 이루어졌다고 말했다.",
+      "vocabulary": [
+        {
+          "word": "responded",
+          "meaning": "대답했다",
+          "note": ""
+        },
+        {
+          "word": "sparkling",
+          "meaning": "반짝이는",
+          "note": "여기서는 눈빛이 살아 있고 신이 난 모습을 나타낸다."
+        },
+        {
+          "word": "dreamed of",
+          "meaning": "~을 꿈꾸었다",
+          "note": ""
+        },
+        {
+          "word": "barista",
+          "meaning": "바리스타",
+          "note": "커피를 전문적으로 만드는 사람이다."
+        },
+        {
+          "word": "came true",
+          "meaning": "이루어졌다",
+          "note": "꿈이나 바람이 실제로 이루어질 때 쓰는 표현이다."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "original": "Sam supported his daughter, and their conversation grew lively.",
+      "explanation": "샘도 딸의 말을 받아 주었고, 가족의 대화는 점점 더 활기차게 이어졌다.",
+      "vocabulary": [
+        {
+          "word": "supported",
+          "meaning": "지지했다, 맞장구쳤다",
+          "note": "여기서는 딸의 생각에 공감하며 힘을 실어 주는 뜻이다."
+        },
+        {
+          "word": "grew lively",
+          "meaning": "활기차게 되었다",
+          "note": "대화 분위기가 점점 살아나는 모습을 말한다."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "original": "During the discussion, Mia felt reconnected with her parents and already looked forward to their next book club meeting.",
+      "explanation": "이야기를 나누는 동안 미아는 부모와 다시 가까워졌다고 느꼈다. 그리고 벌써 다음 독서 모임이 기다려졌다.",
+      "vocabulary": [
+        {
+          "word": "discussion",
+          "meaning": "토론, 이야기 나눔",
+          "note": "여기서는 책에 대해 함께 이야기하는 시간을 뜻한다."
+        },
+        {
+          "word": "reconnected with",
+          "meaning": "~와 다시 가까워진",
+          "note": "끊어지거나 멀어졌던 관계가 다시 이어지는 느낌이다."
+        },
+        {
+          "word": "looked forward to",
+          "meaning": "기대했다",
+          "note": "뒤에는 보통 명사나 동명사가 온다."
+        }
+      ]
+    }
+  ],
+  "problem_number": "43"
+}
