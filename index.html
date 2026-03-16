@@ -81,6 +81,60 @@
     background: var(--accent);
     color: #fff;
   }
+
+  /* 시리즈 접기/펼치기 */
+  .series-group details {
+    width: 100%;
+  }
+
+  .series-group summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .series-group summary::-webkit-details-marker { display: none; }
+
+  .series-group summary h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .series-group summary h2::before {
+    content: "▶";
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    color: var(--text-sub);
+  }
+
+  .series-group details[open] summary h2::before {
+    transform: rotate(90deg);
+  }
+
+  .series-count {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  .series-content {
+    margin-top: 1rem;
+  }
+
+  .series-item {
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .series-item h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
 </style>
 </head>
 <body>
@@ -88,354 +142,332 @@
   <h1>청담 영어</h1>
   <p class="subtitle">문장별 해설 뷰어</p>
 
-  <div class="exam-group">
-    <h2>수능특강 2027 1강</h2>
-    <div class="page-list">
-      <a href="수특_2027_1강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_1강/페이지/01.html">01번</a>
-      <a href="수특_2027_1강/페이지/02.html">02번</a>
-      <a href="수특_2027_1강/페이지/03.html">03번</a>
-      <a href="수특_2027_1강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 2강</h2>
-    <div class="page-list">
-      <a href="수특_2027_2강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_2강/페이지/01.html">01번</a>
-      <a href="수특_2027_2강/페이지/02.html">02번</a>
-      <a href="수특_2027_2강/페이지/03.html">03번</a>
-      <a href="수특_2027_2강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 3강</h2>
-    <div class="page-list">
-      <a href="수특_2027_3강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_3강/페이지/01.html">01번</a>
-      <a href="수특_2027_3강/페이지/02.html">02번</a>
-      <a href="수특_2027_3강/페이지/03.html">03번</a>
-      <a href="수특_2027_3강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 4강</h2>
-    <div class="page-list">
-      <a href="수특_2027_4강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_4강/페이지/01.html">01번</a>
-      <a href="수특_2027_4강/페이지/02.html">02번</a>
-      <a href="수특_2027_4강/페이지/03.html">03번</a>
-      <a href="수특_2027_4강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 5강</h2>
-    <div class="page-list">
-      <a href="수특_2027_5강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_5강/페이지/01.html">01번</a>
-      <a href="수특_2027_5강/페이지/02.html">02번</a>
-      <a href="수특_2027_5강/페이지/03.html">03번</a>
-      <a href="수특_2027_5강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 6강</h2>
-    <div class="page-list">
-      <a href="수특_2027_6강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_6강/페이지/01.html">01번</a>
-      <a href="수특_2027_6강/페이지/02.html">02번</a>
-      <a href="수특_2027_6강/페이지/03.html">03번</a>
-      <a href="수특_2027_6강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 7강</h2>
-    <div class="page-list">
-      <a href="수특_2027_7강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_7강/페이지/01.html">01번</a>
-      <a href="수특_2027_7강/페이지/02.html">02번</a>
-      <a href="수특_2027_7강/페이지/03.html">03번</a>
-      <a href="수특_2027_7강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 8강</h2>
-    <div class="page-list">
-      <a href="수특_2027_8강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_8강/페이지/01.html">01번</a>
-      <a href="수특_2027_8강/페이지/02.html">02번</a>
-      <a href="수특_2027_8강/페이지/03.html">03번</a>
-      <a href="수특_2027_8강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 9강</h2>
-    <div class="page-list">
-      <a href="수특_2027_9강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_9강/페이지/01.html">01번</a>
-      <a href="수특_2027_9강/페이지/02.html">02번</a>
-      <a href="수특_2027_9강/페이지/03.html">03번</a>
-      <a href="수특_2027_9강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 10강</h2>
-    <div class="page-list">
-      <a href="수특_2027_10강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_10강/페이지/01.html">01번</a>
-      <a href="수특_2027_10강/페이지/02.html">02번</a>
-      <a href="수특_2027_10강/페이지/03.html">03번</a>
-      <a href="수특_2027_10강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 11강</h2>
-    <div class="page-list">
-      <a href="수특_2027_11강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_11강/페이지/01.html">01번</a>
-      <a href="수특_2027_11강/페이지/02.html">02번</a>
-      <a href="수특_2027_11강/페이지/03.html">03번</a>
-      <a href="수특_2027_11강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 12강</h2>
-    <div class="page-list">
-      <a href="수특_2027_12강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_12강/페이지/01.html">01번</a>
-      <a href="수특_2027_12강/페이지/02.html">02번</a>
-      <a href="수특_2027_12강/페이지/03.html">03번</a>
-      <a href="수특_2027_12강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 13강</h2>
-    <div class="page-list">
-      <a href="수특_2027_13강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_13강/페이지/01.html">01번</a>
-      <a href="수특_2027_13강/페이지/02.html">02번</a>
-      <a href="수특_2027_13강/페이지/03.html">03번</a>
-      <a href="수특_2027_13강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 14강</h2>
-    <div class="page-list">
-      <a href="수특_2027_14강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_14강/페이지/01.html">01번</a>
-      <a href="수특_2027_14강/페이지/02.html">02번</a>
-      <a href="수특_2027_14강/페이지/03.html">03번</a>
-      <a href="수특_2027_14강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 15강</h2>
-    <div class="page-list">
-      <a href="수특_2027_15강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_15강/페이지/01.html">01번</a>
-      <a href="수특_2027_15강/페이지/02.html">02번</a>
-      <a href="수특_2027_15강/페이지/03.html">03번</a>
-      <a href="수특_2027_15강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 16강</h2>
-    <div class="page-list">
-      <a href="수특_2027_16강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_16강/페이지/01.html">01번</a>
-      <a href="수특_2027_16강/페이지/02.html">02번</a>
-      <a href="수특_2027_16강/페이지/03.html">03번</a>
-      <a href="수특_2027_16강/페이지/04.html">04번</a>
-      <a href="수특_2027_16강/페이지/05.html">05번</a>
-      <a href="수특_2027_16강/페이지/06.html">06번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 17강</h2>
-    <div class="page-list">
-      <a href="수특_2027_17강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_17강/페이지/01.html">01번</a>
-      <a href="수특_2027_17강/페이지/02.html">02번</a>
-      <a href="수특_2027_17강/페이지/03.html">03번</a>
-      <a href="수특_2027_17강/페이지/04.html">04번</a>
-      <a href="수특_2027_17강/페이지/05.html">05번</a>
-      <a href="수특_2027_17강/페이지/06.html">06번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 18강</h2>
-    <div class="page-list">
-      <a href="수특_2027_18강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_18강/페이지/01.html">01번</a>
-      <a href="수특_2027_18강/페이지/02.html">02번</a>
-      <a href="수특_2027_18강/페이지/03.html">03번</a>
-      <a href="수특_2027_18강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 19강</h2>
-    <div class="page-list">
-      <a href="수특_2027_19강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_19강/페이지/01.html">01번</a>
-      <a href="수특_2027_19강/페이지/02.html">02번</a>
-      <a href="수특_2027_19강/페이지/03.html">03번</a>
-      <a href="수특_2027_19강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 20강</h2>
-    <div class="page-list">
-      <a href="수특_2027_20강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_20강/페이지/01.html">01번</a>
-      <a href="수특_2027_20강/페이지/02.html">02번</a>
-      <a href="수특_2027_20강/페이지/03.html">03번</a>
-      <a href="수특_2027_20강/페이지/04.html">04번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 21강</h2>
-    <div class="page-list">
-      <a href="수특_2027_21강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_21강/페이지/01.html">01번</a>
-      <a href="수특_2027_21강/페이지/02.html">02번</a>
-      <a href="수특_2027_21강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 22강</h2>
-    <div class="page-list">
-      <a href="수특_2027_22강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_22강/페이지/01.html">01번</a>
-      <a href="수특_2027_22강/페이지/02.html">02번</a>
-      <a href="수특_2027_22강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 23강</h2>
-    <div class="page-list">
-      <a href="수특_2027_23강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_23강/페이지/01.html">01번</a>
-      <a href="수특_2027_23강/페이지/02.html">02번</a>
-      <a href="수특_2027_23강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 24강</h2>
-    <div class="page-list">
-      <a href="수특_2027_24강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_24강/페이지/01.html">01번</a>
-      <a href="수특_2027_24강/페이지/02.html">02번</a>
-      <a href="수특_2027_24강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 25강</h2>
-    <div class="page-list">
-      <a href="수특_2027_25강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_25강/페이지/01.html">01번</a>
-      <a href="수특_2027_25강/페이지/02.html">02번</a>
-      <a href="수특_2027_25강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 26강</h2>
-    <div class="page-list">
-      <a href="수특_2027_26강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_26강/페이지/01.html">01번</a>
-      <a href="수특_2027_26강/페이지/02.html">02번</a>
-      <a href="수특_2027_26강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 27강</h2>
-    <div class="page-list">
-      <a href="수특_2027_27강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_27강/페이지/01.html">01번</a>
-      <a href="수특_2027_27강/페이지/02.html">02번</a>
-      <a href="수특_2027_27강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 28강</h2>
-    <div class="page-list">
-      <a href="수특_2027_28강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_28강/페이지/01.html">01번</a>
-      <a href="수특_2027_28강/페이지/02.html">02번</a>
-      <a href="수특_2027_28강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 29강</h2>
-    <div class="page-list">
-      <a href="수특_2027_29강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_29강/페이지/01.html">01번</a>
-      <a href="수특_2027_29강/페이지/02.html">02번</a>
-      <a href="수특_2027_29강/페이지/03.html">03번</a>
-    </div>
-  </div>
-
-  <div class="exam-group">
-    <h2>수능특강 2027 30강</h2>
-    <div class="page-list">
-      <a href="수특_2027_30강/페이지/Gateway.html">Gateway</a>
-      <a href="수특_2027_30강/페이지/01.html">01번</a>
-      <a href="수특_2027_30강/페이지/02.html">02번</a>
-      <a href="수특_2027_30강/페이지/03.html">03번</a>
-    </div>
+  <div class="exam-group series-group">
+    <details>
+      <summary><h2>수능특강 2027 <span class="series-count">30개 강</span></h2></summary>
+      <div class="series-content">
+      <div class="series-item">
+        <h3>1강</h3>
+        <div class="page-list">
+          <a href="수특_2027_1강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_1강/페이지/01.html">01번</a>
+        <a href="수특_2027_1강/페이지/02.html">02번</a>
+        <a href="수특_2027_1강/페이지/03.html">03번</a>
+        <a href="수특_2027_1강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>2강</h3>
+        <div class="page-list">
+          <a href="수특_2027_2강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_2강/페이지/01.html">01번</a>
+        <a href="수특_2027_2강/페이지/02.html">02번</a>
+        <a href="수특_2027_2강/페이지/03.html">03번</a>
+        <a href="수특_2027_2강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>3강</h3>
+        <div class="page-list">
+          <a href="수특_2027_3강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_3강/페이지/01.html">01번</a>
+        <a href="수특_2027_3강/페이지/02.html">02번</a>
+        <a href="수특_2027_3강/페이지/03.html">03번</a>
+        <a href="수특_2027_3강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>4강</h3>
+        <div class="page-list">
+          <a href="수특_2027_4강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_4강/페이지/01.html">01번</a>
+        <a href="수특_2027_4강/페이지/02.html">02번</a>
+        <a href="수특_2027_4강/페이지/03.html">03번</a>
+        <a href="수특_2027_4강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>5강</h3>
+        <div class="page-list">
+          <a href="수특_2027_5강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_5강/페이지/01.html">01번</a>
+        <a href="수특_2027_5강/페이지/02.html">02번</a>
+        <a href="수특_2027_5강/페이지/03.html">03번</a>
+        <a href="수특_2027_5강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>6강</h3>
+        <div class="page-list">
+          <a href="수특_2027_6강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_6강/페이지/01.html">01번</a>
+        <a href="수특_2027_6강/페이지/02.html">02번</a>
+        <a href="수특_2027_6강/페이지/03.html">03번</a>
+        <a href="수특_2027_6강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>7강</h3>
+        <div class="page-list">
+          <a href="수특_2027_7강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_7강/페이지/01.html">01번</a>
+        <a href="수특_2027_7강/페이지/02.html">02번</a>
+        <a href="수특_2027_7강/페이지/03.html">03번</a>
+        <a href="수특_2027_7강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>8강</h3>
+        <div class="page-list">
+          <a href="수특_2027_8강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_8강/페이지/01.html">01번</a>
+        <a href="수특_2027_8강/페이지/02.html">02번</a>
+        <a href="수특_2027_8강/페이지/03.html">03번</a>
+        <a href="수특_2027_8강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>9강</h3>
+        <div class="page-list">
+          <a href="수특_2027_9강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_9강/페이지/01.html">01번</a>
+        <a href="수특_2027_9강/페이지/02.html">02번</a>
+        <a href="수특_2027_9강/페이지/03.html">03번</a>
+        <a href="수특_2027_9강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>10강</h3>
+        <div class="page-list">
+          <a href="수특_2027_10강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_10강/페이지/01.html">01번</a>
+        <a href="수특_2027_10강/페이지/02.html">02번</a>
+        <a href="수특_2027_10강/페이지/03.html">03번</a>
+        <a href="수특_2027_10강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>11강</h3>
+        <div class="page-list">
+          <a href="수특_2027_11강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_11강/페이지/01.html">01번</a>
+        <a href="수특_2027_11강/페이지/02.html">02번</a>
+        <a href="수특_2027_11강/페이지/03.html">03번</a>
+        <a href="수특_2027_11강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>12강</h3>
+        <div class="page-list">
+          <a href="수특_2027_12강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_12강/페이지/01.html">01번</a>
+        <a href="수특_2027_12강/페이지/02.html">02번</a>
+        <a href="수특_2027_12강/페이지/03.html">03번</a>
+        <a href="수특_2027_12강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>13강</h3>
+        <div class="page-list">
+          <a href="수특_2027_13강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_13강/페이지/01.html">01번</a>
+        <a href="수특_2027_13강/페이지/02.html">02번</a>
+        <a href="수특_2027_13강/페이지/03.html">03번</a>
+        <a href="수특_2027_13강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>14강</h3>
+        <div class="page-list">
+          <a href="수특_2027_14강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_14강/페이지/01.html">01번</a>
+        <a href="수특_2027_14강/페이지/02.html">02번</a>
+        <a href="수특_2027_14강/페이지/03.html">03번</a>
+        <a href="수특_2027_14강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>15강</h3>
+        <div class="page-list">
+          <a href="수특_2027_15강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_15강/페이지/01.html">01번</a>
+        <a href="수특_2027_15강/페이지/02.html">02번</a>
+        <a href="수특_2027_15강/페이지/03.html">03번</a>
+        <a href="수특_2027_15강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>16강</h3>
+        <div class="page-list">
+          <a href="수특_2027_16강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_16강/페이지/01.html">01번</a>
+        <a href="수특_2027_16강/페이지/02.html">02번</a>
+        <a href="수특_2027_16강/페이지/03.html">03번</a>
+        <a href="수특_2027_16강/페이지/04.html">04번</a>
+        <a href="수특_2027_16강/페이지/05.html">05번</a>
+        <a href="수특_2027_16강/페이지/06.html">06번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>17강</h3>
+        <div class="page-list">
+          <a href="수특_2027_17강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_17강/페이지/01.html">01번</a>
+        <a href="수특_2027_17강/페이지/02.html">02번</a>
+        <a href="수특_2027_17강/페이지/03.html">03번</a>
+        <a href="수특_2027_17강/페이지/04.html">04번</a>
+        <a href="수특_2027_17강/페이지/05.html">05번</a>
+        <a href="수특_2027_17강/페이지/06.html">06번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>18강</h3>
+        <div class="page-list">
+          <a href="수특_2027_18강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_18강/페이지/01.html">01번</a>
+        <a href="수특_2027_18강/페이지/02.html">02번</a>
+        <a href="수특_2027_18강/페이지/03.html">03번</a>
+        <a href="수특_2027_18강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>19강</h3>
+        <div class="page-list">
+          <a href="수특_2027_19강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_19강/페이지/01.html">01번</a>
+        <a href="수특_2027_19강/페이지/02.html">02번</a>
+        <a href="수특_2027_19강/페이지/03.html">03번</a>
+        <a href="수특_2027_19강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>20강</h3>
+        <div class="page-list">
+          <a href="수특_2027_20강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_20강/페이지/01.html">01번</a>
+        <a href="수특_2027_20강/페이지/02.html">02번</a>
+        <a href="수특_2027_20강/페이지/03.html">03번</a>
+        <a href="수특_2027_20강/페이지/04.html">04번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>21강</h3>
+        <div class="page-list">
+          <a href="수특_2027_21강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_21강/페이지/01.html">01번</a>
+        <a href="수특_2027_21강/페이지/02.html">02번</a>
+        <a href="수특_2027_21강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>22강</h3>
+        <div class="page-list">
+          <a href="수특_2027_22강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_22강/페이지/01.html">01번</a>
+        <a href="수특_2027_22강/페이지/02.html">02번</a>
+        <a href="수특_2027_22강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>23강</h3>
+        <div class="page-list">
+          <a href="수특_2027_23강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_23강/페이지/01.html">01번</a>
+        <a href="수특_2027_23강/페이지/02.html">02번</a>
+        <a href="수특_2027_23강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>24강</h3>
+        <div class="page-list">
+          <a href="수특_2027_24강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_24강/페이지/01.html">01번</a>
+        <a href="수특_2027_24강/페이지/02.html">02번</a>
+        <a href="수특_2027_24강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>25강</h3>
+        <div class="page-list">
+          <a href="수특_2027_25강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_25강/페이지/01.html">01번</a>
+        <a href="수특_2027_25강/페이지/02.html">02번</a>
+        <a href="수특_2027_25강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>26강</h3>
+        <div class="page-list">
+          <a href="수특_2027_26강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_26강/페이지/01.html">01번</a>
+        <a href="수특_2027_26강/페이지/02.html">02번</a>
+        <a href="수특_2027_26강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>27강</h3>
+        <div class="page-list">
+          <a href="수특_2027_27강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_27강/페이지/01.html">01번</a>
+        <a href="수특_2027_27강/페이지/02.html">02번</a>
+        <a href="수특_2027_27강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>28강</h3>
+        <div class="page-list">
+          <a href="수특_2027_28강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_28강/페이지/01.html">01번</a>
+        <a href="수특_2027_28강/페이지/02.html">02번</a>
+        <a href="수특_2027_28강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>29강</h3>
+        <div class="page-list">
+          <a href="수특_2027_29강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_29강/페이지/01.html">01번</a>
+        <a href="수특_2027_29강/페이지/02.html">02번</a>
+        <a href="수특_2027_29강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      <div class="series-item">
+        <h3>30강</h3>
+        <div class="page-list">
+          <a href="수특_2027_30강/페이지/Gateway.html">Gateway</a>
+        <a href="수특_2027_30강/페이지/01.html">01번</a>
+        <a href="수특_2027_30강/페이지/02.html">02번</a>
+        <a href="수특_2027_30강/페이지/03.html">03번</a>
+        </div>
+      </div>
+      </div>
+    </details>
   </div>
 
   <div class="exam-group">
     <h2>고3 2025년 11월 수능</h2>
     <div class="page-list">
       <a href="고3_2025_11월_수능/페이지/18.html">18번</a>
-      <a href="고3_2025_11월_수능/페이지/19.html">19번</a>
-      <a href="고3_2025_11월_수능/페이지/20.html">20번</a>
-      <a href="고3_2025_11월_수능/페이지/21.html">21번</a>
-      <a href="고3_2025_11월_수능/페이지/22.html">22번</a>
-      <a href="고3_2025_11월_수능/페이지/23.html">23번</a>
-      <a href="고3_2025_11월_수능/페이지/24.html">24번</a>
-      <a href="고3_2025_11월_수능/페이지/29.html">29번</a>
-      <a href="고3_2025_11월_수능/페이지/30.html">30번</a>
-      <a href="고3_2025_11월_수능/페이지/31.html">31번</a>
-      <a href="고3_2025_11월_수능/페이지/32.html">32번</a>
-      <a href="고3_2025_11월_수능/페이지/33.html">33번</a>
-      <a href="고3_2025_11월_수능/페이지/34.html">34번</a>
-      <a href="고3_2025_11월_수능/페이지/35.html">35번</a>
-      <a href="고3_2025_11월_수능/페이지/36.html">36번</a>
-      <a href="고3_2025_11월_수능/페이지/37.html">37번</a>
-      <a href="고3_2025_11월_수능/페이지/38.html">38번</a>
-      <a href="고3_2025_11월_수능/페이지/39.html">39번</a>
-      <a href="고3_2025_11월_수능/페이지/40.html">40번</a>
-      <a href="고3_2025_11월_수능/페이지/41.html">41번</a>
-      <a href="고3_2025_11월_수능/페이지/43.html">43번</a>
+        <a href="고3_2025_11월_수능/페이지/19.html">19번</a>
+        <a href="고3_2025_11월_수능/페이지/20.html">20번</a>
+        <a href="고3_2025_11월_수능/페이지/21.html">21번</a>
+        <a href="고3_2025_11월_수능/페이지/22.html">22번</a>
+        <a href="고3_2025_11월_수능/페이지/23.html">23번</a>
+        <a href="고3_2025_11월_수능/페이지/24.html">24번</a>
+        <a href="고3_2025_11월_수능/페이지/29.html">29번</a>
+        <a href="고3_2025_11월_수능/페이지/30.html">30번</a>
+        <a href="고3_2025_11월_수능/페이지/31.html">31번</a>
+        <a href="고3_2025_11월_수능/페이지/32.html">32번</a>
+        <a href="고3_2025_11월_수능/페이지/33.html">33번</a>
+        <a href="고3_2025_11월_수능/페이지/34.html">34번</a>
+        <a href="고3_2025_11월_수능/페이지/35.html">35번</a>
+        <a href="고3_2025_11월_수능/페이지/36.html">36번</a>
+        <a href="고3_2025_11월_수능/페이지/37.html">37번</a>
+        <a href="고3_2025_11월_수능/페이지/38.html">38번</a>
+        <a href="고3_2025_11월_수능/페이지/39.html">39번</a>
+        <a href="고3_2025_11월_수능/페이지/40.html">40번</a>
+        <a href="고3_2025_11월_수능/페이지/41.html">41번</a>
+        <a href="고3_2025_11월_수능/페이지/43.html">43번</a>
     </div>
   </div>
 
@@ -443,26 +475,26 @@
     <h2>고2 2025년 3월 모의고사</h2>
     <div class="page-list">
       <a href="고2_2025_3월_모고/페이지/18.html">18번</a>
-      <a href="고2_2025_3월_모고/페이지/19.html">19번</a>
-      <a href="고2_2025_3월_모고/페이지/20.html">20번</a>
-      <a href="고2_2025_3월_모고/페이지/21.html">21번</a>
-      <a href="고2_2025_3월_모고/페이지/22.html">22번</a>
-      <a href="고2_2025_3월_모고/페이지/23.html">23번</a>
-      <a href="고2_2025_3월_모고/페이지/24.html">24번</a>
-      <a href="고2_2025_3월_모고/페이지/29.html">29번</a>
-      <a href="고2_2025_3월_모고/페이지/30.html">30번</a>
-      <a href="고2_2025_3월_모고/페이지/31.html">31번</a>
-      <a href="고2_2025_3월_모고/페이지/32.html">32번</a>
-      <a href="고2_2025_3월_모고/페이지/33.html">33번</a>
-      <a href="고2_2025_3월_모고/페이지/34.html">34번</a>
-      <a href="고2_2025_3월_모고/페이지/35.html">35번</a>
-      <a href="고2_2025_3월_모고/페이지/36.html">36번</a>
-      <a href="고2_2025_3월_모고/페이지/37.html">37번</a>
-      <a href="고2_2025_3월_모고/페이지/38.html">38번</a>
-      <a href="고2_2025_3월_모고/페이지/39.html">39번</a>
-      <a href="고2_2025_3월_모고/페이지/40.html">40번</a>
-      <a href="고2_2025_3월_모고/페이지/41.html">41번</a>
-      <a href="고2_2025_3월_모고/페이지/43.html">43번</a>
+        <a href="고2_2025_3월_모고/페이지/19.html">19번</a>
+        <a href="고2_2025_3월_모고/페이지/20.html">20번</a>
+        <a href="고2_2025_3월_모고/페이지/21.html">21번</a>
+        <a href="고2_2025_3월_모고/페이지/22.html">22번</a>
+        <a href="고2_2025_3월_모고/페이지/23.html">23번</a>
+        <a href="고2_2025_3월_모고/페이지/24.html">24번</a>
+        <a href="고2_2025_3월_모고/페이지/29.html">29번</a>
+        <a href="고2_2025_3월_모고/페이지/30.html">30번</a>
+        <a href="고2_2025_3월_모고/페이지/31.html">31번</a>
+        <a href="고2_2025_3월_모고/페이지/32.html">32번</a>
+        <a href="고2_2025_3월_모고/페이지/33.html">33번</a>
+        <a href="고2_2025_3월_모고/페이지/34.html">34번</a>
+        <a href="고2_2025_3월_모고/페이지/35.html">35번</a>
+        <a href="고2_2025_3월_모고/페이지/36.html">36번</a>
+        <a href="고2_2025_3월_모고/페이지/37.html">37번</a>
+        <a href="고2_2025_3월_모고/페이지/38.html">38번</a>
+        <a href="고2_2025_3월_모고/페이지/39.html">39번</a>
+        <a href="고2_2025_3월_모고/페이지/40.html">40번</a>
+        <a href="고2_2025_3월_모고/페이지/41.html">41번</a>
+        <a href="고2_2025_3월_모고/페이지/43.html">43번</a>
     </div>
   </div>
 
@@ -470,9 +502,9 @@
     <h2>고3 2025년 3월 모의고사</h2>
     <div class="page-list">
       <a href="고3_2025_3월_모고/페이지/39.html">39번</a>
-      <a href="고3_2025_3월_모고/페이지/40.html">40번</a>
-      <a href="고3_2025_3월_모고/페이지/41.html">41번</a>
-      <a href="고3_2025_3월_모고/페이지/43.html">43번</a>
+        <a href="고3_2025_3월_모고/페이지/40.html">40번</a>
+        <a href="고3_2025_3월_모고/페이지/41.html">41번</a>
+        <a href="고3_2025_3월_모고/페이지/43.html">43번</a>
     </div>
   </div>
 
@@ -480,22 +512,22 @@
     <h2>고1 2024년 3월 모의고사</h2>
     <div class="page-list">
       <a href="고1_2024_3월_모고/페이지/20.html">20번</a>
-      <a href="고1_2024_3월_모고/페이지/21.html">21번</a>
-      <a href="고1_2024_3월_모고/페이지/22.html">22번</a>
-      <a href="고1_2024_3월_모고/페이지/23.html">23번</a>
-      <a href="고1_2024_3월_모고/페이지/24.html">24번</a>
-      <a href="고1_2024_3월_모고/페이지/29.html">29번</a>
-      <a href="고1_2024_3월_모고/페이지/30.html">30번</a>
-      <a href="고1_2024_3월_모고/페이지/31.html">31번</a>
-      <a href="고1_2024_3월_모고/페이지/32.html">32번</a>
-      <a href="고1_2024_3월_모고/페이지/33.html">33번</a>
-      <a href="고1_2024_3월_모고/페이지/34.html">34번</a>
-      <a href="고1_2024_3월_모고/페이지/35.html">35번</a>
-      <a href="고1_2024_3월_모고/페이지/36.html">36번</a>
-      <a href="고1_2024_3월_모고/페이지/37.html">37번</a>
-      <a href="고1_2024_3월_모고/페이지/38.html">38번</a>
-      <a href="고1_2024_3월_모고/페이지/39.html">39번</a>
-      <a href="고1_2024_3월_모고/페이지/40.html">40번</a>
+        <a href="고1_2024_3월_모고/페이지/21.html">21번</a>
+        <a href="고1_2024_3월_모고/페이지/22.html">22번</a>
+        <a href="고1_2024_3월_모고/페이지/23.html">23번</a>
+        <a href="고1_2024_3월_모고/페이지/24.html">24번</a>
+        <a href="고1_2024_3월_모고/페이지/29.html">29번</a>
+        <a href="고1_2024_3월_모고/페이지/30.html">30번</a>
+        <a href="고1_2024_3월_모고/페이지/31.html">31번</a>
+        <a href="고1_2024_3월_모고/페이지/32.html">32번</a>
+        <a href="고1_2024_3월_모고/페이지/33.html">33번</a>
+        <a href="고1_2024_3월_모고/페이지/34.html">34번</a>
+        <a href="고1_2024_3월_모고/페이지/35.html">35번</a>
+        <a href="고1_2024_3월_모고/페이지/36.html">36번</a>
+        <a href="고1_2024_3월_모고/페이지/37.html">37번</a>
+        <a href="고1_2024_3월_모고/페이지/38.html">38번</a>
+        <a href="고1_2024_3월_모고/페이지/39.html">39번</a>
+        <a href="고1_2024_3월_모고/페이지/40.html">40번</a>
     </div>
   </div>
 

@@ -8,6 +8,7 @@ generate_index.py
 """
 
 import re
+from collections import OrderedDict
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -32,6 +33,30 @@ def _display_name(dirname: str) -> str:
     return dirname
 
 
+def _series_key(dirname: str) -> str | None:
+    """시리즈에 속하는 디렉토리이면 시리즈 키를 반환, 아니면 None."""
+    m = re.match(r"(수특_\d{4})_\d{1,2}강", dirname)
+    if m:
+        return m.group(1)
+    return None
+
+
+def _series_display(series_key: str) -> str:
+    """시리즈 키를 표시 이름으로 변환."""
+    m = re.match(r"수특_(\d{4})", series_key)
+    if m:
+        return f"수능특강 {m.group(1)}"
+    return series_key
+
+
+def _sub_label(dirname: str) -> str:
+    """시리즈 내 개별 항목의 짧은 라벨 (예: '1강')."""
+    m = re.match(r"수특_\d{4}_(\d{1,2})강", dirname)
+    if m:
+        return f"{m.group(1)}강"
+    return dirname
+
+
 def _sort_key(dirname: str):
     """연도·월(또는 강) 기준 내림차순 정렬 키."""
     m = re.match(r".+?_(\d{4})_(\d{1,2})월_", dirname)
@@ -43,6 +68,23 @@ def _sort_key(dirname: str):
     return (2, 0, 0)
 
 
+def _build_links(exam_dir: Path) -> str:
+    """페이지 디렉토리에서 링크 HTML을 생성한다."""
+    page_dir = exam_dir / "페이지"
+    html_files = sorted(
+        page_dir.glob("*.html"),
+        key=lambda f: (f.stem.isdigit(), int(f.stem) if f.stem.isdigit() else 0, f.stem),
+    )
+    if not html_files:
+        return ""
+    return "\n        ".join(
+        f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}번</a>'
+        if f.stem.isdigit()
+        else f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}</a>'
+        for f in html_files
+    )
+
+
 def generate_index(output_path: Path | None = None) -> str:
     output_path = output_path or ROOT / "index.html"
 
@@ -52,24 +94,64 @@ def generate_index(output_path: Path | None = None) -> str:
         key=lambda d: _sort_key(d.name),
     )
 
-    groups_html = ""
+    # 시리즈 그룹과 개별 항목을 순서대로 모은다
+    # OrderedDict로 시리즈 등장 순서 유지
+    entries: list[tuple[str, str | Path]] = []  # (type, data)
+    series_map: OrderedDict[str, list[Path]] = OrderedDict()
+
     for exam_dir in exam_dirs:
-        page_dir = exam_dir / "페이지"
-        html_files = sorted(
-            page_dir.glob("*.html"),
-            key=lambda f: (f.stem.isdigit(), int(f.stem) if f.stem.isdigit() else 0, f.stem),
-        )
+        sk = _series_key(exam_dir.name)
+        if sk:
+            if sk not in series_map:
+                series_map[sk] = []
+                entries.append(("series", sk))
+            series_map[sk].append(exam_dir)
+        else:
+            entries.append(("single", exam_dir))
 
-        display = _display_name(exam_dir.name)
+    groups_html = ""
+    for entry_type, data in entries:
+        if entry_type == "series":
+            series_key = data
+            members = series_map[series_key]
+            series_name = _series_display(series_key)
+            count = len(members)
 
-        if html_files:
-            links = "\n      ".join(
-                f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}번</a>'
-                if f.stem.isdigit()
-                else f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}</a>'
-                for f in html_files
-            )
+            inner_html = ""
+            for exam_dir in members:
+                links = _build_links(exam_dir)
+                label = _sub_label(exam_dir.name)
+                if links:
+                    inner_html += f"""
+      <div class="series-item">
+        <h3>{label}</h3>
+        <div class="page-list">
+          {links}
+        </div>
+      </div>"""
+                else:
+                    inner_html += f"""
+      <div class="series-item">
+        <h3>{label}</h3>
+        <p style="color: var(--text-sub); font-size: 0.9rem;">준비 중...</p>
+      </div>"""
+
             groups_html += f"""
+  <div class="exam-group series-group">
+    <details>
+      <summary><h2>{series_name} <span class="series-count">{count}개 강</span></h2></summary>
+      <div class="series-content">{inner_html}
+      </div>
+    </details>
+  </div>
+"""
+        else:
+            exam_dir = data
+            links = _build_links(exam_dir)
+            display = _display_name(exam_dir.name)
+
+            if links:
+                groups_html += f"""
   <div class="exam-group">
     <h2>{display}</h2>
     <div class="page-list">
@@ -77,8 +159,8 @@ def generate_index(output_path: Path | None = None) -> str:
     </div>
   </div>
 """
-        else:
-            groups_html += f"""
+            else:
+                groups_html += f"""
   <div class="exam-group">
     <h2>{display}</h2>
     <p style="color: var(--text-sub); font-size: 0.9rem;">준비 중...</p>
@@ -176,6 +258,60 @@ _TEMPLATE = """\
   .page-list a:hover {
     background: var(--accent);
     color: #fff;
+  }
+
+  /* 시리즈 접기/펼치기 */
+  .series-group details {
+    width: 100%;
+  }
+
+  .series-group summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .series-group summary::-webkit-details-marker { display: none; }
+
+  .series-group summary h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .series-group summary h2::before {
+    content: "▶";
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    color: var(--text-sub);
+  }
+
+  .series-group details[open] summary h2::before {
+    transform: rotate(90deg);
+  }
+
+  .series-count {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  .series-content {
+    margin-top: 1rem;
+  }
+
+  .series-item {
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .series-item h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
   }
 </style>
 </head>
