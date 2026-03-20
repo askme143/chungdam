@@ -415,7 +415,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.45);
+    background: rgba(0,0,0,.9);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -557,7 +557,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
   .wrong-summary-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.45);
+    background: rgba(0,0,0,.9);
     z-index: 200;
     display: flex;
     align-items: center;

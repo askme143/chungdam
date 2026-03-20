@@ -59,6 +59,9 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Max-Age", "86400")
         self.end_headers()
 
+    def do_GET(self):
+        self._respond(200, {"status": "ok", "usage": "POST {text1, text2} to compare similarity"})
+
     def do_POST(self):
         origin = get_origin(self.headers)
         cors = {"Access-Control-Allow-Origin": origin}
