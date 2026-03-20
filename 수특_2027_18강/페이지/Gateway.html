@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "현대 사회의 공연예술과 그 가치", "summary": "공연예술은 돈 문제로 불안정해질 때도 있지만, 현장에서만 느낄 수 있는 특별한 경험 때문에 여전히 많은 사람들에게 사랑받는다.", "sentences": [{"id": 1, "original": "In modern societies, the performing arts form a distinct category of public entertainment in opposition to the mass distribution through the media of expertly staged performances which have been recorded and edited.", "explanation": "현대 사회에서 공연예술은 대중이 즐기는 오락의 한 갈래이지만, 미디어를 통해 널리 퍼지는 녹화·편집된 공연과는 뚜렷이 구별된다. 즉, 공연예술은 화면으로 보는 완성된 공연과 다른 종류의 즐길거리라는 뜻이다.", "vocabulary": [{"word": "performing arts", "meaning": "공연예술", "note": "연극, 무용, 음악회처럼 사람들 앞에서 직접 보여 주는 예술을 말한다."}, {"word": "distinct category", "meaning": "뚜렷이 구별되는 갈래", "note": "distinct는 '분명히 다른, 뚜렷한'이라는 뜻이다."}, {"word": "mass distribution", "meaning": "대량 보급, 널리 퍼뜨림", "note": "많은 사람들에게 한꺼번에 전달되는 것을 말한다."}, {"word": "expertly staged", "meaning": "아주 능숙하게 연출된", "note": "stage는 여기서 '무대에 올리다, 연출하다'라는 뜻으로 쓰였다."}, {"word": "recorded and edited", "meaning": "녹화되고 편집된", "note": "현장에서 바로 보는 것이 아니라, 나중에 손질된 형태라는 점이 중요하다."}]}, {"id": 2, "original": "By contrast, theater, ballet, circus, concert, rodeo, storytelling, etc., unfold their signs in real space and time, and engage audiences who respond cognitively and emotionally on the spot.", "explanation": "반대로 연극, 발레, 서커스, 음악회, 로데오, 이야기 들려주기 같은 공연은 실제 공간과 실제 시간 속에서 눈앞에 펼쳐진다. 그래서 관객은 그 자리에서 바로 생각으로도 느끼고 감정으로도 반응하게 된다.", "vocabulary": [{"word": "By contrast", "meaning": "반대로, 이에 비해", "note": "앞 문장과 비교해 다른 점을 보여 줄 때 자주 쓴다."}, {"word": "unfold", "meaning": "펼쳐지다, 전개되다", "note": "공연이 시간의 흐름에 따라 눈앞에서 진행된다는 느낌을 준다."}, {"word": "engage audiences", "meaning": "관객을 끌어들이다, 몰입하게 하다", "note": "engage는 '참여하게 하다, 관심을 붙잡다'라는 뜻이다."}, {"word": "cognitively", "meaning": "생각으로, 머리로 이해하며", "note": "인지적으로라는 어려운 말 대신 '생각으로'라고 이해하면 쉽다."}, {"word": "on the spot", "meaning": "그 자리에서 바로", "note": "즉시, 현장에서라는 뜻이다."}]}, {"id": 3, "original": "Performers and audiences are involved in shared enjoyment.", "explanation": "공연자와 관객은 함께 즐거움을 나눈다. 한쪽만 보는 것이 아니라, 같은 순간을 같이 즐긴다는 뜻이다.", "vocabulary": [{"word": "performers", "meaning": "공연자들", "note": "배우, 무용수, 연주자 등 무대에 서는 사람들을 가리킨다."}, {"word": "be involved in", "meaning": "~에 함께하다, 관련되다", "note": "여기서는 같은 경험에 함께 들어가 있다는 뜻이다."}, {"word": "shared enjoyment", "meaning": "함께 나누는 즐거움", "note": "공연예술의 중요한 특징을 보여 주는 표현이다."}]}, {"id": 4, "original": "But sometimes frustration occurs within the boundaries of such ritualistic events.", "explanation": "하지만 이런 의식 같은 성격을 가진 행사 안에서는 때때로 답답함이나 실망이 생기기도 한다.", "vocabulary": [{"word": "frustration", "meaning": "답답함, 실망, 좌절감", "note": "원하는 대로 되지 않을 때 느끼는 감정이다."}, {"word": "within the boundaries of", "meaning": "~의 범위 안에서", "note": "어떤 상황이나 틀 안에서라는 뜻이다."}, {"word": "ritualistic", "meaning": "의식 같은, 정해진 형식을 따르는", "note": "ritual은 '의식, 정해진 절차'를 뜻한다."}]}, {"id": 5, "original": "In industrialized and computerized cultures, the performing arts become economically unstable because the institutions which sustain them increasingly depend on public and corporate funding.", "explanation": "산업화되고 컴퓨터 기술이 널리 쓰이는 사회에서는 공연예술이 돈 문제로 불안정해진다. 그것을 떠받치는 기관들이 점점 더 정부나 기업의 지원금에 기대기 때문이다.", "vocabulary": [{"word": "economically unstable", "meaning": "경제적으로 불안정한", "note": "돈이 꾸준히 들어오지 않아 흔들릴 수 있다는 뜻이다."}, {"word": "institutions", "meaning": "기관, 단체", "note": "극장, 예술단체, 운영 조직 등을 넓게 가리킨다."}, {"word": "sustain", "meaning": "떠받치다, 유지되게 하다", "note": "오래 계속될 수 있게 돕는다는 뜻이다."}, {"word": "depend on", "meaning": "~에 의존하다, 기대다", "note": "스스로 해결하기보다 바깥의 도움에 기대는 것이다."}, {"word": "public and corporate funding", "meaning": "정부와 기업의 자금 지원", "note": "public은 공공 부문, corporate는 기업 쪽을 뜻한다."}]}, {"id": 6, "original": "However, they retain their power of fascination for large, if not massive audiences, who prize the experiential, risk-loaded and one-time event quality they afford.", "explanation": "하지만 공연예술은 여전히 많은 사람들을 끌어당기는 힘을 가지고 있다. 사람들은 공연예술이 주는 직접 겪는 느낌, 어떤 일이 벌어질지 모르는 긴장감, 그리고 한 번 지나가면 다시 똑같이 볼 수 없는 특별함을 소중하게 여기기 때문이다.", "vocabulary": [{"word": "retain", "meaning": "여전히 지니다, 유지하다", "note": "없어지지 않고 계속 가지고 있다는 뜻이다."}, {"word": "power of fascination", "meaning": "사람을 강하게 끌어당기는 힘", "note": "fascination은 큰 흥미나 매혹을 말한다."}, {"word": "prize", "meaning": "소중하게 여기다, 높이 평가하다", "note": "명사 '상'이 아니라 동사로 쓰였다."}, {"word": "risk-loaded", "meaning": "위험 요소가 담긴, 긴장감 있는", "note": "무대에서는 실수가 날 수도 있어서 생기는 생생한 긴장감을 말한다."}, {"word": "one-time event quality", "meaning": "한 번뿐인 행사라는 성격", "note": "같은 공연이라도 매번 완전히 똑같지 않다는 뜻이다."}]}, {"id": 7, "original": "In traditional and local cultures, performances still survive and provide their audiences with a unique fulfillment in smaller scale, economically sustainable institutional settings.", "explanation": "전통 문화나 지역 문화에서는 공연이 여전히 살아남아 있다. 그리고 더 작은 규모이지만, 돈을 감당할 수 있는 운영 틀 안에서 관객에게 특별한 만족감을 준다.", "vocabulary": [{"word": "traditional and local cultures", "meaning": "전통 문화와 지역 문화", "note": "큰 산업 사회와 대비되는 배경이다."}, {"word": "survive", "meaning": "살아남다, 계속 이어지다", "note": "사라지지 않고 남아 있다는 뜻이다."}, {"word": "unique fulfillment", "meaning": "특별한 만족감", "note": "다른 것으로 쉽게 대신할 수 없는 깊은 만족을 말한다."}, {"word": "smaller scale", "meaning": "더 작은 규모", "note": "대형 공연장이나 거대한 시장이 아닌 경우를 가리킨다."}, {"word": "economically sustainable", "meaning": "돈 문제를 감당하며 오래 이어 갈 수 있는", "note": "지나치게 적자가 나지 않아 계속 운영 가능한 상태를 말한다."}]}, {"id": 8, "original": "In a situation of financial (A) due to reliance on external funding, the performing arts, which provide unique and live experiences, (B) audiences who value those experiences.", "explanation": "바깥의 자금 지원에 기대기 때문에 재정적으로 흔들릴 수 있는 상황에서도, 공연예술은 특별하고 생생한 현장 경험을 주기 때문에 그런 경험을 중요하게 여기는 관객들을 여전히 끌어당긴다는 뜻이다.", "vocabulary": [{"word": "financial", "meaning": "재정의, 돈과 관련된", "note": "경제 전반보다 '운영 자금' 문제에 더 가깝다."}, {"word": "reliance on external funding", "meaning": "외부 자금 지원에 의존함", "note": "정부, 기업, 후원금 등에 기대는 상황을 말한다."}, {"word": "unique and live experiences", "meaning": "특별하고 현장감 있는 경험", "note": "live는 '살아 있는'보다 '직접 보는 생생한' 뜻으로 이해하면 된다."}, {"word": "value", "meaning": "가치 있게 여기다", "note": "여기서는 관객이 그런 경험을 중요하게 생각한다는 뜻이다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 18강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

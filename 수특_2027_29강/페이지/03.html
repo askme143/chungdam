@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "흑인 공동체와 환경 차별의 문제", "summary": "이 글은 흑인 공동체가 인종 차별 때문에 숨 막히는 삶을 살 뿐 아니라, 환경 차별 때문에 실제로도 더 위험한 공기와 시설 가까이에서 살아가며 큰 피해를 입는다고 말한다.", "sentences": [{"id": 1, "original": "What deeply affected so many Black communities globally was not only that they could not metaphorically breathe because of the oppressive forms and limits of white supremacy, but also that so many Black communities literally cannot breathe because of environmental racism.", "explanation": "전 세계의 많은 흑인 공동체에 큰 충격을 준 것은, 백인 우월주의가 만들어 낸 억압과 여러 제한 때문에 비유적으로 숨을 쉴 수 없었다는 점만이 아니었다. 환경 차별 때문에 많은 흑인 공동체가 실제로도 편하게 숨 쉬기 어려운 상황에 놓여 있다는 점도 큰 문제였다.", "vocabulary": [{"word": "deeply affected", "meaning": "큰 영향을 주었다, 깊이 상처를 주었다", "note": "감정적으로 큰 충격이나 아픔을 주었다는 뜻으로 자주 쓰인다."}, {"word": "metaphorically", "meaning": "비유적으로", "note": "실제로가 아니라 뜻을 빗대어 말할 때 쓴다."}, {"word": "white supremacy", "meaning": "백인 우월주의", "note": "백인이 다른 인종보다 더 우월하다고 보는 차별적 생각이나 체제를 말한다."}, {"word": "literally", "meaning": "실제로, 말 그대로", "note": "metaphorically와 반대되는 느낌으로 자주 함께 나온다."}, {"word": "environmental racism", "meaning": "환경 차별", "note": "특정 인종 집단이 더 나쁜 환경과 오염 피해를 더 많이 떠안게 되는 차별을 말한다."}]}, {"id": 2, "original": "Black communities are also more likely to live near landfills, industrial plants and fossil-fuel infrastructure.", "explanation": "흑인 공동체는 쓰레기 매립지, 공장, 화석연료 관련 시설 가까운 곳에서 살게 될 가능성도 더 높다.", "vocabulary": [{"word": "landfills", "meaning": "쓰레기 매립지", "note": "쓰레기를 땅에 묻어 처리하는 장소이다."}, {"word": "industrial plants", "meaning": "산업 공장", "note": "plant는 여기서 '식물'이 아니라 큰 공장 시설을 뜻한다."}, {"word": "fossil-fuel infrastructure", "meaning": "화석연료 관련 시설", "note": "석탄, 석유, 가스 등을 생산·저장·운반하는 시설을 넓게 가리킨다."}]}, {"id": 3, "original": "While some Black Americans have started community projects to turn neglected or run-down areas into youth centers or art spaces, these efforts often face challenges because of a lack of local support and simple safety concerns.", "explanation": "일부 흑인 미국인들은 방치되었거나 많이 낡은 지역을 청소년 센터나 예술 공간으로 바꾸는 마을 프로젝트를 시작했다. 하지만 이런 노력은 지역의 도움을 충분히 받지 못하고, 기본적인 안전 문제도 있어서 자주 어려움을 겪는다.", "vocabulary": [{"word": "neglected", "meaning": "방치된, 제대로 돌보지 않은", "note": "사람이나 장소가 오랫동안 관심과 관리를 받지 못한 상태를 말한다."}, {"word": "run-down", "meaning": "낡고 허름한", "note": "건물이나 지역이 오래되어 상태가 좋지 않을 때 쓴다."}, {"word": "efforts", "meaning": "노력", "note": "여기서는 지역을 더 좋게 바꾸려는 시도를 가리킨다."}, {"word": "a lack of local support", "meaning": "지역의 도움 부족", "note": "주민, 기관, 행정 쪽의 지원이 충분하지 않다는 뜻이다."}, {"word": "safety concerns", "meaning": "안전 문제, 안전에 대한 걱정", "note": "실제로 위험할 수 있거나 위험이 걱정되는 상황을 말한다."}]}, {"id": 4, "original": "The process by which this hazardous infrastructure is deliberately situated close to African American communities is called redlining.", "explanation": "이런 위험한 시설이 흑인 공동체 가까이에 일부러 들어서게 되는 과정을 레드라이닝이라고 부른다.", "vocabulary": [{"word": "hazardous infrastructure", "meaning": "위험한 시설", "note": "사람의 건강이나 안전에 해를 줄 수 있는 시설을 말한다."}, {"word": "deliberately", "meaning": "일부러, 의도적으로", "note": "우연이 아니라 계획하거나 알고 한 행동이라는 뜻이다."}, {"word": "situated", "meaning": "자리 잡은, 위치한", "note": "be situated는 '어디에 놓여 있다'는 뜻으로 자주 쓰인다."}, {"word": "redlining", "meaning": "레드라이닝, 차별적 지역 구분", "note": "원래는 지도에 선을 그어 특정 지역을 차별하던 관행을 가리키며, 여기서는 그런 차별이 시설 배치에도 이어진다는 뜻이다."}]}, {"id": 5, "original": "This process means that fossil-fuelled power plants and hazardous-waste facilities are disproportionately and deliberately situated in Black or ethnic-minority neighbourhoods.", "explanation": "이 과정 때문에 화석연료로 돌아가는 발전소와 유해 폐기물 시설이 흑인이나 소수 민족이 사는 동네에 훨씬 더 많이, 그리고 일부러 들어서게 된다.", "vocabulary": [{"word": "fossil-fuelled power plants", "meaning": "화석연료 발전소", "note": "석탄, 석유, 가스 같은 연료를 써서 전기를 만드는 발전소이다."}, {"word": "hazardous-waste facilities", "meaning": "유해 폐기물 시설", "note": "건강에 해로운 쓰레기를 처리하거나 보관하는 시설이다."}, {"word": "disproportionately", "meaning": "지나치게 많이, 다른 곳보다 훨씬 더", "note": "비율이 공평하지 않게 한쪽에 몰려 있다는 뜻이다."}, {"word": "ethnic-minority neighbourhoods", "meaning": "소수 민족 거주 지역", "note": "주류 집단이 아닌 민족 집단이 많이 사는 동네를 말한다."}]}, {"id": 6, "original": "As a result of this, Black Americans are three times more likely to die from exposure to air pollutants than their white counterparts.", "explanation": "그 결과 흑인 미국인은 백인 미국인보다 대기 오염 물질에 노출되어 목숨을 잃을 가능성이 세 배 더 높다.", "vocabulary": [{"word": "As a result of this", "meaning": "그 결과", "note": "앞에서 말한 원인 때문에 뒤의 일이 일어났다는 연결 표현이다."}, {"word": "exposure to air pollutants", "meaning": "대기 오염 물질에 노출됨", "note": "오염된 공기나 해로운 물질을 계속 마시거나 접하게 되는 것을 말한다."}, {"word": "counterparts", "meaning": "상대 집단, 대응되는 사람들", "note": "여기서는 흑인 미국인과 비교되는 백인 미국인을 뜻한다."}]}], "problem_number": "03", "exam_info": "수특 2027 29강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "실패는 작게, 성공은 크게 보는 마음", "summary": "사람들은 스스로를 괜찮은 사람이라고 믿기 위해 실패의 중요성은 낮추고, 성공의 중요성은 크게 보는 경향이 있다.", "sentences": [{"id": 1, "original": "stories.", "explanation": "이 단어는 앞문장과 이어지는 끝부분이라, 여기만으로는 뜻이 완전하지 않습니다. 전체 흐름으로 보면 사람들은 자기 자신에 대한 이야기를 마음속으로 만들어 낸다는 뜻입니다.", "vocabulary": [{"word": "stories", "meaning": "이야기들, 자기 나름의 해석", "note": "여기서는 실제 소설 같은 이야기가 아니라, 자기 삶을 설명하는 마음속 이야기라는 뜻입니다."}]}, {"id": 2, "original": "Imagine, say, that someone fails a calculus test.", "explanation": "예를 들어, 어떤 사람이 미적분 시험에 떨어졌다고 생각해 보라는 뜻입니다.", "vocabulary": [{"word": "Imagine", "meaning": "상상해 보다", "note": "글쓴이가 예시를 들 때 자주 쓰는 표현입니다."}, {"word": "say", "meaning": "이를테면, 예를 들어", "note": "여기서는 '말하다'가 아니라 예시를 꺼낼 때 쓰였습니다."}, {"word": "fails", "meaning": "떨어지다, 낙제하다", "note": "시험을 통과하지 못했다는 뜻입니다."}, {"word": "calculus", "meaning": "미적분", "note": "수학의 한 분야입니다."}]}, {"id": 3, "original": "A common defensive response is to conclude that this test was just not that important to them.", "explanation": "사람들이 자신을 지키려고 흔히 보이는 반응은, 그 시험이 자기에게 그렇게 중요한 게 아니었다고 생각해 버리는 것입니다.", "vocabulary": [{"word": "defensive response", "meaning": "자기 자신을 지키려는 반응", "note": "비판이나 실패로 마음이 다치지 않게 하려는 태도입니다."}, {"word": "conclude", "meaning": "결론내리다, 그렇게 생각하다", "note": ""}, {"word": "not that important", "meaning": "그렇게 중요하지 않은", "note": "중요하지 않다고 강하게 말하기보다 조금 누그러진 표현입니다."}]}, {"id": 4, "original": "They may say to themselves, “Who cares about calculus anyway.", "explanation": "그들은 속으로 '어차피 미적분이 뭐가 그렇게 중요해?'라고 말할 수 있습니다.", "vocabulary": [{"word": "say to themselves", "meaning": "속으로 말하다", "note": "마음속으로 스스로에게 하는 말을 뜻합니다."}, {"word": "Who cares about ~ anyway", "meaning": "어차피 ~가 뭐가 중요해?", "note": "관심 없고 중요하지 않다고 여길 때 쓰는 말입니다."}, {"word": "calculus", "meaning": "미적분", "note": ""}]}, {"id": 5, "original": "I’m not going to become a mathematician.”", "explanation": "또 '나는 수학자가 될 것도 아니잖아'라고 생각할 수 있다는 뜻입니다.", "vocabulary": [{"word": "become", "meaning": "~이 되다", "note": ""}, {"word": "mathematician", "meaning": "수학자", "note": ""}]}, {"id": 6, "original": "In contrast, people will typically show the precise opposite pattern for their successes and will interpret those events as being of outsize importance.", "explanation": "반대로 사람들은 성공했을 때는 정반대로 행동하는 경우가 많습니다. 그 일을 아주 크게 중요하다고 받아들입니다.", "vocabulary": [{"word": "In contrast", "meaning": "반대로", "note": ""}, {"word": "precise opposite pattern", "meaning": "정확히 반대되는 모습", "note": "앞에서 말한 실패 때의 반응과 완전히 반대라는 뜻입니다."}, {"word": "interpret", "meaning": "이해하다, 해석하다", "note": ""}, {"word": "outsize importance", "meaning": "지나치게 큰 중요성", "note": "실제보다 더 크게 중요하다고 보는 느낌입니다."}]}, {"id": 7, "original": "Much research in social psychology has documented some of the key strategies that people rely upon in defending the belief I am good.", "explanation": "사회심리학의 많은 연구는 사람들이 '나는 괜찮은 사람이다'라는 믿음을 지키기 위해 어떤 중요한 방법들을 쓰는지 보여 주었습니다.", "vocabulary": [{"word": "social psychology", "meaning": "사회심리학", "note": "사람이 다른 사람이나 사회 속에서 어떻게 생각하고 행동하는지 살피는 학문입니다."}, {"word": "documented", "meaning": "분명히 보여 주었다, 기록해 두었다", "note": "연구로 확인했다는 뜻입니다."}, {"word": "rely upon", "meaning": "의지하다, 기대다", "note": ""}, {"word": "defending the belief", "meaning": "믿음을 지키는 것", "note": "여기서는 자기 자신에 대한 좋은 생각을 지키는 뜻입니다."}]}, {"id": 8, "original": "For example, when people perform poorly at something, they tend to trivialize their failures.", "explanation": "예를 들어, 사람들이 어떤 일을 잘 못했을 때는 자기 실패를 별것 아닌 것처럼 여기는 경향이 있습니다.", "vocabulary": [{"word": "perform poorly", "meaning": "잘하지 못하다", "note": "시험, 일, 과제 등에서 결과가 좋지 않다는 뜻입니다."}, {"word": "tend to", "meaning": "~하는 경향이 있다", "note": ""}, {"word": "trivialize", "meaning": "별것 아닌 것처럼 여기다", "note": "중요성을 일부러 낮춰 보는 뜻입니다."}, {"word": "failures", "meaning": "실패들", "note": ""}]}, {"id": 9, "original": "This trivialization disarms those failures and prevents them from overwriting their life", "explanation": "이렇게 실패를 가볍게 보면, 그 실패가 주는 상처가 약해집니다. 그리고 그 실패가 자기 삶 전체를 덮어 버리지 못하게 막아 줍니다.", "vocabulary": [{"word": "trivialization", "meaning": "별것 아닌 것처럼 여김", "note": "앞문장의 trivialize에서 나온 말입니다."}, {"word": "disarms", "meaning": "힘을 빼다, 위협을 약하게 만들다", "note": "원래는 무장을 풀게 한다는 뜻인데, 여기서는 실패의 타격을 줄인다는 뜻입니다."}, {"word": "prevents A from -ing", "meaning": "A가 ~하지 못하게 막다", "note": ""}, {"word": "overwriting", "meaning": "덮어써 버림", "note": "컴퓨터에서 파일을 덮어쓰는 느낌처럼, 다른 중요한 것을 밀어내 버린다는 뜻입니다."}]}, {"id": 10, "original": "So if someone aces a calculus test, they may think to themselves about how crucial calculus is for their future career success and how it’s key to getting into graduate school or getting a highly desired job as an engineer or a financial analyst.", "explanation": "그래서 누군가가 미적분 시험을 아주 잘 보면, 속으로 미적분이 자기 미래 직업 성공에 정말 중요하다고 생각할 수 있습니다. 또 대학원에 들어가거나 엔지니어, 금융 분석가 같은 아주 원하는 직업을 얻는 데 꼭 필요하다고 여길 수 있습니다.", "vocabulary": [{"word": "aces", "meaning": "아주 잘 보다, 만점에 가깝게 해내다", "note": "시험을 매우 잘 봤다는 뜻의 구어체 표현입니다."}, {"word": "crucial", "meaning": "매우 중요한", "note": ""}, {"word": "graduate school", "meaning": "대학원", "note": ""}, {"word": "highly desired job", "meaning": "매우 원하는 직업", "note": ""}, {"word": "financial analyst", "meaning": "금융 분석가", "note": "돈, 투자, 회사 재무 등을 분석하는 일을 하는 사람입니다."}]}, {"id": 11, "original": "By titrating how importantly people view their successes and failures, they can shape their emotional reactions to these events in a way that enables them to tell a more convincing story that I am good.", "explanation": "사람들은 자기 성공과 실패를 얼마나 중요하게 볼지 조금씩 조절합니다. 그러면 그 일에 대한 자기 감정 반응도 바꿀 수 있습니다. 그 결과 '나는 괜찮은 사람이다'라는 이야기를 스스로 더 믿기 쉽게 만들 수 있습니다.", "vocabulary": [{"word": "titrating", "meaning": "조금씩 조절함", "note": "원래는 화학에서 양을 조금씩 맞추는 말인데, 여기서는 중요도를 세밀하게 조절한다는 뜻입니다."}, {"word": "view", "meaning": "보다, 여기다", "note": "여기서는 '생각하다, 판단하다'에 가깝습니다."}, {"word": "shape", "meaning": "만들다, 바꾸다", "note": "형태를 잡듯이 감정 반응을 바꾼다는 뜻입니다."}, {"word": "emotional reactions", "meaning": "감정 반응", "note": ""}, {"word": "convincing", "meaning": "믿을 만한, 더 그럴듯한", "note": ""}]}], "problem_number": "03", "exam_info": "수특 2027 28강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

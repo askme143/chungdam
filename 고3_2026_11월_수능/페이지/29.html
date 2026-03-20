@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "사람이 똑똑해도 혼자서는 다 알 수 없는 이유", "summary": "사람은 똑똑하지만 혼자 힘만으로는 살아가는 데 필요한 모든 지식을 만들 수 없어서, 다른 사람에게 배우며 지식을 쌓아 간다.", "sentences": [{"id": 1, "original": "We are exceptionally smart, and this helps us adapt to a wide range of environments.", "explanation": "사람은 아주 똑똑하다. 그래서 여러 가지 다른 환경에 맞게 잘 살아갈 수 있다.", "vocabulary": [{"word": "exceptionally", "meaning": "유난히, 아주 뛰어나게", "note": "강조할 때 쓰는 말이다."}, {"word": "adapt to", "meaning": "~에 맞추다, ~에 적응하다", "note": "환경이나 상황이 바뀔 때 자주 쓰는 표현이다."}, {"word": "a wide range of", "meaning": "아주 다양한, 폭넓은", "note": "뒤에 종류나 범위가 넓은 것이 온다."}, {"word": "environments", "meaning": "환경들", "note": "자연환경뿐 아니라 사람이 사는 여러 조건도 가리킬 수 있다."}]}, {"id": 2, "original": "But we are not nearly smart enough as individuals to solve the adaptive problems that confronted modern humans as they spread across the globe.", "explanation": "하지만 한 사람씩 따로 보면, 사람들은 세계 곳곳으로 퍼져 나가며 마주친 살아남기 위한 어려움들을 혼자 풀 만큼 충분히 똑똑하지는 않다.", "vocabulary": [{"word": "not nearly ... enough", "meaning": "전혀 충분히 ~하지 않은", "note": "생각보다 많이 부족하다는 뜻을 강하게 말할 때 쓴다."}, {"word": "as individuals", "meaning": "개인으로서는, 한 사람씩 보면", "note": "집단이 아니라 각 사람을 따로 볼 때 쓰는 말이다."}, {"word": "adaptive problems", "meaning": "환경에 맞춰 살아가기 위한 문제들", "note": "여기서는 살아남고 잘 살기 위해 풀어야 하는 어려움을 뜻한다."}, {"word": "confronted", "meaning": "맞닥뜨렸다, 마주했다", "note": "confront의 과거형이다."}, {"word": "spread across the globe", "meaning": "전 세계로 퍼져 나가다", "note": "the globe는 '지구, 세계'라는 뜻이다."}]}, {"id": 3, "original": "The package of tools, foraging techniques, ecological knowledge, and social arrangements used by any group of foragers is far too complex for any individual to create.", "explanation": "어떤 채집 생활 집단이 쓰는 도구, 먹을 것을 찾는 방법, 자연에 대한 지식, 함께 살아가는 방식은 한 사람이 혼자 만들어 내기에는 너무 복잡하다.", "vocabulary": [{"word": "package", "meaning": "한데 묶인 것, 한 묶음", "note": "여기서는 여러 요소가 함께 모인 전체를 뜻한다."}, {"word": "foraging techniques", "meaning": "먹을 것을 찾아 얻는 방법", "note": "foraging은 자연에서 식량을 찾는 일을 말한다."}, {"word": "ecological knowledge", "meaning": "자연환경에 대한 지식", "note": "동식물, 날씨, 땅 같은 환경에 대한 앎을 가리킨다."}, {"word": "social arrangements", "meaning": "사회적 생활 방식, 함께 사는 규칙과 짜임", "note": "집단 안에서 사람들이 역할을 나누고 살아가는 방식을 뜻한다."}, {"word": "far too complex", "meaning": "너무나 복잡한", "note": "too complex보다 더 강한 표현이다."}]}, {"id": 4, "original": "We are able to learn all the things we need to know in each of the many different environments in which we live only because we acquire information from others.", "explanation": "우리가 여러 다른 환경에서 살아가면서 꼭 알아야 할 것들을 배울 수 있는 이유는, 다른 사람에게서 정보를 얻기 때문이다.", "vocabulary": [{"word": "be able to", "meaning": "~할 수 있다", "note": "can과 비슷하지만 조금 더 풀어서 말하는 느낌이다."}, {"word": "acquire", "meaning": "얻다, 배워서 가지게 되다", "note": "책이나 경험, 다른 사람을 통해 지식이나 기술을 얻을 때 자주 쓴다."}, {"word": "information from others", "meaning": "다른 사람에게서 얻는 정보", "note": "이 글에서는 개인이 아닌 사회를 통해 배우는 것을 강조한다."}, {"word": "in which we live", "meaning": "우리가 그 안에서 사는", "note": "앞의 environments를 꾸며 주는 관계절이다."}]}, {"id": 5, "original": "We are much better at learning from others than other species are, and we are motivated to learn from others even when we do not understand why our models are doing what they are doing.", "explanation": "사람은 다른 종들보다 남에게서 배우는 데 훨씬 더 뛰어나다. 또 우리가 따라 배우는 사람이 왜 그렇게 하는지 잘 몰라도, 여전히 그 사람에게서 배우려는 마음이 생긴다.", "vocabulary": [{"word": "species", "meaning": "종", "note": "생물의 종류를 나눌 때 쓰는 말이다."}, {"word": "motivated to", "meaning": "~하려는 마음이 생긴, ~하고 싶어 하는", "note": "무언가를 하게 만드는 힘이나 마음을 말한다."}, {"word": "models", "meaning": "본보기로 삼는 사람들", "note": "여기서는 수학 모형이 아니라 따라 배우는 대상을 뜻한다."}, {"word": "even when", "meaning": "~할 때조차, ~인데도", "note": "예상과 다른 상황을 강조할 때 쓴다."}]}, {"id": 6, "original": "This psychology allows human populations to accumulate pools of adaptive information that greatly exceed the inventive capacities of individuals.", "explanation": "이런 마음의 성향 덕분에 사람 집단은 환경에 맞게 살아가는 데 필요한 지식을 계속 쌓을 수 있다. 그래서 그 지식의 양은 한 사람이 혼자 생각해 낼 수 있는 수준을 훨씬 넘어서게 된다.", "vocabulary": [{"word": "psychology", "meaning": "마음의 작동 방식, 심리", "note": "여기서는 사람이 배우고 따라 하려는 성향을 가리킨다."}, {"word": "accumulate", "meaning": "쌓다, 모아 가다", "note": "시간이 지나며 조금씩 늘어나는 느낌이 있다."}, {"word": "pools of adaptive information", "meaning": "환경에 맞게 살아가는 데 도움이 되는 지식의 큰 모음", "note": "pool은 여기서 '모여 있는 큰 덩어리'라는 뜻이다."}, {"word": "exceed", "meaning": "넘다, 뛰어넘다", "note": "양이나 수준이 더 크다는 뜻이다."}, {"word": "inventive capacities", "meaning": "새롭게 생각해 내는 능력", "note": "individuals의 inventive capacities는 한 사람이 혼자 발명하거나 생각해 내는 힘을 말한다."}]}], "problem_number": "29", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "30.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

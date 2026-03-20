@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "현대 작사가와 언어의 발전", "summary": "이 글은 현대 작사가들도 언어와 문학을 풍부하게 만드는 데 큰 몫을 했지만, 그 가치가 문학 연구에서 제대로 인정받지 못했다고 말한다.", "sentences": [{"id": 1, "original": "The study of literature has repeatedly failed to recognize the influence of modern musical lyricists and their contributions to the evolution of language.", "explanation": "문학을 연구하는 사람들은 현대 음악의 작사가들이 끼친 영향과, 이들이 언어가 자라나고 바뀌는 데 보탠 점을 자꾸 제대로 알아보지 못했다는 뜻이다.", "vocabulary": [{"word": "failed to recognize", "meaning": "제대로 알아보지 못했다, 인정하지 못했다", "note": "여기서는 단순히 '못 봤다'가 아니라 중요성을 인정하지 않았다는 뜻에 가깝다."}, {"word": "lyricists", "meaning": "작사가들", "note": "songwriters와 비슷하지만, 특히 노랫말을 쓰는 사람을 가리킨다."}, {"word": "contributions", "meaning": "기여, 보탬", "note": "어떤 발전이나 변화에 도움을 준 것을 말한다."}, {"word": "evolution of language", "meaning": "언어의 발전과 변화", "note": "언어가 시간에 따라 자라고 달라지는 과정을 뜻한다."}]}, {"id": 2, "original": "Unlike Shakespeare, who has been studied and celebrated for his development of the English language, particularly in vocabulary and grammatical structure, modern songwriters have experienced restraints on the acknowledgement of their contributions and largely been ignored.", "explanation": "셰익스피어는 영어의 낱말과 문장 짜임을 발전시킨 사람으로 널리 연구되고 높이 평가받아 왔다. 하지만 현대의 작곡가 겸 작사가들은 자신들의 공로를 인정받는 데 여러 막힘이 있었고, 대체로 무시되어 왔다는 말이다.", "vocabulary": [{"word": "Unlike", "meaning": "~와는 다르게", "note": "두 대상을 비교하며 차이를 보여 줄 때 쓴다."}, {"word": "celebrated", "meaning": "높이 평가받는, 널리 칭찬받는", "note": "유명하다는 뜻도 있지만, 여기서는 업적을 인정받는다는 뜻이 더 강하다."}, {"word": "grammatical structure", "meaning": "문법 구조, 문장 짜임", "note": "문장이 어떤 규칙으로 이루어지는지를 말한다."}, {"word": "restraints", "meaning": "제한, 막는 힘", "note": "자유롭게 인정받지 못하게 하는 사회적·문화적 장벽을 가리킨다."}, {"word": "acknowledgement", "meaning": "인정", "note": "공로나 가치를 공식적으로 알아주는 것을 뜻한다."}]}, {"id": 3, "original": "Over the past century, we have witnessed an explosion of incredible literary works by these artists, who, through their music, have used linguistic manipulation and storytelling to enrich our language and literature.", "explanation": "지난 100년 동안 우리는 이 예술가들이 놀라운 문학 작품을 아주 많이 만들어 내는 모습을 보아 왔다. 이들은 음악을 통해 말을 여러 방식으로 다루고 이야기를 풀어내면서, 우리의 언어와 문학을 더 풍성하게 만들었다.", "vocabulary": [{"word": "witnessed", "meaning": "목격했다, 지켜보았다", "note": "직접 눈으로 봤다는 뜻뿐 아니라, 어떤 변화를 겪어 왔다는 뜻으로도 자주 쓴다."}, {"word": "an explosion of", "meaning": "폭발적인 증가, 엄청나게 많아짐", "note": "수나 양이 갑자기 크게 늘어났다는 비유적 표현이다."}, {"word": "linguistic manipulation", "meaning": "언어를 여러 방식으로 다루는 것", "note": "말의 소리, 뜻, 표현법을 의도적으로 잘 활용하는 것을 말한다."}, {"word": "storytelling", "meaning": "이야기 풀어내기", "note": "단순히 이야기를 쓰는 것이 아니라, 듣는 사람을 끌어들이게 전하는 방식을 포함한다."}, {"word": "enrich", "meaning": "더 풍성하게 만들다", "note": "내용이나 표현을 더 깊고 다양하게 만든다는 뜻이다."}]}, {"id": 4, "original": "Producing lyrics of distinct and complex imagery, songwriters have had an incredible literary impact on our language.", "explanation": "작사가들은 뚜렷하고도 복잡한 장면이 떠오르는 노랫말을 만들어 왔고, 그 결과 우리의 언어에 문학적으로 아주 큰 영향을 주었다는 뜻이다.", "vocabulary": [{"word": "distinct", "meaning": "뚜렷한, 분명한", "note": "다른 것과 잘 구별될 만큼 선명하다는 뜻이다."}, {"word": "complex imagery", "meaning": "복잡하고 풍부한 이미지 표현", "note": "머릿속에 그림처럼 떠오르게 하는 표현이 여러 겹으로 담긴 것을 말한다."}, {"word": "literary impact", "meaning": "문학적 영향", "note": "문학의 표현 방식이나 가치에 끼친 영향을 뜻한다."}]}, {"id": 5, "original": "Their remarkable works, including influences on modern language development, must be recognized in the field of modern literature.", "explanation": "현대 언어가 자라고 바뀌는 데 끼친 영향까지 포함해서, 이들의 뛰어난 작품은 현대 문학의 분야 안에서 꼭 인정받아야 한다는 말이다.", "vocabulary": [{"word": "remarkable", "meaning": "뛰어난, 눈에 띄는", "note": "좋은 점이 분명해서 그냥 지나치기 어려운 상태를 말한다."}, {"word": "including", "meaning": "~을 포함하여", "note": "뒤에 오는 내용을 앞의 범위 안에 넣어 설명할 때 쓴다."}, {"word": "modern language development", "meaning": "현대 언어의 발전", "note": "오늘날 언어가 바뀌고 자라나는 과정을 뜻한다."}, {"word": "recognized", "meaning": "인정받다", "note": "가치나 중요성을 공식적으로 받아들여지는 것을 말한다."}, {"word": "field of modern literature", "meaning": "현대 문학 분야", "note": "현대 문학을 연구하고 다루는 영역을 뜻한다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 5강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

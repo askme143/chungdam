@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "디지털 플랫폼이 바꾼 일자리의 이동", "summary": "디지털 플랫폼 때문에 일이 더 잘게 나뉘고 어디서나 맡길 수 있게 되면서, 회사는 특정 지역에 남지 않고도 전 세계 사람들에게 일을 줄 수 있게 되었다.", "sentences": [{"id": 1, "original": "Digital platforms have made a lot of work less sticky.", "explanation": "디지털 플랫폼은 많은 일을 한곳에 붙어 있게 하지 않게 만들었다. 즉, 일이 특정 회사나 지역에 꼭 묶여 있지 않게 되었다는 뜻이다.", "vocabulary": [{"word": "digital platforms", "meaning": "디지털 플랫폼, 온라인에서 일이나 거래가 이루어지는 서비스", "note": "예: Upwork, Fiverr 같은 일자리 연결 사이트"}, {"word": "sticky", "meaning": "쉽게 떨어지지 않는, 한곳에 붙어 있는", "note": "여기서는 일이 특정 장소나 관계에 묶여 있다는 뜻으로 쓰였다"}]}, {"id": 2, "original": "As work becomes ever more modularised, commoditised and standardised, and as markets for digital work are created, ties between service work and particular places can be disconnected.", "explanation": "일이 점점 더 작은 단위로 나뉘고, 비슷한 상품처럼 다뤄지며, 같은 방식으로 맞춰질수록 디지털 일을 사고파는 시장도 생긴다. 그러면 서비스 일이 꼭 어떤 특정 지역과 이어져 있을 필요가 없어질 수 있다.", "vocabulary": [{"word": "modularised", "meaning": "작은 부분들로 나뉜", "note": "큰 일을 여러 조각으로 나눠 따로 처리할 수 있게 만든 상태이다"}, {"word": "commoditised", "meaning": "서로 비슷한 상품처럼 다뤄진", "note": "특별한 차이보다 가격과 속도로 비교되기 쉬운 상태를 말한다"}, {"word": "standardised", "meaning": "같은 기준에 맞춰진", "note": "일하는 방식이나 결과물이 비슷해지는 것을 뜻한다"}, {"word": "ties", "meaning": "연결, 관계", "note": "여기서는 일과 장소 사이의 이어짐을 말한다"}, {"word": "disconnected", "meaning": "끊어질 수 있는, 떨어질 수 있는", "note": ""}]}, {"id": 3, "original": "While the business process of outsourcing that emerged in the 1990s allowed large companies to take advantage of a ‘global reserve army’ by moving their call centres to cheap and distant labour markets, cloudwork changes the volume and granularity at which geographically non-proximate work can take place.", "explanation": "1990년대에 퍼진 외주 방식은 큰 회사들이 콜센터를 값싼 먼 나라의 노동시장으로 옮겨서 전 세계의 많은 노동력을 이용하게 해 주었다. 그런데 클라우드 노동은 여기서 더 나아가, 멀리 떨어진 사람들과 하는 일을 훨씬 더 많이, 그리고 더 잘게 나눈 단위로도 가능하게 바꿔 놓았다.", "vocabulary": [{"word": "outsourcing", "meaning": "외주, 바깥 회사나 사람에게 일을 맡김", "note": ""}, {"word": "take advantage of", "meaning": "이용하다, 잘 활용하다", "note": "문맥에 따라 긍정적일 수도 있고 부정적일 수도 있다"}, {"word": "global reserve army", "meaning": "전 세계의 값싼 예비 노동력", "note": "원래 경제·노동 이야기에서 쓰이는 표현이다"}, {"word": "cloudwork", "meaning": "클라우드 노동, 인터넷 플랫폼을 통해 온라인으로 맡기고 하는 일", "note": ""}, {"word": "granularity", "meaning": "세분화된 정도, 얼마나 잘게 나뉘어 있는지", "note": "여기서는 일을 아주 작은 단위로 쪼개 맡길 수 있다는 뜻이다"}]}, {"id": 4, "original": "A small business in New York can hire a freelance transcriber in Nairobi one day and New Delhi the next.", "explanation": "뉴욕의 작은 회사도 하루는 나이로비에 있는 프리랜서 녹취사를 고용하고, 다음 날은 뉴델리에 있는 사람을 고용할 수 있다. 그만큼 사람을 지역에 상관없이 쉽게 바꿔가며 쓸 수 있다는 뜻이다.", "vocabulary": [{"word": "small business", "meaning": "작은 회사, 소규모 사업체", "note": ""}, {"word": "freelance", "meaning": "프리랜서의, 회사에 소속되지 않은", "note": ""}, {"word": "transcriber", "meaning": "녹취사, 음성을 글로 옮기는 사람", "note": "인터뷰, 회의, 영상 내용을 글로 적는 일을 한다"}]}, {"id": 5, "original": "No offices or factories need to be built, no local regulations are observed, and — in most cases — no local taxes are paid.", "explanation": "사무실이나 공장을 새로 지을 필요도 없다. 그 지역의 규칙을 따르지 않아도 되고, 대부분의 경우 그 지역에 세금도 내지 않는다.", "vocabulary": [{"word": "regulations", "meaning": "규칙, 법규", "note": "정부나 지역이 정한 지켜야 할 기준이다"}, {"word": "are observed", "meaning": "지켜진다, 준수된다", "note": "observe는 여기서 '관찰하다'가 아니라 '규칙을 지키다'라는 뜻이다"}, {"word": "local taxes", "meaning": "지방세, 그 지역에 내는 세금", "note": ""}]}, {"id": 6, "original": "The switch in the production network of work happens by simply sending some emails or clicking some buttons on a digital work platform.", "explanation": "이런 일 배치의 변화는 아주 쉽게 일어난다. 이메일 몇 통을 보내거나 디지털 노동 플랫폼에서 버튼 몇 번만 누르면, 일이 돌아가는 연결 구조가 다른 곳으로 바뀐다.", "vocabulary": [{"word": "switch", "meaning": "전환, 바뀜", "note": "여기서는 일이 배정되는 방식이 바뀌는 것을 말한다"}, {"word": "production network", "meaning": "생산 네트워크, 일이 이루어지는 연결 구조", "note": "사람, 회사, 지역이 어떻게 연결되어 일을 만드는지 가리킨다"}, {"word": "digital work platform", "meaning": "디지털 노동 플랫폼", "note": "온라인에서 일감을 올리고 사람을 구하는 서비스이다"}]}, {"id": 7, "original": "And, in this way, the employer leaves behind no material traces in the places where it was once an employer.", "explanation": "그래서 이런 방식에서는 회사가 예전에 고용주였던 지역에 눈에 보이는 흔적을 거의 남기지 않는다. 건물이나 설비 같은 것도 없고, 그곳과 이어진 자취도 약해진다.", "vocabulary": [{"word": "leaves behind", "meaning": "남기다", "note": "어떤 흔적이나 결과를 뒤에 두고 간다는 뜻이다"}, {"word": "material traces", "meaning": "물질적인 흔적, 눈에 보이는 자취", "note": "건물, 시설, 장비처럼 실제로 남는 것을 말한다"}, {"word": "employer", "meaning": "고용주, 사람을 고용하는 쪽", "note": ""}]}], "problem_number": "21", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "22.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

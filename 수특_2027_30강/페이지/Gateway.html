@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "천연 꿀과 블렌딩 꿀의 차이", "summary": "이 글은 천연 꿀이 무엇인지 설명하고, 사람들이 맛과 판매를 위해 여러 종류의 꿀을 섞는 이유를 알려 준다.", "sentences": [{"id": 1, "original": "Honey can be eaten by itself or mixed with other ingredients.", "explanation": "꿀은 그냥 그대로 먹을 수도 있고, 다른 재료와 섞어서 먹을 수도 있다.", "vocabulary": [{"word": "by itself", "meaning": "그 자체로, 그냥 그대로", "note": "음식이 다른 것 없이 단독으로 쓰일 때 자주 쓴다."}, {"word": "ingredients", "meaning": "재료", "note": "요리나 식품을 만들 때 들어가는 것들을 말한다."}, {"word": "mixed with", "meaning": "~와 섞인, ~와 섞어서", "note": "mix A with B 형태로 많이 쓴다."}]}, {"id": 2, "original": "Natural or pure honey has had no additives, preservatives or synthetic ingredients added.", "explanation": "천연 꿀이나 순수한 꿀에는 첨가물, 보존제, 인공 재료가 들어가지 않았다.", "vocabulary": [{"word": "natural", "meaning": "천연의", "note": "자연 그대로라는 뜻으로 자주 쓰인다."}, {"word": "pure", "meaning": "순수한", "note": "다른 것이 섞이지 않았다는 뜻이다."}, {"word": "additives", "meaning": "첨가물", "note": "맛이나 색, 상태를 바꾸려고 더하는 물질이다."}, {"word": "preservatives", "meaning": "보존제", "note": "음식이 상하지 않게 넣는 물질이다."}, {"word": "synthetic ingredients", "meaning": "인공 재료", "note": "자연에서 바로 얻은 것이 아니라 사람이 만들어 낸 재료를 말한다."}]}, {"id": 3, "original": "Also referred to as ‘undiluted’, it is usually more expensive than diluted honeys.", "explanation": "이런 꿀은 ‘희석하지 않은 꿀’이라고도 불리며, 보통 물이나 다른 것을 섞은 꿀보다 더 비싸다.", "vocabulary": [{"word": "referred to as", "meaning": "~라고 불리는", "note": "이름이나 표현을 소개할 때 자주 쓰는 말이다."}, {"word": "undiluted", "meaning": "희석하지 않은", "note": "물이나 다른 것을 타서 묽게 하지 않은 상태이다."}, {"word": "diluted", "meaning": "희석된", "note": "원래보다 묽어지도록 다른 것을 섞은 상태이다."}]}, {"id": 4, "original": "Natural honey can also be called ‘blended honey’, which honeys from various sources are blended together—not by the bees, but by human processors and distributors in stages after the honey has been collected.", "explanation": "천연 꿀은 ‘블렌딩 꿀’이라고도 불릴 수 있다. 이것은 여러 곳에서 나온 꿀을 함께 섞은 꿀이라는 뜻이다. 다만 이 일은 벌이 하는 것이 아니라, 꿀을 거둔 뒤에 가공업자와 유통업자가 여러 단계에 걸쳐 한다.", "vocabulary": [{"word": "blended honey", "meaning": "여러 종류를 섞은 꿀", "note": "서로 다른 원산지나 종류의 꿀을 섞은 것을 말한다."}, {"word": "various sources", "meaning": "여러 출처, 여러 곳", "note": "여기서는 꿀이 나온 서로 다른 지역이나 꽃 종류를 뜻한다."}, {"word": "processors", "meaning": "가공업자", "note": "원재료를 손질하거나 가공하는 사람이나 회사를 말한다."}, {"word": "distributors", "meaning": "유통업자", "note": "상품을 여러 곳에 나누어 보내고 파는 일을 하는 사람이나 회사를 말한다."}, {"word": "in stages", "meaning": "여러 단계에 걸쳐", "note": "한 번에 하지 않고 단계적으로 한다는 뜻이다."}]}, {"id": 5, "original": "Blending is frequently done for taste as well as marketing reasons, especially since some consumers find the darker honeys too strong.", "explanation": "꿀을 섞는 일은 맛 때문이기도 하고, 잘 팔기 위해서이기도 하다. 특히 어떤 소비자들은 색이 더 진한 꿀의 맛이 너무 강하다고 느끼기 때문이다.", "vocabulary": [{"word": "Blending", "meaning": "섞기, 혼합", "note": "여러 종류를 함께 섞는 일을 말한다."}, {"word": "marketing reasons", "meaning": "판매를 위한 이유", "note": "사람들이 더 잘 사게 하려는 목적을 뜻한다."}, {"word": "consumers", "meaning": "소비자", "note": "물건을 사서 쓰는 사람들이다."}, {"word": "darker honeys", "meaning": "색이 더 진한 꿀", "note": "보통 맛도 더 강하게 느껴질 수 있다."}, {"word": "too strong", "meaning": "너무 강한", "note": "여기서는 맛이나 향이 지나치게 진하다는 뜻이다."}]}, {"id": 6, "original": "Mixing different types of honey together can make it more palatable, and also gives a more uniform flavour—this is an important consideration for producers and retailers, who feel the need to guarantee reliable, unsurprising (typically mild) flavours to their customers.", "explanation": "서로 다른 종류의 꿀을 섞으면 더 먹기 편한 맛이 날 수 있다. 또 맛을 더 비슷하고 일정하게 만들 수도 있다. 이것은 생산자와 판매자에게 중요한 문제이다. 그들은 손님에게 늘 비슷하고 무난한, 보통은 순한 맛을 보여 주어야 한다고 생각하기 때문이다.", "vocabulary": [{"word": "palatable", "meaning": "먹기 좋은, 입에 맞는", "note": "맛이 너무 세지 않아서 많은 사람이 편하게 먹을 수 있다는 느낌이다."}, {"word": "uniform flavour", "meaning": "고른 맛, 일정한 맛", "note": "제품마다 맛 차이가 크지 않은 상태를 말한다."}, {"word": "consideration", "meaning": "중요하게 생각할 점", "note": "결정을 할 때 꼭 따져 봐야 하는 점이라는 뜻이다."}, {"word": "retailers", "meaning": "소매상, 판매자", "note": "소비자에게 직접 물건을 파는 가게나 사람을 말한다."}, {"word": "guarantee", "meaning": "보장하다", "note": "어떤 상태가 꼭 되도록 약속한다는 뜻이다."}]}, {"id": 7, "original": "Clover is one of the most popular honeys in the U.S., and its mild flavour and taste have become familiar to many Americans.", "explanation": "클로버 꿀은 미국에서 가장 인기 있는 꿀 가운데 하나이다. 그리고 그 순한 향과 맛은 많은 미국 사람들에게 익숙해졌다.", "vocabulary": [{"word": "Clover", "meaning": "클로버 꿀", "note": "클로버 꽃에서 얻은 꿀을 말한다."}, {"word": "mild", "meaning": "순한", "note": "맛이나 향이 세지 않고 부드럽다는 뜻이다."}, {"word": "familiar to", "meaning": "~에게 익숙한", "note": "자주 접해서 낯설지 않다는 뜻이다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 30강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

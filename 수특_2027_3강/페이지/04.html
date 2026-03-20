@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "비판적으로 생각하기를 두려워하는 이유", "summary": "사람들은 생각하는 일이 힘들어서만이 아니라, 자기 믿음이 흔들릴까 봐 두려워서 깊이 생각하지 않기도 한다. 하지만 생각은 우리 자신과 세상에 큰 영향을 준다.", "sentences": [{"id": 1, "original": "People may not think critically for a variety of reasons, such as laziness and inability, but fear is a big one.", "explanation": "사람들이 비판적으로 생각하지 않는 데에는 여러 가지 이유가 있다. 게으름이나 능력 부족도 있지만, 그중에서도 두려움이 아주 큰 이유라는 뜻이다.", "vocabulary": [{"word": "think critically", "meaning": "비판적으로 생각하다", "note": "그냥 받아들이지 않고, 이유와 근거를 따져 보며 생각하는 것이다."}, {"word": "for a variety of reasons", "meaning": "여러 가지 이유로", "note": ""}, {"word": "inability", "meaning": "할 수 없음, 능력 부족", "note": "ability(능력)의 반대말이다."}, {"word": "a big one", "meaning": "큰 이유 하나, 아주 큰 원인", "note": "여기서는 여러 이유 가운데 특히 중요한 하나를 가리킨다."}]}, {"id": 2, "original": "Why is that?", "explanation": "왜 그런지 묻는 말이다. 바로 앞에서 말한 ‘두려움’이 왜 큰 이유인지 설명하려고 한다.", "vocabulary": [{"word": "Why is that?", "meaning": "왜 그럴까?", "note": "앞에서 한 말을 받아서 이유를 물을 때 자주 쓰는 표현이다."}]}, {"id": 3, "original": "People don’t want to think not just because it’s hard, but also because they’re afraid it will make them question their long-held beliefs.", "explanation": "사람들이 생각하기를 싫어하는 것은 단지 어렵기 때문만은 아니다. 오래 믿어 온 생각이나 믿음을 스스로 의심하게 될까 봐 두렵기 때문이기도 하다.", "vocabulary": [{"word": "not just because A, but also because B", "meaning": "A 때문만이 아니라 B 때문이기도 하다", "note": "이유를 두 가지로 이어 말할 때 쓰는 표현이다."}, {"word": "question", "meaning": "의심하다, 따져 보다", "note": "명사로는 ‘질문’이지만 여기서는 동사로 쓰였다."}, {"word": "long-held beliefs", "meaning": "오랫동안 가져 온 믿음", "note": "long-held는 ‘오래 유지해 온’이라는 뜻이다."}]}, {"id": 4, "original": "Your students most likely do want to think about things that can be very controversial, like politics, ethics, and philosophy.", "explanation": "여러분의 학생들은 정치, 윤리, 철학처럼 의견이 크게 갈릴 수 있는 주제도 아마 정말 생각해 보고 싶어 할 것이다.", "vocabulary": [{"word": "most likely", "meaning": "아마, 십중팔구", "note": ""}, {"word": "controversial", "meaning": "논란이 많은, 의견이 갈리는", "note": "사람들 생각이 크게 나뉘는 주제를 말한다."}, {"word": "ethics", "meaning": "윤리", "note": "무엇이 옳고 그른지에 대한 생각과 기준을 다루는 분야이다."}, {"word": "philosophy", "meaning": "철학", "note": "삶, 지식, 세계 같은 큰 질문을 깊이 생각하는 학문이다."}]}, {"id": 5, "original": "But probe even deeper.", "explanation": "하지만 거기서 멈추지 말고 더 깊이 파고들어 보라는 뜻이다.", "vocabulary": [{"word": "probe", "meaning": "깊이 파고들다, 자세히 살펴보다", "note": "겉만 보지 않고 안쪽까지 알아보려는 느낌이 있다."}, {"word": "even deeper", "meaning": "더 깊이", "note": ""}]}, {"id": 6, "original": "Once we start thinking deeply, long-held assumptions are challenged.", "explanation": "우리가 깊이 생각하기 시작하면, 오랫동안 당연하다고 여겨 온 생각들이 흔들리기 시작한다.", "vocabulary": [{"word": "Once", "meaning": "일단 ~하면, ~하자마자", "note": "어떤 일이 시작된 뒤 이어지는 일을 말할 때 쓴다."}, {"word": "long-held assumptions", "meaning": "오랫동안 당연하다고 믿어 온 생각", "note": "assumption은 증거 없이 당연하다고 여기는 생각이다."}, {"word": "are challenged", "meaning": "도전을 받다, 흔들리다", "note": "여기서는 ‘맞는지 다시 따져 보게 되다’라는 뜻에 가깝다."}]}, {"id": 7, "original": "Thought makes us worry that we’ll lose our balance and have to look at the world in a different way.", "explanation": "생각을 깊이 하면, 우리가 마음의 중심을 잃고 세상을 전과 다른 눈으로 봐야 할지도 모른다는 걱정이 생긴다.", "vocabulary": [{"word": "Thought", "meaning": "생각하는 일, 사고", "note": "여기서는 단순한 생각 하나가 아니라 ‘깊이 생각하는 활동’을 가리킨다."}, {"word": "lose our balance", "meaning": "균형을 잃다", "note": "여기서는 몸의 균형보다 마음의 안정이나 익숙한 기준이 흔들리는 뜻이다."}, {"word": "look at the world in a different way", "meaning": "세상을 다른 방식으로 보다", "note": "생각과 관점이 바뀐다는 말이다."}]}, {"id": 8, "original": "We worry about thinking because we care about what we and other people think.", "explanation": "우리는 자신과 다른 사람들이 어떻게 생각하는지를 중요하게 여기기 때문에, 생각하는 일 자체를 걱정하게 된다.", "vocabulary": [{"word": "worry about", "meaning": "~을 걱정하다", "note": ""}, {"word": "care about", "meaning": "중요하게 여기다, 신경 쓰다", "note": ""}, {"word": "what we and other people think", "meaning": "우리와 다른 사람들이 하는 생각", "note": "자기 생각과 남의 시선을 모두 뜻한다."}]}, {"id": 9, "original": "Even the most far-fetched ideas have an effect on the world.", "explanation": "아무리 터무니없어 보이는 생각이라도 세상에는 영향을 미친다는 뜻이다.", "vocabulary": [{"word": "far-fetched", "meaning": "터무니없는, 믿기 어려운", "note": "너무 이상해서 쉽게 받아들이기 어려운 생각을 말한다."}, {"word": "have an effect on", "meaning": "~에 영향을 미치다", "note": ""}]}, {"id": 10, "original": "Non-Euclidean geometry and symbolic logic are about as abstract as thinking can get, but you can’t understand Einsteinian gravity without the first and run computers without the second.", "explanation": "비유클리드 기하학과 기호 논리는 생각할 수 있는 것들 가운데 아주 추상적인 편이다. 하지만 앞의 것 없이는 아인슈타인의 중력을 이해할 수 없고, 뒤의 것 없이는 컴퓨터를 작동하게 할 수 없다.", "vocabulary": [{"word": "Non-Euclidean geometry", "meaning": "비유클리드 기하학", "note": "우리가 보통 배우는 유클리드 기하학과 다른 규칙을 다루는 기하학이다."}, {"word": "symbolic logic", "meaning": "기호 논리", "note": "말 대신 기호를 써서 논리를 다루는 방법이다."}, {"word": "abstract", "meaning": "추상적인", "note": "눈에 바로 보이거나 손에 잡히지 않고, 생각 속 개념에 가까운 것을 말한다."}, {"word": "Einsteinian gravity", "meaning": "아인슈타인의 중력 이론", "note": "상대성 이론과 이어지는 중력에 대한 생각이다."}, {"word": "the first / the second", "meaning": "앞의 것 / 뒤의 것", "note": "여기서는 각각 Non-Euclidean geometry와 symbolic logic을 가리킨다."}]}, {"id": 11, "original": "Thinking is important to us, to others, and to the world we live in.", "explanation": "생각하는 일은 우리 자신에게도 중요하고, 다른 사람들에게도 중요하며, 우리가 살아가는 세상에도 중요하다.", "vocabulary": [{"word": "important to", "meaning": "~에게 중요하다", "note": ""}, {"word": "the world we live in", "meaning": "우리가 살아가는 세상", "note": ""}]}, {"id": 12, "original": "This is one reason why we are so afraid of it: it shakes us to the core.", "explanation": "이것이 우리가 생각을 그렇게 두려워하는 이유 중 하나다. 생각은 우리를 아주 깊은 곳까지 흔들어 놓기 때문이다.", "vocabulary": [{"word": "one reason why", "meaning": "~한 이유 중 하나", "note": ""}, {"word": "afraid of", "meaning": "~을 두려워하는", "note": ""}, {"word": "shake to the core", "meaning": "아주 깊이 흔들어 놓다", "note": "마음속 가장 깊은 부분까지 큰 충격을 준다는 뜻이다."}]}], "problem_number": "04", "exam_info": "수특 2027 3강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "수업 토론에서 필기의 중요성", "summary": "수업 토론은 학생이 적극적으로 생각하고 말하는 자리이며, 이때 필기는 내용을 정리하고 더 잘 참여하도록 도와주는 중요한 도구이다.", "sentences": [{"id": 1, "original": "The purpose of class discussions is to encourage you to be an active participant, not a passive recorder.", "explanation": "수업 토론의 목적은 학생이 가만히 받아 적기만 하는 사람이 아니라, 스스로 참여하는 사람이 되게 하는 데 있다.", "vocabulary": [{"word": "purpose", "meaning": "목적", "note": "왜 그것을 하는지 나타내는 말이다."}, {"word": "encourage", "meaning": "용기를 주다, 하게 이끌다", "note": "여기서는 어떤 행동을 하도록 이끈다는 뜻이다."}, {"word": "active participant", "meaning": "적극적으로 참여하는 사람", "note": "participant는 '참여자'라는 뜻이다."}, {"word": "passive recorder", "meaning": "수동적으로 받아 적기만 하는 사람", "note": "passive는 '스스로 하지 않는', recorder는 여기서 '기록하는 사람'이라는 뜻이다."}]}, {"id": 2, "original": "Much of the emphasis in a discussion is on getting students involved in thinking, reacting, and responding.", "explanation": "토론에서는 학생들이 생각하고, 반응하고, 자기 말을 하도록 만드는 데 큰 비중을 둔다.", "vocabulary": [{"word": "emphasis", "meaning": "강조, 중요하게 두는 점", "note": "무엇을 특히 중요하게 보는지 말할 때 쓴다."}, {"word": "get students involved in", "meaning": "학생들이 ~에 참여하게 하다", "note": "involved는 '직접 들어와 함께하는' 느낌이다."}, {"word": "reacting", "meaning": "반응하기", "note": "들은 내용에 대해 느낌이나 생각을 보이는 것이다."}, {"word": "responding", "meaning": "대답하기, 응답하기", "note": "react보다 조금 더 직접적으로 말이나 행동으로 답하는 느낌이 있다."}]}, {"id": 3, "original": "These are important intellectual activities in the learning process, for through them you are supposed to discover and express your opinions.", "explanation": "이런 일들은 배우는 과정에서 아주 중요한 생각 활동이다. 이런 과정을 통해 학생은 자기 생각을 찾아내고 말로 표현해야 한다.", "vocabulary": [{"word": "intellectual activities", "meaning": "생각하는 활동", "note": "어려운 지식 활동이라는 뜻보다, 머리를 써서 생각하는 활동으로 이해하면 된다."}, {"word": "learning process", "meaning": "배우는 과정", "note": ""}, {"word": "through them", "meaning": "그것들을 통해", "note": "앞에서 말한 thinking, reacting, responding을 가리킨다."}, {"word": "be supposed to", "meaning": "~해야 하다, ~하기로 되어 있다", "note": "기대되거나 당연한 일을 말할 때 자주 쓴다."}, {"word": "express your opinions", "meaning": "자기 의견을 표현하다", "note": "opinion은 '의견, 생각'이다."}]}, {"id": 4, "original": "Writing is an invaluable tool for accomplishing these tasks.", "explanation": "글쓰기는 이런 일들을 해내는 데 매우 값진 도구이다.", "vocabulary": [{"word": "invaluable", "meaning": "매우 소중한, 아주 큰 가치가 있는", "note": "겉으로는 '값을 매길 수 없는'이지만, 실제로는 '아주 귀중한' 뜻으로 많이 쓴다."}, {"word": "tool", "meaning": "도구", "note": "여기서는 실제 연장이 아니라 도움이 되는 수단이라는 뜻이다."}, {"word": "accomplishing", "meaning": "해내기, 이루기", "note": "accomplish는 목표나 일을 끝내서 이루다는 뜻이다."}, {"word": "tasks", "meaning": "해야 할 일들", "note": "앞에서 말한 생각하기, 반응하기, 의견 말하기 같은 일을 가리킨다."}]}, {"id": 5, "original": "Unfortunately, too many times, when class discussion begins, pens and pencils go down.", "explanation": "안타깝게도 수업 토론이 시작되면 많은 경우 학생들은 펜이나 연필을 내려놓고 필기를 멈춘다.", "vocabulary": [{"word": "Unfortunately", "meaning": "안타깝게도", "note": ""}, {"word": "too many times", "meaning": "너무 자주, 지나치게 많은 경우에", "note": "자주 일어나는 좋지 않은 일을 말할 때 쓴다."}, {"word": "go down", "meaning": "내려놓다", "note": "여기서는 펜과 연필을 손에서 내려놓는다는 뜻이다."}]}, {"id": 6, "original": "Admittedly, it is considerably more difficult to take notes from discussions than from lectures, for, unlike lectures, discussions tend to be disorganized and difficult to follow.", "explanation": "물론 토론 내용을 들으면서 필기하는 일은 강의를 들으며 필기하는 것보다 훨씬 더 어렵다. 강의와 달리 토론은 내용이 정리되지 않은 채 흘러가기 쉽고, 따라가기도 어렵기 때문이다.", "vocabulary": [{"word": "Admittedly", "meaning": "물론, 인정하건대", "note": "상대의 말이나 사실을 어느 정도 받아들이며 말할 때 쓴다."}, {"word": "considerably", "meaning": "상당히, 꽤 많이", "note": "정도 차이가 크다는 뜻을 더해 준다."}, {"word": "take notes", "meaning": "필기하다", "note": ""}, {"word": "lectures", "meaning": "강의", "note": ""}, {"word": "disorganized", "meaning": "정리되지 않은, 뒤죽박죽인", "note": "organized의 반대말이다."}]}, {"id": 7, "original": "Also, students usually don’t know how much of what other students are saying is important.", "explanation": "또 학생들은 다른 학생들이 하는 말 가운데 무엇이 얼마나 중요한지 보통 바로 판단하기 어렵다.", "vocabulary": [{"word": "how much of", "meaning": "~의 얼마나 많은 부분", "note": "전체 중에서 어느 정도를 말하는 표현이다."}, {"word": "what other students are saying", "meaning": "다른 학생들이 하고 있는 말", "note": "what은 여기서 '…하는 것'이라는 뜻으로 쓰였다."}, {"word": "important", "meaning": "중요한", "note": ""}]}, {"id": 8, "original": "And if you are an active participant, it is not easy to take notes and formulate what you want to say.", "explanation": "그리고 자신이 적극적으로 토론에 참여하고 있다면, 필기를 하면서 동시에 무슨 말을 할지 생각을 정리하는 일은 쉽지 않다.", "vocabulary": [{"word": "active participant", "meaning": "적극적으로 참여하는 사람", "note": ""}, {"word": "take notes", "meaning": "필기하다", "note": ""}, {"word": "formulate", "meaning": "생각을 말로 정리하다", "note": "머릿속 생각을 분명한 말이나 문장으로 만드는 뜻이다."}, {"word": "what you want to say", "meaning": "자기가 하고 싶은 말", "note": ""}]}, {"id": 9, "original": "But note taking in discussions is not only manageable, it is also important.", "explanation": "하지만 토론 중 필기는 불가능한 일이 아니다. 충분히 해낼 수 있고, 또 중요하기도 하다.", "vocabulary": [{"word": "note taking", "meaning": "필기", "note": ""}, {"word": "manageable", "meaning": "해낼 수 있는, 감당할 수 있는", "note": "너무 어렵지 않아서 처리할 수 있다는 뜻이다."}, {"word": "not only A, it is also B", "meaning": "A일 뿐만 아니라 B이기도 하다", "note": "두 가지 점을 함께 강조하는 표현이다."}]}, {"id": 10, "original": "Note taking helps to keep you active and alert; it allows you to impose some organization on the discussion; and it can prepare you to speak.", "explanation": "필기는 학생이 계속 적극적으로 깨어 있게 도와준다. 또 토론 내용을 어느 정도 정리해서 볼 수 있게 해 준다. 그리고 나중에 자기 말을 할 준비도 하게 해 준다.", "vocabulary": [{"word": "alert", "meaning": "정신이 또렷한, 집중하고 있는", "note": "졸리거나 멍한 상태가 아니라 바로 반응할 수 있는 상태를 말한다."}, {"word": "impose some organization on", "meaning": "~에 어느 정도 질서를 잡다", "note": "흩어진 내용을 스스로 정리해 틀을 세운다는 뜻이다."}, {"word": "discussion", "meaning": "토론", "note": ""}, {"word": "prepare you to speak", "meaning": "말할 준비를 하게 하다", "note": "자기 의견을 더 잘 말할 수 있게 돕는다는 뜻이다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 25강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

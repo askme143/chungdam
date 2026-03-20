@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "이야기가 공감하는 힘을 키우는 이유", "summary": "이야기는 사람의 마음과 생각을 이해하게 도와주고, 소설을 깊이 읽을수록 다른 사람에게 더 공감하고 실제 행동으로도 더 잘 돕게 된다는 내용이다.", "sentences": [{"id": 1, "original": "Through stories we can explore the human condition and see how other people think.", "explanation": "우리는 이야기를 통해 사람이 어떻게 살아가고 느끼는지 살펴볼 수 있다. 또 다른 사람들이 어떤 생각을 하는지도 이해할 수 있다.", "vocabulary": [{"word": "Through stories", "meaning": "이야기를 통해", "note": "through는 '~을 통해'라는 뜻으로 방법을 나타낸다."}, {"word": "the human condition", "meaning": "인간의 삶의 모습, 인간이라는 존재의 공통된 처지", "note": "문학이나 철학에서 자주 나오는 표현이다."}, {"word": "explore", "meaning": "깊이 살펴보다, 알아보다", "note": "단순히 '탐험하다'만이 아니라 생각이나 주제를 자세히 알아볼 때도 쓴다."}]}, {"id": 2, "original": "This can affirm our own beliefs and perceptions, but it also challenges them.", "explanation": "이런 경험은 우리가 원래 믿고 있던 생각이나 세상을 보는 방식을 맞다고 느끼게 해 줄 수 있다. 하지만 때로는 그런 생각에 질문을 던지고 다시 생각하게 만들기도 한다.", "vocabulary": [{"word": "affirm", "meaning": "옳다고 느끼게 하다, 확인해 주다", "note": "자신의 생각이나 믿음을 더 굳게 하게 만드는 뜻으로 쓰였다."}, {"word": "beliefs", "meaning": "믿음, 생각", "note": "종교적 믿음뿐 아니라 개인이 옳다고 여기는 생각도 포함한다."}, {"word": "perceptions", "meaning": "인식, 바라보는 방식", "note": "사물이나 상황을 어떻게 보고 이해하는지를 말한다."}, {"word": "challenge", "meaning": "의문을 제기하다, 다시 생각하게 하다", "note": "여기서는 '도전하다'보다 '기존 생각을 흔들다'에 가깝다."}]}, {"id": 3, "original": "Regardless of the language, there is something universal about what occurs in the brain at the point when we are processing narratives, triggering better self-awareness and empathy for others.", "explanation": "어떤 언어로 된 이야기이든, 우리가 이야기를 이해하는 순간 뇌에서는 공통으로 일어나는 일이 있다. 그 과정은 자기 자신을 더 잘 알게 하고, 다른 사람에게 공감하는 마음도 키워 준다.", "vocabulary": [{"word": "Regardless of", "meaning": "~와 상관없이", "note": "뒤에 명사나 명사구가 온다."}, {"word": "universal", "meaning": "보편적인, 모두에게 공통된", "note": "여러 나라나 사람에게 널리 공통되는 뜻이다."}, {"word": "processing narratives", "meaning": "이야기를 이해하고 받아들이는 것", "note": "process는 정보를 머릿속에서 다루고 이해하는 뜻으로 자주 쓰인다."}, {"word": "self-awareness", "meaning": "자기 이해, 자기 자신을 아는 마음", "note": "자신의 감정이나 생각을 알아차리는 힘을 말한다."}, {"word": "empathy", "meaning": "공감", "note": "다른 사람의 감정이나 처지를 함께 느끼고 이해하는 것이다."}]}, {"id": 4, "original": "Psychologists scanned people listening to narratives in English, Farsi, and Mandarin, and found the same patterns of brain activation when people found meaning in the stories.", "explanation": "심리학자들은 영어, 페르시아어, 중국어로 된 이야기를 듣는 사람들의 뇌를 살펴보았다. 그리고 사람들이 이야기에서 뜻을 이해할 때, 언어가 달라도 비슷한 뇌 활동이 나타난다는 것을 알아냈다.", "vocabulary": [{"word": "scanned", "meaning": "스캔했다, 자세히 살펴보았다", "note": "여기서는 뇌를 기계로 촬영하거나 측정했다는 뜻이다."}, {"word": "narratives", "meaning": "이야기, 서사", "note": "story와 비슷하지만 조금 더 글이나 말로 전해지는 이야기라는 느낌이 있다."}, {"word": "Farsi", "meaning": "페르시아어", "note": "이란에서 주로 쓰는 언어이다."}, {"word": "Mandarin", "meaning": "중국어 표준어", "note": "보통 중국의 표준 중국어를 가리킨다."}, {"word": "brain activation", "meaning": "뇌 활성, 뇌가 활발히 움직이는 상태", "note": "특정 일을 할 때 뇌의 어떤 부분이 더 활발해지는 것을 말한다."}]}, {"id": 5, "original": "Other studies find that reading fiction significantly increases empathy toward others, including people of a different race or religion.", "explanation": "다른 연구들에 따르면, 소설을 읽는 것은 다른 사람에게 공감하는 마음을 크게 늘려 준다. 그 대상에는 인종이나 종교가 다른 사람들도 포함된다.", "vocabulary": [{"word": "fiction", "meaning": "소설, 꾸며 낸 이야기", "note": "사실을 그대로 적은 글이 아니라 상상으로 만든 이야기이다."}, {"word": "significantly", "meaning": "크게, 눈에 띄게", "note": "변화의 정도가 분명하다는 뜻이다."}, {"word": "empathy toward others", "meaning": "다른 사람들에 대한 공감", "note": "toward는 '~을 향한'이라는 뜻이다."}, {"word": "race", "meaning": "인종", "note": "사람들을 피부색이나 혈통 같은 기준으로 나눈 집단을 말한다."}, {"word": "religion", "meaning": "종교", "note": "기독교, 불교, 이슬람교 같은 믿음 체계를 말한다."}]}, {"id": 6, "original": "And the more absorbed in a story a reader is, the more empathetically they behave in real life.", "explanation": "그리고 독자가 이야기에 더 깊이 빠져들수록, 실제 생활에서도 다른 사람의 마음을 더 헤아리며 행동한다.", "vocabulary": [{"word": "absorbed in", "meaning": "~에 푹 빠진", "note": "어떤 일에 마음이 깊이 끌려 집중한 상태를 말한다."}, {"word": "empathetically", "meaning": "공감하며, 남의 마음을 헤아리며", "note": "empathy의 부사형이다."}, {"word": "behave", "meaning": "행동하다", "note": "어떤 태도나 방식으로 움직이는 것을 뜻한다."}, {"word": "in real life", "meaning": "실제 생활에서", "note": "이야기 속이 아니라 현실에서라는 뜻이다."}]}, {"id": 7, "original": "For instance, if the researcher “accidentally” dropped his pens, those participants who had previously reported being “highly absorbed” in the story were about twice as likely to help pick up the pens.", "explanation": "예를 들어, 연구자가 일부러 실수한 것처럼 펜을 떨어뜨렸을 때가 있었다. 그 전에 자신이 이야기에 아주 깊이 빠졌다고 말한 참가자들은 펜을 주워 주는 행동을 할 가능성이 거의 두 배였다.", "vocabulary": [{"word": "For instance", "meaning": "예를 들어", "note": "예시를 들 때 자주 쓰는 표현이다."}, {"word": "accidentally", "meaning": "우연히, 실수로", "note": "여기서는 따옴표가 있어서 정말 실수라기보다 연구를 위한 설정임을 보여 준다."}, {"word": "participants", "meaning": "참가자들", "note": "실험이나 연구에 참여한 사람들을 말한다."}, {"word": "previously reported", "meaning": "이전에 말했다, 앞서 보고했다", "note": "실험 전에 자신의 상태를 답한 것을 뜻한다."}, {"word": "twice as likely", "meaning": "두 배 정도 더 그럴 가능성이 있는", "note": "가능성을 비교할 때 쓰는 표현이다."}]}, {"id": 8, "original": "Another study concluded that literary fiction “uniquely engages the psychological processes needed to gain access to characters’ subjective experiences.”", "explanation": "또 다른 연구는 문학성이 있는 소설이 등장인물의 개인적인 느낌과 경험을 이해하는 데 필요한 마음의 작용을 특별하게 잘 움직인다고 보았다.", "vocabulary": [{"word": "concluded", "meaning": "결론지었다", "note": "연구 끝에 이런 판단을 내렸다는 뜻이다."}, {"word": "literary fiction", "meaning": "문학 소설", "note": "줄거리만 빠르게 읽는 이야기보다 인물의 마음, 표현, 주제를 더 중요하게 다루는 소설을 가리킨다."}, {"word": "uniquely engages", "meaning": "특별하게 작동하게 한다, 유난히 깊이 끌어낸다", "note": "다른 종류의 글보다 더 두드러지게 영향을 준다는 뜻이다."}, {"word": "psychological processes", "meaning": "마음속 작용, 심리 과정", "note": "생각하고 느끼고 이해하는 마음의 움직임을 말한다."}, {"word": "subjective experiences", "meaning": "개인이 느끼는 주관적인 경험", "note": "남이 겉으로 바로 볼 수 없는, 그 사람 안에서 느끼는 경험이다."}]}, {"id": 9, "original": "That is to say, if you read novels, you can probably .", "explanation": "즉, 소설을 읽으면 다른 인물의 마음속 경험을 더 잘 이해하게 된다는 뜻이다. 다만 원문 마지막은 문장이 끝나지 않아, 뒤에 결론이 더 이어졌어야 한다.", "vocabulary": [{"word": "That is to say", "meaning": "즉, 다시 말해", "note": "앞의 내용을 쉽게 풀어 다시 설명할 때 쓴다."}, {"word": "novels", "meaning": "장편 소설들, 소설", "note": "fiction의 한 종류로, 보통 길이가 있는 이야기책을 말한다."}, {"word": "probably", "meaning": "아마, 꽤 그럴 가능성이 높게", "note": "확실하진 않지만 가능성이 높다는 뜻이다."}]}], "problem_number": "03", "exam_info": "수특 2027 26강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

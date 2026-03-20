@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "국제 갈등을 보는 두 가지 틀", "summary": "국가 지도자들은 국제 갈등을 볼 때 세상을 너무 단순하게 보는 틀에 기대는 일이 많고, 이런 틀은 상황에 따라 맞을 때도 있고 틀릴 때도 있다.", "sentences": [{"id": 1, "original": "Political psychologist Philip Tetlock examined the speeches made by policymakers involved in international conflicts.", "explanation": "정치 심리를 연구한 필립 테틀록은 국제 갈등에 관련된 정책 결정자들이 한 연설을 살펴보았다.", "vocabulary": [{"word": "political psychologist", "meaning": "정치 심리학자", "note": "정치와 사람의 생각, 판단을 함께 연구하는 사람이다."}, {"word": "examined", "meaning": "자세히 살펴보았다", "note": "단순히 보는 것이 아니라 내용을 분석하며 본다는 뜻이다."}, {"word": "policymakers", "meaning": "정책 결정자들", "note": "정부에서 중요한 방침을 정하는 사람들을 가리킨다."}, {"word": "involved in", "meaning": "~에 관련된", "note": "어떤 일에 직접 연결되거나 참여한 상태를 말한다."}]}, {"id": 2, "original": "He noted that, in making important decisions, national leaders often fall back on overly simplified images of the world.", "explanation": "그는 국가 지도자들이 중요한 결정을 할 때 세상을 너무 단순하게 그린 생각에 자주 기대곤 한다고 말했다.", "vocabulary": [{"word": "noted", "meaning": "지적했다", "note": "글이나 연구에서 중요한 점을 말할 때 자주 쓴다."}, {"word": "fall back on", "meaning": "~에 의지하다, ~로 돌아가다", "note": "어려울 때 익숙한 생각이나 방법에 기대는 뜻이다."}, {"word": "overly simplified", "meaning": "지나치게 단순화된", "note": "너무 간단하게 만들어서 중요한 부분이 빠진 상태를 말한다."}, {"word": "images of the world", "meaning": "세상을 보는 틀, 세상에 대한 머릿속 그림", "note": "여기서는 실제 그림이 아니라 세상을 이해하는 방식이다."}]}, {"id": 3, "original": "During the Cold War between the United States and the Soviet Union, for example, two very simple images of the conflict were dominant.", "explanation": "예를 들어 미국과 소련 사이의 냉전 동안에는 그 갈등을 설명하는 아주 단순한 두 가지 생각이 널리 힘을 가졌다.", "vocabulary": [{"word": "Cold War", "meaning": "냉전", "note": "미국과 소련이 직접 크게 싸우지는 않았지만 오랫동안 강하게 맞섰던 시기이다."}, {"word": "conflict", "meaning": "갈등, 충돌", "note": "나라와 나라 사이의 대립에도 자주 쓰인다."}, {"word": "dominant", "meaning": "지배적인, 가장 힘이 큰", "note": "많은 사람에게 가장 크게 받아들여진다는 뜻이다."}]}, {"id": 4, "original": "One of these was the deterrence view — that any sign of weakness would be taken advantage of by the opponent and that leaders needed to show their willingness to use military force.", "explanation": "그중 하나는 억지력 관점이었다. 이 생각은 약한 모습을 조금이라도 보이면 상대가 그것을 이용할 것이고, 그래서 지도자들은 군사력을 쓸 뜻이 있다는 것을 보여 주어야 한다고 본다.", "vocabulary": [{"word": "deterrence view", "meaning": "억지력 관점", "note": "상대가 공격하지 못하게 힘을 보여 주어 막는다는 생각이다."}, {"word": "sign of weakness", "meaning": "약한 모습, 약함의 신호", "note": "상대가 만만하게 볼 만한 행동이나 태도를 말한다."}, {"word": "be taken advantage of", "meaning": "이용당하다", "note": "상대가 약점을 보고 자기에게 유리하게 써먹는다는 뜻이다."}, {"word": "willingness", "meaning": "기꺼이 하려는 뜻", "note": "무언가를 할 마음이 있다는 뜻이다."}, {"word": "military force", "meaning": "군사력", "note": "군대의 힘이나 무력을 말한다."}]}, {"id": 5, "original": "From a deterrence perspective, some demonstration of aggressiveness is often necessary as a preventive measure to stop the other side from aggressing against one’s group.", "explanation": "억지력의 입장에서 보면, 상대가 우리 편을 공격하지 못하게 막기 위해 어느 정도 강한 태도를 보여 주는 일이 예방책으로 필요하다고 본다.", "vocabulary": [{"word": "deterrence perspective", "meaning": "억지력의 관점", "note": "perspective는 어떤 일을 바라보는 방식이다."}, {"word": "demonstration of aggressiveness", "meaning": "공격적인 태도를 보여 줌", "note": "실제로 공격한다기보다 강하게 나갈 수 있음을 드러내는 뜻으로 쓰였다."}, {"word": "preventive measure", "meaning": "미리 막기 위한 조치", "note": "문제가 생기기 전에 대비하는 행동이다."}, {"word": "the other side", "meaning": "상대편", "note": "갈등이나 대립 관계에 있는 반대쪽을 말한다."}]}, {"id": 6, "original": "People who hold a deterrence view — that demonstrations of weakness would be taken advantage of — are less likely to support nuclear disarmament.", "explanation": "약한 모습을 보이면 상대에게 이용당한다고 믿는 억지력 관점을 가진 사람들은 핵무장을 줄이거나 없애는 일에 찬성할 가능성이 더 낮다.", "vocabulary": [{"word": "hold a deterrence view", "meaning": "억지력 관점을 가지다", "note": "hold는 여기서 '의견을 가지다'라는 뜻이다."}, {"word": "demonstrations of weakness", "meaning": "약한 모습을 드러내는 일", "note": "행동이나 말로 약함이 보이는 경우를 말한다."}, {"word": "less likely to", "meaning": "~할 가능성이 더 낮은", "note": "가능성을 비교할 때 자주 쓰는 표현이다."}, {"word": "nuclear disarmament", "meaning": "핵무장 해제, 핵무기 축소", "note": "핵무기를 줄이거나 없애는 것을 말한다."}]}, {"id": 7, "original": "The other prominent view was a conflict spiral view, which presumed that every escalation of international threat leads the opponent to feel more threatened and that leaders need to demonstrate peaceful intentions in order to reduce the opponent’s own defensive hostilities.", "explanation": "또 다른 중요한 생각은 갈등이 점점 커진다는 관점이었다. 이 생각은 국제적 위협이 더 커질수록 상대도 더 위협을 느끼게 되고, 그래서 지도자들은 상대의 방어적 적대감을 줄이기 위해 평화로운 뜻을 보여 주어야 한다고 본다.", "vocabulary": [{"word": "prominent view", "meaning": "두드러진 관점, 중요하게 여겨진 생각", "note": "많은 사람에게 잘 알려지고 영향력이 큰 생각이다."}, {"word": "conflict spiral view", "meaning": "갈등이 점점 커진다는 관점", "note": "서로의 행동이 상대를 더 자극해 갈등이 커진다고 보는 생각이다."}, {"word": "presumed", "meaning": "~라고 보았다, 가정했다", "note": "충분한 증거가 없더라도 그렇게 여긴다는 뜻이다."}, {"word": "escalation", "meaning": "점점 커짐, 고조", "note": "위협이나 갈등의 수준이 높아지는 것을 말한다."}, {"word": "peaceful intentions", "meaning": "평화로운 뜻", "note": "싸울 생각이 없고 평화롭게 가려는 마음을 뜻한다."}]}, {"id": 8, "original": "Tetlock noted that each of these cognitive frames was correct in some circumstances and incorrect in others.", "explanation": "테틀록은 이런 생각의 틀이 어떤 상황에서는 맞지만 다른 상황에서는 틀릴 수 있다고 말했다.", "vocabulary": [{"word": "cognitive frames", "meaning": "생각의 틀", "note": "사람이 세상을 이해하고 판단할 때 쓰는 머릿속 기준을 말한다."}, {"word": "circumstances", "meaning": "상황", "note": "일이 벌어지는 조건이나 형편을 뜻한다."}, {"word": "incorrect", "meaning": "틀린", "note": "correct의 반대말이다."}]}, {"id": 9, "original": "Against an opponent such as Hitler, a deterrence viewpoint might have been more effective than a view that led to conciliation.", "explanation": "히틀러 같은 상대를 대할 때는 화해 쪽으로 가는 생각보다 억지력 관점이 더 효과적이었을 수도 있다.", "vocabulary": [{"word": "deterrence viewpoint", "meaning": "억지력 관점", "note": "viewpoint는 view와 비슷하게 '관점'이라는 뜻이다."}, {"word": "effective", "meaning": "효과적인", "note": "원하는 결과를 잘 만들어 내는 것을 말한다."}, {"word": "led to", "meaning": "~로 이어졌다", "note": "어떤 결과를 낳았다는 뜻이다."}, {"word": "conciliation", "meaning": "화해, 달래기", "note": "상대를 부드럽게 대하며 관계를 풀려는 태도를 말한다."}]}, {"id": 10, "original": "On the other hand, international policy experts estimate that the U.S. invasion of Iraq, argued by President G. W. Bush to be the centerpiece of the war on terror, seems to have curbed increases in the membership of Al-Qaeda (the group responsible for the terrorist attacks of September 11, 2001).", "explanation": "반면 국제 정책 전문가들은 미국의 이라크 침공이 알카에다 조직원의 증가를 막는 데 어느 정도 도움이 된 것 같다고 본다. 조지 W. 부시 대통령은 이 침공이 테러와의 전쟁에서 가장 중요한 중심이라고 주장했다.", "vocabulary": [{"word": "On the other hand", "meaning": "반면에", "note": "앞의 내용과 다른 점을 이어 말할 때 쓴다."}, {"word": "invasion", "meaning": "침공", "note": "군대를 보내 다른 나라에 들어가 공격하는 일이다."}, {"word": "centerpiece", "meaning": "가장 중요한 중심", "note": "여기서는 어떤 계획이나 정책의 핵심이라는 뜻이다."}, {"word": "curbed", "meaning": "억제했다, 줄였다", "note": "완전히 없앴다기보다 늘어나는 것을 막았다는 뜻에 가깝다."}, {"word": "membership", "meaning": "구성원 수, 회원 수", "note": "어떤 단체에 속한 사람들의 수를 말한다."}]}], "problem_number": "04", "exam_info": "수특 2027 19강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "미국 청소년의 친구와의 소통 방식 그래프 분석", "summary": "이 글은 2014~2015년 조사 자료를 바탕으로, 미국 청소년이 친구와 시간을 보낼 때 어떤 소통 방식을 얼마나 자주 쓰는지 비교해 보여 준다.", "sentences": [{"id": 1, "original": "The graph above shows the percentages of U.S. teenagers who spent time with friends by communication type, based on a survey conducted between 2014 and 2015.", "explanation": "위 그래프는 미국 청소년들이 친구와 시간을 보낼 때 어떤 소통 방식을 썼는지, 그 비율을 보여 준다. 이 내용은 2014년부터 2015년 사이에 한 조사를 바탕으로 한 것이다.", "vocabulary": [{"word": "percentages", "meaning": "비율, 퍼센트", "note": "그래프나 통계 자료에서 자주 쓰인다."}, {"word": "by communication type", "meaning": "소통 방식별로", "note": "by는 여기서 '…에 따라, …별로'라는 뜻이다."}, {"word": "based on", "meaning": "~을 바탕으로 한", "note": "뒤에 근거가 되는 자료나 사실이 온다."}, {"word": "conducted", "meaning": "실시된, 진행된", "note": "conduct a survey는 '조사를 실시하다'라는 뜻이다."}]}, {"id": 2, "original": "In the category of Every Day, text messaging showed the highest percentage among the four types of communication that teenagers used to spend time with friends.", "explanation": "‘Every Day’ 항목에서는 청소년들이 친구와 시간을 보낼 때 쓴 네 가지 소통 방식 가운데 문자 메시지가 가장 높은 비율을 보였다.", "vocabulary": [{"word": "category", "meaning": "항목, 분류", "note": "그래프나 표에서 나눈 기준을 말할 때 자주 쓴다."}, {"word": "text messaging", "meaning": "문자 메시지 주고받기", "note": "texting이라고도 많이 쓴다."}, {"word": "showed the highest percentage", "meaning": "가장 높은 비율을 보였다", "note": ""}, {"word": "among", "meaning": "~가운데서", "note": "셋 이상을 비교할 때 자주 쓴다."}]}, {"id": 3, "original": "In the category of Less Often, the percentage of teenagers who spent time with friends through talking on the phone was more than twice that of teenagers who did so through text messaging.", "explanation": "‘Less Often’ 항목에서는 전화 통화로 친구와 시간을 보낸 청소년의 비율이, 문자 메시지로 그렇게 한 청소년의 비율보다 두 배가 넘었다.", "vocabulary": [{"word": "Less Often", "meaning": "덜 자주, 자주 하지 않음", "note": "빈도를 나타내는 항목 이름이다."}, {"word": "through", "meaning": "~을 통해, ~로", "note": "수단이나 방법을 나타낸다."}, {"word": "talking on the phone", "meaning": "전화 통화하기", "note": "phone call보다 조금 더 풀어서 쓴 표현이다."}, {"word": "more than twice", "meaning": "두 배가 넘는", "note": "twice는 '두 배'라는 뜻이다."}, {"word": "did so", "meaning": "그렇게 했다", "note": "앞에서 나온 행동을 다시 말하지 않고 대신 쓰는 표현이다."}]}, {"id": 4, "original": "The percentage of teenagers who spent time with friends through talking on the phone in the category of Every Day was lower than that of teenagers who did so in the category of Less Often.", "explanation": "전화 통화로 친구와 시간을 보낸 청소년의 비율은 ‘Every Day’ 항목이 ‘Less Often’ 항목보다 더 낮았다.", "vocabulary": [{"word": "lower than", "meaning": "~보다 더 낮은", "note": "수치 비교에서 자주 쓰는 표현이다."}, {"word": "that of", "meaning": "~의 그것, ~의 비율", "note": "앞에 나온 percentage를 반복하지 않으려고 쓰는 표현이다."}, {"word": "did so", "meaning": "그렇게 했다", "note": "여기서는 '전화 통화로 친구와 시간을 보냈다'를 가리킨다."}]}, {"id": 5, "original": "In the category of Less Often, emailing was the second highest in percentage among the types of communication listed above.", "explanation": "‘Less Often’ 항목에서는 위에 나온 소통 방식들 가운데 이메일이 두 번째로 높은 비율을 차지했다.", "vocabulary": [{"word": "emailing", "meaning": "이메일 주고받기", "note": "동명사 형태로 쓰였다."}, {"word": "second highest", "meaning": "두 번째로 높은", "note": ""}, {"word": "listed above", "meaning": "위에 나열된", "note": "앞에서 제시된 항목들을 가리킨다."}]}, {"id": 6, "original": "The percentage of teenagers who spent time with friends through video chatting in the category of Less Often was higher than that of teenagers who did so in the category of Every Day.", "explanation": "영상 통화로 친구와 시간을 보낸 청소년의 비율은 ‘Less Often’ 항목이 ‘Every Day’ 항목보다 더 높았다.", "vocabulary": [{"word": "video chatting", "meaning": "영상 통화하기", "note": "화상으로 대화하는 것을 말한다."}, {"word": "higher than", "meaning": "~보다 더 높은", "note": "수치가 더 클 때 쓰는 표현이다."}, {"word": "that of", "meaning": "~의 그것, ~의 비율", "note": "앞의 percentage를 대신하는 말이다."}, {"word": "did so", "meaning": "그렇게 했다", "note": "여기서는 '영상 통화로 친구와 시간을 보냈다'를 뜻한다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 8강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

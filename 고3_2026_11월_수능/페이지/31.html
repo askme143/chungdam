@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "곡물 무역 회사의 정보와 위험 관리", "summary": "초기의 곡물 무역 회사들은 여러 지역의 정보를 바탕으로 가격 변동 위험을 줄였고, 여러 나라에 걸쳐 한 회사로 움직이며 더 유리하게 장사했다.", "sentences": [{"id": 1, "original": "The early grain trade firms were active in both surplus-producing and food deficit regions, and these firms made it their business to know the state of supply and demand in both.", "explanation": "초기의 곡물 무역 회사들은 곡물이 남는 지역과 식량이 부족한 지역에서 모두 활발하게 일했다. 그리고 두 지역의 물건이 얼마나 있고 얼마나 필요한지를 잘 아는 것을 중요한 일로 삼았다.", "vocabulary": [{"word": "grain trade firms", "meaning": "곡물 무역 회사들", "note": "grain은 밀, 옥수수 같은 곡물을 뜻한다."}, {"word": "surplus-producing", "meaning": "남는 것을 만들어 내는, 잉여를 생산하는", "note": "여기서는 곡물이 많이 나와 남는 지역을 말한다."}, {"word": "food deficit regions", "meaning": "식량이 부족한 지역들", "note": "deficit은 필요한 양보다 모자란 상태를 뜻한다."}, {"word": "made it their business to", "meaning": "~을 자기들의 중요한 일로 삼았다", "note": "직역보다 '중요하게 챙겼다'로 이해하면 쉽다."}, {"word": "supply and demand", "meaning": "공급과 수요, 물건의 양과 필요한 양", "note": "경제에서 아주 자주 나오는 표현이다."}]}, {"id": 2, "original": "Because this information was the key to their profitability, these firms worked in relative secrecy, frequently built on family ties, trust, and loyalty.", "explanation": "이 정보가 돈을 버는 데 아주 중요했기 때문에, 이 회사들은 비교적 비밀스럽게 움직였다. 또 가족 관계, 믿음, 충성심을 바탕으로 운영되는 경우가 많았다.", "vocabulary": [{"word": "profitability", "meaning": "수익성, 돈이 남는 정도", "note": "profit(이익)에서 나온 말이다."}, {"word": "relative secrecy", "meaning": "어느 정도 비밀스러움", "note": "완전히 숨긴다는 뜻은 아니고, 남에게 쉽게 드러내지 않는다는 뜻이다."}, {"word": "built on", "meaning": "~을 바탕으로 한", "note": "사람, 관계, 생각 등을 기초로 삼을 때 자주 쓴다."}, {"word": "family ties", "meaning": "가족 관계", "note": "tie는 여기서 '연결, 관계'라는 뜻이다."}, {"word": "loyalty", "meaning": "충성심, 한결같이 믿고 따르는 마음", "note": "회사나 사람에게 꾸준히 믿음을 보일 때 쓴다."}]}, {"id": 3, "original": "In addition, these firms were able to benefit from the rise of commodity exchanges and commodities futures markets that emerged in the mid-1800s.", "explanation": "또한 이 회사들은 1800년대 중반에 나타난 상품 거래소와 상품 선물시장이 커지는 흐름에서 이익을 얻을 수 있었다.", "vocabulary": [{"word": "benefit from", "meaning": "~에서 이익을 얻다, 도움을 받다", "note": "좋은 변화나 조건 덕분에 유리해질 때 쓴다."}, {"word": "commodity exchanges", "meaning": "상품 거래소", "note": "곡물, 금속 같은 물건을 사고파는 시장이다."}, {"word": "futures markets", "meaning": "선물시장", "note": "미래의 일정한 때에 정한 가격으로 거래하기로 하는 시장이다."}, {"word": "emerged", "meaning": "나타났다, 생겨났다", "note": "새로운 제도나 현상이 드러날 때 자주 쓴다."}, {"word": "mid-1800s", "meaning": "1800년대 중반", "note": ""}]}, {"id": 4, "original": "Agricultural markets are naturally unstable, due to changes in harvest size that result from variable weather patterns and other factors.", "explanation": "농산물 시장은 원래 안정적이지 않다. 날씨가 해마다 다르고 다른 여러 이유도 있어서 수확량이 달라지기 때문이다.", "vocabulary": [{"word": "naturally unstable", "meaning": "원래 불안정한", "note": "본래 그런 성질이 있다는 뜻이다."}, {"word": "harvest size", "meaning": "수확량", "note": "한 해에 거둬들인 농작물의 양을 말한다."}, {"word": "result from", "meaning": "~에서 비롯되다, ~ 때문에 생기다", "note": "원인을 말할 때 쓰는 표현이다."}, {"word": "variable weather patterns", "meaning": "자주 달라지는 날씨 흐름", "note": "해마다 날씨가 일정하지 않다는 뜻이다."}]}, {"id": 5, "original": "Locking-in prices by buying and selling grain for future delivery helped these firms to minimize such risks.", "explanation": "앞으로 물건을 넘기기로 하고 미리 곡물을 사고팔아 가격을 정해 두는 일은, 이런 위험을 줄이는 데 도움이 되었다.", "vocabulary": [{"word": "Locking-in prices", "meaning": "가격을 미리 확정해 두기", "note": "나중에 가격이 바뀌어도 처음 정한 가격을 따르는 것이다."}, {"word": "future delivery", "meaning": "미래 인도, 나중에 물건 넘기기", "note": "delivery는 여기서 '배달'보다 '물건을 넘겨주는 것'에 가깝다."}, {"word": "minimize", "meaning": "최대한 줄이다", "note": "완전히 없애는 것이 아니라 아주 작게 만드는 뜻이다."}, {"word": "such risks", "meaning": "그런 위험들", "note": "앞 문장에서 말한 가격과 수확량의 불안정을 가리킨다."}]}, {"id": 6, "original": "It made sense for the grain trading companies to manage their risks within a single firm that was operating in more than one country, rather than operating as independent national companies trading with each other.", "explanation": "곡물 무역 회사들이 위험을 관리할 때는, 서로 따로 거래하는 여러 나라의 독립 회사들로 움직이는 것보다 여러 나라에서 함께 일하는 하나의 회사 안에서 처리하는 편이 더 알맞았다.", "vocabulary": [{"word": "It made sense", "meaning": "그렇게 하는 것이 알맞았다, 합리적이었다", "note": "상황상 그 방법이 더 좋고 자연스럽다는 뜻이다."}, {"word": "manage their risks", "meaning": "위험을 관리하다", "note": "손해가 커지지 않게 조절하고 대비하는 것을 말한다."}, {"word": "within a single firm", "meaning": "하나의 회사 안에서", "note": "firm은 여기서 '회사'라는 뜻이다."}, {"word": "independent national companies", "meaning": "서로 따로인 각 나라의 회사들", "note": "independent는 다른 회사에 묶여 있지 않다는 뜻이다."}, {"word": "trading with each other", "meaning": "서로 거래하는", "note": ""}]}, {"id": 7, "original": "Their access to information in multiple markets enabled them to easily cover the risks associated with agricultural commodity trade.", "explanation": "이 회사들은 여러 시장의 정보에 닿을 수 있었기 때문에, 농산물 상품 거래와 관련된 위험에 더 쉽게 대비할 수 있었다.", "vocabulary": [{"word": "access to information", "meaning": "정보를 얻을 수 있는 길, 정보 접근", "note": "필요한 정보를 손에 넣을 수 있는 상태를 말한다."}, {"word": "multiple markets", "meaning": "여러 시장", "note": "한 나라나 한 지역만이 아닌 여러 곳의 시장이다."}, {"word": "enabled", "meaning": "~할 수 있게 했다", "note": "가능하게 만들었다는 뜻이다."}, {"word": "cover the risks", "meaning": "위험에 대비하다, 위험을 메우다", "note": "금융이나 무역에서는 손해 가능성을 줄이거나 상쇄한다는 뜻으로 자주 쓴다."}, {"word": "associated with", "meaning": "~와 관련된", "note": ""}]}], "problem_number": "31", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "32.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

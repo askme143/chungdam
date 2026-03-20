@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "스포츠에서 협력과 경쟁의 균형", "summary": "스포츠 산업에서는 서로 협력하면서도 경쟁해야 하므로, 두 가지를 한쪽에 치우치지 않게 잘 조절하는 계획이 필요하다.", "sentences": [{"id": 1, "original": "A sport ecosystem exists based on the type and rate of coopetition existing.", "explanation": "스포츠 세계의 관계망은 협력과 경쟁이 어떤 모습으로, 또 얼마나 많이 함께 일어나는지에 따라 만들어진다.", "vocabulary": [{"word": "ecosystem", "meaning": "생태계, 서로 얽혀 있는 관계망", "note": "여기서는 자연이 아니라 스포츠 산업 안의 여러 조직과 관계를 뜻한다."}, {"word": "based on", "meaning": "~에 바탕을 두고", "note": ""}, {"word": "type and rate", "meaning": "종류와 정도", "note": "rate는 여기서 '속도'보다 '비율, 정도'에 가깝다."}, {"word": "coopetition", "meaning": "협력하면서도 경쟁하는 관계", "note": "cooperation과 competition을 합쳐 만든 말이다."}]}, {"id": 2, "original": "Coopetition is defined as “the simultaneous pursuit of cooperation and competition among firms to leverage strategically important resources for superior value creation purposes”.", "explanation": "코피티션은 회사들끼리 서로 협력도 하고 경쟁도 동시에 하면서, 전략적으로 중요한 자원을 잘 활용해 더 큰 가치를 만들어 내려는 것을 뜻한다.", "vocabulary": [{"word": "defined as", "meaning": "~라고 정의되다", "note": ""}, {"word": "simultaneous pursuit", "meaning": "동시에 추구함", "note": "simultaneous는 '동시에', pursuit는 '추구'라는 뜻이다."}, {"word": "among firms", "meaning": "기업들 사이에서", "note": "firm은 company와 비슷하게 '회사'를 뜻한다."}, {"word": "leverage", "meaning": "잘 활용하다", "note": "비즈니스 글에서 자주 나오며, 가진 것을 최대한 유리하게 쓰는 뜻이다."}, {"word": "superior value creation", "meaning": "더 큰 가치 창출", "note": "superior는 여기서 '더 뛰어난, 더 나은'이라는 뜻이다."}]}, {"id": 3, "original": "It is a useful way to understand the dynamic nature of sport businesses which need to collaborate for resource efficiency purposes but potentially compete with each other.", "explanation": "이 개념은 스포츠 사업이 어떻게 움직이는지 이해하는 데 도움이 된다. 스포츠 사업은 자원을 아끼고 효율적으로 쓰기 위해 협력해야 하지만, 한편으로는 서로 경쟁할 수도 있기 때문이다.", "vocabulary": [{"word": "dynamic nature", "meaning": "계속 변하는 성격", "note": "dynamic은 '활발한'보다 여기서는 '끊임없이 달라지는' 뜻에 가깝다."}, {"word": "collaborate", "meaning": "협력하다", "note": "cooperate와 비슷하지만 함께 일한다는 느낌이 강하다."}, {"word": "resource efficiency", "meaning": "자원을 효율적으로 씀", "note": ""}, {"word": "potentially", "meaning": "어쩌면, 가능하게는", "note": ""}]}, {"id": 4, "original": "This special relationship should be managed properly due to trust and confidence issues being paramount.", "explanation": "이런 특별한 관계는 잘 관리해야 한다. 서로 믿는 문제와 확신의 문제가 가장 중요하기 때문이다.", "vocabulary": [{"word": "managed properly", "meaning": "제대로 관리되다", "note": ""}, {"word": "due to", "meaning": "~때문에", "note": ""}, {"word": "trust", "meaning": "신뢰, 믿음", "note": ""}, {"word": "confidence issues", "meaning": "확신이나 믿음과 관련된 문제", "note": "문맥에 따라 '서로를 믿는 문제'로 이해하면 쉽다."}, {"word": "paramount", "meaning": "가장 중요한", "note": "격식 있는 표현이다."}]}, {"id": 5, "original": "It can be challenging to be collaborative and competitive in sport as they involve different forms of behaviour.", "explanation": "스포츠에서 협력적이면서 동시에 경쟁적으로 행동하는 것은 어려울 수 있다. 두 태도는 서로 다른 방식의 행동을 필요로 하기 때문이다.", "vocabulary": [{"word": "challenging", "meaning": "어려운, 쉽지 않은", "note": ""}, {"word": "collaborative", "meaning": "협력적인", "note": "사람이나 태도를 설명할 때 쓴다."}, {"word": "competitive", "meaning": "경쟁적인", "note": ""}, {"word": "involve", "meaning": "포함하다, 필요로 하다", "note": "여기서는 '서로 다른 행동 방식을 필요로 하다'로 이해하면 자연스럽다."}, {"word": "forms of behaviour", "meaning": "행동 방식들", "note": ""}]}, {"id": 6, "original": "This means a careful balancing act may be required in terms of the amount of emphasis placed on each activity.", "explanation": "그래서 두 활동 가운데 어느 쪽에 얼마나 더 힘을 둘지 아주 조심스럽게 균형을 맞춰야 할 수 있다.", "vocabulary": [{"word": "balancing act", "meaning": "균형을 맞추는 일", "note": "두 가지 사이를 잘 조절하는 상황에서 자주 쓰는 표현이다."}, {"word": "be required", "meaning": "필요하다", "note": ""}, {"word": "in terms of", "meaning": "~의 면에서 보면", "note": ""}, {"word": "emphasis", "meaning": "강조, 더 힘을 줌", "note": "put emphasis on ~은 '~에 더 힘을 주다'라는 뜻이다."}]}, {"id": 7, "original": "Often sport managers will try to be more competitive due to performance reasons and less collaborative.", "explanation": "스포츠 경영자들은 보통 성과 때문에 더 경쟁적으로 움직이려고 하고, 협력에는 덜 힘을 쓰려는 경향이 있다.", "vocabulary": [{"word": "sport managers", "meaning": "스포츠 경영자들, 운영 책임자들", "note": ""}, {"word": "due to", "meaning": "~때문에", "note": ""}, {"word": "performance reasons", "meaning": "성과와 관련된 이유", "note": "좋은 결과를 내야 한다는 압박으로 이해하면 쉽다."}, {"word": "less collaborative", "meaning": "덜 협력적으로", "note": ""}]}, {"id": 8, "original": "By necessity they may need to share information but do so in a cautious manner.", "explanation": "필요해서 정보를 서로 나눠야 할 수도 있지만, 그럴 때도 매우 조심스럽게 하게 된다.", "vocabulary": [{"word": "By necessity", "meaning": "어쩔 수 없이, 필요해서", "note": ""}, {"word": "share information", "meaning": "정보를 공유하다", "note": ""}, {"word": "in a cautious manner", "meaning": "조심스러운 방식으로", "note": "cautious는 실수나 위험을 피하려고 조심하는 뜻이다."}]}, {"id": 9, "original": "This means it might be better to have plans in place about how to pursue both simultaneously.", "explanation": "그래서 협력과 경쟁을 동시에 어떻게 해 나갈지 미리 계획을 세워 두는 편이 더 나을 수 있다.", "vocabulary": [{"word": "plans in place", "meaning": "미리 마련된 계획", "note": "have ~ in place는 '제대로 갖춰 두다'라는 뜻이다."}, {"word": "pursue", "meaning": "추구하다, 해 나가다", "note": "여기서는 목표처럼 계속 밀고 나간다는 뜻이다."}, {"word": "both simultaneously", "meaning": "둘 다 동시에", "note": ""}]}, {"id": 10, "original": "This will ensure one is not neglected at the expense of the other.", "explanation": "이렇게 하면 한쪽만 중요하게 여기다가 다른 한쪽을 소홀히 하는 일을 막을 수 있다.", "vocabulary": [{"word": "ensure", "meaning": "확실하게 하다, 보장하다", "note": ""}, {"word": "neglected", "meaning": "소홀히 다뤄진, 제대로 챙기지 않은", "note": ""}, {"word": "at the expense of", "meaning": "~을 희생해서, ~을 손해 보게 하면서", "note": "한쪽을 살리려고 다른 쪽이 피해를 보는 상황에서 쓰는 표현이다."}]}], "problem_number": "22", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "23.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

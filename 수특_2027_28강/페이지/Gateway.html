@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "소셜 미디어와 사회적 관계의 힘", "summary": "이 글은 사람들이 소셜 미디어를 쓰는 큰 이유 중 하나가 사람들과의 관계를 넓히고, 그 관계가 나중에 실제 도움으로 이어질 수 있기 때문이라고 말한다.", "sentences": [{"id": 1, "original": "One reason that people participate in social media is because it builds social relations.", "explanation": "사람들이 소셜 미디어에 참여하는 이유 가운데 하나는, 그것이 사람들 사이의 관계를 만들어 주고 더 이어지게 해 주기 때문이다.", "vocabulary": [{"word": "participate in", "meaning": "~에 참여하다", "note": "join보다 조금 더 공식적인 느낌으로 자주 쓰인다."}, {"word": "social media", "meaning": "소셜 미디어, SNS", "note": "Instagram, X, Facebook 같은 온라인 소통 공간을 가리킨다."}, {"word": "builds social relations", "meaning": "사회적 관계를 만든다", "note": "여기서 build는 건물을 짓는다는 뜻이 아니라 관계를 쌓는다는 뜻이다."}]}, {"id": 2, "original": "We increase our social capital when we successfully engage in social media.", "explanation": "우리가 소셜 미디어에서 사람들과 잘 어울리고 활발하게 활동하면, 우리에게 도움이 되는 인간관계의 힘이 더 커진다.", "vocabulary": [{"word": "social capital", "meaning": "사회적 자본, 사람들과의 관계에서 얻는 도움과 힘", "note": "돈이 아니라 인간관계에서 나오는 가치와 도움을 말한다."}, {"word": "successfully", "meaning": "잘, 성공적으로", "note": ""}, {"word": "engage in", "meaning": "~에 적극적으로 참여하다", "note": "그냥 들어가는 것이 아니라 관심을 가지고 활동하는 느낌이 있다."}]}, {"id": 3, "original": "Social capital describes the networks of relationships we have that are built on mutuality and sharing of identity, understanding, norms and values.", "explanation": "사회적 자본이란, 서로 주고받는 마음을 바탕으로 하고, 정체성이나 이해, 행동 기준, 가치관을 함께 나누며 만들어진 인간관계의 연결망을 뜻한다.", "vocabulary": [{"word": "networks of relationships", "meaning": "인간관계의 연결망", "note": "여러 사람과 이어진 관계 전체를 가리킨다."}, {"word": "mutuality", "meaning": "서로 주고받음, 서로 도움", "note": "한쪽만이 아니라 양쪽이 함께 관계를 만든다는 뜻이다."}, {"word": "identity", "meaning": "정체성, 자신이 누구인지에 대한 생각", "note": ""}, {"word": "norms", "meaning": "사회에서 보통 지키는 기준이나 규칙", "note": "법은 아니지만 사람들이 당연하게 여기는 행동 기준이다."}, {"word": "values", "meaning": "가치관", "note": "무엇이 중요하다고 여기는지에 대한 생각이다."}]}, {"id": 4, "original": "We build ties that may pay off with a job lead or a letter of recommendation.", "explanation": "우리는 사람들과 관계를 맺는데, 그런 관계는 나중에 일자리 정보를 얻거나 추천서를 받는 데 실제로 도움이 될 수 있다.", "vocabulary": [{"word": "ties", "meaning": "유대, 관계", "note": "사람과 사람 사이의 연결을 뜻한다."}, {"word": "pay off", "meaning": "좋은 결과를 가져오다, 보람이 있다", "note": "돈을 갚다는 뜻도 있지만 여기서는 나중에 도움이 된다는 뜻이다."}, {"word": "job lead", "meaning": "일자리 정보, 취업 단서", "note": "아직 확정된 일자리가 아니라 취업으로 이어질 수 있는 정보다."}, {"word": "letter of recommendation", "meaning": "추천서", "note": "학교나 회사 지원 때 다른 사람이 써 주는 평가 글이다."}]}, {"id": 5, "original": "We reinforce our identities through our online presentation in a personal blog or our profile.", "explanation": "우리는 개인 블로그나 프로필 같은 온라인 공간에서 자신을 보여 주면서, 내가 어떤 사람인지에 대한 모습을 더 분명하게 만들고 굳힌다.", "vocabulary": [{"word": "reinforce", "meaning": "더 강하게 하다, 굳히다", "note": ""}, {"word": "identities", "meaning": "정체성, 자기 모습", "note": "여기서는 다른 사람에게 보이는 나의 모습도 함께 포함한다."}, {"word": "online presentation", "meaning": "온라인에서 자신을 보여 주는 방식", "note": "글, 사진, 소개글 등으로 자신을 드러내는 것을 말한다."}, {"word": "profile", "meaning": "프로필", "note": "SNS나 웹사이트에 올린 자기 소개 정보다."}]}, {"id": 6, "original": "“The premise behind the notion of social capital is rather simple and straightforward: investment in social relations with expected returns,” noted sociologist Nan Lin.", "explanation": "사회학자 난 린은 사회적 자본의 기본 생각은 꽤 단순하고 분명하다고 말했다. 즉, 나중에 도움이 돌아오기를 바라며 사람들과의 관계에 시간과 노력을 들이는 것이라는 뜻이다.", "vocabulary": [{"word": "premise", "meaning": "기본 생각, 출발점이 되는 생각", "note": ""}, {"word": "notion", "meaning": "개념, 생각", "note": "조금 추상적인 생각이나 개념을 말할 때 쓴다."}, {"word": "straightforward", "meaning": "분명한, 이해하기 쉬운", "note": ""}, {"word": "investment in social relations", "meaning": "사회적 관계에 들이는 시간과 노력", "note": "여기서 investment는 돈뿐 아니라 시간, 관심, 정성을 들인다는 뜻이다."}, {"word": "expected returns", "meaning": "기대하는 보답이나 이익", "note": "바로가 아니라 나중에 돌아오는 도움을 뜻한다."}]}, {"id": 7, "original": "Lin’s work stresses that it is who you know as much as what you know that shapes our experience in society.", "explanation": "린의 연구는 사회에서 우리의 삶을 만드는 데에는 내가 무엇을 아느냐만큼, 누구를 알고 있느냐도 중요하다고 강조한다.", "vocabulary": [{"word": "stresses", "meaning": "강조하다", "note": ""}, {"word": "who you know", "meaning": "내가 알고 지내는 사람들, 인맥", "note": "사람들과의 관계를 뜻하는 표현이다."}, {"word": "as much as", "meaning": "~만큼이나", "note": "둘의 중요성이 비슷하다는 뜻을 나타낸다."}, {"word": "shapes", "meaning": "형성하다, 만들어 가다", "note": "경험이나 생각에 영향을 주어 모습이 정해지게 한다는 뜻이다."}]}, {"id": 8, "original": "With new media, our reach of connecting is all the greater, expanding our “who you know” to greater and greater lengths.", "explanation": "새로운 미디어 덕분에 우리는 훨씬 더 넓은 범위의 사람들과 연결될 수 있다. 그래서 우리가 알고 지내는 사람들의 범위도 점점 더 멀리, 더 크게 넓어진다.", "vocabulary": [{"word": "new media", "meaning": "새로운 미디어, 디지털 매체", "note": "인터넷, SNS, 온라인 플랫폼 같은 매체를 가리킨다."}, {"word": "reach", "meaning": "닿는 범위, 영향이 미치는 범위", "note": "여기서는 연결할 수 있는 사람들의 범위를 뜻한다."}, {"word": "all the greater", "meaning": "훨씬 더 큰", "note": "비교를 더 강하게 말할 때 쓰는 표현이다."}, {"word": "expanding", "meaning": "넓히며, 확장하며", "note": ""}, {"word": "to greater and greater lengths", "meaning": "점점 더 넓은 범위로", "note": "길이만이 아니라 범위가 계속 커진다는 뜻으로 쓰였다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 28강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

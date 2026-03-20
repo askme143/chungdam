@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "자동차 대출 상환을 부탁하는 편지", "summary": "새 직장은 잘 지내는지 묻고, 자동차를 살 때 빌려준 1,500달러 중 적어도 절반은 몇 주 안에 갚아 달라고 정중하게 부탁하는 편지이다.", "sentences": [{"id": 1, "original": "Dear Mr. Johnson,", "explanation": "존슨 씨께 보내는 편지의 첫인사이다.", "vocabulary": [{"word": "Dear", "meaning": "~에게, 친애하는", "note": "편지 첫머리에서 상대를 정중하게 부를 때 쓴다."}]}, {"id": 2, "original": "Have you “settled into” your new job by now, and do you still feel as enthusiastic about it as you did at the beginning?", "explanation": "이제는 새 직장에 어느 정도 익숙해졌는지, 그리고 처음처럼 아직도 그 일에 큰 의욕을 느끼는지 묻고 있다.", "vocabulary": [{"word": "settled into", "meaning": "~에 익숙해지다, 자리를 잡다", "note": "새 환경이나 새 일에 적응했다는 뜻으로 자주 쓴다."}, {"word": "by now", "meaning": "이제쯤, 지금쯤", "note": ""}, {"word": "enthusiastic", "meaning": "열정적인, 의욕이 큰", "note": "about와 함께 써서 '~에 큰 관심과 의욕이 있는' 뜻이 된다."}, {"word": "at the beginning", "meaning": "처음에, 시작할 때", "note": ""}]}, {"id": 3, "original": "Of course, any job has its tiresome tasks, but all in all, from what you told us, it sounds like a good match for you.", "explanation": "물론 어떤 일이든 지루하고 귀찮은 일은 있기 마련이지만, 전체적으로 보면 당신이 전에 말해 준 내용을 바탕으로 그 일은 당신과 잘 맞는 것 같다고 말하고 있다.", "vocabulary": [{"word": "tiresome", "meaning": "지루한, 귀찮은, 피곤하게 하는", "note": ""}, {"word": "all in all", "meaning": "전체적으로 보면, 대체로", "note": "글이나 말의 끝에서 전체 판단을 말할 때 자주 쓴다."}, {"word": "from what you told us", "meaning": "당신이 우리에게 말해 준 바로는", "note": "상대가 전에 한 말을 바탕으로 판단할 때 쓰는 표현이다."}, {"word": "a good match", "meaning": "잘 맞는 것", "note": "사람과 일, 사람과 사람의 궁합이 잘 맞는다는 뜻으로 쓴다."}]}, {"id": 4, "original": "We’re writing to ask when we can expect repayment of the $1,500 loan for your car.", "explanation": "당신의 자동차를 위해 빌려준 1,500달러를 언제쯤 돌려받을 수 있는지 묻기 위해 이 편지를 쓴다고 말하고 있다.", "vocabulary": [{"word": "expect", "meaning": "기대하다, 예상하다", "note": "여기서는 '언제 받을 수 있을지 생각하다'에 가깝다."}, {"word": "repayment", "meaning": "상환, 돈을 갚음", "note": "빌린 돈을 다시 갚는 것을 말한다."}, {"word": "loan", "meaning": "대출금, 빌린 돈", "note": ""}]}, {"id": 5, "original": "We were glad to help you with the purchase of your car so that you’d have transportation back and forth to your new job.", "explanation": "새 직장에 오가며 다닐 수 있도록 자동차를 사는 일을 도와줄 수 있어서 기뻤다고 말하고 있다.", "vocabulary": [{"word": "purchase", "meaning": "구입, 구매", "note": "buy보다 조금 더 격식 있는 말이다."}, {"word": "so that", "meaning": "~할 수 있도록", "note": "목적을 나타내는 표현이다."}, {"word": "transportation", "meaning": "교통수단, 이동 수단", "note": "여기서는 차처럼 이동할 때 쓰는 수단을 뜻한다."}, {"word": "back and forth", "meaning": "왔다 갔다 하며", "note": "집과 직장처럼 두 곳 사이를 오가는 뜻이다."}]}, {"id": 6, "original": "You agreed to pay all, or at least half, of the loan by June.", "explanation": "당신은 6월까지 빌린 돈 전부를, 아니면 적어도 절반은 갚기로 약속했다는 뜻이다.", "vocabulary": [{"word": "agreed to", "meaning": "~하기로 동의했다, 약속했다", "note": ""}, {"word": "at least", "meaning": "적어도", "note": ""}, {"word": "by June", "meaning": "6월까지", "note": "6월 이전이나 늦어도 6월 안에는라는 뜻이다."}]}, {"id": 7, "original": "If you have decided that you cannot repay the total $1,500 at once, we understand.", "explanation": "만약 1,500달러 전부를 한 번에 갚을 수 없다고 결정했다면, 그 사정을 이해하겠다고 말하고 있다.", "vocabulary": [{"word": "repay", "meaning": "갚다, 상환하다", "note": "빌린 돈을 돌려주는 뜻이다."}, {"word": "the total $1,500", "meaning": "총 1,500달러 전부", "note": ""}, {"word": "at once", "meaning": "한꺼번에, 한 번에", "note": ""}]}, {"id": 8, "original": "But we do need to receive at least half that amount within the next 2 or 3 weeks.", "explanation": "하지만 앞으로 2주나 3주 안에는 그 돈의 적어도 절반은 꼭 받아야 한다고 강조하고 있다.", "vocabulary": [{"word": "do need", "meaning": "정말 필요하다, 꼭 필요하다", "note": "do를 넣어 필요함을 강하게 강조한 표현이다."}, {"word": "at least half that amount", "meaning": "그 금액의 적어도 절반", "note": ""}, {"word": "within the next 2 or 3 weeks", "meaning": "앞으로 2주 또는 3주 안에", "note": "정해진 기간 안쪽을 뜻하는 within이 중요하다."}]}, {"id": 9, "original": "We hope you are satisfied with the car you chose.", "explanation": "당신이 고른 차에 만족하고 있기를 바란다고 말하고 있다.", "vocabulary": [{"word": "satisfied with", "meaning": "~에 만족하는", "note": ""}, {"word": "chose", "meaning": "choose의 과거형, 골랐다", "note": ""}]}, {"id": 10, "original": "We, too, thought it was a good buy.", "explanation": "우리도 그 차가 값에 비해 잘 산 물건이라고 생각했다는 뜻이다.", "vocabulary": [{"word": "too", "meaning": "또한, 역시", "note": "쉼표와 함께 쓰여 '우리도 역시'라는 뜻을 더 분명하게 한다."}, {"word": "a good buy", "meaning": "잘 산 물건, 값어치 있는 구매", "note": "가격에 비해 품질이 좋다고 느낄 때 쓰는 표현이다."}]}, {"id": 11, "original": "Please let us know how things are going.", "explanation": "요즘 일이 어떻게 되어 가는지 알려 달라고 정중하게 부탁하고 있다.", "vocabulary": [{"word": "let us know", "meaning": "우리에게 알려 주다", "note": "편지나 이메일에서 자주 쓰는 공손한 표현이다."}, {"word": "how things are going", "meaning": "일이 어떻게 되어 가는지, 형편이 어떤지", "note": "상대의 근황이나 상황을 넓게 묻는 말이다."}]}, {"id": 12, "original": "Sincerely,", "explanation": "편지를 끝맺을 때 쓰는 정중한 인사말이다.", "vocabulary": [{"word": "Sincerely", "meaning": "진심을 담아, 안부를 전하며", "note": "편지 끝인사로 자주 쓰는 표현이다."}]}, {"id": 13, "original": "Joseph Brown Financial Advisor", "explanation": "편지를 보낸 사람의 이름은 조지프 브라운이고, 재정 상담가라는 직함을 가지고 있다.", "vocabulary": [{"word": "Financial Advisor", "meaning": "재정 상담가", "note": "돈 관리나 대출, 투자 같은 문제를 도와주는 사람이다."}]}], "problem_number": "04", "exam_info": "수특 2027 1강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

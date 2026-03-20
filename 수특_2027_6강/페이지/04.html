@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "문학 읽기와 상상력의 힘", "summary": "문학을 읽으면 우리는 다른 삶을 간접으로 경험하며 상상력을 쓰게 되고, 그 과정에서 마음속 세계를 스스로 만들며 즐거움과 만족을 얻는다.", "sentences": [{"id": 1, "original": "In the escape that reading literature provides through vicarious identification and comparison with other lives, places, and times, we activate our imagination, that uniquely human ability to explore an alternative set of ideas and experiences that are outside our present environment and that may not even be real.", "explanation": "문학을 읽으면 우리는 다른 사람의 삶, 다른 장소, 다른 시대를 마치 내 일처럼 느끼고 지금의 나와도 견주어 보게 됩니다. 이런 과정을 통해 현실에서 잠시 벗어날 수 있습니다. 그때 우리는 상상력을 쓰게 되는데, 상상력은 사람만이 가진 특별한 힘으로, 지금 내가 있는 현실 밖의 것들, 심지어 실제로 없는 것까지도 마음속에서 생각하고 경험해 볼 수 있게 해 줍니다.", "vocabulary": [{"word": "escape", "meaning": "벗어남, 잠시 빠져나감", "note": "여기서는 실제로 도망간다는 뜻이 아니라 현실에서 잠시 마음이 떠나는 느낌이다."}, {"word": "vicarious identification", "meaning": "간접으로 남의 입장이 되어 보는 것", "note": "직접 겪지 않아도 다른 사람의 경험을 내 일처럼 느끼는 것을 말한다."}, {"word": "activate", "meaning": "작동시키다, 활발하게 쓰게 하다", "note": "여기서는 상상력을 깨어나게 하고 쓰게 만든다는 뜻이다."}, {"word": "uniquely human ability", "meaning": "오직 인간에게만 있는 능력", "note": "human ability 앞의 uniquely가 붙어 '사람에게 특별한'이라는 뜻을 더한다."}, {"word": "alternative", "meaning": "다른, 또 하나의", "note": "alternative set of ideas and experiences는 '또 다른 생각과 경험의 묶음' 정도로 이해하면 된다."}]}, {"id": 2, "original": "As opposed to perception that receives and processes information from the outside world — light, sound, shape — and finds meaning in it — a sunset, a symphony, a house — in imagination, the process is reversed.", "explanation": "지각은 바깥세상에서 들어오는 빛, 소리, 모양 같은 정보를 받아들여서 그것이 무엇인지 알아차리는 과정입니다. 예를 들면 노을, 교향곡, 집처럼 뜻을 찾아내는 것이지요. 그런데 상상에서는 이 순서가 거꾸로 됩니다.", "vocabulary": [{"word": "As opposed to", "meaning": "~와는 반대로", "note": "두 대상을 비교하며 차이를 보일 때 자주 쓴다."}, {"word": "perception", "meaning": "지각, 감각으로 알아차림", "note": "눈, 귀 같은 감각을 통해 바깥 정보를 받아 이해하는 것을 말한다."}, {"word": "process", "meaning": "과정", "note": "동사로는 '처리하다' 뜻도 있지만 여기서는 명사이다."}, {"word": "finds meaning in it", "meaning": "그 안에서 뜻을 알아낸다", "note": "들어온 정보가 무엇을 뜻하는지 이해한다는 말이다."}, {"word": "is reversed", "meaning": "거꾸로 된다", "note": "순서나 방향이 반대로 바뀐다는 뜻이다."}]}, {"id": 3, "original": "Translating the words we read into what they signify, we populate an inner world in which imagery is created from the memory.", "explanation": "우리는 읽은 단어를 그 단어가 뜻하는 모습이나 생각으로 바꾸어 이해합니다. 그러면서 마음속 세계를 하나씩 채워 갑니다. 그 세계의 장면들은 기억을 바탕으로 만들어집니다.", "vocabulary": [{"word": "signify", "meaning": "뜻하다, 나타내다", "note": "단어가 가리키는 내용이나 뜻을 말할 때 쓴다."}, {"word": "populate", "meaning": "채우다", "note": "원래는 사람이 살게 하다는 뜻도 있지만 여기서는 마음속 세계를 내용으로 채운다는 뜻이다."}, {"word": "inner world", "meaning": "마음속 세계", "note": "현실의 바깥세계가 아니라 생각과 상상 속 공간을 가리킨다."}, {"word": "imagery", "meaning": "마음속에 떠오르는 장면, 이미지", "note": "문학에서는 글을 읽을 때 머릿속에 그려지는 모습이라는 뜻으로 자주 나온다."}]}, {"id": 4, "original": "For example, we read “house” and picture a representation of a house from memory.", "explanation": "예를 들어 우리가 house라는 단어를 읽으면, 실제 눈앞에 집이 없어도 기억 속에 있는 집의 모습을 떠올립니다.", "vocabulary": [{"word": "picture", "meaning": "마음속에 그리다, 떠올리다", "note": "명사가 아니라 동사로 쓰였다."}, {"word": "representation", "meaning": "표현된 모습, 머릿속에 그린 모습", "note": "여기서는 실제 집 자체가 아니라 기억 속에 떠오른 집의 모습이다."}, {"word": "from memory", "meaning": "기억을 바탕으로", "note": "직접 보고 있는 것이 아니라 기억에 의지한다는 뜻이다."}]}, {"id": 5, "original": "It is our imagination, the complex interweaving of perception and memory that literature activates, releasing a latent creativity that pleases.", "explanation": "문학이 움직이게 하는 것은 우리의 상상력입니다. 이 상상력은 지각과 기억이 복잡하게 얽혀 있는 것입니다. 문학은 우리 안에 숨어 있던 창의성을 끌어내고, 그것은 우리에게 즐거움을 줍니다.", "vocabulary": [{"word": "interweaving", "meaning": "서로 얽힘", "note": "여러 요소가 따로 떨어져 있지 않고 함께 섞여 있다는 느낌이다."}, {"word": "perception", "meaning": "지각, 감각으로 알아차림", "note": "앞 문장과 이어져, 기억과 함께 상상력을 이루는 요소로 나온다."}, {"word": "latent creativity", "meaning": "숨어 있는 창의성", "note": "latent는 아직 겉으로 드러나지 않았지만 안에 있는 상태를 말한다."}, {"word": "releasing", "meaning": "풀어 내는, 끌어내는", "note": "여기서는 안에 있던 능력이 밖으로 나오게 한다는 뜻이다."}]}, {"id": 6, "original": "The writer may provide the blueprint, but the reader builds literature’s many rooms, and like any satisfying occupation, literature gratifies our imaginative and creative abilities.", "explanation": "작가는 설계도만 내놓을 수 있습니다. 하지만 문학의 여러 방을 실제로 채우고 만들어 가는 것은 독자입니다. 그리고 문학은 보람 있는 일처럼 우리의 상상하는 힘과 새롭게 만들어 내는 힘을 만족시켜 줍니다.", "vocabulary": [{"word": "blueprint", "meaning": "설계도, 밑그림", "note": "여기서는 작가가 기본 틀을 마련한다는 비유로 쓰였다."}, {"word": "builds literature’s many rooms", "meaning": "문학의 여러 방을 만들어 간다", "note": "독자가 작품의 세계를 자기 상상으로 구체적으로 완성한다는 비유이다."}, {"word": "occupation", "meaning": "일, 활동", "note": "여기서는 직업만이 아니라 사람이 몰두해서 하는 일이라는 뜻에 가깝다."}, {"word": "gratifies", "meaning": "만족시켜 준다", "note": "기쁨이나 만족을 준다는 뜻이다."}, {"word": "imaginative and creative abilities", "meaning": "상상하는 힘과 만들어 내는 힘", "note": "imaginative는 상상력 있는, creative는 새롭게 만들어 내는 성질을 말한다."}]}], "problem_number": "04", "exam_info": "수특 2027 6강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

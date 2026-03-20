@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "오랜만에 찾은 어린 시절의 집", "summary": "소피는 많이 달라진 마을에서 길을 헤매다가, 어릴 때 아버지와 함께 그린 꽃벽을 보고 자신이 자란 집을 다시 찾는다.", "sentences": [{"id": 1, "original": "“Where could it be?” Sophie asked herself.", "explanation": "소피는 '그게 어디에 있을까?' 하고 속으로 스스로에게 물었다.", "vocabulary": [{"word": "could it be", "meaning": "어디에 있을까, 어디일까", "note": "가능성을 조심스럽게 생각할 때 자주 쓰는 말이다."}, {"word": "asked herself", "meaning": "혼잣말로 스스로에게 물었다", "note": "마음속으로 생각했다는 뜻으로도 자주 쓰인다."}]}, {"id": 2, "original": "It had been more than ten years since she had last visited the area where she had grown up.", "explanation": "그녀가 자란 곳을 마지막으로 찾아온 뒤로 벌써 10년이 훨씬 넘게 지났다.", "vocabulary": [{"word": "more than", "meaning": "~보다 더, ~이 넘는", "note": ""}, {"word": "had last visited", "meaning": "마지막으로 방문했었다", "note": "과거의 어느 시점보다 더 이전 일을 말하는 표현이다."}, {"word": "the area where she had grown up", "meaning": "그녀가 자란 지역", "note": "grow up은 '자라다, 성장하다'라는 뜻이다."}]}, {"id": 3, "original": "The village had changed a lot over time.", "explanation": "시간이 흐르는 동안 그 마을은 많이 바뀌어 있었다.", "vocabulary": [{"word": "changed a lot", "meaning": "많이 변했다", "note": ""}, {"word": "over time", "meaning": "시간이 지나면서", "note": "조금씩 변하는 느낌을 담고 있다."}]}, {"id": 4, "original": "Uncertain, she awkwardly looked around at her surroundings.", "explanation": "확신이 없던 소피는 어색하게 주위를 둘러보았다.", "vocabulary": [{"word": "Uncertain", "meaning": "확신이 없는, 잘 모르겠는", "note": "문장 맨 앞에서 소피의 상태를 보여 준다."}, {"word": "awkwardly", "meaning": "어색하게, 서툴게", "note": ""}, {"word": "looked around", "meaning": "주위를 둘러보았다", "note": ""}, {"word": "surroundings", "meaning": "주변, 주위 환경", "note": "눈에 보이는 주위의 것들을 가리킨다."}]}, {"id": 5, "original": "She walked the narrow streets of the village, unsure about which way to go.", "explanation": "그녀는 어느 쪽으로 가야 할지 몰라 하면서 마을의 좁은 길들을 걸었다.", "vocabulary": [{"word": "narrow streets", "meaning": "좁은 거리들", "note": ""}, {"word": "unsure about", "meaning": "~에 대해 확신이 없는", "note": ""}, {"word": "which way to go", "meaning": "어느 길로 가야 할지", "note": ""}]}, {"id": 6, "original": "Suddenly, Sophie saw a familiar sight.", "explanation": "그때 갑자기 소피는 눈에 익은 장면 하나를 보았다.", "vocabulary": [{"word": "Suddenly", "meaning": "갑자기", "note": ""}, {"word": "familiar sight", "meaning": "눈에 익은 모습, 낯익은 장면", "note": "예전에 본 적 있어 기억나는 것을 말한다."}]}, {"id": 7, "original": "“Yes, this must be it,” she thought.", "explanation": "소피는 '그래, 바로 여기일 거야' 하고 생각했다.", "vocabulary": [{"word": "must be", "meaning": "분명 ~일 것이다", "note": "강한 짐작을 나타낸다."}, {"word": "it", "meaning": "바로 그것, 찾던 곳", "note": "여기서는 소피가 찾고 있던 집을 가리킨다."}]}, {"id": 8, "original": "In front of her was a wall with flowers painted on it.", "explanation": "그녀 앞에는 꽃이 그려진 벽이 있었다.", "vocabulary": [{"word": "In front of her", "meaning": "그녀 앞에", "note": ""}, {"word": "painted on it", "meaning": "그 위에 그려진", "note": "paint A on B는 'B 위에 A를 그리다'라는 뜻이다."}]}, {"id": 9, "original": "Although the colors were now faded, the familiar shapes on the wall were the same ones she had painted with her father as a child.", "explanation": "지금은 색이 바래 있었지만, 그 벽에 있는 익숙한 모양들은 소피가 어릴 때 아버지와 함께 그렸던 바로 그 그림들이었다.", "vocabulary": [{"word": "Although", "meaning": "비록 ~이지만", "note": ""}, {"word": "faded", "meaning": "빛이 바랜, 흐려진", "note": "색이 오래되어 옅어진 상태를 말한다."}, {"word": "familiar shapes", "meaning": "익숙한 모양들", "note": ""}, {"word": "as a child", "meaning": "어렸을 때", "note": ""}, {"word": "with her father", "meaning": "아버지와 함께", "note": ""}]}, {"id": 10, "original": "Sophie nodded, smiled brightly, and walked toward the gate.", "explanation": "소피는 고개를 끄덕이고 환하게 웃은 뒤, 대문 쪽으로 걸어갔다.", "vocabulary": [{"word": "nodded", "meaning": "고개를 끄덕였다", "note": ""}, {"word": "brightly", "meaning": "환하게", "note": "여기서는 밝은 표정으로 웃는 모습을 나타낸다."}, {"word": "toward the gate", "meaning": "문 쪽으로", "note": "gate는 집의 바깥문이나 대문을 뜻한다."}]}, {"id": 11, "original": "At last, she had finally found the house she had grown up in.", "explanation": "마침내 그녀는 자신이 어린 시절을 보낸 집을 드디어 찾아냈다.", "vocabulary": [{"word": "At last", "meaning": "마침내", "note": "오래 기다리거나 애쓴 끝에 이루어졌을 때 쓴다."}, {"word": "finally found", "meaning": "드디어 찾았다", "note": ""}, {"word": "the house she had grown up in", "meaning": "그녀가 자란 집", "note": "문장 끝의 in은 '그 집에서'라는 뜻이 담겨 있다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 2강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "어릴 때의 맛 경험이 평생 식습관에 미치는 영향", "summary": "아이들은 원래 단맛과 짠맛을 더 좋아하고 쓴맛은 싫어하는데, 아주 어릴 때 어떤 맛을 자주 느끼는지가 나중의 건강한 식습관에도 큰 영향을 줄 수 있다.", "sentences": [{"id": 1, "original": "Science shows that, when compared to adults, children naturally prefer higher levels of sweet and salty tastes and reject bitter tastes.", "explanation": "연구에 따르면 아이들은 어른보다 단맛과 짠맛을 더 강하게 좋아하고, 쓴맛은 더 싫어하는 경향이 있다. 이런 반응은 억지로 배운 것이 아니라 자연스럽게 나타난다.", "vocabulary": [{"word": "when compared to", "meaning": "~와 비교하면", "note": "비교를 나타내는 표현이다."}, {"word": "naturally", "meaning": "자연스럽게, 원래", "note": "타고난 성향을 말할 때 자주 쓴다."}, {"word": "higher levels of", "meaning": "더 높은 정도의, 더 강한", "note": "맛의 세기나 양이 더 많다는 뜻이다."}, {"word": "reject", "meaning": "거부하다, 싫어하다", "note": "여기서는 맛을 받아들이지 않는다는 뜻이다."}, {"word": "bitter", "meaning": "쓴맛의", "note": "커피나 일부 채소에서 느껴지는 맛이다."}]}, {"id": 2, "original": "This might help explain why children are drawn to more unhealthy food choices within our current food environment — an environment composed of high-salt, high-refined-sugar foods.", "explanation": "이 점은 왜 아이들이 지금의 먹거리 환경에서 건강에 덜 좋은 음식을 더 쉽게 고르는지 설명해 줄 수 있다. 지금 우리 주변에는 소금이 많고 정제된 설탕이 많이 들어간 음식이 아주 많다.", "vocabulary": [{"word": "might help explain", "meaning": "설명하는 데 도움이 될 수 있다", "note": "가능성을 조심스럽게 말하는 표현이다."}, {"word": "are drawn to", "meaning": "~에 끌리다", "note": "마음이 자연스럽게 향한다는 뜻이다."}, {"word": "food environment", "meaning": "먹거리 환경", "note": "주변에서 쉽게 접하는 음식의 종류와 조건을 말한다."}, {"word": "composed of", "meaning": "~로 이루어진", "note": "구성 요소를 설명할 때 쓴다."}, {"word": "high-refined-sugar foods", "meaning": "정제된 설탕이 많이 들어간 음식", "note": "refined sugar는 가공되어 순도가 높아진 설탕을 말한다."}]}, {"id": 3, "original": "In support of this idea, studies have found that sensory experiences, beginning early in life, can shape preferences in both a positive and a negative way.", "explanation": "이 생각을 뒷받침하듯, 여러 연구는 사람이 아주 어릴 때부터 겪는 맛과 냄새 같은 감각 경험이 좋아하는 것을 만드는 데 영향을 준다고 말한다. 그 영향은 좋은 쪽일 수도 있고 나쁜 쪽일 수도 있다.", "vocabulary": [{"word": "In support of this idea", "meaning": "이 생각을 뒷받침하듯", "note": "앞의 주장에 근거를 더할 때 쓰는 표현이다."}, {"word": "sensory experiences", "meaning": "감각 경험", "note": "맛, 냄새, 촉감처럼 감각으로 느끼는 경험을 말한다."}, {"word": "beginning early in life", "meaning": "아주 어릴 때부터 시작되는", "note": "시작 시점을 덧붙여 설명하는 표현이다."}, {"word": "shape preferences", "meaning": "선호를 만들다, 좋아하는 것을 형성하다", "note": "shape는 여기서 '모양을 만들다'가 아니라 '영향을 주어 만들어 가다'라는 뜻이다."}]}, {"id": 4, "original": "For example, expecting mothers who consume diets rich in healthy foods can help develop their child’s taste preferences in a positive way because flavors from foods that the mother eats are transmitted to amniotic fluid and to mother’s milk, creating an environment in which breastfed infants are more accepting of these flavors.", "explanation": "예를 들어, 임신한 여성이 건강한 음식을 많이 먹으면 아이의 입맛이 좋은 쪽으로 자라는 데 도움이 될 수 있다. 엄마가 먹은 음식의 맛이 양수와 모유로 전달되기 때문이다. 그래서 모유를 먹는 아기는 그런 맛을 더 낯설지 않게 받아들일 가능성이 크다.", "vocabulary": [{"word": "expecting mothers", "meaning": "임신한 여성들, 아이를 가진 엄마들", "note": "expecting은 여기서 '기대하는'이 아니라 '아이를 가진'이라는 뜻이다."}, {"word": "rich in", "meaning": "~이 풍부한, ~이 많이 들어 있는", "note": "영양이나 성분이 많을 때 자주 쓴다."}, {"word": "are transmitted to", "meaning": "~로 전달되다", "note": "맛이나 신호, 병 등이 옮겨 갈 때도 쓸 수 있다."}, {"word": "amniotic fluid", "meaning": "양수", "note": "아기가 엄마 배 속에서 둘러싸여 있는 액체이다."}, {"word": "more accepting of", "meaning": "~을 더 잘 받아들이는", "note": "낯설어하지 않고 받아들이는 뜻이다."}]}, {"id": 5, "original": "In contrast, infants fed formula learn to prefer its unique flavor profile and may have more와 difficulty initially accepting flavors not found in formula, such as those of fruit and vegetables.", "explanation": "반대로 분유를 먹는 아기들은 분유의 특별한 맛에 익숙해지고 그 맛을 더 좋아하게 될 수 있다. 그래서 처음에는 과일이나 채소처럼 분유에 없는 맛을 받아들이는 데 더 어려움을 느낄 수 있다.", "vocabulary": [{"word": "In contrast", "meaning": "반대로", "note": "앞의 내용과 다른 점을 보여 줄 때 쓴다."}, {"word": "formula", "meaning": "분유", "note": "아기에게 먹이는 가루 우유를 말한다."}, {"word": "flavor profile", "meaning": "맛의 특징, 맛의 전체 느낌", "note": "한 음식이 가진 여러 맛의 조합을 가리킨다."}, {"word": "initially", "meaning": "처음에는", "note": "시간의 첫 단계임을 나타낸다."}, {"word": "not found in", "meaning": "~에 없는", "note": "어떤 것 안에 들어 있지 않다는 뜻이다."}]}, {"id": 6, "original": "Having healthy food experiences early in life may go a long way toward promoting healthy eating throughout a person’s life span.", "explanation": "어릴 때 건강한 음식 맛을 자주 경험하는 것은 평생 건강하게 먹는 습관을 만드는 데 큰 도움이 될 수 있다.", "vocabulary": [{"word": "go a long way toward", "meaning": "~에 큰 도움이 되다", "note": "어떤 목표에 꽤 큰 영향을 준다는 뜻의 표현이다."}, {"word": "promoting", "meaning": "늘리는 데 도움을 주는, 장려하는", "note": "여기서는 건강한 식습관이 더 잘 자리 잡게 돕는다는 뜻이다."}, {"word": "throughout", "meaning": "~내내, ~의 모든 기간에 걸쳐", "note": "시간이나 장소 전체를 나타낸다."}, {"word": "life span", "meaning": "평생, 일생", "note": "사람이 살아가는 전체 기간을 말한다."}]}], "problem_number": "03", "exam_info": "수특 2027 30강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

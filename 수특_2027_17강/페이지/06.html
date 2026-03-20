@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "고통과 삶의 의미의 관계", "summary": "이 글은 힘든 일을 겪는 경험이 행복은 줄일 수 있지만, 삶을 더 뜻깊게 느끼게 하는 데는 큰 도움을 줄 수 있다고 말한다.", "sentences": [{"id": 1, "original": "the sufferings they have experienced.", "explanation": "그들이 지금까지 겪어 온 고통을 가리키는 말이다. 앞내용과 이어지는 짧은 조각이지만, 이 글에서는 사람들이 겪은 힘든 경험이 중요하다는 뜻을 보여 준다.", "vocabulary": [{"word": "sufferings", "meaning": "고통, 괴로운 경험들", "note": "suffering의 복수형으로, 여러 가지 힘든 일을 뜻한다."}, {"word": "have experienced", "meaning": "겪어 왔다, 경험했다", "note": "지금까지의 경험을 말할 때 자주 쓰는 표현이다."}]}, {"id": 2, "original": "One research project investigated the differences between people who found their lives to be happy and those who found them to be meaningful.", "explanation": "한 연구에서는 자기 삶을 행복하다고 느끼는 사람들과, 자기 삶이 뜻깊다고 느끼는 사람들 사이에 어떤 차이가 있는지 살펴보았다.", "vocabulary": [{"word": "research project", "meaning": "연구 과제, 연구 활동", "note": ""}, {"word": "investigated", "meaning": "조사했다, 자세히 살펴보았다", "note": "investigate는 어떤 것을 알아보기 위해 깊이 살피는 뜻이다."}, {"word": "the differences between A and B", "meaning": "A와 B 사이의 차이", "note": "비교할 때 자주 나오는 표현이다."}, {"word": "meaningful", "meaning": "뜻깊은, 의미 있는", "note": "단순히 즐거운 것이 아니라, 가치가 있다고 느끼는 상태를 말한다."}]}, {"id": 3, "original": "While, on average, happy lives and meaningful lives overlap a great deal, the researchers focused on those aspects of a meaningful life that were distinct from happiness.", "explanation": "보통은 행복한 삶과 뜻깊은 삶이 많이 겹치지만, 연구자들은 그중에서도 행복과는 다른, 뜻깊은 삶만의 특징에 집중했다.", "vocabulary": [{"word": "on average", "meaning": "보통, 평균적으로 보면", "note": ""}, {"word": "overlap a great deal", "meaning": "많이 겹치다", "note": "overlap은 공통되는 부분이 있다는 뜻이다."}, {"word": "focused on", "meaning": "집중했다", "note": "focus on은 어떤 한 점에 관심을 모으는 표현이다."}, {"word": "aspects", "meaning": "면, 부분, 특징", "note": ""}, {"word": "distinct from", "meaning": "~와 다른, 구별되는", "note": "be distinct from은 분명히 다르다는 뜻이다."}]}, {"id": 4, "original": "And, remarkably, they found that people who had more meaningful lives reported that they had more experience suffering through past negative events.", "explanation": "그리고 놀랍게도, 더 뜻깊은 삶을 산다고 한 사람들은 지난 안 좋은 일을 더 많이 겪으며 고통을 경험했다고 말했다.", "vocabulary": [{"word": "remarkably", "meaning": "놀랍게도", "note": ""}, {"word": "reported", "meaning": "말했다, 보고했다", "note": "연구 결과를 전할 때 자주 쓰인다."}, {"word": "suffering through", "meaning": "괴로운 일을 겪어 내며 버티는", "note": "힘든 일을 그냥 겪는 것을 넘어 견디는 느낌이 있다."}, {"word": "past negative events", "meaning": "과거의 안 좋은 사건들", "note": ""}]}, {"id": 5, "original": "They also reported worrying more and enduring more things that caused them stress.", "explanation": "그 사람들은 또 걱정을 더 많이 했고, 스트레스를 주는 일도 더 많이 견뎌 냈다고 말했다.", "vocabulary": [{"word": "worrying more", "meaning": "더 많이 걱정하는 것", "note": ""}, {"word": "enduring", "meaning": "견디는 것, 버티는 것", "note": "endure는 힘든 것을 오래 참는 느낌이 있다."}, {"word": "caused them stress", "meaning": "그들에게 스트레스를 주었다", "note": "cause A stress는 A에게 스트레스를 주다라는 뜻이다."}]}, {"id": 6, "original": "On the other hand, these past experiences with suffering tended to reduce people’s overall levels of happiness.", "explanation": "반대로, 이런 과거의 고통 경험은 사람들의 전체적인 행복감을 낮추는 쪽으로 이어지는 경향이 있었다.", "vocabulary": [{"word": "On the other hand", "meaning": "반면에, 다른 한편으로는", "note": "앞의 내용과 반대되는 말을 꺼낼 때 쓴다."}, {"word": "tended to", "meaning": "~하는 경향이 있었다", "note": "항상 그런 것은 아니지만 대체로 그렇다는 뜻이다."}, {"word": "reduce", "meaning": "줄이다, 낮추다", "note": ""}, {"word": "overall levels of happiness", "meaning": "전반적인 행복의 정도", "note": "overall은 전체적으로 본다는 뜻이다."}]}, {"id": 7, "original": "The difficult times that we endure play a key role in helping us to lead more meaningful lives.", "explanation": "우리가 견뎌 내는 힘든 시간은 우리 삶을 더 뜻깊게 살아가게 돕는 데 아주 중요한 구실을 한다.", "vocabulary": [{"word": "endure", "meaning": "견디다, 버티다", "note": ""}, {"word": "play a key role", "meaning": "중요한 구실을 하다", "note": "아주 중요한 역할을 한다는 뜻이다."}, {"word": "lead more meaningful lives", "meaning": "더 뜻깊은 삶을 살다", "note": "lead a life는 삶을 살아가다라는 표현이다."}]}, {"id": 8, "original": "As Jean-Paul Sartre put it, “Human life begins on the far side of despair.”", "explanation": "장폴 사르트르의 말처럼, '인간의 삶은 깊은 절망을 지나간 뒤에 비로소 시작된다'는 뜻이다. 아주 힘든 순간을 넘긴 뒤에 삶의 진짜 모습이 보일 수 있다는 말이다.", "vocabulary": [{"word": "As ~ put it", "meaning": "~의 말대로, ~가 표현한 대로", "note": "유명한 말이나 생각을 소개할 때 자주 쓴다."}, {"word": "the far side of", "meaning": "~의 저편, ~을 지나간 뒤", "note": "비유적으로 어떤 어려움을 넘은 뒤를 뜻한다."}, {"word": "despair", "meaning": "절망", "note": "희망이 거의 없다고 느끼는 아주 깊은 슬픔이다."}]}, {"id": 9, "original": "That is, many of the ways people feel their lives are meaningful are grounded in Our sufferings, then, seem to help to provide people with the sense that their lives are more meaningful, even if these events are associated with lower feelings of happiness.", "explanation": "즉, 사람들이 자기 삶이 뜻깊다고 느끼는 많은 이유는 자신이 겪은 고통에 바탕을 두고 있다. 그래서 고통은 행복감을 낮출 수 있어도, 삶이 더 뜻깊다는 느낌을 주는 데는 도움이 되는 것처럼 보인다.", "vocabulary": [{"word": "That is", "meaning": "즉, 다시 말해", "note": ""}, {"word": "are grounded in", "meaning": "~에 바탕을 두고 있다", "note": "어떤 생각이나 느낌의 뿌리가 어디에 있는지 말할 때 쓴다."}, {"word": "provide A with B", "meaning": "A에게 B를 주다", "note": "provide people with the sense처럼 자주 쓰인다."}, {"word": "associated with", "meaning": "~와 관련이 있는", "note": "함께 이어져 나타나는 관계를 말한다."}, {"word": "lower feelings of happiness", "meaning": "더 낮은 행복감", "note": ""}]}], "problem_number": "06", "exam_info": "수특 2027 17강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

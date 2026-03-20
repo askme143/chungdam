@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "커진 1인분과 비만의 관계", "summary": "미국에서는 음식 양이 점점 커지면서 사람들이 자신도 모르게 더 많이 먹게 되었고, 이것이 체중 증가와 비만으로 이어지고 있다는 내용이다.", "sentences": [{"id": 1, "original": "Many factors contribute to Americans’ growing waistlines, but one observation in particular cannot be overlooked: The incidence of obesity has increased in parallel with increasing portion sizes.", "explanation": "미국 사람들의 허리둘레가 점점 늘어나는 데에는 여러 가지 이유가 있다. 하지만 꼭 봐야 할 중요한 점이 하나 있다. 음식의 1인분 양이 커질수록 비만이 생기는 비율도 함께 높아졌다는 것이다.", "vocabulary": [{"word": "contribute to", "meaning": "~에 영향을 주다, ~의 원인이 되다", "note": "좋은 일에도 나쁜 일에도 둘 다 쓸 수 있다."}, {"word": "waistlines", "meaning": "허리둘레", "note": "여기서는 사람들의 살이 찐 상태를 넓게 가리킨다."}, {"word": "cannot be overlooked", "meaning": "무시할 수 없다", "note": "중요해서 그냥 지나치면 안 된다는 뜻이다."}, {"word": "incidence", "meaning": "발생 비율, 생기는 정도", "note": "병이나 문제가 얼마나 자주 생기는지 말할 때 자주 쓴다."}, {"word": "in parallel with", "meaning": "~와 함께, ~와 나란히", "note": "두 가지가 비슷한 흐름으로 같이 늘거나 줄 때 쓴다."}]}, {"id": 2, "original": "Consider this: Adults today consume an average of 300 more calories per day than they did in the year 1985.", "explanation": "이 점을 생각해 보자. 오늘날의 성인은 1985년의 성인보다 하루에 평균 300칼로리를 더 먹고 있다.", "vocabulary": [{"word": "Consider this", "meaning": "이 점을 생각해 보자", "note": "글에서 중요한 사실을 꺼낼 때 자주 쓰는 표현이다."}, {"word": "consume", "meaning": "먹다, 섭취하다", "note": "음식이나 에너지, 자원 등을 쓰거나 먹는다는 뜻으로 넓게 쓴다."}, {"word": "an average of", "meaning": "평균", "note": "숫자와 함께 자주 쓰인다."}, {"word": "calories", "meaning": "칼로리", "note": "음식이 내는 에너지의 양이다."}]}, {"id": 3, "original": "Is this just a coincidence, or do larger portion sizes have something to do with it?", "explanation": "이것이 그저 우연일까? 아니면 더 커진 1인분 양이 이 일과 관련이 있는 걸까?", "vocabulary": [{"word": "coincidence", "meaning": "우연의 일치", "note": "아무 관련 없이 우연히 함께 일어난 일이라는 뜻이다."}, {"word": "portion sizes", "meaning": "1인분 양, 음식 양", "note": "식당이나 포장 음식에서 한 번에 주는 양을 말한다."}, {"word": "have something to do with", "meaning": "~와 관련이 있다", "note": "직접 원인이라고 딱 잘라 말하지 않고 관련이 있음을 나타내는 표현이다."}]}, {"id": 4, "original": "In almost every eating situation, we are now confronted by huge portions, which are perceived as “normal” or “a great value.”", "explanation": "이제 우리는 거의 모든 식사 자리에서 아주 큰 양의 음식을 마주하게 된다. 그리고 사람들은 그런 양을 '보통'이라고 여기거나 '값에 비해 많이 주는 좋은 선택'이라고 생각한다.", "vocabulary": [{"word": "confronted by", "meaning": "~을 마주하다", "note": "피하기 어렵게 눈앞에 놓인 상태를 나타낸다."}, {"word": "huge portions", "meaning": "아주 큰 양의 음식", "note": ""}, {"word": "perceived as", "meaning": "~로 여겨지다, ~처럼 보이다", "note": "사람들이 어떻게 받아들이는지를 말할 때 쓴다."}, {"word": "a great value", "meaning": "값에 비해 양이 많아 이득인 것", "note": "단순히 '가치가 크다'보다, 돈 대비 만족이 크다는 느낌이다."}]}, {"id": 5, "original": "Americans have created the perception what large portion sizes are appropriate, creating an environment of portion distortion.", "explanation": "미국 사람들은 큰 1인분 양이 알맞다고 느끼는 생각을 만들어 냈다. 그래서 음식 양에 대한 감각이 흐려진 환경이 생겼다.", "vocabulary": [{"word": "created the perception", "meaning": "그런 인식을 만들어 냈다", "note": "사람들이 어떤 식으로 생각하게 되었다는 뜻이다."}, {"word": "appropriate", "meaning": "알맞은, 적당한", "note": ""}, {"word": "environment", "meaning": "환경", "note": "여기서는 실제 장소만이 아니라 사회 분위기까지 포함한다."}, {"word": "portion distortion", "meaning": "적당한 음식 양에 대한 감각이 흐려진 상태", "note": "실제보다 큰 양을 보통이라고 느끼게 되는 현상을 말한다."}]}, {"id": 6, "original": "We find portion distortions in restaurants, where the jumbo-sized portions are consistently 250 percent larger than the regular portions.", "explanation": "이런 음식 양의 왜곡은 식당에서도 볼 수 있다. 식당의 초대형 메뉴는 보통 크기 메뉴보다 늘 250퍼센트나 더 크다.", "vocabulary": [{"word": "jumbo-sized", "meaning": "초대형의", "note": "아주 크다는 뜻의 구어적인 표현이다."}, {"word": "consistently", "meaning": "계속해서, 한결같이", "note": "가끔이 아니라 늘 그런 경향이 있다는 뜻이다."}, {"word": "regular portions", "meaning": "보통 크기의 1인분", "note": ""}]}, {"id": 7, "original": "We even find portion distortions in our homes, where the sizes of our bowls and glasses have steadily increased and where the surface area of the average dinner plate has increased 36 percent since 1960.", "explanation": "이런 문제는 집 안에서도 나타난다. 우리가 쓰는 그릇과 컵은 조금씩 계속 커졌고, 보통 저녁 접시의 넓이도 1960년 이후 36퍼센트 늘어났다.", "vocabulary": [{"word": "steadily", "meaning": "꾸준히, 조금씩 계속", "note": "갑자기 아니라 계속 이어진 변화를 말한다."}, {"word": "surface area", "meaning": "겉넓이, 표면 넓이", "note": "여기서는 접시의 넓이를 뜻한다."}, {"word": "average dinner plate", "meaning": "보통 저녁 식사용 접시", "note": ""}]}, {"id": 8, "original": "Research shows that people unintentionally consume more calories when offered larger portions.", "explanation": "연구에 따르면 사람들은 더 큰 양의 음식을 받으면 자신도 모르게 칼로리를 더 많이 먹게 된다.", "vocabulary": [{"word": "Research shows that", "meaning": "연구에 따르면", "note": "글에서 근거를 제시할 때 자주 쓰는 표현이다."}, {"word": "unintentionally", "meaning": "자신도 모르게, 일부러가 아니라", "note": ""}, {"word": "offered", "meaning": "제공된, 받게 된", "note": "여기서는 음식이 눈앞에 주어진 상황을 말한다."}]}, {"id": 9, "original": "Consuming larger portion sizes can contribute to positive energy balance, which, over time, leads to weight gain and ultimately can result in obesity.", "explanation": "큰 양의 음식을 계속 먹으면 몸에 들어오는 에너지가 쓰는 에너지보다 많아질 수 있다. 이런 상태가 시간이 지나 계속되면 체중이 늘고, 결국 비만이 될 수 있다.", "vocabulary": [{"word": "positive energy balance", "meaning": "들어오는 에너지가 쓰는 에너지보다 많은 상태", "note": "먹는 양이 활동으로 쓰는 양보다 많을 때를 말한다."}, {"word": "over time", "meaning": "시간이 지나면서", "note": ""}, {"word": "weight gain", "meaning": "체중 증가", "note": ""}, {"word": "ultimately", "meaning": "결국", "note": "마지막 결과를 말할 때 쓴다."}, {"word": "result in", "meaning": "~로 이어지다, ~를 낳다", "note": ""}]}], "problem_number": "04", "exam_info": "수특 2027 11강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

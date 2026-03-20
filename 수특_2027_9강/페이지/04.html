@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "이반 벨트라미의 삶과 용기", "summary": "이 글은 의사 집안에서 자라 전쟁 중에도 사람들을 돕고, 전쟁 뒤에는 의료 혜택이 적은 곳을 위해 힘쓴 이반 벨트라미의 삶을 보여 준다.", "sentences": [{"id": 1, "original": "Ivan Beltrami was born on June 14, 1920, in Marseille, France, to a family committed to medicine — his father was a doctor and his mother a nurse.", "explanation": "이반 벨트라미는 1920년 6월 14일 프랑스 마르세유에서 태어났다. 그의 집안은 의료 일을 중요하게 여겼고, 아버지는 의사였으며 어머니는 간호사였다.", "vocabulary": [{"word": "committed to", "meaning": "헌신한, 깊이 힘쓴", "note": "be committed to ~는 '~에 깊이 마음을 두고 힘쓰다'라는 뜻으로 자주 쓰인다."}, {"word": "medicine", "meaning": "의학, 의료", "note": "여기서는 약이 아니라 사람을 치료하는 일 전체를 가리킨다."}, {"word": "doctor", "meaning": "의사", "note": ""}, {"word": "nurse", "meaning": "간호사", "note": ""}]}, {"id": 2, "original": "Raised in a Catholic environment, he grew up valuing compassion and justice, particularly influenced by the discrimination faced by his Jewish friends.", "explanation": "그는 가톨릭 분위기 속에서 자라면서 다른 사람을 불쌍히 여기고 바르게 대하는 가치를 중요하게 생각하게 되었다. 특히 유대인 친구들이 차별받는 모습을 보며 큰 영향을 받았다.", "vocabulary": [{"word": "Catholic environment", "meaning": "가톨릭 환경", "note": "종교적 분위기와 생활 방식 속에서 자랐다는 뜻이다."}, {"word": "compassion", "meaning": "연민, 남을 안타깝게 여기고 돕는 마음", "note": ""}, {"word": "justice", "meaning": "정의, 바름", "note": "옳고 공정한 것을 중요하게 여기는 마음이다."}, {"word": "discrimination", "meaning": "차별", "note": "사람을 공평하게 대하지 않고 다르게 대하는 것이다."}, {"word": "Jewish", "meaning": "유대인의, 유대교의", "note": "Jewish friends는 '유대인 친구들'이라는 뜻이다."}]}, {"id": 3, "original": "During World War II, Beltrami studied medicine while secretly aiding the French Resistance.", "explanation": "제2차 세계대전 동안 벨트라미는 의학을 공부하면서, 몰래 프랑스 레지스탕스를 도왔다.", "vocabulary": [{"word": "World War II", "meaning": "제2차 세계대전", "note": "1939년부터 1945년까지 이어진 큰 전쟁이다."}, {"word": "secretly", "meaning": "몰래, 비밀리에", "note": ""}, {"word": "aiding", "meaning": "돕는 것", "note": "aid는 '돕다'라는 뜻이다."}, {"word": "the French Resistance", "meaning": "프랑스 레지스탕스", "note": "전쟁 중 독일 점령에 맞서 비밀리에 저항한 사람들을 말한다."}]}, {"id": 4, "original": "From 1942, he served as a courier and provided medical assistance to those in need.", "explanation": "1942년부터 그는 연락책으로 일했고, 도움이 필요한 사람들에게 의료 도움도 주었다.", "vocabulary": [{"word": "served as", "meaning": "~로 일했다, ~역할을 했다", "note": "직업이나 역할을 말할 때 자주 쓴다."}, {"word": "courier", "meaning": "전달책, 연락책", "note": "전쟁 상황에서는 문서나 물건, 소식을 몰래 옮기는 사람을 뜻할 수 있다."}, {"word": "medical assistance", "meaning": "의료 지원, 치료 도움", "note": ""}, {"word": "those in need", "meaning": "도움이 필요한 사람들", "note": "직역하면 '필요 속에 있는 사람들'이지만 자연스럽게는 이렇게 옮긴다."}]}, {"id": 5, "original": "He also risked his life by sheltering Jewish individuals in his home, actions for which he was later honored as ★Righteous Among the Nations by ★Yad Vashem in 1984.", "explanation": "그는 또 자기 집에 유대인들을 숨겨 주면서 목숨까지 걸었다. 이런 행동으로 그는 나중에 1984년 야드 바솀으로부터 '열방의 의인'이라는 이름으로 기림을 받았다.", "vocabulary": [{"word": "risked his life", "meaning": "목숨을 걸었다", "note": ""}, {"word": "sheltering", "meaning": "숨겨 주는 것, 안전하게 머물게 하는 것", "note": "shelter는 '피난처를 주다'라는 뜻으로도 쓰인다."}, {"word": "Jewish individuals", "meaning": "유대인들", "note": "individuals는 '개개인'이라는 뜻이지만 여기서는 사람들을 가리킨다."}, {"word": "honored as", "meaning": "~로 기려졌다, ~라는 이름으로 영예를 받았다", "note": ""}, {"word": "Righteous Among the Nations", "meaning": "열방의 의인", "note": "홀로코스트 때 유대인을 도운 비유대인에게 주어지는 칭호이다."}]}, {"id": 6, "original": "After the war, he dedicated himself to improving healthcare access in underserved communities, establishing clinics in rural areas of southern France.", "explanation": "전쟁이 끝난 뒤 그는 의료 서비스를 받기 어려운 지역 사람들을 돕는 일에 힘을 쏟았다. 그래서 프랑스 남부의 시골 지역에 진료소를 세웠다.", "vocabulary": [{"word": "dedicated himself to", "meaning": "~에 온힘을 쏟았다", "note": "오랫동안 한 일에 깊이 힘쓸 때 쓰는 표현이다."}, {"word": "healthcare access", "meaning": "의료를 쉽게 받을 수 있는 정도", "note": "병원이나 치료를 이용하기 쉬운지 말할 때 쓴다."}, {"word": "underserved communities", "meaning": "충분한 도움을 받지 못한 지역 사회", "note": "병원, 교육 같은 기본 서비스가 부족한 곳을 말한다."}, {"word": "clinics", "meaning": "진료소들", "note": "큰 병원보다 작은 의료 기관을 뜻한다."}, {"word": "rural areas", "meaning": "시골 지역", "note": "도시가 아닌 농촌이나 작은 마을 지역이다."}]}, {"id": 7, "original": "He passed away on November 12, 1991, leaving behind a legacy of kindness and courage.", "explanation": "그는 1991년 11월 12일 세상을 떠났다. 하지만 친절함과 용기의 본보기를 남겼다.", "vocabulary": [{"word": "passed away", "meaning": "세상을 떠났다", "note": "die보다 부드럽게 말하는 표현이다."}, {"word": "leaving behind", "meaning": "남기고", "note": "사람이 죽은 뒤에도 영향이나 업적이 남는다는 뜻으로 자주 쓴다."}, {"word": "legacy", "meaning": "남긴 것, 오래 기억될 업적", "note": "돈이나 재산뿐 아니라 정신적 가르침이나 좋은 영향도 뜻할 수 있다."}, {"word": "courage", "meaning": "용기", "note": ""}]}], "problem_number": "04", "exam_info": "수특 2027 9강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

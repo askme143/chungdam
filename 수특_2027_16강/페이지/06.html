@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "시장에 잘 드러나지 않는 공공재의 가치", "summary": "습지 같은 자연 환경이 주는 이익은 많은 사람이 함께 누리지만 값이 매겨지지 않는 경우가 많아서, 시장에서는 그 가치가 실제보다 훨씬 낮게 보인다.", "sentences": [{"id": 1, "original": "Public goods are undervalued in markets, which exist for private goods but rarely for public goods.", "explanation": "공공재는 시장에서 가치가 실제보다 낮게 여겨진다. 시장은 주로 개인이 따로 사고파는 물건을 위해 만들어져 있고, 공공재를 위한 시장은 거의 없기 때문이다.", "vocabulary": [{"word": "public goods", "meaning": "공공재, 많은 사람이 함께 누리는 재화", "note": "한 사람이 써도 다른 사람이 함께 누릴 수 있는 경우가 많다."}, {"word": "undervalued", "meaning": "가치가 실제보다 낮게 평가된", "note": "value(가치)에서 나온 말이다."}, {"word": "markets", "meaning": "시장", "note": "물건이나 서비스를 사고파는 곳이나 체계를 뜻한다."}, {"word": "private goods", "meaning": "사적 재화, 개인이 따로 소비하는 재화", "note": "공공재와 반대되는 개념이다."}]}, {"id": 2, "original": "For example, aquatic habitats such as wetlands provide diverse benefits that are often public goods, including breeding or refuge for unique species, recreation, hunting and tourism, or purification of water supplies.", "explanation": "예를 들어 습지 같은 물가 서식지는 여러 가지 도움을 준다. 이런 도움은 공공재인 경우가 많다. 드문 생물의 번식 장소나 피난처가 되기도 하고, 사람들이 쉬거나 사냥하고 관광하는 데 쓰이기도 하며, 물을 깨끗하게 하는 역할도 한다.", "vocabulary": [{"word": "aquatic habitats", "meaning": "물과 관련된 서식지", "note": "aquatic은 '물속의, 물과 관련된'이라는 뜻이다."}, {"word": "wetlands", "meaning": "습지", "note": "물이 늘 있거나 자주 고이는 땅을 말한다."}, {"word": "refuge", "meaning": "피난처, 안전하게 숨을 곳", "note": "사람뿐 아니라 동식물의 보호 장소에도 쓴다."}, {"word": "unique species", "meaning": "특별한 종, 드문 종", "note": "species는 생물의 '종'을 뜻한다."}, {"word": "purification", "meaning": "정화, 깨끗하게 함", "note": "여기서는 물을 깨끗하게 만드는 일을 말한다."}]}, {"id": 3, "original": "These benefits are enjoyed simultaneously by many people and are provided to them for “free” by the natural functioning of the wetlands.", "explanation": "이런 이익은 많은 사람이 한꺼번에 함께 누릴 수 있다. 그리고 습지가 자연스럽게 움직이는 과정 속에서 사람들에게 거의 공짜처럼 제공된다.", "vocabulary": [{"word": "simultaneously", "meaning": "동시에, 한꺼번에", "note": ""}, {"word": "for “free”", "meaning": "공짜로, 돈을 따로 내지 않고", "note": "따옴표는 완전히 공짜처럼 보인다는 뜻을 살짝 강조한다."}, {"word": "natural functioning", "meaning": "자연스러운 작동, 자연의 움직임", "note": "사람이 일부러 만든 것이 아니라 자연이 스스로 하는 작용을 말한다."}]}, {"id": 4, "original": "As a result, there is no “market” and thus no “price” for these public good uses of wetlands.", "explanation": "그래서 습지가 주는 이런 공공재적 쓰임에는 시장이 없다. 따라서 그에 맞는 가격도 따로 생기지 않는다.", "vocabulary": [{"word": "As a result", "meaning": "그 결과", "note": ""}, {"word": "thus", "meaning": "그래서, 따라서", "note": "앞의 내용 때문에 뒤의 일이 이어진다는 뜻이다."}, {"word": "public good uses", "meaning": "공공재로서의 쓰임, 많은 사람이 함께 누리는 용도", "note": "습지가 여러 사람에게 주는 이익을 가리킨다."}]}, {"id": 5, "original": "But the actual value of these services is not zero.", "explanation": "하지만 이런 기능의 진짜 가치는 0이 아니다. 가격이 없다고 해서 가치까지 없는 것은 아니다.", "vocabulary": [{"word": "actual value", "meaning": "실제 가치", "note": "겉으로 보이는 가격과 구별되는 말이다."}, {"word": "services", "meaning": "서비스, 기능, 도움", "note": "여기서는 습지가 사람과 자연에 해 주는 역할을 뜻한다."}]}, {"id": 6, "original": "Because many people benefit from these services, their value is the total additional benefits of all individuals who enjoy provision of these services by wetlands.", "explanation": "많은 사람이 이런 기능으로 도움을 받기 때문에, 그 가치는 그 혜택을 누리는 모든 사람이 얻는 이익을 다 합한 것이다. 즉 한 사람의 이익만 보면 안 되고, 모두의 이익을 함께 봐야 한다.", "vocabulary": [{"word": "benefit from", "meaning": "~로부터 도움을 받다, 이익을 얻다", "note": ""}, {"word": "total additional benefits", "meaning": "추가로 얻는 이익의 총합", "note": "각 사람이 얻는 이익을 모두 더한 값이다."}, {"word": "individuals", "meaning": "각 개인, 사람 한 명 한 명", "note": ""}, {"word": "provision", "meaning": "제공", "note": "provide의 명사형이다."}]}, {"id": 7, "original": "This value could be huge, even though there is no apparent “market price” for these wetland services.", "explanation": "이런 가치는 아주 클 수 있다. 습지가 주는 기능에 눈에 보이는 시장 가격이 없더라도 그렇다.", "vocabulary": [{"word": "huge", "meaning": "매우 큰", "note": ""}, {"word": "apparent", "meaning": "겉으로 드러난, 눈에 보이는", "note": "여기서는 쉽게 확인되는 가격이라는 뜻이다."}, {"word": "market price", "meaning": "시장 가격", "note": "시장에서 사고팔릴 때 붙는 가격을 말한다."}]}, {"id": 8, "original": "This gap between the (zero) price for wetland services and their actual value to all beneficiaries indicates how much these public goods are undervalued in markets.", "explanation": "습지의 기능에 붙은 가격은 0인데, 실제로는 많은 사람이 큰 가치를 얻는다. 이 둘 사이의 차이는 공공재가 시장에서 얼마나 낮게 평가되는지를 보여 준다.", "vocabulary": [{"word": "gap", "meaning": "차이, 격차", "note": ""}, {"word": "beneficiaries", "meaning": "혜택을 받는 사람들", "note": "benefit와 관련된 말이다."}, {"word": "indicates", "meaning": "보여 준다, 나타낸다", "note": ""}, {"word": "undervalued in markets", "meaning": "시장에서 실제보다 낮게 평가된", "note": "가격이 없거나 낮아서 가치가 제대로 드러나지 않는다는 뜻이다."}]}], "problem_number": "06", "exam_info": "수특 2027 16강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

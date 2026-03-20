@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "리미티드 애니메이션의 특징과 가치", "summary": "리미티드 애니메이션은 현실을 그대로 흉내 내기보다 단순한 움직임과 상징적인 표현을 써서 비용을 줄이면서도 새로운 예술적 스타일을 만들어 낸다.", "sentences": [{"id": 1, "original": "Limited animation is a process of making animated cartoons that does not follow a “realistic” approach.", "explanation": "리미티드 애니메이션은 만화 영상을 만드는 한 방식이다. 이 방식은 현실처럼 똑같이 보이게 만드는 방법을 따르지 않는다.", "vocabulary": [{"word": "Limited animation", "meaning": "리미티드 애니메이션, 움직임과 표현을 줄여 만드는 애니메이션 방식", "note": "비용과 시간을 아끼면서도 효과를 내는 방식이다."}, {"word": "process", "meaning": "과정, 방식", "note": "여기서는 '만드는 방법'이라는 뜻에 가깝다."}, {"word": "realistic approach", "meaning": "현실적으로 보이게 하려는 방식", "note": "실제 세계를 그대로 닮게 만드는 표현법을 말한다."}]}, {"id": 2, "original": "The short cartoons and feature films of Walt Disney from the 1930s and 1940s are widely acclaimed for depicting animated simulations of reality, with exquisite detail in every frame.", "explanation": "1930년대와 1940년대의 월트 디즈니 단편 만화와 장편 영화는 현실을 살아 움직이는 것처럼 보여 준 점으로 널리 칭찬받는다. 화면의 한 장면 한 장면마다 아주 섬세한 표현이 들어 있다.", "vocabulary": [{"word": "feature films", "meaning": "장편 영화", "note": "짧은 영화가 아니라 상영 시간이 긴 영화다."}, {"word": "widely acclaimed", "meaning": "널리 칭찬받는, 많은 사람에게 높이 평가받는", "note": ""}, {"word": "depicting", "meaning": "그려 내는, 보여 주는", "note": "사람이나 장면, 모습을 표현해 보여 준다는 뜻이다."}, {"word": "simulations of reality", "meaning": "현실을 흉내 낸 모습", "note": "실제와 비슷하게 보이도록 만든 표현이다."}, {"word": "exquisite detail", "meaning": "아주 정교하고 섬세한 디테일", "note": "작은 부분까지 매우 꼼꼼하게 표현했다는 뜻이다."}]}, {"id": 3, "original": "However, this style of animation is very time-consuming and expensive.", "explanation": "하지만 이런 애니메이션 스타일은 만드는 데 시간이 아주 많이 들고 돈도 많이 든다.", "vocabulary": [{"word": "However", "meaning": "하지만, 그러나", "note": "앞의 내용과 반대되는 말을 이을 때 쓴다."}, {"word": "time-consuming", "meaning": "시간이 많이 드는", "note": "어떤 일을 끝내는 데 오랜 시간이 걸린다는 뜻이다."}, {"word": "expensive", "meaning": "비용이 많이 드는, 비싼", "note": ""}]}, {"id": 4, "original": "“Limited” animation creates an image that uses abstract art, symbolism, and limited movement to create the same effect, but at a much lower production cost.", "explanation": "리미티드 애니메이션은 추상 미술, 상징적인 표현, 그리고 적은 움직임을 사용해서 비슷한 효과를 만든다. 그런데 제작비는 훨씬 적게 든다.", "vocabulary": [{"word": "abstract art", "meaning": "추상 미술", "note": "실제 모습을 그대로 그리기보다 느낌이나 형태를 중심으로 표현하는 미술이다."}, {"word": "symbolism", "meaning": "상징적인 표현", "note": "어떤 생각이나 뜻을 직접 말하지 않고 다른 것으로 나타내는 방법이다."}, {"word": "limited movement", "meaning": "제한된 움직임, 적은 움직임", "note": "캐릭터가 크게 많이 움직이지 않는 표현 방식이다."}, {"word": "production cost", "meaning": "제작비", "note": "작품을 만드는 데 들어가는 돈이다."}]}, {"id": 5, "original": "This style of animation depends more upon suspension of disbelief to tell a story; the story exists more in the viewer’s imagination.", "explanation": "이런 애니메이션은 이야기를 전할 때, 보는 사람이 '현실과 달라도 일단 받아들이는 마음'에 더 많이 기대고 있다. 그래서 이야기는 화면에 다 드러나기보다 보는 사람의 상상 속에서 더 크게 만들어진다.", "vocabulary": [{"word": "depends upon", "meaning": "~에 기대다, ~에 달려 있다", "note": ""}, {"word": "suspension of disbelief", "meaning": "현실적이지 않아도 잠시 믿고 받아들이는 태도", "note": "영화나 소설을 볼 때 '말이 안 돼도 일단 이야기 속으로 들어가는 마음'을 뜻한다."}, {"word": "viewer’s imagination", "meaning": "보는 사람의 상상력", "note": ""}]}, {"id": 6, "original": "It also encourages the animators to indulge in artistic styles that are not necessarily bound to the limits of the real world.", "explanation": "또 이런 방식은 애니메이터가 현실 세계의 한계에 꼭 묶이지 않는 여러 예술적 스타일을 마음껏 시도하게 해 준다.", "vocabulary": [{"word": "encourages", "meaning": "~하게 해 주다, ~하도록 북돋우다", "note": "여기서는 어떤 행동을 더 자유롭게 하게 만든다는 뜻이다."}, {"word": "indulge in", "meaning": "마음껏 빠지다, 자유롭게 즐기다", "note": "좋아하는 것을 충분히 하거나 깊이 몰두한다는 느낌이 있다."}, {"word": "artistic styles", "meaning": "예술적인 표현 방식", "note": ""}, {"word": "bound to", "meaning": "~에 묶인, ~에 제한된", "note": "자유롭지 못하고 어떤 틀 안에 갇혀 있다는 뜻이다."}]}, {"id": 7, "original": "The result is a new artistic style that could not have developed if animation was solely devoted to producing simulations of reality.", "explanation": "그 결과, 애니메이션이 현실을 흉내 내는 데만 매달렸다면 나오지 못했을 새로운 예술 스타일이 생겨났다.", "vocabulary": [{"word": "The result is", "meaning": "그 결과는 ~이다", "note": ""}, {"word": "could not have developed", "meaning": "발전할 수 없었을 것이다", "note": "과거에 실제로 일어나지 못했을 가능성을 말할 때 쓰는 표현이다."}, {"word": "solely devoted to", "meaning": "오직 ~에만 몰두한", "note": "다른 것은 하지 않고 한 가지에만 집중한다는 뜻이다."}, {"word": "simulations of reality", "meaning": "현실을 흉내 낸 표현", "note": ""}]}, {"id": 8, "original": "Without limited animation, such ground-breaking films as Yellow Submarine, Chuck Jones’ The Dot and the Line, and many others could never have been produced.", "explanation": "리미티드 애니메이션이 없었다면, <옐로 서브마린>, 척 존스의 <더 닷 앤 더 라인> 같은 획기적인 영화들과 많은 다른 작품들도 결코 만들어질 수 없었을 것이다.", "vocabulary": [{"word": "Without limited animation", "meaning": "리미티드 애니메이션이 없었다면", "note": "가정법 표현으로, 실제와 다른 상황을 가정한다."}, {"word": "ground-breaking", "meaning": "획기적인, 새로운 길을 연", "note": "이전에는 없던 새로운 방식이나 큰 변화를 보여 주는 말이다."}, {"word": "could never have been produced", "meaning": "결코 제작될 수 없었을 것이다", "note": "과거에 불가능했을 상황을 강하게 말하는 표현이다."}]}], "problem_number": "04", "exam_info": "수특 2027 7강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

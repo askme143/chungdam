@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "상황에 따라 달라지는 윤리 판단", "summary": "이 글은 상황 윤리가 옳고 그름을 정할 때 상황과 결과를 중요하게 본다고 설명하며, 스포츠에서는 이런 생각이 규칙 위반을 눈감아 주는 태도로 이어질 수 있다고 말한다.", "sentences": [{"id": 1, "original": "Situational ethics is an ethical theory that takes into account the context of a situation or an act when judging whether it is ethical.", "explanation": "상황 윤리는 어떤 행동이 옳은지 판단할 때, 그 행동이 일어난 상황과 배경을 함께 살펴보는 생각이다.", "vocabulary": [{"word": "Situational ethics", "meaning": "상황 윤리", "note": "옳고 그름을 정할 때 정해진 규칙보다 상황을 더 중요하게 보는 생각이다."}, {"word": "takes into account", "meaning": "고려하다", "note": "무언가를 판단할 때 그것도 함께 생각한다는 뜻이다."}, {"word": "context", "meaning": "상황, 배경", "note": "말이나 행동이 놓인 주변 사정을 가리킨다."}, {"word": "act", "meaning": "행동", "note": "여기서는 연극이 아니라 사람이 한 행동이라는 뜻이다."}, {"word": "ethical", "meaning": "윤리적으로 옳은", "note": "도덕적으로 맞는지 틀린지와 관련된 말이다."}]}, {"id": 2, "original": "Supporters of this theory willingly permit casting aside absolute moral standards.", "explanation": "이 이론을 지지하는 사람들은 언제나 꼭 지켜야 하는 도덕 기준을 기꺼이 내려놓아도 된다고 본다.", "vocabulary": [{"word": "supporters", "meaning": "지지하는 사람들", "note": ""}, {"word": "willingly", "meaning": "기꺼이", "note": "억지로가 아니라 스스로 그렇게 한다는 느낌이다."}, {"word": "permit", "meaning": "허용하다", "note": ""}, {"word": "casting aside", "meaning": "내던지기, 버리기", "note": "중요하게 여기던 것을 치워 두거나 버린다는 뜻이다."}, {"word": "absolute moral standards", "meaning": "절대적인 도덕 기준", "note": "어떤 상황에서도 바뀌지 않는 옳고 그름의 기준을 말한다."}]}, {"id": 3, "original": "In the absence of a universal standard or law, what matters is the outcome or consequences;", "explanation": "모든 사람에게 똑같이 적용되는 기준이나 법이 없다면, 중요한 것은 결국 어떤 결과가 나왔는가 하는 점이라는 뜻이다.", "vocabulary": [{"word": "In the absence of", "meaning": "~이 없을 때", "note": "무언가가 없는 상태를 나타내는 표현이다."}, {"word": "universal", "meaning": "모든 사람에게 통하는, 보편적인", "note": ""}, {"word": "standard", "meaning": "기준", "note": ""}, {"word": "outcome", "meaning": "결과", "note": "일이 끝난 뒤 나타난 결과를 말한다."}, {"word": "consequences", "meaning": "결과, 뒤따르는 일", "note": "좋은 결과일 수도 있고 나쁜 결과일 수도 있다."}]}, {"id": 4, "original": "so, the end justifies the means.", "explanation": "그래서 마지막 결과만 좋다면, 그 과정이나 방법도 괜찮다고 여길 수 있다는 말이다.", "vocabulary": [{"word": "the end justifies the means", "meaning": "결과가 좋으면 수단도 정당화된다", "note": "유명한 표현으로, 과정의 문제보다 결과를 더 중요하게 보는 생각을 나타낸다."}]}, {"id": 5, "original": "Possibly the following contrasting realities can help illustrate the application of situational ethics.", "explanation": "아마도 이제 나오는 서로 다른 두 가지 실제 모습이 상황 윤리가 어떻게 쓰이는지 보여 주는 데 도움이 될 것이다.", "vocabulary": [{"word": "Possibly", "meaning": "아마도", "note": ""}, {"word": "contrasting", "meaning": "서로 다른, 대조되는", "note": "차이가 뚜렷하게 보인다는 뜻이다."}, {"word": "realities", "meaning": "실제 모습들, 현실의 사례들", "note": "여기서는 실제로 일어나는 경우들을 가리킨다."}, {"word": "illustrate", "meaning": "분명하게 보여 주다, 설명해 주다", "note": ""}, {"word": "application", "meaning": "적용", "note": "어떤 생각이나 규칙을 실제로 써 보는 것을 말한다."}]}, {"id": 6, "original": "In a pickup game of basketball played among friends, everyone is expected to call his or her own fouls or acknowledge knocking the ball out-of-bounds.", "explanation": "친구들끼리 가볍게 하는 농구에서는, 각자 자기 반칙을 스스로 말하고 공을 밖으로 내보냈으면 그것도 인정하는 것이 보통이다.", "vocabulary": [{"word": "pickup game", "meaning": "즉석 경기, 친선 경기", "note": "정식 대회가 아니라 사람들이 모여 가볍게 하는 경기다."}, {"word": "is expected to", "meaning": "~하는 것이 기대되다, 보통 그렇게 하게 되다", "note": ""}, {"word": "call his or her own fouls", "meaning": "자기 반칙을 스스로 인정하다", "note": "심판이 없을 때 자기가 한 반칙을 직접 말하는 것을 뜻한다."}, {"word": "acknowledge", "meaning": "인정하다", "note": ""}, {"word": "out-of-bounds", "meaning": "경기장 밖으로 나간", "note": "공이나 선수가 경기 구역을 벗어난 상태를 말한다."}]}, {"id": 7, "original": "Caring about one’s friends and maybe getting to keep playing with the group leads to these actions.", "explanation": "친구들을 생각하는 마음과 앞으로도 그 무리와 계속 즐겁게 경기하고 싶은 마음이 이런 행동으로 이어진다.", "vocabulary": [{"word": "Caring about", "meaning": "~을 아끼고 생각함", "note": "상대에게 마음을 쓰고 중요하게 여긴다는 뜻이다."}, {"word": "keep playing with the group", "meaning": "그 무리와 계속 함께 경기하다", "note": ""}, {"word": "leads to", "meaning": "~로 이어지다", "note": "어떤 이유가 결과를 만들어 낼 때 쓰는 표현이다."}]}, {"id": 8, "original": "But, once an organized game is played with officials, most athletes will not admit to the same fouls or violations as the end goal of winning is more important than expressing concern for competitors.", "explanation": "하지만 심판이 있는 정식 경기에서는, 많은 선수들이 같은 반칙이나 규칙 위반을 해도 그것을 인정하지 않는다. 이기려는 최종 목표가 상대 선수를 배려하는 마음보다 더 중요해지기 때문이다.", "vocabulary": [{"word": "organized game", "meaning": "정식 경기", "note": "규칙과 진행 방식이 제대로 갖춰진 경기를 말한다."}, {"word": "officials", "meaning": "심판진, 경기 관계자", "note": "경기 규칙을 관리하는 사람들이다."}, {"word": "admit to", "meaning": "~을 인정하다", "note": "자신이 한 잘못이나 사실을 인정할 때 자주 쓴다."}, {"word": "violations", "meaning": "규칙 위반", "note": "foul보다 더 넓게, 규칙을 어긴 일을 가리킬 수 있다."}, {"word": "competitors", "meaning": "경쟁 상대, 상대 선수들", "note": ""}]}, {"id": 9, "original": "Situational ethics has been extended by many athletes and coaches to mean trying to get away with as many actions on the field or court as possible to abandon competitive advantages.", "explanation": "많은 선수와 코치들은 상황 윤리를 경기장에서 가능한 한 많은 행동을 들키지 않고 넘어가려는 뜻으로 넓게 받아들여 왔다. 그렇게 해서 경기에서 이길 데 도움이 되는 이점을 놓치지 않으려는 것이다.", "vocabulary": [{"word": "has been extended", "meaning": "뜻이 넓어졌다, 더 넓게 쓰였다", "note": "원래 뜻보다 더 많은 경우에 적용되었다는 말이다."}, {"word": "get away with", "meaning": "들키지 않고 넘어가다", "note": "잘못을 해도 벌을 받지 않는다는 뜻으로 자주 쓰인다."}, {"word": "field or court", "meaning": "운동장이나 코트", "note": "스포츠 경기가 열리는 장소를 가리킨다."}, {"word": "competitive advantages", "meaning": "경쟁에서 유리한 점", "note": "이기거나 더 좋은 결과를 얻는 데 도움이 되는 점이다."}, {"word": "abandon", "meaning": "버리다, 포기하다", "note": "문맥상 '유리한 점을 버리다'라는 말인데, 글 전체 뜻으로는 그 유리함을 놓치지 않으려는 태도를 비판하는 내용으로 읽힌다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 12강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

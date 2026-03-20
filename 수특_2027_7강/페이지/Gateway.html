@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "컬처테인먼트의 장점과 위험", "summary": "컬처테인먼트는 돈이 되는 장점이 커서 정치권과 정부의 관심을 받지만, 너무 상업적으로 흐르면 본래 뜻을 잃고 비슷비슷해질 위험도 있다.", "sentences": [{"id": 1, "original": "The economic benefit of culturtainment makes it attractive to politicians and policy makers alike.", "explanation": "컬처테인먼트는 경제적으로 도움이 되기 때문에 정치인과 정책을 만드는 사람들 모두에게 매력적으로 보인다.", "vocabulary": [{"word": "economic benefit", "meaning": "경제적 이익, 돈이 되는 장점", "note": ""}, {"word": "culturtainment", "meaning": "문화와 오락이 합쳐진 형태의 행사나 산업", "note": "culture와 entertainment를 합친 말이다."}, {"word": "policy makers", "meaning": "정책을 만드는 사람들", "note": "정부나 공공 기관에서 중요한 결정을 내리는 사람들을 가리킨다."}, {"word": "alike", "meaning": "똑같이, 모두", "note": "A and B alike는 'A와 B 모두'라는 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "A potential increase in inbound visitor numbers coupled with their demand for related goods and services (travel, accommodation, retail) is an incentive for those within governments and authorities to work with cultural groups in order to develop celebrations and commemorations into larger and more high-profile events.", "explanation": "해외에서 들어오는 방문객이 늘어날 가능성이 있고, 그 사람들이 여행, 숙박, 쇼핑 같은 관련 상품과 서비스를 찾게 되면 정부와 공공 기관 사람들은 문화 단체와 함께 일할 이유를 얻게 된다. 그래서 기념행사나 축하 행사를 더 크고 더 눈에 띄는 행사로 키우려 한다.", "vocabulary": [{"word": "inbound visitor numbers", "meaning": "외부에서 들어오는 방문객 수", "note": "여기서는 주로 외국에서 오는 방문객 수를 말한다."}, {"word": "coupled with", "meaning": "~와 함께, ~가 더해져", "note": "두 가지가 같이 연결되어 있다는 뜻이다."}, {"word": "incentive", "meaning": "동기, 하게 만드는 이유", "note": "무언가를 하도록 이끄는 힘이나 보상을 뜻한다."}, {"word": "commemorations", "meaning": "기념행사", "note": "중요한 사람이나 사건을 기억하기 위해 여는 행사이다."}, {"word": "high-profile", "meaning": "주목을 많이 받는, 눈에 잘 띄는", "note": "언론이나 대중의 관심을 많이 받는다는 뜻이다."}]}, {"id": 3, "original": "However, such commercialization risks culturtainment becoming homogeneous and losing its original ‘message’ that could lead to a dilution of audiences.", "explanation": "하지만 이렇게 상업적으로 바뀌면 컬처테인먼트가 비슷비슷해지고, 원래 담고 있던 뜻을 잃을 위험이 있다. 그러면 관객의 관심과 몰입도도 약해질 수 있다.", "vocabulary": [{"word": "commercialization", "meaning": "상업화, 돈벌이 중심으로 바뀌는 것", "note": ""}, {"word": "homogeneous", "meaning": "획일적인, 비슷비슷한", "note": "서로 다른 개성이 줄어들고 한 가지 모습처럼 되는 것을 말한다."}, {"word": "original message", "meaning": "원래 전하려던 뜻", "note": "행사나 작품이 처음에 담고 있던 핵심 생각을 가리킨다."}, {"word": "dilution", "meaning": "약해짐, 옅어짐", "note": "원래의 힘이나 특징이 줄어드는 느낌으로 쓰인다."}]}, {"id": 4, "original": "This could also lead to smaller non-commercial independent events being set up that would only serve to divide audiences further.", "explanation": "이런 흐름은 또 돈벌이가 목적이 아닌 작은 독립 행사들이 새로 생기게 만들 수 있다. 그런데 그런 행사는 오히려 관객을 더 여러 갈래로 나누는 결과를 낳을 수도 있다.", "vocabulary": [{"word": "non-commercial", "meaning": "상업적이지 않은, 돈벌이가 주목적이 아닌", "note": ""}, {"word": "independent events", "meaning": "독립 행사", "note": "큰 기관이나 기업에 크게 기대지 않고 따로 열리는 행사이다."}, {"word": "be set up", "meaning": "설립되다, 만들어지다", "note": "행사, 조직, 제도 등이 새로 마련될 때 자주 쓴다."}, {"word": "divide audiences", "meaning": "관객을 나누다", "note": "사람들의 관심이 한곳에 모이지 않고 여러 곳으로 흩어지는 뜻이다."}]}, {"id": 5, "original": "This is something that planners and stakeholders will need to balance against potential financial gain.", "explanation": "이 점은 기획자들과 관련된 사람들 모두가 앞으로 벌 수 있는 돈과 함께 잘 따져 보아야 하는 문제이다.", "vocabulary": [{"word": "planners", "meaning": "기획자들", "note": ""}, {"word": "stakeholders", "meaning": "이 일과 관련이 있는 사람들", "note": "직접 영향을 받거나 이해관계가 걸린 사람들을 말한다."}, {"word": "balance against", "meaning": "~와 견주어 균형 있게 따지다", "note": "한쪽 이익만 보지 않고 다른 요소도 함께 생각한다는 뜻이다."}, {"word": "potential financial gain", "meaning": "앞으로 얻을 수 있는 금전적 이익", "note": ""}]}, {"id": 6, "original": "Changing political, social and religious landscapes will lead to the emergence of new cultures, and with them new culturtainment experiences.", "explanation": "정치, 사회, 종교의 모습이 바뀌면 새로운 문화가 생겨날 것이다. 그리고 그와 함께 새로운 컬처테인먼트 경험도 나타날 것이다.", "vocabulary": [{"word": "landscapes", "meaning": "상황, 전반적인 모습", "note": "여기서는 실제 풍경이 아니라 사회의 큰 흐름과 모습을 뜻한다."}, {"word": "lead to", "meaning": "~로 이어지다", "note": ""}, {"word": "emergence", "meaning": "등장, 새로 나타남", "note": ""}, {"word": "with them", "meaning": "그와 함께", "note": "앞에서 말한 것과 같이 따라온다는 뜻이다."}]}, {"id": 7, "original": "Overall this is a healthy growth sector of the entertainment industry, but one that by its very nature is delicate in the face of exploitation.", "explanation": "전체적으로 보면 이것은 오락 산업에서 건강하게 자라고 있는 분야이다. 하지만 그 성격상 남용되거나 이용당하기 쉬워서 조심스럽게 다뤄야 하는 분야이기도 하다.", "vocabulary": [{"word": "overall", "meaning": "전체적으로 보면", "note": ""}, {"word": "growth sector", "meaning": "성장하는 분야", "note": "앞으로 더 커질 가능성이 큰 산업 분야를 말한다."}, {"word": "by its very nature", "meaning": "그 성격상, 본래 특성 때문에", "note": ""}, {"word": "delicate", "meaning": "섬세한, 쉽게 상처받는", "note": "여기서는 쉽게 망가지거나 나쁜 영향을 받을 수 있다는 뜻이다."}, {"word": "exploitation", "meaning": "이용, 남용", "note": "좋지 않은 방식으로 이익을 얻기 위해 이용하는 것을 말한다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 7강"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "01.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

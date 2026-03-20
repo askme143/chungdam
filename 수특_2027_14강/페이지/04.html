@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "배경지식이 읽기 이해를 바꾸는 이유", "summary": "글을 잘 읽는 힘만으로는 충분하지 않을 때가 있다. 어떤 주제에 대해 미리 알고 있는 지식이 글 이해에 큰 영향을 준다.", "sentences": [{"id": 1, "original": "The importance of is highlighted in a study discussed by Hirsch in The Knowledge Deficit.", "explanation": "허시가 『The Knowledge Deficit』에서 소개한 한 연구는, 어떤 것이 얼마나 중요한지를 뚜렷하게 보여 준다. 다만 이 문장에는 'The importance of' 뒤에 중요한 말이 빠져 있다.", "vocabulary": [{"word": "highlighted", "meaning": "두드러지게 보여지다, 강조되다", "note": "highlight는 원래 '눈에 띄게 하다'라는 뜻이다."}, {"word": "discussed", "meaning": "다루어진, 설명된", "note": "책이나 글에서 어떤 내용을 이야기할 때 자주 쓴다."}, {"word": "The Knowledge Deficit", "meaning": "『지식의 부족』(책 제목)", "note": "deficit은 '부족, 모자람'이라는 뜻이다."}]}, {"id": 2, "original": "This study consisted of two groups of students who were asked to read a passage about baseball.", "explanation": "이 연구에서는 학생들을 두 집단으로 나누고, 야구에 관한 글 한 편을 읽게 했다.", "vocabulary": [{"word": "consisted of", "meaning": "~로 이루어졌다", "note": "be consisted of는 보통 쓰지 않고 consist of를 쓴다."}, {"word": "groups", "meaning": "집단, 무리", "note": "연구에서는 사람들을 나눈 팀이나 부류를 뜻한다."}, {"word": "passage", "meaning": "글의 한 부분, 지문", "note": "시험 지문을 말할 때도 자주 쓴다."}]}, {"id": 3, "original": "The first group was made up of strong readers who knew little about baseball.", "explanation": "첫 번째 집단은 글 읽기 실력은 좋지만, 야구에 대해서는 거의 모르는 학생들로 이루어져 있었다.", "vocabulary": [{"word": "made up of", "meaning": "~로 이루어진", "note": "be composed of와 비슷한 뜻이다."}, {"word": "strong readers", "meaning": "읽기 실력이 좋은 학생들", "note": "단순히 '많이 읽는 사람'보다 '읽기 능력이 좋은 사람'에 가깝다."}, {"word": "knew little about", "meaning": "~에 대해 거의 몰랐다", "note": "little은 여기서 '거의 없는 정도로 적게'라는 뜻이다."}]}, {"id": 4, "original": "The second group was composed of struggling readers who were knowledgeable about baseball.", "explanation": "두 번째 집단은 읽기를 어려워하지만, 야구에 대해서는 잘 아는 학생들로 이루어져 있었다.", "vocabulary": [{"word": "composed of", "meaning": "~로 이루어진", "note": "made up of와 같은 뜻으로 자주 쓰인다."}, {"word": "struggling readers", "meaning": "읽기를 힘들어하는 학생들", "note": "struggling은 '애쓰는, 어려움을 겪는'이라는 느낌이 있다."}, {"word": "knowledgeable", "meaning": "잘 아는, 지식이 많은", "note": "about와 함께 써서 '어떤 것에 대해 잘 아는' 뜻이 된다."}]}, {"id": 5, "original": "After reading the passage, students in each group had their comprehension tested.", "explanation": "글을 읽은 뒤, 두 집단의 학생들은 내용을 얼마나 이해했는지 평가를 받았다.", "vocabulary": [{"word": "comprehension", "meaning": "이해, 이해력", "note": "reading comprehension은 '독해'를 뜻한다."}, {"word": "had their comprehension tested", "meaning": "이해력을 평가받았다", "note": "have + 목적어 + p.p. 형태로 '무엇을 받다, 당하다' 뜻을 만든다."}, {"word": "each group", "meaning": "각 집단", "note": ""}]}, {"id": 6, "original": "Guess which group scored higher?", "explanation": "어느 집단이 더 높은 점수를 받았는지 한번 맞혀 보자.", "vocabulary": [{"word": "scored higher", "meaning": "더 높은 점수를 받았다", "note": "score는 시험, 경기 등에서 점수를 얻는다는 뜻이다."}, {"word": "Guess", "meaning": "맞혀 봐라, 추측해 봐라", "note": "독자의 관심을 끌 때 자주 쓰는 표현이다."}]}, {"id": 7, "original": "The struggling readers.", "explanation": "바로 읽기를 어려워하던 학생들이다.", "vocabulary": [{"word": "struggling readers", "meaning": "읽기를 힘들어하는 학생들", "note": "앞 문장의 답으로 짧게 쓴 표현이다."}]}, {"id": 8, "original": "Having strong reading skills was not enough for the students who came to the page with a knowledge deficit about the topic.", "explanation": "그 주제에 대해 아는 것이 부족한 학생들에게는, 읽기 실력이 좋은 것만으로는 충분하지 않았다.", "vocabulary": [{"word": "reading skills", "meaning": "읽기 능력", "note": "글을 읽고 이해하는 힘을 말한다."}, {"word": "knowledge deficit", "meaning": "지식 부족", "note": "deficit은 필요한 만큼 모자란 상태를 뜻한다."}, {"word": "came to the page", "meaning": "글을 읽으러 왔다, 글을 접했다", "note": "직역보다 '그 글을 읽게 되었다'로 이해하면 자연스럽다."}, {"word": "about the topic", "meaning": "그 주제에 대해", "note": "topic은 글의 중심 내용이다."}]}, {"id": 9, "original": "Though the second group of readers were not strong readers, their prior knowledge enabled them to outscore readers with far better abilities.", "explanation": "두 번째 집단은 읽기 실력이 뛰어나지는 않았지만, 미리 알고 있던 지식 덕분에 훨씬 더 읽기 능력이 좋은 학생들보다 높은 점수를 받을 수 있었다.", "vocabulary": [{"word": "prior knowledge", "meaning": "미리 알고 있던 지식, 배경지식", "note": "글을 읽기 전에 이미 가지고 있는 지식을 말한다."}, {"word": "enabled", "meaning": "~할 수 있게 했다", "note": "enable A to B는 'A가 B할 수 있게 하다'라는 뜻이다."}, {"word": "outscore", "meaning": "~보다 점수가 더 높다", "note": "시험이나 경기에서 상대보다 높은 점수를 얻는다는 뜻이다."}, {"word": "abilities", "meaning": "능력", "note": "far better abilities는 '훨씬 더 좋은 능력'이라는 뜻이다."}]}, {"id": 10, "original": "Prior knowledge, or, in the case of the good readers, the lack of prior knowledge, was the x-factor.", "explanation": "결국 가장 큰 차이를 만든 것은 배경지식이었다. 읽기를 잘하던 학생들의 경우에는, 오히려 그런 배경지식이 없었다는 점이 결과를 갈랐다.", "vocabulary": [{"word": "Prior knowledge", "meaning": "배경지식, 미리 알고 있는 지식", "note": "이 글의 핵심 개념이다."}, {"word": "the lack of", "meaning": "~의 부족, ~이 없음", "note": "lack는 '없음, 부족함'이라는 뜻이다."}, {"word": "in the case of", "meaning": "~의 경우에는", "note": "특정한 경우를 따로 말할 때 쓴다."}, {"word": "x-factor", "meaning": "결과를 크게 바꾸는 숨은 요소", "note": "정확히 설명하기 어렵지만 큰 영향을 주는 중요한 요인을 뜻한다."}]}], "problem_number": "04", "exam_info": "수특 2027 14강"};
-const NEXT_PAGE = "Gateway.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "시계는 물건이 아니라 되풀이되는 과정이다", "summary": "우리는 시계를 보통 물건으로 생각하지만, 글쓴이는 시계의 본질이 일정하게 되풀이되는 과정에 있다고 말한다.", "sentences": [{"id": 1, "original": "We usually think of a clock as a physical thing, like an alarm clock or a wristwatch.", "explanation": "우리는 보통 시계를 알람시계나 손목시계처럼 눈에 보이고 만질 수 있는 물건이라고 생각한다.", "vocabulary": [{"word": "think of A as B", "meaning": "A를 B라고 생각하다", "note": "아주 자주 쓰는 표현이다."}, {"word": "physical thing", "meaning": "실제로 형태가 있는 물건", "note": "눈에 보이고 만질 수 있는 것을 말한다."}, {"word": "alarm clock", "meaning": "알람시계", "note": ""}, {"word": "wristwatch", "meaning": "손목시계", "note": ""}]}, {"id": 2, "original": "But a clock is really a process embodied in a machine, and the nature of that process is repetitive.", "explanation": "하지만 사실 시계는 기계 안에 담겨 있는 하나의 과정이다. 그리고 그 과정의 가장 중요한 특징은 같은 일이 되풀이된다는 점이다.", "vocabulary": [{"word": "process", "meaning": "과정", "note": "여기서는 시간이 흘러가게 보여 주는 작동의 흐름을 뜻한다."}, {"word": "embodied in", "meaning": "~에 담겨 있는, ~의 모습으로 나타난", "note": "추상적인 것이 구체적인 형태로 드러날 때 쓴다."}, {"word": "nature", "meaning": "본질, 가장 중요한 성질", "note": ""}, {"word": "repetitive", "meaning": "반복되는, 되풀이되는", "note": "repeat와 관련된 말이다."}]}, {"id": 3, "original": "A clock can be almost any process that repeats itself over and over again for an indefinite period.", "explanation": "시계는 거의 어떤 것이든 될 수 있다. 오랫동안 끝이 정해지지 않은 채 같은 일이 계속 반복되기만 하면 된다.", "vocabulary": [{"word": "repeats itself", "meaning": "스스로 반복되다", "note": ""}, {"word": "over and over again", "meaning": "몇 번이고 계속, 반복해서", "note": "강조 표현이다."}, {"word": "indefinite period", "meaning": "끝이 정해지지 않은 기간", "note": "언제 끝날지 딱 정해지지 않은 시간을 말한다."}]}, {"id": 4, "original": "Water clocks drip at a steady pace; quartz crystals vibrate regularly.", "explanation": "물시계는 물방울이 일정한 속도로 떨어진다. 수정 결정은 규칙적으로 떨린다.", "vocabulary": [{"word": "drip", "meaning": "뚝뚝 떨어지다", "note": "물방울이 조금씩 떨어질 때 쓴다."}, {"word": "steady pace", "meaning": "일정한 속도", "note": "빠르기가 크게 바뀌지 않는 상태이다."}, {"word": "quartz crystal", "meaning": "수정 결정", "note": "시계에 쓰이는 물질로, 일정하게 진동하는 성질이 있다."}, {"word": "vibrate", "meaning": "떨리다, 진동하다", "note": ""}, {"word": "regularly", "meaning": "규칙적으로", "note": ""}]}, {"id": 5, "original": "Indeed, it is almost impossible to think of a clock that does not depend on a repetitive cycle of events.", "explanation": "정말로, 되풀이되는 사건의 순서에 기대지 않는 시계를 떠올리기는 거의 불가능하다.", "vocabulary": [{"word": "Indeed", "meaning": "정말로, 사실", "note": "앞말을 더 강하게 확인할 때 쓴다."}, {"word": "depend on", "meaning": "~에 기대다, ~에 달려 있다", "note": ""}, {"word": "repetitive cycle", "meaning": "반복되는 주기", "note": "같은 순서가 계속 돌아오는 것을 말한다."}, {"word": "events", "meaning": "사건들, 일어나는 일들", "note": "여기서는 시계 안에서 일어나는 작은 변화들을 뜻한다."}]}, {"id": 6, "original": "The only example that comes to mind readily is a candle marked in hours.", "explanation": "바로 쉽게 떠오르는 거의 유일한 예는 시간 표시가 되어 있는 초이다.", "vocabulary": [{"word": "come to mind", "meaning": "생각이 나다, 떠오르다", "note": "자주 쓰는 표현이다."}, {"word": "readily", "meaning": "쉽게, 바로", "note": "큰 어려움 없이 금방이라는 뜻이다."}, {"word": "marked in hours", "meaning": "시간 단위로 표시된", "note": "초에 시간 눈금이 적혀 있는 상태를 말한다."}]}, {"id": 7, "original": "But here too there is iteration — the repeated burning of molecules of wax — so this too is an iterative process, although at first masked.", "explanation": "하지만 이것도 마찬가지로 반복이 있다. 초의 왁스 분자들이 계속 타 들어가는 일이 되풀이되기 때문이다. 그래서 이것도 반복되는 과정이다. 다만 처음에는 그 점이 잘 드러나지 않을 뿐이다.", "vocabulary": [{"word": "iteration", "meaning": "반복", "note": "같은 일이 다시 일어나는 것을 말한다."}, {"word": "molecules of wax", "meaning": "왁스 분자들", "note": "초를 이루는 아주 작은 물질 단위이다."}, {"word": "iterative", "meaning": "반복적인", "note": "iteration과 같은 뿌리의 말이다."}, {"word": "masked", "meaning": "가려진, 겉으로 잘 보이지 않는", "note": "처음에는 드러나지 않는다는 뜻으로 쓰였다."}]}, {"id": 8, "original": "The use of radiocarbon dating is another, much longer scale clock that also appears to be like this.", "explanation": "방사성 탄소 연대 측정도 또 다른 시계라고 볼 수 있다. 다만 훨씬 더 긴 시간 범위에서 작동하며, 이것도 겉으로 보기에는 앞의 예와 비슷해 보인다.", "vocabulary": [{"word": "radiocarbon dating", "meaning": "방사성 탄소 연대 측정", "note": "탄소-14의 변화를 이용해 오래된 물건의 나이를 알아보는 방법이다."}, {"word": "scale", "meaning": "범위, 크기", "note": "여기서는 시간의 크기나 길이를 뜻한다."}, {"word": "appears to be", "meaning": "~처럼 보이다", "note": ""}]}, {"id": 9, "original": "It seems to yield a smooth time scale but in fact does not: the decay of atoms of carbon-14 is repetitive, although on a large scale it gives the appearance of being continuous.", "explanation": "이것은 겉으로 보면 시간이 매끈하게 끊기지 않고 이어지는 것처럼 보인다. 하지만 사실은 그렇지 않다. 탄소-14 원자들이 붕괴하는 일도 하나하나 반복해서 일어나며, 다만 아주 크게 보면 그것이 계속 이어지는 것처럼 보일 뿐이다.", "vocabulary": [{"word": "yield", "meaning": "만들어 내다, 보여 주다", "note": "여기서는 어떤 결과를 나타낸다는 뜻이다."}, {"word": "smooth time scale", "meaning": "매끈하게 이어지는 시간의 흐름", "note": "끊김 없이 연속적인 것처럼 보이는 시간을 말한다."}, {"word": "decay", "meaning": "붕괴", "note": "방사성 원자가 저절로 변하는 일을 말한다."}, {"word": "carbon-14", "meaning": "탄소-14", "note": "방사성 탄소의 한 종류이다."}, {"word": "continuous", "meaning": "계속 이어지는, 연속적인", "note": ""}]}], "problem_number": "36", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "37.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

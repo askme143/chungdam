@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "게임 속 아바타와 지각의 확장", "summary": "게임에서 플레이어는 자기 몸이 아니라 아바타를 통해 세계를 보고 움직이며, 그래서 우리의 지각 체계가 게임 속으로 뻗어 나간다고 말할 수 있다.", "sentences": [{"id": 1, "original": "A video game has its own model of reality, internal to itself and separate from the player’s external reality, the player’s bodily space and the avatar’s bodily space.", "explanation": "비디오게임은 자기만의 현실 구조를 가지고 있다. 이 현실은 게임 안에 있는 것이고, 플레이어가 실제로 사는 바깥 현실, 플레이어의 몸이 있는 공간, 그리고 아바타의 몸이 있는 공간과는 구별된다.", "vocabulary": [{"word": "model of reality", "meaning": "현실을 만들어 놓은 방식, 현실의 틀", "note": "여기서는 게임이 세계를 어떻게 구성하는지를 뜻한다."}, {"word": "internal to itself", "meaning": "그 자체 안에 있는", "note": "게임 바깥이 아니라 게임 안에서만 성립한다는 뜻이다."}, {"word": "external reality", "meaning": "바깥의 실제 현실", "note": "플레이어가 실제로 살고 있는 현실 세계를 가리킨다."}, {"word": "bodily space", "meaning": "몸이 차지하고 움직이는 공간", "note": "사람이나 아바타가 몸으로 행동할 수 있는 범위를 떠올리면 된다."}]}, {"id": 2, "original": "The avatar’s bodily space, the potential actions of the avatar in the game world, is the only way in which the reality of the external reality of the game world can be perceived.", "explanation": "게임 세계를 느끼고 알아차릴 수 있는 길은 아바타의 몸을 통한 방식뿐이다. 다시 말해, 게임 속에서 아바타가 할 수 있는 행동들이 있어야 플레이어가 그 세계를 현실처럼 경험할 수 있다.", "vocabulary": [{"word": "potential actions", "meaning": "할 수 있는 가능한 행동들", "note": "아직 하지 않았지만 할 수 있는 행동의 범위를 말한다."}, {"word": "game world", "meaning": "게임 세계", "note": ""}, {"word": "can be perceived", "meaning": "지각될 수 있다, 느껴질 수 있다", "note": "perceive는 눈으로 보기만이 아니라 감각으로 알아차리는 것을 넓게 뜻한다."}, {"word": "the only way", "meaning": "유일한 방법", "note": ""}]}, {"id": 3, "original": "As in the real world, perception requires action.", "explanation": "현실 세계와 마찬가지로, 무언가를 느끼고 알아차리려면 행동이 필요하다.", "vocabulary": [{"word": "As in", "meaning": "~에서와 마찬가지로", "note": "비교를 시작할 때 자주 쓰는 표현이다."}, {"word": "perception", "meaning": "지각, 느끼고 알아차림", "note": "쉬운 말로는 '보고 듣고 느껴서 아는 것'이다."}, {"word": "requires", "meaning": "필요로 한다", "note": "require는 need보다 조금 더 딱딱한 느낌이 있다."}]}, {"id": 4, "original": "The difference is that the action in the game world can only be explored through the virtual bodily space of the avatar.", "explanation": "다른 점은 게임 세계에서의 행동이 아바타의 가상 몸을 통해서만 시험되고 경험될 수 있다는 것이다.", "vocabulary": [{"word": "The difference is that", "meaning": "다른 점은 ~라는 것이다", "note": "설명을 이어 갈 때 자주 쓰는 틀이다."}, {"word": "explored", "meaning": "살펴볼 수 있다, 직접 해 보며 알아볼 수 있다", "note": "여기서는 공간을 탐험한다기보다 행동 가능성을 경험해 본다는 뜻에 가깝다."}, {"word": "virtual bodily space", "meaning": "가상의 몸 공간", "note": "실제 몸이 아니라 게임 속 몸이 움직이는 공간을 말한다."}, {"word": "avatar", "meaning": "아바타, 게임 속 분신 캐릭터", "note": ""}]}, {"id": 5, "original": "Players extend their perceptual field into the game, encompassing the available actions of the avatar.", "explanation": "플레이어는 자기의 지각 범위를 게임 속으로 넓힌다. 그래서 아바타가 할 수 있는 행동들까지 자기 감각의 범위 안에 넣게 된다.", "vocabulary": [{"word": "extend", "meaning": "넓히다, 뻗다", "note": ""}, {"word": "perceptual field", "meaning": "지각 범위, 감각이 미치는 범위", "note": "무엇을 보고 느끼며 알아차릴 수 있는 범위를 뜻한다."}, {"word": "encompassing", "meaning": "포함하면서, 아우르면서", "note": "encompass는 여러 것을 한데 넣어 감싼다는 느낌이 있다."}, {"word": "available actions", "meaning": "할 수 있는 행동들", "note": "게임 안에서 실제로 선택 가능한 행동을 말한다."}]}, {"id": 6, "original": "The feedback loop of perception and action that enables you to navigate the world around you is now one step removed: instead of perceiving primarily through interaction of your own body with the external world, you’re perceiving the game world through interaction of the avatar.", "explanation": "원래 우리는 내 몸으로 바깥세상과 부딪치고 반응하면서 주변 세계를 파악한다. 그런데 게임에서는 이 과정이 한 단계 더 돌아간다. 내 몸이 바로 세상과 만나는 대신, 아바타가 게임 세계와 상호작용하는 것을 통해 그 세계를 느끼게 되는 것이다.", "vocabulary": [{"word": "feedback loop", "meaning": "되돌아오는 반응의 반복 구조", "note": "행동을 하면 반응이 오고, 그 반응을 바탕으로 다시 행동하는 흐름을 말한다."}, {"word": "navigate", "meaning": "길을 찾아 움직이다, 헤쳐 나가다", "note": "원래는 항해하다라는 뜻이지만 여기서는 공간 속에서 움직이며 파악하는 뜻이다."}, {"word": "one step removed", "meaning": "한 단계 떨어진, 한 번 거쳐 있는", "note": "직접이 아니라 중간 매개를 거친 상태를 뜻한다."}, {"word": "interaction", "meaning": "서로 주고받는 작용, 상호작용", "note": "쉬운 말로는 '서로 영향을 주고받음'이다."}, {"word": "primarily", "meaning": "주로", "note": ""}]}, {"id": 7, "original": "The entire perceptual system has been extended into the game world.", "explanation": "결국 우리의 지각 체계 전체가 게임 세계 안으로 뻗어 들어간 셈이다.", "vocabulary": [{"word": "entire", "meaning": "전체의", "note": ""}, {"word": "perceptual system", "meaning": "지각 체계, 느끼고 알아차리는 전체 방식", "note": "눈, 귀 같은 감각과 그것을 바탕으로 이해하는 과정까지 함께 가리킨다."}, {"word": "has been extended into", "meaning": "~안으로 확장되었다", "note": "어떤 범위가 더 넓어져 다른 곳까지 이어졌다는 뜻이다."}]}], "problem_number": "39", "exam_info": "고3 2026 11월 수능"};
-const NEXT_PAGE = null;
+const NEXT_PAGE = "40.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';

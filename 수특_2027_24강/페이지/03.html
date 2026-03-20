@@ -339,7 +339,7 @@
   .quiz-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.95);
+    background: rgba(0,0,0,.45);
     z-index: 200;
     display: flex;
     align-items: center;
@@ -689,6 +689,155 @@
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -714,7 +863,7 @@
 <script>
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "기차 여행 패키지 안내", "summary": "이 글은 기차를 타고 국립공원을 여행하는 특별 패키지의 혜택, 예약 방법, 판매 기간을 알려 주는 광고입니다.", "sentences": [{"id": 1, "original": "Grand Rails Adventure Package", "explanation": "기차를 타고 떠나는 특별한 모험 여행 상품의 이름입니다.", "vocabulary": [{"word": "Adventure Package", "meaning": "모험 여행 상품", "note": "여행사에서 여러 혜택을 묶어 만든 상품을 package라고 해요."}, {"word": "Grand Rails", "meaning": "대형 기차 여행, 멋진 철도 여행", "note": "상품 이름으로 보이며, grand는 '크고 멋진' 느낌을 줍니다."}]}, {"id": 2, "original": "Enjoy an unforgettable 3-night rail journey with our exclusive Grand Rails Adventure Package!", "explanation": "우리의 특별한 그랜드 레일스 어드벤처 패키지로 3박 동안 잊지 못할 기차 여행을 즐겨 보세요.", "vocabulary": [{"word": "unforgettable", "meaning": "잊지 못할", "note": "좋은 경험이 아주 강하게 기억에 남을 때 자주 써요."}, {"word": "3-night", "meaning": "3박의", "note": "여행 기간을 나타내는 표현이에요. 3-night stay처럼도 자주 씁니다."}, {"word": "rail journey", "meaning": "기차 여행", "note": "rail은 철도, 기차와 관련된 말이에요."}, {"word": "exclusive", "meaning": "특별한, 한정된", "note": "아무 데서나 쉽게 얻을 수 없는 느낌을 줍니다."}]}, {"id": 3, "original": "Package Highlights:", "explanation": "이 여행 상품의 중요한 장점들을 소개하는 부분입니다.", "vocabulary": [{"word": "highlights", "meaning": "주요 내용, 큰 장점", "note": "광고나 안내문에서 가장 눈에 띄는 좋은 점을 말할 때 씁니다."}]}, {"id": 4, "original": "Save up to 25% on round trip train travel from Silver Creek Station to Sky National Park.", "explanation": "실버 크리크 역에서 스카이 국립공원까지 가는 왕복 기차표를 최대 25%까지 할인받을 수 있습니다.", "vocabulary": [{"word": "Save up to 25%", "meaning": "최대 25%까지 아끼다, 할인받다", "note": "광고에서는 보통 '최대 25% 할인'이라는 뜻으로 쓰여요."}, {"word": "round trip", "meaning": "왕복", "note": "편도는 one-way라고 해요."}, {"word": "Station", "meaning": "역", "note": "기차역, 전철역 같은 곳을 말합니다."}]}, {"id": 5, "original": "Stay at the charming downtown hotel for the first and last night of your trip.", "explanation": "여행의 첫날 밤과 마지막 밤에는 도심에 있는 매력적인 호텔에서 묵게 됩니다.", "vocabulary": [{"word": "charming", "meaning": "매력적인", "note": "분위기가 좋고 사람 마음을 끄는 느낌이에요."}, {"word": "downtown", "meaning": "도심의, 시내의", "note": "도시 중심가를 뜻합니다."}, {"word": "stay at", "meaning": "~에 머물다, 숙박하다", "note": "호텔이나 숙소에서 지낼 때 자주 쓰는 표현이에요."}]}, {"id": 6, "original": "Relax in comfort at Ridge Lodge inside the park for the second night of your stay.", "explanation": "여행 둘째 날 밤에는 공원 안에 있는 리지 롯지에서 편안하게 쉬게 됩니다.", "vocabulary": [{"word": "in comfort", "meaning": "편안하게", "note": "불편함 없이 쉬거나 지내는 느낌을 줍니다."}, {"word": "Lodge", "meaning": "롯지, 자연 속 숙소", "note": "산이나 공원 근처에 있는 숙소 이름에 자주 들어가요."}, {"word": "inside the park", "meaning": "공원 안에", "note": "국립공원 경계 안쪽에 있다는 뜻입니다."}]}, {"id": 7, "original": "Enjoy free breakfast and dinner throughout your stay, with lunch available at an additional charge.", "explanation": "머무는 동안 아침과 저녁은 무료로 제공됩니다. 점심은 돈을 더 내면 이용할 수 있습니다.", "vocabulary": [{"word": "throughout your stay", "meaning": "머무는 동안 내내", "note": "여행 기간 전체를 뜻해요."}, {"word": "available", "meaning": "이용할 수 있는", "note": "여기서는 '주문하거나 받을 수 있는' 뜻입니다."}, {"word": "at an additional charge", "meaning": "추가 요금을 내고", "note": "기본 가격에 돈을 더 내야 한다는 뜻이에요."}]}, {"id": 8, "original": "Receive a $20 Gift Certificate per adult to use at the hotel gift shops.", "explanation": "어른 한 사람마다 호텔 기념품 가게에서 쓸 수 있는 20달러 상품권을 받습니다.", "vocabulary": [{"word": "Gift Certificate", "meaning": "상품권", "note": "가게에서 현금처럼 쓸 수 있는 이용권이에요."}, {"word": "per adult", "meaning": "성인 1명당", "note": "사람 수를 기준으로 혜택을 나눌 때 쓰는 표현입니다."}, {"word": "gift shops", "meaning": "기념품 가게", "note": "여행지에서 선물이나 기념품을 파는 가게예요."}]}, {"id": 9, "original": "How to Book:", "explanation": "예약하는 방법을 알려 주는 부분입니다.", "vocabulary": [{"word": "book", "meaning": "예약하다", "note": "호텔, 비행기, 여행 상품 등을 예약할 때 자주 씁니다."}]}, {"id": 10, "original": "Select “Vacation Packages” in the reservation form.", "explanation": "예약 양식에서 'Vacation Packages' 항목을 선택하면 됩니다.", "vocabulary": [{"word": "Select", "meaning": "선택하다", "note": "버튼이나 항목을 고를 때 많이 쓰는 말이에요."}, {"word": "reservation form", "meaning": "예약 양식", "note": "예약 정보를 적거나 고르는 화면이나 서류를 말합니다."}, {"word": "Vacation Packages", "meaning": "휴가 패키지 상품", "note": "예약 메뉴 이름으로 보입니다."}]}, {"id": 11, "original": "Call us at 1-800-123-4567 (available 7 AM–7 PM), or click below to book your trip today!", "explanation": "오전 7시부터 오후 7시 사이에 1-800-123-4567로 전화하시거나, 아래를 눌러 오늘 바로 여행을 예약하세요.", "vocabulary": [{"word": "available", "meaning": "이용 가능한, 응대 가능한", "note": "여기서는 전화 상담이 가능한 시간을 뜻해요."}, {"word": "click below", "meaning": "아래를 클릭하다", "note": "웹페이지에서 버튼이나 링크를 누르라는 뜻입니다."}, {"word": "book your trip", "meaning": "여행을 예약하다", "note": "trip 대신 flight, hotel 같은 말도 자주 함께 써요."}]}, {"id": 12, "original": "[Book Now]", "explanation": "지금 바로 예약하라는 뜻의 버튼 문구입니다.", "vocabulary": [{"word": "Book Now", "meaning": "지금 예약하기", "note": "광고나 웹사이트 버튼에서 아주 자주 보이는 표현이에요."}]}, {"id": 13, "original": "This package is on sale for a limited time only: March 1 through June 30.", "explanation": "이 상품은 3월 1일부터 6월 30일까지, 정해진 짧은 기간 동안만 할인 판매됩니다.", "vocabulary": [{"word": "on sale", "meaning": "할인 판매 중인", "note": "문맥에 따라 그냥 '판매 중인' 뜻도 있지만, 여기서는 할인 느낌이 강해요."}, {"word": "for a limited time only", "meaning": "한정된 기간 동안만", "note": "광고에서 빨리 사도록 강조할 때 자주 씁니다."}, {"word": "through", "meaning": "~까지", "note": "기간을 나타낼 때 시작일부터 끝나는 날까지 포함하는 뜻으로 자주 쓰여요."}]}, {"id": 14, "original": "Don’t miss this chance to experience the adventure of a lifetime!", "explanation": "평생 기억에 남을 멋진 모험을 해 볼 이 기회를 놓치지 마세요.", "vocabulary": [{"word": "Don’t miss this chance", "meaning": "이 기회를 놓치지 마세요", "note": "광고에서 자주 쓰는 권유 표현이에요."}, {"word": "experience", "meaning": "직접 겪다, 체험하다", "note": "명사로는 '경험', 동사로는 '경험하다'예요."}, {"word": "the adventure of a lifetime", "meaning": "평생 한 번 있을까 말까 한 모험", "note": "아주 특별하고 드문 경험을 강조하는 표현입니다."}]}], "problem_number": "03", "exam_info": "수특 2027 24강"};
-const NEXT_PAGE = "Book Now.html";
+const NEXT_PAGE = null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -829,10 +978,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1169,10 +1337,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';
