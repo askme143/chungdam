@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/similarity.py": {
+      "runtime": "@vercel/python@4.5.0",
+      "maxDuration": 15
+    }
+  }
+}

@@ -765,6 +765,155 @@ _TEMPLATE = r"""<!DOCTYPE html>
     color: var(--text);
   }
   .nc-no:hover { background: #cbd5e1; }
+
+  /* ── Translation Practice ── */
+  .translate-section {
+    margin-bottom: 1rem;
+    animation: fadeIn .25s ease;
+  }
+  .translate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: .95rem;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--card);
+    resize: vertical;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .translate-textarea:focus {
+    border-color: var(--accent);
+  }
+  .translate-textarea::placeholder {
+    color: #94a3b8;
+  }
+  .translate-btns {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+  }
+  .translate-submit-btn {
+    flex: 1;
+    padding: .7rem;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #fff;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+    font-family: inherit;
+  }
+  .translate-submit-btn:hover { background: #16a34a; }
+  .translate-submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  .translate-skip-btn {
+    padding: .7rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: none;
+    color: var(--text-sub);
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .translate-skip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .translate-result {
+    margin-top: .8rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    animation: fadeIn .25s ease;
+  }
+  .score-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+  }
+  .score-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-msg {
+    font-size: .85rem;
+    font-weight: 600;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+  }
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: .6rem;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .6s ease;
+  }
+  .score-user-text {
+    font-size: .88rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    padding: .5rem .7rem;
+    background: var(--vocab-bg);
+    border-radius: 8px;
+  }
+  .score-user-text .label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .8rem;
+  }
+  .score-offline-note {
+    font-size: .75rem;
+    color: #94a3b8;
+    margin-top: .3rem;
+    text-align: right;
+  }
+  .translate-loading {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-sub);
+    font-size: .9rem;
+  }
+  .translate-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .explain-toggle-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
 </style>
 </head>
 <body>
@@ -905,10 +1054,29 @@ function render() {
       ${v.note ? `<div class="vocab-note">${esc(v.note)}</div>` : ''}
     </div>`).join('');
 
+  const attempted = translationResults[cur] !== undefined;
+  let translateHtml = '';
+  if (attempted) {
+    const r = translationResults[cur];
+    translateHtml = renderScoreResult(r.score, r.userText, r.offline);
+  } else {
+    translateHtml = `
+      <div class="translate-section" id="translateSection">
+        <div class="section-label">번역 연습</div>
+        <textarea class="translate-textarea" id="translateInput" placeholder="영문을 한국어로 번역해 보세요..."></textarea>
+        <div class="translate-btns">
+          <button class="translate-submit-btn" onclick="submitTranslation()">제출</button>
+          <button class="translate-skip-btn" onclick="skipTranslation()">건너뛰기</button>
+        </div>
+        <div id="translateResultArea"></div>
+      </div>`;
+  }
+
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    ${translateHtml}
+    <button class="explain-toggle-btn" id="explainToggleBtn" onclick="toggleExplain()" ${attempted ? '' : 'disabled'}>해설 보기</button>
     <div class="explain-section" id="explainSection">
       <div class="section-label">해설</div>
       <div class="explain-card">${esc(s.explanation)}</div>
@@ -1245,10 +1413,129 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
 
+// ── Translation Practice ──
+const VERCEL_API = 'https://chungdam-api.vercel.app/api/similarity';
+const translationResults = {}; // { [sentenceIdx]: { userText, score, offline } }
+
+function getScoreColor(score) {
+  const pct = Math.round(score * 100);
+  if (pct >= 80) return { color: '#22c55e', bg: '#f0fdf4', msg: '훌륭해요!' };
+  if (pct >= 60) return { color: '#2563eb', bg: '#eff6ff', msg: '잘했어요!' };
+  if (pct >= 40) return { color: '#eab308', bg: '#fefce8', msg: '괜찮아요, 좀 더 다듬어 볼까요?' };
+  return { color: '#ef4444', bg: '#fef2f2', msg: '다시 한번 도전해 보세요!' };
+}
+
+function renderScoreResult(score, userText, offline) {
+  const pct = Math.round(score * 100);
+  const sc = getScoreColor(score);
+  return `
+    <div class="translate-result">
+      <div class="score-header">
+        <span class="score-label">유사도: ${pct}%</span>
+        <span class="score-msg" style="background:${sc.bg};color:${sc.color}">${sc.msg}</span>
+      </div>
+      <div class="score-bar-track">
+        <div class="score-bar-fill" style="width:${pct}%;background:${sc.color}"></div>
+      </div>
+      <div class="score-user-text">
+        <span class="label">내 번역:</span>
+        ${esc(userText)}
+      </div>
+      ${offline ? '<div class="score-offline-note">오프라인 모드 (정확도가 낮을 수 있습니다)</div>' : ''}
+    </div>`;
+}
+
+async function submitTranslation() {
+  const input = document.getElementById('translateInput');
+  if (!input) return;
+  const userText = input.value.trim();
+  if (!userText) { showToast('번역을 입력해 주세요'); return; }
+
+  const s = DATA.sentences[cur];
+  const modelText = s.explanation;
+
+  // Show loading
+  const resultArea = document.getElementById('translateResultArea');
+  if (resultArea) resultArea.innerHTML = '<div class="translate-loading">채점 중</div>';
+
+  // Disable buttons
+  const submitBtn = document.querySelector('.translate-submit-btn');
+  const skipBtn = document.querySelector('.translate-skip-btn');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  let score, offline = false;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(VERCEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text1: userText, text2: modelText }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+    const data = await resp.json();
+    if (data.score !== null && data.score !== undefined) {
+      score = data.score;
+    } else {
+      throw new Error('No score');
+    }
+  } catch (e) {
+    score = fallbackScore(userText, modelText);
+    offline = true;
+  }
+
+  translationResults[cur] = { userText, score, offline };
+
+  // Show result
+  if (resultArea) resultArea.innerHTML = renderScoreResult(score, userText, offline);
+
+  // Hide textarea and buttons
+  const section = document.getElementById('translateSection');
+  if (section) {
+    const ta = section.querySelector('.translate-textarea');
+    const btns = section.querySelector('.translate-btns');
+    if (ta) ta.style.display = 'none';
+    if (btns) btns.style.display = 'none';
+    const label = section.querySelector('.section-label');
+    if (label) label.style.display = 'none';
+  }
+
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function skipTranslation() {
+  translationResults[cur] = { userText: '', score: -1, offline: false };
+  // Hide translate section
+  const section = document.getElementById('translateSection');
+  if (section) section.style.display = 'none';
+  // Enable explain button
+  const explainBtn = document.getElementById('explainToggleBtn');
+  if (explainBtn) explainBtn.disabled = false;
+}
+
+function fallbackScore(userText, modelText) {
+  // Normalize: remove whitespace and common particles for better comparison
+  const normalize = (t) => t.replace(/\s+/g, '').replace(/[.,!?~…]/g, '');
+  const a = normalize(userText);
+  const b = normalize(modelText);
+  if (!a || !b) return 0;
+  const dist = lev(a, b);
+  const maxLen = Math.max(a.length, b.length);
+  return Math.max(0, 1 - dist / maxLen);
+}
+
 // ── Explain Toggle ──
 function toggleExplain() {
   const sec = document.getElementById('explainSection');
-  const btn = document.querySelector('.explain-toggle-btn');
+  const btn = document.getElementById('explainToggleBtn');
+  if (!btn || btn.disabled) {
+    showToast('먼저 번역을 시도하거나 건너뛰기를 눌러주세요');
+    return;
+  }
   if (sec.classList.contains('visible')) {
     sec.classList.remove('visible');
     btn.textContent = '해설 보기';
