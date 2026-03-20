@@ -13,7 +13,7 @@ import math
 from http.server import BaseHTTPRequestHandler
 
 HF_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-HF_API_URL = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{HF_MODEL}"
+HF_API_URL = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
 MAX_TEXT_LEN = 2000
 
 ALLOWED_ORIGINS = [
