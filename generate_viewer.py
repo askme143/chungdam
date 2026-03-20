@@ -294,6 +294,35 @@ _TEMPLATE = r"""<!DOCTYPE html>
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* Explain Toggle */
+  .explain-toggle-btn {
+    width: 100%;
+    padding: .85rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background .15s;
+  }
+  .explain-toggle-btn:hover {
+    background: #1d4ed8;
+  }
+  .explain-section {
+    display: none;
+  }
+  .explain-section.visible {
+    display: block;
+    animation: fadeIn .25s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
   /* Explanation */
   .explain-card {
     background: var(--card);
@@ -879,10 +908,13 @@ function render() {
   document.getElementById('content').innerHTML = `
     <div class="section-label">원문</div>
     <div class="original-card">${highlightSentence(s.original, s.vocabulary)}</div>
-    <div class="section-label">해설</div>
-    <div class="explain-card">${esc(s.explanation)}</div>
-    <div class="section-label">주요 단어</div>
-    <div class="vocab-list">${vocabHtml}</div>`;
+    <button class="explain-toggle-btn" onclick="toggleExplain()">해설 보기</button>
+    <div class="explain-section" id="explainSection">
+      <div class="section-label">해설</div>
+      <div class="explain-card">${esc(s.explanation)}</div>
+      <div class="section-label">주요 단어</div>
+      <div class="vocab-list">${vocabHtml}</div>
+    </div>`;
 
   const label = `${cur+1} / ${total}`;
   document.getElementById('progressLabel').textContent = label;
@@ -1212,6 +1244,19 @@ document.addEventListener('touchend', e => {
   const d = e.changedTouches[0].clientX - sx;
   if (Math.abs(d) > 60) go(d < 0 ? 1 : -1);
 });
+
+// ── Explain Toggle ──
+function toggleExplain() {
+  const sec = document.getElementById('explainSection');
+  const btn = document.querySelector('.explain-toggle-btn');
+  if (sec.classList.contains('visible')) {
+    sec.classList.remove('visible');
+    btn.textContent = '해설 보기';
+  } else {
+    sec.classList.add('visible');
+    btn.textContent = '해설 숨기기';
+  }
+}
 
 // ── Tooltip ──
 function hideTooltip() {
