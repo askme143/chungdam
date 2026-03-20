@@ -1,19 +1,17 @@
 """
-Vercel Serverless Function: 두 텍스트의 임베딩 유사도를 계산한다.
-HF Inference API를 사용하여 sentence-transformers 모델로 임베딩을 생성하고,
-cosine similarity를 반환한다.
+Vercel Serverless Function: 두 텍스트의 유사도를 계산한다.
+HF Inference API의 sentence-similarity 파이프라인을 사용한다.
 """
 
 import json
 import os
 import urllib.request
 import urllib.error
-import math
 
 from http.server import BaseHTTPRequestHandler
 
 HF_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-HF_API_URL = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
+HF_API_URL = f"https://router.huggingface.co/hf-inference/models/{HF_MODEL}"
 MAX_TEXT_LEN = 2000
 
 ALLOWED_ORIGINS = [
@@ -31,25 +29,24 @@ def get_origin(headers):
     return ALLOWED_ORIGINS[0]
 
 
-def cosine_similarity(a, b):
-    dot = sum(x * y for x, y in zip(a, b))
-    norm_a = math.sqrt(sum(x * x for x in a))
-    norm_b = math.sqrt(sum(x * x for x in b))
-    if norm_a == 0 or norm_b == 0:
-        return 0.0
-    return dot / (norm_a * norm_b)
-
-
-def get_embeddings(texts):
+def compute_similarity(text1, text2):
     token = os.environ.get("HF_API_TOKEN", "")
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
     }
-    data = json.dumps({"inputs": texts, "options": {"wait_for_model": True}}).encode()
+    payload = {
+        "inputs": {
+            "source_sentence": text1,
+            "sentences": [text2],
+        }
+    }
+    data = json.dumps(payload).encode()
     req = urllib.request.Request(HF_API_URL, data=data, headers=headers, method="POST")
     with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read().decode())
+        result = json.loads(resp.read().decode())
+    # result is a list of scores, e.g. [0.78]
+    return result[0]
 
 
 class handler(BaseHTTPRequestHandler):
@@ -84,9 +81,8 @@ class handler(BaseHTTPRequestHandler):
             return
 
         try:
-            embeddings = get_embeddings([text1, text2])
-            score = cosine_similarity(embeddings[0], embeddings[1])
-            score = max(0.0, min(1.0, score))
+            score = compute_similarity(text1, text2)
+            score = max(0.0, min(1.0, float(score)))
             self._respond(200, {"score": round(score, 4)}, cors)
         except urllib.error.URLError as e:
             self._respond(502, {"error": f"HF API error: {str(e)}", "score": None}, cors)
