@@ -103,7 +103,12 @@ Identify the logical flow of the passage using these labels:
 - 예시 (Example)
 - 결론 (Conclusion)
 
-Each section: one English summary sentence + Korean translation.
+For each section:
+- english: copy the ORIGINAL sentence(s) from the passage verbatim. \
+Do NOT summarize, paraphrase, or add meta-commentary like \
+"The passage begins by stating that...". Just use the exact sentence \
+from the text.
+- korean: Korean translation of that sentence.
 Typically 3-5 sections.
 
 ═══════════════════════════════════════════════
