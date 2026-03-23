@@ -59,11 +59,33 @@
     background: var(--accent);
     color: #fff;
   }
-  .quiz-toggle {
+  .header-right-btns {
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .analysis-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .analysis-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -844,7 +866,10 @@
 
 <header>
   <a class="home-btn" href="../../">&#8592; 홈</a>
-  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <div class="header-right-btns">
+    <a class="analysis-btn" id="analysisLink" style="display:none">본문분석</a>
+    <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  </div>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
@@ -864,6 +889,7 @@
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "직장에서 사람을 움직이는 진짜 힘", "summary": "돈이나 보상은 사람을 잠깐 더 열심히 일하게 할 수 있지만, 오래 가는 충성심과 열정은 일 자체보다 그 일이 가진 큰 뜻에서 나온다.", "sentences": [{"id": 1, "original": "Energy can always be injected into an organization to motivate people to do things.", "explanation": "조직에는 바깥에서 힘을 불어넣어서 사람들을 움직이게 할 수 있다. 즉, 사람들에게 어떤 일을 하게 만들 방법은 언제나 있다는 뜻이다.", "vocabulary": [{"word": "be injected into", "meaning": "~에 주입되다, 불어넣어지다", "note": "여기서는 실제 주사가 아니라 힘이나 의욕을 넣는다는 비유적 표현이다."}, {"word": "organization", "meaning": "조직, 회사", "note": "회사뿐 아니라 여러 사람이 모인 단체를 넓게 가리킬 수 있다."}, {"word": "motivate", "meaning": "동기를 주다, 하게 만들다", "note": "motivation은 '의욕, 동기'라는 뜻이다."}]}, {"id": 2, "original": "Bonuses, promotions, other carrots, and even a few sticks can get people to work harder, for sure, but the gains are, like all manipulations, short-term.", "explanation": "보너스나 승진, 다른 보상들, 심지어 약간의 벌이나 압박도 사람들을 더 열심히 일하게 만들 수는 있다. 하지만 그런 방법으로 얻는 효과는 사람을 억지로 움직이는 다른 방법들처럼 오래가지 못하고 잠깐뿐이다.", "vocabulary": [{"word": "bonuses", "meaning": "보너스, 성과급", "note": "bonus의 복수형이다."}, {"word": "promotions", "meaning": "승진", "note": "직급이 올라가는 것을 말한다."}, {"word": "carrots", "meaning": "보상책, 당근", "note": "carrot and stick에서 나온 표현으로, 좋은 것으로 유도하는 방법이다."}, {"word": "sticks", "meaning": "벌, 압박", "note": "carrot and stick에서 나온 표현으로, 벌을 주거나 겁을 주는 방법이다."}, {"word": "short-term", "meaning": "단기간의, 오래가지 않는", "note": "long-term은 '장기적인'이라는 뜻이다."}]}, {"id": 3, "original": "Over time, such tactics cost more money and increase stress for employee and employer alike, and eventually will become the main reason people show up for work every day.", "explanation": "시간이 지나면 이런 방법은 돈이 더 많이 들고, 직원과 회사 쪽 사람 모두의 스트레스도 커진다. 그리고 결국 사람들은 일의 뜻이나 즐거움이 아니라 그런 보상 때문에 회사에 나오게 된다.", "vocabulary": [{"word": "Over time", "meaning": "시간이 지나면서", "note": ""}, {"word": "tactics", "meaning": "방법, 수단", "note": "어떤 목적을 이루기 위해 쓰는 구체적인 방법을 말한다."}, {"word": "alike", "meaning": "똑같이, 둘 다", "note": "employee and employer alike는 '직원과 고용주 모두'라는 뜻이다."}, {"word": "show up for work", "meaning": "출근하다", "note": "show up은 '나타나다'라는 뜻인데, 여기서는 일하러 나오다는 뜻이다."}]}, {"id": 4, "original": "That’s not loyalty.", "explanation": "그건 충성심이나 진짜 마음에서 나오는 헌신이 아니다.", "vocabulary": [{"word": "loyalty", "meaning": "충성심, 한결같이 남는 마음", "note": "회사나 사람을 쉽게 떠나지 않고 계속 믿고 따르는 마음을 말한다."}]}, {"id": 5, "original": "That’s the employee version of repeat business.", "explanation": "그건 직원 쪽에서 나타나는 '반복 구매'와 비슷한 모습일 뿐이다. 즉, 진심으로 좋아서 남는 것이 아니라 어떤 이유 때문에 계속 오는 것에 가깝다는 뜻이다.", "vocabulary": [{"word": "employee version of", "meaning": "직원 쪽에 빗댄 형태의", "note": "어떤 개념을 직원의 경우에 맞춰 바꿔 말한 표현이다."}, {"word": "repeat business", "meaning": "재구매, 다시 찾아오는 거래", "note": "손님이 만족이나 필요 때문에 같은 가게를 계속 이용하는 것을 말한다."}]}, {"id": 6, "original": "Loyalty among employees is when they turn down more money or benefits to continue working at the same company.", "explanation": "직원들의 진짜 충성심이란, 더 많은 돈이나 더 좋은 복지를 제안받아도 그것을 마다하고 같은 회사에 계속 남아 일하는 것이다.", "vocabulary": [{"word": "turn down", "meaning": "거절하다, 마다하다", "note": "제안이나 부탁을 받지 않겠다고 할 때 자주 쓴다."}, {"word": "benefits", "meaning": "복지 혜택, 부가 혜택", "note": "월급 외에 받는 여러 좋은 조건을 뜻한다."}, {"word": "continue working", "meaning": "계속 일하다", "note": ""}]}, {"id": 7, "original": "Loyalty to a company trumps pay and benefits.", "explanation": "회사에 대한 충성심은 월급이나 복지보다 더 앞선다. 다시 말해, 진짜 충성심이 있으면 돈이나 조건보다 회사를 더 중요하게 여긴다.", "vocabulary": [{"word": "trumps", "meaning": "~보다 더 중요하다, 이기다", "note": "카드놀이의 trump에서 온 말로, 다른 것보다 힘이 세다는 느낌이다."}, {"word": "pay", "meaning": "급여, 월급", "note": ""}, {"word": "benefits", "meaning": "복지 혜택", "note": ""}]}, {"id": 8, "original": "And unless you’re an astronaut, it’s not the work we do that inspires us either.", "explanation": "그리고 우리가 우주비행사 같은 특별한 일을 하는 경우가 아니라면, 우리에게 큰 힘과 감동을 주는 것은 일 자체도 아니다.", "vocabulary": [{"word": "unless", "meaning": "~이 아니라면, ~하지 않는 한", "note": ""}, {"word": "astronaut", "meaning": "우주비행사", "note": ""}, {"word": "inspires", "meaning": "마음을 움직이다, 큰 힘을 주다", "note": "inspire는 의욕이나 꿈을 불러일으킬 때 자주 쓴다."}, {"word": "either", "meaning": "또한 ~도 아니다", "note": "부정문에서 '역시, 또한'의 뜻으로 쓰인다."}]}, {"id": 9, "original": "It’s the cause we come to work for.", "explanation": "우리를 움직이는 것은 우리가 일하러 가는 이유, 곧 그 일이 가진 큰 뜻과 목적이다.", "vocabulary": [{"word": "cause", "meaning": "대의, 큰 뜻, 목적", "note": "단순한 이유라기보다 '왜 이 일을 하는가'에 담긴 더 큰 뜻을 말한다."}, {"word": "come to work for", "meaning": "~을 위해 일하러 오다", "note": "무엇을 위해 회사에 나오는지를 나타낸다."}]}, {"id": 10, "original": "We don’t want to come to work to build a wall; we want to come to work to build a cathedral.", "explanation": "우리는 그저 벽돌담 하나를 쌓기 위해 일하고 싶어 하지 않는다. 더 크고 뜻깊은 무언가, 마치 웅장한 성당을 세우는 일처럼 의미 있는 일을 위해 일하고 싶어 한다.", "vocabulary": [{"word": "build a wall", "meaning": "벽을 쌓다", "note": "여기서는 단순하고 눈앞의 일만 하는 상태를 비유한다."}, {"word": "cathedral", "meaning": "대성당", "note": "크고 뜻깊은 목표를 상징하는 비유로 쓰였다."}, {"word": "build a cathedral", "meaning": "대성당을 짓다", "note": "단순한 작업이 아니라 큰 뜻이 있는 일을 한다는 비유적 표현이다."}]}], "problem_number": "02", "exam_info": "수특 2027 3강"};
 const NEXT_PAGE = "03.html";
+const ANALYSIS_PAGE = "../분석페이지/02.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -1533,6 +1559,11 @@ if (DATA.title) {
   const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
   document.getElementById('pageTitle').textContent = prefix + DATA.title;
   document.title = prefix + DATA.title;
+}
+if (ANALYSIS_PAGE) {
+  const al = document.getElementById('analysisLink');
+  al.href = ANALYSIS_PAGE;
+  al.style.display = '';
 }
 render();
 </script>

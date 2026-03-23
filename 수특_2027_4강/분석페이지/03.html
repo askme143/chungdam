@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Why Evidence Matters More Than Intuition", "title_ko": "직관보다 증거가 더 중요한 이유", "theme_en": "Science moves forward by testing ideas against objective truth rather than accepting all ideas as equally valid.", "theme_ko": "과학은 모든 생각을 똑같이 맞다고 받아들이는 것이 아니라, 객관적 진실에 비추어 검증하면서 앞으로 나아간다.", "summary_en": "The passage argues that although intuition and theory can help science progress, only evidence and critical thinking can confirm truth and make ideas trustworthy.", "summary_ko": "이 글은 직관과 이론이 과학 발전에 도움을 줄 수는 있지만, 진실을 확인하고 생각을 믿을 만하게 만드는 것은 결국 증거와 비판적 사고뿐이라고 말한다.", "structure": [{"label": "도입", "english": "The passage begins by rejecting the belief that all ideas are equally valid regardless of evidence.", "korean": "글은 증거와 상관없이 모든 생각이 똑같이 타당하다는 믿음이 잘못되었다고 말하며 시작한다."}, {"label": "근거", "english": "It then explains that science exists because of its commitment to objective truth and shows this through concrete achievements.", "korean": "이어서 과학은 객관적 진실을 따르기 때문에 존재한다고 설명하고, 이를 여러 실제 성과로 보여 준다."}, {"label": "부연", "english": "The passage adds that theories and intuitions can help science advance, but they must be tested to see whether they are true or false.", "korean": "또한 이론과 직관이 과학 발전에 도움을 줄 수는 있지만, 그것이 맞는지 틀리는지는 반드시 검사를 통해 확인해야 한다고 덧붙인다."}, {"label": "반론", "english": "If evidence disproves a theory, one should revise or reject it instead of clinging to it emotionally.", "korean": "만약 증거가 어떤 이론이 틀렸다고 보여 주면, 감정적으로 붙잡고 있을 것이 아니라 그것을 고치거나 버려야 한다고 말한다."}, {"label": "결론", "english": "Finally, the passage concludes that critical thinking and evidence are essential because intuition alone can never be the final authority on reality.", "korean": "마지막으로 글은 비판적 사고와 증거가 꼭 필요하며, 직관만으로는 현실에 대한 마지막 판단 기준이 될 수 없다고 결론짓는다."}], "key_vocabulary": [{"word": "myth", "meaning": "잘못된 믿음, 근거 없는 생각", "synonyms": ["false belief", "misconception"], "antonyms": ["fact", "truth"], "emphasized": true}, {"word": "valid", "meaning": "타당한, 옳은", "synonyms": ["sound", "reasonable", "justified"], "antonyms": ["invalid", "unsound"], "emphasized": true}, {"word": "objective", "meaning": "객관적인", "synonyms": ["factual", "unbiased"], "antonyms": ["subjective", "biased"], "emphasized": true}, {"word": "proof", "meaning": "증거, 입증", "synonyms": ["evidence", "verification"], "antonyms": ["disproof"], "emphasized": true}, {"word": "commitment", "meaning": "헌신, 굳은 의지", "synonyms": ["devotion", "dedication"], "antonyms": ["indifference"], "emphasized": true}, {"word": "accomplishment", "meaning": "성과, 업적", "synonyms": ["achievement", "success"], "antonyms": ["failure"], "emphasized": true}, {"word": "plausible", "meaning": "그럴듯한, 말이 되는 것 같은", "synonyms": ["believable", "credible"], "antonyms": ["implausible", "unlikely"], "emphasized": true}, {"word": "theory", "meaning": "이론, 설명", "synonyms": ["idea", "hypothesis"], "antonyms": [], "emphasized": true}, {"word": "intuition", "meaning": "직관", "synonyms": ["instinct", "gut feeling"], "antonyms": ["reasoning"], "emphasized": true}, {"word": "confirm", "meaning": "확인하다, 사실임을 보여 주다", "synonyms": ["verify", "prove"], "antonyms": ["disprove", "deny"], "emphasized": true}, {"word": "disprove", "meaning": "틀렸음을 밝혀 내다", "synonyms": ["refute", "invalidate"], "antonyms": ["prove", "confirm"], "emphasized": true}, {"word": "veracity", "meaning": "진실성, 사실임", "synonyms": ["truth", "truthfulness"], "antonyms": ["falsehood"], "emphasized": true}, {"word": "reject", "meaning": "거부하다, 받아들이지 않다", "synonyms": ["dismiss", "refuse"], "antonyms": ["accept"], "emphasized": true}, {"word": "hypothesis", "meaning": "가설", "synonyms": ["theory", "assumption"], "antonyms": [], "emphasized": true}, {"word": "critical thinking", "meaning": "비판적으로 따져 보는 사고", "synonyms": ["analytical thinking"], "antonyms": ["blind acceptance"], "emphasized": true}, {"word": "evidence", "meaning": "증거", "synonyms": ["proof", "data"], "antonyms": ["speculation"], "emphasized": true}, {"word": "ultimate", "meaning": "최종의, 마지막의", "synonyms": ["final", "supreme"], "antonyms": ["temporary", "secondary"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "It", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a myth", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "all ideas", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "equally valid", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", even those with", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "little or no objective proof", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "객관적인 증거가 거의 없거나 아예 없는 생각까지도 포함해서, 모든 생각이 똑같이 타당하다는 것은 잘못된 믿음이다.", "points": ["가주어 It ~ 진주어 that절 구조이다. 실제 내용은 that절에 들어 있다.", "even those with little or no objective proof에서 those는 ideas를 가리키며, with 이하가 뒤에서 꾸며 준다."], "paraphrase_en": "It is false to believe that every idea is equally acceptable, even when some have almost no objective evidence.", "paraphrase_ko": "어떤 생각은 객관적 증거가 거의 없는데도, 모든 생각이 똑같이 받아들여질 수 있다고 믿는 것은 틀리다."}, {"id": 2, "type_label": "부연", "phrases": [{"text": "The existence", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of science", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the commitment", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to objective truth.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "과학이 존재하는 이유는 객관적인 진실을 따르려는 굳은 태도에 있다.", "points": [], "paraphrase_en": "Science exists because it is devoted to objective truth.", "paraphrase_ko": "과학은 객관적 진실을 따르기 때문에 존재한다."}, {"id": 3, "type_label": "근거", "phrases": [{"text": "After all,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "science", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "true", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ":", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "fire", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "hot", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the wheel", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "efficient", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "birds and planes", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can fly", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "’ve landed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a comet", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and traveled", "type": "bold", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to the Moon", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "antibiotics", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "treat", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "illness", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and immunizations", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "keep", "type": "bold", "label": "5V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "us", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "from getting sick.", "type": "plain", "label": "OC", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "결국 과학은 참되다. 불은 뜨겁고, 바퀴는 효율적이며, 새와 비행기는 날 수 있고, 우리는 혜성에 착륙했고 달까지 갔으며, 항생제는 병을 치료하고, 예방접종은 우리가 병에 걸리지 않게 해 준다.", "points": ["콜론(:) 뒤에 science is true를 뒷받침하는 여러 예가 병렬로 나열되어 있다.", "keep + O + from -ing는 'O가 ~하지 못하게 하다, ~하지 않게 하다'의 5형식 표현이다."], "paraphrase_en": "Science is reliable, as shown by many proven facts and achievements.", "paraphrase_ko": "과학은 많은 입증된 사실과 성과를 통해 믿을 만하다는 것이 드러난다."}, {"id": 4, "type_label": "부연", "phrases": [{"text": "These accomplishments", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are made", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "possible", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by objective truths.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "이런 성과들은 객관적인 진실들 때문에 가능해진 것이다.", "points": ["수동태 are made possible by ~는 '~에 의해 가능해지다'라는 뜻이다."], "paraphrase_en": "These achievements are possible because objective truths exist.", "paraphrase_ko": "이런 성과들은 객관적 진실이 있기 때문에 가능하다."}, {"id": 5, "type_label": "부연", "phrases": [{"text": "A plausible theory", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can push", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "science", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "forward", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", and frequently does,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}], "korean": "그럴듯한 이론은 과학을 앞으로 나아가게 할 수 있고, 실제로 자주 그렇게 한다.", "points": ["can, and frequently does, push에서 does는 앞의 push를 대신하는 대동사로 쓰였다."], "paraphrase_en": "A believable theory can often help science advance.", "paraphrase_ko": "말이 되는 이론은 자주 과학 발전에 도움을 줄 수 있다."}, {"id": 6, "type_label": "주제문", "phrases": [{"text": "However,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an intuition", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "must be followed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "with testing", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "confirms", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "or disproves", "type": "bold", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "its veracity.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "하지만 직관 뒤에는 반드시 검사가 따라야 하며, 그 검사는 그것이 참인지 거짓인지 확인하거나 틀렸음을 밝혀야 한다.", "points": ["that은 testing을 꾸며 주는 주격관계대명사이다.", "confirm A or disprove A에서 두 동사가 같은 목적어 its veracity를 공유하는 병렬 구조이다."], "paraphrase_en": "However, intuition must be tested to see whether it is true or false.", "paraphrase_ko": "하지만 직관은 그것이 맞는지 틀리는지 검사해 보아야 한다."}, {"id": 7, "type_label": "비판", "phrases": [{"text": "If", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a theory", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is disproved", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "one", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "should consider", "type": "bold", "label": "5V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "as a reason", "type": "plain", "label": "OC", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to reject", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "or alter", "type": "plain", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the hypothesis", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "not", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a justification", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to just keep", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "firmly holding", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to the hypothesis", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "because", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "instinctively wedded", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to it.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}]}], "korean": "만약 어떤 이론이 틀렸다고 밝혀지면, 사람은 그것을 그 가설을 버리거나 고칠 이유로 여겨야지, 단지 본능적으로 그것에 집착하고 있다는 이유로 그 가설을 계속 굳게 붙잡아도 된다는 근거로 여겨서는 안 된다.", "points": ["consider A as B는 'A를 B로 여기다'라는 뜻으로 볼 수 있다. 여기서는 it이 목적어, as a reason이 목적보어 역할을 한다.", "to reject or alter the hypothesis와 to just keep ...는 앞의 reason, justification을 뒤에서 꾸며 주는 형용사적 용법의 to부정사이다."], "paraphrase_en": "If evidence shows a theory is wrong, we should change or reject it instead of holding onto it emotionally.", "paraphrase_ko": "증거가 어떤 이론이 틀렸다고 보여 주면, 우리는 감정적으로 붙잡고 있을 것이 아니라 그것을 고치거나 버려야 한다."}, {"id": 8, "type_label": "결론", "phrases": [{"text": "Critical thinking", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an absolute must", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "must respect", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "evidence.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "비판적으로 생각하는 태도는 반드시 필요하다. 그리고 우리는 증거를 존중해야 한다.", "points": [], "paraphrase_en": "Critical thinking is essential, and evidence must be valued.", "paraphrase_ko": "비판적 사고는 꼭 필요하고, 증거는 중요하게 여겨야 한다."}, {"id": 9, "type_label": "부연", "phrases": [{"text": "It", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "’s", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the only reason", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "for anyone", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to trust", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "anything", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "about reality.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "그것은 누구든 현실에 관한 어떤 것이든 믿을 수 있는 유일한 이유이다.", "points": ["to trust는 the only reason을 뒤에서 꾸며 주는 형용사적 용법의 to부정사이다."], "paraphrase_en": "That is the only basis for trusting any claim about reality.", "paraphrase_ko": "그것만이 현실에 대한 어떤 주장이라도 믿을 수 있게 하는 유일한 바탕이다."}, {"id": 10, "type_label": "결론", "phrases": [{"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "Without testing and evidence", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "intuition", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "useful", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "but", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "never", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the ultimate word.", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "검사와 증거가 없으면 직관은 쓸모가 있을 수는 있지만, 결코 마지막 판단 기준이 될 수는 없다.", "points": ["Without ~는 조건이나 상황을 나타내는 전치사구로, '만약 ~이 없으면' 정도로 해석하면 자연스럽다."], "paraphrase_en": "Without testing and evidence, intuition may help, but it can never be the final authority.", "paraphrase_ko": "검사와 증거가 없을 때 직관이 도움이 될 수는 있지만, 그것이 최종 기준이 될 수는 없다."}], "problem_number": "03", "exam_info": "수특 2027 4강"};
+const VIEWER_PAGE = "../페이지/03.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

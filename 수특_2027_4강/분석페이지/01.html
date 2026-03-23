@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Knowledge as the Real Source of Food", "title_ko": "음식의 진짜 원천인 지식", "theme_en": "Human progress in farming comes not from more solar energy itself but from better knowledge of how to capture and use it.", "theme_ko": "인류가 농사를 발전시킬 수 있었던 까닭은 태양 에너지 자체가 늘어서가 아니라, 그것을 붙잡아 쓰는 방법에 대한 지식이 더 좋아졌기 때문이다.", "summary_en": "Although information cannot be eaten directly, the food humans eat is produced by accumulated farming knowledge that helps us turn a small part of constant solar energy into usable energy.", "summary_ko": "정보 자체를 바로 먹을 수는 없지만, 사람이 먹는 음식은 오랜 세월 쌓인 농사 지식 덕분에 거의 늘지 않은 태양 에너지의 일부를 쓸 수 있는 에너지로 바꾼 결과이다.", "structure": [{"label": "도입", "english": "The passage begins with a saying that seems to deny the value of information.", "korean": "글은 정보의 가치를 부정하는 듯한 속담으로 시작한다."}, {"label": "반론", "english": "It then argues that modern food is actually the result of accumulated agricultural knowledge.", "korean": "이어서 오늘날의 음식은 사실 오랜 세월 쌓인 농사 지식의 결과라고 말한다."}, {"label": "부연", "english": "The writer explains that food is solar energy transformed through human knowledge.", "korean": "글쓴이는 음식이 인간의 지식을 거쳐 바뀐 태양 에너지라고 설명한다."}, {"label": "근거", "english": "Since the sun’s energy has stayed mostly constant, human flourishing must come from better ways of capturing it.", "korean": "태양 에너지는 거의 일정했으므로, 인류의 발전은 그것을 더 잘 붙잡는 방법에서 나왔다는 근거를 든다."}, {"label": "결론", "english": "The passage concludes that every advance in knowledge has increased the amount of energy humans can use.", "korean": "마지막으로 지식의 모든 발전은 사람이 이용할 수 있는 에너지의 양을 늘려 왔다고 결론짓는다."}], "key_vocabulary": [{"word": "saying", "meaning": "속담, 말", "synonyms": ["proverb", "expression"], "antonyms": [], "emphasized": false}, {"word": "information", "meaning": "정보", "synonyms": ["data", "knowledge"], "antonyms": ["ignorance"], "emphasized": true}, {"word": "fruit", "meaning": "결과물, 결실", "synonyms": ["result", "product", "outcome"], "antonyms": ["cause"], "emphasized": true}, {"word": "increasingly", "meaning": "점점 더", "synonyms": ["progressively", "more and more"], "antonyms": ["decreasingly"], "emphasized": true}, {"word": "knowledge", "meaning": "지식", "synonyms": ["understanding", "learning"], "antonyms": ["ignorance"], "emphasized": true}, {"word": "farm", "meaning": "농사짓다", "synonyms": ["cultivate", "grow"], "antonyms": [], "emphasized": true}, {"word": "irrigation", "meaning": "관개, 물 대기", "synonyms": ["watering"], "antonyms": [], "emphasized": true}, {"word": "sequence", "meaning": "순서, 연속", "synonyms": ["order", "series"], "antonyms": ["disorder"], "emphasized": true}, {"word": "filtered", "meaning": "걸러진", "synonyms": ["strained", "refined"], "antonyms": ["contaminated"], "emphasized": false}, {"word": "distilled", "meaning": "정제된, 농축된", "synonyms": ["refined", "purified"], "antonyms": ["diluted"], "emphasized": false}, {"word": "constant", "meaning": "일정한, 변하지 않는", "synonyms": ["steady", "unchanging"], "antonyms": ["variable", "changing"], "emphasized": true}, {"word": "flourish", "meaning": "번영하다, 잘 자라다", "synonyms": ["prosper", "thrive"], "antonyms": ["decline", "wither"], "emphasized": true}, {"word": "sophisticated", "meaning": "정교한, 고도로 발달한", "synonyms": ["advanced", "complex"], "antonyms": ["simple", "crude"], "emphasized": true}, {"word": "capture", "meaning": "붙잡다, 확보하다", "synonyms": ["seize", "obtain", "harness"], "antonyms": ["lose", "release"], "emphasized": true}, {"word": "fraction", "meaning": "일부분, 극히 적은 양", "synonyms": ["portion", "part"], "antonyms": ["whole"], "emphasized": true}, {"word": "fuel", "meaning": "연료를 공급하다, 움직이게 하다", "synonyms": ["power", "energize"], "antonyms": ["drain", "deplete"], "emphasized": true}, {"word": "advancement", "meaning": "발전, 진보", "synonyms": ["progress", "development"], "antonyms": ["decline", "setback"], "emphasized": true}, {"word": "tap into", "meaning": "활용하다, 끌어다 쓰다", "synonyms": ["use", "draw on", "access"], "antonyms": ["ignore"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "There", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a saying", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can’t eat", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "information.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "“정보는 먹을 수 없다”라는 말이 있다.", "points": ["앞의 There is는 '존재'를 나타내는 표현이다. 진짜 주어는 뒤의 a saying이다.", "that절은 a saying의 내용을 설명하는 명사절이다."], "paraphrase_en": "There is a saying that says people cannot eat information.", "paraphrase_ko": "사람은 정보를 먹을 수 없다고 말하는 속담이 있다."}, {"id": 2, "type_label": "비판", "phrases": [{"text": "That", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "may be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "so,", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "/", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "but", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the food", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "we eat today", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the fruit", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of thousands of years", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of increasingly high-quality information", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "— the knowledge", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of how", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to farm", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "— what seeds, what tools and how to use them, what times of year, what irrigation, what sequence of one crop after another on the same land.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "그 말이 맞을 수도 있다. 하지만 오늘날 우리가 먹는 음식은 수천 년 동안 점점 더 질이 좋아진 정보, 곧 농사짓는 방법에 대한 지식의 결과물이다. 여기에는 어떤 씨앗을 써야 하는지, 어떤 도구를 쓰고 그것을 어떻게 써야 하는지, 어느 계절에 해야 하는지, 어떻게 물을 대야 하는지, 같은 땅에서 작물을 어떤 순서로 이어서 심어야 하는지가 들어 있다.", "points": ["may be so는 '그럴지도 모른다'라는 양보 표현이다.", "how to farm의 to부정사는 전치사 of 뒤에서 knowledge의 내용을 나타내는 명사적 용법이다."], "paraphrase_en": "That saying may be true, but our food comes from thousands of years of better farming knowledge.", "paraphrase_ko": "그 속담이 맞을 수는 있지만, 우리의 음식은 수천 년 동안 발전한 농사 지식에서 나온다."}, {"id": 3, "type_label": "부연", "phrases": [{"text": "What we eat", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "solar energy,", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "filtered,", "type": "bold", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "concentrated,", "type": "bold", "label": "병렬1", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and distilled", "type": "bold", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "through the lens", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of human knowledge.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "우리가 먹는 것은 인간의 지식이라는 렌즈를 거치며 걸러지고, 모아지고, 정제된 태양 에너지이다.", "points": ["What we eat은 '우리가 먹는 것'이라는 관계대명사 what절로, 문장 전체의 주어 역할을 한다.", "filtered, concentrated, and distilled는 solar energy를 뒤에서 꾸며 주는 과거분사 표현이며 병렬 구조이다."], "paraphrase_en": "Food is really solar energy that has been processed through human knowledge.", "paraphrase_ko": "음식은 사실 인간의 지식을 거쳐 가공된 태양 에너지이다."}, {"id": 4, "type_label": "근거", "phrases": [{"text": "The energy", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "the Earth receives", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "from the sun", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "each year", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "has remained", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "more or less constant", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "through all of human civilization.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "지구가 해마다 태양으로부터 받는 에너지는 인류 문명 전체에 걸쳐 대체로 일정하게 유지되어 왔다.", "points": ["the Earth receives from the sun each year는 앞의 The energy를 꾸며 주는 관계절인데, 관계대명사 that이 생략된 형태로 볼 수 있다."], "paraphrase_en": "The amount of energy Earth gets from the sun each year has stayed almost the same throughout human history.", "paraphrase_ko": "지구가 해마다 태양에서 받는 에너지의 양은 인류 역사 내내 거의 같았다."}, {"id": 5, "type_label": "주제문", "phrases": [{"text": "What’s allowed us", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to flourish", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "our increasingly sophisticated knowledge", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of how", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to capture", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an ever-growing but still tiny fraction", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of that energy", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in a form", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can fuel", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "our bodies.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "우리를 번영하게 해 준 것은, 점점 더 커지기는 하지만 여전히 아주 작은 그 에너지의 일부를 우리 몸을 움직일 수 있는 형태로 붙잡는 방법에 대한 점점 더 정교한 지식이다.", "points": ["What’s allowed us to flourish는 '우리를 번영하게 해 준 것'이라는 what절로, 문장의 주어이다.", "that can fuel our bodies는 a form을 꾸며 주는 주격 관계대명사절이다."], "paraphrase_en": "What helped humans thrive is better knowledge of how to capture a small usable part of solar energy.", "paraphrase_ko": "인간이 잘 살아가게 된 이유는 태양 에너지의 작은 일부를 쓸 수 있게 붙잡는 방법에 대한 더 나은 지식 때문이다."}, {"id": 6, "type_label": "결론", "phrases": [{"text": "Every step", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in the advancement", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of our knowledge", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "has brought", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "with it", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an increase", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in the amount", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of energy", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "we can tap into.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "우리 지식이 발전하는 모든 단계는 우리가 끌어다 쓸 수 있는 에너지의 양을 늘려 왔다.", "points": ["has brought with it은 '그와 함께 ~을 가져왔다'라는 뜻으로, 결과가 뒤따랐음을 나타낸다.", "we can tap into는 앞의 energy를 꾸며 주는 관계절로, 관계대명사 that이 생략된 형태이다."], "paraphrase_en": "Each improvement in human knowledge has let us use more energy.", "paraphrase_ko": "인간의 지식이 한 단계씩 발전할 때마다 우리는 더 많은 에너지를 쓸 수 있게 되었다."}], "problem_number": "01", "exam_info": "수특 2027 4강"};
+const VIEWER_PAGE = "../페이지/01.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

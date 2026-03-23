@@ -1,13 +1,16 @@
 """
 pipeline.py
 ───────────
-text_to_json → generate_viewer → generate_index 를 한 번에 실행하는 CLI 스크립트.
+text_to_json → generate_viewer → (text_to_analysis_json → generate_analysis_viewer)
+→ generate_index 를 한 번에 실행하는 CLI 스크립트.
 
 디렉토리 구조 규칙:
-    {시험지정보}/{원문|문장별|페이지}
+    {시험지정보}/{원문|문장별|페이지|분석|분석페이지}
     예) 고3_2025_11월_수능/원문/34.txt
       → 고3_2025_11월_수능/문장별/34.json
       → 고3_2025_11월_수능/페이지/34.html
+      → 고3_2025_11월_수능/분석/34.json       (본문분석)
+      → 고3_2025_11월_수능/분석페이지/34.html  (본문분석)
 
 사용법:
     # 단일 파일 처리
@@ -21,6 +24,12 @@ text_to_json → generate_viewer → generate_index 를 한 번에 실행하는 
 
     # provider / model 지정
     python pipeline.py 고3_2025_11월_수능/원문/34.txt -p claude -m claude-sonnet-4-20250514
+
+    # 분석 건너뛰기
+    python pipeline.py 고3_2025_11월_수능/원문/34.txt --skip-analysis
+
+    # 분석만 실행 (이미 문장별 JSON이 있는 경우)
+    python pipeline.py 고3_2025_11월_수능/원문/34.txt --analysis-only
 """
 
 import argparse
@@ -29,7 +38,9 @@ import sys
 from pathlib import Path
 
 from text_to_json import text_to_json
+from text_to_analysis_json import text_to_analysis_json
 from generate_viewer import generate_html
+from generate_analysis_viewer import generate_analysis_html
 from generate_index import generate_index
 
 
@@ -81,12 +92,12 @@ def resolve_input_files(paths: list[str]) -> list[Path]:
     return files
 
 
-def validate_structure(txt_path: Path) -> tuple[Path, Path, Path]:
+def validate_structure(txt_path: Path) -> tuple[Path, Path, Path, Path, Path]:
     """원문 파일 경로가 {시험지정보}/원문/XX.txt 구조인지 확인하고,
     대응하는 JSON·HTML 경로를 반환한다.
 
     Returns:
-        (txt_path, json_path, html_path)
+        (txt_path, json_path, html_path, analysis_json_path, analysis_html_path)
 
     Raises:
         SystemExit: 경로가 규칙에 맞지 않을 때
@@ -104,22 +115,28 @@ def validate_structure(txt_path: Path) -> tuple[Path, Path, Path]:
 
     json_path = exam_dir / "문장별" / f"{stem}.json"
     html_path = exam_dir / "페이지" / f"{stem}.html"
+    analysis_json_path = exam_dir / "분석" / f"{stem}.json"
+    analysis_html_path = exam_dir / "분석페이지" / f"{stem}.html"
 
-    return txt_path, json_path, html_path
+    return txt_path, json_path, html_path, analysis_json_path, analysis_html_path
 
 
 def process_file(
     txt_path: Path,
     json_path: Path,
     html_path: Path,
+    analysis_json_path: Path,
+    analysis_html_path: Path,
     *,
     provider: str,
     api_key: str | None,
     model: str | None,
     temperature: float,
     skip_existing: bool,
+    skip_analysis: bool,
+    analysis_only: bool,
 ) -> bool:
-    """단일 파일에 대해 text→json→html 파이프라인을 실행한다.
+    """단일 파일에 대해 text→json→html→분석 파이프라인을 실행한다.
 
     Returns:
         True if processed, False if skipped.
@@ -127,47 +144,99 @@ def process_file(
     label = f"{txt_path.parent.parent.name}/{txt_path.stem}"
 
     # ── 1) text_to_json ──
-    if skip_existing and json_path.exists():
-        print(f"⏭️  JSON 이미 존재, 건너뜀: {label}")
-    else:
-        print(f"📡 [{label}] {provider} API 호출 중...")
-        input_text = txt_path.read_text(encoding="utf-8").strip()
-        if not input_text:
-            print(f"⚠️  빈 파일, 건너뜀: {txt_path}")
-            return False
+    if not analysis_only:
+        if skip_existing and json_path.exists():
+            print(f"⏭️  JSON 이미 존재, 건너뜀: {label}")
+        else:
+            print(f"📡 [{label}] {provider} API 호출 중...")
+            input_text = txt_path.read_text(encoding="utf-8").strip()
+            if not input_text:
+                print(f"⚠️  빈 파일, 건너뜀: {txt_path}")
+                return False
 
-        result = text_to_json(
-            text=input_text,
-            provider=provider,
-            api_key=api_key,
-            model=model,
-            temperature=temperature,
+            result = text_to_json(
+                text=input_text,
+                provider=provider,
+                api_key=api_key,
+                model=model,
+                temperature=temperature,
+            )
+
+            result["problem_number"] = txt_path.stem
+
+            json_path.parent.mkdir(parents=True, exist_ok=True)
+            json_path.write_text(
+                json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            print(f"✅ [{label}] JSON 생성 → {json_path.name}")
+
+    # ── 2) 본문분석 (text_to_analysis_json → generate_analysis_html) ──
+    if not skip_analysis:
+        if skip_existing and analysis_json_path.exists():
+            print(f"⏭️  분석 JSON 이미 존재, 건너뜀: {label}")
+        else:
+            print(f"📡 [{label}] {provider} API 호출 중 (본문분석)...")
+            input_text = txt_path.read_text(encoding="utf-8").strip()
+            if not input_text:
+                print(f"⚠️  빈 파일, 분석 건너뜀: {txt_path}")
+            else:
+                analysis_result = text_to_analysis_json(
+                    text=input_text,
+                    provider=provider,
+                    api_key=api_key,
+                    model=model,
+                    temperature=temperature,
+                )
+
+                analysis_result["problem_number"] = txt_path.stem
+
+                analysis_json_path.parent.mkdir(parents=True, exist_ok=True)
+                analysis_json_path.write_text(
+                    json.dumps(analysis_result, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
+                )
+                print(f"✅ [{label}] 분석 JSON 생성 → {analysis_json_path.name}")
+
+        # 분석 HTML 생성
+        if analysis_json_path.exists():
+            viewer_page = f"../페이지/{txt_path.stem}.html"
+            analysis_html_path.parent.mkdir(parents=True, exist_ok=True)
+            generate_analysis_html(
+                str(analysis_json_path),
+                str(analysis_html_path),
+                viewer_page=viewer_page,
+            )
+            print(f"✅ [{label}] 분석 HTML 생성 → {analysis_html_path.name}")
+
+    # ── 3) generate_viewer ──
+    if not analysis_only and json_path.exists():
+        # 기존 JSON에 problem_number가 없으면 추가
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if "problem_number" not in data:
+            data["problem_number"] = txt_path.stem
+            json_path.write_text(
+                json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+
+        # next_page 계산
+        next_page = _find_next_page(html_path)
+
+        # analysis_page 계산 (분석페이지가 존재하면 링크)
+        analysis_page = (
+            f"../분석페이지/{txt_path.stem}.html"
+            if analysis_html_path.exists()
+            else None
         )
 
-        result["problem_number"] = txt_path.stem
-
-        json_path.parent.mkdir(parents=True, exist_ok=True)
-        json_path.write_text(
-            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+        html_path.parent.mkdir(parents=True, exist_ok=True)
+        generate_html(
+            str(json_path),
+            str(html_path),
+            next_page=next_page,
+            analysis_page=analysis_page,
         )
-        print(f"✅ [{label}] JSON 생성 → {json_path.name}")
-
-    # ── 2) generate_viewer ──
-    # 기존 JSON에 problem_number가 없으면 추가
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    if "problem_number" not in data:
-        data["problem_number"] = txt_path.stem
-        json_path.write_text(
-            json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-
-    # next_page 계산
-    next_page = _find_next_page(html_path)
-
-    html_path.parent.mkdir(parents=True, exist_ok=True)
-    generate_html(str(json_path), str(html_path), next_page=next_page)
-    print(f"✅ [{label}] HTML 생성 → {html_path.name}")
+        print(f"✅ [{label}] HTML 생성 → {html_path.name}")
 
     return True
 
@@ -214,6 +283,16 @@ def main():
         action="store_true",
         help="이미 JSON이 존재하면 API 호출을 건너뛴다 (HTML은 항상 재생성)",
     )
+    parser.add_argument(
+        "--skip-analysis",
+        action="store_true",
+        help="본문분석 단계를 건너뛴다 (기존 해설만 생성)",
+    )
+    parser.add_argument(
+        "--analysis-only",
+        action="store_true",
+        help="본문분석만 실행한다 (문장별 해설은 건너뜀, 이미 JSON이 있어야 함)",
+    )
     args = parser.parse_args()
 
     # ── 입력 파일 수집 ──
@@ -227,27 +306,38 @@ def main():
 
     print(f"\n{'='*50}")
     print(f"📋 처리 대상: {len(targets)}개 파일")
-    for txt, json_p, _ in targets:
-        status = "📄" if not json_p.exists() else "📄 (JSON 존재)"
-        print(f"   {status} {txt.parent.parent.name}/{txt.stem}")
+    mode = "분석만" if args.analysis_only else ("분석 제외" if args.skip_analysis else "전체")
+    print(f"   모드: {mode}")
+    for txt, json_p, _, analysis_json_p, _ in targets:
+        status_parts = []
+        if json_p.exists():
+            status_parts.append("해설 JSON 존재")
+        if analysis_json_p.exists():
+            status_parts.append("분석 JSON 존재")
+        status = f"({', '.join(status_parts)})" if status_parts else ""
+        print(f"   📄 {txt.parent.parent.name}/{txt.stem} {status}")
     print(f"{'='*50}\n")
 
     # ── 파이프라인 실행 ──
     processed = 0
-    for txt, json_p, html_p in targets:
+    for txt, json_p, html_p, analysis_json_p, analysis_html_p in targets:
         if process_file(
             txt,
             json_p,
             html_p,
+            analysis_json_p,
+            analysis_html_p,
             provider=args.provider,
             api_key=args.api_key,
             model=args.model,
             temperature=args.temperature,
             skip_existing=args.skip_existing,
+            skip_analysis=args.skip_analysis,
+            analysis_only=args.analysis_only,
         ):
             processed += 1
 
-    # ── 3) index.html 갱신 ──
+    # ── index.html 갱신 ──
     if processed > 0:
         generate_index()
 

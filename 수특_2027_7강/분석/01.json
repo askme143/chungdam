@@ -1,0 +1,1207 @@
+{
+  "title_en": "Beyond the Ten-Thousand-Hour Rule",
+  "title_ko": "1만 시간 법칙을 넘어서",
+  "theme_en": "Expert performance cannot be explained by practice alone because many factors such as age, experience, environment, talent, and effort work together.",
+  "theme_ko": "뛰어난 실력은 연습만으로 설명되지 않는다. 나이, 경험, 환경, 재능, 노력 같은 여러 요소가 함께 작용한다.",
+  "summary_en": "Although the ten-thousand-hour rule made deliberate practice famous, recent research argues that there is nothing magical about that number and that expertise depends on multiple factors, not just practice.",
+  "summary_ko": "1만 시간 법칙은 연습의 중요성을 널리 알렸지만, 최근 연구는 그 숫자 자체가 특별한 것은 아니며, 뛰어난 실력은 연습 하나가 아니라 여러 요소에 의해 결정된다고 말한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "The passage introduces the popular idea that about ten thousand hours of practice makes someone an expert.",
+      "korean": "이 글은 약 1만 시간의 연습이 사람을 전문가로 만든다는 널리 알려진 생각으로 시작한다."
+    },
+    {
+      "label": "근거",
+      "english": "It explains that this idea became widely known through Ericsson’s research and Gladwell’s book.",
+      "korean": "이 생각이 에릭슨의 연구와 글래드웰의 책을 통해 널리 알려졌다고 설명한다."
+    },
+    {
+      "label": "반론",
+      "english": "Recent researchers reexamined the evidence and argued that the ten-thousand-hour rule is not a valid universal rule.",
+      "korean": "최근 연구자들은 근거를 다시 살펴보고, 1만 시간 법칙은 누구에게나 들어맞는 올바른 법칙이 아니라고 주장했다."
+    },
+    {
+      "label": "부연",
+      "english": "The passage adds that practice matters, but other factors may matter even more for expert performance.",
+      "korean": "이 글은 연습이 중요하긴 하지만, 뛰어난 실력에는 다른 요소들이 더 중요할 수도 있다고 덧붙인다."
+    },
+    {
+      "label": "결론",
+      "english": "It concludes that mastery cannot be predicted or guaranteed by any single factor because many factors work together.",
+      "korean": "마지막으로, 여러 요소가 함께 작용하므로 어떤 한 가지 요소만으로는 뛰어난 실력을 예측하거나 보장할 수 없다고 결론짓는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "practice",
+      "meaning": "연습",
+      "synonyms": [
+        "training",
+        "exercise",
+        "rehearsal"
+      ],
+      "antonyms": [
+        "neglect",
+        "idleness"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "expert",
+      "meaning": "전문가, 숙련된 사람",
+      "synonyms": [
+        "specialist",
+        "master"
+      ],
+      "antonyms": [
+        "novice",
+        "beginner"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "research",
+      "meaning": "연구",
+      "synonyms": [
+        "study",
+        "investigation"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "reexamined",
+      "meaning": "다시 조사했다, 다시 살펴보았다",
+      "synonyms": [
+        "reviewed",
+        "reassessed"
+      ],
+      "antonyms": [
+        "ignored"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "figure",
+      "meaning": "수치, 숫자",
+      "synonyms": [
+        "number",
+        "statistic"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "utter",
+      "meaning": "완전한, 순전한",
+      "synonyms": [
+        "complete",
+        "absolute",
+        "total"
+      ],
+      "antonyms": [
+        "partial",
+        "slight"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "nonsense",
+      "meaning": "말도 안 되는 소리",
+      "synonyms": [
+        "absurdity",
+        "rubbish"
+      ],
+      "antonyms": [
+        "sense",
+        "truth"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "specifically",
+      "meaning": "구체적으로 말하면",
+      "synonyms": [
+        "particularly",
+        "precisely"
+      ],
+      "antonyms": [
+        "generally"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "boost",
+      "meaning": "높이다, 끌어올리다",
+      "synonyms": [
+        "improve",
+        "increase",
+        "enhance"
+      ],
+      "antonyms": [
+        "reduce",
+        "lower"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "performance",
+      "meaning": "수행, 실력, 성과",
+      "synonyms": [
+        "achievement",
+        "execution"
+      ],
+      "antonyms": [
+        "failure"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "innate",
+      "meaning": "타고난",
+      "synonyms": [
+        "inborn",
+        "natural"
+      ],
+      "antonyms": [
+        "acquired",
+        "learned"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "perseverance",
+      "meaning": "끈기",
+      "synonyms": [
+        "persistence",
+        "determination"
+      ],
+      "antonyms": [
+        "giving up",
+        "weakness"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "environment",
+      "meaning": "환경",
+      "synonyms": [
+        "surroundings",
+        "conditions"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "predict",
+      "meaning": "예측하다",
+      "synonyms": [
+        "forecast",
+        "anticipate"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "ensure",
+      "meaning": "보장하다",
+      "synonyms": [
+        "guarantee",
+        "secure"
+      ],
+      "antonyms": [
+        "endanger",
+        "prevent"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "mastery",
+      "meaning": "완전한 숙달, 통달",
+      "synonyms": [
+        "expertise",
+        "command"
+      ],
+      "antonyms": [
+        "incompetence",
+        "ignorance"
+      ],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "You",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "have probably heard",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "plain",
+              "label": "명사절 접속사",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "it",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": "가주어",
+              "children": []
+            },
+            {
+              "text": "takes",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "about ten thousand hours",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of practice",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "to become",
+              "type": "bold",
+              "label": "C",
+              "annotation_above": null,
+              "annotation_below": "진주어",
+              "children": []
+            },
+            {
+              "text": "an expert",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "in anything",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "— a musical instrument,",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "a sport, chess, cooking,",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "or a foreign language.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "여러분은 아마 무엇이든 전문가가 되려면 약 1만 시간의 연습이 필요하다는 말을 들어 봤을 것이다. 예를 들면 악기, 스포츠, 체스, 요리, 외국어 같은 것이다.",
+      "points": [
+        "it takes + 시간/노력 + to부정사 구문이다. 여기서 it은 가주어이고, 진짜 주어는 to become an expert이다.",
+        "that절은 heard의 목적어 역할을 하는 명사절이다."
+      ],
+      "paraphrase_en": "You have likely heard the popular claim that becoming an expert in any field requires around 10,000 hours of practice.",
+      "paraphrase_ko": "여러분은 어떤 분야에서든 전문가가 되려면 약 1만 시간의 연습이 필요하다는 유명한 주장을 아마 들어 봤을 것이다."
+    },
+    {
+      "id": 2,
+      "type_label": "서술",
+      "phrases": [
+        {
+          "text": "The research",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "by K. Anders Ericsson",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "on this topic",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "has been written about",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "many times,",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": "= this research/topic",
+          "children": []
+        },
+        {
+          "text": "was made",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "even more famous",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "when",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "Malcolm Gladwell",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "described",
+              "type": "bold",
+              "label": "3V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "it",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "in his bestselling book",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "Outliers.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "이 주제에 대한 K. Anders Ericsson의 연구는 여러 번 글로 다루어졌고, Malcolm Gladwell이 그의 베스트셀러 책 『Outliers』에서 그것을 설명하면서 더 큰 유명세를 얻게 되었다.",
+      "points": [
+        "be made + 형용사 구조로 '…하게 되다'라고 해석한다. 여기서는 made가 5형식으로 쓰여 it을 even more famous 상태로 만든 것이다.",
+        "write about은 '…에 대해 쓰다'라는 뜻의 동사구이며, 수동태 has been written about으로 쓰였다."
+      ],
+      "paraphrase_en": "Ericsson’s research became widely known, and Gladwell made it even more famous by explaining it in Outliers.",
+      "paraphrase_ko": "에릭슨의 연구는 널리 알려졌고, 글래드웰은 『아웃라이어』에서 그것을 설명해 더 유명하게 만들었다."
+    },
+    {
+      "id": 3,
+      "type_label": "반론",
+      "phrases": [
+        {
+          "text": "However,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "recently,",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a cohort",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of researchers",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "reexamined",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the studies and research",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "behind the 10K figure",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "said,",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "quite dramatically,",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "plain",
+              "label": "명사절 접속사",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the ten-thousand-hour rule",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "was",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "utter",
+              "type": "bold",
+              "label": "C",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "nonsense.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "하지만 최근에 한 무리의 연구자들이 1만 시간이라는 수치의 근거가 된 연구들과 자료를 다시 살펴보았고, 꽤 강한 표현으로 1만 시간 법칙은 완전히 말도 안 된다고 말했다.",
+      "points": [
+        "behind the 10K figure는 앞의 the studies and research를 뒤에서 꾸며 주는 전치사구이다.",
+        "that절은 said의 목적어 역할을 한다."
+      ],
+      "paraphrase_en": "However, a recent group of researchers reviewed the evidence for the 10,000-hour idea and strongly claimed that the rule was nonsense.",
+      "paraphrase_ko": "하지만 최근 한 연구자 집단은 1만 시간 생각의 근거를 다시 검토하고, 그 법칙은 말이 안 된다고 강하게 주장했다."
+    },
+    {
+      "id": 4,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Specifically,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "there",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": "형식상 주어",
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "nothing",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "particularly special",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "about ten thousand hours,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "while",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": "양보",
+          "children": []
+        },
+        {
+          "text": "practice",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "clearly important",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to boost performance,",
+              "type": "plain",
+              "label": "부사적 용법",
+              "annotation_above": null,
+              "annotation_below": "목적",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "other factors",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "may play",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an even more important role.",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "구체적으로 말하면, 1만 시간이라는 숫자 자체에 특별히 대단한 점은 없다. 그리고 연습이 실력을 높이는 데 분명 중요하긴 하지만, 다른 요소들이 훨씬 더 중요한 역할을 할 수도 있다.",
+      "points": [
+        "there is 구문에서는 뒤의 명사가 실제 내용상 중심이 된다. 여기서는 nothing이 핵심이다.",
+        "while은 여기서 '…이긴 하지만'이라는 양보의 뜻으로 쓰였다. to boost performance는 목적을 나타내는 to부정사이다."
+      ],
+      "paraphrase_en": "More exactly, 10,000 hours is not a magical number, and although practice helps improve performance, other factors may matter even more.",
+      "paraphrase_ko": "더 정확히 말하면, 1만 시간은 마법 같은 숫자가 아니며, 연습이 실력 향상에 도움이 되더라도 다른 요소들이 더 중요할 수 있다."
+    },
+    {
+      "id": 5,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "What",
+          "type": "boxed",
+          "label": "목관대",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "those other factors",
+          "type": "underline",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "get",
+              "type": "bold",
+              "label": "5V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "us",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "to expert levels",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "of performance?",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "우리를 전문가 수준의 실력에 이르게 하는 그 다른 요소들은 무엇일까?",
+      "points": [
+        "문장 전체는 의문문이지만, 핵심은 those other factors를 that절이 뒤에서 꾸며 주는 구조이다.",
+        "get + O + to ...는 'O를 …하게 하다/…에 이르게 하다'의 5형식으로 볼 수 있다."
+      ],
+      "paraphrase_en": "So what are the other things that lead us to expert-level performance?",
+      "paraphrase_ko": "그렇다면 우리를 전문가 수준의 실력으로 이끄는 다른 것들은 무엇일까?"
+    },
+    {
+      "id": 6,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Pure innate talent?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "Intelligence?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "Luck of the draw?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "Perseverance?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "Hard work?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "순수한 타고난 재능일까? 지능일까? 운일까? 끈기일까? 노력일까?",
+      "points": [],
+      "paraphrase_en": "Is it natural talent, intelligence, luck, perseverance, or hard work?",
+      "paraphrase_ko": "그것은 타고난 재능, 지능, 운, 끈기, 혹은 노력일까?"
+    },
+    {
+      "id": 7,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "Yes,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": "= expert performance",
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "all of that",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "… and more.",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "그렇다. 그것은 그 모든 것, 그리고 그 이상이다.",
+      "points": [],
+      "paraphrase_en": "Yes, expert performance comes from all of those things and even more.",
+      "paraphrase_ko": "맞다. 뛰어난 실력은 그런 모든 것들, 그리고 그보다 더 많은 것에서 나온다."
+    },
+    {
+      "id": 8,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Age, experience, and environment",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "all",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "play",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a role.",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "나이, 경험, 환경도 모두 역할을 한다.",
+      "points": [],
+      "paraphrase_en": "Age, experience, and environment also matter.",
+      "paraphrase_ko": "나이, 경험, 환경도 또한 중요하다."
+    },
+    {
+      "id": 9,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "In other words,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "there",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": "형식상 주어",
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "no one certain factor",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "can predict",
+              "type": "bold",
+              "label": "3V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "or ensure",
+              "type": "bold",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "mastery",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "or optimal performance",
+              "type": "plain",
+              "label": "병렬2",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of anything.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "다시 말해, 어떤 것이든 완전한 숙달이나 가장 좋은 수행을 예측하거나 보장할 수 있는 단 하나의 확실한 요소는 없다.",
+      "points": [
+        "there is 구문이지만 실제 핵심은 no one certain factor이다.",
+        "that can predict or ensure에서 predict와 ensure가 병렬이고, mastery와 optimal performance도 병렬 구조이다."
+      ],
+      "paraphrase_en": "That means there is no single sure factor that can predict or guarantee mastery or top performance in anything.",
+      "paraphrase_ko": "즉, 어떤 분야에서든 완전한 숙달이나 최고 수준의 실력을 예측하거나 보장하는 하나의 확실한 요소는 없다."
+    }
+  ],
+  "problem_number": "01"
+}

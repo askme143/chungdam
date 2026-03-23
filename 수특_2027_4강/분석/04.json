@@ -1,0 +1,1172 @@
+{
+  "title_en": "Turning Social Anxiety into Compassion",
+  "title_ko": "사회적 불안을 연민으로 바꾸기",
+  "theme_en": "Social anxiety can become a helpful force when people use it to understand others and act with empathy.",
+  "theme_ko": "사회적 불안은 다른 사람을 이해하고 공감하는 데 쓰면 도움이 되는 힘이 될 수 있다.",
+  "summary_en": "The passage explains that social anxiety is normal and that, by listening to what it signals, people can turn it into empathy, compassion, and stronger social connection.",
+  "summary_ko": "이 글은 사회적 불안이 자연스러운 반응이며, 그 신호를 잘 살피면 그것을 공감과 연민, 더 나은 인간관계로 바꿀 수 있다고 설명한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "The passage begins by reassuring readers that social anxiety is a normal response shared by many people.",
+      "korean": "글은 사회적 불안이 많은 사람이 겪는 아주 자연스러운 반응이라고 말하며 시작한다."
+    },
+    {
+      "label": "부연",
+      "english": "It then argues that anxiety can help people build social strength and notice what others may need in difficult social moments.",
+      "korean": "이어서 불안이 사람들에게 사회적 힘을 기르게 하고, 어색한 상황에서 다른 사람이 무엇을 필요로 하는지 알아차리게 해 줄 수 있다고 말한다."
+    },
+    {
+      "label": "근거",
+      "english": "By listening to anxiety and recognizing one’s own uncertainty, a person can practice empathy toward others in similar situations.",
+      "korean": "자신의 불안이 보내는 신호를 듣고 스스로의 불확실함을 알아차리면, 비슷한 처지의 다른 사람에게 공감할 수 있다고 설명한다."
+    },
+    {
+      "label": "결론",
+      "english": "Finally, the passage concludes that compassion and empathy can reduce harmful anxiety and spread care more widely.",
+      "korean": "마지막으로 글은 연민과 공감이 나쁜 불안을 줄여 주고, 더 넓게 배려를 퍼뜨릴 수 있다고 결론짓는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "suffer",
+      "meaning": "겪다, 시달리다",
+      "synonyms": [
+        "experience",
+        "endure"
+      ],
+      "antonyms": [
+        "enjoy",
+        "escape"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "awkwardness",
+      "meaning": "어색함, 서먹함",
+      "synonyms": [
+        "discomfort",
+        "unease"
+      ],
+      "antonyms": [
+        "ease",
+        "confidence"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "dread",
+      "meaning": "두려움, 몹시 걱정함",
+      "synonyms": [
+        "fear",
+        "terror"
+      ],
+      "antonyms": [
+        "confidence",
+        "calm"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "normal",
+      "meaning": "정상적인, 자연스러운",
+      "synonyms": [
+        "usual",
+        "natural"
+      ],
+      "antonyms": [
+        "abnormal",
+        "unusual"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "anxiety",
+      "meaning": "불안",
+      "synonyms": [
+        "worry",
+        "nervousness"
+      ],
+      "antonyms": [
+        "calm",
+        "peace"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "boost",
+      "meaning": "높이다, 키우다",
+      "synonyms": [
+        "increase",
+        "improve",
+        "strengthen"
+      ],
+      "antonyms": [
+        "reduce",
+        "weaken"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "clue",
+      "meaning": "실마리, 단서",
+      "synonyms": [
+        "hint",
+        "sign"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "grateful",
+      "meaning": "고마워하는",
+      "synonyms": [
+        "thankful",
+        "appreciative"
+      ],
+      "antonyms": [
+        "ungrateful"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "signal",
+      "meaning": "신호를 보내다, 알리다",
+      "synonyms": [
+        "indicate",
+        "show"
+      ],
+      "antonyms": [
+        "hide",
+        "conceal"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "uncertain",
+      "meaning": "확신이 없는, 불확실한",
+      "synonyms": [
+        "unsure",
+        "doubtful"
+      ],
+      "antonyms": [
+        "certain",
+        "sure"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "insecure",
+      "meaning": "불안한, 자신 없는",
+      "synonyms": [
+        "uneasy",
+        "self-doubting"
+      ],
+      "antonyms": [
+        "secure",
+        "confident"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "empathy",
+      "meaning": "공감",
+      "synonyms": [
+        "understanding",
+        "compassion"
+      ],
+      "antonyms": [
+        "indifference",
+        "insensitivity"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "inherent",
+      "meaning": "타고난, 본래부터 있는",
+      "synonyms": [
+        "innate",
+        "natural"
+      ],
+      "antonyms": [
+        "acquired",
+        "external"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "compassion",
+      "meaning": "연민, 따뜻한 배려",
+      "synonyms": [
+        "sympathy",
+        "kindness",
+        "mercy"
+      ],
+      "antonyms": [
+        "cruelty",
+        "indifference"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "buffer against",
+      "meaning": "~을 막아 주다, 완화하다",
+      "synonyms": [
+        "protect from",
+        "cushion against"
+      ],
+      "antonyms": [
+        "expose to"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "outward-facing",
+      "meaning": "바깥을 향한, 다른 사람에게 눈을 돌리는",
+      "synonyms": [
+        "other-focused",
+        "externally directed"
+      ],
+      "antonyms": [
+        "inward-looking",
+        "self-focused"
+      ],
+      "emphasized": false
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "If",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "you",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "suffer",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "from social angst, awkwardness, or dread",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "know",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "that",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "this",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a perfectly normal response.",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "만약 네가 사회적 불안, 어색함, 또는 두려움을 겪고 있다면, 이것이 아주 자연스러운 반응이라는 것을 알아 두어라.",
+      "points": [
+        "문장 맨 앞의 If절은 조건을 나타내며, 뒤의 주절에서 핵심 말인 know가 나온다.",
+        "that절은 know의 목적어 역할을 하는 명사절이다."
+      ],
+      "paraphrase_en": "If social situations make you anxious or uncomfortable, remember that this reaction is completely normal.",
+      "paraphrase_ko": "사회적 상황이 너를 불안하거나 불편하게 만든다면, 이런 반응은 아주 자연스럽다는 것을 기억하라는 뜻이다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "No matter what",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "looks",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "like",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a lot of people",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are dealing",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "with internal anxiety",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "in social situations.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "겉으로 어떻게 보이든, 많은 사람들이 사회적 상황에서 마음속 불안을 겪고 있다.",
+      "points": [
+        "No matter what it looks like는 '겉으로 어떻게 보이든'이라는 양보 표현이다."
+      ],
+      "paraphrase_en": "Even if it is not visible, many people feel anxious inside during social situations.",
+      "paraphrase_ko": "겉으로 티가 나지 않아도, 많은 사람들이 사회적 상황에서 속으로 불안을 느낀다는 뜻이다."
+    },
+    {
+      "id": 3,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "But",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "actually possible",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to build",
+          "type": "plain",
+          "label": "명사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "your social muscle",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "use",
+          "type": "bold",
+          "label": "병렬1",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to boost",
+          "type": "plain",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "your connections",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "—",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "your anxiety",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is giving",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "you",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "clues",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to what icebreakers and lifelines",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "other people",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "might be grateful",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "you",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to extend.",
+              "type": "plain",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "하지만 실제로는 사회적 힘을 기르고, 그것을 써서 관계를 더 좋게 만드는 것이 가능하다. 그리고 네 불안은 다른 사람들이 네가 먼저 건네 주면 고마워할 만한 말문을 여는 행동이나 도움의 손길이 무엇인지에 대한 단서를 주고 있다.",
+      "points": [
+        "it is possible to do는 '…하는 것이 가능하다'라는 가주어 구문이다.",
+        "be grateful for A to do는 여기서 '네가 A를 해 주는 것에 대해 고마워하다'의 뜻으로 이해하면 된다."
+      ],
+      "paraphrase_en": "However, you can strengthen your social ability, improve your relationships, and let your anxiety show you what kind actions others may appreciate.",
+      "paraphrase_ko": "하지만 너는 사회적 능력을 키우고 관계를 더 좋게 만들 수 있으며, 네 불안은 다른 사람들이 반가워할 친절한 행동이 무엇인지 알려 줄 수 있다는 뜻이다."
+    },
+    {
+      "id": 4,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Truly",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "listen",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to what",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "your anxiety",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "is signaling",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to you",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "about where",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "you",
+                  "type": "underline",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "feel",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "uncertain or insecure",
+                  "type": "bold",
+                  "label": "C",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "practice",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "empathy",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "by offering",
+              "type": "plain",
+              "label": "부사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "a hand",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to others",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "who",
+                  "type": "boxed",
+                  "label": "주관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "might be",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "in the same boat.",
+                  "type": "bold",
+                  "label": "C",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "네 불안이 네게 무엇을 말해 주는지, 곧 네가 어디에서 확신이 없고 불안한지를 정말 잘 들어라. 그리고 같은 처지에 있을지 모르는 다른 사람들에게 손을 내밀면서 공감을 실천하라.",
+      "points": [
+        "what your anxiety is signaling to you는 전치사 to의 목적어 역할을 하는 명사절이다.",
+        "by offering은 '…함으로써'의 뜻으로 방법을 나타낸다."
+      ],
+      "paraphrase_en": "Pay close attention to what your anxiety tells you about your weak points, and show empathy by helping others who may feel the same way.",
+      "paraphrase_ko": "네 불안이 네 약한 부분을 어떻게 알려 주는지 잘 살피고, 비슷하게 느끼는 다른 사람을 도우며 공감을 보여 주라는 뜻이다."
+    },
+    {
+      "id": 5,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "Remember",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "that",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "flipping anxiety into compassion",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "something inherent in you",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "—",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "in fact",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "what",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "your anxiety",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "was designed",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to do",
+          "type": "plain",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "for you.",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "불안을 연민으로 바꾸는 일은 네 안에 본래 들어 있는 것임을 기억하라. 사실 그것은 바로 네 불안이 너를 위해 하도록 만들어진 일이다.",
+      "points": [
+        "that절은 Remember의 목적어 역할을 한다.",
+        "what your anxiety was designed to do for you에서 what은 '…하는 것'이라는 뜻의 선행사를 포함한 관계대명사이다."
+      ],
+      "paraphrase_en": "Keep in mind that turning anxiety into compassion is natural for you and is actually one of anxiety’s intended functions.",
+      "paraphrase_ko": "불안을 연민으로 바꾸는 것은 너에게 자연스러운 일이며, 사실 그것이 불안의 본래 역할 가운데 하나라는 뜻이다."
+    },
+    {
+      "id": 6,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Together",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "compassion and empathy",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can buffer",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "against bad anxiety.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "연민과 공감은 함께할 때 해로운 불안을 막아 주거나 줄여 줄 수 있다.",
+      "points": [],
+      "paraphrase_en": "Compassion and empathy work together to protect us from harmful anxiety.",
+      "paraphrase_ko": "연민과 공감은 함께 작용해서 해로운 불안을 막아 준다는 뜻이다."
+    },
+    {
+      "id": 7,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "You",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can use",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "your anxiety",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to be",
+          "type": "plain",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "more outward-facing.",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "너는 네 불안을 써서 더 바깥을 향하고, 다른 사람에게 눈을 돌릴 수 있다.",
+      "points": [
+        "to be는 목적을 나타내는 to부정사로 볼 수 있다."
+      ],
+      "paraphrase_en": "You can turn your anxiety into a way of focusing more on others than on yourself.",
+      "paraphrase_ko": "너는 불안을 자기 자신보다 다른 사람에게 더 눈을 돌리는 방향으로 바꿀 수 있다는 뜻이다."
+    },
+    {
+      "id": 8,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "The outcome",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "?",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "The spread",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of compassion",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for your fellow human beings, other species, and the planet!",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "그 결과는 무엇일까? 바로 다른 사람들, 다른 생명체들, 그리고 지구를 향한 연민이 널리 퍼지는 것이다!",
+      "points": [
+        "The outcome?는 완전한 문장이라기보다 앞의 내용을 강조하는 짧은 표현이다. 뒤의 명사구가 그 답이 된다."
+      ],
+      "paraphrase_en": "As a result, compassion can spread to other people, other living things, and the whole planet.",
+      "paraphrase_ko": "그 결과 연민이 다른 사람들과 다른 생명체들, 그리고 지구 전체로 퍼질 수 있다는 뜻이다."
+    }
+  ],
+  "problem_number": "04"
+}

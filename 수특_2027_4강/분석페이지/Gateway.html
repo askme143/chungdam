@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Balancing Cooperation and Competition in Sport", "title_ko": "스포츠에서 협력과 경쟁의 균형", "theme_en": "Sport businesses must carefully balance cooperation and competition because they need both shared resources and competitive performance.", "theme_ko": "스포츠 산업에서는 자원을 함께 써야 하고 또 성과를 놓고 경쟁해야 하므로, 협력과 경쟁의 균형을 신중하게 맞춰야 한다.", "summary_en": "The passage explains that sport organizations operate in a coopetitive ecosystem, where cooperation and competition happen at the same time, so managers need careful plans to balance both without neglecting either one.", "summary_ko": "이 글은 스포츠 조직이 협력과 경쟁이 동시에 일어나는 '협력적 경쟁' 환경 속에서 움직인다고 설명한다. 그래서 관리자들은 어느 한쪽도 소홀히 하지 않도록 두 요소를 잘 조절하는 계획이 필요하다고 말한다.", "structure": [{"label": "도입", "english": "The passage introduces the idea that sport ecosystems are shaped by the form and degree of coopetition.", "korean": "이 글은 스포츠 생태계가 협력과 경쟁이 함께 있는 방식과 정도에 따라 만들어진다는 생각을 먼저 소개한다."}, {"label": "부연", "english": "It defines coopetition and explains that this concept helps us understand the changing nature of sport businesses.", "korean": "이어서 '협력적 경쟁'의 뜻을 설명하고, 이 개념이 스포츠 산업의 움직이는 성격을 이해하는 데 도움이 된다고 말한다."}, {"label": "문제", "english": "The passage points out that managing this relationship is difficult because trust issues and different behaviors are involved.", "korean": "그리고 이 관계에는 신뢰 문제와 서로 다른 행동 방식이 얽혀 있어서 다루기가 어렵다고 지적한다."}, {"label": "근거", "english": "Sport managers often lean more toward competition, while sharing information only when necessary and with caution.", "korean": "스포츠 관리자들은 보통 경쟁 쪽에 더 무게를 두고, 정보 공유는 필요할 때만 조심스럽게 한다는 점을 근거로 보여 준다."}, {"label": "결론", "english": "Therefore, organizations need clear plans to pursue cooperation and competition together so that neither side is ignored.", "korean": "따라서 조직은 협력과 경쟁을 함께 추구할 분명한 계획이 필요하며, 어느 한쪽도 희생되어서는 안 된다고 결론짓는다."}], "key_vocabulary": [{"word": "ecosystem", "meaning": "생태계, 서로 연결된 체계", "synonyms": ["system", "network"], "antonyms": [], "emphasized": true}, {"word": "coopetition", "meaning": "협력과 경쟁이 함께 일어나는 관계, 협력적 경쟁", "synonyms": [], "antonyms": [], "emphasized": true}, {"word": "simultaneous", "meaning": "동시에 일어나는", "synonyms": ["concurrent", "parallel"], "antonyms": ["separate", "sequential"], "emphasized": true}, {"word": "pursuit", "meaning": "추구", "synonyms": ["seeking", "attempt"], "antonyms": ["avoidance"], "emphasized": true}, {"word": "leverage", "meaning": "잘 활용하다", "synonyms": ["use", "exploit", "utilize"], "antonyms": ["waste", "ignore"], "emphasized": true}, {"word": "strategically", "meaning": "전략적으로", "synonyms": ["purposefully", "carefully"], "antonyms": ["randomly"], "emphasized": false}, {"word": "superior", "meaning": "더 뛰어난, 더 나은", "synonyms": ["better", "greater"], "antonyms": ["inferior"], "emphasized": true}, {"word": "dynamic", "meaning": "끊임없이 변하는, 역동적인", "synonyms": ["changing", "active"], "antonyms": ["static"], "emphasized": true}, {"word": "collaborate", "meaning": "협력하다", "synonyms": ["cooperate", "work together"], "antonyms": ["compete", "oppose"], "emphasized": true}, {"word": "efficiency", "meaning": "효율성", "synonyms": ["effectiveness"], "antonyms": ["inefficiency"], "emphasized": true}, {"word": "paramount", "meaning": "가장 중요한", "synonyms": ["most important", "crucial"], "antonyms": ["minor", "secondary"], "emphasized": true}, {"word": "challenging", "meaning": "어려운, 힘든", "synonyms": ["difficult", "demanding"], "antonyms": ["easy"], "emphasized": true}, {"word": "balancing act", "meaning": "균형을 맞추는 일", "synonyms": ["trade-off", "careful balance"], "antonyms": [], "emphasized": true}, {"word": "emphasis", "meaning": "강조, 비중", "synonyms": ["stress", "focus"], "antonyms": ["neglect"], "emphasized": true}, {"word": "cautious", "meaning": "조심스러운", "synonyms": ["careful", "wary"], "antonyms": ["careless", "reckless"], "emphasized": true}, {"word": "neglect", "meaning": "소홀히 하다, 무시하다", "synonyms": ["ignore", "overlook"], "antonyms": ["attend to", "care for"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "A sport ecosystem", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "exists", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "based on the type and rate", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of coopetition", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "existing", "type": "plain", "label": "현재 분사구문", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "스포츠 생태계는 존재하며, 그것은 존재하는 협력적 경쟁의 종류와 정도를 바탕으로 형성된다.", "points": ["문장 끝의 existing은 'coopetition'을 뒤에서 꾸며 주는 현재분사로, '존재하는 협력적 경쟁'이라는 뜻이다."], "paraphrase_en": "A sport system is formed according to what kind of coopetition exists and how much of it there is.", "paraphrase_ko": "스포츠 체계는 어떤 협력적 경쟁이 있고 그것이 어느 정도인지에 따라 만들어진다."}, {"id": 2, "type_label": "서술", "phrases": [{"text": "Coopetition", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is defined", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the simultaneous pursuit", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of cooperation and competition", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "among firms", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to leverage", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "strategically important resources", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for superior value creation purposes", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "협력적 경쟁은 '기업들이 더 뛰어난 가치를 만들어 내기 위해 전략적으로 중요한 자원을 활용하려고, 서로 협력과 경쟁을 동시에 추구하는 것'으로 정의된다.", "points": ["be defined as는 '~로 정의되다'라는 뜻의 수동 표현이다.", "to leverage는 목적을 나타내는 to부정사로, '활용하기 위해'라고 해석한다."], "paraphrase_en": "Coopetition means that companies cooperate and compete at the same time to use important resources and create better value.", "paraphrase_ko": "협력적 경쟁이란 기업들이 중요한 자원을 써서 더 나은 가치를 만들기 위해 협력도 하고 경쟁도 함께 하는 것을 뜻한다."}, {"id": 3, "type_label": "부연", "phrases": [{"text": "It", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a useful way", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to understand", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the dynamic nature", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of sport businesses", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "which", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "need", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to collaborate", "type": "plain", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for resource efficiency purposes", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "/", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "but", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "potentially", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "compete", "type": "bold", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "with each other", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}]}], "korean": "이 개념은 스포츠 산업의 끊임없이 변하는 성격을 이해하는 데 유용한 방법이다. 스포츠 산업은 자원을 효율적으로 쓰기 위해 협력해야 하지만, 서로 경쟁할 가능성도 있다.", "points": ["a useful way to understand에서 to understand는 앞의 way를 꾸며 주는 to부정사로 쓰였다.", "which 이하의 관계절에서 need to collaborate와 compete가 내용상 대비된다."], "paraphrase_en": "This idea helps explain sport businesses, which must work together for efficiency but may also compete against one another.", "paraphrase_ko": "이 개념은 스포츠 산업을 이해하는 데 도움이 된다. 스포츠 산업은 효율을 위해 함께 일해야 하지만 서로 경쟁하기도 한다."}, {"id": 4, "type_label": "비판", "phrases": [{"text": "This special relationship", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "should be managed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "properly", "type": "plain", "label": null, "annotation_above": "proper (X)", "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "due to", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "trust and confidence issues", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "being", "type": "plain", "label": "동명사", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "paramount", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "이 특별한 관계는 제대로 관리되어야 한다. 왜냐하면 신뢰와 믿음의 문제가 가장 중요하기 때문이다.", "points": ["due to 뒤에서 being paramount는 전치사의 목적어 역할을 하는 동명사 구문이다."], "paraphrase_en": "This relationship must be handled well because trust and confidence are extremely important.", "paraphrase_ko": "이 관계는 잘 다뤄져야 한다. 신뢰와 믿음이 아주 중요하기 때문이다."}, {"id": 5, "type_label": "서술", "phrases": [{"text": "It", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "challenging", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to be", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "collaborative and competitive", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in sport", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "as", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "they", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "involve", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "different forms", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of behaviour", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "스포츠에서 협력적이면서도 경쟁적으로 행동하는 것은 어려울 수 있다. 왜냐하면 이 둘은 서로 다른 형태의 행동을 포함하기 때문이다.", "points": ["It can be challenging to do 구문에서 It은 가주어이고, 진주어는 to be 이하이다."], "paraphrase_en": "In sport, it may be hard to act both cooperatively and competitively because the two require different behaviors.", "paraphrase_ko": "스포츠에서는 협력도 하고 경쟁도 하는 것이 어려울 수 있다. 두 가지가 서로 다른 행동을 요구하기 때문이다."}, {"id": 6, "type_label": "부연", "phrases": [{"text": "This", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "means", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "a careful balancing act", "type": "plain", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "may be required", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in terms of", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the amount", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of emphasis", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "placed", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "on each activity", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "이 말은 각 활동에 얼마나 비중을 둘지에 있어서 신중한 균형 잡기가 필요할 수 있다는 뜻이다.", "points": ["means 뒤에 that이 생략된 절이 이어진 것으로 볼 수 있다.", "placed on each activity는 emphasis를 뒤에서 꾸며 주는 과거분사 표현이다."], "paraphrase_en": "This means that people may need to carefully balance how much attention they give to each activity.", "paraphrase_ko": "이것은 각 활동에 어느 정도 비중을 둘지 조심스럽게 균형을 맞춰야 할 수 있다는 뜻이다."}, {"id": 7, "type_label": "근거", "phrases": [{"text": "Often", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "sport managers", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "will try", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to be", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "more competitive", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "due to performance reasons", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "/", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "less collaborative", "type": "bold", "label": "병렬2", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "스포츠 관리자들은 흔히 성과 때문에서 더 경쟁적으로 되려고 하고, 덜 협력적으로 되려고 한다.", "points": ["try to be A and B에서 to be가 뒤의 형용사 more competitive와 less collaborative에 공통으로 걸린다."], "paraphrase_en": "Sport managers often choose stronger competition and weaker cooperation because of performance concerns.", "paraphrase_ko": "스포츠 관리자들은 성과 문제 때문에 경쟁은 더 강하게 하고 협력은 덜 하려는 경우가 많다."}, {"id": 8, "type_label": "근거", "phrases": [{"text": "By necessity", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "they", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "may need", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to share", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "information", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "/", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "but", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "do so", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in a cautious manner", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}], "korean": "필요 때문에 그들은 정보를 공유해야 할 수도 있다. 하지만 그렇게 하더라도 조심스럽게 한다.", "points": ["do so는 앞의 share information을 대신하는 표현이다."], "paraphrase_en": "They may have to share information, but they do it carefully.", "paraphrase_ko": "그들은 정보를 공유해야 할 수도 있지만, 아주 조심스럽게 그렇게 한다."}, {"id": 9, "type_label": "결론", "phrases": [{"text": "This", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "means", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "might be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "better", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to have", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "plans", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in place", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "about", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "how to pursue", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "both", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "simultaneously", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "이 말은 두 가지를 동시에 어떻게 추구할지에 대한 계획을 미리 마련해 두는 것이 더 나을 수 있다는 뜻이다.", "points": ["it might be better to do 구문에서 It은 가주어이고, 진주어는 to have 이하이다.", "how to pursue both simultaneously는 의문사+to부정사 형태로, about의 목적어 역할을 한다."], "paraphrase_en": "So it may be wiser to prepare plans for how to carry out both cooperation and competition at the same time.", "paraphrase_ko": "그래서 협력과 경쟁을 동시에 어떻게 해 나갈지 미리 계획해 두는 것이 더 현명할 수 있다."}, {"id": 10, "type_label": "결론", "phrases": [{"text": "This", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "will ensure", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "one", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is not neglected", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "at the expense", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of the other", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "이렇게 하면 한쪽이 다른 한쪽 때문에 소홀히 여겨지는 일이 없게 될 것이다.", "points": ["ensure 뒤에 that이 생략된 절이 이어진 구조로 볼 수 있다.", "at the expense of A는 'A를 희생해서, A의 손해로'라는 뜻이다."], "paraphrase_en": "This will make sure that neither side is ignored for the sake of the other.", "paraphrase_ko": "이렇게 하면 한쪽을 위해 다른 한쪽이 무시되지 않게 할 수 있다."}], "problem_number": "Gateway", "exam_info": "수특 2027 4강"};
+const VIEWER_PAGE = "../페이지/Gateway.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

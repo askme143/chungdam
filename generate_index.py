@@ -71,18 +71,25 @@ def _sort_key(dirname: str):
 def _build_links(exam_dir: Path) -> str:
     """페이지 디렉토리에서 링크 HTML을 생성한다."""
     page_dir = exam_dir / "페이지"
+    analysis_dir = exam_dir / "분석페이지"
+    has_analysis = analysis_dir.is_dir()
+
     html_files = sorted(
         page_dir.glob("*.html"),
         key=lambda f: (f.stem.isdigit(), int(f.stem) if f.stem.isdigit() else 0, f.stem),
     )
     if not html_files:
         return ""
-    return "\n        ".join(
-        f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}번</a>'
-        if f.stem.isdigit()
-        else f'<a href="{exam_dir.name}/페이지/{f.name}">{f.stem}</a>'
-        for f in html_files
-    )
+
+    links = []
+    for f in html_files:
+        label = f"{f.stem}번" if f.stem.isdigit() else f.stem
+        link = f'<a href="{exam_dir.name}/페이지/{f.name}">{label}</a>'
+        if has_analysis and (analysis_dir / f.name).exists():
+            link += f'<a href="{exam_dir.name}/분석페이지/{f.name}" class="analysis-badge">분석</a>'
+        links.append(link)
+
+    return "\n        ".join(links)
 
 
 def generate_index(output_path: Path | None = None) -> str:
@@ -257,6 +264,20 @@ _TEMPLATE = """\
 
   .page-list a:hover {
     background: var(--accent);
+    color: #fff;
+  }
+
+  .page-list a.analysis-badge {
+    min-width: auto;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+    background: #f3e8ff;
+    color: #7c3aed;
+    margin-left: -0.3rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .page-list a.analysis-badge:hover {
+    background: #7c3aed;
     color: #fff;
   }
 

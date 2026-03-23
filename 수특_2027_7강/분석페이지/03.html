@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "How CAD Can Weaken Architectural Creativity", "title_ko": "CAD가 건축 창의성을 약하게 만들 수 있는 이유", "theme_en": "The passage argues that replacing freehand sketching with computer-based design can reduce creativity, exploration, and emotional expression in architecture.", "theme_ko": "이 글은 손그림 스케치를 컴퓨터 설계로 바꾸면 건축에서 창의성, 탐색 과정, 감정 표현이 줄어들 수 있다고 말한다.", "summary_en": "Although computer design offers precision and completeness, it can lead architects to fix ideas too early, reduce playful exploration, and produce designs with less emotional depth than hand-drawn work.", "summary_ko": "컴퓨터 설계는 정확하고 완성도 높아 보인다는 장점이 있지만, 건축가가 생각을 너무 일찍 굳히게 만들고, 자유로운 탐색을 줄이며, 손으로 그린 작업보다 감정의 깊이가 덜한 설계를 낳을 수 있다고 이 글은 설명한다.", "structure": [{"label": "도입", "english": "The passage introduces a debate about whether hand drawing in architecture is being replaced by computers.", "korean": "이 글은 건축에서 손그림이 컴퓨터로 대체되고 있는지에 대한 논의를 먼저 보여 준다."}, {"label": "문제", "english": "It presents the concern that moving from sketching to screen-based design causes a loss of creativity and adventurous thinking.", "korean": "이후 스케치에서 화면 설계로 바뀌면서 창의성과 과감한 생각이 줄어든다는 걱정을 제시한다."}, {"label": "근거", "english": "The passage explains that computer renderings encourage designers to settle on a design too early and reduce reflective, exploratory play.", "korean": "그리고 컴퓨터 화면의 설계는 디자이너가 너무 이른 단계에서 안을 굳히게 하고, 되돌아보며 탐색하는 자유로운 과정을 줄인다고 설명한다."}, {"label": "부연", "english": "Researchers describe this as premature fixation caused by detailed CAD models that discourage later changes.", "korean": "연구자들은 이것을 '너무 이른 고정'이라고 부르며, 자세한 CAD 모델이 나중의 수정을 어렵게 만들기 때문이라고 덧붙인다."}, {"label": "결론", "english": "Finally, the passage concludes that CAD may promote formal experimentation but weaken emotional connection and expressiveness in design.", "korean": "마지막으로 이 글은 CAD가 형식 실험은 늘릴 수 있지만, 설계에서 감정적 연결과 표현력은 약하게 만들 수 있다고 결론짓는다."}], "key_vocabulary": [{"word": "symposium", "meaning": "학술 토론회, 심포지엄", "synonyms": ["conference", "forum"], "antonyms": [], "emphasized": true}, {"word": "reflect", "meaning": "반영하다", "synonyms": ["show", "indicate", "mirror"], "antonyms": ["hide", "ignore"], "emphasized": true}, {"word": "displace", "meaning": "대체하다, 밀어내다", "synonyms": ["replace", "supplant"], "antonyms": ["keep", "retain"], "emphasized": true}, {"word": "transition", "meaning": "변화, 전환", "synonyms": ["change", "shift"], "antonyms": ["stability"], "emphasized": true}, {"word": "entail", "meaning": "수반하다, 가져오다", "synonyms": ["involve", "bring", "cause"], "antonyms": ["avoid", "prevent"], "emphasized": true}, {"word": "precision", "meaning": "정확성", "synonyms": ["accuracy", "exactness"], "antonyms": ["inaccuracy", "vagueness"], "emphasized": true}, {"word": "rendering", "meaning": "표현 그림, 렌더링 이미지", "synonyms": ["depiction", "representation"], "antonyms": [], "emphasized": true}, {"word": "tendency", "meaning": "경향", "synonyms": ["inclination", "trend"], "antonyms": ["resistance"], "emphasized": true}, {"word": "bypass", "meaning": "건너뛰다, 피하다", "synonyms": ["skip", "avoid"], "antonyms": ["engage in", "go through"], "emphasized": true}, {"word": "reflective", "meaning": "되돌아보는, 깊이 생각하는", "synonyms": ["thoughtful", "contemplative"], "antonyms": ["thoughtless", "impulsive"], "emphasized": true}, {"word": "ambiguity", "meaning": "애매함, 모호함", "synonyms": ["vagueness", "uncertainty"], "antonyms": ["clarity", "certainty"], "emphasized": true}, {"word": "premature", "meaning": "너무 이른, 시기상조의", "synonyms": ["early", "untimely"], "antonyms": ["timely", "late"], "emphasized": true}, {"word": "fixation", "meaning": "고정, 집착", "synonyms": ["attachment", "rigid focus"], "antonyms": ["flexibility", "openness"], "emphasized": true}, {"word": "interconnectedness", "meaning": "서로 연결되어 있음", "synonyms": ["connectedness", "interrelation"], "antonyms": ["separation", "isolation"], "emphasized": true}, {"word": "emphasize", "meaning": "강조하다", "synonyms": ["stress", "highlight"], "antonyms": ["downplay", "ignore"], "emphasized": true}, {"word": "expressiveness", "meaning": "표현력", "synonyms": ["emotional power", "vividness"], "antonyms": ["flatness", "dullness"], "emphasized": true}, {"word": "derived", "meaning": "비롯된, 나온", "synonyms": ["obtained", "drawn"], "antonyms": [], "emphasized": true}], "sentences": [{"id": 1, "type_label": "서술", "phrases": [{"text": "In 2012,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the Yale School of Architecture", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "held", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a symposium", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "called", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "“Is Drawing Dead?”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "2012년에 예일대 건축대학은 “드로잉은 죽었는가?”라는 이름의 심포지엄을 열었다.", "points": ["called는 a symposium을 뒤에서 꾸며 주는 과거분사이다. 즉 'called A'는 'A라고 불리는'으로 해석하면 된다."], "paraphrase_en": "In 2012, Yale’s architecture school organized a symposium titled “Is Drawing Dead?”", "paraphrase_ko": "2012년에 예일대 건축대학은 “드로잉은 죽었는가?”라는 제목의 토론회를 열었다."}, {"id": 2, "type_label": "주제문", "phrases": [{"text": "The bold title", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "reflects", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a growing sense", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the architect’s freehand sketch", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is being displaced", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "by the computer.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "그 대담한 제목은 건축가의 손그림 스케치가 컴퓨터에 의해 밀려나고 있다는 생각이 점점 커지고 있음을 보여 준다.", "points": ["that절은 a growing sense의 내용을 설명하는 동격의 명사절이다.", "is being displaced는 현재진행 수동태로, '지금 대체되고 있는 중이다'라는 뜻을 준다."], "paraphrase_en": "The title shows that more and more people feel freehand sketching is being replaced by computers.", "paraphrase_ko": "그 제목은 손그림 스케치가 컴퓨터로 대체되고 있다고 느끼는 사람이 점점 많아지고 있음을 보여 준다."}, {"id": 3, "type_label": "부연", "phrases": [{"text": "The transition", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "from sketchpad to screen", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "entails", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "many architects believe,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "a loss", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of creativity,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of adventurousness.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "많은 건축가들이 믿듯이, 스케치북에서 화면으로의 변화는 창의성과 과감함의 상실을 가져온다.", "points": ["many architects believe는 문장 가운데 들어간 삽입 표현으로, 해석할 때는 앞뒤 흐름을 먼저 잡으면 쉽다."], "paraphrase_en": "Many architects think that moving from paper sketching to screens causes a loss of creativity and boldness.", "paraphrase_ko": "많은 건축가들은 종이 스케치에서 화면 작업으로 넘어가면 창의성과 과감함이 줄어든다고 생각한다."}, {"id": 4, "type_label": "근거", "phrases": [{"text": "Thanks to", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "the precision and apparent completeness", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of screen renderings,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "a designer", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "working at a computer", "type": "plain", "label": "현재 분사구문", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "has", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a tendency", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to lock in,", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "visually and cognitively,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "on a design", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "at an early stage.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "화면 렌더링은 정확하고 겉보기에는 완성도도 높아 보이기 때문에, 컴퓨터로 작업하는 디자이너는 시각적으로나 생각하는 면에서나 이른 단계에 하나의 설계안에 굳어지는 경향이 있다.", "points": ["working at a computer는 a designer를 꾸며 주는 현재분사 표현이다.", "to lock in은 a tendency를 뒤에서 꾸며 주는 to부정사의 형용사적 용법이다."], "paraphrase_en": "Because screen renderings look precise and complete, designers using computers tend to settle on a design too early in both sight and thought.", "paraphrase_ko": "화면 렌더링이 정확하고 완성돼 보이기 때문에, 컴퓨터를 쓰는 디자이너는 눈으로나 생각으로나 설계안을 너무 일찍 굳히는 경향이 있다."}, {"id": 5, "type_label": "근거", "phrases": [{"text": "He", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "bypasses", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "much", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of the reflective and exploratory playfulness", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "springs", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "from", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the uncertainty and ambiguity", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of sketching.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "그는 스케치의 불확실함과 애매함에서 나오는, 되돌아보고 탐색하는 많은 장난기 있는 자유로움을 건너뛴다.", "points": ["that은 the reflective and exploratory playfulness를 꾸며 주는 주격 관계대명사이다.", "much of + 명사는 '많은 ~'라는 뜻이며, much가 뒤 명사구 전체를 대표하는 목적어 역할을 한다."], "paraphrase_en": "He skips much of the thoughtful and exploratory play that comes from the uncertainty of sketching.", "paraphrase_ko": "그는 스케치의 불확실함에서 나오는 깊이 생각하고 탐색하는 자유로운 놀이 과정을 많이 건너뛴다."}, {"id": 6, "type_label": "부연", "phrases": [{"text": "Researchers", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "term", "type": "bold", "label": "5V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "this phenomenon", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "“premature fixation”", "type": "bold", "label": "OC", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "trace", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "its cause", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "“the disincentive", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for design changes", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "once", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a large amount", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of detail and interconnectedness", "type": "plain", "label": null, "annotation_above": null, "annotation_below": "interconnectedness = 서로 촘촘히 연결됨", "children": []}, {"text": "is built", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "too quickly", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "into a CAD", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "(Computer-Aided Design)", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "model.”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "연구자들은 이 현상을 ‘너무 이른 고정’이라고 부르고, 그 원인을 ‘많은 세부 내용과 서로 얽힌 연결 구조가 CAD 모델 안에 너무 빨리 들어가 버리면 설계를 바꾸려는 마음이 줄어드는 것’에서 찾는다.", "points": ["term A B는 5형식으로 'A를 B라고 부르다'라는 뜻이다.", "once는 여기서 '일단 ~하면, ~하고 나면'의 뜻으로 쓰인 접속사이다."], "paraphrase_en": "Researchers call this “premature fixation” and say it happens because once too much detail is quickly built into a CAD model, designers become less willing to make changes.", "paraphrase_ko": "연구자들은 이것을 ‘너무 이른 고정’이라고 부르며, CAD 모델에 세부 내용이 너무 빨리 많이 들어가면 디자이너가 수정을 덜 하게 된다고 말한다."}, {"id": 7, "type_label": "부연", "phrases": [{"text": "The designer", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "at the computer", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "also", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "tends", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to emphasize", "type": "plain", "label": "형용사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "formal experimentation", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "at the expense of", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "expressiveness.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "컴퓨터로 작업하는 디자이너는 또한 표현력을 희생하면서 형식적인 실험을 더 강조하는 경향이 있다.", "points": ["tend to do는 '~하는 경향이 있다'라는 자주 나오는 표현이다.", "at the expense of는 '~을 희생하면서, ~을 대가로'라는 뜻의 중요 표현이다."], "paraphrase_en": "Designers using computers also tend to focus more on formal experiments than on expressiveness.", "paraphrase_ko": "컴퓨터를 쓰는 디자이너는 표현력보다 형식 실험에 더 집중하는 경향도 있다."}, {"id": 8, "type_label": "결론", "phrases": [{"text": "By weakening", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an architect’s", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "“personal, emotional connection”", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "with the work,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "a renowned American architect and designer Michael Graves", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "argues,", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "CAD software", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "produces", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "designs", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "while", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "complex and interesting", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in their own way,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "often", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "lack", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the emotional content", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of a design", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "derived from hand.", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "유명한 미국 건축가이자 디자이너인 마이클 그레이브스는, CAD 소프트웨어가 건축가와 작업 사이의 ‘개인적이고 감정적인 연결’을 약하게 만들어서, 자기 나름대로는 복잡하고 흥미롭지만 손에서 나온 설계가 지닌 감정적 내용은 자주 부족한 디자인을 만들어 낸다고 주장한다.", "points": ["By weakening은 '약하게 함으로써'라는 뜻의 전치사 by + 동명사 구문이다.", "that 이하 관계절 안에서 while complex and interesting in their own way는 '비록 그 나름대로 복잡하고 흥미롭지만'으로 풀어 읽으면 된다."], "paraphrase_en": "Michael Graves argues that because CAD weakens the architect’s emotional bond with the work, it often creates designs that may be complex and interesting but are less emotionally rich than hand-made ones.", "paraphrase_ko": "마이클 그레이브스는 CAD가 건축가의 감정적 연결을 약하게 해서, 복잡하고 흥미로울 수는 있어도 손으로 만든 설계보다 감정의 깊이가 덜한 결과를 낳는다고 말한다."}], "problem_number": "03", "exam_info": "수특 2027 7강"};
+const VIEWER_PAGE = "../페이지/03.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

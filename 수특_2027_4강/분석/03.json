@@ -1,0 +1,1409 @@
+{
+  "title_en": "Why Evidence Matters More Than Intuition",
+  "title_ko": "직관보다 증거가 더 중요한 이유",
+  "theme_en": "Science moves forward by testing ideas against objective truth rather than accepting all ideas as equally valid.",
+  "theme_ko": "과학은 모든 생각을 똑같이 맞다고 받아들이는 것이 아니라, 객관적 진실에 비추어 검증하면서 앞으로 나아간다.",
+  "summary_en": "The passage argues that although intuition and theory can help science progress, only evidence and critical thinking can confirm truth and make ideas trustworthy.",
+  "summary_ko": "이 글은 직관과 이론이 과학 발전에 도움을 줄 수는 있지만, 진실을 확인하고 생각을 믿을 만하게 만드는 것은 결국 증거와 비판적 사고뿐이라고 말한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "The passage begins by rejecting the belief that all ideas are equally valid regardless of evidence.",
+      "korean": "글은 증거와 상관없이 모든 생각이 똑같이 타당하다는 믿음이 잘못되었다고 말하며 시작한다."
+    },
+    {
+      "label": "근거",
+      "english": "It then explains that science exists because of its commitment to objective truth and shows this through concrete achievements.",
+      "korean": "이어서 과학은 객관적 진실을 따르기 때문에 존재한다고 설명하고, 이를 여러 실제 성과로 보여 준다."
+    },
+    {
+      "label": "부연",
+      "english": "The passage adds that theories and intuitions can help science advance, but they must be tested to see whether they are true or false.",
+      "korean": "또한 이론과 직관이 과학 발전에 도움을 줄 수는 있지만, 그것이 맞는지 틀리는지는 반드시 검사를 통해 확인해야 한다고 덧붙인다."
+    },
+    {
+      "label": "반론",
+      "english": "If evidence disproves a theory, one should revise or reject it instead of clinging to it emotionally.",
+      "korean": "만약 증거가 어떤 이론이 틀렸다고 보여 주면, 감정적으로 붙잡고 있을 것이 아니라 그것을 고치거나 버려야 한다고 말한다."
+    },
+    {
+      "label": "결론",
+      "english": "Finally, the passage concludes that critical thinking and evidence are essential because intuition alone can never be the final authority on reality.",
+      "korean": "마지막으로 글은 비판적 사고와 증거가 꼭 필요하며, 직관만으로는 현실에 대한 마지막 판단 기준이 될 수 없다고 결론짓는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "myth",
+      "meaning": "잘못된 믿음, 근거 없는 생각",
+      "synonyms": [
+        "false belief",
+        "misconception"
+      ],
+      "antonyms": [
+        "fact",
+        "truth"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "valid",
+      "meaning": "타당한, 옳은",
+      "synonyms": [
+        "sound",
+        "reasonable",
+        "justified"
+      ],
+      "antonyms": [
+        "invalid",
+        "unsound"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "objective",
+      "meaning": "객관적인",
+      "synonyms": [
+        "factual",
+        "unbiased"
+      ],
+      "antonyms": [
+        "subjective",
+        "biased"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "proof",
+      "meaning": "증거, 입증",
+      "synonyms": [
+        "evidence",
+        "verification"
+      ],
+      "antonyms": [
+        "disproof"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "commitment",
+      "meaning": "헌신, 굳은 의지",
+      "synonyms": [
+        "devotion",
+        "dedication"
+      ],
+      "antonyms": [
+        "indifference"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "accomplishment",
+      "meaning": "성과, 업적",
+      "synonyms": [
+        "achievement",
+        "success"
+      ],
+      "antonyms": [
+        "failure"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "plausible",
+      "meaning": "그럴듯한, 말이 되는 것 같은",
+      "synonyms": [
+        "believable",
+        "credible"
+      ],
+      "antonyms": [
+        "implausible",
+        "unlikely"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "theory",
+      "meaning": "이론, 설명",
+      "synonyms": [
+        "idea",
+        "hypothesis"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "intuition",
+      "meaning": "직관",
+      "synonyms": [
+        "instinct",
+        "gut feeling"
+      ],
+      "antonyms": [
+        "reasoning"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "confirm",
+      "meaning": "확인하다, 사실임을 보여 주다",
+      "synonyms": [
+        "verify",
+        "prove"
+      ],
+      "antonyms": [
+        "disprove",
+        "deny"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "disprove",
+      "meaning": "틀렸음을 밝혀 내다",
+      "synonyms": [
+        "refute",
+        "invalidate"
+      ],
+      "antonyms": [
+        "prove",
+        "confirm"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "veracity",
+      "meaning": "진실성, 사실임",
+      "synonyms": [
+        "truth",
+        "truthfulness"
+      ],
+      "antonyms": [
+        "falsehood"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "reject",
+      "meaning": "거부하다, 받아들이지 않다",
+      "synonyms": [
+        "dismiss",
+        "refuse"
+      ],
+      "antonyms": [
+        "accept"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "hypothesis",
+      "meaning": "가설",
+      "synonyms": [
+        "theory",
+        "assumption"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "critical thinking",
+      "meaning": "비판적으로 따져 보는 사고",
+      "synonyms": [
+        "analytical thinking"
+      ],
+      "antonyms": [
+        "blind acceptance"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "evidence",
+      "meaning": "증거",
+      "synonyms": [
+        "proof",
+        "data"
+      ],
+      "antonyms": [
+        "speculation"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "ultimate",
+      "meaning": "최종의, 마지막의",
+      "synonyms": [
+        "final",
+        "supreme"
+      ],
+      "antonyms": [
+        "temporary",
+        "secondary"
+      ],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "It",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a myth",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "plain",
+              "label": "명사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "all ideas",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "are",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "equally valid",
+              "type": "bold",
+              "label": "C",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": ", even those with",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "little or no objective proof",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "객관적인 증거가 거의 없거나 아예 없는 생각까지도 포함해서, 모든 생각이 똑같이 타당하다는 것은 잘못된 믿음이다.",
+      "points": [
+        "가주어 It ~ 진주어 that절 구조이다. 실제 내용은 that절에 들어 있다.",
+        "even those with little or no objective proof에서 those는 ideas를 가리키며, with 이하가 뒤에서 꾸며 준다."
+      ],
+      "paraphrase_en": "It is false to believe that every idea is equally acceptable, even when some have almost no objective evidence.",
+      "paraphrase_ko": "어떤 생각은 객관적 증거가 거의 없는데도, 모든 생각이 똑같이 받아들여질 수 있다고 믿는 것은 틀리다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "The existence",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of science",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the commitment",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to objective truth.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "과학이 존재하는 이유는 객관적인 진실을 따르려는 굳은 태도에 있다.",
+      "points": [],
+      "paraphrase_en": "Science exists because it is devoted to objective truth.",
+      "paraphrase_ko": "과학은 객관적 진실을 따르기 때문에 존재한다."
+    },
+    {
+      "id": 3,
+      "type_label": "근거",
+      "phrases": [
+        {
+          "text": "After all,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "science",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "true",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ":",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "fire",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "hot",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the wheel",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "efficient",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "birds and planes",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can fly",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "’ve landed",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "on a comet",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and traveled",
+          "type": "bold",
+          "label": "병렬2",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to the Moon",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "antibiotics",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "treat",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "illness",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and immunizations",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "keep",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "us",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "from getting sick.",
+              "type": "plain",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "결국 과학은 참되다. 불은 뜨겁고, 바퀴는 효율적이며, 새와 비행기는 날 수 있고, 우리는 혜성에 착륙했고 달까지 갔으며, 항생제는 병을 치료하고, 예방접종은 우리가 병에 걸리지 않게 해 준다.",
+      "points": [
+        "콜론(:) 뒤에 science is true를 뒷받침하는 여러 예가 병렬로 나열되어 있다.",
+        "keep + O + from -ing는 'O가 ~하지 못하게 하다, ~하지 않게 하다'의 5형식 표현이다."
+      ],
+      "paraphrase_en": "Science is reliable, as shown by many proven facts and achievements.",
+      "paraphrase_ko": "과학은 많은 입증된 사실과 성과를 통해 믿을 만하다는 것이 드러난다."
+    },
+    {
+      "id": 4,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "These accomplishments",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are made",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "possible",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "by objective truths.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "이런 성과들은 객관적인 진실들 때문에 가능해진 것이다.",
+      "points": [
+        "수동태 are made possible by ~는 '~에 의해 가능해지다'라는 뜻이다."
+      ],
+      "paraphrase_en": "These achievements are possible because objective truths exist.",
+      "paraphrase_ko": "이런 성과들은 객관적 진실이 있기 때문에 가능하다."
+    },
+    {
+      "id": 5,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "A plausible theory",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can push",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "science",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "forward",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ", and frequently does,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "그럴듯한 이론은 과학을 앞으로 나아가게 할 수 있고, 실제로 자주 그렇게 한다.",
+      "points": [
+        "can, and frequently does, push에서 does는 앞의 push를 대신하는 대동사로 쓰였다."
+      ],
+      "paraphrase_en": "A believable theory can often help science advance.",
+      "paraphrase_ko": "말이 되는 이론은 자주 과학 발전에 도움을 줄 수 있다."
+    },
+    {
+      "id": 6,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "However,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an intuition",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "must be followed",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "with testing",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "주관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "confirms",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "or disproves",
+                  "type": "bold",
+                  "label": "병렬2",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "its veracity.",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "하지만 직관 뒤에는 반드시 검사가 따라야 하며, 그 검사는 그것이 참인지 거짓인지 확인하거나 틀렸음을 밝혀야 한다.",
+      "points": [
+        "that은 testing을 꾸며 주는 주격관계대명사이다.",
+        "confirm A or disprove A에서 두 동사가 같은 목적어 its veracity를 공유하는 병렬 구조이다."
+      ],
+      "paraphrase_en": "However, intuition must be tested to see whether it is true or false.",
+      "paraphrase_ko": "하지만 직관은 그것이 맞는지 틀리는지 검사해 보아야 한다."
+    },
+    {
+      "id": 7,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "If",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a theory",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is disproved",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "one",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "should consider",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "as a reason",
+              "type": "plain",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "to reject",
+                  "type": "plain",
+                  "label": "형용사적 용법",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "or alter",
+                  "type": "plain",
+                  "label": "병렬2",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "the hypothesis",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "not",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a justification",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to just keep",
+              "type": "plain",
+              "label": "형용사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "firmly holding",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "to the hypothesis",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "because",
+                  "type": "bold",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "you",
+                  "type": "underline",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "are",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "instinctively wedded",
+                  "type": "bold",
+                  "label": "C",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "to it.",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "만약 어떤 이론이 틀렸다고 밝혀지면, 사람은 그것을 그 가설을 버리거나 고칠 이유로 여겨야지, 단지 본능적으로 그것에 집착하고 있다는 이유로 그 가설을 계속 굳게 붙잡아도 된다는 근거로 여겨서는 안 된다.",
+      "points": [
+        "consider A as B는 'A를 B로 여기다'라는 뜻으로 볼 수 있다. 여기서는 it이 목적어, as a reason이 목적보어 역할을 한다.",
+        "to reject or alter the hypothesis와 to just keep ...는 앞의 reason, justification을 뒤에서 꾸며 주는 형용사적 용법의 to부정사이다."
+      ],
+      "paraphrase_en": "If evidence shows a theory is wrong, we should change or reject it instead of holding onto it emotionally.",
+      "paraphrase_ko": "증거가 어떤 이론이 틀렸다고 보여 주면, 우리는 감정적으로 붙잡고 있을 것이 아니라 그것을 고치거나 버려야 한다."
+    },
+    {
+      "id": 8,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "Critical thinking",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an absolute must",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "must respect",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "evidence.",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "비판적으로 생각하는 태도는 반드시 필요하다. 그리고 우리는 증거를 존중해야 한다.",
+      "points": [],
+      "paraphrase_en": "Critical thinking is essential, and evidence must be valued.",
+      "paraphrase_ko": "비판적 사고는 꼭 필요하고, 증거는 중요하게 여겨야 한다."
+    },
+    {
+      "id": 9,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "It",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "’s",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the only reason",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "for anyone",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to trust",
+              "type": "plain",
+              "label": "형용사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "anything",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "about reality.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "그것은 누구든 현실에 관한 어떤 것이든 믿을 수 있는 유일한 이유이다.",
+      "points": [
+        "to trust는 the only reason을 뒤에서 꾸며 주는 형용사적 용법의 to부정사이다."
+      ],
+      "paraphrase_en": "That is the only basis for trusting any claim about reality.",
+      "paraphrase_ko": "그것만이 현실에 대한 어떤 주장이라도 믿을 수 있게 하는 유일한 바탕이다."
+    },
+    {
+      "id": 10,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "Without testing and evidence",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "intuition",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "useful",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "but",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "never",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the ultimate word.",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "검사와 증거가 없으면 직관은 쓸모가 있을 수는 있지만, 결코 마지막 판단 기준이 될 수는 없다.",
+      "points": [
+        "Without ~는 조건이나 상황을 나타내는 전치사구로, '만약 ~이 없으면' 정도로 해석하면 자연스럽다."
+      ],
+      "paraphrase_en": "Without testing and evidence, intuition may help, but it can never be the final authority.",
+      "paraphrase_ko": "검사와 증거가 없을 때 직관이 도움이 될 수는 있지만, 그것이 최종 기준이 될 수는 없다."
+    }
+  ],
+  "problem_number": "03"
+}

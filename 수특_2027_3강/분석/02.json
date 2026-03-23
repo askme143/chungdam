@@ -1,0 +1,1127 @@
+{
+  "title_en": "What Truly Inspires Employee Loyalty",
+  "title_ko": "직원 충성심을 진짜로 만드는 것",
+  "theme_en": "Short-term rewards can push people to work harder, but real employee loyalty comes from believing in the company’s cause, not from pay or benefits.",
+  "theme_ko": "잠깐 효과가 나는 보상은 사람들을 더 열심히 일하게 만들 수 있지만, 진짜 직원 충성심은 돈이나 복지가 아니라 회사가 추구하는 이유를 믿는 데서 나온다.",
+  "summary_en": "Although organizations can use rewards and pressure to increase effort, those methods do not create loyalty; employees stay loyal when they are inspired by a meaningful cause.",
+  "summary_ko": "조직은 보상과 압박으로 사람들의 노력을 늘릴 수 있지만, 그런 방법은 충성심을 만들지 못한다. 직원들은 의미 있는 목적에 마음이 움직일 때 충성심을 보인다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "The passage begins by saying that organizations can inject energy through rewards and pressure to motivate people.",
+      "korean": "글은 조직이 보상과 압박을 통해 사람들에게 동기를 줄 수 있다고 말하며 시작한다."
+    },
+    {
+      "label": "문제",
+      "english": "It then argues that these manipulative tactics bring only short-term gains and create higher costs and stress over time.",
+      "korean": "이어서 이런 조종하는 방식은 잠깐의 효과만 낼 뿐이고, 시간이 지나면 더 큰 비용과 스트레스를 만든다고 말한다."
+    },
+    {
+      "label": "반론",
+      "english": "The writer rejects the idea that repeated attendance at work because of rewards is the same as loyalty.",
+      "korean": "글쓴이는 보상 때문에 계속 회사에 나오는 것을 충성심과 같다고 보는 생각을 부정한다."
+    },
+    {
+      "label": "근거",
+      "english": "True loyalty is shown when employees choose to stay even after being offered more money or benefits elsewhere.",
+      "korean": "진짜 충성심은 다른 곳에서 더 많은 돈이나 복지를 제시해도 그 회사를 계속 선택할 때 드러난다고 설명한다."
+    },
+    {
+      "label": "결론",
+      "english": "The passage concludes that people are inspired not by the work itself but by the cause behind it.",
+      "korean": "마지막으로 사람들에게 힘을 주는 것은 일 자체가 아니라 그 일 뒤에 있는 목적이라고 결론짓는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "inject",
+      "meaning": "주입하다, 불어넣다",
+      "synonyms": [
+        "insert",
+        "introduce",
+        "infuse"
+      ],
+      "antonyms": [
+        "remove",
+        "withdraw"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "organization",
+      "meaning": "조직, 회사",
+      "synonyms": [
+        "company",
+        "institution"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "motivate",
+      "meaning": "동기를 주다",
+      "synonyms": [
+        "encourage",
+        "inspire",
+        "drive"
+      ],
+      "antonyms": [
+        "discourage",
+        "demotivate"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "bonus",
+      "meaning": "보너스, 성과급",
+      "synonyms": [
+        "reward",
+        "extra pay"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "promotion",
+      "meaning": "승진",
+      "synonyms": [
+        "advancement",
+        "upgrade"
+      ],
+      "antonyms": [
+        "demotion"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "carrot",
+      "meaning": "당근책, 보상책",
+      "synonyms": [
+        "incentive",
+        "reward"
+      ],
+      "antonyms": [
+        "punishment",
+        "stick"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "stick",
+      "meaning": "채찍, 벌 주는 수단",
+      "synonyms": [
+        "punishment",
+        "pressure"
+      ],
+      "antonyms": [
+        "reward",
+        "incentive"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "manipulation",
+      "meaning": "조종, 교묘한 통제",
+      "synonyms": [
+        "control",
+        "handling"
+      ],
+      "antonyms": [
+        "freedom",
+        "honesty"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "tactic",
+      "meaning": "전략, 방법",
+      "synonyms": [
+        "strategy",
+        "method",
+        "approach"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "stress",
+      "meaning": "스트레스, 압박",
+      "synonyms": [
+        "pressure",
+        "strain"
+      ],
+      "antonyms": [
+        "ease",
+        "relief"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "loyalty",
+      "meaning": "충성심, 한결같음",
+      "synonyms": [
+        "faithfulness",
+        "devotion"
+      ],
+      "antonyms": [
+        "betrayal",
+        "disloyalty"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "benefit",
+      "meaning": "복지, 혜택",
+      "synonyms": [
+        "advantage",
+        "perk"
+      ],
+      "antonyms": [
+        "disadvantage"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "trump",
+      "meaning": "~보다 더 중요하다, 이기다",
+      "synonyms": [
+        "outweigh",
+        "override",
+        "beat"
+      ],
+      "antonyms": [
+        "lose to",
+        "yield to"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "astronaut",
+      "meaning": "우주비행사",
+      "synonyms": [
+        "space traveler"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "inspire",
+      "meaning": "영감을 주다, 마음을 움직이다",
+      "synonyms": [
+        "motivate",
+        "encourage",
+        "move"
+      ],
+      "antonyms": [
+        "discourage",
+        "depress"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "cause",
+      "meaning": "대의, 목적, 이유",
+      "synonyms": [
+        "purpose",
+        "mission",
+        "ideal"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "cathedral",
+      "meaning": "대성당",
+      "synonyms": [
+        "church"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Energy",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can be injected",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "into an organization",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "to motivate",
+          "type": "bold",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "people",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to do things.",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "에너지는 언제나 조직 안에 불어넣어져서 사람들에게 어떤 일을 하도록 동기를 줄 수 있다.",
+      "points": [
+        "to motivate는 목적을 나타내는 to부정사이다.",
+        "motivate + O + to do는 5형식으로, people이 목적어이고 to do things가 목적보어이다."
+      ],
+      "paraphrase_en": "An organization can always add energy to make people act.",
+      "paraphrase_ko": "조직은 언제나 사람들을 움직이게 할 힘을 불어넣을 수 있다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Bonuses, promotions, other carrots, and even a few sticks",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "can get",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "people",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to work harder",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "for sure",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ", but",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the gains",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "like all manipulations",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "are",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "short-term.",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "보너스, 승진, 다른 여러 당근책, 심지어 몇 가지 채찍까지도 분명 사람들을 더 열심히 일하게 만들 수 있다. 하지만 그런 성과는 모든 조종하는 방식이 그렇듯 오래가지 못한다.",
+      "points": [
+        "get + O + to do는 5형식으로, '목적어가 ~하게 하다'라는 뜻이다.",
+        "like all manipulations는 삽입된 표현으로, 앞의 gains를 설명하며 '다른 조종 방식들처럼'이라고 해석한다."
+      ],
+      "paraphrase_en": "Rewards and pressure can definitely make people work harder, but the effect does not last long.",
+      "paraphrase_ko": "보상과 압박은 분명 사람들을 더 열심히 일하게 하지만, 그 효과는 오래가지 않는다."
+    },
+    {
+      "id": 3,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Over time",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "such tactics",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "cost",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "more money",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and increase",
+          "type": "bold",
+          "label": "병렬1",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "stress",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "for employee and employer alike",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": ", and eventually",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "will become",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the main reason",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "people",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "show up",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "for work every day.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "시간이 지나면 그런 방법은 더 많은 돈이 들게 하고, 직원과 고용주 모두의 스트레스를 늘린다. 그리고 결국 사람들에게 매일 출근하게 만드는 가장 큰 이유가 되고 만다.",
+      "points": [
+        "cost와 increase가 and로 병렬 연결되어 있다.",
+        "the main reason 뒤의 people show up for work every day는 reason을 설명하는 내용으로, '사람들이 매일 출근하는 이유'라고 풀어 읽으면 된다."
+      ],
+      "paraphrase_en": "As time passes, these methods become expensive, stressful, and finally the main reason people come to work.",
+      "paraphrase_ko": "시간이 흐르면 이런 방법은 돈도 많이 들고 스트레스도 커지며, 결국 사람들이 출근하는 가장 큰 이유가 된다."
+    },
+    {
+      "id": 4,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "That",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is not",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "loyalty.",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "그것은 충성심이 아니다.",
+      "points": [],
+      "paraphrase_en": "That is not real loyalty.",
+      "paraphrase_ko": "그것은 진짜 충성심이 아니다."
+    },
+    {
+      "id": 5,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "That",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the employee version",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of repeat business.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "그것은 직원 쪽에서 나타나는 반복 구매와 같은 것이다.",
+      "points": [],
+      "paraphrase_en": "It is just the employee form of customers coming back again.",
+      "paraphrase_ko": "그것은 손님이 다시 찾아오는 것의 직원판일 뿐이다."
+    },
+    {
+      "id": 6,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Loyalty among employees",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "when",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "they",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "turn down",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "more money or benefits",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to continue working",
+          "type": "bold",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "at the same company.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "직원들 사이의 충성심이란, 더 많은 돈이나 복지를 마다하고 같은 회사에서 계속 일하려고 할 때를 말한다.",
+      "points": [
+        "turn down은 '거절하다'라는 뜻의 구동사이다.",
+        "to continue working은 목적이나 의도를 나타내는 to부정사로 볼 수 있다."
+      ],
+      "paraphrase_en": "Employees are loyal when they refuse better pay or benefits and stay with the same company.",
+      "paraphrase_ko": "직원들은 더 좋은 돈이나 복지를 거절하고 같은 회사에 남을 때 충성심을 보인다."
+    },
+    {
+      "id": 7,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Loyalty to a company",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "trumps",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": "≠ trumpet (나팔)",
+          "children": []
+        },
+        {
+          "text": "pay and benefits.",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "회사에 대한 충성심은 급여와 복지보다 더 중요하다.",
+      "points": [],
+      "paraphrase_en": "Loyalty to a company matters more than money and benefits.",
+      "paraphrase_ko": "회사에 대한 충성심은 돈과 복지보다 더 중요하다."
+    },
+    {
+      "id": 8,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "And",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "unless",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "you",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an astronaut",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ",",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is not",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the work",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "we",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "do",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "목관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "inspires",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "us",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "either.",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "그리고 당신이 우주비행사가 아닌 이상, 우리에게 영감을 주는 것은 우리가 하는 일 자체도 아니다.",
+      "points": [
+        "unless는 '만약 ~가 아니라면'이라는 뜻으로 조건을 나타낸다.",
+        "the work we do that inspires us에서 we do는 work를 꾸미고, that은 관계대명사로 뒤의 inspires us를 이끈다."
+      ],
+      "paraphrase_en": "Also, unless your job is something extraordinary like being an astronaut, the work itself is not what inspires us.",
+      "paraphrase_ko": "또한 우주비행사처럼 아주 특별한 일이 아니라면, 일 자체가 우리에게 힘을 주는 것은 아니다."
+    },
+    {
+      "id": 9,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "It",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the cause",
+          "type": "bold",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "we",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "come",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to work",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "우리가 일하러 오는 이유는 그 일 뒤에 있는 목적이다.",
+      "points": [
+        "It is ~ that ...의 강조구문과 비슷하게, the cause를 강하게 드러내는 문장이다."
+      ],
+      "paraphrase_en": "What brings us to work is the purpose behind it.",
+      "paraphrase_ko": "우리를 일터로 오게 하는 것은 그 뒤에 있는 목적이다."
+    },
+    {
+      "id": 10,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "We",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "don’t want",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to come",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to work",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to build",
+          "type": "bold",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a wall",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ";",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "want",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to come",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to work",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to build",
+          "type": "bold",
+          "label": "부사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a cathedral.",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "우리는 벽을 세우기 위해 일하러 오고 싶어 하는 것이 아니다. 우리는 대성당을 세우기 위해 일하러 오고 싶어 한다.",
+      "points": [
+        "세미콜론(;)은 뜻이 가까운 두 절을 이어 준다.",
+        "to build a wall / to build a cathedral은 겉으로는 비슷한 일이라도 그것을 바라보는 의미와 목적이 다름을 보여 주는 대비 표현이다."
+      ],
+      "paraphrase_en": "We do not want to work for a small task; we want to work for a great purpose.",
+      "paraphrase_ko": "우리는 작은 일만 하려고 일하는 것이 아니라, 더 큰 목적을 위해 일하고 싶어 한다."
+    }
+  ],
+  "problem_number": "02"
+}

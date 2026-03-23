@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Turning Social Anxiety into Compassion", "title_ko": "사회적 불안을 연민으로 바꾸기", "theme_en": "Social anxiety can become a helpful force when people use it to understand others and act with empathy.", "theme_ko": "사회적 불안은 다른 사람을 이해하고 공감하는 데 쓰면 도움이 되는 힘이 될 수 있다.", "summary_en": "The passage explains that social anxiety is normal and that, by listening to what it signals, people can turn it into empathy, compassion, and stronger social connection.", "summary_ko": "이 글은 사회적 불안이 자연스러운 반응이며, 그 신호를 잘 살피면 그것을 공감과 연민, 더 나은 인간관계로 바꿀 수 있다고 설명한다.", "structure": [{"label": "도입", "english": "The passage begins by reassuring readers that social anxiety is a normal response shared by many people.", "korean": "글은 사회적 불안이 많은 사람이 겪는 아주 자연스러운 반응이라고 말하며 시작한다."}, {"label": "부연", "english": "It then argues that anxiety can help people build social strength and notice what others may need in difficult social moments.", "korean": "이어서 불안이 사람들에게 사회적 힘을 기르게 하고, 어색한 상황에서 다른 사람이 무엇을 필요로 하는지 알아차리게 해 줄 수 있다고 말한다."}, {"label": "근거", "english": "By listening to anxiety and recognizing one’s own uncertainty, a person can practice empathy toward others in similar situations.", "korean": "자신의 불안이 보내는 신호를 듣고 스스로의 불확실함을 알아차리면, 비슷한 처지의 다른 사람에게 공감할 수 있다고 설명한다."}, {"label": "결론", "english": "Finally, the passage concludes that compassion and empathy can reduce harmful anxiety and spread care more widely.", "korean": "마지막으로 글은 연민과 공감이 나쁜 불안을 줄여 주고, 더 넓게 배려를 퍼뜨릴 수 있다고 결론짓는다."}], "key_vocabulary": [{"word": "suffer", "meaning": "겪다, 시달리다", "synonyms": ["experience", "endure"], "antonyms": ["enjoy", "escape"], "emphasized": true}, {"word": "awkwardness", "meaning": "어색함, 서먹함", "synonyms": ["discomfort", "unease"], "antonyms": ["ease", "confidence"], "emphasized": true}, {"word": "dread", "meaning": "두려움, 몹시 걱정함", "synonyms": ["fear", "terror"], "antonyms": ["confidence", "calm"], "emphasized": true}, {"word": "normal", "meaning": "정상적인, 자연스러운", "synonyms": ["usual", "natural"], "antonyms": ["abnormal", "unusual"], "emphasized": false}, {"word": "anxiety", "meaning": "불안", "synonyms": ["worry", "nervousness"], "antonyms": ["calm", "peace"], "emphasized": true}, {"word": "boost", "meaning": "높이다, 키우다", "synonyms": ["increase", "improve", "strengthen"], "antonyms": ["reduce", "weaken"], "emphasized": true}, {"word": "clue", "meaning": "실마리, 단서", "synonyms": ["hint", "sign"], "antonyms": [], "emphasized": true}, {"word": "grateful", "meaning": "고마워하는", "synonyms": ["thankful", "appreciative"], "antonyms": ["ungrateful"], "emphasized": true}, {"word": "signal", "meaning": "신호를 보내다, 알리다", "synonyms": ["indicate", "show"], "antonyms": ["hide", "conceal"], "emphasized": true}, {"word": "uncertain", "meaning": "확신이 없는, 불확실한", "synonyms": ["unsure", "doubtful"], "antonyms": ["certain", "sure"], "emphasized": true}, {"word": "insecure", "meaning": "불안한, 자신 없는", "synonyms": ["uneasy", "self-doubting"], "antonyms": ["secure", "confident"], "emphasized": true}, {"word": "empathy", "meaning": "공감", "synonyms": ["understanding", "compassion"], "antonyms": ["indifference", "insensitivity"], "emphasized": true}, {"word": "inherent", "meaning": "타고난, 본래부터 있는", "synonyms": ["innate", "natural"], "antonyms": ["acquired", "external"], "emphasized": true}, {"word": "compassion", "meaning": "연민, 따뜻한 배려", "synonyms": ["sympathy", "kindness", "mercy"], "antonyms": ["cruelty", "indifference"], "emphasized": true}, {"word": "buffer against", "meaning": "~을 막아 주다, 완화하다", "synonyms": ["protect from", "cushion against"], "antonyms": ["expose to"], "emphasized": true}, {"word": "outward-facing", "meaning": "바깥을 향한, 다른 사람에게 눈을 돌리는", "synonyms": ["other-focused", "externally directed"], "antonyms": ["inward-looking", "self-focused"], "emphasized": false}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "If", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "suffer", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "from social angst, awkwardness, or dread", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "know", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "that", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "this", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a perfectly normal response.", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "만약 네가 사회적 불안, 어색함, 또는 두려움을 겪고 있다면, 이것이 아주 자연스러운 반응이라는 것을 알아 두어라.", "points": ["문장 맨 앞의 If절은 조건을 나타내며, 뒤의 주절에서 핵심 말인 know가 나온다.", "that절은 know의 목적어 역할을 하는 명사절이다."], "paraphrase_en": "If social situations make you anxious or uncomfortable, remember that this reaction is completely normal.", "paraphrase_ko": "사회적 상황이 너를 불안하거나 불편하게 만든다면, 이런 반응은 아주 자연스럽다는 것을 기억하라는 뜻이다."}, {"id": 2, "type_label": "부연", "phrases": [{"text": "No matter what", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "looks", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "like", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a lot of people", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are dealing", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "with internal anxiety", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in social situations.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "겉으로 어떻게 보이든, 많은 사람들이 사회적 상황에서 마음속 불안을 겪고 있다.", "points": ["No matter what it looks like는 '겉으로 어떻게 보이든'이라는 양보 표현이다."], "paraphrase_en": "Even if it is not visible, many people feel anxious inside during social situations.", "paraphrase_ko": "겉으로 티가 나지 않아도, 많은 사람들이 사회적 상황에서 속으로 불안을 느낀다는 뜻이다."}, {"id": 3, "type_label": "부연", "phrases": [{"text": "But", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "actually possible", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to build", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your social muscle", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "use", "type": "bold", "label": "병렬1", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to boost", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your connections", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "—", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your anxiety", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is giving", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "clues", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to what icebreakers and lifelines", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "other people", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "might be grateful", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to extend.", "type": "plain", "label": "OC", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "하지만 실제로는 사회적 힘을 기르고, 그것을 써서 관계를 더 좋게 만드는 것이 가능하다. 그리고 네 불안은 다른 사람들이 네가 먼저 건네 주면 고마워할 만한 말문을 여는 행동이나 도움의 손길이 무엇인지에 대한 단서를 주고 있다.", "points": ["it is possible to do는 '…하는 것이 가능하다'라는 가주어 구문이다.", "be grateful for A to do는 여기서 '네가 A를 해 주는 것에 대해 고마워하다'의 뜻으로 이해하면 된다."], "paraphrase_en": "However, you can strengthen your social ability, improve your relationships, and let your anxiety show you what kind actions others may appreciate.", "paraphrase_ko": "하지만 너는 사회적 능력을 키우고 관계를 더 좋게 만들 수 있으며, 네 불안은 다른 사람들이 반가워할 친절한 행동이 무엇인지 알려 줄 수 있다는 뜻이다."}, {"id": 4, "type_label": "부연", "phrases": [{"text": "Truly", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "listen", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to what", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your anxiety", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is signaling", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to you", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "about where", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "you", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "feel", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "uncertain or insecure", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}]}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "practice", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "empathy", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by offering", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a hand", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to others", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "who", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "might be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in the same boat.", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "네 불안이 네게 무엇을 말해 주는지, 곧 네가 어디에서 확신이 없고 불안한지를 정말 잘 들어라. 그리고 같은 처지에 있을지 모르는 다른 사람들에게 손을 내밀면서 공감을 실천하라.", "points": ["what your anxiety is signaling to you는 전치사 to의 목적어 역할을 하는 명사절이다.", "by offering은 '…함으로써'의 뜻으로 방법을 나타낸다."], "paraphrase_en": "Pay close attention to what your anxiety tells you about your weak points, and show empathy by helping others who may feel the same way.", "paraphrase_ko": "네 불안이 네 약한 부분을 어떻게 알려 주는지 잘 살피고, 비슷하게 느끼는 다른 사람을 도우며 공감을 보여 주라는 뜻이다."}, {"id": 5, "type_label": "결론", "phrases": [{"text": "Remember", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "that", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "flipping anxiety into compassion", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "something inherent in you", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "—", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in fact", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "what", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your anxiety", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "was designed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to do", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for you.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}], "korean": "불안을 연민으로 바꾸는 일은 네 안에 본래 들어 있는 것임을 기억하라. 사실 그것은 바로 네 불안이 너를 위해 하도록 만들어진 일이다.", "points": ["that절은 Remember의 목적어 역할을 한다.", "what your anxiety was designed to do for you에서 what은 '…하는 것'이라는 뜻의 선행사를 포함한 관계대명사이다."], "paraphrase_en": "Keep in mind that turning anxiety into compassion is natural for you and is actually one of anxiety’s intended functions.", "paraphrase_ko": "불안을 연민으로 바꾸는 것은 너에게 자연스러운 일이며, 사실 그것이 불안의 본래 역할 가운데 하나라는 뜻이다."}, {"id": 6, "type_label": "주제문", "phrases": [{"text": "Together", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "compassion and empathy", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can buffer", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "against bad anxiety.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "연민과 공감은 함께할 때 해로운 불안을 막아 주거나 줄여 줄 수 있다.", "points": [], "paraphrase_en": "Compassion and empathy work together to protect us from harmful anxiety.", "paraphrase_ko": "연민과 공감은 함께 작용해서 해로운 불안을 막아 준다는 뜻이다."}, {"id": 7, "type_label": "부연", "phrases": [{"text": "You", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can use", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "your anxiety", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to be", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "more outward-facing.", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "너는 네 불안을 써서 더 바깥을 향하고, 다른 사람에게 눈을 돌릴 수 있다.", "points": ["to be는 목적을 나타내는 to부정사로 볼 수 있다."], "paraphrase_en": "You can turn your anxiety into a way of focusing more on others than on yourself.", "paraphrase_ko": "너는 불안을 자기 자신보다 다른 사람에게 더 눈을 돌리는 방향으로 바꿀 수 있다는 뜻이다."}, {"id": 8, "type_label": "결론", "phrases": [{"text": "The outcome", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "?", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "The spread", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of compassion", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for your fellow human beings, other species, and the planet!", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "그 결과는 무엇일까? 바로 다른 사람들, 다른 생명체들, 그리고 지구를 향한 연민이 널리 퍼지는 것이다!", "points": ["The outcome?는 완전한 문장이라기보다 앞의 내용을 강조하는 짧은 표현이다. 뒤의 명사구가 그 답이 된다."], "paraphrase_en": "As a result, compassion can spread to other people, other living things, and the whole planet.", "paraphrase_ko": "그 결과 연민이 다른 사람들과 다른 생명체들, 그리고 지구 전체로 퍼질 수 있다는 뜻이다."}], "problem_number": "04", "exam_info": "수특 2027 4강"};
+const VIEWER_PAGE = "../페이지/04.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

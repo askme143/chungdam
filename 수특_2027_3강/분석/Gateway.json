@@ -1,0 +1,1010 @@
+{
+  "title_en": "How Digital Platforms Make Work Less Place-Bound",
+  "title_ko": "디지털 플랫폼이 일을 장소에 덜 묶이게 하는 방식",
+  "theme_en": "Digital platforms make work easier to move across places by breaking the connection between service work and specific locations.",
+  "theme_ko": "디지털 플랫폼은 서비스 노동과 특정 장소의 연결을 끊어, 일이 여러 장소 사이를 더 쉽게 옮겨 다니게 만든다.",
+  "summary_en": "As digital work becomes more standardized and marketized, cloudwork allows employers to shift work globally with little cost, few local obligations, and almost no physical presence.",
+  "summary_ko": "디지털 노동이 더 표준화되고 시장처럼 거래되면서, 클라우드 노동은 고용주가 적은 비용으로, 지역의 의무는 거의 지지 않고, 물리적 흔적도 거의 남기지 않은 채 일을 전 세계로 옮기게 한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "Digital platforms have made work less tied to specific places.",
+      "korean": "디지털 플랫폼은 일을 특정 장소에 덜 묶이게 만들었다."
+    },
+    {
+      "label": "부연",
+      "english": "As work becomes modularized, commoditized, and standardized, digital labor markets weaken the link between service work and place.",
+      "korean": "일이 더 잘게 나뉘고, 상품처럼 거래되고, 표준화되면서 디지털 노동 시장은 서비스 노동과 장소의 연결을 약하게 만든다."
+    },
+    {
+      "label": "근거",
+      "english": "Unlike earlier outsourcing, cloudwork changes how much and how finely work can be moved across distant locations.",
+      "korean": "예전의 외주와 달리, 클라우드 노동은 멀리 떨어진 곳들 사이에서 일을 얼마나 많이, 또 얼마나 잘게 나누어 옮길 수 있는지를 바꾼다."
+    },
+    {
+      "label": "예시",
+      "english": "A small business can hire workers in different cities on different days through digital platforms.",
+      "korean": "작은 기업도 디지털 플랫폼을 통해 하루는 한 도시에서, 다음 날은 다른 도시에서 일할 사람을 고용할 수 있다."
+    },
+    {
+      "label": "결론",
+      "english": "Because work can be shifted digitally without buildings, regulations, taxes, or physical presence, employers leave almost no trace in former workplaces.",
+      "korean": "건물도, 지역 규제도, 세금도, 물리적 존재도 거의 없이 일을 디지털로 옮길 수 있기 때문에, 고용주는 예전에 일하던 곳에 거의 아무 흔적도 남기지 않는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "platform",
+      "meaning": "플랫폼, 여러 활동이 이루어지는 디지털 기반",
+      "synonyms": [
+        "system",
+        "network",
+        "interface"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "sticky",
+      "meaning": "잘 떨어지지 않는, 여기서는 '한곳에 묶인'",
+      "synonyms": [
+        "fixed",
+        "attached"
+      ],
+      "antonyms": [
+        "mobile",
+        "flexible"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "modularised",
+      "meaning": "모듈화된, 잘게 나뉜",
+      "synonyms": [
+        "segmented",
+        "divided"
+      ],
+      "antonyms": [
+        "integrated",
+        "combined"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "commoditised",
+      "meaning": "상품처럼 거래되는",
+      "synonyms": [
+        "commercialized",
+        "marketized"
+      ],
+      "antonyms": [
+        "specialized",
+        "unique"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "standardised",
+      "meaning": "표준화된",
+      "synonyms": [
+        "normalized",
+        "regularized"
+      ],
+      "antonyms": [
+        "varied",
+        "customized"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "disconnected",
+      "meaning": "분리된, 연결이 끊긴",
+      "synonyms": [
+        "separated",
+        "detached"
+      ],
+      "antonyms": [
+        "connected",
+        "linked"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "outsourcing",
+      "meaning": "외주, 일을 밖에 맡김",
+      "synonyms": [
+        "contracting out",
+        "subcontracting"
+      ],
+      "antonyms": [
+        "insourcing"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "emerged",
+      "meaning": "나타났다, 생겨났다",
+      "synonyms": [
+        "appeared",
+        "arose"
+      ],
+      "antonyms": [
+        "disappeared",
+        "vanished"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "take advantage of",
+      "meaning": "이용하다, 잘 활용하다",
+      "synonyms": [
+        "use",
+        "exploit",
+        "benefit from"
+      ],
+      "antonyms": [
+        "waste",
+        "ignore"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "reserve army",
+      "meaning": "예비 노동력, 언제든 쓸 수 있는 많은 노동 인력",
+      "synonyms": [
+        "labor pool",
+        "workforce reserve"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "granularity",
+      "meaning": "세분성, 잘게 나뉜 정도",
+      "synonyms": [
+        "fineness",
+        "detail"
+      ],
+      "antonyms": [
+        "coarseness"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "non-proximate",
+      "meaning": "가깝지 않은, 멀리 떨어진",
+      "synonyms": [
+        "distant",
+        "remote"
+      ],
+      "antonyms": [
+        "nearby",
+        "adjacent"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "freelance",
+      "meaning": "프리랜서의, 자유 계약의",
+      "synonyms": [
+        "independent",
+        "self-employed"
+      ],
+      "antonyms": [
+        "salaried",
+        "employed"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "transcriber",
+      "meaning": "녹취자, 받아쓰는 일을 하는 사람",
+      "synonyms": [
+        "copyist"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "regulation",
+      "meaning": "규정, 규제",
+      "synonyms": [
+        "rule",
+        "restriction"
+      ],
+      "antonyms": [
+        "freedom",
+        "deregulation"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "production network",
+      "meaning": "생산 네트워크, 일이 이루어지는 연결 구조",
+      "synonyms": [
+        "supply network",
+        "production chain"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "material traces",
+      "meaning": "물질적 흔적, 눈에 보이는 흔적",
+      "synonyms": [
+        "physical signs",
+        "visible traces"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Digital platforms",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "have made",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a lot of work",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "less sticky.",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "디지털 플랫폼은 많은 일을 한곳에 덜 묶이게 만들었다.",
+      "points": [
+        "make + O + OC의 5형식 문장이다. 'a lot of work'가 목적어이고 'less sticky'가 목적보어이다."
+      ],
+      "paraphrase_en": "Digital platforms have made many kinds of work easier to move.",
+      "paraphrase_ko": "디지털 플랫폼은 많은 종류의 일을 더 쉽게 옮길 수 있게 만들었다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "As work",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "becomes",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "ever more modularised, commoditised and standardised,",
+              "type": "plain",
+              "label": "C",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "as markets",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for digital work",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "are created,",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "ties",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "between service work and particular places",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "can be disconnected.",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "일이 점점 더 잘게 나뉘고, 상품처럼 거래되고, 표준화되며, 또 디지털 노동 시장이 만들어지면서, 서비스 노동과 특정 장소 사이의 연결은 끊어질 수 있다.",
+      "points": [
+        "문장 앞의 두 개의 as절은 '~하면서'로 해석하는 부사절이다.",
+        "be disconnected는 수동태로, '연결이 끊기다'라는 뜻이다."
+      ],
+      "paraphrase_en": "As digital work becomes more standardized and tradable, service work no longer has to stay tied to one place.",
+      "paraphrase_ko": "디지털 노동이 더 표준화되고 거래되기 쉬워지면서, 서비스 노동은 더 이상 한 장소에 묶여 있을 필요가 없어진다."
+    },
+    {
+      "id": 3,
+      "type_label": "근거",
+      "phrases": [
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "While",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the business process",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of outsourcing",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "that",
+                      "type": "boxed",
+                      "label": "주관대",
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    },
+                    {
+                      "text": "emerged",
+                      "type": "bold",
+                      "label": "V",
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    },
+                    {
+                      "text": "in the 1990s",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "allowed",
+              "type": "bold",
+              "label": "5V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "large companies",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to take advantage of",
+              "type": "bold",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "a 'global reserve army'",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "by moving",
+                  "type": "plain",
+                  "label": "부사적 용법",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "their call centres",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "to cheap and distant labour markets,",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "cloudwork",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "changes",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the volume and granularity",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "at which",
+              "type": "boxed",
+              "label": "목관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "geographically non-proximate work",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "can take place.",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "1990년대에 나타난 외주의 사업 방식은 대기업이 콜센터를 값싸고 먼 노동 시장으로 옮김으로써 '세계적 예비 노동력'을 활용할 수 있게 했지만, 클라우드 노동은 지리적으로 가까이 있지 않은 곳에서 일이 이루어질 수 있는 양과 세분 정도를 바꾼다.",
+      "points": [
+        "allow + O + to부정사는 5형식이다. 여기서 'large companies'가 목적어이고 'to take advantage of'가 목적보어이다.",
+        "at which는 선행사인 'the volume and granularity'를 받는 관계 표현이다. 'at that volume and granularity' 정도로 이해하면 쉽다."
+      ],
+      "paraphrase_en": "Older outsourcing let big companies move work to cheaper distant labor markets, but cloudwork changes how much work and how finely divided work can be done far away.",
+      "paraphrase_ko": "예전의 외주는 대기업이 일을 더 싼 먼 노동 시장으로 옮기게 했지만, 클라우드 노동은 멀리서 얼마나 많은 일, 또 얼마나 잘게 나뉜 일이 가능한지를 바꾼다."
+    },
+    {
+      "id": 4,
+      "type_label": "예시",
+      "phrases": [
+        {
+          "text": "A small business",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in New York",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "can hire",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a freelance transcriber",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in Nairobi",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "one day",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "and New Delhi",
+              "type": "plain",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the next.",
+              "type": "plain",
+              "label": "병렬2",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "뉴욕의 한 작은 기업은 어느 날에는 나이로비의 프리랜서 녹취자를 고용하고, 다음 날에는 뉴델리의 사람을 고용할 수 있다.",
+      "points": [],
+      "paraphrase_en": "A small company in New York can choose a worker in one city today and another city tomorrow.",
+      "paraphrase_ko": "뉴욕의 작은 회사는 오늘은 한 도시의 노동자를, 내일은 다른 도시의 노동자를 고를 수 있다."
+    },
+    {
+      "id": 5,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "No offices or factories",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "need to be built,",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "no local regulations",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are observed,",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and—in most cases—",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "no local taxes",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "are paid.",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "사무실이나 공장을 지을 필요도 없고, 지역 규정을 지키지도 않으며, 또 대부분의 경우 지역 세금도 내지 않는다.",
+      "points": [
+        "세 개의 절이 쉼표로 이어진 병렬 구조이다. 같은 형식이 반복되어 의미를 강하게 만든다.",
+        "need to be built, are observed, are paid는 모두 수동태이다."
+      ],
+      "paraphrase_en": "There is no need to build workplaces, follow local rules, or usually pay local taxes.",
+      "paraphrase_ko": "일터를 지을 필요도 없고, 지역 규칙을 따를 필요도 없으며, 보통은 지역 세금도 낼 필요가 없다."
+    },
+    {
+      "id": 6,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "The switch",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in the production network of work",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "happens",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "by simply sending",
+              "type": "plain",
+              "label": "부사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "some emails",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "or clicking",
+              "type": "bold",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "some buttons",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "on a digital work platform.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "일이 이루어지는 생산 네트워크의 전환은 그저 몇 통의 이메일을 보내거나 디지털 노동 플랫폼에서 몇 개의 버튼을 클릭하는 것만으로 일어난다.",
+      "points": [
+        "by + 동명사는 '…함으로써'라는 수단을 나타낸다.",
+        "sending과 clicking이 or로 병렬 연결되어 있다."
+      ],
+      "paraphrase_en": "Changing where work is done can happen just by sending emails or clicking buttons online.",
+      "paraphrase_ko": "일이 어디서 이루어지는지를 바꾸는 일은 온라인에서 이메일을 보내거나 버튼을 누르는 것만으로도 가능하다."
+    },
+    {
+      "id": 7,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "And, in this way,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the employer",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "leaves behind",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "no material traces",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in the places",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "where",
+                  "type": "boxed",
+                  "label": "부사적 용법",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "it",
+                  "type": "underline",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "was",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "once",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "an employer.",
+                  "type": "plain",
+                  "label": "C",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "그리고 이런 방식으로, 고용주는 한때 자신이 고용주였던 장소들에 아무 물리적 흔적도 남기지 않는다.",
+      "points": [
+        "where는 관계부사로 앞의 'the places'를 꾸민다.",
+        "leave behind는 '뒤에 남기다'라는 뜻의 구동사이다."
+      ],
+      "paraphrase_en": "So the employer leaves no physical sign in the places where it used to employ people.",
+      "paraphrase_ko": "그래서 그 고용주는 예전에 사람을 고용하던 곳에 물리적인 흔적을 전혀 남기지 않는다."
+    }
+  ],
+  "problem_number": "Gateway"
+}

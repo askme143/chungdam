@@ -1,0 +1,1026 @@
+{
+  "title_en": "Citizens Taking Back Local News",
+  "title_ko": "시민이 지역 뉴스를 되찾는 일",
+  "theme_en": "As traditional news organizations leave many communities behind, citizens must use new technology to gather, share, and manage local news themselves.",
+  "theme_ko": "전통적인 언론이 많은 지역사회를 떠나 버린 상황에서, 시민들은 새로운 기술을 이용해 지역 뉴스를 스스로 찾고, 알리고, 걸러 내야 한다는 내용이다.",
+  "summary_en": "The passage argues that professional journalists alone cannot make news relevant to all communities, so citizens must reclaim local journalism and responsibly use digital tools to inform and protect their communities.",
+  "summary_ko": "이 글은 전문 기자들만으로는 모든 지역에 맞는 뉴스를 만들 수 없다고 말한다. 그래서 시민들이 지역 저널리즘을 되찾고, 디지털 도구를 책임 있게 써서 자기 지역에 필요한 정보를 알리고 지켜야 한다고 주장한다.",
+  "structure": [
+    {
+      "label": "문제",
+      "english": "Professional journalists alone cannot solve the problem because many traditional news organizations have already abandoned communities and created news deserts.",
+      "korean": "전문 기자들만으로는 이 문제를 풀 수 없다. 많은 전통 언론이 이미 여러 지역사회를 떠나 버려서 뉴스가 없는 지역이 생겼기 때문이다."
+    },
+    {
+      "label": "결론",
+      "english": "In such places, citizens must take responsibility for finding information, watching the powerful, and reporting news for themselves and their neighbors.",
+      "korean": "그런 곳에서는 시민들이 정보를 찾고, 힘 있는 사람들을 감시하고, 자신과 이웃을 위해 뉴스를 전하는 책임을 맡아야 한다."
+    },
+    {
+      "label": "근거",
+      "english": "The spread of information technology gives citizens new ways to regain control of local news and demands greater care in how they collect and share information.",
+      "korean": "정보 기술의 확산은 시민들에게 지역 뉴스를 다시 주도할 새로운 방법을 주며, 정보를 모으고 퍼뜨릴 때 더 큰 주의를 요구한다."
+    },
+    {
+      "label": "결론",
+      "english": "Journalism now belongs more to the people, who can use technology not only to publish information but also to filter important information for their communities.",
+      "korean": "이제 저널리즘은 더 많이 시민의 것이 되었다. 시민들은 기술을 이용해 정보를 알릴 뿐 아니라, 자기 지역에 중요한 정보를 걸러 내는 역할도 할 수 있다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "engagement",
+      "meaning": "참여, 관여",
+      "synonyms": [
+        "involvement",
+        "participation"
+      ],
+      "antonyms": [
+        "withdrawal",
+        "detachment"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "relevant",
+      "meaning": "관련 있는, 알맞은",
+      "synonyms": [
+        "related",
+        "applicable",
+        "pertinent"
+      ],
+      "antonyms": [
+        "irrelevant",
+        "unrelated"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "abandon",
+      "meaning": "버리다, 떠나다",
+      "synonyms": [
+        "leave",
+        "desert",
+        "forsake"
+      ],
+      "antonyms": [
+        "keep",
+        "support",
+        "remain"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "deserts",
+      "meaning": "사막들; 여기서는 '뉴스가 없는 지역들'",
+      "synonyms": [
+        "wastelands"
+      ],
+      "antonyms": [
+        "centers"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "accountable",
+      "meaning": "책임을 지는, 책임을 물을 수 있는",
+      "synonyms": [
+        "responsible",
+        "answerable"
+      ],
+      "antonyms": [
+        "irresponsible",
+        "unaccountable"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "democratization",
+      "meaning": "민주화, 더 많은 사람에게 권한이 가는 것",
+      "synonyms": [
+        "popularization",
+        "decentralization"
+      ],
+      "antonyms": [
+        "centralization",
+        "monopolization"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "disruptions",
+      "meaning": "큰 변화, 기존 질서를 흔드는 변화",
+      "synonyms": [
+        "upheavals",
+        "disturbances",
+        "changes"
+      ],
+      "antonyms": [
+        "stability",
+        "continuity"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "retake",
+      "meaning": "되찾다, 다시 차지하다",
+      "synonyms": [
+        "regain",
+        "recover"
+      ],
+      "antonyms": [
+        "lose",
+        "surrender"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "dissemination",
+      "meaning": "퍼뜨림, 전파",
+      "synonyms": [
+        "spread",
+        "distribution"
+      ],
+      "antonyms": [
+        "withholding",
+        "concealment"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "shifted",
+      "meaning": "옮겼다, 바꾸었다",
+      "synonyms": [
+        "moved",
+        "transferred",
+        "changed"
+      ],
+      "antonyms": [
+        "fixed",
+        "kept"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "balance",
+      "meaning": "균형",
+      "synonyms": [
+        "equilibrium",
+        "stability"
+      ],
+      "antonyms": [
+        "imbalance"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "broadcasters",
+      "meaning": "방송하는 사람들",
+      "synonyms": [
+        "announcers",
+        "transmitters"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "publishers",
+      "meaning": "출판인들, 발행인들",
+      "synonyms": [
+        "issuers",
+        "editors"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "essential",
+      "meaning": "필수적인, 매우 중요한",
+      "synonyms": [
+        "necessary",
+        "vital",
+        "crucial"
+      ],
+      "antonyms": [
+        "unnecessary",
+        "optional"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "critically",
+      "meaning": "더 중요하게, 결정적으로",
+      "synonyms": [
+        "importantly",
+        "crucially"
+      ],
+      "antonyms": [
+        "trivially"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "gatekeepers",
+      "meaning": "정보를 걸러 내는 사람들",
+      "synonyms": [
+        "screeners",
+        "controllers"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Increased community engagement",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "by professional journalists",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "on their own",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "will not solve",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the problem",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of making the news more relevant to everyone",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "because",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "traditional news organizations",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "already have abandoned",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "many communities",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "leaving behind",
+              "type": "bold",
+              "label": "현재 분사구문",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "news deserts",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": "desert의 기본 뜻은 '사막'이지만 여기서는 '뉴스가 없는 지역'",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "전문 기자들이 스스로 지역사회와 더 많이 연결된다고 해도, 그것만으로는 뉴스를 모든 사람에게 더 알맞게 만드는 문제를 해결하지 못한다. 왜냐하면 전통적인 언론 기관들은 이미 많은 지역사회를 떠나 버렸고, 그 결과 뉴스가 거의 없는 지역들을 남겨 놓았기 때문이다.",
+      "points": [
+        "because 이하는 앞내용의 이유를 설명하는 부사절이다.",
+        "leaving behind는 결과를 덧붙이는 현재분사구문으로, '그 결과 뉴스 사막을 남기며' 정도로 이해하면 된다."
+      ],
+      "paraphrase_en": "Even if professional journalists engage more with communities, that alone cannot fix the issue, because many old news organizations have already left communities without enough news.",
+      "paraphrase_ko": "전문 기자들이 지역사회와 더 많이 소통하더라도 그것만으로는 문제를 고칠 수 없다. 많은 기존 언론이 이미 지역을 떠나서 뉴스가 부족한 곳이 생겼기 때문이다."
+    },
+    {
+      "id": 2,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "In those places",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "citizens",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "must take up",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the responsibility",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "for discovering information",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": ",",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "holding",
+              "type": "bold",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the powerful",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "accountable",
+              "type": "bold",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": ", and",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "telling",
+              "type": "bold",
+              "label": "병렬2",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the news",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for themselves and their neighbors",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "그런 곳에서는 시민들이 정보를 찾아내고, 힘 있는 사람들에게 책임을 묻고, 자신과 이웃을 위해 직접 뉴스를 전하는 책임을 맡아야 한다.",
+      "points": [
+        "for 뒤에 discovering, holding, telling이 나란히 이어지며 병렬 구조를 이룬다.",
+        "hold + O + accountable은 5형식으로 'O에게 책임을 묻다'라는 뜻이다."
+      ],
+      "paraphrase_en": "In those communities, ordinary people have to find information, watch powerful people, and report news for themselves and nearby others.",
+      "paraphrase_ko": "그런 지역에서는 보통 시민들이 직접 정보를 찾고, 힘 있는 사람들을 감시하고, 자신과 이웃을 위해 뉴스를 알려야 한다."
+    },
+    {
+      "id": 3,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "The democratization",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of information",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "through the disruptions",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "caused by computers and the internet",
+                  "type": "plain",
+                  "label": "과거 분사구문",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "allows",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "citizens",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to retake",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "control",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of local news",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "in ways",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "주관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "never have existed",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "before",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": ", and",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "it",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "calls",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "them",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to take",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "greater care",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in the gathering and dissemination",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "of what",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "they",
+                  "type": "underline",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "discover",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "or",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "think",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "they know",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "컴퓨터와 인터넷이 일으킨 큰 변화로 정보가 더 많은 사람에게 열리게 되면서, 시민들은 이전에는 전혀 없었던 방식으로 지역 뉴스를 다시 주도할 수 있게 되었다. 그리고 이 변화는 그들이 찾아낸 것이나 자신이 안다고 생각하는 것을 모으고 퍼뜨릴 때 더 큰 주의를 기울이도록 요구한다.",
+      "points": [
+        "allow + O + to do, call + O + to do는 둘 다 5형식으로 자주 나온다.",
+        "that never have existed before는 ways를 꾸며 주는 관계절이다. what they discover or think they know에서 what은 '…하는 것'이라는 뜻의 명사절을 이끈다."
+      ],
+      "paraphrase_en": "Because computers and the internet changed how information works, citizens can now regain local news in new ways, but they must be more careful when collecting and sharing information.",
+      "paraphrase_ko": "컴퓨터와 인터넷이 정보 환경을 바꾸었기 때문에 시민들은 이제 새로운 방식으로 지역 뉴스를 되찾을 수 있다. 하지만 정보를 모으고 퍼뜨릴 때는 더 조심해야 한다."
+    },
+    {
+      "id": 4,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "Journalism",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "perhaps like never before",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "belongs",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to the people",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "rather than",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to professional journalists, wealthy publishers, or even corporate shareholders",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "저널리즘은, 어쩌면 어느 때보다도, 전문 기자나 돈 많은 발행인들, 심지어 기업 주주들보다 시민의 것이 되었다.",
+      "points": [
+        "belong to는 자동사 표현이므로 수동태로 쓰지 않는다.",
+        "rather than은 'A rather than B'로 비교 대상을 보여 준다."
+      ],
+      "paraphrase_en": "More than ever, journalism now belongs to ordinary people, not mainly to professional or wealthy media owners.",
+      "paraphrase_ko": "그 어느 때보다도 이제 저널리즘은 전문 언론인이나 부유한 소유주보다 시민들의 것이 되었다."
+    },
+    {
+      "id": 5,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "The same technology",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "has shifted",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the balance of power",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "toward the people",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "gives",
+          "type": "bold",
+          "label": "4V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "them",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the tools",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "to act",
+              "type": "plain",
+              "label": "형용사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "as broadcasters and publishers",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "of information",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "essential",
+                  "type": "bold",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "to their immediate community",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "— and, more critically,",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to serve",
+              "type": "bold",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "as gatekeepers",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to information",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "for other people around them",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "사람들에게 힘의 균형을 더 기울게 만든 바로 그 기술이, 시민들에게 자기 지역사회에 꼭 필요한 정보를 방송하고 발행하는 사람처럼 행동할 도구를 준다. 그리고 더 중요하게는, 그들 주변의 다른 사람들을 위해 정보를 걸러 내는 문지기 역할을 할 도구도 준다.",
+      "points": [
+        "The same technology that ... gives ...에서 that 이하는 technology를 꾸며 주는 관계절이다.",
+        "give + 간접목적어 + 직접목적어의 4형식 문장이다. to act와 to serve는 tools를 꾸며 주는 말로 볼 수 있고, 뒤에서는 and로 의미가 이어진다."
+      ],
+      "paraphrase_en": "The technology that empowered ordinary people also gives them tools to share vital local information and, even more importantly, to filter information for others nearby.",
+      "paraphrase_ko": "사람들에게 힘을 준 그 기술은 시민들이 중요한 지역 정보를 알리게 해 줄 뿐 아니라, 더 중요하게는 주변 사람들을 위해 정보를 걸러 내게도 해 준다."
+    }
+  ],
+  "problem_number": "02"
+}

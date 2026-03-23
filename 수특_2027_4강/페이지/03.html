@@ -59,11 +59,33 @@
     background: var(--accent);
     color: #fff;
   }
-  .quiz-toggle {
+  .header-right-btns {
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .analysis-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .analysis-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -844,7 +866,10 @@
 
 <header>
   <a class="home-btn" href="../../">&#8592; 홈</a>
-  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <div class="header-right-btns">
+    <a class="analysis-btn" id="analysisLink" style="display:none">본문분석</a>
+    <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  </div>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
@@ -864,6 +889,7 @@
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "과학에서 증거와 비판적 사고의 중요성", "summary": "이 글은 모든 생각이 다 똑같이 맞는 것은 아니며, 과학은 증거와 검증을 바탕으로 진실에 더 가까이 가야 한다고 말한다.", "sentences": [{"id": 1, "original": "It is a myth that all ideas are equally valid, even those with little or no objective proof.", "explanation": "객관적인 증거가 거의 없거나 아예 없는 생각까지 모두 똑같이 맞다고 여기는 것은 잘못된 믿음이라는 뜻이다.", "vocabulary": [{"word": "myth", "meaning": "잘못 알려진 믿음, 근거 없는 생각", "note": "여기서는 '신화'보다 '사실이 아닌 믿음'이라는 뜻에 가깝다."}, {"word": "equally valid", "meaning": "똑같이 타당한, 똑같이 맞는", "note": "valid는 상황에 따라 '타당한, 맞는, 인정할 만한' 뜻으로 쓰인다."}, {"word": "objective proof", "meaning": "객관적인 증거", "note": "개인의 느낌이 아니라 누구나 확인할 수 있는 증거를 말한다."}]}, {"id": 2, "original": "The existence of science is the commitment to objective truth.", "explanation": "과학이 존재하는 가장 큰 바탕에는 객관적인 진실을 찾고 지키려는 굳은 태도가 있다는 말이다.", "vocabulary": [{"word": "existence", "meaning": "존재", "note": ""}, {"word": "commitment to", "meaning": "~에 대한 굳은 의지, 계속 지키려는 태도", "note": "단순한 관심이 아니라 끝까지 중요하게 여기는 마음을 뜻한다."}, {"word": "objective truth", "meaning": "객관적인 진실", "note": "사람마다 다르게 느끼는 것이 아니라, 사실에 바탕을 둔 진실이다."}]}, {"id": 3, "original": "After all, science is true: fire is hot, the wheel is efficient, birds and planes can fly, we’ve landed on a comet and traveled to the Moon, antibiotics treat illness, and immunizations keep us from getting sick.", "explanation": "결국 과학은 실제로 맞는 내용을 보여 준다. 불은 뜨겁고, 바퀴는 쓸모가 크고, 새와 비행기는 날 수 있다. 또 사람은 혜성에 탐사선을 보내고 달에도 갔으며, 항생제는 병을 치료하고 예방접종은 우리가 병에 걸리지 않게 도와준다.", "vocabulary": [{"word": "After all", "meaning": "결국, 따지고 보면", "note": "앞말을 뒷받침하며 '생각해 보면'이라는 느낌을 준다."}, {"word": "efficient", "meaning": "효율적인, 적은 힘으로 잘 작동하는", "note": ""}, {"word": "landed on a comet", "meaning": "혜성에 착륙했다", "note": "사람이 직접 내렸다는 뜻이 아니라 탐사선이 착륙한 일을 가리킨다."}, {"word": "antibiotics", "meaning": "항생제", "note": "세균 때문에 생기는 병을 치료하는 약이다."}, {"word": "immunizations", "meaning": "예방접종", "note": "병에 걸리지 않도록 몸의 방어 힘을 키우는 주사나 접종이다."}]}, {"id": 4, "original": "These accomplishments are made possible by objective truths.", "explanation": "이런 성과들은 객관적인 진실을 바탕으로 했기 때문에 가능했다는 뜻이다.", "vocabulary": [{"word": "accomplishments", "meaning": "성과, 이뤄 낸 일", "note": ""}, {"word": "made possible by", "meaning": "~ 때문에 가능해진", "note": "어떤 일이 이루어질 수 있게 만든 원인을 나타낸다."}, {"word": "objective truths", "meaning": "객관적인 진실들", "note": ""}]}, {"id": 5, "original": "A plausible theory can, and frequently does, push science forward.", "explanation": "그럴듯한 이론은 과학을 앞으로 나아가게 할 수 있고, 실제로 그런 경우도 자주 있다는 말이다.", "vocabulary": [{"word": "plausible", "meaning": "그럴듯한, 말이 되는 것처럼 보이는", "note": "반드시 맞다는 뜻은 아니고, 일단 가능해 보인다는 뜻이다."}, {"word": "theory", "meaning": "이론", "note": ""}, {"word": "push science forward", "meaning": "과학을 앞으로 나아가게 하다", "note": "과학 발전에 도움을 준다는 뜻이다."}, {"word": "frequently", "meaning": "자주", "note": ""}]}, {"id": 6, "original": "However, an intuition must be followed with testing that confirms or disproves its veracity.", "explanation": "하지만 직감이 떠올랐다면, 그것이 정말 맞는지 아니면 틀린지 확인해 주는 시험과 검증이 꼭 뒤따라야 한다.", "vocabulary": [{"word": "intuition", "meaning": "직감, 바로 느끼는 생각", "note": "깊이 따지기 전에 순간적으로 드는 생각을 말한다."}, {"word": "be followed with testing", "meaning": "검사가 뒤따라야 하다, 시험해 봐야 하다", "note": ""}, {"word": "confirms or disproves", "meaning": "맞다는 것을 확인하거나 틀렸다는 것을 밝혀내다", "note": "disprove는 '거짓임을 보이다'라는 뜻이다."}, {"word": "veracity", "meaning": "진실성, 사실 여부", "note": "조금 어려운 말이지만 여기서는 '정말 맞는지' 정도로 이해하면 된다."}]}, {"id": 7, "original": "If a theory is disproved, one should consider it as a reason to reject or alter the hypothesis, not a justification to just keep firmly holding to the hypothesis because you are instinctively wedded to it.", "explanation": "어떤 이론이 틀린 것으로 밝혀지면, 그 가설을 버리거나 고쳐야 할 이유로 받아들여야 한다. 본능적으로 그 생각에 정이 가거나 익숙하다는 이유만으로, 계속 굳게 붙잡고 있어도 된다는 핑계로 삼아서는 안 된다.", "vocabulary": [{"word": "reject or alter", "meaning": "버리거나 바꾸다", "note": "alter는 완전히 새로 만드는 것보다 일부를 고친다는 느낌이 있다."}, {"word": "hypothesis", "meaning": "가설", "note": "아직 완전히 증명되지 않은 설명이나 생각이다."}, {"word": "justification", "meaning": "정당화하는 이유, 핑계", "note": "어떤 행동이 괜찮다고 말해 주는 이유를 뜻한다."}, {"word": "firmly holding to", "meaning": "굳게 붙잡고 있는", "note": "생각을 바꾸지 않고 계속 믿는다는 뜻이다."}, {"word": "instinctively wedded to", "meaning": "본능적으로 강하게 매여 있는", "note": "wedded to는 원래 '결혼한'에서 온 말로, 여기서는 어떤 생각에 아주 깊이 붙어 있는 뜻이다."}]}, {"id": 8, "original": "Critical thinking is an absolute must, and we must respect evidence.", "explanation": "비판적으로 생각하는 힘은 꼭 필요하다. 그리고 우리는 증거를 중요하게 여기고 따라야 한다.", "vocabulary": [{"word": "Critical thinking", "meaning": "비판적 사고", "note": "그냥 믿지 않고 따져 보고 판단하는 생각법이다."}, {"word": "an absolute must", "meaning": "반드시 필요한 것", "note": "없어서는 안 된다는 강한 표현이다."}, {"word": "respect evidence", "meaning": "증거를 존중하다, 증거를 중요하게 여기다", "note": "증거를 무시하지 말고 판단의 기준으로 삼으라는 뜻이다."}]}, {"id": 9, "original": "It’s the only reason for anyone to trust anything about reality.", "explanation": "우리가 현실에 대해 어떤 것을 믿을 수 있는 유일한 이유는 바로 이런 증거와 검증이 있기 때문이라는 말이다.", "vocabulary": [{"word": "trust", "meaning": "믿다", "note": ""}, {"word": "reality", "meaning": "현실, 실제 세계", "note": ""}, {"word": "the only reason", "meaning": "유일한 이유", "note": ""}]}, {"id": 10, "original": "Without testing and evidence, intuition is useful, but it is never the ultimate word.", "explanation": "시험과 증거가 없다면 직감이 어느 정도 도움이 될 수는 있다. 하지만 그것이 마지막 판단 기준이 되어서는 안 된다.", "vocabulary": [{"word": "Without testing and evidence", "meaning": "검증과 증거가 없다면", "note": ""}, {"word": "intuition", "meaning": "직감", "note": ""}, {"word": "ultimate word", "meaning": "최종 판단, 마지막 결정", "note": "여기서는 '더 따질 것 없는 마지막 결론'이라는 뜻이다."}]}], "problem_number": "03", "exam_info": "수특 2027 4강"};
 const NEXT_PAGE = "04.html";
+const ANALYSIS_PAGE = "../분석페이지/03.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -1533,6 +1559,11 @@ if (DATA.title) {
   const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
   document.getElementById('pageTitle').textContent = prefix + DATA.title;
   document.title = prefix + DATA.title;
+}
+if (ANALYSIS_PAGE) {
+  const al = document.getElementById('analysisLink');
+  al.href = ANALYSIS_PAGE;
+  al.style.display = '';
 }
 render();
 </script>

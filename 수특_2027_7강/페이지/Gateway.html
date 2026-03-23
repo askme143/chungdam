@@ -59,11 +59,33 @@
     background: var(--accent);
     color: #fff;
   }
-  .quiz-toggle {
+  .header-right-btns {
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .analysis-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .analysis-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -844,7 +866,10 @@
 
 <header>
   <a class="home-btn" href="../../">&#8592; 홈</a>
-  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <div class="header-right-btns">
+    <a class="analysis-btn" id="analysisLink" style="display:none">본문분석</a>
+    <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  </div>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
@@ -864,6 +889,7 @@
 // ── DATA (injected by generate_html) ──
 const DATA = {"title": "컬처테인먼트의 장점과 위험", "summary": "컬처테인먼트는 돈이 되는 장점이 커서 정치권과 정부의 관심을 받지만, 너무 상업적으로 흐르면 본래 뜻을 잃고 비슷비슷해질 위험도 있다.", "sentences": [{"id": 1, "original": "The economic benefit of culturtainment makes it attractive to politicians and policy makers alike.", "explanation": "컬처테인먼트는 경제적으로 도움이 되기 때문에 정치인과 정책을 만드는 사람들 모두에게 매력적으로 보인다.", "vocabulary": [{"word": "economic benefit", "meaning": "경제적 이익, 돈이 되는 장점", "note": ""}, {"word": "culturtainment", "meaning": "문화와 오락이 합쳐진 형태의 행사나 산업", "note": "culture와 entertainment를 합친 말이다."}, {"word": "policy makers", "meaning": "정책을 만드는 사람들", "note": "정부나 공공 기관에서 중요한 결정을 내리는 사람들을 가리킨다."}, {"word": "alike", "meaning": "똑같이, 모두", "note": "A and B alike는 'A와 B 모두'라는 뜻으로 자주 쓰인다."}]}, {"id": 2, "original": "A potential increase in inbound visitor numbers coupled with their demand for related goods and services (travel, accommodation, retail) is an incentive for those within governments and authorities to work with cultural groups in order to develop celebrations and commemorations into larger and more high-profile events.", "explanation": "해외에서 들어오는 방문객이 늘어날 가능성이 있고, 그 사람들이 여행, 숙박, 쇼핑 같은 관련 상품과 서비스를 찾게 되면 정부와 공공 기관 사람들은 문화 단체와 함께 일할 이유를 얻게 된다. 그래서 기념행사나 축하 행사를 더 크고 더 눈에 띄는 행사로 키우려 한다.", "vocabulary": [{"word": "inbound visitor numbers", "meaning": "외부에서 들어오는 방문객 수", "note": "여기서는 주로 외국에서 오는 방문객 수를 말한다."}, {"word": "coupled with", "meaning": "~와 함께, ~가 더해져", "note": "두 가지가 같이 연결되어 있다는 뜻이다."}, {"word": "incentive", "meaning": "동기, 하게 만드는 이유", "note": "무언가를 하도록 이끄는 힘이나 보상을 뜻한다."}, {"word": "commemorations", "meaning": "기념행사", "note": "중요한 사람이나 사건을 기억하기 위해 여는 행사이다."}, {"word": "high-profile", "meaning": "주목을 많이 받는, 눈에 잘 띄는", "note": "언론이나 대중의 관심을 많이 받는다는 뜻이다."}]}, {"id": 3, "original": "However, such commercialization risks culturtainment becoming homogeneous and losing its original ‘message’ that could lead to a dilution of audiences.", "explanation": "하지만 이렇게 상업적으로 바뀌면 컬처테인먼트가 비슷비슷해지고, 원래 담고 있던 뜻을 잃을 위험이 있다. 그러면 관객의 관심과 몰입도도 약해질 수 있다.", "vocabulary": [{"word": "commercialization", "meaning": "상업화, 돈벌이 중심으로 바뀌는 것", "note": ""}, {"word": "homogeneous", "meaning": "획일적인, 비슷비슷한", "note": "서로 다른 개성이 줄어들고 한 가지 모습처럼 되는 것을 말한다."}, {"word": "original message", "meaning": "원래 전하려던 뜻", "note": "행사나 작품이 처음에 담고 있던 핵심 생각을 가리킨다."}, {"word": "dilution", "meaning": "약해짐, 옅어짐", "note": "원래의 힘이나 특징이 줄어드는 느낌으로 쓰인다."}]}, {"id": 4, "original": "This could also lead to smaller non-commercial independent events being set up that would only serve to divide audiences further.", "explanation": "이런 흐름은 또 돈벌이가 목적이 아닌 작은 독립 행사들이 새로 생기게 만들 수 있다. 그런데 그런 행사는 오히려 관객을 더 여러 갈래로 나누는 결과를 낳을 수도 있다.", "vocabulary": [{"word": "non-commercial", "meaning": "상업적이지 않은, 돈벌이가 주목적이 아닌", "note": ""}, {"word": "independent events", "meaning": "독립 행사", "note": "큰 기관이나 기업에 크게 기대지 않고 따로 열리는 행사이다."}, {"word": "be set up", "meaning": "설립되다, 만들어지다", "note": "행사, 조직, 제도 등이 새로 마련될 때 자주 쓴다."}, {"word": "divide audiences", "meaning": "관객을 나누다", "note": "사람들의 관심이 한곳에 모이지 않고 여러 곳으로 흩어지는 뜻이다."}]}, {"id": 5, "original": "This is something that planners and stakeholders will need to balance against potential financial gain.", "explanation": "이 점은 기획자들과 관련된 사람들 모두가 앞으로 벌 수 있는 돈과 함께 잘 따져 보아야 하는 문제이다.", "vocabulary": [{"word": "planners", "meaning": "기획자들", "note": ""}, {"word": "stakeholders", "meaning": "이 일과 관련이 있는 사람들", "note": "직접 영향을 받거나 이해관계가 걸린 사람들을 말한다."}, {"word": "balance against", "meaning": "~와 견주어 균형 있게 따지다", "note": "한쪽 이익만 보지 않고 다른 요소도 함께 생각한다는 뜻이다."}, {"word": "potential financial gain", "meaning": "앞으로 얻을 수 있는 금전적 이익", "note": ""}]}, {"id": 6, "original": "Changing political, social and religious landscapes will lead to the emergence of new cultures, and with them new culturtainment experiences.", "explanation": "정치, 사회, 종교의 모습이 바뀌면 새로운 문화가 생겨날 것이다. 그리고 그와 함께 새로운 컬처테인먼트 경험도 나타날 것이다.", "vocabulary": [{"word": "landscapes", "meaning": "상황, 전반적인 모습", "note": "여기서는 실제 풍경이 아니라 사회의 큰 흐름과 모습을 뜻한다."}, {"word": "lead to", "meaning": "~로 이어지다", "note": ""}, {"word": "emergence", "meaning": "등장, 새로 나타남", "note": ""}, {"word": "with them", "meaning": "그와 함께", "note": "앞에서 말한 것과 같이 따라온다는 뜻이다."}]}, {"id": 7, "original": "Overall this is a healthy growth sector of the entertainment industry, but one that by its very nature is delicate in the face of exploitation.", "explanation": "전체적으로 보면 이것은 오락 산업에서 건강하게 자라고 있는 분야이다. 하지만 그 성격상 남용되거나 이용당하기 쉬워서 조심스럽게 다뤄야 하는 분야이기도 하다.", "vocabulary": [{"word": "overall", "meaning": "전체적으로 보면", "note": ""}, {"word": "growth sector", "meaning": "성장하는 분야", "note": "앞으로 더 커질 가능성이 큰 산업 분야를 말한다."}, {"word": "by its very nature", "meaning": "그 성격상, 본래 특성 때문에", "note": ""}, {"word": "delicate", "meaning": "섬세한, 쉽게 상처받는", "note": "여기서는 쉽게 망가지거나 나쁜 영향을 받을 수 있다는 뜻이다."}, {"word": "exploitation", "meaning": "이용, 남용", "note": "좋지 않은 방식으로 이익을 얻기 위해 이용하는 것을 말한다."}]}], "problem_number": "Gateway", "exam_info": "수특 2027 7강"};
 const NEXT_PAGE = "01.html";
+const ANALYSIS_PAGE = "../분석페이지/Gateway.html";
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -1533,6 +1559,11 @@ if (DATA.title) {
   const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
   document.getElementById('pageTitle').textContent = prefix + DATA.title;
   document.title = prefix + DATA.title;
+}
+if (ANALYSIS_PAGE) {
+  const al = document.getElementById('analysisLink');
+  al.href = ANALYSIS_PAGE;
+  al.style.display = '';
 }
 render();
 </script>

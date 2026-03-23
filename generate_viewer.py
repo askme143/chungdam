@@ -25,6 +25,7 @@ def generate_html(
     data: Union[str, Path, dict],
     output_path: Union[str, Path, None] = None,
     next_page: Union[str, None] = None,
+    analysis_page: Union[str, None] = None,
 ) -> str:
     """JSON 대본 데이터를 받아 인터랙티브 HTML 뷰어를 생성한다.
 
@@ -60,6 +61,8 @@ def generate_html(
     html = _TEMPLATE.replace("/* __DATA_PLACEHOLDER__ */{}", json_literal)
     next_page_literal = json.dumps(next_page, ensure_ascii=False) if next_page else "null"
     html = html.replace("/* __NEXT_PAGE_PLACEHOLDER__ */null", next_page_literal)
+    analysis_literal = json.dumps(analysis_page, ensure_ascii=False) if analysis_page else "null"
+    html = html.replace("/* __ANALYSIS_PAGE_PLACEHOLDER__ */null", analysis_literal)
 
     # ── 저장 ──
     if output_path is not None:
@@ -135,11 +138,33 @@ _TEMPLATE = r"""<!DOCTYPE html>
     background: var(--accent);
     color: #fff;
   }
-  .quiz-toggle {
+  .header-right-btns {
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .analysis-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .analysis-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .quiz-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -920,7 +945,10 @@ _TEMPLATE = r"""<!DOCTYPE html>
 
 <header>
   <a class="home-btn" href="../../">&#8592; 홈</a>
-  <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  <div class="header-right-btns">
+    <a class="analysis-btn" id="analysisLink" style="display:none">본문분석</a>
+    <button class="quiz-toggle" id="quizToggle" onclick="toggleQuizMode()">퀴즈 ON</button>
+  </div>
   <h1 id="pageTitle">문장별 해설</h1>
   <div class="progress-row">
     <span id="progressLabel">1 / ?</span>
@@ -940,6 +968,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
 // ── DATA (injected by generate_html) ──
 const DATA = /* __DATA_PLACEHOLDER__ */{};
 const NEXT_PAGE = /* __NEXT_PAGE_PLACEHOLDER__ */null;
+const ANALYSIS_PAGE = /* __ANALYSIS_PAGE_PLACEHOLDER__ */null;
 
 // ── Levenshtein distance ──
 function lev(a, b) {
@@ -1609,6 +1638,11 @@ if (DATA.title) {
   const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
   document.getElementById('pageTitle').textContent = prefix + DATA.title;
   document.title = prefix + DATA.title;
+}
+if (ANALYSIS_PAGE) {
+  const al = document.getElementById('analysisLink');
+  al.href = ANALYSIS_PAGE;
+  al.style.display = '';
 }
 render();
 </script>

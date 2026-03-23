@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Limited Animation and Its Artistic Value", "title_ko": "리미티드 애니메이션과 그 예술적 가치", "theme_en": "Limited animation reduces cost and realism, but it opens the way for imagination and new artistic styles.", "theme_ko": "리미티드 애니메이션은 비용을 줄이고 사실적인 표현은 덜하지만, 상상력과 새로운 예술 양식을 펼칠 수 있게 해 준다.", "summary_en": "Unlike highly realistic animation, limited animation uses abstraction and reduced movement to achieve similar effects more cheaply, while also expanding artistic freedom and making innovative films possible.", "summary_ko": "매우 사실적인 애니메이션과 달리, 리미티드 애니메이션은 추상적 표현과 적은 움직임을 써서 더 낮은 비용으로 비슷한 효과를 내며, 동시에 예술적 자유를 넓혀 새롭고 혁신적인 작품을 가능하게 한다.", "structure": [{"label": "도입", "english": "The passage introduces limited animation by contrasting it with realistic animation.", "korean": "이 글은 리미티드 애니메이션을 사실적인 애니메이션과 대비하며 소개한다."}, {"label": "근거", "english": "Disney’s earlier works are presented as examples of highly realistic animation admired for their detail.", "korean": "디즈니의 초기 작품들은 세밀한 표현으로 높이 평가받은 사실적 애니메이션의 예로 제시된다."}, {"label": "문제", "english": "The realistic style is described as requiring too much time and money.", "korean": "사실적인 방식은 너무 많은 시간과 돈이 든다는 문제가 있다고 설명한다."}, {"label": "부연", "english": "Limited animation is explained as a cheaper method that relies more on abstraction, symbolism, and the viewer’s imagination.", "korean": "리미티드 애니메이션은 추상성, 상징, 그리고 보는 사람의 상상력에 더 기대는 더 저렴한 방식이라고 풀어서 설명한다."}, {"label": "결론", "english": "The passage concludes that limited animation made new artistic styles and groundbreaking films possible.", "korean": "글은 리미티드 애니메이션이 새로운 예술 양식과 획기적인 영화들을 가능하게 했다고 결론짓는다."}], "key_vocabulary": [{"word": "limited animation", "meaning": "리미티드 애니메이션, 움직임과 표현을 줄여 만드는 애니메이션 방식", "synonyms": ["stylized animation", "reduced animation"], "antonyms": ["realistic animation", "full animation"], "emphasized": true}, {"word": "process", "meaning": "과정, 방식", "synonyms": ["method", "procedure"], "antonyms": [], "emphasized": false}, {"word": "realistic", "meaning": "사실적인, 현실처럼 보이는", "synonyms": ["lifelike", "natural"], "antonyms": ["abstract", "unrealistic"], "emphasized": true}, {"word": "acclaimed", "meaning": "높이 평가받는, 칭찬받는", "synonyms": ["praised", "admired"], "antonyms": ["criticized", "ignored"], "emphasized": true}, {"word": "depict", "meaning": "그리다, 묘사하다", "synonyms": ["portray", "represent", "illustrate"], "antonyms": ["hide", "misrepresent"], "emphasized": true}, {"word": "exquisite", "meaning": "매우 정교한, 아주 뛰어난", "synonyms": ["delicate", "refined", "beautiful"], "antonyms": ["rough", "coarse"], "emphasized": false}, {"word": "time-consuming", "meaning": "시간이 많이 드는", "synonyms": ["lengthy", "labor-intensive"], "antonyms": ["quick", "efficient"], "emphasized": true}, {"word": "abstract", "meaning": "추상적인", "synonyms": ["symbolic", "nonrealistic"], "antonyms": ["concrete", "realistic"], "emphasized": true}, {"word": "symbolism", "meaning": "상징 사용, 상징성", "synonyms": ["representation", "imagery"], "antonyms": ["literalness"], "emphasized": true}, {"word": "effect", "meaning": "효과", "synonyms": ["result", "impact"], "antonyms": ["cause"], "emphasized": true}, {"word": "production cost", "meaning": "제작 비용", "synonyms": ["manufacturing cost", "expense"], "antonyms": [], "emphasized": true}, {"word": "depend on", "meaning": "~에 달려 있다, ~에 의존하다", "synonyms": ["rely on", "rest on"], "antonyms": ["ignore", "disregard"], "emphasized": true}, {"word": "suspension of disbelief", "meaning": "현실이 아니라는 점을 잠시 잊고 받아들이는 태도", "synonyms": ["willing acceptance"], "antonyms": ["skepticism"], "emphasized": true}, {"word": "indulge in", "meaning": "마음껏 빠지다, 즐기다", "synonyms": ["enjoy", "immerse oneself in"], "antonyms": ["restrain", "avoid"], "emphasized": true}, {"word": "bound to", "meaning": "~에 얽매인, ~에 묶인", "synonyms": ["restricted by", "tied to"], "antonyms": ["free from", "independent of"], "emphasized": true}, {"word": "ground-breaking", "meaning": "획기적인, 새로운 길을 여는", "synonyms": ["innovative", "revolutionary"], "antonyms": ["conventional", "ordinary"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "Limited animation", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a process", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of making animated cartoons", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "does not follow", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a “realistic” approach.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "리미티드 애니메이션은 ‘사실적인’ 방식을 따르지 않는 애니메이션 만화를 만드는 한 과정이다.", "points": ["관계대명사 that은 앞의 a process를 꾸며 주며, 뒤에서 주어 역할을 한다.", "follow는 3형식 동사로, a “realistic” approach가 목적어이다."], "paraphrase_en": "Limited animation is a way of making cartoons without using a realistic style.", "paraphrase_ko": "리미티드 애니메이션은 사실적인 방식이 아닌 방법으로 만화를 만드는 것이다."}, {"id": 2, "type_label": "부연", "phrases": [{"text": "The short cartoons and feature films", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of Walt Disney", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "from the 1930s and 1940s", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "are widely acclaimed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "for depicting animated simulations", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of reality", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "with exquisite detail", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in every frame.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "1930년대와 1940년대의 월트 디즈니의 단편 만화와 장편 영화들은, 모든 장면마다 아주 정교한 세부 표현으로 현실을 움직이는 모습처럼 그려 냈다는 점에서 널리 높이 평가받는다.", "points": ["수동태 are widely acclaimed for ~는 ‘~ 때문에 널리 높이 평가받는다’로 해석한다."], "paraphrase_en": "Walt Disney’s cartoons and films from the 1930s and 1940s are praised for showing reality in great detail.", "paraphrase_ko": "1930년대와 1940년대의 월트 디즈니 작품들은 현실을 아주 세밀하게 보여 준 점으로 칭찬받는다."}, {"id": 3, "type_label": "비판", "phrases": [{"text": "However,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "this style", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of animation", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "very time-consuming and expensive.", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "하지만 이런 애니메이션 방식은 시간이 아주 많이 들고 비용도 많이 든다.", "points": [], "paraphrase_en": "However, this kind of animation takes a lot of time and money.", "paraphrase_ko": "하지만 이런 종류의 애니메이션은 시간과 돈이 많이 든다."}, {"id": 4, "type_label": "주제문", "phrases": [{"text": "“Limited” animation", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "creates", "type": "bold", "label": "3V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an image", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "uses", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "abstract art, symbolism, and limited movement", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to create", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the same effect,", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "but", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "at a much lower production cost.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "리미티드 애니메이션은 추상 미술, 상징, 그리고 제한된 움직임을 사용해서 같은 효과를 만들어 내는 이미지를 만들지만, 제작 비용은 훨씬 더 적게 든다.", "points": ["관계대명사 that은 앞의 an image를 꾸며 준다.", "to create는 목적을 나타내는 to부정사로, ‘같은 효과를 만들기 위해’라고 해석한다."], "paraphrase_en": "Limited animation makes images that use abstract methods and less movement to get the same effect at a lower cost.", "paraphrase_ko": "리미티드 애니메이션은 추상적인 방법과 적은 움직임을 써서 더 낮은 비용으로 같은 효과를 내는 이미지를 만든다."}, {"id": 5, "type_label": "부연", "phrases": [{"text": "This style", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of animation", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "depends", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "more", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "upon suspension of disbelief", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to tell", "type": "plain", "label": "부사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a story;", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "the story", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "exists", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "more", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in the viewer’s imagination.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "이런 애니메이션 방식은 이야기를 전하기 위해 현실이 아니라는 점을 잠시 잊고 받아들이는 태도에 더 많이 기대며, 그 이야기는 더 많이 보는 사람의 상상 속에 존재한다.", "points": ["depend upon은 ‘~에 의존하다’라는 뜻이다.", "to tell은 목적을 나타내는 to부정사이다."], "paraphrase_en": "This kind of animation relies more on the audience’s willingness to imagine the story, so the story lives more in the viewer’s mind.", "paraphrase_ko": "이런 애니메이션은 관객이 이야기를 상상하며 받아들이는 태도에 더 기대기 때문에, 이야기는 보는 사람의 머릿속에서 더 크게 살아난다."}, {"id": 6, "type_label": "부연", "phrases": [{"text": "It", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "also encourages", "type": "bold", "label": "5V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the animators", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to indulge", "type": "bold", "label": "OC", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in artistic styles", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are not necessarily bound", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to the limits", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of the real world.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}]}], "korean": "그것은 또한 애니메이터들이 꼭 현실 세계의 한계에 묶일 필요는 없는 예술적 스타일을 마음껏 추구하도록 해 준다.", "points": ["encourage + O + to부정사는 5형식으로, ‘O가 ~하도록 장려하다’라는 뜻이다.", "that 이하는 artistic styles를 꾸며 주는 관계대명사절이다."], "paraphrase_en": "It also lets animators freely explore artistic styles that do not have to stay within real-world limits.", "paraphrase_ko": "또한 그것은 애니메이터들이 현실 세계의 한계 안에만 머물지 않는 예술적 스타일을 자유롭게 시도하게 한다."}, {"id": 7, "type_label": "결론", "phrases": [{"text": "The result", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a new artistic style", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "could not have developed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "if animation", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "was", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "solely devoted", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to producing simulations", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of reality.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}]}], "korean": "그 결과는, 만약 애니메이션이 오직 현실의 모사만 만드는 데만 쓰였다면 결코 발전할 수 없었을 새로운 예술 양식이다.", "points": ["could not have p.p.는 ‘결코 ~할 수 없었을 것이다’라는 뜻으로, 과거의 가능성을 부정하는 표현이다.", "if절은 가정의 뜻을 나타내며, 실제와 다른 상황을 가정하고 있다."], "paraphrase_en": "As a result, a new artistic style appeared, and it would not have developed if animation had only tried to copy reality.", "paraphrase_ko": "그 결과 새로운 예술 양식이 나타났고, 애니메이션이 현실만 흉내 내려 했다면 그것은 발전하지 못했을 것이다."}, {"id": 8, "type_label": "결론", "phrases": [{"text": "Without limited animation,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "such ground-breaking films", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as Yellow Submarine, Chuck Jones’ The Dot and the Line, and many others", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "could never have been produced.", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "리미티드 애니메이션이 없었다면, Yellow Submarine, 척 존스의 The Dot and the Line, 그리고 많은 다른 작품들과 같은 획기적인 영화들은 결코 만들어질 수 없었을 것이다.", "points": ["Without ~는 가정법에서 if it had not been for ~와 비슷하게 ‘~이 없었다면’으로 해석할 수 있다.", "could never have been produced는 과거에 실현되지 못했을 가능성을 나타내는 수동형 가정 표현이다."], "paraphrase_en": "If limited animation had not existed, innovative films like Yellow Submarine and The Dot and the Line would not have been made.", "paraphrase_ko": "만약 리미티드 애니메이션이 없었다면, Yellow Submarine이나 The Dot and the Line 같은 혁신적인 영화들은 만들어지지 못했을 것이다."}], "problem_number": "04", "exam_info": "수특 2027 7강"};
+const VIEWER_PAGE = "../페이지/04.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

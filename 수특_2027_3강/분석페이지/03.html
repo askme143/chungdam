@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "DNA as the History Inside Us", "title_ko": "우리 안에 있는 역사, DNA", "theme_en": "The passage explains that DNA is a living record of biological history that shapes our bodies and what we pass on to future generations.", "theme_ko": "이 글은 DNA가 생물의 역사를 담고 있는 살아 있는 기록이며, 우리 몸과 다음 세대에 무엇이 전해질지를 결정한다고 설명한다.", "summary_en": "By extending Baldwin’s idea about people and history to all life, the passage argues that DNA is accumulated biological history within us and also a force that governs us.", "summary_ko": "이 글은 볼드윈의 사람과 역사에 대한 말을 모든 생명으로 넓혀서, DNA가 우리 안에 쌓여 온 생물의 역사이면서 동시에 우리를 지배하는 힘이라고 말한다.", "structure": [{"label": "도입", "english": "The passage begins with James Baldwin’s statement about people being trapped in history and history being trapped in them.", "korean": "글은 사람이 역사에 갇혀 있고 역사도 사람 안에 갇혀 있다는 제임스 볼드윈의 말로 시작한다."}, {"label": "부연", "english": "It then expands that idea from race to all life on Earth by connecting DNA to biological history.", "korean": "이어서 그 생각을 인종의 문제에서 지구의 모든 생명으로 넓히며, DNA를 생물의 역사와 연결한다."}, {"label": "근거", "english": "The writer explains that each strand of DNA is an ancient coded record passed down through generations and shaped over immense time by natural selection.", "korean": "글쓴이는 DNA의 각 가닥이 세대를 거쳐 전해 내려온 오래된 암호 기록이며, 자연선택에 의해 아주 긴 시간 동안 만들어졌다고 설명한다."}, {"label": "결론", "english": "Finally, the passage concludes that DNA is both inside us and a master over us, so we are trapped in this vehicle of history.", "korean": "마지막으로 글은 DNA가 우리 안에 있으면서도 우리를 지배하는 존재이기 때문에, 우리는 이 역사라는 탈것에 갇혀 있다고 결론짓는다."}], "key_vocabulary": [{"word": "trapped", "meaning": "갇힌, 벗어나기 어려운", "synonyms": ["confined", "stuck"], "antonyms": ["free", "released"], "emphasized": true}, {"word": "equally", "meaning": "똑같이, 마찬가지로", "synonyms": ["similarly", "likewise"], "antonyms": ["unequally"], "emphasized": true}, {"word": "replaced", "meaning": "대체된, 바뀐", "synonyms": ["substituted", "exchanged"], "antonyms": ["kept"], "emphasized": false}, {"word": "strand", "meaning": "가닥, 한 줄기", "synonyms": ["thread", "filament"], "antonyms": [], "emphasized": true}, {"word": "ancient", "meaning": "아주 오래된", "synonyms": ["old", "age-old"], "antonyms": ["modern", "recent"], "emphasized": true}, {"word": "biological", "meaning": "생물의, 생명과 관련된", "synonyms": ["living", "organic"], "antonyms": [], "emphasized": true}, {"word": "passed down", "meaning": "전해 내려온", "synonyms": ["handed down", "transmitted"], "antonyms": ["withheld"], "emphasized": true}, {"word": "manifestation", "meaning": "겉으로 드러난 모습, 형태", "synonyms": ["expression", "form"], "antonyms": ["concealment"], "emphasized": true}, {"word": "accumulated", "meaning": "쌓인, 축적된", "synonyms": ["gathered", "collected"], "antonyms": ["reduced", "lost"], "emphasized": true}, {"word": "countless", "meaning": "셀 수 없이 많은", "synonyms": ["innumerable", "many"], "antonyms": ["few", "limited"], "emphasized": false}, {"word": "pitiless", "meaning": "가차 없는, 냉정한", "synonyms": ["merciless", "harsh"], "antonyms": ["merciful", "kind"], "emphasized": true}, {"word": "phenomena", "meaning": "현상들", "synonyms": ["events", "occurrences"], "antonyms": [], "emphasized": false}, {"word": "natural selection", "meaning": "자연선택", "synonyms": ["evolutionary selection"], "antonyms": [], "emphasized": true}, {"word": "blueprint", "meaning": "설계도, 청사진", "synonyms": ["plan", "design"], "antonyms": [], "emphasized": true}, {"word": "dictator", "meaning": "독재자, 절대적으로 좌우하는 것", "synonyms": ["ruler", "controller"], "antonyms": ["servant"], "emphasized": true}, {"word": "blessings", "meaning": "축복, 좋은 것", "synonyms": ["benefits", "gifts"], "antonyms": ["curses", "misfortunes"], "emphasized": false}], "sentences": [{"id": 1, "type_label": "서술", "phrases": [{"text": "In the early 1960s", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the great American writer James Baldwin", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "wrote", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ":", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "“People", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are trapped", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in history", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "history", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is trapped", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in them.”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}], "korean": "1960년대 초에 위대한 미국 작가 제임스 볼드윈은 이렇게 썼다. “사람들은 역사에 갇혀 있고, 역사도 그들 안에 갇혀 있다.”", "points": ["인용문 안의 'are trapped / is trapped'는 수동태이다. 'be trapped in ~'은 '~에 갇혀 있다'라는 뜻으로 자주 나온다."], "paraphrase_en": "In the early 1960s, James Baldwin wrote that people live inside history, and history also lives inside them.", "paraphrase_ko": "1960년대 초에 제임스 볼드윈은 사람이 역사 속에 살고, 역사도 사람 안에 들어 있다고 썼다."}, {"id": 2, "type_label": "부연", "phrases": [{"text": "He", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "was speaking", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "to race", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "when", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "he", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "penned", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "those words.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": "= wrote", "children": []}], "korean": "그가 그 말을 적었을 때, 그는 인종 문제를 두고 말하고 있었다.", "points": ["when he penned those words는 시간을 나타내는 부사절이다. pen은 여기서 '펜'이 아니라 동사로 '글을 쓰다'라는 뜻이다."], "paraphrase_en": "When Baldwin wrote those words, he was talking about race.", "paraphrase_ko": "볼드윈이 그 말을 썼을 때, 그는 인종 문제를 말하고 있었다."}, {"id": 3, "type_label": "주제문", "phrases": [{"text": "But", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the statement", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "equally true", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "if", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the word “people”", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is replaced", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "with “all of life on Earth, present and past,”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "for", "type": "bold", "label": null, "annotation_above": null, "annotation_below": "= because", "children": []}, {"text": "each strand", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of DNA", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", in each of our cells,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an ancient record", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of biological history,", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "written", "type": "bold", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in simple code", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "passed down", "type": "bold", "label": "병렬1", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "from generation to generation.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "하지만 ‘사람들’이라는 말을 ‘지구 위의 모든 생명, 현재와 과거의 모든 생명’으로 바꾸어도 그 말은 똑같이 맞다. 왜냐하면 우리 세포 하나하나 속 DNA의 각 가닥은 생물의 역사를 담은 아주 오래된 기록이기 때문이다. 그것은 단순한 암호로 쓰여 있고, 세대에서 세대로 전해 내려온 것이다.", "points": ["if the word 'people' is replaced ~는 수동태가 쓰인 조건절이다. '만약 ~로 바뀐다면'으로 해석하면 된다.", "for는 여기서 전치사가 아니라 접속사로, '왜냐하면'이라는 이유를 나타낸다.", "written ~ and passed down ~은 과거분사로 앞의 record를 꾸며 주며 병렬을 이룬다."], "paraphrase_en": "But this idea is also true for all life, because every DNA strand in our cells is an old coded record of biological history handed down through generations.", "paraphrase_ko": "하지만 이 생각은 모든 생명에도 맞는다. 왜냐하면 우리 세포 속 모든 DNA 가닥은 세대를 거쳐 전해진 오래된 생물의 역사 기록이기 때문이다."}, {"id": 4, "type_label": "부연", "phrases": [{"text": "One", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "could say", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "that", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "DNA", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "nothing but history", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": "= only history", "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "one", "type": "plain", "label": null, "annotation_above": null, "annotation_below": "= history", "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "with a physical manifestation", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "was blended", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and accumulated", "type": "bold", "label": "병렬1", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "over countless eons", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by the most pitiless of all phenomena", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "natural selection.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "사람은 DNA가 역사 그 자체일 뿐이라고 말할 수도 있다. 그것은 눈에 보이는 형태를 가진 역사이며, 모든 현상 가운데 가장 가차 없는 자연선택에 의해 셀 수 없이 긴 세월 동안 조금씩 섞이고 쌓여 온 역사이다.", "points": ["nothing but ~는 '오직 ~일 뿐'이라는 뜻으로 자주 시험에 나온다.", "that was blended and accumulated ~에서 that은 앞의 one(= history)을 받는 주격 관계대명사이다. blended와 accumulated가 병렬이다."], "paraphrase_en": "We could say DNA is simply history in physical form, shaped and built up over vast ages by natural selection.", "paraphrase_ko": "DNA는 물질의 형태를 가진 역사라고 할 수 있고, 그것은 자연선택에 의해 아주 오랜 시간 동안 만들어지고 쌓여 왔다."}, {"id": 5, "type_label": "결론", "phrases": [{"text": "DNA", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a history", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "inside us", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "and yet", "type": "bold", "label": null, "annotation_above": null, "annotation_below": "= 그러나 동시에", "children": []}, {"text": "one", "type": "plain", "label": null, "annotation_above": null, "annotation_below": "= a history", "children": []}, {"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "our master", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as well", "type": "plain", "label": null, "annotation_above": null, "annotation_below": "= too", "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the blueprint", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "for our bodies", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "dictator", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of what", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "will pass on", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to our children", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "gifts", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "that", "type": "boxed", "label": "주관대", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "can be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "blessings", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "or", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "deadly time bombs.", "type": "bold", "label": "병렬1", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "DNA는 우리 안에 있는 역사이면서도, 동시에 우리의 주인이기도 한 역사이다. 그것은 우리 몸의 설계도이고, 또 우리가 자녀에게 물려줄 것을 좌우하는 독재자이기도 하다. 그 선물은 축복이 될 수도 있고, 치명적인 시한폭탄이 될 수도 있다.", "points": ["that is inside us / that is our master에서 that은 앞의 history를 꾸며 주는 주격 관계대명사이다.", "what we will pass on to our children은 전치사 of의 목적어 역할을 하는 명사절이다. '우리가 자녀에게 물려줄 것'으로 해석하면 된다."], "paraphrase_en": "DNA is history within us, but it also controls us, shaping our bodies and determining what traits we give to our children, for better or worse.", "paraphrase_ko": "DNA는 우리 안의 역사이지만, 동시에 우리를 지배하기도 한다. 그래서 우리 몸을 만들고, 좋은 것이든 나쁜 것이든 우리가 자녀에게 무엇을 물려줄지도 결정한다."}, {"id": 6, "type_label": "결론", "phrases": [{"text": "We", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "indeed trapped", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in this particular vehicle", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of history", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "as much as", "type": "bold", "label": null, "annotation_above": null, "annotation_below": "= just as much as", "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": "= this vehicle of history / DNA", "children": []}, {"text": "is trapped", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in us.", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "우리는 분명 이 특별한 역사라는 탈것 안에 갇혀 있다. 그것이 우리 안에 갇혀 있는 것만큼이나 그렇다.", "points": ["as much as it is trapped in us는 비교 구문으로, '그것이 우리 안에 갇혀 있는 것만큼이나'라는 뜻이다.", "be trapped in ~이 다시 쓰이며, 앞 문장의 핵심 생각을 마무리하는 결론 문장이다."], "paraphrase_en": "So we are truly confined within this form of history, just as it exists within us.", "paraphrase_ko": "그래서 우리는 정말 이 역사 속에 갇혀 있으며, 그 역사도 우리 안에 들어 있다."}], "problem_number": "03", "exam_info": "수특 2027 3강"};
+const VIEWER_PAGE = "../페이지/03.html";
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

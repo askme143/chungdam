@@ -1,0 +1,1020 @@
+{
+  "title_en": "Limited Animation and Its Artistic Value",
+  "title_ko": "리미티드 애니메이션과 그 예술적 가치",
+  "theme_en": "Limited animation reduces cost and realism, but it opens the way for imagination and new artistic styles.",
+  "theme_ko": "리미티드 애니메이션은 비용을 줄이고 사실적인 표현은 덜하지만, 상상력과 새로운 예술 양식을 펼칠 수 있게 해 준다.",
+  "summary_en": "Unlike highly realistic animation, limited animation uses abstraction and reduced movement to achieve similar effects more cheaply, while also expanding artistic freedom and making innovative films possible.",
+  "summary_ko": "매우 사실적인 애니메이션과 달리, 리미티드 애니메이션은 추상적 표현과 적은 움직임을 써서 더 낮은 비용으로 비슷한 효과를 내며, 동시에 예술적 자유를 넓혀 새롭고 혁신적인 작품을 가능하게 한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "The passage introduces limited animation by contrasting it with realistic animation.",
+      "korean": "이 글은 리미티드 애니메이션을 사실적인 애니메이션과 대비하며 소개한다."
+    },
+    {
+      "label": "근거",
+      "english": "Disney’s earlier works are presented as examples of highly realistic animation admired for their detail.",
+      "korean": "디즈니의 초기 작품들은 세밀한 표현으로 높이 평가받은 사실적 애니메이션의 예로 제시된다."
+    },
+    {
+      "label": "문제",
+      "english": "The realistic style is described as requiring too much time and money.",
+      "korean": "사실적인 방식은 너무 많은 시간과 돈이 든다는 문제가 있다고 설명한다."
+    },
+    {
+      "label": "부연",
+      "english": "Limited animation is explained as a cheaper method that relies more on abstraction, symbolism, and the viewer’s imagination.",
+      "korean": "리미티드 애니메이션은 추상성, 상징, 그리고 보는 사람의 상상력에 더 기대는 더 저렴한 방식이라고 풀어서 설명한다."
+    },
+    {
+      "label": "결론",
+      "english": "The passage concludes that limited animation made new artistic styles and groundbreaking films possible.",
+      "korean": "글은 리미티드 애니메이션이 새로운 예술 양식과 획기적인 영화들을 가능하게 했다고 결론짓는다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "limited animation",
+      "meaning": "리미티드 애니메이션, 움직임과 표현을 줄여 만드는 애니메이션 방식",
+      "synonyms": [
+        "stylized animation",
+        "reduced animation"
+      ],
+      "antonyms": [
+        "realistic animation",
+        "full animation"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "process",
+      "meaning": "과정, 방식",
+      "synonyms": [
+        "method",
+        "procedure"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "realistic",
+      "meaning": "사실적인, 현실처럼 보이는",
+      "synonyms": [
+        "lifelike",
+        "natural"
+      ],
+      "antonyms": [
+        "abstract",
+        "unrealistic"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "acclaimed",
+      "meaning": "높이 평가받는, 칭찬받는",
+      "synonyms": [
+        "praised",
+        "admired"
+      ],
+      "antonyms": [
+        "criticized",
+        "ignored"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "depict",
+      "meaning": "그리다, 묘사하다",
+      "synonyms": [
+        "portray",
+        "represent",
+        "illustrate"
+      ],
+      "antonyms": [
+        "hide",
+        "misrepresent"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "exquisite",
+      "meaning": "매우 정교한, 아주 뛰어난",
+      "synonyms": [
+        "delicate",
+        "refined",
+        "beautiful"
+      ],
+      "antonyms": [
+        "rough",
+        "coarse"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "time-consuming",
+      "meaning": "시간이 많이 드는",
+      "synonyms": [
+        "lengthy",
+        "labor-intensive"
+      ],
+      "antonyms": [
+        "quick",
+        "efficient"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "abstract",
+      "meaning": "추상적인",
+      "synonyms": [
+        "symbolic",
+        "nonrealistic"
+      ],
+      "antonyms": [
+        "concrete",
+        "realistic"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "symbolism",
+      "meaning": "상징 사용, 상징성",
+      "synonyms": [
+        "representation",
+        "imagery"
+      ],
+      "antonyms": [
+        "literalness"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "effect",
+      "meaning": "효과",
+      "synonyms": [
+        "result",
+        "impact"
+      ],
+      "antonyms": [
+        "cause"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "production cost",
+      "meaning": "제작 비용",
+      "synonyms": [
+        "manufacturing cost",
+        "expense"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "depend on",
+      "meaning": "~에 달려 있다, ~에 의존하다",
+      "synonyms": [
+        "rely on",
+        "rest on"
+      ],
+      "antonyms": [
+        "ignore",
+        "disregard"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "suspension of disbelief",
+      "meaning": "현실이 아니라는 점을 잠시 잊고 받아들이는 태도",
+      "synonyms": [
+        "willing acceptance"
+      ],
+      "antonyms": [
+        "skepticism"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "indulge in",
+      "meaning": "마음껏 빠지다, 즐기다",
+      "synonyms": [
+        "enjoy",
+        "immerse oneself in"
+      ],
+      "antonyms": [
+        "restrain",
+        "avoid"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "bound to",
+      "meaning": "~에 얽매인, ~에 묶인",
+      "synonyms": [
+        "restricted by",
+        "tied to"
+      ],
+      "antonyms": [
+        "free from",
+        "independent of"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "ground-breaking",
+      "meaning": "획기적인, 새로운 길을 여는",
+      "synonyms": [
+        "innovative",
+        "revolutionary"
+      ],
+      "antonyms": [
+        "conventional",
+        "ordinary"
+      ],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "Limited animation",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a process",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of making animated cartoons",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "does not follow",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "a “realistic” approach.",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "리미티드 애니메이션은 ‘사실적인’ 방식을 따르지 않는 애니메이션 만화를 만드는 한 과정이다.",
+      "points": [
+        "관계대명사 that은 앞의 a process를 꾸며 주며, 뒤에서 주어 역할을 한다.",
+        "follow는 3형식 동사로, a “realistic” approach가 목적어이다."
+      ],
+      "paraphrase_en": "Limited animation is a way of making cartoons without using a realistic style.",
+      "paraphrase_ko": "리미티드 애니메이션은 사실적인 방식이 아닌 방법으로 만화를 만드는 것이다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "The short cartoons and feature films",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of Walt Disney",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "from the 1930s and 1940s",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "are widely acclaimed",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "for depicting animated simulations",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of reality",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "with exquisite detail",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "in every frame.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "1930년대와 1940년대의 월트 디즈니의 단편 만화와 장편 영화들은, 모든 장면마다 아주 정교한 세부 표현으로 현실을 움직이는 모습처럼 그려 냈다는 점에서 널리 높이 평가받는다.",
+      "points": [
+        "수동태 are widely acclaimed for ~는 ‘~ 때문에 널리 높이 평가받는다’로 해석한다."
+      ],
+      "paraphrase_en": "Walt Disney’s cartoons and films from the 1930s and 1940s are praised for showing reality in great detail.",
+      "paraphrase_ko": "1930년대와 1940년대의 월트 디즈니 작품들은 현실을 아주 세밀하게 보여 준 점으로 칭찬받는다."
+    },
+    {
+      "id": 3,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "However,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "this style",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of animation",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "very time-consuming and expensive.",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "하지만 이런 애니메이션 방식은 시간이 아주 많이 들고 비용도 많이 든다.",
+      "points": [],
+      "paraphrase_en": "However, this kind of animation takes a lot of time and money.",
+      "paraphrase_ko": "하지만 이런 종류의 애니메이션은 시간과 돈이 많이 든다."
+    },
+    {
+      "id": 4,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "“Limited” animation",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "creates",
+          "type": "bold",
+          "label": "3V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an image",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "uses",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "abstract art, symbolism, and limited movement",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to create",
+              "type": "plain",
+              "label": "부사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "the same effect,",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "but",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "at a much lower production cost.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "리미티드 애니메이션은 추상 미술, 상징, 그리고 제한된 움직임을 사용해서 같은 효과를 만들어 내는 이미지를 만들지만, 제작 비용은 훨씬 더 적게 든다.",
+      "points": [
+        "관계대명사 that은 앞의 an image를 꾸며 준다.",
+        "to create는 목적을 나타내는 to부정사로, ‘같은 효과를 만들기 위해’라고 해석한다."
+      ],
+      "paraphrase_en": "Limited animation makes images that use abstract methods and less movement to get the same effect at a lower cost.",
+      "paraphrase_ko": "리미티드 애니메이션은 추상적인 방법과 적은 움직임을 써서 더 낮은 비용으로 같은 효과를 내는 이미지를 만든다."
+    },
+    {
+      "id": 5,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "This style",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of animation",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "depends",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "more",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "upon suspension of disbelief",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to tell",
+              "type": "plain",
+              "label": "부사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "a story;",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "the story",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "exists",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "more",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in the viewer’s imagination.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "이런 애니메이션 방식은 이야기를 전하기 위해 현실이 아니라는 점을 잠시 잊고 받아들이는 태도에 더 많이 기대며, 그 이야기는 더 많이 보는 사람의 상상 속에 존재한다.",
+      "points": [
+        "depend upon은 ‘~에 의존하다’라는 뜻이다.",
+        "to tell은 목적을 나타내는 to부정사이다."
+      ],
+      "paraphrase_en": "This kind of animation relies more on the audience’s willingness to imagine the story, so the story lives more in the viewer’s mind.",
+      "paraphrase_ko": "이런 애니메이션은 관객이 이야기를 상상하며 받아들이는 태도에 더 기대기 때문에, 이야기는 보는 사람의 머릿속에서 더 크게 살아난다."
+    },
+    {
+      "id": 6,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "It",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "also encourages",
+          "type": "bold",
+          "label": "5V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the animators",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to indulge",
+          "type": "bold",
+          "label": "OC",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in artistic styles",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "주관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "are not necessarily bound",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "to the limits",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "of the real world.",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "그것은 또한 애니메이터들이 꼭 현실 세계의 한계에 묶일 필요는 없는 예술적 스타일을 마음껏 추구하도록 해 준다.",
+      "points": [
+        "encourage + O + to부정사는 5형식으로, ‘O가 ~하도록 장려하다’라는 뜻이다.",
+        "that 이하는 artistic styles를 꾸며 주는 관계대명사절이다."
+      ],
+      "paraphrase_en": "It also lets animators freely explore artistic styles that do not have to stay within real-world limits.",
+      "paraphrase_ko": "또한 그것은 애니메이터들이 현실 세계의 한계 안에만 머물지 않는 예술적 스타일을 자유롭게 시도하게 한다."
+    },
+    {
+      "id": 7,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "The result",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a new artistic style",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "could not have developed",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "if animation",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "was",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "solely devoted",
+                  "type": "plain",
+                  "label": "C",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "to producing simulations",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "of reality.",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "그 결과는, 만약 애니메이션이 오직 현실의 모사만 만드는 데만 쓰였다면 결코 발전할 수 없었을 새로운 예술 양식이다.",
+      "points": [
+        "could not have p.p.는 ‘결코 ~할 수 없었을 것이다’라는 뜻으로, 과거의 가능성을 부정하는 표현이다.",
+        "if절은 가정의 뜻을 나타내며, 실제와 다른 상황을 가정하고 있다."
+      ],
+      "paraphrase_en": "As a result, a new artistic style appeared, and it would not have developed if animation had only tried to copy reality.",
+      "paraphrase_ko": "그 결과 새로운 예술 양식이 나타났고, 애니메이션이 현실만 흉내 내려 했다면 그것은 발전하지 못했을 것이다."
+    },
+    {
+      "id": 8,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "Without limited animation,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "such ground-breaking films",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "as Yellow Submarine, Chuck Jones’ The Dot and the Line, and many others",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "could never have been produced.",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "리미티드 애니메이션이 없었다면, Yellow Submarine, 척 존스의 The Dot and the Line, 그리고 많은 다른 작품들과 같은 획기적인 영화들은 결코 만들어질 수 없었을 것이다.",
+      "points": [
+        "Without ~는 가정법에서 if it had not been for ~와 비슷하게 ‘~이 없었다면’으로 해석할 수 있다.",
+        "could never have been produced는 과거에 실현되지 못했을 가능성을 나타내는 수동형 가정 표현이다."
+      ],
+      "paraphrase_en": "If limited animation had not existed, innovative films like Yellow Submarine and The Dot and the Line would not have been made.",
+      "paraphrase_ko": "만약 리미티드 애니메이션이 없었다면, Yellow Submarine이나 The Dot and the Line 같은 혁신적인 영화들은 만들어지지 못했을 것이다."
+    }
+  ],
+  "problem_number": "04"
+}
