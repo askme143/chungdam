@@ -395,7 +395,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
   /* Phrase rendering */
   .phrase-area {
     font-size: 1.05rem;
-    line-height: 4;
+    line-height: 3;
     margin-bottom: 1rem;
     word-break: keep-all;
     overflow-wrap: break-word;
@@ -461,7 +461,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(100% + 0.85em);
+    top: calc(100% + 0.55em);
     font-size: 0.68rem;
     color: var(--red);
     font-weight: 400;
@@ -579,7 +579,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
 
 <header>
   <div class="header-top">
-    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <a class="home-btn" href="/chungdam/">&#x1F3E0; 홈</a>
     <div>
       <h1 id="pageTitle">본문분석</h1>
       <div class="header-sub" id="examInfo"></div>
