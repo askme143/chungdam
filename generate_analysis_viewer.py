@@ -403,7 +403,6 @@ _TEMPLATE = r"""<!DOCTYPE html>
   .phrase-unit {
     display: inline;
     position: relative;
-    white-space: nowrap;
   }
   .phrase-text {
     display: inline;
