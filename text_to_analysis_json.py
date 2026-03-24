@@ -108,7 +108,9 @@ For each section:
 Do NOT summarize, paraphrase, or add meta-commentary like \
 "The passage begins by stating that...". Just use the exact sentence \
 from the text.
-- korean: Korean translation of that sentence.
+- korean: direct Korean translation of that original sentence only. \
+Do NOT add meta-commentary like "~라고 말하며 시작한다", \
+"~라고 설명한다", "~라고 경고한다". Just translate the sentence itself.
 Typically 3-5 sections.
 
 ═══════════════════════════════════════════════
