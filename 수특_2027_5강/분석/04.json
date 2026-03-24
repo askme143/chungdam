@@ -305,7 +305,7 @@
       "phrases": [
         {
           "text": "In performance",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -337,7 +337,7 @@
         },
         {
           "text": "acceptable",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -353,7 +353,7 @@
         },
         {
           "text": "because",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -454,7 +454,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -478,7 +478,7 @@
         },
         {
           "text": "equally important",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -697,7 +697,7 @@
       "phrases": [
         {
           "text": "In the Feinstein Institutes study",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -808,7 +808,7 @@
       "phrases": [
         {
           "text": "In a performance realm",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -926,7 +926,7 @@
       "phrases": [
         {
           "text": "During training and competition",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

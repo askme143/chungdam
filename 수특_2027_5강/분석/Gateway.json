@@ -356,7 +356,7 @@
       "phrases": [
         {
           "text": "Unlike Shakespeare,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -410,7 +410,7 @@
                 },
                 {
                   "text": "particularly",
-                  "type": "bold",
+                  "type": "plain",
                   "label": null,
                   "annotation_above": null,
                   "annotation_below": null,
@@ -516,7 +516,7 @@
       "phrases": [
         {
           "text": "Over the past century,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

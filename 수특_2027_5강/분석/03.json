@@ -280,7 +280,7 @@
       "phrases": [
         {
           "text": "In other words,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -304,7 +304,7 @@
         },
         {
           "text": "beneath us.",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -561,7 +561,7 @@
             },
             {
               "text": "not present.",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -711,7 +711,7 @@
       "phrases": [
         {
           "text": "Now,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -810,7 +810,7 @@
         },
         {
           "text": "so",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -912,7 +912,7 @@
         },
         {
           "text": "modeling",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -943,7 +943,7 @@
             },
             {
               "text": "important.",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -996,7 +996,7 @@
             },
             {
               "text": "important,",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -1037,7 +1037,7 @@
             },
             {
               "text": "above",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -1216,7 +1216,7 @@
                 },
                 {
                   "text": "in the weeds,",
-                  "type": "bold",
+                  "type": "plain",
                   "label": "C",
                   "annotation_above": null,
                   "annotation_below": null,

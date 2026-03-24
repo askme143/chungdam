@@ -313,7 +313,7 @@
         },
         {
           "text": ", but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

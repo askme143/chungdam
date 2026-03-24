@@ -225,7 +225,7 @@
       "phrases": [
         {
           "text": "When",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -437,7 +437,7 @@
         },
         {
           "text": "because",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -561,7 +561,7 @@
       "phrases": [
         {
           "text": "If",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -688,7 +688,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -696,7 +696,7 @@
         },
         {
           "text": "if",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -844,7 +844,7 @@
         },
         {
           "text": "then",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -914,7 +914,7 @@
         },
         {
           "text": "would be inclined",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -992,7 +992,7 @@
       "phrases": [
         {
           "text": "Clearly,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1023,7 +1023,7 @@
             },
             {
               "text": "versus",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,

@@ -392,17 +392,39 @@ _TEMPLATE = r"""<!DOCTYPE html>
     background: var(--accent-light);
   }
 
+  /* Legend */
+  .legend-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.85rem;
+  }
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
   /* Phrase rendering */
   .phrase-area {
     font-size: 1.05rem;
-    line-height: 3;
+    line-height: 2.5;
     margin-bottom: 1rem;
     word-break: keep-all;
     overflow-wrap: break-word;
   }
   .phrase-unit {
-    display: inline;
+    display: inline-block;
+  }
+  .phrase-core {
     position: relative;
+    display: inline;
+    line-height: normal;
   }
   .phrase-text {
     display: inline;
@@ -460,7 +482,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(100% + 0.55em);
+    top: calc(100% + 1.1em);
     font-size: 0.68rem;
     color: var(--red);
     font-weight: 400;
@@ -709,6 +731,13 @@ function esc(s) {
 
   // ── Section 5: 문장별 분석 ──
   html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  html += `<div class="legend-box">
+    <span class="legend-item"><strong class="phrase-bold">굵은 글씨</strong> 동사</span>
+    <span class="legend-item"><span class="phrase-underline">밑줄</span> 주어</span>
+    <span class="legend-item"><span class="phrase-boxed">박스</span> 관계대명사</span>
+    <span class="legend-item"><span class="phrase-bracket depth-0">(</span>괄호<span class="phrase-bracket depth-0">)</span> 수식구</span>
+    <span class="legend-item"><span class="phrase-slash">/</span> 절 경계</span>
+  </div>`;
   for (const s of DATA.sentences) {
     const numStr = String(s.id).padStart(2, '0');
     html += `<div class="analysis-card">`;
@@ -787,31 +816,42 @@ function extractText(phrases) {
 }
 
 // ── Render phrase tree to HTML ──
-function renderPhrase(p, depth) {
+// openBr/closeBr: bracket HTML strings propagated down to first/last leaf
+function renderPhrase(p, depth, openBr, closeBr) {
   depth = depth || 0;
+  openBr = openBr || '';
+  closeBr = closeBr || '';
 
   // Slash
   if (p.type === 'slash') {
-    return '<span class="phrase-slash">/</span>';
+    return openBr + '<span class="phrase-slash">/</span>' + closeBr;
   }
 
-  // Bracket with children
+  // Bracket with children — propagate bracket HTML to first/last child
   if (p.type === 'bracket' && p.children && p.children.length > 0) {
-    let inner = '';
-    for (const c of p.children) {
-      inner += renderPhrase(c, depth + 1);
-    }
     const dc = 'depth-' + Math.min(depth, 3);
-    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+    const myOpen = '<span class="phrase-bracket ' + dc + '">(</span>';
+    const myClose = '<span class="phrase-bracket close-paren ' + dc + '">)</span>';
+    let result = '';
+    const len = p.children.length;
+    for (let i = 0; i < len; i++) {
+      const co = (i === 0) ? openBr + myOpen : '';
+      const cc = (i === len - 1) ? myClose + closeBr : '';
+      result += renderPhrase(p.children[i], depth + 1, co, cc);
+    }
+    return result;
   }
 
   // Node with children (non-bracket)
   if (p.children && p.children.length > 0) {
-    let inner = '';
-    for (const c of p.children) {
-      inner += renderPhrase(c, depth);
+    let result = '';
+    const len = p.children.length;
+    for (let i = 0; i < len; i++) {
+      const co = (i === 0) ? openBr : '';
+      const cc = (i === len - 1) ? closeBr : '';
+      result += renderPhrase(p.children[i], depth, co, cc);
     }
-    return inner;
+    return result;
   }
 
   // Leaf node
@@ -835,8 +875,8 @@ function renderPhrase(p, depth) {
     belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
   }
 
-  // Always wrap in phrase-unit for consistent baseline alignment
-  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+  // Brackets outside phrase-core so they don't affect annotation centering
+  return '<span class="phrase-unit">' + openBr + '<span class="phrase-core">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span>' + closeBr + '</span> ';
 }
 
 function showToast(msg) {

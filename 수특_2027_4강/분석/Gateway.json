@@ -503,7 +503,7 @@
                     },
                     {
                       "text": "but",
-                      "type": "bold",
+                      "type": "plain",
                       "label": null,
                       "annotation_above": null,
                       "annotation_below": null,
@@ -601,7 +601,7 @@
             },
             {
               "text": "paramount.",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -639,7 +639,7 @@
         },
         {
           "text": "challenging",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -694,7 +694,7 @@
           "children": [
             {
               "text": "as",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -845,7 +845,7 @@
       "phrases": [
         {
           "text": "Often",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -930,7 +930,7 @@
       "phrases": [
         {
           "text": "By necessity",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -978,7 +978,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1053,7 +1053,7 @@
             },
             {
               "text": "better",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,

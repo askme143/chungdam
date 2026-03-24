@@ -385,7 +385,7 @@
       "phrases": [
         {
           "text": "In all other contexts, though,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -477,7 +477,7 @@
         },
         {
           "text": "so",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -554,7 +554,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -745,7 +745,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -879,7 +879,7 @@
       "phrases": [
         {
           "text": "Otherwise,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1019,7 +1019,7 @@
         },
         {
           "text": "worthless",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -1044,7 +1044,7 @@
         },
         {
           "text": "so",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1117,7 +1117,7 @@
         },
         {
           "text": "may",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

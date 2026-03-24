@@ -256,7 +256,7 @@
       "phrases": [
         {
           "text": "If",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -367,7 +367,7 @@
       "phrases": [
         {
           "text": "No matter what it looks like,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -428,7 +428,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -510,7 +510,7 @@
         },
         {
           "text": "— and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -637,7 +637,7 @@
       "phrases": [
         {
           "text": "Truly",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -751,7 +751,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -927,7 +927,7 @@
         },
         {
           "text": "in fact",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1006,7 +1006,7 @@
       "phrases": [
         {
           "text": "Together,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1118,7 +1118,7 @@
       "phrases": [
         {
           "text": "The outcome?",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

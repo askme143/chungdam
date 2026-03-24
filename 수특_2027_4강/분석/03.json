@@ -266,7 +266,7 @@
         },
         {
           "text": "a myth",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -421,7 +421,7 @@
       "phrases": [
         {
           "text": "After all,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -770,7 +770,7 @@
         },
         {
           "text": "and frequently does",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -790,7 +790,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -885,7 +885,7 @@
       "phrases": [
         {
           "text": "If",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -974,7 +974,7 @@
         },
         {
           "text": "not",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1005,7 +1005,7 @@
             },
             {
               "text": "firmly holding",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -1030,7 +1030,7 @@
             },
             {
               "text": "because",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -1109,7 +1109,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1237,7 +1237,7 @@
       "phrases": [
         {
           "text": "Without testing and evidence,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1269,7 +1269,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

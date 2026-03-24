@@ -400,7 +400,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -584,7 +584,7 @@
         },
         {
           "text": "likely",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -918,7 +918,7 @@
         },
         {
           "text": "the first source",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,

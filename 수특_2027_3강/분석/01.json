@@ -244,7 +244,7 @@
       "phrases": [
         {
           "text": "Even outdoors,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -333,7 +333,7 @@
         },
         {
           "text": "sometimes effective",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -467,7 +467,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -516,7 +516,7 @@
         },
         {
           "text": "mild and wet,",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -547,7 +547,7 @@
             },
             {
               "text": "scant.",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -812,7 +812,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

@@ -470,7 +470,7 @@
       "phrases": [
         {
           "text": "As opposed to",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -808,7 +808,7 @@
       "phrases": [
         {
           "text": "For example,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1061,7 +1061,7 @@
         },
         {
           "text": ", but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1093,7 +1093,7 @@
         },
         {
           "text": ", and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

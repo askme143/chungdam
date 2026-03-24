@@ -289,7 +289,7 @@
         },
         {
           "text": "because",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -328,7 +328,7 @@
           "children": [
             {
               "text": "leaving behind",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -359,7 +359,7 @@
       "phrases": [
         {
           "text": "In those places,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -422,7 +422,7 @@
             },
             {
               "text": "accountable,",
-              "type": "bold",
+              "type": "plain",
               "label": "OC",
               "annotation_above": null,
               "annotation_below": null,
@@ -499,7 +499,7 @@
               "children": [
                 {
                   "text": "caused",
-                  "type": "bold",
+                  "type": "plain",
                   "label": null,
                   "annotation_above": null,
                   "annotation_below": null,
@@ -535,7 +535,7 @@
         },
         {
           "text": "to retake",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -617,7 +617,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -649,7 +649,7 @@
         },
         {
           "text": "to take",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -785,7 +785,7 @@
         },
         {
           "text": "perhaps like never before,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -809,7 +809,7 @@
         },
         {
           "text": "rather than",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -934,7 +934,7 @@
           "children": [
             {
               "text": "to act",
-              "type": "bold",
+              "type": "plain",
               "label": "형용사적 용법",
               "annotation_above": null,
               "annotation_below": null,
@@ -965,7 +965,7 @@
                 },
                 {
                   "text": "essential",
-                  "type": "bold",
+                  "type": "plain",
                   "label": null,
                   "annotation_above": "essentially (X)",
                   "annotation_below": null,
@@ -983,7 +983,7 @@
             },
             {
               "text": "— and, more critically,",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,

@@ -160,7 +160,7 @@ Each phrase node has:
 - text: the actual text span (empty string "" for container nodes)
 - type: one of:
   - "plain": normal text
-  - "bold": important word (verbs, key nouns, connectors)
+  - "bold": main verbs only (V, 5V, 3V labels). Do NOT use bold for complements (C, OC), discourse markers (However, But), or other non-verb elements.
   - "underline": subjects, important nouns to emphasize
   - "boxed": relative pronouns like "that", "which" (shown with border)
   - "bracket": groups a phrase in parentheses ( )
@@ -174,8 +174,8 @@ Each phrase node has:
   - 병렬1, 병렬2 (parallel structure markers)
   - null if no label needed
   NOTE: Do NOT use "삽입" as a phrase label. Words like "However,", \
-"Yes,", "Overall,", "In other words," should use "bold" type \
-with label null.
+"Yes,", "Overall,", "In other words," are discourse markers — \
+use "plain" type with label null.
 
 IMPORTANT LABELING RULES:
 - O (목적어) should only be labeled on the DIRECT noun/noun phrase \
@@ -230,7 +230,7 @@ The correct phrases array is:
 "annotation_above": null, "annotation_below": null, "children": []},
   {"text": "it", "type": "plain", "label": "O", \
 "annotation_above": null, "annotation_below": null, "children": []},
-  {"text": "attractive", "type": "bold", "label": "OC", \
+  {"text": "attractive", "type": "plain", "label": "OC", \
 "annotation_above": "attractively (X)", "annotation_below": null, \
 "children": []},
   {"text": "", "type": "bracket", "label": null, \
@@ -247,7 +247,7 @@ homogeneous and losing its original 'message' that could lead \
 to a dilution of audiences."
 
 The correct phrases array shows:
-- "However," as bold with label null (no label for discourse markers)
+- "However," as plain with label null (discourse markers are never bold)
 - "such commercialization" as underline with label "S"
 - "risks" as bold with label "V"
 - slash "/" separator

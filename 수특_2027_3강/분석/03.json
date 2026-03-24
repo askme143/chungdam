@@ -267,7 +267,7 @@
         },
         {
           "text": "are trapped",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -307,7 +307,7 @@
         },
         {
           "text": "is trapped",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -422,7 +422,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -446,7 +446,7 @@
         },
         {
           "text": "equally true",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -544,7 +544,7 @@
         },
         {
           "text": "an ancient record",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -671,7 +671,7 @@
         },
         {
           "text": "nothing but history",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -798,7 +798,7 @@
         },
         {
           "text": "a history",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -839,7 +839,7 @@
         },
         {
           "text": "and yet",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -878,7 +878,7 @@
             },
             {
               "text": "our master",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -1033,7 +1033,7 @@
             },
             {
               "text": "blessings",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": null,
@@ -1088,7 +1088,7 @@
         },
         {
           "text": "indeed trapped",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -1121,7 +1121,7 @@
         },
         {
           "text": "as much as",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

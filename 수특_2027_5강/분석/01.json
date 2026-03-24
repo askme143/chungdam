@@ -543,7 +543,7 @@
       "phrases": [
         {
           "text": "With these sorts of crises",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -629,7 +629,7 @@
       "phrases": [
         {
           "text": "Then,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -756,7 +756,7 @@
       "phrases": [
         {
           "text": "For example,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -799,7 +799,7 @@
       "phrases": [
         {
           "text": "Although",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -855,7 +855,7 @@
         },
         {
           "text": "were able",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,

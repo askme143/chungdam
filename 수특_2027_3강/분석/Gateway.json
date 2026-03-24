@@ -215,7 +215,7 @@
         },
         {
           "text": "less sticky",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": "sticky = 한곳에 붙어 있는",
@@ -370,7 +370,7 @@
           "children": [
             {
               "text": "While",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -452,7 +452,7 @@
             },
             {
               "text": "to take advantage of",
-              "type": "bold",
+              "type": "plain",
               "label": "OC",
               "annotation_above": null,
               "annotation_below": null,
@@ -723,7 +723,7 @@
         },
         {
           "text": "and—in most cases—",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -871,7 +871,7 @@
       "phrases": [
         {
           "text": "And, in this way,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

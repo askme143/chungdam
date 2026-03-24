@@ -275,7 +275,7 @@
         },
         {
           "text": "as limited",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,

@@ -492,7 +492,7 @@
       "phrases": [
         {
           "text": "Thanks to",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -787,7 +787,7 @@
         },
         {
           "text": "“premature fixation”",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -850,7 +850,7 @@
             },
             {
               "text": "once",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -999,7 +999,7 @@
       "phrases": [
         {
           "text": "By weakening",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1031,7 +1031,7 @@
         },
         {
           "text": "argues,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

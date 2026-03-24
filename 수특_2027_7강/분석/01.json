@@ -296,7 +296,7 @@
             },
             {
               "text": "to become",
-              "type": "bold",
+              "type": "plain",
               "label": "부사적 용법",
               "annotation_above": null,
               "annotation_below": null,
@@ -417,7 +417,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -441,7 +441,7 @@
         },
         {
           "text": "even more famous",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -503,7 +503,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -585,7 +585,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -641,7 +641,7 @@
             },
             {
               "text": "utter nonsense.",
-              "type": "bold",
+              "type": "plain",
               "label": "C",
               "annotation_above": null,
               "annotation_below": "utter = complete",
@@ -663,7 +663,7 @@
       "phrases": [
         {
           "text": "Specifically,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -702,7 +702,7 @@
           "children": [
             {
               "text": "particularly special",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -728,7 +728,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -736,7 +736,7 @@
         },
         {
           "text": "while",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -760,7 +760,7 @@
         },
         {
           "text": "clearly important",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -768,7 +768,7 @@
         },
         {
           "text": "to boost",
-          "type": "bold",
+          "type": "plain",
           "label": "부사적 용법",
           "annotation_above": null,
           "annotation_below": null,
@@ -876,7 +876,7 @@
             },
             {
               "text": "to expert levels",
-              "type": "bold",
+              "type": "plain",
               "label": "OC",
               "annotation_above": null,
               "annotation_below": null,
@@ -1006,7 +1006,7 @@
       "phrases": [
         {
           "text": "Yes,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1030,7 +1030,7 @@
         },
         {
           "text": "all of that",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -1098,7 +1098,7 @@
       "phrases": [
         {
           "text": "In other words,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

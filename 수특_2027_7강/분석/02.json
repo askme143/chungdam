@@ -473,7 +473,7 @@
       "phrases": [
         {
           "text": "Indeed,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -505,7 +505,7 @@
         },
         {
           "text": "as a “useless drink.”",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -525,7 +525,7 @@
       "phrases": [
         {
           "text": "Eventually,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -557,7 +557,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -644,7 +644,7 @@
       "phrases": [
         {
           "text": "Instead,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -802,7 +802,7 @@
             },
             {
               "text": "as well as",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -883,7 +883,7 @@
       "phrases": [
         {
           "text": "In addition,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

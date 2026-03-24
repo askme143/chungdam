@@ -272,7 +272,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -382,7 +382,7 @@
           "children": [
             {
               "text": "not just because",
-              "type": "bold",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
@@ -424,7 +424,7 @@
         },
         {
           "text": "but also because",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -479,7 +479,7 @@
             },
             {
               "text": "question",
-              "type": "bold",
+              "type": "plain",
               "label": "OC",
               "annotation_above": null,
               "annotation_below": null,
@@ -614,7 +614,7 @@
       "phrases": [
         {
           "text": "But",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -704,7 +704,7 @@
         },
         {
           "text": "Once",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -749,7 +749,7 @@
         },
         {
           "text": "worry",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -885,7 +885,7 @@
         },
         {
           "text": "because",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -1048,7 +1048,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

@@ -390,7 +390,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -695,7 +695,7 @@
         },
         {
           "text": "to indulge",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -870,7 +870,7 @@
       "phrases": [
         {
           "text": "Without limited animation,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,

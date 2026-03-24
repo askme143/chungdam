@@ -281,7 +281,7 @@
         },
         {
           "text": "to motivate",
-          "type": "bold",
+          "type": "plain",
           "label": "부사적 용법",
           "annotation_above": null,
           "annotation_below": null,
@@ -297,7 +297,7 @@
         },
         {
           "text": "to do things.",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -342,7 +342,7 @@
         },
         {
           "text": "to work harder",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": null,
           "annotation_below": null,
@@ -366,7 +366,7 @@
         },
         {
           "text": "but",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -390,7 +390,7 @@
         },
         {
           "text": "short-term",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -460,7 +460,7 @@
         },
         {
           "text": "and",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -509,7 +509,7 @@
         },
         {
           "text": "and eventually",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -525,7 +525,7 @@
         },
         {
           "text": "the main reason",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -579,7 +579,7 @@
         },
         {
           "text": "not loyalty.",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -613,7 +613,7 @@
         },
         {
           "text": "the employee version",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -704,7 +704,7 @@
         },
         {
           "text": "to continue working",
-          "type": "bold",
+          "type": "plain",
           "label": "부사적 용법",
           "annotation_above": null,
           "annotation_below": null,
@@ -776,7 +776,7 @@
       "phrases": [
         {
           "text": "And",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -784,7 +784,7 @@
         },
         {
           "text": "unless",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -808,7 +808,7 @@
         },
         {
           "text": "an astronaut,",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -840,7 +840,7 @@
         },
         {
           "text": "not the work",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -910,7 +910,7 @@
         },
         {
           "text": "the cause",
-          "type": "bold",
+          "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -986,7 +986,7 @@
             },
             {
               "text": "to build",
-              "type": "bold",
+              "type": "plain",
               "label": "부사적 용법",
               "annotation_above": null,
               "annotation_below": null,
@@ -1051,7 +1051,7 @@
             },
             {
               "text": "to build",
-              "type": "bold",
+              "type": "plain",
               "label": "부사적 용법",
               "annotation_above": null,
               "annotation_below": null,

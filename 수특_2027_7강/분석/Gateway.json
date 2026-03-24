@@ -270,7 +270,7 @@
         },
         {
           "text": "attractive",
-          "type": "bold",
+          "type": "plain",
           "label": "OC",
           "annotation_above": "attractively (X)",
           "annotation_below": null,
@@ -512,7 +512,7 @@
       "phrases": [
         {
           "text": "However,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -940,7 +940,7 @@
       "phrases": [
         {
           "text": "Overall,",
-          "type": "bold",
+          "type": "plain",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
