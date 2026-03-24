@@ -1,38 +1,44 @@
 {
-  "title_en": "Micro-Climate Control in a Garden",
-  "title_ko": "정원에서의 미세 기후 조절",
-  "theme_en": "Even in outdoor environments, people can sometimes control temperature on a small scale by using local conditions wisely.",
-  "theme_ko": "야외 환경에서도 사람은 주변 조건을 잘 이용하면 작은 범위에서는 온도를 어느 정도 조절할 수 있다.",
-  "summary_en": "The passage explains that although climate is generally beyond human control, small-scale temperature control is possible, as shown by Vancouver’s mild winters and the writer’s garden design that warmed the soil and helped vegetables grow earlier.",
-  "summary_ko": "이 글은 기후는 보통 사람이 마음대로 할 수 없는 것으로 여겨지지만, 작은 범위에서는 온도 조절이 가능하다고 설명한다. 밴쿠버의 온화한 겨울과 글쓴이의 정원 설계가 흙을 따뜻하게 해 채소를 더 일찍 자라게 한 예가 그 증거이다.",
+  "title_en": "Micro-climate Control in a Vancouver Garden",
+  "title_ko": "밴쿠버 정원에서의 미세 기후 조절",
+  "theme_en": "Even outdoor climate, usually thought to be beyond human control, can sometimes be adjusted effectively on a micro-climate scale.",
+  "theme_ko": "보통 사람의 힘으로 어쩔 수 없다고 여기는 바깥 기후도, 작은 범위의 미세 기후 수준에서는 때때로 효과적으로 조절할 수 있다.",
+  "summary_en": "The passage explains that although climate is generally beyond human control, a gardener in Vancouver was able to warm the soil and grow vegetables earlier by using local conditions and simple methods.",
+  "summary_ko": "이 글은 기후는 보통 사람이 조절할 수 없지만, 밴쿠버의 한 정원사는 주변 조건과 간단한 방법을 이용해 흙을 더 따뜻하게 만들어 채소를 더 일찍 길러 낼 수 있었다는 점을 설명한다.",
   "structure": [
     {
       "label": "도입",
-      "english": "The passage introduces the idea that although climate is usually beyond human control, temperature can sometimes be managed on a micro-climate scale.",
-      "korean": "이 글은 기후는 보통 사람이 통제할 수 없는 것으로 여겨지지만, 작은 범위에서는 온도를 어느 정도 조절할 수 있다고 먼저 말한다."
-    },
-    {
-      "label": "예시",
-      "english": "It then presents Vancouver as an example of a place that is far north but still has mild winters because of Pacific foehn winds.",
-      "korean": "그다음에는 밴쿠버를 예로 들어, 북쪽에 있는 도시이지만 태평양에서 불어오는 푄 바람 때문에 겨울이 온화하다고 설명한다."
-    },
-    {
-      "label": "부연",
-      "english": "The writer adds a personal story in which a neighbor joked that the writer had 'cheated God' by harvesting vegetables earlier than others.",
-      "korean": "이어서 글쓴이는 이웃이 자신이 다른 사람보다 더 일찍 채소를 거두는 것을 보고 '신을 속였다'고 농담하던 개인적인 경험을 덧붙인다."
+      "english": "Even outdoors, although climate (including temperature) is usually regarded as beyond the control of man, localized temperature control is sometimes effective on a micro-climate scale.",
+      "korean": "바깥에서도, 기후(온도를 포함한)는 보통 사람이 통제할 수 없는 것으로 여겨지지만, 국지적인 온도 조절은 미세 기후 규모에서는 때때로 효과가 있다."
     },
     {
       "label": "근거",
-      "english": "Finally, the passage explains that the garden bed was angled southward and covered with flat stones to increase soil heating from weak winter and spring sunlight.",
-      "korean": "마지막으로 글은 정원 흙두둑을 남쪽으로 기울이고 평평한 돌을 깔아 약한 겨울·봄 햇빛으로도 흙이 더 따뜻해지게 했다고 설명한다."
+      "english": "Vancouver, Canada, is a few miles north of the 49th parallel, about 60 miles farther north than Minot, North Dakota, with its legendary harsh winter temperatures.",
+      "korean": "캐나다의 밴쿠버는 북위 49도선보다 몇 마일 북쪽에 있고, 전설처럼 혹독한 겨울 기온으로 유명한 노스다코타주의 마이놋보다도 약 60마일 더 북쪽에 있다."
+    },
+    {
+      "label": "부연",
+      "english": "But constant foehn winds off the Pacific Ocean make Vancouver winters mild and wet, although sunshine is scant.",
+      "korean": "하지만 태평양에서 불어오는 계속된 푄 바람은 밴쿠버의 겨울을 온화하고 습하게 만들며, 햇빛은 비록 적다."
+    },
+    {
+      "label": "예시",
+      "english": "When I had a garden there in the late 1940s, a neighbor used to say that I “cheated God” to bring in my lettuce and tomatoes earlier than anyone else.",
+      "korean": "1940년대 후반에 내가 그곳에서 정원을 가꾸었을 때, 한 이웃은 내가 다른 누구보다 더 일찍 상추와 토마토를 거두어들이려고 ‘신을 속였다’고 늘 말하곤 했다."
+    },
+    {
+      "label": "결론",
+      "english": "The bed in which the vegetables grew was banked toward the south at approximately 50 degrees, and the area between the plants was covered with flat stones, gathered from the nearby beach, to maximize soil heating from the weak late winter-early spring sun.",
+      "korean": "그 채소들이 자라던 두둑은 남쪽을 향해 약 50도 기울어지게 쌓여 있었고, 식물 사이의 땅은 늦겨울에서 초봄의 약한 햇빛으로 흙이 최대한 데워지도록 근처 해변에서 모아 온 납작한 돌들로 덮여 있었다."
     }
   ],
   "key_vocabulary": [
     {
       "word": "outdoors",
-      "meaning": "야외에서",
+      "meaning": "야외에서, 바깥에서",
       "synonyms": [
-        "outside"
+        "outside",
+        "open-air"
       ],
       "antonyms": [
         "indoors"
@@ -40,12 +46,16 @@
       "emphasized": false
     },
     {
-      "word": "climate",
-      "meaning": "기후",
+      "word": "regard",
+      "meaning": "여기다, 생각하다",
       "synonyms": [
-        "weather pattern"
+        "consider",
+        "view",
+        "see"
       ],
-      "antonyms": [],
+      "antonyms": [
+        "ignore"
+      ],
       "emphasized": true
     },
     {
@@ -65,8 +75,9 @@
       "word": "effective",
       "meaning": "효과적인",
       "synonyms": [
+        "useful",
         "successful",
-        "useful"
+        "efficient"
       ],
       "antonyms": [
         "ineffective",
@@ -75,39 +86,32 @@
       "emphasized": true
     },
     {
-      "word": "micro-climate",
-      "meaning": "미세 기후, 작은 지역의 기후",
+      "word": "scale",
+      "meaning": "규모, 범위",
       "synonyms": [
-        "local climate"
+        "level",
+        "range",
+        "scope"
       ],
       "antonyms": [],
       "emphasized": true
     },
     {
       "word": "parallel",
-      "meaning": "위선, 평행선",
-      "synonyms": [],
+      "meaning": "위선, 위도선",
+      "synonyms": [
+        "latitude line"
+      ],
       "antonyms": [],
       "emphasized": false
     },
     {
-      "word": "legendary",
-      "meaning": "아주 유명한, 전설적인",
-      "synonyms": [
-        "famous",
-        "well-known"
-      ],
-      "antonyms": [
-        "unknown"
-      ],
-      "emphasized": false
-    },
-    {
       "word": "harsh",
-      "meaning": "매우 추운, 혹독한",
+      "meaning": "혹독한, 매서운",
       "synonyms": [
         "severe",
-        "bitter"
+        "bitter",
+        "extreme"
       ],
       "antonyms": [
         "mild",
@@ -117,7 +121,7 @@
     },
     {
       "word": "constant",
-      "meaning": "끊임없는",
+      "meaning": "끊임없는, 계속되는",
       "synonyms": [
         "continuous",
         "steady"
@@ -146,7 +150,8 @@
       "meaning": "부족한, 적은",
       "synonyms": [
         "little",
-        "scarce"
+        "scarce",
+        "meager"
       ],
       "antonyms": [
         "abundant",
@@ -155,23 +160,27 @@
       "emphasized": true
     },
     {
-      "word": "neighbor",
-      "meaning": "이웃",
+      "word": "cheat",
+      "meaning": "속이다",
       "synonyms": [
-        "next-door resident"
+        "deceive",
+        "trick"
       ],
-      "antonyms": [],
+      "antonyms": [
+        "help",
+        "assist"
+      ],
       "emphasized": false
     },
     {
-      "word": "banked",
-      "meaning": "둑처럼 쌓아 올린, 경사지게 만든",
+      "word": "bank",
+      "meaning": "비탈지게 쌓다, 둑을 만들다",
       "synonyms": [
-        "piled",
-        "sloped"
+        "slope",
+        "pile up"
       ],
       "antonyms": [
-        "flattened"
+        "flatten"
       ],
       "emphasized": false
     },
@@ -188,24 +197,38 @@
       "emphasized": true
     },
     {
-      "word": "covered",
-      "meaning": "덮인",
+      "word": "cover",
+      "meaning": "덮다",
       "synonyms": [
-        "coated",
-        "blanketed"
+        "coat",
+        "spread over"
       ],
       "antonyms": [
-        "uncovered",
-        "exposed"
+        "uncover",
+        "expose"
       ],
-      "emphasized": false
+      "emphasized": true
+    },
+    {
+      "word": "gather",
+      "meaning": "모으다",
+      "synonyms": [
+        "collect",
+        "assemble"
+      ],
+      "antonyms": [
+        "scatter",
+        "disperse"
+      ],
+      "emphasized": true
     },
     {
       "word": "maximize",
-      "meaning": "최대로 하다",
+      "meaning": "최대한으로 늘리다, 극대화하다",
       "synonyms": [
         "increase",
-        "boost"
+        "boost",
+        "optimize"
       ],
       "antonyms": [
         "minimize",
@@ -251,24 +274,15 @@
               "children": []
             },
             {
-              "text": "",
+              "text": "(including temperature)",
               "type": "bracket",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
-              "children": [
-                {
-                  "text": "including temperature",
-                  "type": "plain",
-                  "label": null,
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                }
-              ]
+              "children": []
             },
             {
-              "text": "is usually regarded",
+              "text": "is",
               "type": "bold",
               "label": "V",
               "annotation_above": null,
@@ -276,21 +290,20 @@
               "children": []
             },
             {
-              "text": "",
-              "type": "bracket",
+              "text": "usually regarded",
+              "type": "plain",
+              "label": "C",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "as beyond the control of man,",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
-              "children": [
-                {
-                  "text": "as beyond the control of man,",
-                  "type": "plain",
-                  "label": "C",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                }
-              ]
+              "children": []
             }
           ]
         },
@@ -320,7 +333,7 @@
         },
         {
           "text": "sometimes effective",
-          "type": "plain",
+          "type": "bold",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
@@ -344,17 +357,17 @@
           ]
         }
       ],
-      "korean": "야외에서도, 기후(온도를 포함한)는 보통 사람이 통제할 수 없는 것으로 여겨지지만, 작은 지역의 기후 규모에서는 국지적인 온도 조절이 때때로 효과가 있다.",
+      "korean": "바깥에서도, 기후(온도를 포함한)는 보통 사람이 통제할 수 없는 것으로 여겨지지만, 국지적인 온도 조절은 미세 기후 규모에서는 때때로 효과가 있다.",
       "points": [
-        "although가 이끄는 양보절과 뒤의 주절이 대비를 이룬다.",
-        "be regarded as A는 'A로 여겨지다'라는 수능 빈출 표현이다."
+        "although가 이끄는 양보절 안에서 climate가 주어, is가 동사이고, be regarded as A는 'A로 여겨지다'라는 수동 표현이다.",
+        "beyond the control of man은 '사람의 통제를 벗어난'이라는 뜻이며, 뒤의 주절 localized temperature control is sometimes effective와 대비를 이룬다."
       ],
-      "paraphrase_en": "Even outside, people usually think climate cannot be controlled, but small-scale temperature control can still work.",
-      "paraphrase_ko": "야외에서는 기후를 사람이 조절할 수 없다고 보통 생각하지만, 작은 범위에서는 온도 조절이 실제로 가능할 수 있다."
+      "paraphrase_en": "Even outside, climate is usually thought to be uncontrollable by humans, but small-scale temperature control can still work.",
+      "paraphrase_ko": "야외에서도 기후는 보통 사람이 조절할 수 없다고 여겨지지만, 작은 범위의 온도 조절은 여전히 효과가 있을 수 있다."
     },
     {
       "id": 2,
-      "type_label": "예시",
+      "type_label": "부연",
       "phrases": [
         {
           "text": "Vancouver, Canada,",
@@ -398,6 +411,14 @@
           ]
         },
         {
+          "text": "about 60 miles farther north",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
           "text": "",
           "type": "bracket",
           "label": null,
@@ -405,21 +426,22 @@
           "annotation_below": null,
           "children": [
             {
-              "text": "about 60 miles farther north",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
               "text": "than Minot, North Dakota,",
               "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
               "children": []
-            },
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
             {
               "text": "with its legendary harsh winter temperatures.",
               "type": "plain",
@@ -431,13 +453,13 @@
           ]
         }
       ],
-      "korean": "캐나다의 밴쿠버는 북위 49도선보다 몇 마일 북쪽에 있다. 그리고 혹독한 겨울 추위로 유명한 노스다코타주의 마이놋보다도 약 60마일 더 북쪽에 있다.",
+      "korean": "캐나다의 밴쿠버는 북위 49도선보다 몇 마일 북쪽에 있고, 전설처럼 혹독한 겨울 기온으로 유명한 노스다코타주의 마이놋보다도 약 60마일 더 북쪽에 있다.",
       "points": [
-        "farther는 거리상 '더 멀리'를 뜻하는 비교급이다.",
-        "with its legendary harsh winter temperatures는 Minot를 덧붙여 설명하는 표현이다."
+        "farther north than A는 비교급 표현으로 'A보다 더 북쪽에'라는 뜻이다.",
+        "with its legendary harsh winter temperatures는 Minot를 덧붙여 설명하는 부가 정보이다."
       ],
-      "paraphrase_en": "Vancouver is north of the 49th parallel and even farther north than very cold Minot, North Dakota.",
-      "paraphrase_ko": "밴쿠버는 북위 49도선보다 북쪽에 있고, 매우 추운 마이놋보다도 더 북쪽에 있다."
+      "paraphrase_en": "Vancouver is slightly north of the 49th parallel and even farther north than Minot, which is famous for very severe winters.",
+      "paraphrase_ko": "밴쿠버는 북위 49도선보다 조금 더 북쪽에 있고, 매우 혹독한 겨울로 유명한 마이놋보다도 더 북쪽에 있다."
     },
     {
       "id": 3,
@@ -525,67 +547,27 @@
             },
             {
               "text": "scant.",
-              "type": "plain",
+              "type": "bold",
               "label": "C",
               "annotation_above": null,
-              "annotation_below": "≠ scan (훑어보다)",
+              "annotation_below": null,
               "children": []
             }
           ]
         }
       ],
-      "korean": "하지만 태평양에서 불어오는 끊임없는 푄 바람 때문에 밴쿠버의 겨울은 온화하고 비가 많다. 햇빛은 적지만 그렇다.",
+      "korean": "하지만 태평양에서 불어오는 계속된 푄 바람은 밴쿠버의 겨울을 온화하고 습하게 만들며, 햇빛은 비록 적다.",
       "points": [
-        "make + O + OC의 5형식 구조이다. Vancouver winters가 목적어이고 mild and wet이 목적보어이다.",
-        "although가 이끄는 절은 '비록 햇빛은 적지만'이라는 양보의 뜻을 더한다."
+        "make + O + OC의 5형식 문장이다. Vancouver winters가 목적어이고 mild and wet이 목적보어이다.",
+        "although sunshine is scant는 양보절로, '햇빛은 적지만'이라는 뜻이다."
       ],
-      "paraphrase_en": "However, steady winds from the Pacific keep Vancouver’s winters mild and wet, even though there is not much sunshine.",
-      "paraphrase_ko": "하지만 태평양에서 오는 계속된 바람이 밴쿠버의 겨울을 온화하고 습하게 만들며, 햇빛은 많지 않다."
+      "paraphrase_en": "However, steady warm winds from the Pacific keep Vancouver winters mild and wet, even though there is not much sunshine.",
+      "paraphrase_ko": "하지만 태평양에서 오는 계속된 따뜻한 바람 때문에 밴쿠버의 겨울은 온화하고 습하며, 햇빛은 많지 않다."
     },
     {
       "id": 4,
       "type_label": "예시",
       "phrases": [
-        {
-          "text": "When",
-          "type": "bold",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "I",
-          "type": "underline",
-          "label": "S",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "had",
-          "type": "bold",
-          "label": "V",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "a garden",
-          "type": "plain",
-          "label": "O",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "there",
-          "type": "plain",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
         {
           "text": "",
           "type": "bracket",
@@ -593,6 +575,46 @@
           "annotation_above": null,
           "annotation_below": null,
           "children": [
+            {
+              "text": "When",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "I",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "had",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "a garden",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "there",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
             {
               "text": "in the late 1940s,",
               "type": "plain",
@@ -651,17 +673,9 @@
               "children": []
             },
             {
-              "text": "cheated",
+              "text": "“cheated God”",
               "type": "bold",
               "label": "V",
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "God",
-              "type": "plain",
-              "label": "O",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
@@ -674,9 +688,17 @@
               "annotation_below": null,
               "children": [
                 {
-                  "text": "to bring in my lettuce and tomatoes",
+                  "text": "to bring in",
                   "type": "plain",
                   "label": "부사적 용법",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "my lettuce and tomatoes",
+                  "type": "plain",
+                  "label": "O",
                   "annotation_above": null,
                   "annotation_below": null,
                   "children": []
@@ -694,17 +716,17 @@
           ]
         }
       ],
-      "korean": "내가 1940년대 후반에 그곳에서 정원을 가꾸고 있었을 때, 한 이웃은 내가 다른 누구보다도 더 일찍 상추와 토마토를 거두려고 '신을 속였다'고 말하곤 했다.",
+      "korean": "1940년대 후반에 내가 그곳에서 정원을 가꾸었을 때, 한 이웃은 내가 다른 누구보다 더 일찍 상추와 토마토를 거두어들이려고 ‘신을 속였다’고 늘 말하곤 했다.",
       "points": [
-        "used to do는 '예전에 ~하곤 했다'라는 뜻이다.",
-        "to bring in은 목적을 나타내는 to부정사의 부사적 용법으로 볼 수 있다."
+        "used to say는 '늘 말하곤 했다'라는 뜻으로 과거의 반복된 습관을 나타낸다.",
+        "to bring in은 목적을 나타내는 to부정사의 부사적 용법이다. '더 일찍 거두어들이려고'로 해석하면 자연스럽다."
       ],
-      "paraphrase_en": "When I had a garden there in the late 1940s, a neighbor often joked that I had somehow beaten nature by harvesting lettuce and tomatoes earlier than others.",
-      "paraphrase_ko": "내가 그곳에서 정원을 가꾸던 때, 한 이웃은 내가 다른 사람들보다 더 일찍 상추와 토마토를 거두는 것을 보고 마치 자연을 이긴 것처럼 농담하곤 했다."
+      "paraphrase_en": "When I had a garden there in the late 1940s, a neighbor often said that I had somehow outsmarted nature so I could harvest my lettuce and tomatoes before everyone else.",
+      "paraphrase_ko": "1940년대 후반에 내가 그곳에서 정원을 가꿀 때, 한 이웃은 내가 somehow 자연의 법칙을 이겨서 다른 사람들보다 먼저 상추와 토마토를 거둔다고 자주 말했다."
     },
     {
       "id": 5,
-      "type_label": "근거",
+      "type_label": "결론",
       "phrases": [
         {
           "text": "The bed",
@@ -723,8 +745,8 @@
           "children": [
             {
               "text": "in which",
-              "type": "plain",
-              "label": null,
+              "type": "boxed",
+              "label": "목관대",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
@@ -781,8 +803,16 @@
           ]
         },
         {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
           "text": "and",
-          "type": "plain",
+          "type": "bold",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -854,7 +884,7 @@
             },
             {
               "text": "to maximize",
-              "type": "bold",
+              "type": "plain",
               "label": "부사적 용법",
               "annotation_above": null,
               "annotation_below": null,
@@ -869,33 +899,23 @@
               "children": []
             },
             {
-              "text": "",
-              "type": "bracket",
+              "text": "from the weak late winter-early spring sun.",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
-              "children": [
-                {
-                  "text": "from the weak late winter-early spring sun.",
-                  "type": "plain",
-                  "label": null,
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                }
-              ]
+              "children": []
             }
           ]
         }
       ],
-      "korean": "채소가 자라던 두둑은 남쪽을 향해 약 50도 정도 기울어지게 만들어져 있었고, 식물 사이의 공간은 근처 해변에서 모아 온 납작한 돌들로 덮여 있었다. 그것은 늦겨울에서 초봄의 약한 햇빛으로 흙이 더 잘 데워지게 하려는 것이었다.",
+      "korean": "그 채소들이 자라던 두둑은 남쪽을 향해 약 50도 기울어지게 쌓여 있었고, 식물 사이의 땅은 늦겨울에서 초봄의 약한 햇빛으로 흙이 최대한 데워지도록 근처 해변에서 모아 온 납작한 돌들로 덮여 있었다.",
       "points": [
-        "in which는 'the bed'를 꾸며 주는 관계 표현으로, '그 안에서'라는 뜻이다.",
-        "gathered from the nearby beach는 flat stones를 뒤에서 꾸며 주는 과거분사 표현이다. to maximize는 목적을 나타내는 부사적 용법이다."
+        "in which the vegetables grew는 The bed를 꾸며 주는 관계사절이다. 전치사 in이 관계대명사 which 앞에 나온 형태이다.",
+        "gathered from the nearby beach는 flat stones를 뒤에서 꾸며 주는 과거분사 표현이고, to maximize는 목적을 나타내는 to부정사의 부사적 용법이다."
       ],
-      "paraphrase_en": "The vegetable bed was sloped toward the south, and the ground between the plants was covered with flat stones from the nearby beach so that the soil would absorb more heat from the weak sun of late winter and early spring.",
-      "paraphrase_ko": "채소밭 두둑은 남쪽으로 기울어져 있었고, 식물 사이 땅에는 근처 해변에서 가져온 납작한 돌이 깔려 있어서 늦겨울과 초봄의 약한 햇빛으로도 흙이 더 많은 열을 받게 했다."
+      "paraphrase_en": "The vegetable bed was sloped southward at about 50 degrees, and the ground between the plants was covered with flat stones from the nearby beach so the weak sun of late winter and early spring could warm the soil as much as possible.",
+      "paraphrase_ko": "채소밭 두둑은 남쪽으로 약 50도 기울게 만들어졌고, 식물 사이 땅은 근처 해변의 납작한 돌로 덮여 있어서 늦겨울과 초봄의 약한 햇빛이 흙을 최대한 따뜻하게 할 수 있었다."
     }
-  ],
-  "problem_number": "01"
+  ]
 }

@@ -1,0 +1,1039 @@
+{
+  "title_en": "Alien Voting and Exclusionary Citizenship",
+  "title_ko": "외국인 투표와 배타적 시민권",
+  "theme_en": "Allowing noncitizens to vote makes it difficult to keep a clear line between citizens and resident aliens in a democracy.",
+  "theme_ko": "민주 사회에서 비시민에게 투표를 허용하면 시민과 거주 외국인의 경계를 뚜렷하게 유지하기가 어려워진다.",
+  "summary_en": "The passage argues that once noncitizens are allowed to vote, the distinction between citizen and resident alien weakens, and from the viewpoint of active democracy, residence rather than citizenship becomes the more reasonable standard for political participation.",
+  "summary_ko": "이 글은 비시민에게 투표를 허용하면 시민과 거주 외국인의 구분이 약해지고, 적극적인 민주주의의 관점에서는 시민권보다 거주 여부가 정치 참여의 더 타당한 기준이 된다고 말한다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "In the United States, the practice of permitting aliens to vote could be seen as compatible with the idea of an exclusionary citizenship, but that is a hard balance to maintain.",
+      "korean": "미국에서는 외국인에게 투표를 허용하는 관행이 배타적인 시민권이라는 생각과 맞는 것으로 보일 수도 있지만, 그 균형을 유지하기는 어렵다."
+    },
+    {
+      "label": "문제",
+      "english": "If the vote, of all rights, is in the hands of noncitizens, why should they not count as citizens, and the entire distinction between resident alien and citizen be abandoned?",
+      "korean": "모든 권리 가운데 투표권이 비시민의 손에 있다면, 왜 그들을 시민으로 보지 말아야 하며, 거주 외국인과 시민 사이의 구분 전체를 없애지 말아야 하는가?"
+    },
+    {
+      "label": "근거",
+      "english": "Indeed, something like this thought probably lay behind the disappearance of alien voting: with universal adult citizen suffrage after 1920, the only way to maintain an exclusionary kind of citizenship was to restrict the vote to citizens and not residents.",
+      "korean": "실제로 아마 이런 생각이 외국인 투표가 사라진 배경에 있었을 것이다. 1920년 이후 모든 성인 시민에게 보통선거권이 주어진 상황에서, 배타적인 종류의 시민권을 유지하는 유일한 방법은 투표권을 거주자가 아니라 시민에게만 제한하는 것이었다."
+    },
+    {
+      "label": "반론",
+      "english": "But no theory of “active” democracy can countenance this distinction:",
+      "korean": "하지만 어떤 '적극적인' 민주주의 이론도 이런 구분을 받아들일 수 없다."
+    },
+    {
+      "label": "결론",
+      "english": "the laws concerning our common life must be made by all those who are taking part in it, and residence is the only convincing test of whether someone is taking part — as is understood almost universally when it comes to questions of which citizens should have a voice in local government.",
+      "korean": "우리의 공동생활에 관한 법은 그 안에 참여하고 있는 모든 사람에 의해 만들어져야 하며, 누군가가 참여하고 있는지를 판단하는 데 거주만이 유일하게 설득력 있는 기준이다. 지방 정부에서 어떤 시민이 발언권을 가져야 하는가의 문제에 이르면, 이 점은 거의 어디서나 이해되고 있다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "permitting",
+      "meaning": "허용하는 것",
+      "synonyms": [
+        "allowing",
+        "authorizing"
+      ],
+      "antonyms": [
+        "forbidding",
+        "prohibiting"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "aliens",
+      "meaning": "외국인, 외국 국적자",
+      "synonyms": [
+        "foreigners",
+        "noncitizens"
+      ],
+      "antonyms": [
+        "citizens",
+        "natives"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "compatible",
+      "meaning": "양립할 수 있는, 잘 맞는",
+      "synonyms": [
+        "consistent",
+        "harmonious"
+      ],
+      "antonyms": [
+        "incompatible",
+        "conflicting"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "exclusionary",
+      "meaning": "배타적인, 일부를 제외하는",
+      "synonyms": [
+        "exclusive",
+        "restrictive"
+      ],
+      "antonyms": [
+        "inclusive",
+        "open"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "maintain",
+      "meaning": "유지하다",
+      "synonyms": [
+        "preserve",
+        "sustain"
+      ],
+      "antonyms": [
+        "abandon",
+        "neglect"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "distinction",
+      "meaning": "구분, 차이",
+      "synonyms": [
+        "difference",
+        "separation"
+      ],
+      "antonyms": [
+        "similarity",
+        "sameness"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "abandoned",
+      "meaning": "버려진, 없어진",
+      "synonyms": [
+        "given up",
+        "discarded"
+      ],
+      "antonyms": [
+        "kept",
+        "retained"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "disappearance",
+      "meaning": "사라짐",
+      "synonyms": [
+        "vanishing",
+        "removal"
+      ],
+      "antonyms": [
+        "appearance",
+        "emergence"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "universal",
+      "meaning": "보편적인, 모두에게 해당하는",
+      "synonyms": [
+        "general",
+        "widespread"
+      ],
+      "antonyms": [
+        "limited",
+        "partial"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "suffrage",
+      "meaning": "투표권, 선거권",
+      "synonyms": [
+        "franchise",
+        "voting rights"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "restrict",
+      "meaning": "제한하다",
+      "synonyms": [
+        "limit",
+        "confine"
+      ],
+      "antonyms": [
+        "expand",
+        "permit"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "countenance",
+      "meaning": "받아들이다, 용인하다",
+      "synonyms": [
+        "tolerate",
+        "accept"
+      ],
+      "antonyms": [
+        "reject",
+        "oppose"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "concerning",
+      "meaning": "~에 관한",
+      "synonyms": [
+        "about",
+        "regarding"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "residence",
+      "meaning": "거주, 거주함",
+      "synonyms": [
+        "dwelling",
+        "living"
+      ],
+      "antonyms": [
+        "absence",
+        "nonresidence"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "convincing",
+      "meaning": "설득력 있는",
+      "synonyms": [
+        "persuasive",
+        "credible"
+      ],
+      "antonyms": [
+        "unconvincing",
+        "doubtful"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "voice",
+      "meaning": "의견을 낼 권리, 발언권",
+      "synonyms": [
+        "say",
+        "influence"
+      ],
+      "antonyms": [
+        "silence",
+        "powerlessness"
+      ],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "In the United States,",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the practice",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of permitting aliens",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to vote",
+              "type": "plain",
+              "label": "형용사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "could be seen",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "as compatible",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "with the idea",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "of an exclusionary citizenship,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "but",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "that",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a hard balance",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to maintain.",
+          "type": "plain",
+          "label": "형용사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "미국에서는 외국인에게 투표를 허용하는 관행이 배타적인 시민권이라는 생각과 맞는 것으로 보일 수도 있지만, 그 균형을 유지하기는 어렵다.",
+      "points": [
+        "be seen as는 '~로 여겨지다, ~로 보이다'라는 수동 표현이다.",
+        "a hard balance to maintain에서 to maintain은 앞의 balance를 꾸며 주는 to부정사로, '유지하기 어려운 균형'으로 이해하면 된다."
+      ],
+      "paraphrase_en": "In the U.S., letting noncitizens vote may seem to fit exclusionary citizenship, but keeping that arrangement is difficult.",
+      "paraphrase_ko": "미국에서는 비시민에게 투표를 허용하는 것이 배타적 시민권과 맞는 것처럼 보일 수 있지만, 그런 상태를 계속 유지하기는 어렵다."
+    },
+    {
+      "id": 2,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "If",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the vote,",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of all rights,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "in the hands",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of noncitizens,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "why",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "should",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "they",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "not count",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "as citizens,",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the entire distinction",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "between resident alien and citizen",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "be abandoned?",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "모든 권리 가운데 투표권이 비시민의 손에 있다면, 왜 그들을 시민으로 보지 말아야 하며, 거주 외국인과 시민 사이의 구분 전체를 없애지 말아야 하는가?",
+      "points": [
+        "If절 뒤에 주절이 의문문으로 이어지는 형태이다. 글쓴이는 답을 묻기보다 문제를 강하게 제기하고 있다.",
+        "count as는 '~로 여겨지다, ~로 간주되다'라는 뜻이다."
+      ],
+      "paraphrase_en": "If noncitizens have the right to vote, then why not treat them as citizens and remove the difference between them and citizens?",
+      "paraphrase_ko": "비시민이 투표권을 가진다면, 왜 그들을 시민으로 보고 그들과 시민의 차이를 없애지 않느냐는 뜻이다."
+    },
+    {
+      "id": 3,
+      "type_label": "서술",
+      "phrases": [
+        {
+          "text": "Indeed,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "something",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "like this thought",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "probably lay",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": "lie (현재형)",
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "behind",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the disappearance",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of alien voting:",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "with universal adult citizen suffrage",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "after 1920,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "the only way",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "was",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to restrict",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the vote",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "to citizens",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and not residents.",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "실제로 아마 이런 생각이 외국인 투표가 사라진 배경에 있었을 것이다. 1920년 이후 모든 성인 시민에게 보통선거권이 주어진 상황에서, 배타적인 종류의 시민권을 유지하는 유일한 방법은 투표권을 거주자가 아니라 시민에게만 제한하는 것이었다.",
+      "points": [
+        "lay는 lie의 과거형으로 '놓여 있었다, 자리하고 있었다'라는 뜻이다. lie-lay-lain과 lay-laid-laid를 헷갈리지 않도록 주의해야 한다.",
+        "the only way was to restrict ...에서 to restrict는 보어 역할을 하는 to부정사이다."
+      ],
+      "paraphrase_en": "This idea likely explains why alien voting disappeared: after all adult citizens gained voting rights after 1920, exclusionary citizenship could be kept only by limiting voting to citizens.",
+      "paraphrase_ko": "이런 생각이 외국인 투표가 사라진 이유였을 가능성이 크다. 1920년 이후 모든 성인 시민이 투표하게 되자, 배타적 시민권을 지키려면 투표를 시민에게만 허용해야 했다는 뜻이다."
+    },
+    {
+      "id": 4,
+      "type_label": "비판",
+      "phrases": [
+        {
+          "text": "But",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "no theory",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of “active” democracy",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "can countenance",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": "≠ count (세다)",
+          "children": []
+        },
+        {
+          "text": "this distinction:",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "하지만 어떤 '적극적인' 민주주의 이론도 이런 구분을 받아들일 수 없다.",
+      "points": [
+        "countenance는 여기서 '받아들이다, 용인하다'라는 뜻이며, 얼굴 표정이라는 명사 뜻과 구별해야 한다."
+      ],
+      "paraphrase_en": "However, active democracy cannot accept this separation.",
+      "paraphrase_ko": "하지만 적극적인 민주주의는 이런 구분을 받아들일 수 없다."
+    },
+    {
+      "id": 5,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "the laws",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "concerning our common life",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "must be made",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "by all those",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "who",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "are taking part",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "in it,",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "residence",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": "≠ residents (거주자들)",
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the only convincing test",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of whether",
+              "type": "plain",
+              "label": "명사적 용법",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "someone",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "is taking part",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "—",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "as",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "is understood",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "almost universally",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "when it comes",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "to questions",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of which citizens",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "should have",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "a voice",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "in local government.",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "우리의 공동생활에 관한 법은 그 안에 참여하고 있는 모든 사람에 의해 만들어져야 하며, 누군가가 참여하고 있는지를 판단하는 데 거주만이 유일하게 설득력 있는 기준이다. 지방 정부에서 어떤 시민이 발언권을 가져야 하는가의 문제에 이르면, 이 점은 거의 어디서나 이해되고 있다.",
+      "points": [
+        "those who ~는 '~하는 사람들'이라는 뜻의 대표적인 관계대명사 구조이다.",
+        "whether절은 전치사 of의 목적어로 쓰여 '~인지 아닌지'라는 뜻의 명사절을 이룬다. when it comes to는 '~에 관해서 말하자면'이라는 표현이다."
+      ],
+      "paraphrase_en": "Laws about shared life should be made by everyone involved in it, and the best way to judge involvement is where a person lives, as people generally recognize in local government matters.",
+      "paraphrase_ko": "공동생활에 관한 법은 그 생활에 참여하는 모든 사람이 함께 만들어야 하고, 누가 참여하고 있는지는 그 사람이 어디에 사는지를 보면 가장 잘 알 수 있다. 이런 생각은 지방 정부 문제에서도 널리 받아들여진다."
+    }
+  ]
+}

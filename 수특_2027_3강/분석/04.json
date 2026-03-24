@@ -2,34 +2,34 @@
   "title_en": "Why People Fear Critical Thinking",
   "title_ko": "사람들은 왜 비판적으로 생각하기를 두려워할까",
   "theme_en": "People often avoid critical thinking because they fear it will challenge their beliefs and change how they see themselves and the world.",
-  "theme_ko": "사람들은 비판적으로 생각하면 자기 믿음이 흔들리고 세상을 보는 방식이 바뀔까 봐, 그것을 자주 피한다.",
-  "summary_en": "The passage explains that fear, more than simple laziness or inability, keeps people from thinking critically because deep thought challenges assumptions and can affect both personal life and the wider world.",
-  "summary_ko": "이 글은 사람들이 비판적으로 생각하지 않는 큰 이유가 게으름이나 능력 부족보다 두려움에 있으며, 깊이 생각하면 기존 생각이 흔들리고 개인과 세상 모두에 영향을 줄 수 있기 때문이라고 설명한다.",
+  "theme_ko": "사람들은 비판적으로 생각하면 자기 믿음이 흔들리고 세상을 보는 방식이 바뀔까 봐 그것을 피하는 경우가 많다.",
+  "summary_en": "The passage explains that fear, more than laziness or inability, keeps people from thinking critically because deep thought challenges assumptions and can affect both personal beliefs and the wider world.",
+  "summary_ko": "이 글은 게으름이나 능력 부족보다 두려움이 사람들이 비판적으로 생각하지 못하게 하는 큰 이유라고 말한다. 깊은 생각은 기존의 믿음을 흔들고, 개인과 세상 모두에 영향을 줄 수 있기 때문이다.",
   "structure": [
     {
       "label": "도입",
-      "english": "The passage introduces fear as a major reason people do not think critically.",
-      "korean": "이 글은 사람들이 비판적으로 생각하지 않는 큰 이유로 두려움을 먼저 제시한다."
-    },
-    {
-      "label": "부연",
-      "english": "It explains that people avoid thinking because they fear questioning their long-held beliefs.",
-      "korean": "그리고 사람들은 오래 믿어 온 생각을 의심하게 될까 봐 생각하기를 피한다고 풀어서 설명한다."
+      "english": "People may not think critically for a variety of reasons, such as laziness and inability, but fear is a big one. Why is that?",
+      "korean": "사람들은 게으름이나 능력 부족 같은 여러 이유로 비판적으로 생각하지 않을 수 있다. 하지만 두려움은 그중 아주 큰 이유이다. 왜 그럴까?"
     },
     {
       "label": "근거",
-      "english": "The passage shows that deep thinking challenges assumptions and makes people uneasy about changing their view of the world.",
-      "korean": "또 깊은 생각은 기존의 당연한 생각을 흔들고, 세상을 보는 방식을 바꿔야 할지도 모른다는 불안을 준다고 근거를 든다."
+      "english": "People don’t want to think not just because it’s hard, but also because they’re afraid it will make them question their long-held beliefs.",
+      "korean": "사람들은 생각하는 일이 어렵기 때문만이 아니라, 그것이 자신이 오랫동안 가져 온 믿음을 의심하게 만들까 봐 두려워서 생각하고 싶어 하지 않는다."
+    },
+    {
+      "label": "부연",
+      "english": "But probe even deeper. Once we start thinking deeply, long-held assumptions are challenged. Thought makes us worry that we’ll lose our balance and have to look at the world in a different way. We worry about thinking because we care about what we and other people think.",
+      "korean": "하지만 더 깊이 파고들어 보자. 우리가 깊이 생각하기 시작하면, 오랫동안 가지고 있던 생각들이 도전을 받는다. 생각은 우리가 중심을 잃고 세상을 다른 방식으로 보게 될까 봐 걱정하게 만든다. 우리는 우리 자신과 다른 사람들이 무엇을 생각하는지 신경 쓰기 때문에 생각하는 일을 걱정한다."
     },
     {
       "label": "예시",
-      "english": "Abstract fields like non-Euclidean geometry and symbolic logic are used as examples to show that even distant ideas affect the real world.",
-      "korean": "비유클리드 기하학과 기호 논리학 같은 추상적인 분야를 예로 들어, 멀게 느껴지는 생각도 실제 세상에 영향을 준다고 보여 준다."
+      "english": "Even the most far-fetched ideas have an effect on the world. Non-Euclidean geometry and symbolic logic are about as abstract as thinking can get, but you can’t understand Einsteinian gravity without the first and run computers without the second.",
+      "korean": "가장 터무니없어 보이는 생각조차도 세상에 영향을 준다. 비유클리드 기하학과 기호 논리는 생각이 이를 수 있는 만큼 아주 추상적이지만, 앞의 것 없이는 아인슈타인의 중력을 이해할 수 없고 뒤의 것 없이는 컴퓨터를 작동시킬 수 없다."
     },
     {
       "label": "결론",
-      "english": "The passage concludes that thinking matters deeply because it can shake us at our core.",
-      "korean": "마지막으로 생각은 우리 존재의 깊은 부분까지 흔들 수 있기 때문에 사람들이 그것을 두려워한다고 결론내린다."
+      "english": "Thinking is important to us, to others, and to the world we live in. This is one reason why we are so afraid of it: it shakes us to the core.",
+      "korean": "생각은 우리 자신에게도, 다른 사람들에게도, 그리고 우리가 사는 세상에도 중요하다. 이것이 우리가 생각을 그토록 두려워하는 한 가지 이유이다. 그것은 우리를 마음 깊은 곳까지 흔들어 놓기 때문이다."
     }
   ],
   "key_vocabulary": [
@@ -42,7 +42,7 @@
       ],
       "antonyms": [
         "blindly",
-        "passively"
+        "uncritically"
       ],
       "emphasized": true
     },
@@ -60,14 +60,14 @@
     },
     {
       "word": "inability",
-      "meaning": "무능, 할 수 없음",
+      "meaning": "할 수 없음, 무능",
       "synonyms": [
         "incapacity",
-        "weakness"
+        "powerlessness"
       ],
       "antonyms": [
         "ability",
-        "competence"
+        "capability"
       ],
       "emphasized": true
     },
@@ -89,8 +89,7 @@
       "meaning": "의심하다, 따져 보다",
       "synonyms": [
         "doubt",
-        "challenge",
-        "examine"
+        "challenge"
       ],
       "antonyms": [
         "accept",
@@ -103,7 +102,7 @@
       "meaning": "오랫동안 가져 온",
       "synonyms": [
         "deep-rooted",
-        "established"
+        "longstanding"
       ],
       "antonyms": [
         "new",
@@ -116,20 +115,20 @@
       "meaning": "논란이 되는",
       "synonyms": [
         "debatable",
-        "contentious"
+        "disputed"
       ],
       "antonyms": [
-        "uncontroversial",
-        "accepted"
+        "undisputed",
+        "uncontroversial"
       ],
       "emphasized": true
     },
     {
       "word": "probe",
-      "meaning": "깊이 파고들다, 더 자세히 살피다",
+      "meaning": "깊이 파고들다, 자세히 살피다",
       "synonyms": [
         "investigate",
-        "explore"
+        "examine"
       ],
       "antonyms": [
         "ignore"
@@ -137,24 +136,24 @@
       "emphasized": true
     },
     {
-      "word": "assumption",
+      "word": "assumptions",
       "meaning": "당연하다고 여기는 생각, 가정",
       "synonyms": [
-        "belief",
-        "supposition"
+        "beliefs",
+        "presumptions"
       ],
       "antonyms": [
-        "fact",
-        "proof"
+        "proofs",
+        "facts"
       ],
       "emphasized": true
     },
     {
       "word": "far-fetched",
-      "meaning": "터무니없어 보이는",
+      "meaning": "터무니없는, 믿기 어려운",
       "synonyms": [
-        "unlikely",
-        "implausible"
+        "implausible",
+        "unlikely"
       ],
       "antonyms": [
         "reasonable",
@@ -244,18 +243,9 @@
               "annotation_above": null,
               "annotation_below": null,
               "children": []
-            }
-          ]
-        },
-        {
-          "text": "",
-          "type": "bracket",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": [
+            },
             {
-              "text": "for a variety",
+              "text": "for a variety of reasons,",
               "type": "plain",
               "label": null,
               "annotation_above": null,
@@ -263,15 +253,7 @@
               "children": []
             },
             {
-              "text": "of reasons",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": ", such as laziness and inability,",
+              "text": "such as laziness and inability,",
               "type": "plain",
               "label": null,
               "annotation_above": null,
@@ -321,14 +303,17 @@
           "children": []
         }
       ],
-      "korean": "사람들은 게으름이나 능력 부족 같은 여러 이유로 비판적으로 생각하지 않을 수 있지만, 그중 큰 이유 하나는 두려움이다.",
-      "points": [],
-      "paraphrase_en": "People may avoid critical thinking for many reasons, but fear is one of the biggest.",
-      "paraphrase_ko": "사람들은 여러 이유로 비판적 사고를 피할 수 있지만, 그중 가장 큰 이유 가운데 하나는 두려움이다."
+      "korean": "사람들은 게으름이나 능력 부족 같은 여러 이유로 비판적으로 생각하지 않을 수 있다. 하지만 두려움은 그중 아주 큰 이유이다.",
+      "points": [
+        "such as는 앞의 reasons를 구체적으로 풀어 주는 표현이다.",
+        "but 뒤에서는 fear is a big one에서 one은 앞의 reasons 중 하나를 가리킨다. 반복을 피하려고 쓴 대명사이다."
+      ],
+      "paraphrase_en": "People may avoid critical thinking for many reasons, and fear is one of the biggest.",
+      "paraphrase_ko": "사람들은 여러 이유로 비판적 사고를 피할 수 있는데, 그중 가장 큰 이유 가운데 하나가 두려움이다."
     },
     {
       "id": 2,
-      "type_label": "부연",
+      "type_label": "삽입",
       "phrases": [
         {
           "text": "Why",
@@ -357,8 +342,8 @@
       ],
       "korean": "왜 그럴까?",
       "points": [],
-      "paraphrase_en": "Why does this happen?",
-      "paraphrase_ko": "왜 이런 일이 일어날까?"
+      "paraphrase_en": "Why does that happen?",
+      "paraphrase_ko": "왜 그런 일이 일어날까?"
     },
     {
       "id": 3,
@@ -383,14 +368,6 @@
         {
           "text": "to think",
           "type": "plain",
-          "label": "O",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "not just because",
-          "type": "bold",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
@@ -403,6 +380,14 @@
           "annotation_above": null,
           "annotation_below": null,
           "children": [
+            {
+              "text": "not just because",
+              "type": "bold",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
             {
               "text": "it",
               "type": "underline",
@@ -446,6 +431,22 @@
           "children": []
         },
         {
+          "text": "they",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "’re afraid",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
           "text": "",
           "type": "bracket",
           "label": null,
@@ -453,7 +454,7 @@
           "annotation_below": null,
           "children": [
             {
-              "text": "they",
+              "text": "it",
               "type": "underline",
               "label": "S",
               "annotation_above": null,
@@ -461,72 +462,47 @@
               "children": []
             },
             {
-              "text": "’re afraid",
+              "text": "will make",
               "type": "bold",
-              "label": "V",
+              "label": "5V",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
             },
             {
-              "text": "",
-              "type": "bracket",
+              "text": "them",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "question",
+              "type": "bold",
+              "label": "OC",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "their long-held beliefs.",
+              "type": "plain",
               "label": null,
               "annotation_above": null,
               "annotation_below": null,
-              "children": [
-                {
-                  "text": "it",
-                  "type": "underline",
-                  "label": "S",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                },
-                {
-                  "text": "will make",
-                  "type": "bold",
-                  "label": "5V",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                },
-                {
-                  "text": "them",
-                  "type": "plain",
-                  "label": "O",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                },
-                {
-                  "text": "question",
-                  "type": "bold",
-                  "label": "OC",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                },
-                {
-                  "text": "their long-held beliefs.",
-                  "type": "plain",
-                  "label": "O",
-                  "annotation_above": null,
-                  "annotation_below": null,
-                  "children": []
-                }
-              ]
+              "children": []
             }
           ]
         }
       ],
-      "korean": "사람들은 생각하는 일이 어렵기 때문만이 아니라, 그렇게 하면 자신이 오랫동안 믿어 온 생각을 의심하게 될까 봐 생각하고 싶어 하지 않는다.",
+      "korean": "사람들은 생각하는 일이 어렵기 때문만이 아니라, 그것이 자신이 오랫동안 가져 온 믿음을 의심하게 만들까 봐 두려워서 생각하고 싶어 하지 않는다.",
       "points": [
-        "not just A but also B는 'A뿐만 아니라 B도'라는 뜻의 대표적인 병렬 표현이다.",
-        "make + O + 동사원형은 5형식으로, '목적어가 ~하게 만들다'라는 뜻이다. 여기서는 it will make them question에서 them이 목적어, question이 목적보어이다."
+        "not just A but also B는 'A뿐만 아니라 B도'라는 대표적인 병렬 표현이다.",
+        "make + O + 동사원형은 5형식으로, '목적어가 ~하게 만들다'로 해석한다."
       ],
-      "paraphrase_en": "People avoid thinking not only because it is difficult but also because it may force them to doubt their old beliefs.",
-      "paraphrase_ko": "사람들은 생각하는 것이 어렵기 때문만 아니라, 그것이 오래된 믿음을 의심하게 만들 수 있기 때문에 생각을 피한다."
+      "paraphrase_en": "People avoid thinking not only because it is difficult but also because it may force them to doubt what they have long believed.",
+      "paraphrase_ko": "사람들은 생각하는 일이 어렵기 때문만 아니라, 오랫동안 믿어 온 것을 의심하게 될 수 있기 때문에 생각을 피한다."
     },
     {
       "id": 4,
@@ -541,15 +517,7 @@
           "children": []
         },
         {
-          "text": "most likely",
-          "type": "plain",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "do want",
+          "text": "most likely do want",
           "type": "bold",
           "label": "V",
           "annotation_above": null,
@@ -559,7 +527,7 @@
         {
           "text": "to think",
           "type": "plain",
-          "label": "O",
+          "label": null,
           "annotation_above": null,
           "annotation_below": null,
           "children": []
@@ -632,13 +600,13 @@
           ]
         }
       ],
-      "korean": "여러분의 학생들은 정치, 윤리, 철학처럼 아주 논란이 될 수 있는 문제들에 대해 생각하고 싶어 할 가능성이 크다.",
+      "korean": "여러분의 학생들은 정치, 윤리, 철학처럼 매우 논란이 될 수 있는 것들에 대해 생각하고 싶어 할 가능성이 크다.",
       "points": [
-        "do want의 do는 동사를 강조하는 표현이다. '정말 원한다'라는 느낌을 준다.",
+        "do want에서 do는 동사를 강조하는 말로, '정말로 원한다'는 뜻을 강하게 보여 준다.",
         "that can be very controversial는 things를 꾸며 주는 관계절이다."
       ],
-      "paraphrase_en": "Students probably do want to think about topics like politics, ethics, and philosophy that can cause strong disagreement.",
-      "paraphrase_ko": "학생들은 정치, 윤리, 철학처럼 의견이 크게 갈릴 수 있는 주제에 대해 정말 생각해 보고 싶어 할 가능성이 크다."
+      "paraphrase_en": "Students probably really do want to think about topics like politics, ethics, and philosophy that can be controversial.",
+      "paraphrase_ko": "학생들은 정치, 윤리, 철학처럼 논란이 될 수 있는 주제들을 정말 생각해 보고 싶어 할 가능성이 크다."
     },
     {
       "id": 5,
@@ -671,8 +639,8 @@
       ],
       "korean": "하지만 더 깊이 파고들어 보자.",
       "points": [],
-      "paraphrase_en": "But let us look more deeply.",
-      "paraphrase_ko": "하지만 더 깊게 살펴보자."
+      "paraphrase_en": "But think about it more deeply.",
+      "paraphrase_ko": "하지만 그것을 더 깊이 생각해 보자."
     },
     {
       "id": 6,
@@ -697,7 +665,7 @@
         {
           "text": "thinking",
           "type": "plain",
-          "label": "O",
+          "label": null,
           "annotation_above": null,
           "annotation_below": null,
           "children": []
@@ -733,15 +701,23 @@
           "annotation_above": null,
           "annotation_below": null,
           "children": []
+        },
+        {
+          "text": "Once",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
         }
       ],
-      "korean": "우리가 깊이 생각하기 시작하면, 오랫동안 당연하다고 여겨 온 생각들이 도전을 받게 된다.",
+      "korean": "우리가 깊이 생각하기 시작하면, 오랫동안 가지고 있던 생각들이 도전을 받는다.",
       "points": [
-        "Once는 '~하자마자, ~하면'의 뜻으로 시간 조건을 나타낸다.",
-        "are challenged는 수동태로, '도전을 받다, 흔들리다'로 이해하면 된다."
+        "Once는 여기서 '일단 ~하면'이라는 뜻의 접속사이다.",
+        "수동태 are challenged는 '도전을 받다, 흔들리다'로 자연스럽게 해석하면 된다."
       ],
       "paraphrase_en": "When we begin to think deeply, our old assumptions are questioned.",
-      "paraphrase_ko": "우리가 깊이 생각하기 시작하면 오래된 가정과 믿음이 의심받게 된다."
+      "paraphrase_ko": "우리가 깊이 생각하기 시작하면, 오래된 가정과 믿음이 의심받게 된다."
     },
     {
       "id": 7,
@@ -862,13 +838,13 @@
           ]
         }
       ],
-      "korean": "생각은 우리가 균형을 잃고 세상을 다른 방식으로 보아야 할지도 모른다고 걱정하게 만든다.",
+      "korean": "생각은 우리가 중심을 잃고 세상을 다른 방식으로 보게 될까 봐 걱정하게 만든다.",
       "points": [
         "make + O + 동사원형(worry)는 5형식이다.",
-        "that절 안에서 lose와 have to look이 and로 이어진 병렬 구조이다."
+        "that절 안에서 lose와 have to look이 and로 이어져 함께 서술된다."
       ],
-      "paraphrase_en": "Thinking makes us fear that we may lose our stability and be forced to see the world differently.",
-      "paraphrase_ko": "생각은 우리가 지금의 안정감을 잃고 세상을 다르게 봐야 할지 모른다는 두려움을 느끼게 한다."
+      "paraphrase_en": "Thinking makes us fear that we may lose stability and be forced to see the world differently.",
+      "paraphrase_ko": "생각은 우리가 안정감을 잃고 세상을 다르게 보게 될지 모른다고 두려워하게 만든다."
     },
     {
       "id": 8,
@@ -891,12 +867,21 @@
           "children": []
         },
         {
-          "text": "about thinking",
-          "type": "plain",
+          "text": "",
+          "type": "bracket",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
-          "children": []
+          "children": [
+            {
+              "text": "about thinking",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
         },
         {
           "text": "because",
@@ -939,32 +924,16 @@
             },
             {
               "text": "what",
-              "type": "boxed",
-              "label": "목관대",
+              "type": "plain",
+              "label": "명사적 용법",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
             },
             {
-              "text": "we",
+              "text": "we and other people",
               "type": "underline",
               "label": "S",
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "and",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "other people",
-              "type": "underline",
-              "label": "병렬1",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
@@ -980,17 +949,17 @@
           ]
         }
       ],
-      "korean": "우리는 우리 자신과 다른 사람들이 무엇을 생각하는지를 중요하게 여기기 때문에, 생각하는 일 자체를 걱정한다.",
+      "korean": "우리는 우리 자신과 다른 사람들이 무엇을 생각하는지 신경 쓰기 때문에 생각하는 일을 걱정한다.",
       "points": [
-        "what we and other people think는 전치사 about의 목적어 역할을 하는 간접의문문이다.",
-        "we and other people은 think의 주어로 병렬 연결되어 있다."
+        "care about은 '~을 신경 쓰다, 중요하게 여기다'라는 뜻의 숙어이다.",
+        "what we and other people think는 전치사 about의 목적어 역할을 하는 명사절이다."
       ],
-      "paraphrase_en": "We are anxious about thinking because we care about our own opinions and the opinions of others.",
-      "paraphrase_ko": "우리는 나와 다른 사람들의 생각을 중요하게 여기기 때문에 생각하는 일을 불안해한다."
+      "paraphrase_en": "We are anxious about thinking because opinions—ours and others’—matter to us.",
+      "paraphrase_ko": "우리는 우리 생각과 다른 사람들의 생각을 중요하게 여기기 때문에 생각하는 일을 불안해한다."
     },
     {
       "id": 9,
-      "type_label": "근거",
+      "type_label": "부연",
       "phrases": [
         {
           "text": "Even the most far-fetched ideas",
@@ -1034,10 +1003,12 @@
           ]
         }
       ],
-      "korean": "아무리 터무니없어 보이는 생각이라도 세상에 영향을 미친다.",
-      "points": [],
+      "korean": "가장 터무니없어 보이는 생각조차도 세상에 영향을 준다.",
+      "points": [
+        "have an effect on은 '~에 영향을 주다'라는 자주 나오는 표현이다."
+      ],
       "paraphrase_en": "Even very unlikely ideas can influence the world.",
-      "paraphrase_ko": "아주 말이 안 되는 것처럼 보이는 생각도 세상에 영향을 줄 수 있다."
+      "paraphrase_ko": "아주 믿기 어려운 생각도 세상에 영향을 줄 수 있다."
     },
     {
       "id": 10,
@@ -1060,29 +1031,12 @@
           "children": []
         },
         {
-          "text": "about as abstract",
+          "text": "about as abstract as thinking can get,",
           "type": "plain",
           "label": "C",
           "annotation_above": null,
           "annotation_below": null,
           "children": []
-        },
-        {
-          "text": "",
-          "type": "bracket",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": [
-            {
-              "text": "as thinking can get,",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            }
-          ]
         },
         {
           "text": "/",
@@ -1125,61 +1079,62 @@
           "children": []
         },
         {
-          "text": "without",
-          "type": "plain",
+          "text": "",
+          "type": "bracket",
           "label": null,
           "annotation_above": null,
           "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "the first",
-          "type": "plain",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "and",
-          "type": "plain",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "run",
-          "type": "bold",
-          "label": "병렬2",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "computers",
-          "type": "plain",
-          "label": "O",
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
-        },
-        {
-          "text": "without the second.",
-          "type": "plain",
-          "label": null,
-          "annotation_above": null,
-          "annotation_below": null,
-          "children": []
+          "children": [
+            {
+              "text": "without the first",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "and",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "run",
+              "type": "bold",
+              "label": "병렬2",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "computers",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "without the second.",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
         }
       ],
-      "korean": "비유클리드 기하학과 기호 논리학은 생각이 도달할 수 있는 만큼 매우 추상적이지만, 앞의 것 없이는 아인슈타인의 중력을 이해할 수 없고 뒤의 것 없이는 컴퓨터를 작동시킬 수 없다.",
+      "korean": "비유클리드 기하학과 기호 논리는 생각이 이를 수 있는 만큼 아주 추상적이지만, 앞의 것 없이는 아인슈타인의 중력을 이해할 수 없고 뒤의 것 없이는 컴퓨터를 작동시킬 수 없다.",
       "points": [
-        "as abstract as thinking can get은 '생각이 이를 수 있는 만큼 추상적인'이라는 원급 비교 표현이다.",
-        "understand Einsteinian gravity와 run computers가 but 뒤에서 병렬로 이어진 구조이다. the first는 Non-Euclidean geometry, the second는 symbolic logic을 가리킨다."
+        "as abstract as thinking can get은 '생각이 도달할 수 있는 만큼 추상적인'이라는 원급 비교 표현이다.",
+        "but 뒤에서 understand와 run이 병렬로 이어진다. the first는 Non-Euclidean geometry, the second는 symbolic logic를 가리킨다."
       ],
-      "paraphrase_en": "Non-Euclidean geometry and symbolic logic are extremely abstract, but the first is necessary for understanding Einstein’s gravity and the second is necessary for operating computers.",
-      "paraphrase_ko": "비유클리드 기하학과 기호 논리학은 매우 추상적이지만, 앞의 것은 아인슈타인 중력을 이해하는 데 필요하고 뒤의 것은 컴퓨터를 움직이는 데 필요하다."
+      "paraphrase_en": "These two fields are extremely abstract, but the first is necessary for understanding Einstein’s gravity and the second for operating computers.",
+      "paraphrase_ko": "이 두 분야는 매우 추상적이지만, 첫 번째는 아인슈타인의 중력을 이해하는 데 필요하고 두 번째는 컴퓨터를 작동시키는 데 필요하다."
     },
     {
       "id": 11,
@@ -1217,31 +1172,7 @@
           "annotation_below": null,
           "children": [
             {
-              "text": "to us,",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "to others,",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "and",
-              "type": "plain",
-              "label": null,
-              "annotation_above": null,
-              "annotation_below": null,
-              "children": []
-            },
-            {
-              "text": "to the world",
+              "text": "to us, to others, and to the world",
               "type": "plain",
               "label": null,
               "annotation_above": null,
@@ -1284,12 +1215,13 @@
           ]
         }
       ],
-      "korean": "생각은 우리에게도, 다른 사람들에게도, 그리고 우리가 살아가는 세상에도 중요하다.",
+      "korean": "생각은 우리 자신에게도, 다른 사람들에게도, 그리고 우리가 사는 세상에도 중요하다.",
       "points": [
-        "the world we live in에서 관계대명사 which/that이 생략되어 있다. 즉, '우리가 살아가는 세상'이라는 뜻이다."
+        "the world we live in에서 관계대명사 which/that이 생략된 형태이다.",
+        "to us, to others, and to the world는 병렬 구조로 중요성이 미치는 대상을 차례로 보여 준다."
       ],
       "paraphrase_en": "Thinking matters to ourselves, to other people, and to the world around us.",
-      "paraphrase_ko": "생각은 우리 자신과 다른 사람들, 그리고 우리를 둘러싼 세상 모두에게 중요하다."
+      "paraphrase_ko": "생각은 우리 자신과 다른 사람들, 그리고 우리를 둘러싼 세상에 중요하다."
     },
     {
       "id": 12,
@@ -1328,8 +1260,8 @@
           "children": [
             {
               "text": "why",
-              "type": "boxed",
-              "label": "관계부사",
+              "type": "plain",
+              "label": "명사적 용법",
               "annotation_above": null,
               "annotation_below": null,
               "children": []
@@ -1367,19 +1299,15 @@
               "children": []
             }
           ]
-        }
-      ],
-      "korean": "이것이 우리가 생각을 그렇게 두려워하는 이유 중 하나이다.",
-      "points": [
-        "one reason why ~는 '왜 ~한지에 대한 이유 중 하나'라는 자주 나오는 표현이다."
-      ],
-      "paraphrase_en": "This is one reason we fear thinking so much.",
-      "paraphrase_ko": "이것이 우리가 생각을 그토록 두려워하는 이유 가운데 하나이다."
-    },
-    {
-      "id": 13,
-      "type_label": "결론",
-      "phrases": [
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
         {
           "text": "it",
           "type": "underline",
@@ -1422,11 +1350,13 @@
           ]
         }
       ],
-      "korean": "생각은 우리를 가장 깊은 부분까지 흔든다.",
-      "points": [],
-      "paraphrase_en": "Thinking shakes us deeply at the center of who we are.",
-      "paraphrase_ko": "생각은 우리 존재의 가장 깊은 곳까지 흔든다."
+      "korean": "이것이 우리가 그것을 그토록 두려워하는 한 가지 이유이다. 그것은 우리를 마음 깊은 곳까지 흔들어 놓는다.",
+      "points": [
+        "why we are so afraid of it는 one reason을 뒤에서 설명하는 관계부사절이다.",
+        "to the core는 '마음 깊은 곳까지, 근본부터'라는 뜻의 강조 표현이다."
+      ],
+      "paraphrase_en": "This is one reason we fear thinking so much: it deeply shakes who we are.",
+      "paraphrase_ko": "이것이 우리가 생각을 그렇게 두려워하는 한 가지 이유이다. 생각은 우리 존재의 깊은 부분까지 흔든다."
     }
-  ],
-  "problem_number": "04"
+  ]
 }

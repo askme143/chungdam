@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "Reliable Sources for Health and Nutrition Information", "title_ko": "건강·영양 정보의 믿을 만한 출처", "theme_en": "Although many consumers seek health and nutrition information through the media and the Internet, reliable evidence-based sources should be used first.", "theme_ko": "많은 소비자들이 매체와 인터넷을 통해 건강·영양 정보를 찾지만, 먼저 믿을 수 있는 근거 중심의 출처를 이용해야 한다는 내용이다.", "summary_en": "The passage explains that while Americans think they can manage their health and often turn to media and online sources, many commercial or unregulated sites contain misleading claims, so public information should come first from trustworthy institutions.", "summary_ko": "이 글은 미국인들이 자기 건강을 어느 정도 스스로 관리할 수 있다고 생각하고 매체와 인터넷에 많이 의지하지만, 상업적이거나 관리되지 않는 많은 사이트에는 잘못된 정보가 있으므로 공공 정보는 먼저 믿을 만한 기관에서 찾아야 한다고 말한다.", "structure": [{"label": "도입", "english": "Consumer surveys indicate that the majority of Americans\n(91%) believe they have some control over their health, and 72%\nbelieve that food and nutrition play the greatest role.", "korean": "소비자 조사에 따르면, 미국인의 대다수(91%)는 자신이 자기 건강을 어느 정도 통제할 수 있다고 믿고, 72%는 음식과 영양이 가장 큰 역할을 한다고 믿는다."}, {"label": "문제", "english": "However, 75% of consumers rely on media outlets including the\nInternet as their major sources of health and nutrition\ninformation, and only half use medical sources.", "korean": "하지만 소비자의 75%는 인터넷을 포함한 매체를 건강과 영양 정보의 주된 출처로 삼고, 의료 출처를 이용하는 사람은 절반뿐이다."}, {"label": "근거", "english": "A Google search for “nutrition listservs” yielded over 100,000\nsites, but it is likely that many of these writings are not\nreviewed by nutrition experts.", "korean": "‘nutrition listservs’를 구글에서 검색해 보니 10만 개가 넘는 사이트가 나왔지만, 이 글들 가운데 많은 것들은 영양 전문가의 검토를 받지 않았을 가능성이 크다."}, {"label": "부연", "english": "Internet sites marketing herbs,\ndrugs, and health devices are not monitored by government\nregulatory agencies and often contain misleading information.\nReputable food companies provide helpful facts about the nutrient\ncontent of their products, but commercial sites devoted to sales\noften post misleading health claims.", "korean": "약초, 약품, 건강 기구를 판매하는 인터넷 사이트들은 정부 규제 기관의 관리를 받지 않으며, 자주 잘못된 정보를 담고 있다. 믿을 만한 식품 회사들은 자기 제품의 영양 성분에 대한 도움이 되는 사실을 제공하지만, 판매에 치중한 상업 사이트들은 자주 잘못된 건강 주장을 올린다."}, {"label": "결론", "english": "Internet sites maintained by\ngovernment agencies, universities, state extension services, and\nmedical facilities provide evidence-based information and should\nbe the first source for public information on foods, nutrition, and\nhealth.", "korean": "정부 기관, 대학, 주 확장 서비스, 의료 시설이 운영하는 인터넷 사이트들은 근거에 바탕을 둔 정보를 제공하므로, 음식·영양·건강에 관한 대중 정보의 첫 번째 출처가 되어야 한다."}], "key_vocabulary": [{"word": "indicate", "meaning": "나타내다, 보여 주다", "synonyms": ["show", "suggest", "reveal"], "antonyms": [], "emphasized": true}, {"word": "majority", "meaning": "대다수", "synonyms": ["most", "bulk"], "antonyms": ["minority"], "emphasized": true}, {"word": "control", "meaning": "통제, 조절", "synonyms": ["power", "command"], "antonyms": ["helplessness"], "emphasized": true}, {"word": "rely on", "meaning": "의지하다", "synonyms": ["depend on", "count on"], "antonyms": ["distrust"], "emphasized": true}, {"word": "media outlets", "meaning": "매체, 언론 수단", "synonyms": ["media", "channels"], "antonyms": [], "emphasized": true}, {"word": "yield", "meaning": "산출하다, 내놓다", "synonyms": ["produce", "generate"], "antonyms": [], "emphasized": true}, {"word": "review", "meaning": "검토하다", "synonyms": ["examine", "check"], "antonyms": ["ignore"], "emphasized": true}, {"word": "monitored", "meaning": "감시되는, 관리되는", "synonyms": ["watched", "supervised"], "antonyms": ["ignored"], "emphasized": true}, {"word": "regulatory", "meaning": "규제하는", "synonyms": ["controlling", "supervisory"], "antonyms": [], "emphasized": true}, {"word": "misleading", "meaning": "오해하게 만드는, 잘못된", "synonyms": ["deceptive", "false"], "antonyms": ["accurate", "truthful"], "emphasized": true}, {"word": "reputable", "meaning": "평판이 좋은, 믿을 만한", "synonyms": ["trustworthy", "respected"], "antonyms": ["disreputable", "unreliable"], "emphasized": true}, {"word": "nutrient", "meaning": "영양소의", "synonyms": ["nourishing"], "antonyms": [], "emphasized": true}, {"word": "devoted to", "meaning": "~에 전념하는, ~에 치중한", "synonyms": ["dedicated to", "focused on"], "antonyms": [], "emphasized": true}, {"word": "claims", "meaning": "주장들", "synonyms": ["assertions", "statements"], "antonyms": ["facts"], "emphasized": true}, {"word": "maintained", "meaning": "운영되는, 관리되는", "synonyms": ["run", "managed"], "antonyms": ["neglected"], "emphasized": true}, {"word": "evidence-based", "meaning": "근거에 바탕을 둔", "synonyms": ["fact-based", "research-based"], "antonyms": ["groundless"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "Consumer surveys", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "indicate", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "plain", "label": "null", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the majority of Americans", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "believe", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "they", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "have", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "some control", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "over their health", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}, {"text": ", and", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "72%", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "believe", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "food and nutrition", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "play", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the greatest role", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "소비자 조사에 따르면, 미국인의 대다수(91%)는 자신이 자기 건강을 어느 정도 통제할 수 있다고 믿고, 72%는 음식과 영양이 가장 큰 역할을 한다고 믿는다.", "points": ["indicate 뒤의 that절이 전체 목적어 역할을 한다.", "believe that ~ 구조가 and로 이어져 병렬로 연결되어 있다."], "paraphrase_en": "Surveys show that most Americans think they can influence their health, and many think food and nutrition matter most.", "paraphrase_ko": "조사 결과, 대부분의 미국인은 자기 건강에 영향을 줄 수 있다고 생각하고, 많은 사람은 음식과 영양이 가장 중요하다고 본다."}, {"id": 2, "type_label": "비판", "phrases": [{"text": "However,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "75% of consumers", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "rely on", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "media outlets", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "including the Internet", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "as their major sources", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of health and nutrition information", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ", and", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "only half", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "use", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "medical sources", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "하지만 소비자의 75%는 인터넷을 포함한 매체를 건강과 영양 정보의 주된 출처로 삼고, 의료 출처를 이용하는 사람은 절반뿐이다.", "points": ["including the Internet는 media outlets를 덧붙여 설명하는 표현이다.", "and로 두 개의 절이 병렬로 이어진다."], "paraphrase_en": "Still, most consumers get health and nutrition information from media sources like the Internet, while only half use medical sources.", "paraphrase_ko": "그런데도 대부분의 소비자는 인터넷 같은 매체에서 건강·영양 정보를 얻고, 의료 출처를 쓰는 사람은 절반뿐이다."}, {"id": 3, "type_label": "근거", "phrases": [{"text": "A Google search", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "for “nutrition listservs”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "yielded", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "over 100,000 sites", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ", but", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": "가주어", "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "likely", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "that", "type": "plain", "label": "null", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "many of these writings", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are not reviewed", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by nutrition experts", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "‘nutrition listservs’를 구글에서 검색해 보니 10만 개가 넘는 사이트가 나왔지만, 이 글들 가운데 많은 것들은 영양 전문가의 검토를 받지 않았을 가능성이 크다.", "points": ["it is likely that ~에서 it은 가주어이고, 진짜 주어는 that절이다.", "are not reviewed는 수동태로 '검토되지 않는다'라는 뜻이다."], "paraphrase_en": "Searching Google for nutrition mailing lists produced more than 100,000 sites, but many of them were probably not checked by nutrition experts.", "paraphrase_ko": "영양 관련 리스트서브를 구글에서 검색하면 10만 개가 넘는 사이트가 나오지만, 그중 많은 글은 영양 전문가가 확인하지 않았을 가능성이 크다."}, {"id": 4, "type_label": "부연", "phrases": [{"text": "Internet sites", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "marketing herbs, drugs, and health devices", "type": "plain", "label": "현재 분사구문", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "are not monitored", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by government regulatory agencies", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "and", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "often contain", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "misleading information", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "약초, 약품, 건강 기구를 판매하는 인터넷 사이트들은 정부 규제 기관의 관리를 받지 않으며, 자주 잘못된 정보를 담고 있다.", "points": ["marketing ~는 현재분사로 앞의 Internet sites를 꾸민다.", "are not monitored와 contain이 and로 연결된 병렬 구조이다."], "paraphrase_en": "Websites that sell herbs, drugs, and health devices are not supervised by government agencies and often give false information.", "paraphrase_ko": "약초, 약품, 건강 기구를 파는 웹사이트들은 정부 기관의 감독을 받지 않고, 자주 틀리거나 오해를 부르는 정보를 준다."}, {"id": 5, "type_label": "부연", "phrases": [{"text": "Reputable food companies", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "provide", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "helpful facts", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "about the nutrient content", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "of their products", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ", but", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "commercial sites", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "devoted to sales", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "often post", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "misleading health claims", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}], "korean": "믿을 만한 식품 회사들은 자기 제품의 영양 성분에 대한 도움이 되는 사실을 제공하지만, 판매에 치중한 상업 사이트들은 자주 잘못된 건강 주장을 올린다.", "points": ["devoted to sales는 과거분사구로 앞의 commercial sites를 꾸민다.", "but이 앞뒤 내용을 대조해 준다."], "paraphrase_en": "Trustworthy food companies give useful facts about what is in their products, but sales-focused commercial sites often make misleading health claims.", "paraphrase_ko": "믿을 만한 식품 회사들은 제품 성분에 대한 유용한 사실을 알려 주지만, 판매 중심의 상업 사이트들은 자주 잘못된 건강 주장을 한다."}, {"id": 6, "type_label": "결론", "phrases": [{"text": "Internet sites", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "maintained", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "by government agencies, universities, state extension services, and medical facilities", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "provide", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "evidence-based information", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "and", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "should be", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the first source", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "for public information", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "on foods, nutrition, and health", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "정부 기관, 대학, 주 확장 서비스, 의료 시설이 운영하는 인터넷 사이트들은 근거에 바탕을 둔 정보를 제공하므로, 음식·영양·건강에 관한 대중 정보의 첫 번째 출처가 되어야 한다.", "points": ["maintained by ~는 과거분사로 앞의 Internet sites를 꾸민다.", "provide와 should be가 and로 연결되어 같은 주어를 설명한다."], "paraphrase_en": "Websites run by public and medical institutions give reliable information based on evidence and should be the main place people look first for food, nutrition, and health information.", "paraphrase_ko": "공공 기관과 의료 기관이 운영하는 웹사이트는 근거 있는 믿을 만한 정보를 주므로, 사람들이 음식·영양·건강 정보를 찾을 때 가장 먼저 봐야 할 곳이다."}], "exam_info": "수특 2027 5강"};
+const VIEWER_PAGE = null;
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>

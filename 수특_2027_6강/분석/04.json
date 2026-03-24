@@ -1,0 +1,1153 @@
+{
+  "title_en": "How Literature Activates Imagination",
+  "title_ko": "문학이 상상력을 움직이는 방식",
+  "theme_en": "Reading literature activates human imagination by turning words into inner images built from memory and experience.",
+  "theme_ko": "문학 읽기는 말과 글을 기억과 경험에서 나온 마음속 이미지로 바꾸면서 사람의 상상력을 움직인다.",
+  "summary_en": "Literature gives readers mental escape and pleasure because readers actively use imagination and memory to build inner worlds from the writer’s words.",
+  "summary_ko": "문학은 독자에게 마음의 탈출구와 즐거움을 준다. 왜냐하면 독자가 글쓴이의 말을 바탕으로 기억과 상상력을 써서 마음속 세계를 직접 만들어 내기 때문이다.",
+  "structure": [
+    {
+      "label": "도입",
+      "english": "In the escape that reading literature provides through vicarious\nidentification and comparison with other lives, places, and times,\nwe activate our imagination, that uniquely human ability to\nexplore an alternative set of ideas and experiences that are\noutside our present environment and that may not even be real.",
+      "korean": "문학 읽기가 다른 사람의 삶, 장소, 시대와 자신을 겹쳐 보고 비교하게 하면서 주는 그 탈출 속에서, 우리는 상상력을 움직인다. 상상력은 현재 우리의 환경 밖에 있고 심지어 실제가 아닐 수도 있는 다른 생각과 경험의 묶음을 살펴볼 수 있게 하는, 인간만의 특별한 능력이다."
+    },
+    {
+      "label": "부연",
+      "english": "As opposed to perception that receives and processes information\nfrom the outside world — light, sound, shape — and finds meaning\nin it — a sunset, a symphony, a house — in imagination, the\nprocess is reversed.",
+      "korean": "빛, 소리, 형태 같은 바깥세상의 정보를 받아들이고 처리한 뒤 그 안에서 노을, 교향곡, 집 같은 의미를 찾아내는 지각과는 반대로, 상상에서는 그 과정이 거꾸로 된다."
+    },
+    {
+      "label": "예시",
+      "english": "Translating the words we read into what they signify, we populate an inner world in which imagery is created from the memory. For example, we read “house” and picture a representation of a house from memory.",
+      "korean": "우리는 읽는 말을 그것이 뜻하는 것으로 바꾸면서, 기억에서 이미지가 만들어지는 마음속 세계를 채운다. 예를 들어, 우리는 “house”를 읽고 기억 속에서 집의 모습을 떠올린다."
+    },
+    {
+      "label": "결론",
+      "english": "It is our imagination, the complex interweaving of perception and\nmemory that literature activates, releasing a latent creativity\nthat pleases. The writer may provide the blueprint, but the reader\nbuilds literature’s many rooms, and like any satisfying occupation,\nliterature gratifies our imaginative and creative abilities.",
+      "korean": "문학이 움직이는 것은 바로 우리의 상상력이다. 그것은 지각과 기억이 복잡하게 얽혀 있는 것이며, 사람을 즐겁게 하는 잠재된 창의성을 풀어 놓는다. 글쓴이는 설계도를 줄 수는 있지만, 문학의 많은 방을 짓는 것은 독자이며, 만족스러운 어떤 활동처럼 문학은 우리의 상상력과 창의적인 능력을 만족시킨다."
+    }
+  ],
+  "key_vocabulary": [
+    {
+      "word": "escape",
+      "meaning": "벗어남, 탈출",
+      "synonyms": [
+        "release",
+        "relief",
+        "retreat"
+      ],
+      "antonyms": [
+        "confinement",
+        "captivity"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "vicarious",
+      "meaning": "간접적인, 대리의",
+      "synonyms": [
+        "indirect",
+        "secondhand"
+      ],
+      "antonyms": [
+        "direct"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "identification",
+      "meaning": "동일시, 자신을 겹쳐 봄",
+      "synonyms": [
+        "association",
+        "empathy"
+      ],
+      "antonyms": [
+        "detachment"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "imagination",
+      "meaning": "상상력",
+      "synonyms": [
+        "creativity",
+        "fancy",
+        "vision"
+      ],
+      "antonyms": [
+        "reality"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "alternative",
+      "meaning": "다른, 대안의",
+      "synonyms": [
+        "different",
+        "other",
+        "substitute"
+      ],
+      "antonyms": [
+        "same",
+        "original"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "environment",
+      "meaning": "환경",
+      "synonyms": [
+        "surroundings",
+        "setting"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "perception",
+      "meaning": "지각, 인식",
+      "synonyms": [
+        "awareness",
+        "recognition"
+      ],
+      "antonyms": [
+        "ignorance"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "process",
+      "meaning": "과정",
+      "synonyms": [
+        "procedure",
+        "course"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "reversed",
+      "meaning": "거꾸로 된, 뒤바뀐",
+      "synonyms": [
+        "opposite",
+        "inverted"
+      ],
+      "antonyms": [
+        "normal",
+        "unchanged"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "signify",
+      "meaning": "뜻하다, 나타내다",
+      "synonyms": [
+        "mean",
+        "indicate",
+        "represent"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "imagery",
+      "meaning": "심상, 마음속 이미지",
+      "synonyms": [
+        "image",
+        "mental picture"
+      ],
+      "antonyms": [],
+      "emphasized": true
+    },
+    {
+      "word": "interweaving",
+      "meaning": "서로 얽힘",
+      "synonyms": [
+        "blending",
+        "mixing"
+      ],
+      "antonyms": [
+        "separation"
+      ],
+      "emphasized": false
+    },
+    {
+      "word": "latent",
+      "meaning": "잠재적인",
+      "synonyms": [
+        "hidden",
+        "dormant"
+      ],
+      "antonyms": [
+        "active",
+        "obvious"
+      ],
+      "emphasized": true
+    },
+    {
+      "word": "blueprint",
+      "meaning": "설계도, 밑그림",
+      "synonyms": [
+        "plan",
+        "design"
+      ],
+      "antonyms": [],
+      "emphasized": false
+    },
+    {
+      "word": "gratify",
+      "meaning": "만족시키다",
+      "synonyms": [
+        "satisfy",
+        "please",
+        "reward"
+      ],
+      "antonyms": [
+        "frustrate",
+        "disappoint"
+      ],
+      "emphasized": true
+    }
+  ],
+  "sentences": [
+    {
+      "id": 1,
+      "type_label": "주제문",
+      "phrases": [
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "In the escape",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "목관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "reading literature",
+                  "type": "plain",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "provides",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "through vicarious identification and comparison",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    },
+                    {
+                      "text": "",
+                      "type": "bracket",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": [
+                        {
+                          "text": "with other lives, places, and times",
+                          "type": "plain",
+                          "label": null,
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "activate",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "our imagination",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that uniquely human ability",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "to explore",
+                  "type": "plain",
+                  "label": "형용사적 용법",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "an alternative set",
+                  "type": "plain",
+                  "label": "O",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "of ideas and experiences",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    },
+                    {
+                      "text": "",
+                      "type": "bracket",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": [
+                        {
+                          "text": "that",
+                          "type": "boxed",
+                          "label": "주관대",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        },
+                        {
+                          "text": "are",
+                          "type": "bold",
+                          "label": "V",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        },
+                        {
+                          "text": "",
+                          "type": "bracket",
+                          "label": null,
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": [
+                            {
+                              "text": "outside our present environment",
+                              "type": "plain",
+                              "label": "C",
+                              "annotation_above": null,
+                              "annotation_below": null,
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "text": "and",
+                          "type": "plain",
+                          "label": "병렬1",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        },
+                        {
+                          "text": "that",
+                          "type": "boxed",
+                          "label": "주관대",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        },
+                        {
+                          "text": "may not even be",
+                          "type": "bold",
+                          "label": "V",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        },
+                        {
+                          "text": "real",
+                          "type": "plain",
+                          "label": "C",
+                          "annotation_above": null,
+                          "annotation_below": null,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "문학 읽기가 다른 사람의 삶, 장소, 시대와 자신을 겹쳐 보고 비교하게 하면서 주는 그 탈출 속에서, 우리는 상상력을 움직인다. 상상력은 현재 우리의 환경 밖에 있고 심지어 실제가 아닐 수도 있는 다른 생각과 경험의 묶음을 살펴볼 수 있게 하는, 인간만의 특별한 능력이다.",
+      "points": [
+        "문장 첫부분의 In the escape ~ 는 전치사구로, 문장 전체의 배경을 먼저 깔아 준다.",
+        "that uniquely human ability는 our imagination을 다시 설명하는 동격 표현이다. 뒤의 to explore는 ability를 꾸며 주는 형용사적 용법이다."
+      ],
+      "paraphrase_en": "When literature lets us mentally escape into other lives, places, and times, we use our human ability of imagination to explore ideas and experiences beyond our real situation.",
+      "paraphrase_ko": "문학이 우리를 다른 삶, 장소, 시대 속으로 마음껏 빠져들게 할 때, 우리는 현실을 넘어선 생각과 경험을 살펴보는 인간의 능력인 상상력을 쓰게 된다."
+    },
+    {
+      "id": 2,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "As opposed to",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "perception",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "receives",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "and processes",
+              "type": "bold",
+              "label": "병렬1",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "information",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "from the outside world",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "light, sound, shape",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "and finds",
+              "type": "bold",
+              "label": "병렬2",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "meaning",
+              "type": "plain",
+              "label": "O",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "in it",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "",
+                  "type": "bracket",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": [
+                    {
+                      "text": "a sunset, a symphony, a house",
+                      "type": "plain",
+                      "label": null,
+                      "annotation_above": null,
+                      "annotation_below": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "in imagination",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the process",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is reversed",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "빛, 소리, 형태 같은 바깥세상의 정보를 받아들이고 처리한 뒤 그 안에서 노을, 교향곡, 집 같은 의미를 찾아내는 지각과는 반대로, 상상에서는 그 과정이 거꾸로 된다.",
+      "points": [
+        "that receives and processes ... and finds ... 는 perception을 꾸며 주는 관계절이다. receives, processes, finds가 병렬이다.",
+        "As opposed to ~ 는 '~와 반대로'라는 뜻으로, 뒤의 in imagination과 함께 대비를 강하게 보여 준다."
+      ],
+      "paraphrase_en": "Perception starts with outside information and then finds meaning, but imagination works in the opposite direction.",
+      "paraphrase_ko": "지각은 바깥 정보에서 시작해 의미를 찾지만, 상상은 그 반대로 움직인다."
+    },
+    {
+      "id": 3,
+      "type_label": "부연",
+      "phrases": [
+        {
+          "text": "Translating",
+          "type": "bold",
+          "label": "현재 분사구문",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the words",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "we read",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "into",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "what",
+          "type": "boxed",
+          "label": "명사적 용법",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "they signify",
+          "type": "plain",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "/",
+          "type": "slash",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "populate",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "an inner world",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "in which",
+              "type": "boxed",
+              "label": "목관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "imagery",
+              "type": "underline",
+              "label": "S",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "is created",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "from the memory",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "korean": "우리는 읽는 말을 그것이 뜻하는 것으로 바꾸면서, 기억에서 이미지가 만들어지는 마음속 세계를 채운다.",
+      "points": [
+        "문장 앞의 Translating ~ 는 현재분사구문으로, '…로 바꾸면서'라고 자연스럽게 해석하면 된다.",
+        "what they signify는 '그것들이 뜻하는 것'이라는 뜻의 명사절이다."
+      ],
+      "paraphrase_en": "As we turn written words into their meanings, we fill our minds with an inner world made of images from memory.",
+      "paraphrase_ko": "우리는 글의 단어를 그 뜻으로 바꾸면서, 기억에서 나온 이미지들로 마음속 세계를 채운다."
+    },
+    {
+      "id": 4,
+      "type_label": "예시",
+      "phrases": [
+        {
+          "text": "For example,",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "we",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "read",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "“house”",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "and",
+          "type": "plain",
+          "label": "병렬1",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "picture",
+          "type": "bold",
+          "label": "병렬2",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a representation",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "of a house",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "from memory",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "예를 들어, 우리는 “house”를 읽고 기억 속에서 집의 모습을 떠올린다.",
+      "points": [
+        "read와 picture가 and로 연결된 병렬 구조이다."
+      ],
+      "paraphrase_en": "For instance, when we see the word “house,” we imagine a house using memory.",
+      "paraphrase_ko": "예를 들어, 우리가 “house”라는 단어를 보면 기억을 바탕으로 집 모습을 떠올린다."
+    },
+    {
+      "id": 5,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "It",
+          "type": "plain",
+          "label": "C",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "is",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "our imagination",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "the complex interweaving",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "",
+              "type": "bracket",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": [
+                {
+                  "text": "of perception and memory",
+                  "type": "plain",
+                  "label": null,
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "that",
+                  "type": "boxed",
+                  "label": "목관대",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "literature",
+                  "type": "underline",
+                  "label": "S",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                },
+                {
+                  "text": "activates",
+                  "type": "bold",
+                  "label": "V",
+                  "annotation_above": null,
+                  "annotation_below": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "releasing",
+          "type": "bold",
+          "label": "현재 분사구문",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "a latent creativity",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "that",
+              "type": "boxed",
+              "label": "주관대",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            },
+            {
+              "text": "pleases",
+              "type": "bold",
+              "label": "V",
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "korean": "문학이 움직이는 것은 바로 우리의 상상력이다. 그것은 지각과 기억이 복잡하게 얽혀 있는 것이며, 사람을 즐겁게 하는 잠재된 창의성을 풀어 놓는다.",
+      "points": [
+        "It is ~ that ... 처럼 보이지만 여기서는 강조구문이라기보다 보어 It, 주어 our imagination이 도치된 형태로 보기보다 '바로 ~이다'로 자연스럽게 이해하면 된다.",
+        "releasing ~ 는 앞내용 전체를 받아 결과를 덧붙이는 현재분사구문이다."
+      ],
+      "paraphrase_en": "What literature activates is our imagination, a rich mix of perception and memory, and this brings out hidden creativity that gives pleasure.",
+      "paraphrase_ko": "문학이 움직이는 것은 지각과 기억이 섞인 우리의 상상력이며, 이것은 즐거움을 주는 숨은 창의성을 끌어낸다."
+    },
+    {
+      "id": 6,
+      "type_label": "결론",
+      "phrases": [
+        {
+          "text": "The writer",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "may provide",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the blueprint",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ", but",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "the reader",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "builds",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "literature’s many rooms",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": ", and",
+          "type": "bold",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "",
+          "type": "bracket",
+          "label": null,
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": [
+            {
+              "text": "like any satisfying occupation",
+              "type": "plain",
+              "label": null,
+              "annotation_above": null,
+              "annotation_below": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "literature",
+          "type": "underline",
+          "label": "S",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "gratifies",
+          "type": "bold",
+          "label": "V",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        },
+        {
+          "text": "our imaginative and creative abilities",
+          "type": "plain",
+          "label": "O",
+          "annotation_above": null,
+          "annotation_below": null,
+          "children": []
+        }
+      ],
+      "korean": "글쓴이는 설계도를 줄 수는 있지만, 문학의 많은 방을 짓는 것은 독자이며, 만족스러운 어떤 활동처럼 문학은 우리의 상상력과 창의적인 능력을 만족시킨다.",
+      "points": [
+        "but이 writer와 reader의 역할을 뚜렷하게 대비한다.",
+        "like any satisfying occupation은 문장 전체에 덧붙는 비교 표현으로, '만족스러운 어떤 활동처럼'이라고 보면 된다."
+      ],
+      "paraphrase_en": "The author gives the plan, but the reader actually creates the full literary world, and this process satisfies our imagination and creativity.",
+      "paraphrase_ko": "작가는 밑그림을 주지만, 문학 세계를 실제로 완성하는 것은 독자이며, 이 과정은 우리의 상상력과 창의성을 만족시킨다."
+    }
+  ]
+}

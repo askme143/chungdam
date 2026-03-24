@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>본문분석</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --yellow: #eab308;
+    --yellow-light: #fefce8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .home-btn, .viewer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .home-btn { position: absolute; left: 1rem; }
+  .viewer-btn { position: absolute; right: 1rem; }
+  .home-btn:hover, .viewer-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  header h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    word-break: keep-all;
+  }
+  .header-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-top: 0.2rem;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── Section Titles ── */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 2.5rem 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-sub);
+  }
+
+  /* ── Section 1: 지문 구조 ── */
+  .structure-timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .structure-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-left: 2px dashed var(--border);
+  }
+  .structure-item {
+    position: relative;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .structure-item:last-child { border-bottom: none; }
+  .structure-dot {
+    position: absolute;
+    left: -1.65rem;
+    top: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .structure-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .structure-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .structure-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 2: 제목, 주제, 요약 ── */
+  .meta-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  .meta-row {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-label {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .meta-content { flex: 1; }
+  .meta-en {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .meta-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Section 3: 핵심 단어 ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 1rem 0;
+  }
+  @media (max-width: 540px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+  .vocab-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .vocab-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 540px) {
+    .vocab-cell { border-right: none; }
+  }
+  .vocab-cell:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 540px) {
+    .vocab-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .vocab-cell:last-child { border-bottom: none; }
+  }
+  .vocab-cb {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .vocab-info { flex: 1; }
+  .vocab-word {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .vocab-word .em-mark {
+    color: var(--red);
+    font-size: 0.8em;
+  }
+  .vocab-meaning {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+  }
+  .vocab-syn {
+    font-size: 0.8rem;
+    color: var(--green);
+  }
+  .vocab-ant {
+    font-size: 0.8rem;
+    color: var(--red);
+  }
+
+  /* ── Section 4: 지문 읽기 ── */
+  .passage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+  .sent-num {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    vertical-align: super;
+    margin-right: 0.1em;
+  }
+  .passage-translations {
+    border-top: 2px dashed var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .passage-translations .t-item {
+    margin-bottom: 0.4rem;
+  }
+  .passage-translations .t-num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.3rem;
+  }
+
+  /* ── Section 5: 문장별 분석 ── */
+  .analysis-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analysis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .analysis-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .analysis-type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* Phrase rendering */
+  .phrase-area {
+    font-size: 1.05rem;
+    line-height: 4;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .phrase-unit {
+    display: inline;
+    position: relative;
+    white-space: nowrap;
+  }
+  .phrase-text {
+    display: inline;
+  }
+  .phrase-bracket {
+    font-size: 1.15em;
+  }
+  .phrase-bracket.depth-0 { color: var(--accent); }
+  .phrase-bracket.depth-1 { color: var(--orange); }
+  .phrase-bracket.depth-2 { color: var(--green); }
+  .phrase-bracket.depth-3 { color: var(--purple); }
+  .phrase-slash {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0.2em;
+  }
+  .phrase-bold { font-weight: 700; }
+  .phrase-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+    text-underline-offset: 3px;
+  }
+  .phrase-boxed {
+    border: 1.5px solid var(--red);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+  .grammar-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-above {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .annot-below {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.85em);
+    font-size: 0.68rem;
+    color: var(--red);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Korean translation */
+  .analysis-korean {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  /* 포인트! */
+  .point-box {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .point-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #92400e;
+    margin-bottom: 0.3rem;
+  }
+  .point-item {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #78350f;
+  }
+  .point-item::before {
+    content: '• ';
+  }
+
+  /* 패러프레이징 */
+  .paraphrase-box {
+    border-top: 2px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+  .paraphrase-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .paraphrase-en {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .paraphrase-ko {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 0.15rem;
+  }
+
+  /* ── Toast ── */
+  .toast-msg {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    pointer-events: none;
+  }
+  .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Nav anchors ── */
+  .nav-toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .nav-toc-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 0.5rem;
+  }
+  .nav-toc a {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .nav-toc a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a class="home-btn" href="/">&#x1F3E0; 홈</a>
+    <div>
+      <h1 id="pageTitle">본문분석</h1>
+      <div class="header-sub" id="examInfo"></div>
+    </div>
+    <a class="viewer-btn" id="viewerLink" style="display:none">문장별 해설 &#x203A;</a>
+  </div>
+</header>
+
+<main id="content">
+</main>
+
+<script>
+const DATA = {"title_en": "How Context Changes Meaning", "title_ko": "맥락이 의미를 바꾸는 방식", "theme_en": "The meaning people give to an object depends greatly on the place and context in which they see it.", "theme_ko": "사람들이 어떤 물건에 부여하는 의미는 그것을 보는 장소와 상황에 크게 달려 있다.", "summary_en": "The passage shows that the same object is seen as trash on the street but as art in a gallery, proving that context strongly shapes interpretation.", "summary_ko": "이 글은 같은 물건도 길거리에서는 쓰레기로 보이지만 미술관에서는 예술로 보일 수 있음을 보여 주며, 상황과 장소가 해석에 큰 영향을 준다는 점을 말한다.", "structure": [{"label": "도입", "english": "When people are asked what any painting hanging on a gallery wall means, no matter how strange it might appear, as is the case with most abstract-expressionist paintings, they tend to find meaning in it because it is located in a gallery.", "korean": "사람들은 미술관 벽에 걸린 어떤 그림이 무엇을 뜻하느냐는 질문을 받으면, 그것이 아무리 이상하게 보일지라도, 대부분의 추상표현주의 그림이 그런 경우이듯, 그것이 미술관에 놓여 있다는 이유로 그 안에서 의미를 찾는 경향이 있다."}, {"label": "예시", "english": "Consider a soda can found thrown away on a city street. If we were to come across this item on the street, we would no doubt view it as a piece of garbage or rubbish.", "korean": "도시의 길거리에 버려진 채 발견된 탄산음료 캔을 생각해 보자. 만약 우리가 길거리에서 이 물건을 보게 된다면, 우리는 틀림없이 그것을 쓰레기 한 조각으로 여길 것이다."}, {"label": "반론", "english": "But if we saw the very same object on a pedestal, displayed in an art gallery, signed by some artist, and given a title such as “Waste,” then we would interpret its meaning in a vastly different way.", "korean": "하지만 바로 그 똑같은 물건을 받침대 위에서, 미술관에 전시되고, 어떤 예술가의 서명이 있으며, 'Waste' 같은 제목까지 붙은 채 본다면, 우리는 그 의미를 아주 다르게 해석할 것이다."}, {"label": "부연", "english": "We would, in fact, be inclined to interpret it as an artistic form, describing a throw-away or materialistic society.", "korean": "사실 우리는 그것을 버리고 사는 사회나 물질만능 사회를 보여 주는 예술적 형태로 해석하는 쪽으로 기울게 될 것이다."}, {"label": "결론", "english": "Clearly, the can’s location on a sidewalk versus its display on a pedestal in an art gallery will influence how we will interpret it.", "korean": "분명히, 그 캔이 보도 위에 놓여 있는지 아니면 미술관의 받침대 위에 전시되어 있는지는 우리가 그것을 어떻게 해석할지에 영향을 줄 것이다."}], "key_vocabulary": [{"word": "asked", "meaning": "질문받는, 물음을 받는", "synonyms": ["questioned"], "antonyms": [], "emphasized": false}, {"word": "abstract-expressionist", "meaning": "추상표현주의의", "synonyms": [], "antonyms": [], "emphasized": true}, {"word": "meaning", "meaning": "의미", "synonyms": ["significance", "sense"], "antonyms": ["nonsense"], "emphasized": true}, {"word": "located", "meaning": "위치한, 놓여 있는", "synonyms": ["situated", "placed"], "antonyms": [], "emphasized": true}, {"word": "consider", "meaning": "생각해 보다", "synonyms": ["think about", "examine"], "antonyms": ["ignore"], "emphasized": true}, {"word": "come across", "meaning": "우연히 마주치다, 발견하다", "synonyms": ["encounter", "find"], "antonyms": ["miss"], "emphasized": true}, {"word": "garbage", "meaning": "쓰레기", "synonyms": ["trash", "rubbish"], "antonyms": [], "emphasized": true}, {"word": "pedestal", "meaning": "받침대", "synonyms": ["stand", "base"], "antonyms": [], "emphasized": true}, {"word": "displayed", "meaning": "전시된", "synonyms": ["shown", "exhibited"], "antonyms": ["hidden"], "emphasized": true}, {"word": "signed", "meaning": "서명된", "synonyms": ["autographed"], "antonyms": [], "emphasized": false}, {"word": "title", "meaning": "제목", "synonyms": ["name", "heading"], "antonyms": [], "emphasized": true}, {"word": "interpret", "meaning": "해석하다", "synonyms": ["explain", "understand"], "antonyms": ["misread"], "emphasized": true}, {"word": "vastly", "meaning": "엄청나게, 크게", "synonyms": ["greatly", "enormously"], "antonyms": ["slightly"], "emphasized": false}, {"word": "inclined", "meaning": "~하는 경향이 있는", "synonyms": ["likely", "disposed"], "antonyms": ["reluctant"], "emphasized": true}, {"word": "artistic", "meaning": "예술적인", "synonyms": ["creative", "aesthetic"], "antonyms": ["practical"], "emphasized": true}, {"word": "materialistic", "meaning": "물질만능의", "synonyms": ["consumerist"], "antonyms": ["spiritual"], "emphasized": true}, {"word": "influence", "meaning": "영향을 주다", "synonyms": ["affect", "shape"], "antonyms": ["ignore"], "emphasized": true}], "sentences": [{"id": 1, "type_label": "주제문", "phrases": [{"text": "When", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "people", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "are asked", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "what any painting", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "hanging", "type": "plain", "label": "현재 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a gallery wall", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "means", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "no matter how strange", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "might appear", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the case", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "with most abstract-expressionist paintings", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "/", "type": "slash", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "they", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "tend", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to find", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "meaning", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in it", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "because", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "is located", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in a gallery.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "사람들은 미술관 벽에 걸린 어떤 그림이 무엇을 뜻하느냐는 질문을 받으면, 그것이 아무리 이상하게 보일지라도, 대부분의 추상표현주의 그림이 그런 경우이듯, 그것이 미술관에 놓여 있다는 이유로 그 안에서 의미를 찾는 경향이 있다.", "points": ["When people are asked ~는 '사람들이 ~라는 질문을 받으면'이라는 뜻의 수동태 표현이다.", "no matter how strange it might appear는 '아무리 이상하게 보일지라도'라는 양보 표현이다. because 이하가 의미를 찾는 이유를 알려 준다."], "paraphrase_en": "When people look at a painting in a gallery, they usually think it has meaning simply because it is in that place, even if it looks strange.", "paraphrase_ko": "사람들은 미술관에 있는 그림을 보면, 그것이 이상하게 보여도 단지 그 장소에 있다는 이유만으로 보통 의미가 있다고 생각한다."}, {"id": 2, "type_label": "삽입", "phrases": [{"text": "Consider", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a soda can", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "found", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "thrown away", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a city street.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}], "korean": "도시의 길거리에 버려진 채 발견된 탄산음료 캔을 생각해 보자.", "points": ["found thrown away on a city street는 a soda can을 뒤에서 꾸며 주는 과거분사 표현이다. '길거리에 버려진 채 발견된'으로 보면 된다."], "paraphrase_en": "Think about a soda can that has been thrown away on a city street.", "paraphrase_ko": "도시 길거리에 버려진 탄산음료 캔을 떠올려 보자."}, {"id": 3, "type_label": "예시", "phrases": [{"text": "If", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "were to come across", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "this item", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on the street", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "would view", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a piece", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "of garbage or rubbish.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "만약 우리가 길거리에서 이 물건을 보게 된다면, 우리는 틀림없이 그것을 쓰레기 한 조각으로 여길 것이다.", "points": ["If we were to come across ~는 가능성이 낮은 가정을 나타내는 표현으로, '만약 ~하게 된다면' 정도로 해석하면 된다.", "view A as B는 'A를 B로 보다'라는 중요한 표현이다."], "paraphrase_en": "If we found this object on the street, we would surely think it was trash.", "paraphrase_ko": "우리가 이 물건을 길거리에서 발견한다면, 분명 그것을 쓰레기라고 생각할 것이다."}, {"id": 4, "type_label": "반론", "phrases": [{"text": "But", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "if", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "saw", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the very same object", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a pedestal", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "displayed", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in an art gallery", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "signed", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "by some artist", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}, {"text": "and", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "given", "type": "plain", "label": "과거 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a title", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "such as “Waste,”", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}, {"text": ",", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "then", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "would interpret", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "its meaning", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "in a vastly different way.", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "하지만 바로 그 똑같은 물건을 받침대 위에서, 미술관에 전시되고, 어떤 예술가의 서명이 있으며, 'Waste' 같은 제목까지 붙은 채 본다면, 우리는 그 의미를 아주 다르게 해석할 것이다.", "points": ["saw the very same object 뒤의 on a pedestal, displayed ~, signed ~, and given ~은 모두 the very same object를 꾸며 주는 말이다.", "given a title에서 given은 과거분사이고, a title은 give의 목적어에 해당한다."], "paraphrase_en": "But if the same object were placed in a gallery like artwork, we would understand it very differently.", "paraphrase_ko": "하지만 같은 물건이 미술관에서 작품처럼 놓여 있다면, 우리는 그것을 아주 다르게 이해할 것이다."}, {"id": 5, "type_label": "부연", "phrases": [{"text": "We", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "would be inclined", "type": "bold", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "to interpret", "type": "plain", "label": "명사적 용법", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "as", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "an artistic form", "type": "plain", "label": "C", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "describing", "type": "plain", "label": "현재 분사구문", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "a throw-away or materialistic society.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "사실 우리는 그것을 버리고 사는 사회나 물질만능 사회를 보여 주는 예술적 형태로 해석하는 쪽으로 기울게 될 것이다.", "points": ["be inclined to do는 '~하는 경향이 있다, ~하고 싶어지다'라는 뜻의 표현이다.", "describing ~은 an artistic form을 뒤에서 꾸며 주는 현재분사 표현이다."], "paraphrase_en": "We would likely see it as art that expresses a wasteful or materialistic society.", "paraphrase_ko": "우리는 그것을 낭비적이거나 물질만능적인 사회를 나타내는 예술로 볼 가능성이 크다."}, {"id": 6, "type_label": "결론", "phrases": [{"text": "Clearly,", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "the can’s location", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a sidewalk", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "versus", "type": "bold", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "its display", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "on a pedestal", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "in an art gallery", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}]}]}, {"text": "will influence", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "", "type": "bracket", "label": null, "annotation_above": null, "annotation_below": null, "children": [{"text": "how", "type": "plain", "label": null, "annotation_above": null, "annotation_below": null, "children": []}, {"text": "we", "type": "underline", "label": "S", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "will interpret", "type": "bold", "label": "V", "annotation_above": null, "annotation_below": null, "children": []}, {"text": "it.", "type": "plain", "label": "O", "annotation_above": null, "annotation_below": null, "children": []}]}], "korean": "분명히, 그 캔이 보도 위에 놓여 있는지 아니면 미술관의 받침대 위에 전시되어 있는지는 우리가 그것을 어떻게 해석할지에 영향을 줄 것이다.", "points": ["how we will interpret it는 influence의 목적어 역할을 하는 간접의문문이다.", "the can’s location on a sidewalk versus its display on a pedestal in an art gallery가 문장 전체의 주어이다."], "paraphrase_en": "Obviously, where the can is placed changes the way we understand it.", "paraphrase_ko": "분명히, 그 캔이 어디에 놓여 있는지가 우리가 그것을 이해하는 방식을 바꾼다."}], "exam_info": "수특 2027 6강"};
+const VIEWER_PAGE = null;
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──
+(function init() {
+  // Title
+  const prefix = DATA.problem_number ? DATA.problem_number + '번 · ' : '';
+  const titleText = prefix + (DATA.title_ko || DATA.title_en || '본문분석');
+  document.getElementById('pageTitle').textContent = titleText;
+  document.title = '본문분석 · ' + titleText;
+
+  if (DATA.exam_info) {
+    document.getElementById('examInfo').textContent = DATA.exam_info;
+  }
+
+  // Viewer link
+  if (VIEWER_PAGE) {
+    const vl = document.getElementById('viewerLink');
+    vl.href = VIEWER_PAGE;
+    vl.style.display = '';
+  }
+
+  // Build page
+  const main = document.getElementById('content');
+  let html = '';
+
+  // TOC
+  html += `<div class="nav-toc">
+    <div class="nav-toc-title">바로가기</div>
+    <a href="#sec-structure">지문 구조</a>
+    <a href="#sec-meta">제목, 주제, 요약</a>
+    <a href="#sec-vocab">핵심 단어</a>
+    <a href="#sec-passage">지문 읽기</a>
+    <a href="#sec-analysis">문장별 분석</a>
+  </div>`;
+
+  // ── Section 1: 지문 구조 ──
+  html += `<div class="section-title" id="sec-structure">지문 구조 <span class="sub">지문의 전체적인 흐름을 확인해 보세요.</span></div>`;
+  html += `<div class="structure-timeline">`;
+  for (const s of DATA.structure) {
+    html += `<div class="structure-item">
+      <div class="structure-dot"></div>
+      <div class="structure-label">${esc(s.label)}</div>
+      <div class="structure-en">${esc(s.english)}</div>
+      <div class="structure-ko">${esc(s.korean)}</div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 2: 제목, 주제, 요약 ──
+  html += `<div class="section-title" id="sec-meta">제목, 주제, 요약 <span class="sub">지문의 핵심 내용을 확인해 보세요.</span></div>`;
+  html += `<div class="meta-card">`;
+  const metaItems = [
+    { label: '제목', en: DATA.title_en, ko: DATA.title_ko },
+    { label: '주제', en: DATA.theme_en, ko: DATA.theme_ko },
+    { label: '요약', en: DATA.summary_en, ko: DATA.summary_ko },
+  ];
+  for (const m of metaItems) {
+    html += `<div class="meta-row">
+      <span class="meta-label">${esc(m.label)}</span>
+      <div class="meta-content">
+        <div class="meta-en">${esc(m.en)}</div>
+        <div class="meta-ko">${esc(m.ko)}</div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 3: 핵심 단어 ──
+  html += `<div class="section-title" id="sec-vocab">핵심 단어 <span class="sub">시험에 자주 출제되는 단어를 학습해 보세요.</span></div>`;
+  html += `<div class="vocab-grid">`;
+  const storageKey = (DATA.exam_info || '') + '_' + (DATA.problem_number || '') + '_vocab_';
+  for (let i = 0; i < DATA.key_vocabulary.length; i++) {
+    const v = DATA.key_vocabulary[i];
+    const cbId = 'vcb' + i;
+    const checked = localStorage.getItem(storageKey + v.word) === '1' ? 'checked' : '';
+    let wordHtml = esc(v.word);
+    if (v.emphasized) wordHtml += '<span class="em-mark">*</span>';
+
+    let extraHtml = '';
+    if (v.meaning) extraHtml += `<div class="vocab-meaning">\u24D8 ${esc(v.meaning)}</div>`;
+    if (v.synonyms && v.synonyms.length) extraHtml += `<div class="vocab-syn">\u224D ${esc(v.synonyms.join(', '))}</div>`;
+    if (v.antonyms && v.antonyms.length) extraHtml += `<div class="vocab-ant">\u2260 ${esc(v.antonyms.join(', '))}</div>`;
+
+    html += `<div class="vocab-cell">
+      <input type="checkbox" class="vocab-cb" id="${cbId}" data-word="${esc(v.word)}" ${checked}>
+      <div class="vocab-info">
+        <div class="vocab-word">${wordHtml}</div>
+        ${extraHtml}
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+
+  // ── Section 4: 지문 읽기 ──
+  html += `<div class="section-title" id="sec-passage">지문 읽기 <span class="sub">지문 전체를 꼼꼼히 읽어보며 출제될 만한 부분에 표시해 보세요.</span></div>`;
+  html += `<div class="passage-card">`;
+  // Reconstruct passage from sentences
+  let passageText = '';
+  for (const s of DATA.sentences) {
+    passageText += `<span class="sent-num">${String(s.id).padStart(2, '0')}</span> `;
+    passageText += extractText(s.phrases) + ' ';
+  }
+  html += passageText;
+  // Translations
+  html += `<div class="passage-translations">`;
+  for (const s of DATA.sentences) {
+    html += `<div class="t-item"><span class="t-num">${String(s.id).padStart(2, '0')}</span>${esc(s.korean)}</div>`;
+  }
+  html += `</div></div>`;
+
+  // ── Section 5: 문장별 분석 ──
+  html += `<div class="section-title" id="sec-analysis">문장별 분석 <span class="sub">문장별로 분석된 빈출 포인트를 확인해 보세요.</span></div>`;
+  for (const s of DATA.sentences) {
+    const numStr = String(s.id).padStart(2, '0');
+    html += `<div class="analysis-card">`;
+    html += `<div class="analysis-header">
+      <span class="analysis-num">${numStr}</span>
+      <span class="analysis-type">${esc(s.type_label)}</span>
+    </div>`;
+
+    // Phrase analysis
+    html += `<div class="phrase-area">`;
+    let phraseHtml = '';
+    for (const p of s.phrases) {
+      phraseHtml += renderPhrase(p);
+    }
+    // Remove spaces between consecutive closing parens: ") )" → "))"
+    phraseHtml = phraseHtml.replace(/<\/span>\s+<span class="phrase-bracket close-paren">\)/g,
+      '</span><span class="phrase-bracket close-paren">)');
+    html += phraseHtml;
+    html += `</div>`;
+
+    // Korean
+    html += `<div class="analysis-korean">${esc(s.korean)}</div>`;
+
+    // Points
+    if (s.points && s.points.length > 0) {
+      html += `<div class="point-box">`;
+      html += `<div class="point-title">포인트!</div>`;
+      for (const pt of s.points) {
+        html += `<div class="point-item">${esc(pt)}</div>`;
+      }
+      html += `</div>`;
+    }
+
+    // Paraphrase
+    if (s.paraphrase_en || s.paraphrase_ko) {
+      html += `<div class="paraphrase-box">`;
+      html += `<div class="paraphrase-label">패러프레이징</div>`;
+      if (s.paraphrase_en) html += `<div class="paraphrase-en">${esc(s.paraphrase_en)}</div>`;
+      if (s.paraphrase_ko) html += `<div class="paraphrase-ko">${esc(s.paraphrase_ko)}</div>`;
+      html += `</div>`;
+    }
+
+    html += `</div>`; // analysis-card
+  }
+
+  main.innerHTML = html;
+
+  // ── Vocab checkbox persistence ──
+  document.querySelectorAll('.vocab-cb').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const word = this.dataset.word;
+      if (this.checked) {
+        localStorage.setItem(storageKey + word, '1');
+      } else {
+        localStorage.removeItem(storageKey + word);
+      }
+    });
+  });
+})();
+
+// ── Extract plain text from phrase tree ──
+function extractText(phrases) {
+  if (!phrases) return '';
+  let result = '';
+  for (const p of phrases) {
+    if (p.children && p.children.length > 0) {
+      result += extractText(p.children);
+    } else if (p.type === 'slash') {
+      // skip slash separators in plain text view
+    } else {
+      result += p.text;
+      if (p.text && !p.text.endsWith(' ')) result += ' ';
+    }
+  }
+  return result;
+}
+
+// ── Render phrase tree to HTML ──
+function renderPhrase(p, depth) {
+  depth = depth || 0;
+
+  // Slash
+  if (p.type === 'slash') {
+    return '<span class="phrase-slash">/</span>';
+  }
+
+  // Bracket with children
+  if (p.type === 'bracket' && p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth + 1);
+    }
+    const dc = 'depth-' + Math.min(depth, 3);
+    return '<span class="phrase-bracket ' + dc + '">(</span>' + inner.trimEnd() + '<span class="phrase-bracket close-paren ' + dc + '">)</span> ';
+  }
+
+  // Node with children (non-bracket)
+  if (p.children && p.children.length > 0) {
+    let inner = '';
+    for (const c of p.children) {
+      inner += renderPhrase(c, depth);
+    }
+    return inner;
+  }
+
+  // Leaf node
+  let aboveHtml = '';
+  if (p.annotation_above) {
+    aboveHtml = '<span class="annot-above">' + esc(p.annotation_above) + '</span>';
+  }
+
+  let textHtml = esc(p.text);
+  if (p.type === 'bold') textHtml = '<strong class="phrase-bold">' + textHtml + '</strong>';
+  else if (p.type === 'underline') textHtml = '<span class="phrase-underline">' + textHtml + '</span>';
+  else if (p.type === 'boxed') textHtml = '<span class="phrase-boxed">' + textHtml + '</span>';
+
+  let labelHtml = '';
+  if (p.label) {
+    labelHtml = '<span class="grammar-label">' + esc(p.label) + '</span>';
+  }
+
+  let belowHtml = '';
+  if (p.annotation_below) {
+    belowHtml = '<span class="annot-below">' + esc(p.annotation_below) + '</span>';
+  }
+
+  // Always wrap in phrase-unit for consistent baseline alignment
+  return '<span class="phrase-unit">' + aboveHtml + '<span class="phrase-text">' + textHtml + '</span>' + labelHtml + belowHtml + '</span> ';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 2500);
+}
+</script>
+</body>
+</html>
